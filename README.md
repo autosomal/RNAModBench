@@ -228,20 +228,6 @@ For issues and questions:
 
 This pipeline integrates tools developed by multiple research groups. We acknowledge the developers of all integrated tools for their contributions to the field.
 
-## References
 
-1. CHEUI: [Publication details]
-2. m6Anet: [Publication details]
-3. Nanocompore: [Publication details]
-4. ELIGOS2: [Publication details]
-5. Epinano: [Publication details]
-6. MINES: [Publication details]
-7. xPore: [Publication details]
-8. yanocomp: [Publication details]
-9. NanoSPA: [Publication details]
-10. DENA: [Publication details]
-11. DRUMMER: [Publication details]
-
----
 
 For more information, please visit the [GitHub repository](https://github.com/autosomal/RNAModBench).
