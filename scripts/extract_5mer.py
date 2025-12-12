@@ -73,129 +73,6 @@ def extract_5mer_context(chr_name, position, chr_sequences, strand='+'):
     
     return extracted
 
-    Extract 5-mer sequence context around a genomic position.
-    
-    Parameters:
-    -----------
-    chr_name : str
-        Chromosome name
-    position : int
-        Genomic position (1-based)
-    chr_sequences : dict
-        Dictionary of chromosome sequences
-    strand : str
-        Strand information ('+' or '-')
-    
-    Returns:
-    --------
-    str
-        5-mer sequence context
-    """
-    
-    # Handle chromosome name variations
-    seq_key = chr_name
-    if seq_key not in chr_sequences:
-        # Try different prefix combinations
-        candidates = [seq_key, f"chr{seq_key}", seq_key.lstrip('0')]
-        for candidate in candidates:
-            if candidate in chr_sequences:
-                seq_key = candidate
-                break
-        else:
-            return 'NNNNN'
-    
-    # Get chromosome sequence
-    sequence = chr_sequences[seq_key]
-    if not sequence:
-        return 'NNNNN'
-    
-    # Calculate target region (center ± 2)
-    target_start = position - 2
-    target_end = position + 2
-    seq_len = len(sequence)
-    
-    # Handle boundary conditions
-    start = max(target_start, 1)
-    end = min(target_end, seq_len)
-    
-    if start > end:
-        return 'NNNNN'
-    
-    # Extract sequence
-    extracted = sequence[start-1:end]
-    
-    # Pad to 5 bp and convert to uppercase
-    extracted = extracted.ljust(5, 'N')[:5].upper()
-    
-    # Reverse complement if on negative strand
-    if strand == '-':
-        seq_obj = Seq(extracted)
-        extracted = str(seq_obj.reverse_complement())
-    
-    return extracted
-
-def extract_5mer_context(chr_name, position, chr_sequences, strand='+'):
-    """
-    Extract 5-mer sequence context around a genomic position.
-    
-    Parameters:
-    -----------
-    chr_name : str
-        Chromosome name
-    position : int
-        Genomic position (1-based)
-    chr_sequences : dict
-        Dictionary of chromosome sequences
-    strand : str
-        Strand information ('+' or '-')
-    
-    Returns:
-    --------
-    str
-        5-mer sequence context
-    """
-    
-    # Handle chromosome name variations
-    seq_key = chr_name
-    if seq_key not in chr_sequences:
-        # Try different prefix combinations
-        candidates = [seq_key, f"chr{seq_key}", seq_key.lstrip('0')]
-        for candidate in candidates:
-            if candidate in chr_sequences:
-                seq_key = candidate
-                break
-        else:
-            return 'NNNNN'
-    
-    # Get chromosome sequence
-    sequence = chr_sequences[seq_key]
-    if not sequence:
-        return 'NNNNN'
-    
-    # Calculate target region (center ± 2)
-    target_start = position - 2
-    target_end = position + 2
-    seq_len = len(sequence)
-    
-    # Handle boundary conditions
-    start = max(target_start, 1)
-    end = min(target_end, seq_len)
-    
-    if start > end:
-        return 'NNNNN'
-    
-    # Extract sequence
-    extracted = sequence[start-1:end]
-    
-    # Pad to 5 bp and convert to uppercase
-    extracted = extracted.ljust(5, 'N')[:5].upper()
-    
-    # Reverse complement if on negative strand
-    if strand == '-':
-        seq_obj = Seq(extracted)
-        extracted = str(seq_obj.reverse_complement())
-    
-    return extracted
 
 def main(input_file, fasta_file, output_file=None):
     """
@@ -245,10 +122,12 @@ def main(input_file, fasta_file, output_file=None):
                 # Output result
                 new_row = row + [fivemer]
                 print('\t'.join(new_row), file=out_f)
-    
+
     finally:
         if output_file and output_file != 'stdout':
             out_f.close()
+
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
