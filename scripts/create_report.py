@@ -5,13 +5,10 @@ This script generates a comprehensive report with statistics and visualizations.
 """
 
 import pandas as pd
-import numpy as np
 import os
 import sys
-from pathlib import Path
 from datetime import datetime
-import base64
-import json
+
 
 def create_html_template():
     """
@@ -226,6 +223,7 @@ def read_summary_data(summary_file):
     except Exception as e:
         print(f"Error reading summary file: {e}", file=sys.stderr)
         return pd.DataFrame()
+
 
 def read_comparison_data(comparison_file):
     """
