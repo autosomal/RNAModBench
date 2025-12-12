@@ -1,0 +1,14 @@
+name: eligos2
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - rust
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - pip:
+    - eligos2

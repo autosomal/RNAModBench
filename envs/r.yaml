@@ -1,0 +1,16 @@
+name: r_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base=4.0
+  - r-essentials
+  - r-ggplot2
+  - r-data.table
+  - r-genomicranges
+  - r-rtracklayer
+  - r-guitar
+  - r-ggplotify
+  - bioconductor-genomicfeatures
+  - bioconductor-txdb

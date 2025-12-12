@@ -1,0 +1,17 @@
+name: dena
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - tensorflow-gpu=2.4
+  - h5py
+  - pip:
+    - scikit-learn-intelex
+    - DENA

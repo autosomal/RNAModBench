@@ -1,0 +1,15 @@
+name: xpore
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - pytorch
+  - pip:
+    - xpore

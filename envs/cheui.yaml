@@ -1,0 +1,16 @@
+name: cheui
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - tensorflow-gpu=2.4
+  - h5py
+  - pip:
+    - scikit-learn-intelex
+    - CHEUI

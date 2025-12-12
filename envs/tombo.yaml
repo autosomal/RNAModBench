@@ -1,0 +1,15 @@
+name: tombo
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - hdf5
+  - h5py
+  - numpy
+  - scipy
+  - cython
+  - pip
+  - pip:
+    - ont-tombo

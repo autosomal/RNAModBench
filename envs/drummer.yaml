@@ -1,0 +1,16 @@
+name: drummer
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - r-base=4.0
+  - r-essentials
+  - pip:
+    - DRUMMER

@@ -1,0 +1,181 @@
+# NanoMod Pipeline Configuration
+# This configuration file contains all parameters for the nanopore RNA modification detection pipeline
+
+# Sample configuration
+samples:
+  - sample1
+  - sample2
+  - control1
+  - control2
+
+# Tools to run (comment out tools you don't want to run)
+tools:
+  - CHEUI
+  - ELIGOS2
+  - m6Anet
+  - Nanocompore
+  - DENA
+  - Epinano
+  - Epinano_DiffErr
+  - DRUMMER
+  - MINES
+  - xPore
+  - yanocomp
+  - NanoSPA
+
+# Directory paths
+data_dir: "data"
+reference_dir: "reference"
+results_dir: "results"
+
+# Guppy basecalling configuration
+guppy:
+  config: "rna_r9.4.1_70bps_hac.cfg"
+  num_callers: 4
+  threads_per_caller: 20
+  total_threads: 80
+
+# Alignment configuration
+alignment:
+  threads: 40
+
+# Nanopolish configuration
+nanopolish:
+  threads: 40
+
+# CHEUI configuration
+cheui:
+  kmer_model: "resources/CHEUI/kmer_models/model_kmer.csv"
+  model1: "resources/CHEUI/CHEUI_trained_models/CHEUI_m6A_model1.h5"
+  model2: "resources/CHEUI/CHEUI_trained_models/CHEUI_m6A_model2.h5"
+  threads: 40
+  prob_threshold: 0.999
+  ratio_threshold: 0.1
+
+# ELIGOS2 configuration
+eligos2:
+  threads: 12
+  max_depth: 2000000
+  min_depth: 5
+  padj_threshold: 0.0001
+  oddr_threshold: 1.2
+
+# m6Anet configuration
+m6anet:
+  dataprep_threads: 12
+  inference_threads: 40
+  readcount_max: 2000000
+  prob_threshold: 0.5
+  ratio_threshold: 0.1
+
+# Nanocompore configuration
+nanocompore:
+  threads: 20
+  min_coverage: 5
+  min_ref_length: 10
+  pvalue_threshold: 0.05
+  lor_threshold: 0.5
+
+# DENA configuration
+dena:
+  motif: "RRACH"
+  corr_grp: "RawGenomeCorrected_000"
+  windows: "2 2"
+  processes: 40
+  model: "resources/DENA/DENA_LSTM_Model"
+  ratio_threshold: 0.1
+  coverage_threshold: 20
+
+# Epinano configuration
+epinano:
+  threads: 12
+  model: "resources/Epinano/models/rrach.q3.mis3.del3.linear.dump"
+  columns: "8,13,23"
+  delta_threshold: 0.1
+
+# DRUMMER configuration
+drummer:
+  threads: 12
+  max_depth: 2000000
+  min_depth: 5
+  pvalue_threshold: 0.05
+  frac_diff_threshold: 0.1
+
+# MINES configuration
+mines:
+  kmer_models: "resources/MINES/Final_Models/names.txt"
+  coverage_threshold: 20
+  ratio_threshold: 0.1
+
+# Tombo configuration (for MINES)
+tombo:
+  corr_grp: "RawGenomeCorrected_000"
+  basecall_grp: "Basecall_1D_000"
+  processes: 12
+
+# xPore configuration
+xpore:
+  dataprep_threads: 40
+  readcount_max: 2000000
+  prob_threshold: 0.5
+
+# yanocomp configuration
+yanocomp:
+  prep_threads: 8
+  test_threads: 8
+  n_components: 50
+  fdr: 0.05
+  pvalue_threshold: 0.05
+
+# NanoSPA configuration
+nanospa:
+  prob_threshold: 0.5
+
+# Utilities configuration
+utilities:
+  r2d_tool: "resources/R2Dtool/target/release/r2d"
+
+# Reference files (these will be created during setup)
+reference_files:
+  genome: "reference/genome.fa"
+  transcriptome: "reference/transcriptome.fa"
+  genes_gtf: "reference/genes.gtf"
+  genes_bed: "reference/genes.bed"
+  
+# Tool-specific reference preprocessing
+create_transcriptome: true
+convert_gtf_to_bed: true
+create_gene_annotations: true
+
+# Quality control parameters
+qc:
+  min_read_length: 50
+  min_read_quality: 7
+  min_coverage: 20
+  max_coverage: 10000
+
+# Output format parameters
+output:
+  bed_format: true
+  liftover_to_genome: true
+  include_5mer_context: true
+  
+# Computational resources
+resources:
+  max_memory: "128G"
+  max_cpus: 40
+  gpu_available: true
+  gpu_devices: [0, 1]
+  
+# Logging and debugging
+logging:
+  level: "INFO"
+  save_intermediates: false
+  cleanup_temp_files: true
+  
+# Cross-species compatibility
+species:
+  name: "Generic"
+  codon_table: "standard"
+  mitochondrial_genome: false
+  annotation_source: "Ensembl"
