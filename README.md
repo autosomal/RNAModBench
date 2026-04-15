@@ -6,7 +6,9 @@ RNAModBench is a comprehensive, cross-species pipeline for detecting RNA modific
 
 ## Features
 
-- **Multi-tool Integration**: Supports 11 different RNA modification detection tools
+- **Multi-tool Integration**: Supports 13+ different RNA modification detection tools including Dorado, Modkit, NanoNm, CHEUI, m6Anet, and more
+- **Basecalling & Alignment**: Integrated Dorado basecaller with modified base models and minimap2 alignment
+- **Multiple Detection Strategies**: Signal-level (NanoNm), pileup-based (Modkit, Nanopolish), and deep learning approaches
 - **Cross-species Compatibility**: Works with any species with available reference genome
 - **Standardized Output**: Converts all tool outputs to unified BED-like format
 - **Comparative Analysis**: Generates tool overlap statistics and consensus calls
@@ -34,10 +36,15 @@ cd RNAModBench
 conda env create -f envs/cheui.yaml
 conda env create -f envs/m6anet.yaml
 conda env create -f envs/nanocompore.yaml
+conda env create -f envs/nanonm.yaml
 # ... create other environments as needed
 
 # Install pipeline dependencies
 conda install -c conda-forge -c bioconda snakemake minimap2 samtools nanopolish
+
+# Note: Dorado and Modkit require separate installation from Oxford Nanopore Technologies
+# Download Dorado: https://github.com/nanoporetech/dorado
+# Download Modkit: https://nanoporetech.com/resource-centre/modkit
 ```
 
 ### Reference Data Setup
@@ -100,6 +107,9 @@ samples:
 
 # Tools to run
 tools:
+  - Dorado
+  - Modkit
+  - NanoNm
   - CHEUI
   - m6Anet
   - Nanocompore
@@ -110,7 +120,23 @@ reference_dir: "reference"
 data_dir: "data"
 results_dir: "results"
 
-# Filtering thresholds
+# Basecalling and alignment settings
+dorado:
+  model: "rna004_130bps_sup@v5.0.0"
+  modified_bases_model: "rna004_130bps_sup@v5.0.0_m6A@v1"
+  gpu: "cuda:0"
+  
+modkit:
+  threads: 32
+  
+# Signal-level detection (NanoNm)
+nanonm:
+  clip: 5
+  cpu_extract: 30
+  cpu_predict: 20
+  support_threshold: 20
+
+# Deep learning tools
 cheui:
   prob_threshold: 0.999
   ratio_threshold: 0.1
@@ -140,7 +166,20 @@ data/
 ```
 results/
 ├── basecalling/
+│   └── sample1/
+│       └── sample1_basecalled.bam
 ├── alignment/
+│   └── sample1/
+│       └── sample1_aligned.bam
+├── dorado/
+│   └── sample1/
+│       └── sample1_dorado_pileup.bed
+├── modkit/
+│   └── sample1/
+│       └── sample1_modkit_processed.bed
+├── nanonm/
+│   └── sample1/
+│       └── sample1_nanonm_processed.bed
 ├── nanopolish/
 ├── CHEUI/
 │   └── sample1/
@@ -170,18 +209,21 @@ All tools produce standardized BED-like output with the following columns:
 
 The pipeline includes several QC steps:
 
-- Basecalling quality filtering
-- Read alignment quality control
-- Coverage-based filtering
-- Statistical significance testing
-- Tool-specific quality metrics
+- Basecalling quality filtering (Dorado Q-score filtering)
+- Read alignment quality control (minimap2 mapping quality)
+- Coverage-based filtering (minimum support threshold)
+- Statistical significance testing (Nanocompore sample test)
+- Tool-specific quality metrics (probability thresholds, modification ratios)
+- Signal-level quality checks (NanoNm feature extraction QC)
 
 ## Performance
 
-- **Parallel Processing**: Utilizes multiple cores for speed
-- **Memory Efficient**: Optimized for large datasets
-- **GPU Support**: Accelerated computation for deep learning tools
-- **Modular Execution**: Run only required tools
+- **Parallel Processing**: Utilizes multiple cores for speed (configurable per tool)
+- **Memory Efficient**: Optimized for large datasets with streaming processing
+- **GPU Support**: Accelerated computation for Dorado basecalling and deep learning tools (CHEUI, m6Anet)
+- **CPU Optimization**: sklearnex acceleration for NanoNm feature extraction
+- **Modular Execution**: Run only required tools or complete pipeline
+- **Scalable I/O**: Support for both FAST5 and POD5 formats
 
 
 
@@ -189,10 +231,13 @@ The pipeline includes several QC steps:
 
 ### Common Issues
 
-1. **Memory Issues**: Reduce thread counts in config.yaml
-2. **Missing Dependencies**: Ensure all conda environments are created
-3. **Reference Issues**: Check genome and annotation file formats
-4. **Tool Errors**: Check individual tool documentation
+1. **Memory Issues**: Reduce thread counts in config.yaml or increase system memory
+2. **Missing Dependencies**: Ensure all conda environments are created (`envs/*.yaml`)
+3. **Reference Issues**: Check genome and annotation file formats (FASTA/GTF)
+4. **Dorado/Modkit Not Found**: Download and install from Oxford Nanopore Technologies
+5. **GPU Errors**: Verify CUDA installation and GPU availability for Dorado basecalling
+6. **NanoNm Errors**: Ensure sklearnex is installed in the nanonm conda environment
+7. **Tool Errors**: Check individual tool documentation and log files
 
 ### Debug Mode
 
