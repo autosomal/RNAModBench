@@ -22,11 +22,25 @@ tools:
   - xPore
   - yanocomp
   - NanoSPA
+  - NanoNm
+  - dorado_modkit
 
 # Directory paths
 data_dir: "data"
 reference_dir: "reference"
 results_dir: "results"
+
+# Dorado & Modkit configuration
+dorado:
+  model_dir: "/data/lxy/tool/dorado_model"
+  model_name: "rna004_130bps_sup@v5.0.0"
+  mod_model: "rna004_130bps_sup@v5.0.0_m6A@v1"
+  device: "cuda:0"
+  threads: 32
+
+modkit:
+  threads: 32
+  ref_fasta: "/data/lxy/reference/GRCh38p14/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 
 # Guppy basecalling configuration
 guppy:
@@ -130,6 +144,14 @@ yanocomp:
 # NanoSPA configuration
 nanospa:
   prob_threshold: 0.5
+
+# NanoNm configuration
+nanonm:
+  clip: 5
+  cpu_extract: 30
+  cpu_predict: 20
+  model_dir: "resources/NanoNm/model"
+  support_threshold: 20
 
 # Utilities configuration
 utilities:

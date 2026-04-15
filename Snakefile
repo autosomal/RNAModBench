@@ -26,7 +26,7 @@ def get_all_targets(wildcards):
     for sample in SAMPLES:
         for tool in TOOLS:
             if tool in ["CHEUI", "DENA", "DRUMMER", "ELIGOS2", "m6Anet", "Nanocompore", 
-                       "MINES", "Epinano_SVM", "Epinano_DiffErr", "Nanom6A", "xPore", "yanocomp", "NanoSPA"]:
+                       "MINES", "Epinano_SVM", "Epinano_DiffErr", "Nanom6A", "xPore", "yanocomp", "NanoSPA", "NanoNm"]:
                 if tool == "Epinano_DiffErr":
                     # Epinano DiffErr needs control sample
                     for control in SAMPLES:
@@ -39,6 +39,9 @@ def get_all_targets(wildcards):
                             targets.append(f"{RESULTS_DIR}/{tool}/{sample}_vs_{control}/{sample}_vs_{control}_{tool}_processed.txt")
                 else:
                     targets.append(f"{RESULTS_DIR}/{tool}/{sample}/{sample}_{tool}_processed.txt")
+            elif tool == "dorado_modkit":
+                # Dorado + Modkit workflow produces pileup bed file
+                targets.append(f"{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_modkit_pileup.bed")
     
     # Add visualization targets
     targets.extend([
@@ -774,6 +777,137 @@ rule nanospa_postprocess:
         prob_threshold=config["nanospa"]["prob_threshold"]
     script:
         "scripts/postprocess_nanospa.py"
+
+# NanoNm analysis
+rule nanonm_extract:
+    input:
+        fast5_list=f"{DATA_DIR}/{{sample}}/fast5files.txt",
+        genome=f"{REFERENCE_DIR}/genome.fa",
+        transcripts=f"{REFERENCE_DIR}/transcripts.fa",
+        bed=f"{REFERENCE_DIR}/genes.bed"
+    output:
+        out_dir=directory(f"{RESULTS_DIR}/NanoNm/{{sample}}/out")
+    params:
+        clip=config["nanonm"]["clip"],
+        cpu=config["nanonm"]["cpu_extract"],
+        script=f"{workflow.basedir}/scripts/extract_raw_and_feature_fast_AUCG.py"
+    conda:
+        "envs/nanonm.yaml"
+    shell:
+        """
+        mkdir -p {output.out_dir}
+        python -m sklearnex {params.script} \
+            --cpu={params.cpu} \
+            --fl={input.fast5_list} \
+            -o {output.out_dir}/out \
+            --clip={params.clip}
+        """
+
+rule nanonm_predict:
+    input:
+        out_dir=f"{RESULTS_DIR}/NanoNm/{{sample}}/out",
+        model_dir=config["nanonm"]["model_dir"],
+        transcripts=f"{REFERENCE_DIR}/transcripts.fa",
+        bed=f"{REFERENCE_DIR}/genes.bed",
+        genome=f"{REFERENCE_DIR}/genome.fa"
+    output:
+        result_dir=directory(f"{RESULTS_DIR}/NanoNm/{{sample}}/result")
+    params:
+        cpu=config["nanonm"]["cpu_predict"],
+        support=config["nanonm"]["support_threshold"],
+        script=f"{workflow.basedir}/scripts/predict_sites_Nm.final.py"
+    conda:
+        "envs/nanonm.yaml"
+    shell:
+        """
+        mkdir -p {output.result_dir}
+        python -m sklearnex {params.script} \
+            --model {input.model_dir} \
+            --cpu {params.cpu} \
+            -i {input.out_dir} \
+            -o {output.result_dir} \
+            -r {input.transcripts} \
+            -b {input.bed} \
+            -g {input.genome} \
+            --support {params.support}
+        """
+
+rule nanonm_postprocess:
+    input:
+        result_dir=f"{RESULTS_DIR}/NanoNm/{{sample}}/result"
+    output:
+        processed=f"{RESULTS_DIR}/NanoNm/{{sample}}/{{sample}}_NanoNm_processed.txt"
+    params:
+        ratio_threshold=0.1,
+        coverage_threshold=20
+    script:
+        "scripts/postprocess_nanonm.py"
+
+# =============================================================================
+# Rule: Dorado basecalling with modified base detection
+# =============================================================================
+rule dorado_basecaller:
+    input:
+        pod5=f"{DATA_DIR}/{sample}/pod5/{sample}.pod5"
+    output:
+        bam=temp(f"{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_dorado.bam"),
+        bai=temp(f"{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_dorado.bam.bai")
+    params:
+        model_dir=config["dorado"]["model_dir"],
+        model_name=config["dorado"]["model_name"],
+        mod_model=config["dorado"]["mod_model"],
+        device=config["dorado"]["device"]
+    threads: config["dorado"]["threads"]
+    shell:
+        """
+        mkdir -p $(dirname {output.bam})
+        
+        /data/lxy/tool/dorado-0.9.1-linux-x64/bin/dorado basecaller \
+            {params.model_dir}/{params.model_name} \
+            --modified-bases-models {params.model_dir}/{params.mod_model} \
+            {input.pod5} \
+            -x '{params.device}' \
+            | samtools sort -@ {threads} -o {output.bam}
+        
+        samtools index -@ {threads} {output.bam}
+        """
+
+# =============================================================================
+# Rule: Modkit pileup for modified base detection
+# =============================================================================
+rule modkit_pileup:
+    input:
+        bam="{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_dorado.bam",
+        ref_fasta=config["modkit"]["ref_fasta"]
+    output:
+        bed=f"{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_modkit_pileup.bed",
+        log=f"{RESULTS_DIR}/dorado_modkit/{sample}/{sample}_modkit_pileup.log"
+    params:
+        ref=config["modkit"]["ref_fasta"]
+    threads: config["modkit"]["threads"]
+    shell:
+        """
+        modkit pileup -t {threads} {input.bam} \
+            --ref {params.ref} \
+            --with-header \
+            {output.bed} \
+            --log-filepath {output.log}
+        """
+
+# =============================================================================
+# Rule: Generate mpileup (optional, for comparison)
+# =============================================================================
+rule samtools_mpileup:
+    input:
+        bam="{RESULTS_DIR}/alignment/{sample}_transcriptome.bam"
+    output:
+        mpileup=f"{RESULTS_DIR}/mpileup/{sample}_transcriptome.mpileup"
+    threads: 32
+    shell:
+        """
+        mkdir -p $(dirname {output.mpileup})
+        samtools mpileup {input.bam} > {output.mpileup}
+        """
 
 # Utility rules
 rule extract_5mer:
