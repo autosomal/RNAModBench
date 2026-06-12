@@ -2,6 +2,19 @@
 """
 Post-process xPore results to generate standardized output format.
 Converts xPore predictions to BED-like format with filtering.
+
+[原生输入格式] `xpore diffmod` 输出目录中的 CSV 文件（或 *_diffmod.csv）：
+    脚本会在目录下查找文件名含 "diffmod"/"results" 的文件，
+    或直接读第一个 .csv/.tsv。
+    读取的关键列按名称模糊匹配：
+      transcript_id（或 contig / chr）→ Chr
+      position（或 pos）→ Start
+      probability / pvalue / significance → Prob
+      strand → Strand（缺省为 '*'）
+      mod_ratio → mod_ratio（缺省用 Prob 列）
+    分隔符: 逗号（默认），含表头
+[处理动作] Prob > prob_threshold 且 mod_ratio > 0.1 的位点被保留，
+    位置转 BED 0-based，输出标准 TSV。
 """
 
 import pandas as pd

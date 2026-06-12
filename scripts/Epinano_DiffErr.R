@@ -1,8 +1,43 @@
 #!/usr/bin/env Rscript
-"""
-Epinano DiffErr analysis script.
-This script performs differential error analysis between two samples.
-"""
+#' Epinano 样本间差异错误分析脚本（DiffErr）。
+#'
+#' 本脚本读取两组样本（处理组 / 对照组）的 Epinano 输出 CSV，对每个位点
+#' 做 Fisher exact test 比较错误率差异，并输出带 FDR 校正 p-value 的
+#' CSV 文件。
+#'
+#' 输入：
+#'   - `-k` 处理组 CSV（Epinano 合并后的 `*q3mis3del3.csv`）
+#'   - `-w` 对照组 CSV
+#'   - `-o` 输出目录
+#'   - `-f` 参考 FASTA（辅助读取）
+#'
+#' 输出：
+#'   - `*q3mis3del3.DiffErr.csv`
+#'   - `*q3mis3del3.volcano.pdf`（可选火山图）
+#'
+#' 依赖包：ggplot2、data.table、rcompanion、ggrepel
+#'
+#' 典型调用（Snakefile 内部使用）：
+#'   Rscript scripts/Epinano_DiffErr.R \
+#'       -k results/Epinano/sample1/sample1_q3mis3del3.csv \
+#'       -w results/Epinano/control1/control1_q3mis3del3.csv \
+#'       -o results/Epinano_DiffErr/sample1_vs_control1/ \
+#'       -f reference/genome.fa
+
+# ------------- 加载包 -------------
+suppressMessages({
+  library(ggplot2)
+  library(data.table)
+  library(rcompanion)
+  library(ggrepel)
+})
+
+# ------------- 记录运行环境 -------------
+cat("===== RNAModBench Epinano_DiffErr =====\n")
+cat("Timestamp :", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
+cat("===== sessionInfo =====\n")
+print(sessionInfo())
+cat("\n")
 
 # Parse command line arguments
 args <- commandArgs(trailingOnly = TRUE)

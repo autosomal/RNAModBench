@@ -2,6 +2,14 @@
 """
 Post-process Epinano DiffErr results to generate standardized output format.
 Converts Epinano differential error analysis to BED-like format.
+
+[原生输入格式] `Rscript Epinano_DiffErr.R -k treat.csv -w ctrl.csv` 输出：
+    <outprefix>.delta-sum_err.prediction.csv（或等价 TSV）
+    必要列: chr_pos  delta_sum_err  z_score_prediction
+    - chr_pos:            "chrom  pos  base  strand"（单一列，空格分隔）
+    - delta_sum_err:      处理-对照之间的误差差
+    - z_score_prediction: "mod" / "unm"
+[处理动作] 与单样本 Epinano 相同的过滤逻辑，只保留显著差异的修饰位点。
 """
 
 import pandas as pd

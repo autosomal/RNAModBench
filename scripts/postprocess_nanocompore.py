@@ -2,6 +2,19 @@
 """
 Post-process Nanocompore results to generate standardized output format.
 Converts Nanocompore predictions to BED-like format with filtering.
+
+[原生输入格式] `nanocompore sampcomp` 输出目录中的
+    <outprefix>_nanocompore_results.tsv（或类似命名 *_results.tsv）
+    必要列: ref_kmer  ref_id  pos  Logit_LOR  GMM_logit_pvalue  strand
+    - ref_kmer: 以 A 为中心的 5-mer（本脚本会过滤出中心位置为 A 的位点）
+    - ref_id:   转录本 ID
+    - pos:      转录本上的位置（1-based）
+    - Logit_LOR: log-odds ratio（效应量，处理 vs 对照）
+    - GMM_logit_pvalue: GMM 模型的 p-value
+    - strand:    strand 信息
+    分隔符: \t，含表头
+[处理动作] 过滤 motif 中心为 A、pvalue<pvalue_threshold 且
+    |Logit_LOR|>lor_threshold 的位点；pos → 转换为 BED 0-based [Start, End)。
 """
 
 import pandas as pd

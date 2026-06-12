@@ -2,6 +2,16 @@
 """
 Post-process CHEUI results to generate standardized output format.
 Converts CHEUI predictions to BED-like format with filtering.
+
+[原生输入格式] CHEUI 第二阶段 (CHEUI_predict_model2.py) 的输出 TSV：
+    列: contig  position  probability  stoichiometry  [其它…]
+    - contig:     转录本 ID（如 ENST00000367770）
+    - position:   转录本上的 1-based 位置
+    - probability: 该位点为 m6A 的概率（0–1）
+    - stoichiometry: 化学计量比（被修饰的 reads 比例，0–1）
+    分隔符: \t，含表头
+[处理动作] position → 转换为 BED 0-based [Start, End)，按
+    prob_threshold 和 ratio_threshold 过滤，输出标准化 7 列 TSV。
 """
 
 import pandas as pd

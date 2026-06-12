@@ -1,15 +1,66 @@
 #!/usr/bin/env Rscript
-"""
-Create Guitar plots for RNA modification visualization.
-This script generates Guitar plots showing modification distribution
-across gene features.
-"""
+#' Create Guitar plots for RNA modification visualization.
+#'
+#' 本脚本读取 RNAModBench 中 `results/<Tool>/<sample>/*_processed.txt`
+#' 的标准 7 列 TSV 文件（Chr / Start / End / Status / Prob / Strand / mod_ratio），
+#' 将修饰位点投影到 gene body（5'UTR / CDS / 3'UTR）并生成 Guitar 图。
+#'
+#' 依赖包（请提前安装）：
+#'   - GenomicRanges
+#'   - rtracklayer
+#'   - Guitar（来自 Bioconductor）
+#'   - ggplotify
+#'   - ggplot2
+#'
+#' 用法：
+#'   Rscript scripts/create_guitar_plots.R \
+#'       --input_dir results/summary \
+#'       --gtf reference/genes.gtf \
+#'       --output_dir results/summary/guitar
+#'
+#' 参数：
+#'   --input_dir    包含 *_processed.txt 的目录（递归搜索）
+#'   --gtf          Ensembl/Gencode 风格的 GTF（需包含 transcript_id）
+#'   --output_dir   输出目录（自动创建）
+#'
+#' 输出：
+#'   - guitar_plots_mrna.png       : mRNA 上的修饰分布
+#'   - guitar_plots_all_transcripts.png : 所有转录本的修饰分布
+#'   - guitar_plots.log            : sessionInfo 与运行信息
 
-library(GenomicRanges)
-library(rtracklayer)
-library(Guitar)
-library(ggplotify)
-library(ggplot2)
+# ------------- 解析命令行参数 -------------
+suppressMessages(library("argparse", quietly = TRUE))
+parser <- ArgumentParser(description = "Generate Guitar plots from RNAModBench output")
+parser$add_argument("--input_dir",  required = TRUE, help = "目录，包含 *_processed.txt 文件")
+parser$add_argument("--gtf",        required = TRUE, help = "参考 GTF 文件")
+parser$add_argument("--output_dir", required = TRUE, help = "输出目录")
+args   <- parser$parse_args()
+
+# ------------- 加载包 -------------
+suppressMessages({
+  library(GenomicRanges)
+  library(rtracklayer)
+  library(Guitar)
+  library(ggplotify)
+  library(ggplot2)
+  library(data.table)
+})
+
+# ------------- 创建输出目录 -------------
+dir.create(args$output_dir, recursive = TRUE, showWarnings = FALSE)
+
+# ------------- 记录运行环境 -------------
+log_file <- file.path(args$output_dir, "guitar_plots.log")
+sink(log_file, split = TRUE)
+cat("RNAModBench Guitar plots\n")
+cat("input_dir :", args$input_dir,  "\n")
+cat("gtf       :", args$gtf,        "\n")
+cat("output_dir:", args$output_dir, "\n")
+cat("Timestamp :", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n\n")
+cat("===== sessionInfo =====\n")
+print(sessionInfo())
+cat("\n")
+sink()
 
 # Function to process BED files
 clean_bed_files <- function(input_dir, output_dir) {

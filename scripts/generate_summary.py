@@ -54,7 +54,9 @@ def read_tool_results(input_files):
             tool_name = 'yanocomp'
         elif 'NanoSPA' in file_path:
             tool_name = 'NanoSPA'
-        
+        elif 'DRUMMER' in file_path:
+            tool_name = 'DRUMMER'
+
         if tool_name:
             try:
                 df = pd.read_csv(file_path, sep='\t')
@@ -64,61 +66,9 @@ def read_tool_results(input_files):
                 print(f"Loaded {len(df)} modifications from {tool_name}")
             except Exception as e:
                 print(f"Error reading {file_path}: {e}", file=sys.stderr)
-    
+
     return tool_results
 
-def read_tool_results(input_files):
-    """
-    Read and combine results from all tools.
-    
-    Parameters:
-    -----------
-    input_files : list
-        List of processed result files from all tools
-    
-    Returns:
-    --------
-    dict
-        Dictionary with tool names as keys and DataFrames as values
-    """
-    
-    tool_results = {}
-    
-    for file_path in input_files:
-        # Extract tool name from file path
-        tool_name = None
-        if 'CHEUI' in file_path:
-            tool_name = 'CHEUI'
-        elif 'ELIGOS2' in file_path:
-            tool_name = 'ELIGOS2'
-        elif 'm6Anet' in file_path:
-            tool_name = 'm6Anet'
-        elif 'Nanocompore' in file_path:
-            tool_name = 'Nanocompore'
-        elif 'DENA' in file_path:
-            tool_name = 'DENA'
-        elif 'Epinano' in file_path:
-            tool_name = 'Epinano'
-        elif 'MINES' in file_path:
-            tool_name = 'MINES'
-        elif 'xPore' in file_path:
-            tool_name = 'xPore'
-        elif 'yanocomp' in file_path:
-            tool_name = 'yanocomp'
-        elif 'NanoSPA' in file_path:
-            tool_name = 'NanoSPA'
-        
-        if tool_name:
-            try:
-                df = pd.read_csv(file_path, sep='\t')
-                df['Tool'] = tool_name
-                df['File'] = file_path
-                tool_results[tool_name] = df
-                print(f"Loaded {len(df)} modifications from {tool_name}")
-            except Exception as e:
-                print(f"Error reading {file_path}: {e}", file=sys.stderr)
-    
-    return tool_results
 
 def create_modification_summary(tool_results, output_file):
     """

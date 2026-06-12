@@ -2,6 +2,18 @@
 """
 Post-process DENA results to generate standardized output format.
 Converts DENA predictions to BED-like format with filtering.
+
+[原生输入格式] DENA LSTM predict 步骤的输出 TSV（无表头）：
+    按列索引读取：
+      col 0: 转录本 ID（或 contig name）
+      col 1: 1-based 位置
+      col 2: 参考碱基（通常为 'A'，由上游的 motif 提取保证）
+      col 3: 对照样本覆盖度
+      col 4: 处理样本覆盖度
+      col 5: modification ratio（0–1，LSTM 直接输出）
+    分隔符: \t，无表头
+[处理动作] coverage=col3+col4 必须大于 coverage_threshold，且
+    col5>ratio_threshold 时标记为 "mod"；位置转 BED 0-based。
 """
 
 import pandas as pd

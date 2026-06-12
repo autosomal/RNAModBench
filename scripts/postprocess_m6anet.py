@@ -2,6 +2,17 @@
 """
 Post-process m6Anet results to generate standardized output format.
 Converts m6Anet predictions to BED-like format with filtering.
+
+[原生输入格式] `m6anet infer` 的输出目录：<output_dir>/data.site_proba.csv
+    格式: CSV（逗号分隔），首行为表头
+    按列索引读取：
+      col 0: transcript_id（如 ENST00000367770）
+      col 1: position（1-based，转录本上的位置）
+      col 3: probability（m6A 概率，0–1，用作 Status/Prob）
+      col 5: modification_ratio（化学计量比，0–1）
+    说明: 由于不同版本 m6Anet 列名略有差异，这里用 positional index 读取
+[处理动作] probability > prob_threshold 且 mod_ratio > ratio_threshold
+    的位点被保留，位置转换为 BED 0-based，输出标准化 TSV。
 """
 
 import pandas as pd

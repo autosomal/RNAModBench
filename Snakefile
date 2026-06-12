@@ -1,5 +1,23 @@
 # RNAModBench - A comprehensive nanopore RNA modification detection pipeline
 # Version: 1.0.0
+#
+# [config.yaml / 接入状态] 以下 config 区块被本 Snakefile 实际读取：
+#   ✓ samples, tools, reference_dir, data_dir, results_dir
+#   ✓ guppy, alignment, nanopolish
+#   ✓ cheui, eligos2, m6anet, nanocompore, dena, epinano, drummer, mines,
+#     tombo, xpore, yanocomp, nanospa
+#   ✓ utilities.r2d_tool
+#   ✓ reference_files (genome / transcriptome / genes_gtf / genes_bed)
+#
+# [NOT YET USED] 以下 config 区块已在 config.yaml 中声明但尚未接入：
+#   ✗ create_transcriptome / convert_gtf_to_bed / create_gene_annotations
+#     （当前需要用户手动准备 transcriptome.fa 和 genes.bed）
+#   ✗ qc.*                    （未来用于自动 QC）
+#   ✗ output.bed_format / liftover_to_genome / include_5mer_context
+#                              （当前已硬编码为 7 列 TSV + liftover）
+#   ✗ resources.*             （Snakemake 由 --cores 命令行参数控制）
+#   ✗ logging.*               （由 Snakemake 日志机制处理）
+#   ✗ species.*               （保留给未来版本）
 
 import os
 import glob

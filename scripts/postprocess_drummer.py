@@ -2,6 +2,20 @@
 """
 Post-process DRUMMER results to generate standardized output format.
 Converts DRUMMER predictions to BED-like format with filtering.
+
+[原生输入格式] `DRUMMER` 的 summary.txt（对比型输出）：
+    必要列: transcript_id  transcript_pos  reference_base
+             depth_ctrl  OR_padj  G_padj  frac_diff  …
+    - transcript_id:   转录本 ID
+    - transcript_pos:  转录本上的 1-based 位置
+    - reference_base:  参考碱基；本脚本仅保留 'A'
+    - depth_ctrl:      对照样本覆盖度；过滤阈值 depth_ctrl > 20
+    - OR_padj:         odds-ratio 校正 p-value（决定 Status）
+    - G_padj:          G 统计量校正 p-value（被写入 Prob/Score 列）
+    - frac_diff:       处理-对照之间的比例差（效应量）
+    分隔符: \t，含表头
+[处理动作] reference_base=="A" 且 depth_ctrl>20 且 OR_padj<pvalue_threshold
+    且 |frac_diff|>frac_diff_threshold，输出标准 TSV（转录本坐标）。
 """
 
 import pandas as pd

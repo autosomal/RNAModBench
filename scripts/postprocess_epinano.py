@@ -2,6 +2,16 @@
 """
 Post-process Epinano results to generate standardized output format.
 Converts Epinano predictions to BED-like format with filtering.
+
+[原生输入格式] Epinano 合并前向链和反向链结果后的 CSV：
+    必要列: chr_pos  delta_sum_err  z_score_prediction
+    - chr_pos:            "chrom  pos  base  strand"（单一列，空格分隔）
+                          本脚本会 str.split() 拆成 4 列
+    - delta_sum_err:      z-score 或误差累加值，越大越可能是修饰
+    - z_score_prediction: "mod" / "unm"（Epinano 自带分类器结果）
+    额外说明: 仅保留正链的 A 碱基和负链的 T 碱基（对应正链 A）
+[处理动作] z_score_prediction=="mod" 且 delta_sum_err > delta_threshold
+    且碱基匹配 m6A 上下文；输出 genome 坐标的标准 TSV。
 """
 
 import pandas as pd
