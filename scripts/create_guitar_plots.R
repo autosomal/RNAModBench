@@ -1,42 +1,45 @@
 #!/usr/bin/env Rscript
 #' Create Guitar plots for RNA modification visualization.
 #'
-#' 本脚本读取 RNAModBench 中 `results/<Tool>/<sample>/*_processed.txt`
-#' 的标准 7 列 TSV 文件（Chr / Start / End / Status / Prob / Strand / mod_ratio），
-#' 将修饰位点投影到 gene body（5'UTR / CDS / 3'UTR）并生成 Guitar 图。
+#' This script reads the standardized 7-column TSV files produced by
+#' RNAModBench at `results/<Tool>/<sample>/*_processed.txt` (columns:
+#' Chr / Start / End / Status / Prob / Strand / mod_ratio), projects the
+#' modification sites onto gene bodies (5'UTR / CDS / 3'UTR), and generates
+#' Guitar plots.
 #'
-#' 依赖包（请提前安装）：
+#' Dependencies (please install beforehand):
 #'   - GenomicRanges
 #'   - rtracklayer
-#'   - Guitar（来自 Bioconductor）
+#'   - Guitar (from Bioconductor)
 #'   - ggplotify
 #'   - ggplot2
+#'   - data.table
 #'
-#' 用法：
+#' Usage:
 #'   Rscript scripts/create_guitar_plots.R \
 #'       --input_dir results/summary \
 #'       --gtf reference/genes.gtf \
 #'       --output_dir results/summary/guitar
 #'
-#' 参数：
-#'   --input_dir    包含 *_processed.txt 的目录（递归搜索）
-#'   --gtf          Ensembl/Gencode 风格的 GTF（需包含 transcript_id）
-#'   --output_dir   输出目录（自动创建）
+#' Arguments:
+#'   --input_dir    directory containing *_processed.txt files (searched recursively)
+#'   --gtf          Ensembl/Gencode-style GTF (must contain transcript_id)
+#'   --output_dir   output directory (created automatically)
 #'
-#' 输出：
-#'   - guitar_plots_mrna.png       : mRNA 上的修饰分布
-#'   - guitar_plots_all_transcripts.png : 所有转录本的修饰分布
-#'   - guitar_plots.log            : sessionInfo 与运行信息
+#' Outputs:
+#'   - guitar_plots_mrna.png              : modification distribution on mRNA
+#'   - guitar_plots_all_transcripts.png   : modification distribution on all transcripts
+#'   - guitar_plots.log                   : sessionInfo and runtime info
 
-# ------------- 解析命令行参数 -------------
+# ------------- Parse command-line arguments -------------
 suppressMessages(library("argparse", quietly = TRUE))
 parser <- ArgumentParser(description = "Generate Guitar plots from RNAModBench output")
-parser$add_argument("--input_dir",  required = TRUE, help = "目录，包含 *_processed.txt 文件")
-parser$add_argument("--gtf",        required = TRUE, help = "参考 GTF 文件")
-parser$add_argument("--output_dir", required = TRUE, help = "输出目录")
+parser$add_argument("--input_dir",  required = TRUE, help = "directory containing *_processed.txt files")
+parser$add_argument("--gtf",        required = TRUE, help = "reference GTF file")
+parser$add_argument("--output_dir", required = TRUE, help = "output directory")
 args   <- parser$parse_args()
 
-# ------------- 加载包 -------------
+# ------------- Load packages -------------
 suppressMessages({
   library(GenomicRanges)
   library(rtracklayer)
@@ -46,10 +49,10 @@ suppressMessages({
   library(data.table)
 })
 
-# ------------- 创建输出目录 -------------
+# ------------- Create output directory -------------
 dir.create(args$output_dir, recursive = TRUE, showWarnings = FALSE)
 
-# ------------- 记录运行环境 -------------
+# ------------- Log runtime environment -------------
 log_file <- file.path(args$output_dir, "guitar_plots.log")
 sink(log_file, split = TRUE)
 cat("RNAModBench Guitar plots\n")

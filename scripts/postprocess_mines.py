@@ -3,19 +3,20 @@
 Post-process MINES results to generate standardized output format.
 Converts MINES predictions to BED-like format with filtering.
 
-[原生输入格式] `MINES_cDNA.py` 输出的 bed-like 文件（无表头）：
-    按列索引读取（共 8 列左右）：
+[Input Format] bed-like file output by `MINES_cDNA.py` (no header):
+    Columns read by index (~8 columns in total):
       col 0: chrom / contig
-      col 1: start（0-based）
+      col 1: start (0-based)
       col 2: end
-      col 3: 5-mer 上下文
-      col 4: 唯一键（工具内部标记）
-      col 5: strand（+/-）
-      col 6: modification_ratio（被修饰 reads 的比例，0–1）
-      col 7: coverage（reads 覆盖数）
-    分隔符: \t，无表头
-[处理动作] coverage >= coverage_threshold 且 modification_ratio > ratio_threshold
-    的位点被保留，坐标转 BED 0-based，输出标准 TSV。
+      col 3: 5-mer context
+      col 4: unique key (internal tool marker)
+      col 5: strand (+/-)
+      col 6: modification_ratio (fraction of modified reads, 0-1)
+      col 7: coverage (number of reads covering the site)
+    Separator: \t, no header
+[Processing Action] Keep sites with coverage >= coverage_threshold and
+    modification_ratio > ratio_threshold. Convert coordinates to BED 0-based;
+    output standardized TSV.
 """
 
 import pandas as pd

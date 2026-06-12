@@ -1,41 +1,41 @@
 #!/usr/bin/env Rscript
 #' Generate depth coverage plots for nanopore sequencing data.
 #'
-#' 本脚本读取 `samtools depth` 的输出（3 列：Chr / Position / Depth），
-#' 为每个样本生成可视化覆盖度图，用于评估 genome / transcriptome
-#' 的整体覆盖分布。
+#' This script reads the output of `samtools depth` (3 columns: Chr / Position
+#' / Depth) and produces a visual coverage plot for each sample, used to
+#' assess the overall coverage distribution of the genome / transcriptome.
 #'
-#' 依赖包：
+#' Dependencies:
 #'   - ggplot2
 #'   - data.table
-#'   - argparse（命令行参数）
+#'   - argparse (for command-line arguments)
 #'
-#' 用法：
+#' Usage:
 #'   Rscript scripts/generate_depth_plots.R \
 #'       --depth_file results/qc/sample1_genome.depth \
 #'       --sample_name sample1 \
 #'       --output_file results/qc/sample1_depth.png
 #'
-#' 参数：
-#'   --depth_file   `samtools depth` 输出的 3 列文件
-#'   --sample_name  展示在 plot 标题中的样本名
-#'   --output_file  PNG 输出路径
+#' Arguments:
+#'   --depth_file   3-column file from `samtools depth`
+#'   --sample_name  sample name displayed in the plot title
+#'   --output_file  PNG output path
 
-# ------------- 解析命令行参数 -------------
+# ------------- Parse command-line arguments -------------
 suppressMessages(library("argparse", quietly = TRUE))
 parser <- ArgumentParser(description = "Generate coverage depth plots")
-parser$add_argument("--depth_file",  required = TRUE, help = "samtools depth 输出文件")
-parser$add_argument("--sample_name", required = TRUE, help = "样本名，展示在标题中")
-parser$add_argument("--output_file", required = TRUE, help = "PNG 输出路径")
+parser$add_argument("--depth_file",  required = TRUE, help = "samtools depth output file")
+parser$add_argument("--sample_name", required = TRUE, help = "sample name shown in plot title")
+parser$add_argument("--output_file", required = TRUE, help = "PNG output path")
 args   <- parser$parse_args()
 
-# ------------- 加载包 -------------
+# ------------- Load packages -------------
 suppressMessages({
   library(ggplot2)
   library(data.table)
 })
 
-# ------------- 记录运行环境（附带 sessionInfo） -------------
+# ------------- Log runtime environment (with sessionInfo) -------------
 log_file <- sub("\\.png$", ".log", args$output_file)
 sink(log_file, split = TRUE)
 cat("RNAModBench depth plot\n")

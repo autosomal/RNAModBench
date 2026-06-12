@@ -3,19 +3,20 @@
 Post-process NanoSPA results to generate standardized output format.
 Converts NanoSPA predictions to BED-like format with filtering.
 
-[原生输入格式] NanoSPA pipeline 输出目录（包含 m6A 和 psU 两类结果）：
-    目录下查找 *.txt / *.tsv / *.csv 并按文件名匹配：
-      *m6a* / *m6A* → m6A 修饰位点
-      *psu* / *psU* → Ψ（假尿嘧啶）修饰位点
-    每个文件内的列名按模糊匹配：
-      chr / chromosome / contig → Chr
-      pos / position          → Start
-      prob / score / pvalue   → Prob
-      strand                  → Strand（缺省为 '*'）
-      mod_ratio               → mod_ratio（缺省用 Prob）
-    分隔符: 自动探测 (\t / \, / \ )
-[处理动作] Prob > prob_threshold 且 mod_ratio > 0.1 的位点被保留，
-    m6A/psU 合并到同一张输出表并标记 Modification_Type 列。
+[Input Format] NanoSPA pipeline output directory (contains both m6A and psU results):
+    The script searches for *.txt / *.tsv / *.csv and matches by file name:
+      *m6a* / *m6A* -> m6A modification sites
+      *psu* / *psU* -> Psi (pseudouridine) modification sites
+    Columns in each file are matched by fuzzy name:
+      chr / chromosome / contig -> Chr
+      pos / position          -> Start
+      prob / score / pvalue   -> Prob
+      strand                  -> Strand (defaults to '*')
+      mod_ratio               -> mod_ratio (defaults to Prob)
+    Separator: auto-detected (\t / \, / \ )
+[Processing Action] Keep sites with Prob > prob_threshold and mod_ratio > 0.1.
+    m6A and psU results are merged into a single output table with a
+    Modification_Type column.
 """
 
 import pandas as pd

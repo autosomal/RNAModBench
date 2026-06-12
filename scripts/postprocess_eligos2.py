@@ -3,18 +3,19 @@
 Post-process ELIGOS2 results to generate standardized output format.
 Converts ELIGOS2 predictions to BED-like format with filtering.
 
-[原生输入格式] `eligos2 rna_mod` 的输出 TSV（每行一个位点）：
-    必要列: ref  total_reads  chrom  start_loc  end_loc  strand  adjPval  oddR  ESB_test
-    - ref:         参考碱基（'A' 的位点会被保留做 m6A 分析）
-    - total_reads: 覆盖度，低于 20 的位点被过滤
-    - chrom/start_loc/end_loc: 基因组坐标 (1-based)
-    - strand:      '+' / '-'
-    - adjPval:     Benjamini-Hochberg 校正后的 p-value
-    - oddR:        优势比（odds ratio）
-    - ESB_test:    统计检验类型
-    分隔符: \t，含表头
-[处理动作] 过滤 A 碱基位点、total_reads>20、adjPval<padj_threshold
-    且 oddR>oddr_threshold，坐标转 BED 0-based，输出标准化 TSV。
+[Input Format] Output TSV of `eligos2 rna_mod` (one site per line):
+    Required columns: ref  total_reads  chrom  start_loc  end_loc  strand  adjPval  oddR  ESB_test
+    - ref:             Reference base ('A' sites are retained for m6A analysis)
+    - total_reads:     Read coverage; sites below 20 are filtered
+    - chrom/start_loc/end_loc: Genomic coordinates (1-based)
+    - strand:          '+' / '-'
+    - adjPval:         Benjamini-Hochberg adjusted p-value
+    - oddR:            Odds ratio
+    - ESB_test:        Statistical test type
+    Separator: \t, with header line
+[Processing Action] Filter for 'A' reference base, total_reads > 20,
+    adjPval < padj_threshold, and oddR > oddr_threshold. Convert coordinates
+    to BED 0-based; output standardized TSV.
 """
 
 import pandas as pd

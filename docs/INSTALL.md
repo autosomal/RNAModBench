@@ -1,34 +1,34 @@
-# RNAModBench 安装指南
+# RNAModBench — Installation Guide
 
-## 目录
+## Contents
 
-- [系统要求](#系统要求)
-- [克隆仓库](#克隆仓库)
-- [安装 Conda 环境](#安装-conda-环境)
-- [安装外部二进制工具](#安装外部二进制工具)
-- [R 包（可视化用）](#r-包可视化用)
-- [验证安装](#验证安装)
-- [已知问题与 workaround](#已知问题与-workaround)
+- [System requirements](#system-requirements)
+- [Clone the repository](#clone-the-repository)
+- [Install Conda environments](#install-conda-environments)
+- [Install external binaries](#install-external-binaries)
+- [R packages (visualisation)](#r-packages-visualisation)
+- [Verify the installation](#verify-the-installation)
+- [Known issues and workarounds](#known-issues-and-workarounds)
 
 ---
 
-## 系统要求
+## System requirements
 
-| 组件 | 最低要求 | 推荐 |
+| Component | Minimum | Recommended |
 |---|---|---|
-| 操作系统 | Linux（任何主流发行版） | Ubuntu 22.04 / CentOS 7+ |
-| CPU | 8 核 | 32 核或更多 |
-| 内存 | 16 GB | 64 GB+（给 nanopolish eventalign） |
-| 磁盘 | 100 GB | 500 GB+（存放 fast5 + 中间文件） |
+| Operating system | Linux (any mainstream distribution) | Ubuntu 22.04 / CentOS 7+ |
+| CPU | 8 cores | 32 cores or more |
+| Memory | 16 GB | 64 GB+ (for `nanopolish eventalign`) |
+| Disk | 100 GB | 500 GB+ (for FAST5 and intermediate files) |
 | Python | 3.8+ | 3.10 |
 | Conda | Any | Miniconda3 |
-| GPU (可选) | NVIDIA V100 / A100 | 16GB 显存以上加速 CHEUI |
+| GPU (optional) | NVIDIA V100 / A100 | ≥ 16 GB VRAM to accelerate CHEUI |
 
-macOS / Windows 用户请使用 WSL2 或 Docker。
+macOS / Windows users should use WSL2 or Docker.
 
 ---
 
-## 克隆仓库
+## Clone the repository
 
 ```bash
 git clone https://github.com/autosomal/RNAModBench.git
@@ -37,12 +37,13 @@ cd RNAModBench
 
 ---
 
-## 安装 Conda 环境
+## Install Conda environments
 
-> RNAModBench 的每个工具都有独立的 conda 环境配置（`envs/*.yaml`）。
-> Snakemake 会在需要时自动激活对应环境。
+> Every tool in RNAModBench ships with a dedicated conda environment
+> (`envs/*.yaml`). Snakemake activates the appropriate environment
+> automatically as each rule runs.
 
-### 0. 安装 Miniconda（如尚未安装）
+### 0. Install Miniconda (if not already installed)
 
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -52,7 +53,7 @@ conda init bash
 source ~/.bashrc
 ```
 
-### 1. 配置 Bioconda / Conda-forge channels
+### 1. Configure the Bioconda / Conda-forge channels
 
 ```bash
 conda config --add channels defaults
@@ -61,7 +62,7 @@ conda config --add channels conda-forge
 conda config --set channel_priority flexible
 ```
 
-### 2. 安装流水线主环境（含 Snakemake）
+### 2. Install the main pipeline environment (with Snakemake)
 
 ```bash
 conda create -n rnamodbench -c bioconda -c conda-forge \
@@ -70,14 +71,14 @@ conda create -n rnamodbench -c bioconda -c conda-forge \
     biopython=1.81
 conda activate rnamodbench
 
-# 用 pip 安装 PyPI 上的额外包
+# Additional PyPI packages
 pip install matplotlib-venn
 ```
 
-### 3. 安装各工具的独立环境（按需要）
+### 3. Install per-tool environments (as required)
 
-Snakemake 会在执行时自动 `conda env create -f envs/xxx.yaml`，
-但你也可以预先装好，避免网络问题：
+Snakemake will `conda env create -f envs/xxx.yaml` automatically on
+first invocation, but you can pre-install them to avoid network issues:
 
 ```bash
 cd envs
@@ -88,44 +89,46 @@ done
 cd ..
 ```
 
-> 如果你只想跑子集工具（例如只跑 CHEUI + ELIGOS2），就只需要
-> `cheui.yaml` 和 `eligos2.yaml`。
+> If you only want a subset of tools (e.g. CHEUI + ELIGOS2), then only
+> `envs/cheui.yaml` and `envs/eligos2.yaml` need to be installed.
 
 ---
 
-## 安装外部二进制工具
+## Install external binaries
 
-以下工具不在 Conda 中（或 Conda 的版本过旧），需手动安装：
+The following tools are **not** distributed via conda and must be
+installed separately.
 
-### Guppy（basecaller）
+### Guppy (basecaller)
 
-从 Oxford Nanopore Technologies 官网下载对应的 Guppy CPU / GPU 版本：
+Obtain from the Oxford Nanopore Technologies community portal (requires
+an ONT account). Ensure the version matches your flow-cell type.
 
 ```bash
-# 解压并添加到 PATH
+# Extract and put on PATH
 tar -xzf ont-guppy_X.XX.X_linux64.tar.gz
 export PATH=$(pwd)/ont-guppy/bin:$PATH
 
-# 验证
+# Verify
 guppy_basecaller --version
 ```
 
-> ⚠️ GPU 版本需 CUDA 11.2+。
+> ⚠ GPU versions require CUDA 11.2 or newer.
 
-### R2Dtool（可选 —— 用于坐标转换）
+### R2Dtool (optional — used for coordinate liftover)
 
 ```bash
-git clone https://github.com/chrisam/r2d-tool.git
-cd r2d-tool
+git clone https://github.com/bartongroup/R2Dtool.git
+cd R2Dtool
 cargo build --release
-# 把 ./target/release/r2d 放到 PATH 或在 config.yaml 指定路径
+# Put ./target/release/r2d on PATH, or specify the absolute path in config.yaml
 export PATH=$(pwd)/target/release:$PATH
 ```
 
-### Tombo（DENA / MINES 需要）
+### Tombo (required by DENA and MINES)
 
 ```bash
-# Tombo 通常通过 ONT 官网下载，并安装在单独的 conda 环境
+# Tombo is usually installed in its own conda environment
 conda create -n tombo python=3.8
 conda activate tombo
 pip install ont-tombo
@@ -134,25 +137,27 @@ tombo --version
 
 ---
 
-## R 包（可视化用）
+## R packages (visualisation)
 
-对于 `scripts/create_guitar_plots.R` 和 `scripts/generate_depth_plots.R`：
+Used by `scripts/create_guitar_plots.R` and
+`scripts/generate_depth_plots.R`:
 
 ```r
-# 在 R 控制台执行：
+# Run inside an R session:
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
-BiocManager::install("Guitar")          # Guitar plots
-install.packages("ggplot2")             # 通用画图
+BiocManager::install("Guitar")          # metagene profiles
+install.packages("ggplot2")             # general plotting
 install.packages("dplyr")
 install.packages("readr")
 ```
 
 ---
 
-## 验证安装
+## Verify the installation
 
-依次执行以下命令，每个都应输出版本号而非报错：
+Run the following commands in sequence. Each should print a version
+number rather than an error:
 
 ```bash
 conda activate rnamodbench
@@ -161,26 +166,27 @@ snakemake     --version        # 7.x
 minimap2      --version        # 2.x
 samtools      --version        # 1.x
 nanopolish    --version        # 0.14+
-guppy_basecaller --version     # 6.x / 7.x（可选，若未安装则跳过）
+guppy_basecaller --version     # 6.x / 7.x (skip if not installed)
 Rscript       --version        # 4.x
 
-# Python 包
+# Python packages
 python -c "import pandas, numpy, matplotlib, seaborn; print('OK')"
 
-# R 包
+# R packages
 Rscript -e 'library(Guitar); library(ggplot2); cat("OK\n")'
 ```
 
-若全部通过则安装完成。接下来按照 [TUTORIAL.md](TUTORIAL.md) 跑最小工作示例。
+If everything passes, move on to [TUTORIAL.md](TUTORIAL.md) to run the
+pipeline on a test dataset.
 
 ---
 
-## 已知问题与 workaround
+## Known issues and workarounds
 
-| 问题 | 原因 | 解决方案 |
+| Symptom | Cause | Solution |
 |---|---|---|
-| `CondaHTTPError` 或网络慢 | 公司 / 学术网络访问 conda 受限 | 使用 `conda config --add channels` 配置镜像站；或改用 `mamba` 作为 solver |
-| `OSError: File not found: resources/R2Dtool/target/release/r2d` | `r2d` 未编译 | 见上文 "R2Dtool" 小节 |
-| nanopolish `std::bad_alloc` | eventalign 默认并行度过高 | 调低 `config.yaml` 的 `nanopolish.threads` 到 10 |
-| CHEUI `CUDA out of memory` | 大批次 → GPU 显存不足 | 关闭 GPU 模式；或在 `cheui.threads` 调小 |
-| 中文路径出现乱码 | Python/系统 locale 问题 | 保持工作目录全英文；`export LC_ALL=C.UTF-8` |
+| `CondaHTTPError` or slow downloads | Institutional / academic network restricts conda access | Configure a mirror via `conda config --add channels`, or install `mamba` as a faster solver |
+| `OSError: File not found: resources/R2Dtool/target/release/r2d` | `r2d` was not compiled | See "R2Dtool" section above |
+| `std::bad_alloc` from nanopolish | eventalign parallelism too high | Reduce `nanopolish.threads` in `config.yaml` to 10 |
+| CUDA out-of-memory in CHEUI | Large batch size exceeds GPU VRAM | Switch to CPU execution; reduce `cheui.threads` |
+| Garbled characters in file paths | Python / system locale issue | Keep working-directory names in plain ASCII; `export LC_ALL=C.UTF-8` |

@@ -1,29 +1,33 @@
 # ============================================================
-#  RNAModBench —— Nanopore RNA 修饰检测流水线配置文件
+#  RNAModBench — Configuration file for Nanopore RNA
+#  modification detection pipeline
 #
-#  说明：本文件是唯一需要编辑的配置。修改后直接重跑
-#        Snakemake，规则会自动读取新参数。
+#  This is the only file users need to edit. After modifying
+#  parameters here, simply re-run Snakemake — rules will pick
+#  up the new values automatically.
 #
-#  未实现标记：标注 "[NOT YET USED]" 的参数在 Snakefile
-#              中已经声明为配置项但尚未接入实现，仅做预留。
+#  Parameters marked [NOT YET USED] are declared in the YAML
+#  but are not yet wired into the Snakefile; they are placeholders
+#  for future releases.
 # ============================================================
 
 # ------------------------------------------------------------
-# 1. 样本与工具
+# 1. Samples and tools
 # ------------------------------------------------------------
 
-# 每个样本对应 data/<sample_name>/fast5/ 目录，样本名必须
-# 与目录名完全一致（区分大小写）。对照样本同样放在这里，
-# 对比型工具 (Nanocompore / xPore / yanocomp / Epinano_DiffErr /
-# DRUMMER) 会自动两两配对。
+# Each sample corresponds to a data/<sample_name>/fast5/ directory.
+# Sample names must match directory names exactly (case-sensitive).
+# Control samples live alongside treatment samples — paired
+# tools (Nanocompore / xPore / yanocomp / Epinano_DiffErr /
+# DRUMMER) will be paired automatically.
 samples:
   - sample1
   - sample2
   - control1
   - control2
 
-# 要运行的工具列表。注释掉不需要的工具即可跳过其执行。
-# 工具与数据依赖请参考 docs/TOOLS_OVERVIEW.md。
+# Tools to execute. Comment out entries you wish to skip.
+# See docs/TOOLS_OVERVIEW.md for data requirements per tool.
 tools:
   - CHEUI
   - ELIGOS2
@@ -38,44 +42,50 @@ tools:
   - yanocomp
   - NanoSPA
 
-# 目录路径（相对 Snakefile 所在目录）
-data_dir:      "data"       # 存放 <sample>/fast5/ 的目录
+# Directory paths (relative to the Snakefile location)
+data_dir:      "data"       # directory containing <sample>/fast5/
 reference_dir: "reference"  # genome.fa / transcriptome.fa / genes.gtf
-results_dir:   "results"    # 所有输出都写在这里
+results_dir:   "results"    # all output is written here
 
 # ============================================================
-# 2. 基础流程参数
+# 2. Base pipeline parameters
 # ============================================================
 
-# Guppy basecalling 配置。
-#   config         : Guppy 配置文件名（需与 GPU/CPU 型号匹配）
-#   num_callers    : 并行调用的 worker 数
-#   threads_per_caller : 每个 worker 的 CPU 线程
-#   total_threads  : 给 Snakemake 资源声明用的总线程
+# Guppy basecalling.
+#   config              : Guppy configuration file (must match the
+#                         GPU/CPU model in use)
+#   num_callers         : number of parallel worker processes
+#   threads_per_caller  : CPU threads allocated to each worker
+#   total_threads       : total thread count declared to Snakemake
 guppy:
   config: "rna_r9.4.1_70bps_hac.cfg"
   num_callers: 4
   threads_per_caller: 20
   total_threads: 80
 
-# minimap2 比对线程数（同时用于 transcriptome 和 genome）
+# minimap2 alignment thread count (used for both transcriptome
+# and genome alignment)
 alignment:
   threads: 40
 
-# nanopolish eventalign（给 CHEUI / m6Anet / Nanocompore /
-# xPore / yanocomp 提供信号输入）。**大数据集建议 ≤ 20**。
+# nanopolish eventalign — generates the signal-level input
+# consumed by CHEUI / m6Anet / Nanocompore / xPore / yanocomp.
+# Use ≤ 20 threads for very large datasets to avoid
+# memory exhaustion.
 nanopolish:
   threads: 40
 
 # ============================================================
-# 3. 每个工具的参数
+# 3. Per-tool parameters
 # ============================================================
 
-# CHEUI —— 基于深度学习的 m6A 检测
-#   model1 / model2 : 两个阶段的模型文件（HDF5）
-#   kmer_model      : k-mer 模型（CSV，位置-强度查找表）
-#   prob_threshold  : 第二阶段概率阈值（默认 0.999，非常严格）
-#   ratio_threshold : 修饰化学计量比下限
+# CHEUI — Deep-learning-based m6A detection.
+#   kmer_model     : k-mer intensity lookup table (CSV)
+#   model1        : stage-1 (pre-screen) HDF5 model
+#   model2        : stage-2 (refined) HDF5 model
+#   threads       : CPU threads for inference
+#   prob_threshold : stage-2 probability cutoff (default 0.999 is very strict)
+#   ratio_threshold : minimum estimated stoichiometry
 cheui:
   kmer_model:      "resources/CHEUI/kmer_models/model_kmer.csv"
   model1:          "resources/CHEUI/CHEUI_trained_models/CHEUI_m6A_model1.h5"
@@ -84,25 +94,27 @@ cheui:
   prob_threshold:  0.999
   ratio_threshold: 0.1
 
-# ELIGOS2 —— 基于比对错配的统计检验方法
-#   threads         : 并行线程（每个 region 一个 worker）
-#   max_depth       : 每个位点最大读取深度（过大导致过拟合）
-#   min_depth       : 每个位点最小覆盖度（过滤噪声位点）
-#   padj_threshold  : 校正后 p-value 上限（默认极严格）
-#   oddr_threshold  : 优势比下限（>1.2 表示处理组修饰更强）
+# ELIGOS2 — Alignment-level statistical mismatch test.
+#   threads        : parallel thread count (one worker per region)
+#   max_depth       : per-site maximum read depth (very high values
+#                    cause over-fitting)
+#   min_depth       : minimum per-site coverage (noise filter)
+#   padj_threshold : BH-corrected p-value upper bound (very strict by default)
+#   oddr_threshold  : lower bound on odds ratio (> 1.2 implies
+#                        treatment is more modified than control)
 eligos2:
-  threads:         12
-  max_depth:       2000000
+  threads:        12
+  max_depth:      2000000
   min_depth:       5
   padj_threshold:  0.0001
   oddr_threshold:  1.2
 
-# m6Anet —— 基于深度概率模型的 m6A 检测
-#   dataprep_threads  : 预处理阶段（读取 eventalign）的线程
-#   inference_threads : 模型推断阶段的线程
-#   readcount_max     : 单 transcript 的 read 数上限（过大会 OOM）
-#   prob_threshold    : 位点被判定为 m6A 的概率下限
-#   ratio_threshold   : 化学计量比下限
+# m6Anet — Deep probabilistic model for m6A detection.
+#   dataprep_threads  : threads for the event-reading pre-processing step
+#   inference_threads : threads for the model-inference step
+#   readcount_max    : upper bound on reads per transcript (memory guard)
+#   prob_threshold  : minimum probability to call a site m6A
+#   ratio_threshold : minimum estimated stoichiometry
 m6anet:
   dataprep_threads:  12
   inference_threads: 40
@@ -110,27 +122,29 @@ m6anet:
   prob_threshold:    0.5
   ratio_threshold:   0.1
 
-# Nanocompore —— 对比型工具，两样本信号强度分布差异
-#   threads          : 并行线程
-#   min_coverage     : 每个位点最小 reads 数
-#   min_ref_length   : transcript 最短长度阈值（过滤短转录本）
-#   pvalue_threshold : GMM 检验 p-value 上限
-#   lor_threshold    : log odds ratio 绝对值下限（效应量）
+# Nanocompore — Contrast tool; compares signal-intensity distributions
+# between two samples.
+#   threads          : parallel threads
+#   min_coverage     : minimum reads per site
+#   min_ref_length   : minimum transcript length (filters short transcripts)
+#   pvalue_threshold : upper bound on GMM p-value
+#   lor_threshold    : lower bound on absolute log-odds-ratio (effect size)
 nanocompore:
   threads:          20
   min_coverage:     5
-  min_ref_length:   10
+  min_ref_length: 10
   pvalue_threshold: 0.05
-  lor_threshold:    0.5
+  lor_threshold:  0.5
 
-# DENA —— 使用 LSTM 直接在 raw signal 上预测 m6A
-#   motif            : 目标 motif（使用 IUPAC 简并碱基，R=A/G, H=A/C/U）
-#   corr_grp         : Tombo 校正后的信号组名
-#   windows          : 目标位点上下游窗口 (upstream downstream)
-#   processes        : 并行进程
-#   model            : LSTM 模型目录
-#   ratio_threshold  : 化学计量比下限
-#   coverage_threshold: 覆盖度下限
+# DENA — LSTM-based direct prediction of m6A from raw signal.
+#   motif             : target motif (IUPAC degenerate notation;
+#                       R = A/G, H = A/C/U)
+#   corr_grp          : name of the Tombo-corrected signal group
+#   windows            : upstream/downstream window around the target site
+#   processes          : number of parallel processes
+#   model              : path to the LSTM model directory
+#   ratio_threshold    : minimum estimated stoichiometry
+#   coverage_threshold : minimum read coverage
 dena:
   motif:              "RRACH"
   corr_grp:           "RawGenomeCorrected_000"
@@ -140,23 +154,27 @@ dena:
   ratio_threshold:    0.1
   coverage_threshold: 20
 
-# Epinano —— 基于 basecalling error profile 的检测
-#   threads         : 并行线程
-#   model           : SVM 模型文件（linear.dump / svm.dump）
-#   columns         : 作为特征的列（逗号分隔，1-based index）
-#                     默认 "8,13,23" 分别对应: quality / mismatch / del
-#   delta_threshold : 处理-对照之间 delta 误差差异下限
+# Epinano — Detection based on base-calling error profile.
+#   threads         : parallel threads
+#   model           : trained SVM model file (linear.dump / svm.dump)
+#   columns         : feature columns (comma-separated, 1-based index);
+#                     default "8,13,23" corresponds to
+#                     quality / mismatch / deletion columns.
+#   delta_threshold : minimum delta-error difference between treatment
+#                     and control (used only by Epinano_DiffErr)
 epinano:
   threads:         12
-  model:           "resources/Epinano/models/rrach.q3.mis3.del3.linear.dump"
+  model:          "resources/Epinano/models/rrach.q3.mis3.del3.linear.dump"
   columns:         "8,13,23"
   delta_threshold: 0.1
 
-# DRUMMER —— 对比型工具，检验处理 vs 对照的覆盖度差异
-#   threads          : 并行线程
-#   max_depth / min_depth : 覆盖度上下限
-#   pvalue_threshold : 统计检验 p-value 上限
-#   frac_diff_threshold : 处理/对照差异比例下限（效应量）
+# DRUMMER — Contrast tool; tests coverage differences between
+# treatment and control.
+#   threads             : parallel threads
+#   max_depth / min_depth : coverage bounds
+#   pvalue_threshold    : upper bound on test p-value
+#   frac_diff_threshold : lower bound on treatment/control proportion
+#                         difference (effect size)
 drummer:
   threads:            12
   max_depth:          2000000
@@ -164,36 +182,40 @@ drummer:
   pvalue_threshold:   0.05
   frac_diff_threshold: 0.1
 
-# MINES —— 基于 Tombo fraction_modified 信号的机器学习
-#   kmer_models        : k-mer 模型列表文件 (names.txt)
-#   coverage_threshold : 最小覆盖度，低于此的位点跳过
-#   ratio_threshold    : 修饰比例下限
+# MINES — Machine-learning approach built on Tombo fraction_modified signal.
+#   kmer_models        : k-mer model list file (names.txt)
+#   coverage_threshold : sites below this coverage are skipped
+#   ratio_threshold    : minimum fraction of modified reads
 mines:
   kmer_models:        "resources/MINES/Final_Models/names.txt"
   coverage_threshold: 20
   ratio_threshold:    0.1
 
-# Tombo 基础参数（被 MINES 使用；tombo 本身是单独的检测工具）
+# Tombo base parameters (used by MINES; Tombo itself is a
+# standalone modification detector).
 tombo:
-  corr_grp:      "RawGenomeCorrected_000"   # 校正后信号组名
-  basecall_grp:  "Basecall_1D_000"          # 原始 basecall 组名
-  processes:     12                         # 并行进程
+  corr_grp:      "RawGenomeCorrected_000"   # signal group after correction
+  basecall_grp:  "Basecall_1D_000"          # raw base-call group name
+  processes:     12                         # parallel processes
 
-# xPore —— 对比型工具，基于高斯混合模型的差异 m6A
-#   dataprep_threads : 预处理阶段线程
-#   readcount_max    : 单 transcript 读取数上限（内存保护）
-#   prob_threshold   : 差异修饰概率下限（越高越严格）
+# xPore — Contrast tool; Gaussian-mixture-based differential m6A.
+#   dataprep_threads : threads for the pre-processing step
+#   readcount_max    : upper bound on reads per transcript (memory guard)
+#   prob_threshold   : minimum differential-modification probability
+#                       (higher is stricter)
 xpore:
   dataprep_threads: 40
   readcount_max:    2000000
   prob_threshold:   0.5
 
-# yanocomp —— 对比型工具，GMM 对两样本做差异检验
-#   prep_threads     : 预处理阶段（eventalign → HDF5）线程
-#   test_threads     : GMM 检验阶段线程
-#   n_components     : 高斯混合成分数（通常 50，越大越精细但更慢）
-#   fdr              : Benjamini-Hochberg FDR 控制
-#   pvalue_threshold : 额外的 p-value 硬过滤
+# yanocomp — Contrast tool; GMM-based differential testing
+# modification detection between two samples.
+#   prep_threads     : threads for the eventalign → HDF5 preprocessing step
+#   test_threads     : threads for the GMM testing step
+#   n_components     : number of Gaussian mixture components
+#                       (typically 50; larger → finer but slower)
+#   fdr              : Benjamini–Hochberg FDR control
+#   pvalue_threshold : additional hard p-value filter
 yanocomp:
   prep_threads:      8
   test_threads:      8
@@ -201,22 +223,23 @@ yanocomp:
   fdr:               0.05
   pvalue_threshold:  0.05
 
-# NanoSPA —— 同时检测 m6A 和 Ψ（假尿嘧啶）
-#   prob_threshold : 修饰概率下限（输出过滤用）
+# NanoSPA — Simultaneous detection of m6A and Ψ (pseudouridine).
+#   prob_threshold : minimum modification probability (output filter)
 nanospa:
   prob_threshold: 0.5
 
 # ============================================================
-# 4. 辅助工具参数
+# 4. Utility-tool parameters
 # ============================================================
 
 utilities:
-  # R2Dtool 可执行文件路径（转录组坐标 → 基因组坐标 liftover）
-  # 需要单独编译：git clone + cargo build --release
+  # Path to the R2Dtool executable (used for transcriptome →
+  # coordinate liftover). Requires separate compilation
+  # (git clone + cargo build --release).
   r2d_tool: "resources/R2Dtool/target/release/r2d"
 
 # ============================================================
-# 5. 参考文件路径（显式声明，被 Snakefile 使用）
+# 5. Reference files — explicitly declared; used by the Snakefile
 # ============================================================
 
 reference_files:
@@ -226,44 +249,49 @@ reference_files:
   genes_bed:     "reference/genes.bed"
 
 # ============================================================
-# 6. 预留配置项 —— [NOT YET USED]
-#    以下参数已经写入配置，但在当前 Snakefile 版本中尚未
-#    接入实现。修改它们不会影响流水线运行。
+# 6. Reserved parameters — [NOT YET USED]
+#    The following keys are declared in the configuration but
+#    are not yet wired into the current Snakefile release.
+#    Modifying them will not affect the pipeline.
 # ============================================================
 
-# 是否自动生成 transcriptome.fa / genes.bed
-# （当前版本需要用户手动准备，或使用 gffread 等工具预处理）
+# Whether to auto-generate transcriptome.fa / genes.bed
+# (current release expects users to prepare these manually,
+# or pre-process externally with tools such as gffread).
 create_transcriptome:    true          # [NOT YET USED]
 convert_gtf_to_bed:      true          # [NOT YET USED]
 create_gene_annotations: true          # [NOT YET USED]
 
-# QC 参数（当前版本未接入，保留给未来版本做自动 QC）
+# QC parameters (reserved for a future automated-QC release).
 qc:
   min_read_length: 50                   # [NOT YET USED]
   min_read_quality: 7                   # [NOT YET USED]
   min_coverage:    20                   # [NOT YET USED]
   max_coverage:    10000                # [NOT YET USED]
 
-# 输出格式控制（当前版本已硬编码为 7 列 TSV + liftover）
+# Output-format control (current release hard-codes 7-column TSV
+# output plus liftover).
 output:
   bed_format:          true             # [NOT YET USED]
   liftover_to_genome:  true             # [NOT YET USED]
   include_5mer_context: true            # [NOT YET USED]
 
-# 计算资源上限（当前版本未使用；Snakemake 通过 --cores 控制）
+# Upper compute-resource caps (not used in this release;
+# Snakemake is driven through the --cores flag).
 resources:
   max_memory: "128G"                    # [NOT YET USED]
   max_cpus:   40                        # [NOT YET USED]
   gpu_available: true                   # [NOT YET USED]
   gpu_devices:  [0, 1]                  # [NOT YET USED]
 
-# 日志与调试（当前版本未接入）
+# Logging and debugging (not wired in yet).
 logging:
   level:             "INFO"             # [NOT YET USED]
   save_intermediates: false             # [NOT YET USED]
   cleanup_temp_files: true              # [NOT YET USED]
 
-# 物种（用于工具内部的默认值选择，当前版本未接入）
+# Species (used by tools for selecting internal default-value selection;
+# not wired in yet).
 species:
   name:            "Generic"            # [NOT YET USED]
   codon_table:     "standard"           # [NOT YET USED]

@@ -1,30 +1,30 @@
 #!/usr/bin/env Rscript
-#' Epinano 样本间差异错误分析脚本（DiffErr）。
+#' Differential error analysis script for Epinano (DiffErr).
 #'
-#' 本脚本读取两组样本（处理组 / 对照组）的 Epinano 输出 CSV，对每个位点
-#' 做 Fisher exact test 比较错误率差异，并输出带 FDR 校正 p-value 的
-#' CSV 文件。
+#' This script reads Epinano output CSVs from two sample groups (treatment /
+#' control), performs a Fisher exact test at each site to compare error rates,
+#' and writes a CSV file with FDR-corrected p-values.
 #'
-#' 输入：
-#'   - `-k` 处理组 CSV（Epinano 合并后的 `*q3mis3del3.csv`）
-#'   - `-w` 对照组 CSV
-#'   - `-o` 输出目录
-#'   - `-f` 参考 FASTA（辅助读取）
+#' Inputs:
+#'   - `-k` Treatment CSV (`*q3mis3del3.csv` after Epinano merging)
+#'   - `-w` Control CSV
+#'   - `-o` Output directory
+#'   - `-f` Reference FASTA (for auxiliary reading)
 #'
-#' 输出：
+#' Outputs:
 #'   - `*q3mis3del3.DiffErr.csv`
-#'   - `*q3mis3del3.volcano.pdf`（可选火山图）
+#'   - `*q3mis3del3.volcano.pdf` (optional volcano plot)
 #'
-#' 依赖包：ggplot2、data.table、rcompanion、ggrepel
+#' Dependencies: ggplot2, data.table, rcompanion, ggrepel
 #'
-#' 典型调用（Snakefile 内部使用）：
+#' Typical invocation (used inside Snakefile):
 #'   Rscript scripts/Epinano_DiffErr.R \
 #'       -k results/Epinano/sample1/sample1_q3mis3del3.csv \
 #'       -w results/Epinano/control1/control1_q3mis3del3.csv \
 #'       -o results/Epinano_DiffErr/sample1_vs_control1/ \
 #'       -f reference/genome.fa
 
-# ------------- 加载包 -------------
+# ------------- Load packages -------------
 suppressMessages({
   library(ggplot2)
   library(data.table)
@@ -32,7 +32,7 @@ suppressMessages({
   library(ggrepel)
 })
 
-# ------------- 记录运行环境 -------------
+# ------------- Log runtime environment -------------
 cat("===== RNAModBench Epinano_DiffErr =====\n")
 cat("Timestamp :", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
 cat("===== sessionInfo =====\n")

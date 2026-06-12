@@ -1,107 +1,138 @@
-# 常见问题解答 (FAQ)
+# RNAModBench — Frequently Asked Questions
 
-## 运行相关
+## Running the pipeline
 
-**Q1. 我只想跑 3 个工具，为什么还要把所有工具的 conda 环境都装好？**
+**Q1. I only want to run three tools. Why do I still need the full conda environment installed?**
 
-不需要。Snakemake 只会创建 `config.yaml` 中 `tools:` 列表列出的工具所需的
-conda 环境。如果你只写 `tools: [CHEUI, ELIGOS2]`，那么其他工具的环境完全不需要装。
+You do not. Snakemake only builds the conda environments required for
+the tools listed in the `tools` list in `config.yaml`. If your list
+contains only `CHEUI` and `ELIGOS2`, Snakemake creates only those
+environments.
 
-**Q2. `snakemake --dry-run` 报 `MissingInputException`，怎么办？**
+**Q2. `snakemake --dry-run` reports a `MissingInputException` for a sample file. What should I check?**
 
-检查：
-1. `data/<sample_name>/fast5/` 目录下是否存在 `.fast5` 文件
-2. 目录名是否与 `samples:` 列表中的元素完全一致（区分大小写）
-3. `reference/genome.fa`、`genes.gtf` 是否存在（注意 `.fa` 和 `.fasta` 的区别）
-4. 是否忘记 `gunzip`（genome.fa.gz 是不能直接用的）
+Common causes:
 
-**Q3. nanopolish eventalign 运行非常慢 / 内存炸了，怎么办？**
+1. The `data/<sample_name>/fast5/` directory contains no `.fast5` files.
+2. Directory names differ by case from the `samples:` list.
+3. `reference/genome.fa` or `genes.gtf` are absent or misnamed.
+4. A gunzipped reference FASTA is still compressed (`.fa.gz` is not
+   accepted by minimap2).
 
-nanopolish 是整个流水线最慢的步骤。优化：
-1. 把 `config.yaml` 的 `nanopolish.threads` 调低到 10–16
-2. 限制 Snakemake 总资源：`snakemake --resources mem_mb=32000`
-3. 若只是 m6A 分析，其实可以跑 **ELIGOS2 / Epinano**（不需要 eventalign）
+**Q3. `nanopolish eventalign` runs very slowly / exhausts memory. What can I do?**
 
-## 结果相关
+- Reduce `nanopolish.threads` in `config.yaml` to 10–16.
+- Add a memory constraint to Snakemake: `--resources mem_mb=32000`.
+- If the analysis is focused on m6A only, consider running the
+  alignment-only tools (Epinano / ELIGOS2) instead, since they do not
+  depend on event-align.
 
-**Q4. 为什么某个工具报告 0 个修饰位点？**
+---
 
-可能是过滤阈值过于严格。例如 CHEUI 默认 `prob_threshold=0.999`。尝试：
-1. 调低对应工具的 `*_threshold`
-2. 检查 basecalling 的质量 —— Q7 以下数据可能工具无法识别修饰
-3. 检查是否有足够多的 reads 覆盖目标基因/转录本
+## Interpreting results
 
-**Q5. 不同工具结果完全不一致，怎么办？**
+**Q4. A tool reports zero modification sites. Is that expected?**
 
-这是正常现象 —— 每种工具对 "修饰" 的定义和信号模型不同。建议：
-1. 使用 `results/summary/modification_summary.tsv` 查看被 **3+ 工具**
-   共同报告的位点，这些是最可信的
-2. 关注 motif 是否合理（m6A 的话应富集于 `RRACH`）
-3. 检查数据是否真的包含修饰（对照样本是否为 IVT / 去修饰的）
+Probably not. First check whether filter thresholds are too strict;
+CHEUI ships with a default `prob_threshold` of 0.999, which is very
+conservative. Relax it to 0.9 and re-run. If sites are still missing,
+investigate whether the base-called FASTQ has sufficient quality and
+whether the reference annotations (GTF) cover the regions of interest.
 
-**Q6. 为什么 transcriptome 坐标的工具结果和 genome 坐标的工具结果没法直接对齐？**
+**Q5. The tools disagree substantially on site sets. Is this a bug?**
 
-这是设计选择 —— CHEUI 等工具输出的是转录本坐标，需要通过 R2Dtool 投影回
-genome。执行：
+No — tools model different signals (raw ionic current, base-quality,
+mismatch-rate, indel-rate, or alignment-distribution), so their calls
+will not always coincide. RNAModBench is deliberately designed to
+aggregate heterogeneous outputs. To find the most reliable sites,
+filter `results/summary/tool_comparison.tsv` for rows with
+`Tool_Count ≥ 3`.
+
+**Q6. Why can't I directly compare transcriptome-coordinate tool results against genome-coordinate tool results?**
+
+That is by design. Transcriptome-coordinate tools output transcript
+IDs (e.g. `ENST00000367770`) and offsets; genome-coordinate tools
+output chromosome names and positions. To merge them, run
+`scripts/r2d_liftover.py` to project the transcriptome calls back into
+genome space:
 
 ```bash
 python scripts/r2d_liftover.py \
-    --input results/CHEUI/sample1/sample1_CHEUI_processed.txt \
-    --gtf reference/genes.gtf \
-    --output results/CHEUI/sample1/sample1_CHEUI_genomic.tsv
+    --input results/summary/modification_summary.tsv \
+    --gtf  reference/genes.gtf \
+    --output results/summary/liftover_summary.tsv
 ```
 
-## 安装相关
+---
 
-**Q7. conda 安装失败 / 下载太慢**
+## Installation and configuration
 
-- 切换镜像站
-- 使用 `mamba` 代替 conda 作为 solver（`conda install mamba -n base -c conda-forge`）
-- 或者按 `docs/INSTALL.md` 中的 `pip install` 方式只装你实际要用的工具
+**Q7. Conda environment creation fails / is slow.**
 
-**Q8. R 包 `Guitar` 安装失败**
+- Try configuring a conda mirror with
+  `conda config --add channels https://...`.
+- Install `mamba` as a faster solver: `conda install -n base mamba`.
+
+**Q8. The `Guitar` R package fails to install.**
 
 ```r
-BiocManager::install("Guitar")  # 需要 Bioconductor >= 3.15
-packageVersion("Guitar")         # 输出 >= 2.12.0 即正常
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("Guitar")
+packageVersion("Guitar")  # expect ≥ 2.12.0
 ```
 
-如果还报缺包，再装：`BiocManager::install(c("GenomicFeatures", "rtracklayer"))`。
+If dependencies are missing, install them explicitly:
 
-## 数据相关
-
-**Q9. 我的样本没有 fast5（只有 fastq），还能用 RNAModBench 吗？**
-
-可以跑以下工具：**ELIGOS2、Epinano、NanoSPA、DRUMMER**。
-这些工具只需要 basecalled reads。在 `tools:` 里把 signal-level tools 去掉即可。
-
-**Q10. 我可以跑人类以外的物种吗？**
-
-可以。只需替换 `reference/genome.fa` 和 `genes.gtf` 为对应物种的文件，
-参考文件的 chromosome 命名必须前后一致。
-
-## 其它
-
-**Q11. 如何把 RNAModBench 接入集群调度系统（SLURM / SGE）？**
-
-Snakemake 原生支持 `--profile`。示例 SLURM profile：
-
+```r
+BiocManager::install(c("GenomicFeatures", "rtracklayer"))
 ```
+
+---
+
+## Data and species
+
+**Q9. I only have base-called FASTQ (no FAST5). Can I still run anything?**
+
+Yes — the alignment-level tools work without raw signal. Run
+`ELIGOS2`, `Epinano`, `NanoSPA`, and `DRUMMER`. Omit signal-level
+tools (CHEUI, m6Anet, Nanocompore, DENA, MINES, xPore, yanocomp).
+
+**Q10. Can I run RNAModBench on non-human species?**
+
+Yes. Replace `reference/genome.fa` and `genes.gtf` with your species'
+reference files. The only hard requirement is matching chromosome
+identifiers across the genome FASTA, transcriptome FASTA, and GTF.
+
+---
+
+## HPC / cluster integration
+
+**Q11. How do I run RNAModBench on a cluster (SLURM / SGE)?**
+
+Snakemake supports profiles natively. Create a profile YAML:
+
+```yaml
 # ~/.config/snakemake/slurm/config.yaml
 jobs: 50
 cluster: "sbatch --nodes=1 --ntasks={threads} --mem={resources.mem_mb}M -t {resources.runtime} -J {rule}"
 default-resources: [mem_mb=4000, runtime=120]
 ```
 
-然后：`snakemake --profile slurm`
-
-**Q12. 如何重新跑某一步，而不是清掉所有结果？**
+Then launch with:
 
 ```bash
-snakemake --forceall --rerun-incomplete results/CHEUI/sample1/sample1_CHEUI_processed.txt
+snakemake --profile slurm --use-conda
 ```
 
-或者用 `--touch` 把已存在文件标记为最新：
+**Q12. How do I force re-run of a single rule without wiping results?**
+
+```bash
+snakemake --forceall --rerun-incomplete \
+    results/CHEUI/sample1/sample1_CHEUI_processed.txt
+```
+
+Or mark existing output files as up-to-date without re-running them:
 
 ```bash
 snakemake --touch --cores 1

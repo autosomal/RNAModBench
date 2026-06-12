@@ -3,18 +3,19 @@
 Post-process yanocomp results to generate standardized output format.
 Converts yanocomp predictions to BED-like format with filtering.
 
-[原生输入格式] `yanocomp gmmtest` 输出的 bed-like 文件：
-    前 6 列遵循标准 BED 格式（无表头）：
+[Input Format] bed-like file output by `yanocomp gmmtest`:
+    The first 6 columns follow the standard BED format (no header):
       col 0: chrom
       col 1: start
       col 2: end
-      col 3: name / score（不同版本不同）
-      col 4: score / p-value（若存在）
+      col 3: name / score (varies by version)
+      col 4: score / p-value (if present)
       col 5: strand
-    后续列: 工具内部 GMM 统计
-    分隔符: \t，无表头
-[处理动作] 若找到 p-value 列则按 pvalue_threshold 过滤，否则默认
-    yanocomp 上游输出已经是显著位点，直接转换为标准 TSV 格式。
+    Subsequent columns: internal GMM statistics from the tool
+    Separator: \t, no header
+[Processing Action] If a p-value column is detected, filter by pvalue_threshold;
+    otherwise assume yanocomp upstream output already contains significant sites
+    and convert directly to standardized TSV format.
 """
 
 import pandas as pd

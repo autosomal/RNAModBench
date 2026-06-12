@@ -1,81 +1,93 @@
-# 贡献指南
+# Contributing to RNAModBench
 
-感谢你对 RNAModBench 的关注！无论你是要**报告 Bug**、**添加新工具**、
-**改进文档** 还是**重构代码**，都欢迎提交 Issue 或 Pull Request。
+Thank you for your interest in RNAModBench! Whether you want to
+**report a bug**, **add a new tool**, **improve documentation**, or
+**refactor code**, feel free to open an issue or submit a pull
+request.
 
-## 目录
+## Contents
 
-- [报告 Bug / 提功能需求](#报告-bug--提功能需求)
-- [开发环境搭建](#开发环境搭建)
-- [代码风格约定](#代码风格约定)
-- [添加一个新工具](#添加一个新工具)
-- [提交 PR 之前的自检清单](#提交-pr-之前的自检清单)
-- [Commit message 约定](#commit-message-约定)
-
----
-
-## 报告 Bug / 提功能需求
-
-在 GitHub 上新建 Issue 时，请附上：
-
-1. **错误文本** —— 直接粘贴（用 ` ``` ` 包裹）
-2. **config.yaml 的样本部分** —— 避免泄露隐私，但工具列表和参考文件路径很重要
-3. **Snakemake 版本** —— `snakemake --version`
-4. **最小复现步骤** —— 例如 "我把 reference 目录改成 `ref` 就报错"
+- [Reporting a bug or requesting a feature](#reporting-a-bug-or-requesting-a-feature)
+- [Setting up the development environment](#setting-up-the-development-environment)
+- [Coding style conventions](#coding-style-conventions)
+- [Adding a new tool](#adding-a-new-tool)
+- [Pre-submission checklist](#pre-submission-checklist)
+- [Commit message conventions](#commit-message-conventions)
 
 ---
 
-## 开发环境搭建
+## Reporting a bug or requesting a feature
+
+When opening a new issue on GitHub, include:
+
+1. **Error text** — paste directly, wrapped in triple backticks.
+2. **Relevant sample of `config.yaml`** — redact private paths, but
+   keep the `tools:` list and the reference-file paths intact.
+3. **Snakemake version** — from `snakemake --version`.
+4. **Minimal reproduction steps** — e.g., "when I rename the
+   reference directory to `ref`, rule X fails with …".
+
+---
+
+## Setting up the development environment
 
 ```bash
-# 1. fork 本仓库 → clone 你自己的 fork
+# 1. fork the repository → clone your own fork
 git clone git@github.com:<YOUR_USER>/RNAModBench.git
 cd RNAModBench
 
-# 2. 创建 conda 主环境
+# 2. create the main conda environment
 conda create -n rnamodbench-dev -c bioconda -c conda-forge \
     snakemake=7.32.4 python=3.10 pandas=1.5 numpy=1.24 \
     matplotlib=3.7 seaborn=0.12 biopython=1.81
 conda activate rnamodbench-dev
 pip install matplotlib-venn pre-commit black flake8
 
-# 3. 安装 pre-commit hook
+# 3. install the pre-commit hook
 pre-commit install
 ```
 
 ---
 
-## 代码风格约定
+## Coding style conventions
 
-### Python（`scripts/*.py`）
+### Python (`scripts/*.py`)
 
-- **格式化**：使用 [black](https://github.com/psf/black)（行宽 100）
+- **Formatting** — use [black](https://github.com/psf/black) with a
+  100-character line width.
   ```bash
   black --line-length 100 scripts/my_script.py
   ```
-- **linting**：flake8，忽略 E501（行宽）、W503（运算符换行）
-- **docstring**：每个公共函数/脚本顶部都需要 docstring。输入文件格式需明确说明列名、分隔符、是否含表头。
-- **Type hints**：可选，推荐对核心函数添加。
+- **Linting** — use flake8, ignoring E501 (line length) and W503
+  (line break before binary operator).
+- **Docstrings** — every public function / script needs a docstring
+  describing the input file format (column names, delimiter, whether
+  a header row is present).
+- **Type hints** — optional; recommended for core functions.
 
 ### Snakefile
 
-- 所有规则的 `threads`、`resources` 必须从 `config` 读取，不可硬编码
-- 每个规则的 shell 命令前写一行注释说明它的意图
-- 输出文件命名遵循：`results/<Tool>/<sample>/...`
+- `threads` and `resources` must be read from `config` — do not
+  hard-code them.
+- Precede each rule's shell command with a one-line comment describing
+  the intent of the rule.
+- Output files must follow the naming convention
+  `results/<Tool>/<sample>/...`.
 
 ### YAML
 
-- 使用 2 空格缩进（不要用 Tab）
-- 键名用下划线风格（`snake_case`）
-- 每个新参数必须附带注释
+- Indent with 2 spaces (no tabs).
+- Keys use `snake_case`.
+- Every new parameter must carry an inline or block comment.
 
 ---
 
-## 添加一个新工具
+## Adding a new tool
 
-以添加工具 `MyNewTool` 为例（假设它需要 transcriptome BAM + eventalign）：
+The example below adds a tool called `MyNewTool` (assume it requires
+a transcriptome BAM + event-align output).
 
-### 1. 在 `config/config.yaml` 添加参数块
+### 1. Add the parameter block to `config/config.yaml`
 
 ```yaml
 mynewtool:
@@ -84,9 +96,9 @@ mynewtool:
   prob_threshold: 0.5
 ```
 
-并在 `tools:` 列表里加上 `MyNewTool`。
+Also add `MyNewTool` to the `tools:` list.
 
-### 2. 在 `envs/mynewtool.yaml` 创建 conda 环境文件
+### 2. Create the conda environment file at `envs/mynewtool.yaml`
 
 ```yaml
 name: mynewtool
@@ -102,7 +114,7 @@ dependencies:
     - mynewtool==1.0.0
 ```
 
-### 3. 在 `Snakefile` 增加对应规则
+### 3. Add the rule to the `Snakefile`
 
 ```python
 rule mynewtool_predict:
@@ -115,52 +127,59 @@ rule mynewtool_predict:
         model=config["mynewtool"]["model"],
         threads=config["mynewtool"]["threads"]
     shell:
-        "mynewtool predict --bam {input.bam} --eventalign {input.eventalign} "
-        "--model {params.model} --threads {params.threads} --output {output}"
+        "mynewtool predict --bam {input.bam} "
+        "--eventalign {input.eventalign} "
+        "--model {params.model} --threads {params.threads} "
+        "--output {output}"
 ```
 
-### 4. 在 `scripts/postprocess_mynewtool.py` 编写后处理脚本
+### 4. Write the post-processing script at `scripts/postprocess_mynewtool.py`
 
-**必须输出 7 列 TSV**（Chr、Start、End、Status、Prob、Strand、mod_ratio）。
-参考 `scripts/postprocess_cheui.py` 的结构。
+The script **must emit a 7-column TSV** (Chr, Start, End, Status, Prob,
+Strand, mod_ratio). Use `scripts/postprocess_cheui.py` as a structural
+reference.
 
-### 5. 在 `scripts/generate_summary.py` 中注册工具名
+### 5. Register the tool name in `scripts/generate_summary.py`
 
-在 `read_tool_results` 的 `priority_list` 中添加：
+Append to the priority list in `read_tool_results`:
 
 ```python
 ("MyNewTool", "MyNewTool"),
 ```
 
-### 6. 更新文档
+### 6. Update documentation
 
-- `README.md` 的 "Features" 工具列表
-- `docs/TOOLS_OVERVIEW.md` 的工具矩阵
-- `docs/CONFIG_REFERENCE.md` 增加新的参数块
+- "Features" list in `README.md`
+- Tool matrix in `docs/TOOLS_OVERVIEW.md`
+- Parameter reference in `docs/CONFIG_REFERENCE.md`
 
 ---
 
-## 提交 PR 之前的自检清单
+## Pre-submission checklist
 
-- [ ] `black --check scripts/` 全部通过
-- [ ] `snakemake --dry-run --cores 1` 在最小数据集上能生成正确的 DAG
-- [ ] 新增后处理脚本输出符合 **7 列 TSV** 标准格式
-- [ ] 更新了 README / docs 中相应的说明
-- [ ] 添加或更新了相关的 docstring
+- [ ] `black --check scripts/` passes.
+- [ ] `snakemake --dry-run --cores 1` generates a valid DAG on a
+  minimal dataset.
+- [ ] The new post-processing script outputs the standard **7-column
+  TSV** format.
+- [ ] Related sections of the README / docs have been updated.
+- [ ] Docstrings for new functions / scripts have been added.
 
-## Commit message 约定
+---
 
-使用 `type(scope): subject` 风格，type 可选：
+## Commit message conventions
 
-- `feat` —— 新功能 / 新工具
-- `fix` —— Bug 修复
-- `docs` —— 文档改动
-- `refactor` —— 代码重构（不含行为变更）
-- `perf` —— 性能优化
-- `test` —— 测试相关
-- `chore` —— 构建 / CI / 依赖升级
+Use a `type(scope): subject` style, where `type` is one of:
 
-示例：
+- `feat` — new functionality / new tool.
+- `fix` — bug fix.
+- `docs` — documentation change.
+- `refactor` — code restructure that does not change behaviour.
+- `perf` — performance optimisation.
+- `test` — test-related work.
+- `chore` — build / CI / dependency upgrades.
+
+Example:
 
 ```
 feat(eligos2): add min_depth filter from config

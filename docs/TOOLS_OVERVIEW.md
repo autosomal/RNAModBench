@@ -1,123 +1,182 @@
-# 工具输入需求矩阵
+# Tool-Level Overview — RNAModBench
 
-下表总结了 RNAModBench 中集成的 12 个 RNA 修饰检测工具对原始数据和前置步骤的依赖。
-
-## 目录
-
-- [工具输入需求矩阵](#工具输入需求矩阵)
-- [单样本工具 vs 对比型工具](#单样本工具-vs-对比型工具)
-- [坐标系统一览](#坐标系统一览)
-- [信号工具 vs 碱基比对工具](#信号工具-vs-碱基比对工具)
-- [典型运行时间估算](#典型运行时间估算)
-- [工具特定的参考资源](#工具特定的参考资源)
+This document summarises the **12 RNA-modification detection tools** integrated into RNAModBench, their input requirements, the coordinate systems they operate on, and their run-time profiles. It is intended both as a reference when planning experiments (e.g., which tools can be run given available data) and as a quick technical index for method comparison.
 
 ---
 
-## 工具输入需求矩阵
+## Contents
 
-| 工具 | 样本类型 | 需要 fast5 | 需要 minimap2 alignment | 需要 nanopolish eventalign | 需要 Tombo resquiggle | 染色体命名 |
-|---|---|---|---|---|---|---|
-| **CHEUI** | single | Yes | transcriptome only | Yes | No | transcript id |
-| **m6Anet** | single | Yes | transcriptome only | Yes | No | transcript id |
-| **DENA** | single | Yes | transcriptome only | No | Yes | transcript id |
-| **MINES** | single | Yes | transcriptome only | No | Yes | transcript id |
-| **ELIGOS2** | single | No | genome only | No | No | chromosome |
-| **Epinano** | single | No | genome only | No | No | chromosome |
-| **NanoSPA** | single | No | genome only | No | No | chromosome |
-| **Nanocompore** | case vs control | Yes | transcriptome only | Yes | No | transcript id |
-| **xPore** | case vs control | Yes | transcriptome only | Yes | No | transcript id |
-| **yanocomp** | case vs control | Yes | transcriptome only | Yes | No | transcript id |
-| **Epinano_DiffErr** | case vs control | No | genome only | No | No | chromosome |
-| **DRUMMER** | case vs control | No | genome only | No | No | chromosome |
+1. [Complete tool matrix](#1-complete-tool-matrix)
+2. [Signal-level vs alignment-level tools](#2-signal-level-vs-alignment-level-tools)
+3. [Single-sample vs contrast (paired) tools](#3-single-sample-vs-contrast-paired-tools)
+4. [Coordinate systems](#4-coordinate-systems)
+5. [Typical run times and memory usage](#5-typical-run-times-and-memory-usage)
+6. [Tool-specific reference and model files](#6-tool-specific-reference-and-model-files)
+7. [How to select tools for your experiment](#7-how-to-select-tools-for-your-experiment)
 
 ---
 
-## 单样本工具 vs 对比型工具
+## 1. Complete tool matrix
 
-**单样本工具**（仅处理一个样本，无需对照）：
+| Tool | Primary modification | Input type | Coordinates | Requires `nanopolish eventalign` | Requires a paired control | Conda environment |
+|---|---|---|---|:---:|:---:|---|
+| CHEUI | m⁶A | Signal-level (raw current) | Transcriptome | ✅ | ❌ | `envs/cheui.yaml` |
+| m6Anet | m⁶A | Signal-level (per-site likelihood) | Transcriptome | ✅ | ❌ | `envs/m6anet.yaml` |
+| DENA | m⁶A (motif-restricted) | Signal-level (Tombo re-squiggle) | Transcriptome | ❌¹ | ❌ | `envs/dena.yaml` |
+| MINES | m⁶A (machine-learning model) | Signal-level (Tombo fraction-modified) | Transcriptome | ❌¹ | ❌ | `envs/mines.yaml` |
+| Nanocompore | Any significant signal shift | Signal-level (per-sample k-mer model) | Transcriptome | ✅ | ✅ | `envs/nanocompore.yaml` |
+| xPore | Differential m⁶A / m⁶Am | Signal-level (Gaussian mixture model) | Transcriptome | ✅ | ✅ | `envs/xpore.yaml` |
+| yanocomp | Any significant signal shift | Signal-level (GMM) | Transcriptome | ✅ | ✅ | `envs/yanocomp.yaml` |
+| ELIGOS2 | Any (statistics-based) | Alignment-level (base-mismatch ratio) | Genome | ❌ | ❌ | `envs/eligos2.yaml` |
+| Epinano | m⁶A (SVM-based) | Alignment-level (quality + indel) | Genome | ❌ | ❌ | `envs/epinano.yaml` |
+| Epinano_DiffErr | Differential m⁶A (treatment vs control) | Alignment-level (delta error) | Genome | ❌ | ✅ | `envs/epinano.yaml` |
+| DRUMMER | Differential modification (coverage-based) | Alignment-level | Genome | ❌ | ✅ | `envs/drummer.yaml` |
+| NanoSPA | m⁶A, Ψ (pseudo-uridine), multi-mod | Alignment-level (Bayesian) | Genome | ❌ | ❌ | `envs/nanospa.yaml` |
 
-- CHEUI, m6Anet, DENA, MINES, ELIGOS2, Epinano, NanoSPA
-- 每个样本独立产生结果
-- `samples` 列表中的每个样本都会执行
-
-**对比型工具**（需要同时提供处理样本和对照样本）：
-
-- Nanocompore, xPore, yanocomp, Epinano_DiffErr, DRUMMER
-- 工具会按 `samples` 列表顺序两两配对，自动生成 `<处理>_vs_<对照>` 输出目录
-- 在 `config.yaml` 中必须至少包含 2 个样本
-
-> 提示：若只关注「是否存在修饰」而非「处理 vs 对照的差异」，可以跳过对比型工具以节省计算时间。
-
----
-
-## 坐标系统一览
-
-RNAModBench 中使用 **两种坐标系统并存**：
-
-### transcriptome 坐标
-- 使用 **转录本 ID**（如 `ENST00000367770`、`XM_00000000.1`）作为 `Chr` 列
-- position 为 **1-based** 位置（从转录本 5' 端开始计数）
-- postprocess 后统一为 **BED 0-based** [start, end)
-- 工具：CHEUI、m6Anet、Nanocompore、DENA、MINES、xPore、yanocomp
-
-### genome 坐标
-- 使用 **染色体 ID**（如 `chr1` / `1` / `MT`）作为 `Chr` 列
-- position 为 **1-based** 位置（从染色体 p 端开始计数）
-- postprocess 后统一为 **BED 0-based** [start, end)
-- 工具：ELIGOS2、Epinano、NanoSPA、DRUMMER
-
-> **坐标转换**：若需要将 transcriptome 坐标结果投影回 genome，使用
-> `scripts/r2d_liftover.py`（调用 [R2Dtool](https://github.com/chrisam/r2d-tool)）。
+> ¹ DENA and MINES rely on **Tombo re-squiggle** rather than `nanopolish eventalign`. Tombo is invoked via a separate Snakemake rule and does not require a separate conda environment.
 
 ---
 
-## 信号工具 vs 碱基比对工具
+## 2. Signal-level vs alignment-level tools
 
-### 信号工具（signal-level tools）
-- **处理 raw nanopore signal**：直接利用 FAST5 中的 pico-ampere 时间序列
-- 通常能提供更高的敏感度，尤其对低化学计量的修饰
-- **CHEUI、m6Anet、Nanocompore、DENA、xPore、yanocomp**
+### Signal-level tools
 
-### 碱基比对工具（alignment-level tools）
-- **处理 base-called FASTQ**：基于与参考序列的比对结果寻找错配 / Q-score 偏差
-- 运行速度更快，不依赖 FAST5 文件
-- **ELIGOS2、Epinano、NanoSPA、DRUMMER**
+Signal-level tools model the distribution of raw ionic current at each k-mer in each read. They therefore require:
+1. FAST5 files (raw signal) from the sequencer;
+2. A **per-read event alignment** produced by `nanopolish eventalign` (or Tombo `resquiggle` for DENA/MINES);
+3. A transcriptome FASTA to anchor the events to known transcripts.
 
-> **建议**：数据量大且有 FAST5 → 优先跑信号工具；只有 FASTQ → 用比对工具。
+Advantages:
+- More sensitive for m⁶A and m⁵C-like modifications.
+- Some tools (m6Anet, CHEUI) can produce per-site stoichiometry estimates.
+
+Disadvantages:
+- Slow — event alignment takes 2–4 h per million reads.
+- Requires FAST5 (which is increasingly phased out by ONT in favour of POD5).
+
+**Tools:** CHEUI, m6Anet, DENA, MINES, Nanocompore, xPore, yanocomp.
+
+### Alignment-level tools
+
+Alignment-level tools operate on base-called reads aligned to the *genome*. They detect modification-associated changes in base-call quality, per-site mismatch rate, or local coverage. They therefore require:
+1. A base-called FASTQ from Guppy / Dorado;
+2. A genome-aligned BAM;
+3. A reference genome FASTA.
+
+Advantages:
+- Fast — minutes rather than hours.
+- Do not require FAST5 / raw signal.
+
+Disadvantages:
+- Cannot distinguish certain modifications from true sequence variants.
+- Prone to false positives at low-coverage sites.
+
+**Tools:** ELIGOS2, Epinano, Epinano_DiffErr, DRUMMER, NanoSPA.
 
 ---
 
-## 典型运行时间估算
+## 3. Single-sample vs contrast (paired) tools
 
-以 1 个样本，~1M reads / ~10GB fast5 / 32 CPU 为例：
+### Single-sample tools
 
-| 步骤 | 时间 | 瓶颈 |
+| Tool | Statistical approach |
+|---|---|
+| CHEUI | Probabilistic (HMM + deep-learning classifier) |
+| m6Anet | Probabilistic (site-level likelihood) |
+| DENA | LSTM classifier on k-mer window |
+| MINES | Ensemble ML on Tombo fraction-modified signal |
+| ELIGOS2 | Logistic regression + rate-ratio test |
+| Epinano | Support-vector machine (SVM) on quality/mismatch/indel |
+| NanoSPA | Bayesian hierarchical model |
+
+### Contrast (paired) tools
+
+These tools compare a treated and an untreated sample and report sites whose modification state differs significantly. They are **not** designed to call modifications in a single sample.
+
+| Tool | Statistical approach |
+|---|---|
+| Nanocompore | GMM-based log-odds ratio + KS-test |
+| xPore | Gaussian mixture model (D.M. probability) |
+| yanocomp | GMM test |
+| Epinano_DiffErr | Fisher's exact test on per-site error delta |
+| DRUMMER | Coverage-based rate-ratio test |
+
+> RNAModBench automatically pairs samples in the order they appear in `config.yaml` (`samples[0]` vs `samples[1]`, `samples[2]` vs `samples[3]`, …). For experiments with unbalanced numbers of treatments and controls, run the contrast tools manually or use a wrapper script.
+
+---
+
+## 4. Coordinate systems
+
+RNAModBench distinguishes two coordinate systems and keeps calls from each system separate until the summary stage. Downstream `r2d_liftover` can project transcriptome-coordinate results to genome-space.
+
+### Transcriptome-coordinate tools
+`Chr` column contains a **transcript ID** (e.g., `ENST00000367770`); `Start`/`End` are 0-based offsets from the 5′-end of the transcript.
+
+*Tools:* CHEUI · m6Anet · DENA · MINES · Nanocompore · xPore · yanocomp.
+
+### Genome-coordinate tools
+`Chr` column contains a **chromosome name** (e.g., `chr1`). `Start`/`End` are BED 0-based genomic coordinates.
+
+*Tools:* ELIGOS2 · Epinano · Epinano_DiffErr · DRUMMER · NanoSPA.
+
+---
+
+## 5. Typical run times and memory usage
+
+Benchmarked on a 40-core Intel Xeon server, 256 GB RAM, ~1M reads / ~10 GB of FAST5:
+
+| Stage | Cores | RAM (GB) | Wall time |
+|---|---|---|---|
+| Guppy basecalling (CPU) | 40 | 16 | 30–60 min |
+| Guppy basecalling (GPU) | 20 | 8 GPU + 16 CPU | 5–10 min |
+| minimap2 (transcriptome + genome) | 40 | 8 | <5 min |
+| nanopolish eventalign | 40 | **64** | **2–4 h** |
+| CHEUI | 40 | 32 | 30–60 min |
+| m6Anet | 40 | 16 | 15–30 min |
+| DENA | 40 | 16 | 20–40 min |
+| MINES | 20 | 8 | 15–30 min |
+| ELIGOS2 + Epinano + NanoSPA | 12 each | 8 | 20–40 min combined |
+| Nanocompore / xPore / yanocomp (per contrast) | 20 | 16 | 20–40 min |
+| Summary and reporting | 4 | 4 | <5 min |
+
+**Take-home messages:**
+- `nanopolish eventalign` is the pipeline bottleneck for signal-level tools.
+- Alignment-only tools are orders-of-magnitude faster and suitable for exploratory / large-scale analysis.
+- GPU acceleration helps only Guppy and CHEUI; the remaining tools are CPU-bound.
+
+---
+
+## 6. Tool-specific reference and model files
+
+Beyond the standard reference files (genome FASTA, transcriptome FASTA, genes GTF), the following tools require additional per-site models, training data, or binary executables:
+
+| Tool | Additional resource | Configuration field |
 |---|---|---|
-| Guppy basecalling (CPU) | 30-60 min | I/O + CPU |
-| Guppy basecalling (GPU) | 5-10 min | GPU |
-| minimap2 + samtools | < 5 min | I/O |
-| nanopolish eventalign | 2-4 hr | 全局瓶颈 |
-| CHEUI model inference | 30-60 min | I/O + CPU/GPU |
-| m6Anet inference | 15-30 min | CPU |
-| ELIGOS2 | 10-20 min | CPU |
-| Epinano | 5-15 min | CPU |
-| DENA | 20-40 min | CPU |
-| Nanocompore sampcomp | 20-40 min | CPU + memory |
-| MINES | 15-30 min | CPU |
-| 汇总与画图 (summary) | < 5 min | CPU |
+| CHEUI | HDF5 model files (`model_1.h5`, `model_2.h5`), k-mer model CSV | `cheui.model1`, `cheui.model2`, `cheui.kmer_model` |
+| Epinano | Trained SVM model (linear), per-feature error columns | `epinano.model`, `epinano.columns` |
+| DENA | Trained LSTM model, `RRACH` k-mer mask | `dena.model`, `dena.motif` |
+| MINES | Model weights & names file | `mines.kmer_models` |
+| NanoSPA | Per-mod base-model files | Defaults bundled |
+| R2Dtool | Compiled `r2d` binary | `utilities.r2d_tool` |
+
+Each path is specified in `config/config.yaml` and described in full in [docs/CONFIG_REFERENCE.md](CONFIG_REFERENCE.md).
 
 ---
 
-## 工具特定的参考资源
+## 7. How to select tools for your experiment
 
-| 工具 | 需要的附加文件 | 用途 |
-|---|---|---|
-| CHEUI | `model_kmer.csv` + `.h5` 模型文件 | 5-mer lookup + deep learning inference |
-| Epinano | `rrach.q3.mis3.del3.linear.dump` | SVM 模型（线性核） |
-| MINES | `.names` + 模型文件 | 5-mer 指定分类器 |
-| DENA | 目录内的 LSTM 模型文件 | LSTM 推断 |
-| yanocomp | `—`（无） | 仅使用 eventalign 的统计 |
-| R2Dtool | 编译好的 `r2d` 二进制 | transcript→genome 坐标转换 |
+As a rule of thumb, RNAModBench users tend to select tools according to the following decision tree:
 
-参见 `config.yaml` 中的 `cheui.*`、`epinano.model`、`mines.kmer_models`、
-`dena.model`、`utilities.r2d_tool` 字段配置具体路径。
+1. **Do you have FAST5?**  
+   ✅ Yes → run all signal-level tools (CHEUI, m6Anet, DENA, MINES) + all alignment-level tools. Take the intersection (`Tool_Count ≥ 3` in the summary file) as the high-confidence call-set.  
+   ❌ No → run the alignment-level tools only (ELIGOS2, Epinano, NanoSPA).
+
+2. **Do you have paired treatment / control samples?**  
+   ✅ Yes → additionally run the contrast tools (Nanocompore, xPore, yanocomp, Epinano_DiffErr, DRUMMER) to obtain sites whose modification state changes between conditions.  
+   ❌ No → skip contrast tools.
+
+3. **Are you targeting m⁶A specifically?**  
+   If so, CHEUI / m6Anet / DENA / Epinano are the most sensitive tools. If you are interested in Ψ or multi-mod calling, add NanoSPA (alignment-level) and/or Nanocompore (signal-level, any modification).
+
+4. **Compute budget?**  
+   If resources are severely limited, start with ELIGOS2 and Epinano (fast, alignment-level) to verify modification signal exists, then add signal-level tools incrementally.

@@ -1,0 +1,221 @@
+digraph RNAModBench_Pipeline {
+    graph [
+        fontname = "Helvetica",
+        fontsize = 10,
+        nodesep = 0.4,
+        ranksep = 0.6,
+        bgcolor = "white",
+        margin = "0.3",
+        dpi = 300,
+        ratio = "auto"
+    ];
+    node [
+        fontname = "Helvetica",
+        fontsize = 9,
+        shape = "box",
+        style = "rounded,filled",
+        height = 0.4,
+        width = 1.5
+    ];
+    edge [
+        fontname = "Helvetica",
+        fontsize = 8,
+        arrowsize = 0.6,
+        penwidth = 1.2,
+        color = "#333333"
+    ];
+
+    /* ============================================================
+       Colour scheme (consistent with Mermaid figures in FLOWCHART.md)
+       ============================================================ */
+
+    /* ---------- RAW INPUT (blue) ---------- */
+    node [fillcolor = "#E8F4FD", color = "#2D72B8", penwidth = 2];
+    fast5 [label = "FAST5\n(per-read signal)"];
+    reference [label = "Reference\ngenome.fa · transcriptome.fa\ngenes.gtf"];
+
+    /* ---------- PRE-PROCESSING (orange) ---------- */
+    node [fillcolor = "#FFF3E0", color = "#E67E22", penwidth = 2];
+    guppy  [label = "Guppy basecaller\n→ FASTQ"];
+    aln_tx [label = "minimap2\ntranscriptome BAM"];
+    aln_gn [label = "minimap2\ngenome BAM"];
+    nplsh  [label = "nanopolish\neventalign"];
+    sig_pr [label = "Per-site\ncurrent-level profiles"];
+
+    /* ---------- SIGNAL-LEVEL TOOLS (purple) ---------- */
+    node [fillcolor = "#F3E5F5", color = "#7B1FA2", penwidth = 1.5];
+    cheui   [label = "CHEUI\n(HMM + deep learning)"];
+    m6anet  [label = "m6Anet\n(probabilistic m⁶A)"];
+    dena    [label = "DENA\n(LSTM + Tombo)"];
+    mines   [label = "MINES\n(Tombo + ML)"];
+    nanocomp[label = "Nanocompore\n(GMM, paired)"];
+    xpore   [label = "xPore\n(DiffMod, paired)"];
+    yano    [label = "yanocomp\n(GMM test, paired)"];
+
+    /* ---------- ALIGNMENT-LEVEL TOOLS (green) ---------- */
+    node [fillcolor = "#E8F5E9", color = "#2E7D32", penwidth = 1.5];
+    eligos  [label = "ELIGOS2\n(statistical mismatch)"];
+    epinano [label = "Epinano\n(SVM error profile)"];
+    nanospa [label = "NanoSPA\n(Bayesian multi-mod)"];
+    epinano_d [label = "Epinano_DiffErr\n(Fisher test, paired)"];
+    drummer [label = "DRUMMER\n(coverage-based, paired)"];
+
+    /* ---------- POST-PROCESSING (yellow) ---------- */
+    node [fillcolor = "#FFF8E1", color = "#BF8F00", penwidth = 1.2, fontsize = 8];
+    pp1 [label = "postprocess_cheui.py"];
+    pp2 [label = "postprocess_m6anet.py"];
+    pp3 [label = "postprocess_dena.py"];
+    pp4 [label = "postprocess_mines.py"];
+    pp5 [label = "postprocess_nanocompore.py"];
+    pp6 [label = "postprocess_xpore.py"];
+    pp7 [label = "postprocess_yanocomp.py"];
+    pp8 [label = "postprocess_eligos2.py"];
+    pp9 [label = "postprocess_epinano.py"];
+    pp10[label = "postprocess_epinano_differr.py"];
+    pp11[label = "postprocess_nanospa.py"];
+    pp12[label = "postprocess_drummer.py"];
+
+    /* ---------- HARMONISATION (teal) ---------- */
+    node [fillcolor = "#E0F2F1", color = "#00695C", penwidth = 2, fontsize = 9];
+    unified [label = "Unified 7-column TSV\n(Chr · Start · End · Status\n· Prob · Strand · mod_ratio)"];
+
+    /* ---------- DOWNSTREAM ANALYSIS (teal, dashed) ---------- */
+    node [fillcolor = "#E0F2F1", color = "#00695C", penwidth = 1.5];
+    summary [label = "generate_summary.py\n(site counts · tool overlap\n· Venn diagrams)"];
+    kmer    [label = "extract_5mer.py\n(k-mer context · RRACH)"];
+    guitar  [label = "create_guitar_plots.R\n(metagene profile: 5′UTR\n→ CDS → 3′UTR)"];
+    depth   [label = "generate_depth_plots.R\n(per-sample coverage QC)"];
+    report  [label = "create_report.py\n(HTML report)"];
+    liftover[label = "r2d_liftover.py\n(transcriptome → genome\ncoordinate liftover)"];
+
+    /* ---------- OUTPUTS (white, dashed border) ---------- */
+    node [fillcolor = "white", color = "#555555", penwidth = 1.2, style = "rounded,dashed"];
+    out1 [label = "modification_summary.tsv"];
+    out2 [label = "tool_comparison.tsv"];
+    out3 [label = "Venn diagrams (PNG)"];
+    out4 [label = "Guitar plots (PNG/PDF)"];
+    out5 [label = "Depth plots (PNG)"];
+    out6 [label = "liftover_summary.tsv"];
+    out7 [label = "RNAModBench_report.html"];
+
+    /* ============================================================
+       Edges
+       ============================================================ */
+
+    fast5 -> guppy;
+    guppy -> aln_tx;
+    guppy -> aln_gn;
+    reference -> aln_tx;
+    reference -> aln_gn;
+
+    aln_tx -> nplsh;
+    nplsh  -> sig_pr;
+
+    /* signal-level tools (single-sample) */
+    sig_pr -> cheui;
+    sig_pr -> m6anet;
+    sig_pr -> dena;
+    sig_pr -> mines;
+    reference -> cheui [style = "dashed", color = "#888"];
+    reference -> m6anet [style = "dashed", color = "#888"];
+    reference -> dena [style = "dashed", color = "#888"];
+    reference -> mines [style = "dashed", color = "#888"];
+
+    /* signal-level tools (paired/contrast) */
+    sig_pr -> nanocomp;
+    sig_pr -> xpore;
+    sig_pr -> yano;
+
+    /* alignment-level tools (single-sample) */
+    aln_gn -> eligos;
+    aln_gn -> epinano;
+    aln_gn -> nanospa;
+    reference -> eligos [style = "dashed", color = "#888"];
+    reference -> epinano [style = "dashed", color = "#888"];
+
+    /* alignment-level tools (paired/contrast) */
+    aln_gn -> epinano_d;
+    aln_gn -> drummer;
+
+    /* post-processing */
+    cheui        -> pp1;
+    m6anet       -> pp2;
+    dena         -> pp3;
+    mines        -> pp4;
+    nanocomp     -> pp5;
+    xpore        -> pp6;
+    yano         -> pp7;
+    eligos       -> pp8;
+    epinano      -> pp9;
+    epinano_d    -> pp10;
+    nanospa      -> pp11;
+    drummer      -> pp12;
+
+    /* unification */
+    pp1  -> unified;
+    pp2  -> unified;
+    pp3  -> unified;
+    pp4  -> unified;
+    pp5  -> unified;
+    pp6  -> unified;
+    pp7  -> unified;
+    pp8  -> unified;
+    pp9  -> unified;
+    pp10 -> unified;
+    pp11 -> unified;
+    pp12 -> unified;
+
+    /* downstream */
+    unified -> summary;
+    unified -> kmer;
+    unified -> guitar;
+    unified -> depth;
+    unified -> liftover;
+    reference -> guitar [style = "dashed", color = "#888"];
+    reference -> liftover [style = "dashed", color = "#888"];
+
+    summary -> out1;
+    summary -> out2;
+    summary -> out3;
+    guitar  -> out4;
+    depth   -> out5;
+    liftover-> out6;
+
+    summary -> report;
+    guitar  -> report [style = "dashed", color = "#888"];
+    depth   -> report [style = "dashed", color = "#888"];
+    report  -> out7;
+
+    /* ============================================================
+       Rank constraints (keep similar nodes at the same level)
+       ============================================================ */
+    { rank = same; guppy; reference; }
+    { rank = same; aln_tx; aln_gn; }
+    { rank = same; cheui; m6anet; dena; mines; eligos; epinano; nanospa; }
+    { rank = same; nanocomp; xpore; yano; epinano_d; drummer; }
+    { rank = same; pp1; pp2; pp3; pp4; pp5; pp6; pp7; pp8; pp9; pp10; pp11; pp12; }
+    { rank = same; out1; out2; out3; out4; out5; out6; out7; }
+
+    /* ============================================================
+       Legend cluster (drawn as subgraph, not connected)
+       ============================================================ */
+    subgraph cluster_legend {
+        label = "Legend";
+        style = "rounded";
+        color = "#333333";
+        fontname = "Helvetica";
+        fontsize = 10;
+        node [style = "rounded,filled", shape = "box", width = 2.0];
+
+        L1 [label = "Raw sequencing input",      fillcolor = "#E8F4FD", color = "#2D72B8"];
+        L2 [label = "Core pre-processing",        fillcolor = "#FFF3E0", color = "#E67E22"];
+        L3 [label = "Signal-level detection tool",fillcolor = "#F3E5F5", color = "#7B1FA2"];
+        L4 [label = "Alignment-level detection",  fillcolor = "#E8F5E9", color = "#2E7D32"];
+        L5 [label = "Contrast tool (paired)",     fillcolor = "#FCE4EC", color = "#C2185B"];
+        L6 [label = "Normalisation / post-processing", fillcolor = "#FFF8E1", color = "#BF8F00"];
+        L7 [label = "Summary / reporting module", fillcolor = "#E0F2F1", color = "#00695C"];
+        L8 [label = "Final output file",          fillcolor = "white", color = "#555555", style = "rounded,dashed"];
+
+        L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> L7 -> L8 [style = invis];
+    }
+}
