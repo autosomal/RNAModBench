@@ -1,0 +1,9 @@
+data:
+   ko:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/Arabidopsis_fip37_rep1_transcripts
+   wt:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/Arabidopsis_fip37_rep3_transcripts
+out: $RNAMODBENCH_LOCAL/raw/result/xPore/Arabidopsis_fip37_result3
+criteria:
+   readcount_min: 20
+   readcount_max: 2000000

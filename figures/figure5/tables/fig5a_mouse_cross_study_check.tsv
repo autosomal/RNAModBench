@@ -1,0 +1,5 @@
+metric	n_tools_both	rank_spearman_rho	mean_abs_rank_diff	max_abs_rank_diff	studyA	studyB
+precision	13	0.93956	1.07692	2	mESCs_Mettl3_WT (SRP166020, tabulated only)	mES_WT (SRP357195, drawn in the panel)
+recall	13	0.884615	1.23077	4	mESCs_Mettl3_WT (SRP166020, tabulated only)	mES_WT (SRP357195, drawn in the panel)
+f1	13	0.587912	2.46154	6	mESCs_Mettl3_WT (SRP166020, tabulated only)	mES_WT (SRP357195, drawn in the panel)
+mcc	13	0.769231	2	5	mESCs_Mettl3_WT (SRP166020, tabulated only)	mES_WT (SRP357195, drawn in the panel)

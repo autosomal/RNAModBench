@@ -1,0 +1,7 @@
+tool	display	mod_type	tool_class	n_units_wt	n_units_ivt	ratio_mean_counts	ci_lo	ci_hi	ratio_pair_min	ratio_pair_max	ratio_pair_mean	ratio_union_raw	ratio_union_in_universe	bootstrap_B	bootstrap_seed	ci_basis
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	3	3	1.08104	0.635441	1.63845	0.496546	1.88495	1.11924	1.07171	1.08552	1000	20260920	unit-level percentile bootstrap (n=3 per condition)
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	3	3	1.15475	0.724659	1.87031	0.533952	2.28115	1.2701	1.07899	1.09748	1000	20260921	unit-level percentile bootstrap (n=3 per condition)
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	3	3	1.16428	0.687881	2.03131	0.51431	2.53018	1.32123	1.0592	1.08048	1000	20260922	unit-level percentile bootstrap (n=3 per condition)
+NanoNm	NanoNm	Nm	Intermediate	3	3	1.71405	0.848943	2.99287	0.540052	3.09202	1.93197	1.5305	1.54814	1000	20260923	unit-level percentile bootstrap (n=3 per condition)
+NanoPsu	NanoPsu	Psi	Sparse	3	3	0.834437	0.51265	1.36324	0.381944	1.62411	0.911608	0.767837	0.893443	1000	20260924	unit-level percentile bootstrap (n=3 per condition)
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	3	3	0.841762	0.51436	1.32905	0.377104	1.625	0.924523	0.781532	0.901408	1000	20260925	unit-level percentile bootstrap (n=3 per condition)

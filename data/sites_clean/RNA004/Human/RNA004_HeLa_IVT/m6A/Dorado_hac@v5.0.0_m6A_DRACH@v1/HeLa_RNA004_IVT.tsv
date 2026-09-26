@@ -1,0 +1,10 @@
+chrom	start	end	strand	score	score_type	mod_label	src_coverage	coverage	ref_base	five_mer_raw	center_status	drach
+chr1	19608118	19608119	+	0.9167	percent_modified/100	m6A	36	152	A	GCACC	ok	False
+chr11	72195380	72195381	+	0.9091	percent_modified/100	m6A	22	7930	A	GCACC	ok	False
+chr12	120282746	120282747	+	0.9111	percent_modified/100	m6A	45	132	A	GCACG	ok	False
+chr16	69711223	69711224	-	0.9551	percent_modified/100	m6A	156	8983	T	AATGC	ok	False
+chr16	69711226	69711227	-	0.902	percent_modified/100	m6A	51	8929	T	GCTAT	ok	False
+chr2	38482279	38482280	+	0.9167	percent_modified/100	m6A	108	954	A	TCACC	ok	False
+chr2	203191131	203191132	+	0.9286	percent_modified/100	m6A	70	1917	A	GCACC	ok	False
+chr20	58910691	58910692	+	1	percent_modified/100	m6A	23	6732	A	GCACT	ok	False
+chr6	73372897	73372898	-	0.9167	percent_modified/100	m6A	36	4508	T	TCTTT	ok	False

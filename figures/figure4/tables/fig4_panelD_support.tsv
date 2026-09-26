@@ -1,0 +1,61 @@
+rank	Species_Name	kmer	n_tools_support	is_rrach
+1	Arabidopsis	AGACA	9	True
+2	Arabidopsis	AAACU	8	True
+3	Arabidopsis	GGACA	8	True
+4	Arabidopsis	AAACA	7	True
+5	Arabidopsis	AGACC	7	True
+6	Arabidopsis	AGACU	7	True
+7	Arabidopsis	GGACC	7	True
+8	Arabidopsis	AAACC	6	True
+9	Arabidopsis	GGACU	6	True
+10	Arabidopsis	AAAAA	6	False
+11	Arabidopsis	GAACU	5	True
+12	Arabidopsis	CAAGA	5	False
+13	Arabidopsis	UGACU	5	False
+14	Arabidopsis	GAACA	4	True
+15	Arabidopsis	GAACC	4	True
+16	Arabidopsis	AAAGA	4	False
+17	Arabidopsis	AGACG	4	False
+18	Arabidopsis	CAAAA	4	False
+19	Arabidopsis	CAACU	4	False
+20	Arabidopsis	GAACG	4	False
+1	Human (HeLa)	GGACA	12	True
+2	Human (HeLa)	GGACU	12	True
+3	Human (HeLa)	GGACC	11	True
+4	Human (HeLa)	AGACU	10	True
+5	Human (HeLa)	AGACA	8	True
+6	Human (HeLa)	AAAAA	8	False
+7	Human (HeLa)	GAACU	6	True
+8	Human (HeLa)	UGACU	6	False
+9	Human (HeLa)	AAACA	5	True
+10	Human (HeLa)	AAACU	5	True
+11	Human (HeLa)	AGACC	5	True
+12	Human (HeLa)	CAAGA	5	False
+13	Human (HeLa)	GAACG	5	False
+14	Human (HeLa)	GGACG	5	False
+15	Human (HeLa)	GAACA	4	True
+16	Human (HeLa)	GAACC	4	True
+17	Human (HeLa)	AUAAA	4	False
+18	Human (HeLa)	CCAGC	4	False
+19	Human (HeLa)	GAAAA	4	False
+20	Human (HeLa)	GAAGA	4	False
+1	Mouse	GGACA	12	True
+2	Mouse	GGACU	12	True
+3	Mouse	GGACC	11	True
+4	Mouse	AGACU	10	True
+5	Mouse	AGACA	9	True
+6	Mouse	AAACU	7	True
+7	Mouse	AGACC	6	True
+8	Mouse	GAACU	6	True
+9	Mouse	UGACU	6	False
+10	Mouse	AAACA	5	True
+11	Mouse	AAAAA	5	False
+12	Mouse	GAACA	4	True
+13	Mouse	GAACC	4	True
+14	Mouse	AAAGA	4	False
+15	Mouse	AAAGU	4	False
+16	Mouse	ACAUG	4	False
+17	Mouse	AGAAA	4	False
+18	Mouse	AGAGU	4	False
+19	Mouse	GAAGU	4	False
+20	Mouse	GGAGU	4	False

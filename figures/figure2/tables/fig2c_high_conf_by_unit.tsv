@@ -1,0 +1,12 @@
+species	sample	replicate_tag	unit	study	quorum	n_sites_total	n_sites_support_ge5
+Arabidopsis	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	2	189275	978
+Arabidopsis	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	2	177245	1294
+Arabidopsis	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	2	164007	1186
+Arabidopsis	<majority consensus>				2	981	981
+Mouse	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	2	218717	2400
+Mouse	mES_WT	studyB	mES_WT	SRP357195	2	305374	4522
+Mouse	<majority consensus>				2	1409	1409
+Human	HeLa_WT1	rep1	HeLa_WT1	SRP393373	2	152660	1646
+Human	HeLa_WT2	rep2	HeLa_WT2	SRP393373	2	236609	1698
+Human	HeLa_WT3	rep3	HeLa_WT3	SRP393373	2	119729	1173
+Human	<majority consensus>				2	1155	1155

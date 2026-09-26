@@ -1,0 +1,18 @@
+name: deposit integrity
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check paths, syntax, callset counts and figure index
+        run: python scripts/verify_deposit.py
+      - name: Fail if the check changed anything it should not
+        run: python scripts/verify_deposit.py

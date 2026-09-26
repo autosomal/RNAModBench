@@ -1,0 +1,7 @@
+species	cond_group	role	n_units_drawn	quorum	n_sites_drawn_consensus	n_sites_majority_of_drawn_units	n_sites_union_of_drawn_units	consensus_definition
+Arabidopsis	Arabidopsis_WT	WT	3	2	159651	126512	330603	21b majority _pooled ALL.bed (union over tools of each tool's majority set)
+Arabidopsis	Arabidopsis_KD	treated	3	2	83539	68962	196919	21b majority _pooled ALL.bed (union over tools of each tool's majority set)
+Mouse	Mouse_WT	WT	2	2	113046	90691	433383	21b majority _pooled ALL.bed (union over tools of each tool's majority set)
+Mouse	Mouse_KO	treated	2	2	162780	49532	323227	21b majority _pooled ALL.bed (union over tools of each tool's majority set)
+Human	HeLa_WT	WT	3	2	128608	104355	357571	21b majority _pooled ALL.bed (union over tools of each tool's majority set)
+Human	HeLa_IVT	treated	3	2	139677	121597	343360	21b majority _pooled ALL.bed (union over tools of each tool's majority set)

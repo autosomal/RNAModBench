@@ -1,0 +1,14 @@
+% Assemble the delivered Figure 7 from its two rows, both drawn at final size:
+%   Figure7_rev_AC.pdf  rows A-C (matplotlib, 180 mm x 144.8 mm)
+%   Figure7_rev_D.pdf   row D   (Guitar / ggplot2, 180 mm x 101.6 mm)
+% Usage: pdflatex -interaction=nonstopmode assemble_fig7.tex
+\documentclass{article}
+\usepackage[paperwidth=180mm,paperheight=248mm,margin=0pt,noheadfoot]{geometry}
+\usepackage{graphicx}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\begin{document}
+\setlength{\baselineskip}{0pt}\setlength{\parskip}{0pt}\setlength{\lineskip}{0pt}
+\noindent\includegraphics[width=180mm]{../figures/Figure7_rev_AC.pdf}\par\nointerlineskip
+\noindent\includegraphics[width=180mm]{../figures/Figure7_rev_D.pdf}
+\end{document}

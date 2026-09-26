@@ -1,0 +1,13 @@
+chrom	start	end	strand	score	score_type	mod_ratio	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake1	1386	1387	+	0.533337	Prob	0.297851	27303	A	GGACT	ok	True
+Curlcake2	2076	2077	+	0.83288	Prob	0.397087	133098	A	GAACT	ok	True
+Curlcake3	399	400	+	0.554233	Prob	0.313546	61851	A	GGACT	ok	True
+Curlcake3	645	646	+	0.736495	Prob	0.413083	67668	A	GAACT	ok	True
+Curlcake3	675	676	+	0.511816	Prob	0.262499	68854	A	GAACT	ok	True
+Curlcake3	1387	1388	+	0.512053	Prob	0.24356	95264	A	GAACT	ok	True
+Curlcake3	1495	1496	+	0.77265	Prob	0.436731	98612	A	GAACT	ok	True
+Curlcake3	2605	2606	+	0.606087	Prob	0.354307	92116	A	GGACT	ok	True
+Curlcake4	399	400	+	0.990367	Prob	0.76927	74157	A	GGACA	ok	True
+Curlcake4	425	426	+	0.507643	Prob	0.238781	74404	A	TGACT	ok	True
+Curlcake4	579	580	+	0.666852	Prob	0.398255	78819	A	GAACC	ok	True
+Curlcake4	1677	1678	+	0.581458	Prob	0.374325	103294	A	GAACT	ok	True

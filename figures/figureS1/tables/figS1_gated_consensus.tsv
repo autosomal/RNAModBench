@@ -1,0 +1,7 @@
+species	tool	cond_group	cond_label	n_sites	status
+Mouse	NanoSPA_m6A	Mouse_KO	Mettl3 KO	18	gated
+Human	Nanocompore	HeLa_IVT	IVT	55	gated
+Human	NanoSPA_m6A	HeLa_IVT	IVT	94	gated
+Arabidopsis	DRUMMER	Arabidopsis_KD	fip37 KD	6	suppressed_diff
+Human	DRUMMER	HeLa_IVT	IVT	11	suppressed_diff
+Human	ELIGOS2_diff	HeLa_IVT	IVT	24	suppressed_diff

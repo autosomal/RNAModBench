@@ -1,0 +1,15 @@
+
+input: $RNAMODBENCH_LOCAL/raw/result/CHEUI-diff/result1/CHEUI_m6A_read_level_result1.sorted.txt  
+
+
+sample_labels:
+    condition1:
+        rep1: RNAAB089716_m6A
+    condition2:
+        rep1: RNA081120181part_m6A
+
+upper_cutoff: 0.5
+
+lower_cutoff: 0.5
+
+out: $RNAMODBENCH_LOCAL/raw/result/CHEUI-diff/result1/CHEUI_differentialRNAMod_result1.txt

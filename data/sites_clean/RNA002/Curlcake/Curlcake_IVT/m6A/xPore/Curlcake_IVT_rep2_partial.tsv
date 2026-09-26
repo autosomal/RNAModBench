@@ -1,0 +1,15 @@
+chrom	start	end	strand	score	score_type	frac_diff	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake1	2122	2123	+	3.32247e-157	FDR	0.136526	3819	A	ATATC	ok	False
+Curlcake1	1620	1621	+	1.19911e-71	FDR	0.10256	2504	A	CCATG	ok	False
+Curlcake3	257	258	+	4.919e-12	FDR	-0.111714	4407	A	ACACA	ok	False
+Curlcake3	1005	1006	+	2.48393e-11	FDR	-0.10489	6029	A	GGATA	ok	False
+Curlcake3	567	568	+	8.95638e-23	FDR	0.148698	4926	A	TAACA	ok	True
+Curlcake3	691	692	+	3.9045e-40	FDR	-0.164001	5229	A	GCACT	ok	False
+Curlcake2	2226	2227	+	8.81406e-54	FDR	0.102531	10570	A	ATATC	ok	False
+Curlcake2	2415	2416	+	1.67838e-99	FDR	-0.136332	10322	A	GTACC	ok	False
+Curlcake2	35	36	+	5.88761e-60	FDR	0.478662	965	A	GAAGC	ok	False
+Curlcake2	1993	1994	+	2.1188e-59	FDR	0.100194	10093	A	GCACT	ok	False
+Curlcake2	2478	2479	+	8.56229e-99	FDR	0.126991	8882	A	ACAAA	ok	False
+Curlcake4	326	327	+	4.73347e-32	FDR	0.11453	5555	A	ATACA	ok	False
+Curlcake4	2133	2134	+	1.09276e-63	FDR	-0.100723	9153	A	AAACG	ok	False
+Curlcake4	2453	2454	+	2.2099e-126	FDR	-0.135535	10197	A	GTATT	ok	False

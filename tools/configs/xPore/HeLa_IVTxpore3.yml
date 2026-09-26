@@ -1,0 +1,9 @@
+data:
+   ko:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/HeLa_IVT_rep2_transcripts
+   wt:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/HeLa_IVT_rep3_transcripts
+out: $RNAMODBENCH_LOCAL/raw/result/xPore/HeLa_IVTresult3
+criteria:
+   readcount_min: 20
+   readcount_max: 2000000

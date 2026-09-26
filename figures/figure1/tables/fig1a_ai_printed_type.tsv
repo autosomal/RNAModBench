@@ -1,0 +1,12 @@
+key	value
+source_pdf	$RNAMODBENCH_LOCAL/figures_original/Fig1a.pdf
+source_page_pt	595.276 x 158.261
+letter_a_dropped	yes (vector, content stream)
+crop_pt	18.66,11.80,573.42,123.52
+scale	0.876882
+printed_pt_min	2.48
+printed_pt_median	7.30
+printed_pt_max	20.61
+strip_pt	486.4591 x 121.00
+images_in_strip	0 (fully vector)
+note	panel A: artwork look and own type sizes; DIC spot inks kept as Separation/Lab

@@ -1,0 +1,365 @@
+species_group	tool	window	n_units	pr_auc_mean	pr_auc_sd
+Arabidopsis	CHEUI_m6A	0	3	8.93063e-05	2.64498e-05
+Arabidopsis	CHEUI_m6A	1	3	0.000220314	6.31486e-05
+Arabidopsis	CHEUI_m6A	2	3	0.000471745	0.000105292
+Arabidopsis	CHEUI_m6A	5	3	0.00122014	0.000172441
+Arabidopsis	CHEUI_m6A	10	3	0.00249995	0.000325241
+Arabidopsis	CHEUI_m6A	20	3	0.00454112	0.000716169
+Arabidopsis	CHEUI_m6A	50	3	0.00923887	0.00161328
+Arabidopsis	DENA	0	3	0.0488506	0.000415411
+Arabidopsis	DENA	1	3	0.0489031	0.000411318
+Arabidopsis	DENA	2	3	0.0492703	0.000386299
+Arabidopsis	DENA	5	3	0.0512622	0.000590429
+Arabidopsis	DENA	10	3	0.054172	0.000741784
+Arabidopsis	DENA	20	3	0.058143	0.00126358
+Arabidopsis	DENA	50	3	0.0675068	0.00219708
+Arabidopsis	DRUMMER	0	3	0.000663706	0.000337392
+Arabidopsis	DRUMMER	1	3	0.00123922	0.000657909
+Arabidopsis	DRUMMER	2	3	0.00693907	0.00293102
+Arabidopsis	DRUMMER	5	3	0.00852445	0.00317962
+Arabidopsis	DRUMMER	10	3	0.00855855	0.00321586
+Arabidopsis	DRUMMER	20	3	0.00858175	0.0032232
+Arabidopsis	DRUMMER	50	3	0.00858175	0.0032232
+Arabidopsis	ELIGOS2_diff	0	3	0.00327993	0.00170162
+Arabidopsis	ELIGOS2_diff	1	3	0.00507757	0.00258841
+Arabidopsis	ELIGOS2_diff	2	3	0.0135101	0.00487328
+Arabidopsis	ELIGOS2_diff	5	3	0.0184877	0.00584631
+Arabidopsis	ELIGOS2_diff	10	3	0.0185116	0.00584023
+Arabidopsis	ELIGOS2_diff	20	3	0.0186093	0.00590257
+Arabidopsis	ELIGOS2_diff	50	3	0.0187266	0.00594698
+Arabidopsis	ELIGOS2_solo	0	3	0.0120237	0.000873428
+Arabidopsis	ELIGOS2_solo	1	3	0.0199565	0.00160747
+Arabidopsis	ELIGOS2_solo	2	3	0.0408752	0.00633265
+Arabidopsis	ELIGOS2_solo	5	3	0.0623297	0.0101905
+Arabidopsis	ELIGOS2_solo	10	3	0.0752598	0.0118535
+Arabidopsis	ELIGOS2_solo	20	3	0.0909346	0.01402
+Arabidopsis	ELIGOS2_solo	50	3	0.119851	0.0182715
+Arabidopsis	EpiNano_Error	0	3	0.00240336	0.000989418
+Arabidopsis	EpiNano_Error	1	3	0.00501835	0.00203789
+Arabidopsis	EpiNano_Error	2	3	0.0156378	0.00591587
+Arabidopsis	EpiNano_Error	5	3	0.0256581	0.00908856
+Arabidopsis	EpiNano_Error	10	3	0.0284207	0.0103184
+Arabidopsis	EpiNano_Error	20	3	0.0309145	0.0116151
+Arabidopsis	EpiNano_Error	50	3	0.0360129	0.0145108
+Arabidopsis	m6Anet	0	3	0.0802769	0.0017086
+Arabidopsis	m6Anet	1	3	0.0803485	0.00171886
+Arabidopsis	m6Anet	2	3	0.080676	0.00176778
+Arabidopsis	m6Anet	5	3	0.081133	0.00184045
+Arabidopsis	m6Anet	10	3	0.082338	0.00209389
+Arabidopsis	m6Anet	20	3	0.0846361	0.00245172
+Arabidopsis	m6Anet	50	3	0.0900721	0.00317573
+Arabidopsis	MINES	0	3	0.0170177	0.00109356
+Arabidopsis	MINES	1	3	0.0170787	0.00109935
+Arabidopsis	MINES	2	3	0.0175239	0.0010718
+Arabidopsis	MINES	5	3	0.0196758	0.00102604
+Arabidopsis	MINES	10	3	0.0225302	0.00112871
+Arabidopsis	MINES	20	3	0.0262719	0.00129089
+Arabidopsis	MINES	50	3	0.0376368	0.0020476
+Arabidopsis	Nanocompore	0	3	0.00392497	0.000974918
+Arabidopsis	Nanocompore	1	3	0.00479319	0.00123791
+Arabidopsis	Nanocompore	2	3	0.00555728	0.00157673
+Arabidopsis	Nanocompore	5	3	0.00589436	0.0018398
+Arabidopsis	Nanocompore	10	3	0.00636984	0.00225751
+Arabidopsis	Nanocompore	20	3	0.00663839	0.0025823
+Arabidopsis	Nanocompore	50	3	0.00713669	0.00326264
+Arabidopsis	Nanom6A	0	3	0.0211351	0.022972
+Arabidopsis	Nanom6A	1	3	0.02169	0.0225036
+Arabidopsis	Nanom6A	2	3	0.0222594	0.0226448
+Arabidopsis	Nanom6A	5	3	0.0244058	0.0226423
+Arabidopsis	Nanom6A	10	3	0.0263468	0.0231281
+Arabidopsis	Nanom6A	20	3	0.0289344	0.0241205
+Arabidopsis	Nanom6A	50	3	0.036102	0.0258575
+Arabidopsis	NanoSPA_m6A	0	3	0.015412	0.000797564
+Arabidopsis	NanoSPA_m6A	1	3	0.015412	0.000797564
+Arabidopsis	NanoSPA_m6A	2	3	0.0154586	0.000838746
+Arabidopsis	NanoSPA_m6A	5	3	0.0154818	0.000833232
+Arabidopsis	NanoSPA_m6A	10	3	0.0158476	0.000835812
+Arabidopsis	NanoSPA_m6A	20	3	0.0163859	0.000741309
+Arabidopsis	NanoSPA_m6A	50	3	0.017468	0.000607991
+Arabidopsis	xPore	0	3	0.0100531	0.00426975
+Arabidopsis	xPore	1	3	0.0171129	0.00795951
+Arabidopsis	xPore	2	3	0.0209	0.0102109
+Arabidopsis	xPore	5	3	0.025617	0.0119651
+Arabidopsis	xPore	10	3	0.0309931	0.0141277
+Arabidopsis	xPore	20	3	0.0375414	0.0163897
+Arabidopsis	xPore	50	3	0.0497166	0.0211427
+Arabidopsis	yanocomp	0	3	0.0092817	0.00255383
+Arabidopsis	yanocomp	1	3	0.0164849	0.00519354
+Arabidopsis	yanocomp	2	3	0.0249179	0.0102147
+Arabidopsis	yanocomp	5	3	0.0292208	0.0134619
+Arabidopsis	yanocomp	10	3	0.0314613	0.0154698
+Arabidopsis	yanocomp	20	3	0.0336364	0.0175531
+Arabidopsis	yanocomp	50	3	0.0377061	0.0217422
+Mouse_studyA	CHEUI_m6A	0	1	5.65726e-05	
+Mouse_studyA	CHEUI_m6A	1	1	8.91613e-05	
+Mouse_studyA	CHEUI_m6A	2	1	0.000175714	
+Mouse_studyA	CHEUI_m6A	5	1	0.000559325	
+Mouse_studyA	CHEUI_m6A	10	1	0.00169586	
+Mouse_studyA	CHEUI_m6A	20	1	0.00466471	
+Mouse_studyA	CHEUI_m6A	50	1	0.0195027	
+Mouse_studyA	DENA	0	1	0.0742123	
+Mouse_studyA	DENA	1	1	0.0742338	
+Mouse_studyA	DENA	2	1	0.0742524	
+Mouse_studyA	DENA	5	1	0.0773606	
+Mouse_studyA	DENA	10	1	0.0880113	
+Mouse_studyA	DENA	20	1	0.109871	
+Mouse_studyA	DENA	50	1	0.173279	
+Mouse_studyA	DRUMMER	0	1	0.00710743	
+Mouse_studyA	DRUMMER	1	1	0.00781855	
+Mouse_studyA	DRUMMER	2	1	0.0186179	
+Mouse_studyA	DRUMMER	5	1	0.0196334	
+Mouse_studyA	DRUMMER	10	1	0.0197429	
+Mouse_studyA	DRUMMER	20	1	0.0203226	
+Mouse_studyA	DRUMMER	50	1	0.0222423	
+Mouse_studyA	ELIGOS2_diff	0	1	0.0103779	
+Mouse_studyA	ELIGOS2_diff	1	1	0.010733	
+Mouse_studyA	ELIGOS2_diff	2	1	0.0213825	
+Mouse_studyA	ELIGOS2_diff	5	1	0.027533	
+Mouse_studyA	ELIGOS2_diff	10	1	0.0276002	
+Mouse_studyA	ELIGOS2_diff	20	1	0.0287178	
+Mouse_studyA	ELIGOS2_diff	50	1	0.0318822	
+Mouse_studyA	ELIGOS2_solo	0	1	0.0075074	
+Mouse_studyA	ELIGOS2_solo	1	1	0.00877832	
+Mouse_studyA	ELIGOS2_solo	2	1	0.0163955	
+Mouse_studyA	ELIGOS2_solo	5	1	0.0300546	
+Mouse_studyA	ELIGOS2_solo	10	1	0.0441702	
+Mouse_studyA	ELIGOS2_solo	20	1	0.0781246	
+Mouse_studyA	ELIGOS2_solo	50	1	0.19469	
+Mouse_studyA	EpiNano_Error	0	1	0.00651826	
+Mouse_studyA	EpiNano_Error	1	1	0.00767153	
+Mouse_studyA	EpiNano_Error	2	1	0.0170103	
+Mouse_studyA	EpiNano_Error	5	1	0.0251155	
+Mouse_studyA	EpiNano_Error	10	1	0.0308169	
+Mouse_studyA	EpiNano_Error	20	1	0.0431036	
+Mouse_studyA	EpiNano_Error	50	1	0.0828222	
+Mouse_studyA	m6Anet	0	1	0.244759	
+Mouse_studyA	m6Anet	1	1	0.244804	
+Mouse_studyA	m6Anet	2	1	0.244804	
+Mouse_studyA	m6Anet	5	1	0.24839	
+Mouse_studyA	m6Anet	10	1	0.257872	
+Mouse_studyA	m6Anet	20	1	0.281708	
+Mouse_studyA	m6Anet	50	1	0.353048	
+Mouse_studyA	MINES	0	1	0.0436714	
+Mouse_studyA	MINES	1	1	0.0437309	
+Mouse_studyA	MINES	2	1	0.0437931	
+Mouse_studyA	MINES	5	1	0.0478978	
+Mouse_studyA	MINES	10	1	0.0613572	
+Mouse_studyA	MINES	20	1	0.0883138	
+Mouse_studyA	MINES	50	1	0.178102	
+Mouse_studyA	Nanocompore	0	1	0.00762536	
+Mouse_studyA	Nanocompore	1	1	0.00768294	
+Mouse_studyA	Nanocompore	2	1	0.00777159	
+Mouse_studyA	Nanocompore	5	1	0.00820847	
+Mouse_studyA	Nanocompore	10	1	0.00860016	
+Mouse_studyA	Nanocompore	20	1	0.0095153	
+Mouse_studyA	Nanocompore	50	1	0.0120259	
+Mouse_studyA	Nanom6A	0	1	0.00524692	
+Mouse_studyA	Nanom6A	1	1	0.00538071	
+Mouse_studyA	Nanom6A	2	1	0.00541405	
+Mouse_studyA	Nanom6A	5	1	0.00613588	
+Mouse_studyA	Nanom6A	10	1	0.00836441	
+Mouse_studyA	Nanom6A	20	1	0.0126364	
+Mouse_studyA	Nanom6A	50	1	0.025414	
+Mouse_studyA	NanoSPA_m6A	0	1	0.0546571	
+Mouse_studyA	NanoSPA_m6A	1	1	0.0546571	
+Mouse_studyA	NanoSPA_m6A	2	1	0.0546571	
+Mouse_studyA	NanoSPA_m6A	5	1	0.054699	
+Mouse_studyA	NanoSPA_m6A	10	1	0.0555216	
+Mouse_studyA	NanoSPA_m6A	20	1	0.0578588	
+Mouse_studyA	NanoSPA_m6A	50	1	0.0706228	
+Mouse_studyA	xPore	0	1	0.0144166	
+Mouse_studyA	xPore	1	1	0.0156745	
+Mouse_studyA	xPore	2	1	0.0169164	
+Mouse_studyA	xPore	5	1	0.0212422	
+Mouse_studyA	xPore	10	1	0.0281691	
+Mouse_studyA	xPore	20	1	0.0463152	
+Mouse_studyA	xPore	50	1	0.112025	
+Mouse_studyA	yanocomp	0	1	0.00883074	
+Mouse_studyA	yanocomp	1	1	0.00951911	
+Mouse_studyA	yanocomp	2	1	0.0108683	
+Mouse_studyA	yanocomp	5	1	0.0126993	
+Mouse_studyA	yanocomp	10	1	0.0160251	
+Mouse_studyA	yanocomp	20	1	0.0242178	
+Mouse_studyA	yanocomp	50	1	0.050019	
+Mouse_studyB	CHEUI_m6A	0	1	7.61989e-05	
+Mouse_studyB	CHEUI_m6A	1	1	0.00012402	
+Mouse_studyB	CHEUI_m6A	2	1	0.000253446	
+Mouse_studyB	CHEUI_m6A	5	1	0.000845343	
+Mouse_studyB	CHEUI_m6A	10	1	0.00235562	
+Mouse_studyB	CHEUI_m6A	20	1	0.00644675	
+Mouse_studyB	CHEUI_m6A	50	1	0.0245644	
+Mouse_studyB	DENA	0	1	0.0604121	
+Mouse_studyB	DENA	1	1	0.0604235	
+Mouse_studyB	DENA	2	1	0.0604795	
+Mouse_studyB	DENA	5	1	0.0631084	
+Mouse_studyB	DENA	10	1	0.0703879	
+Mouse_studyB	DENA	20	1	0.0845603	
+Mouse_studyB	DENA	50	1	0.127351	
+Mouse_studyB	DRUMMER	0	1	0.0185285	
+Mouse_studyB	DRUMMER	1	1	0.0204896	
+Mouse_studyB	DRUMMER	2	1	0.0433673	
+Mouse_studyB	DRUMMER	5	1	0.0457279	
+Mouse_studyB	DRUMMER	10	1	0.0459885	
+Mouse_studyB	DRUMMER	20	1	0.0468246	
+Mouse_studyB	DRUMMER	50	1	0.0522796	
+Mouse_studyB	ELIGOS2_diff	0	1	0.032233	
+Mouse_studyB	ELIGOS2_diff	1	1	0.0336772	
+Mouse_studyB	ELIGOS2_diff	2	1	0.0668188	
+Mouse_studyB	ELIGOS2_diff	5	1	0.0885792	
+Mouse_studyB	ELIGOS2_diff	10	1	0.0901147	
+Mouse_studyB	ELIGOS2_diff	20	1	0.0928912	
+Mouse_studyB	ELIGOS2_diff	50	1	0.105646	
+Mouse_studyB	ELIGOS2_solo	0	1	0.00581884	
+Mouse_studyB	ELIGOS2_solo	1	1	0.00652796	
+Mouse_studyB	ELIGOS2_solo	2	1	0.0123061	
+Mouse_studyB	ELIGOS2_solo	5	1	0.0216323	
+Mouse_studyB	ELIGOS2_solo	10	1	0.0314466	
+Mouse_studyB	ELIGOS2_solo	20	1	0.0534072	
+Mouse_studyB	ELIGOS2_solo	50	1	0.125779	
+Mouse_studyB	EpiNano_Error	0	1	0.0067161	
+Mouse_studyB	EpiNano_Error	1	1	0.00818613	
+Mouse_studyB	EpiNano_Error	2	1	0.0168604	
+Mouse_studyB	EpiNano_Error	5	1	0.0259881	
+Mouse_studyB	EpiNano_Error	10	1	0.0307245	
+Mouse_studyB	EpiNano_Error	20	1	0.0409386	
+Mouse_studyB	EpiNano_Error	50	1	0.0741611	
+Mouse_studyB	m6Anet	0	1	0.204045	
+Mouse_studyB	m6Anet	1	1	0.204075	
+Mouse_studyB	m6Anet	2	1	0.204075	
+Mouse_studyB	m6Anet	5	1	0.206346	
+Mouse_studyB	m6Anet	10	1	0.212668	
+Mouse_studyB	m6Anet	20	1	0.228062	
+Mouse_studyB	m6Anet	50	1	0.279223	
+Mouse_studyB	MINES	0	1	0.0253402	
+Mouse_studyB	MINES	1	1	0.0253721	
+Mouse_studyB	MINES	2	1	0.0254328	
+Mouse_studyB	MINES	5	1	0.0280808	
+Mouse_studyB	MINES	10	1	0.0353315	
+Mouse_studyB	MINES	20	1	0.049997	
+Mouse_studyB	MINES	50	1	0.0989925	
+Mouse_studyB	Nanocompore	0	1	0.0435566	
+Mouse_studyB	Nanocompore	1	1	0.04479	
+Mouse_studyB	Nanocompore	2	1	0.045598	
+Mouse_studyB	Nanocompore	5	1	0.046123	
+Mouse_studyB	Nanocompore	10	1	0.0470277	
+Mouse_studyB	Nanocompore	20	1	0.0491485	
+Mouse_studyB	Nanocompore	50	1	0.0567887	
+Mouse_studyB	Nanom6A	0	1	0.0718455	
+Mouse_studyB	Nanom6A	1	1	0.0718862	
+Mouse_studyB	Nanom6A	2	1	0.0719426	
+Mouse_studyB	Nanom6A	5	1	0.0737012	
+Mouse_studyB	Nanom6A	10	1	0.0789107	
+Mouse_studyB	Nanom6A	20	1	0.0894181	
+Mouse_studyB	Nanom6A	50	1	0.119687	
+Mouse_studyB	NanoSPA_m6A	0	1	0.0476227	
+Mouse_studyB	NanoSPA_m6A	1	1	0.0476227	
+Mouse_studyB	NanoSPA_m6A	2	1	0.0476227	
+Mouse_studyB	NanoSPA_m6A	5	1	0.0478429	
+Mouse_studyB	NanoSPA_m6A	10	1	0.0484204	
+Mouse_studyB	NanoSPA_m6A	20	1	0.0498546	
+Mouse_studyB	NanoSPA_m6A	50	1	0.0591415	
+Mouse_studyB	xPore	0	1	0.0798207	
+Mouse_studyB	xPore	1	1	0.0849845	
+Mouse_studyB	xPore	2	1	0.0879845	
+Mouse_studyB	xPore	5	1	0.0941923	
+Mouse_studyB	xPore	10	1	0.102208	
+Mouse_studyB	xPore	20	1	0.121086	
+Mouse_studyB	xPore	50	1	0.185822	
+Mouse_studyB	yanocomp	0	1	0.0382846	
+Mouse_studyB	yanocomp	1	1	0.0421996	
+Mouse_studyB	yanocomp	2	1	0.0473949	
+Mouse_studyB	yanocomp	5	1	0.0512461	
+Mouse_studyB	yanocomp	10	1	0.053565	
+Mouse_studyB	yanocomp	20	1	0.0579045	
+Mouse_studyB	yanocomp	50	1	0.0701744	
+HeLa	CHEUI_m6A	0	3	5.78827e-05	2.40074e-05
+HeLa	CHEUI_m6A	1	3	8.64433e-05	3.30008e-05
+HeLa	CHEUI_m6A	2	3	0.000156158	5.15247e-05
+HeLa	CHEUI_m6A	5	3	0.000525973	8.20389e-05
+HeLa	CHEUI_m6A	10	3	0.00157159	0.000261797
+HeLa	CHEUI_m6A	20	3	0.00486561	0.000953344
+HeLa	CHEUI_m6A	50	3	0.0183985	0.00188431
+HeLa	DENA	0	3	0.0297265	0.0221327
+HeLa	DENA	1	3	0.0297494	0.0221433
+HeLa	DENA	2	3	0.0297494	0.0221433
+HeLa	DENA	5	3	0.0307772	0.0226114
+HeLa	DENA	10	3	0.0343994	0.0243564
+HeLa	DENA	20	3	0.0417391	0.0273458
+HeLa	DENA	50	3	0.0634188	0.0356305
+HeLa	DRUMMER	0	3	0.00474995	0.00176506
+HeLa	DRUMMER	1	3	0.00508038	0.0019811
+HeLa	DRUMMER	2	3	0.00950165	0.00344604
+HeLa	DRUMMER	5	3	0.00971254	0.00351763
+HeLa	DRUMMER	10	3	0.00973811	0.00355641
+HeLa	DRUMMER	20	3	0.00990602	0.00365173
+HeLa	DRUMMER	50	3	0.0103112	0.00366299
+HeLa	ELIGOS2_diff	0	3	0.0101874	0.00231723
+HeLa	ELIGOS2_diff	1	3	0.0105205	0.00241478
+HeLa	ELIGOS2_diff	2	3	0.0200947	0.00427938
+HeLa	ELIGOS2_diff	5	3	0.0255541	0.00413773
+HeLa	ELIGOS2_diff	10	3	0.026199	0.0039407
+HeLa	ELIGOS2_diff	20	3	0.0268671	0.00392106
+HeLa	ELIGOS2_diff	50	3	0.0295459	0.00400657
+HeLa	ELIGOS2_solo	0	3	0.00422064	0.00124103
+HeLa	ELIGOS2_solo	1	3	0.00467015	0.00135436
+HeLa	ELIGOS2_solo	2	3	0.00845194	0.00251018
+HeLa	ELIGOS2_solo	5	3	0.0148469	0.00317261
+HeLa	ELIGOS2_solo	10	3	0.0213805	0.00323391
+HeLa	ELIGOS2_solo	20	3	0.0370688	0.00228246
+HeLa	ELIGOS2_solo	50	3	0.0900085	0.00297857
+HeLa	EpiNano_Error	0	3	0.00200114	0.000559745
+HeLa	EpiNano_Error	1	3	0.00250154	0.000670806
+HeLa	EpiNano_Error	2	3	0.0045726	0.00103376
+HeLa	EpiNano_Error	5	3	0.00768608	0.00121456
+HeLa	EpiNano_Error	10	3	0.0112182	0.00136969
+HeLa	EpiNano_Error	20	3	0.0187487	0.00117746
+HeLa	EpiNano_Error	50	3	0.0431729	0.00232652
+HeLa	m6Anet	0	3	0.1223	0.0166828
+HeLa	m6Anet	1	3	0.1223	0.0166828
+HeLa	m6Anet	2	3	0.1223	0.0166828
+HeLa	m6Anet	5	3	0.123245	0.0168699
+HeLa	m6Anet	10	3	0.125202	0.0171297
+HeLa	m6Anet	20	3	0.129576	0.0180801
+HeLa	m6Anet	50	3	0.140112	0.0187869
+HeLa	MINES	0	3	0.0257895	0.00289493
+HeLa	MINES	1	3	0.0257947	0.00289514
+HeLa	MINES	2	3	0.0258189	0.0029015
+HeLa	MINES	5	3	0.0276865	0.00305606
+HeLa	MINES	10	3	0.0341627	0.00365867
+HeLa	MINES	20	3	0.0454671	0.00479686
+HeLa	MINES	50	3	0.0789399	0.00726841
+HeLa	Nanocompore	0	3	0.00508274	0.00246864
+HeLa	Nanocompore	1	3	0.00515805	0.00251239
+HeLa	Nanocompore	2	3	0.00525747	0.0026231
+HeLa	Nanocompore	5	3	0.00540838	0.00269153
+HeLa	Nanocompore	10	3	0.00566905	0.00277129
+HeLa	Nanocompore	20	3	0.0063663	0.00317688
+HeLa	Nanocompore	50	3	0.0075276	0.00374834
+HeLa	Nanom6A	0	3	0.0807118	0.0140071
+HeLa	Nanom6A	1	3	0.0807447	0.0140373
+HeLa	Nanom6A	2	3	0.0807447	0.0140373
+HeLa	Nanom6A	5	3	0.0823209	0.0145172
+HeLa	Nanom6A	10	3	0.0872908	0.0161106
+HeLa	Nanom6A	20	3	0.0972456	0.0193101
+HeLa	Nanom6A	50	3	0.123118	0.0273952
+HeLa	NanoSPA_m6A	0	3	0.0422497	0.00477341
+HeLa	NanoSPA_m6A	1	3	0.0422497	0.00477341
+HeLa	NanoSPA_m6A	2	3	0.0422497	0.00477341
+HeLa	NanoSPA_m6A	5	3	0.0422669	0.00479791
+HeLa	NanoSPA_m6A	10	3	0.042332	0.00480075
+HeLa	NanoSPA_m6A	20	3	0.0425939	0.00495
+HeLa	NanoSPA_m6A	50	3	0.0435744	0.00539748
+HeLa	xPore	0	3	0.0197284	0.00419136
+HeLa	xPore	1	3	0.0204098	0.00448176
+HeLa	xPore	2	3	0.0211426	0.00459043
+HeLa	xPore	5	3	0.022982	0.00477334
+HeLa	xPore	10	3	0.0259469	0.00535672
+HeLa	xPore	20	3	0.0325867	0.00631588
+HeLa	xPore	50	3	0.0531271	0.0100204
+HeLa	yanocomp	0	3	0.00399068	0.00150356
+HeLa	yanocomp	1	3	0.00425532	0.00167945
+HeLa	yanocomp	2	3	0.00499663	0.00211716
+HeLa	yanocomp	5	3	0.00583476	0.00235062
+HeLa	yanocomp	10	3	0.00694961	0.00262032
+HeLa	yanocomp	20	3	0.00929443	0.00338299
+HeLa	yanocomp	50	3	0.0152688	0.00457764

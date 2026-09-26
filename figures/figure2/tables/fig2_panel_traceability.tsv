@@ -1,0 +1,8 @@
+panel	element	source	rule
+A1	scatter of counts	fig2a_testable_ratio.tsv (n_wt_common/n_ctrl_common)	per matched pair, shared universe
+A2	control/WT ratio	fig2a_testable_ratio.tsv	n_ctrl_common / n_wt_common (matches ko_kd_metrics.tsv exactly)
+B	support curve	fig2b_support_curves.tsv	k of 13 tools per unit; thick = species mean
+C	GO:BP terms	fig2c_gobp_<species>.tsv	clusterProfiler enrichGO on fig2c_genes_<species>.tsv (majority high-confidence vs universe genes)
+D	Jaccard	fig2d_wt_ctrl_jaccard.tsv	all WT x control unit pairs, raw call sets
+E	control-side FP	fig2d_ctrl_fp_by_unit.tsv	calls >2 bp from GLORI / n_universe x 1e6
+F	mean pairwise vs pooled	fig2e_replicate_consistency.tsv	pairwise Jaccard mean vs |inter|/|union| over WT units

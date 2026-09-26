@@ -1,0 +1,15 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake4	446	447	+	0.269208	m6a_ratio	74854	A	AAACA	ok	True
+Curlcake2	1927	1928	+	0.188156	m6a_ratio	126290	A	AAACA	ok	True
+Curlcake4	2669	2670	+	0.26006	m6a_ratio	124249	A	AAACA	ok	True
+Curlcake2	419	420	+	0.161846	m6a_ratio	77128	A	AAACA	ok	True
+Curlcake1	1145	1146	+	0.369043	m6a_ratio	23016	A	AAACC	ok	True
+Curlcake4	83	84	+	0.134334	m6a_ratio	63579	A	AAACT	ok	True
+Curlcake2	647	648	+	0.176164	m6a_ratio	81953	A	AAACT	ok	True
+Curlcake4	2256	2257	+	0.158474	m6a_ratio	126756	A	AGACA	ok	True
+Curlcake2	1798	1799	+	0.11667	m6a_ratio	121874	A	GAACA	ok	True
+Curlcake2	1067	1068	+	0.356121	m6a_ratio	93845	A	GAACC	ok	True
+Curlcake3	1495	1496	+	0.104267	m6a_ratio	98612	A	GAACT	ok	True
+Curlcake2	1663	1664	+	0.153854	m6a_ratio	115838	A	GAACT	ok	True
+Curlcake3	645	646	+	0.343775	m6a_ratio	67668	A	GAACT	ok	True
+Curlcake2	2076	2077	+	0.413738	m6a_ratio	133098	A	GAACT	ok	True

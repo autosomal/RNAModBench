@@ -1,0 +1,21 @@
+panel	quantity	value
+A	rows on the HeLa count matrix (no ORCA)	23 (Dorado 8, other m6A tools 5, other modification models 10)
+A	m6Anet detected sites, HeLa RNA004 WT	30327
+A	DRACH models detected sites, HeLa RNA004 IVT	2-10
+B	ORCA channels drawn (WT calls)	8 channels, 39-14784 calls
+C	Curcake false-positive calls, DRACH models (50 %)	0-4
+C	Curcake false-positive calls, non-DRACH m6A models (50 %)	10-13
+C	Curcake false positives per 10 kb, m6Anet	4.9
+C	Curcake false positives per 10 kb, NanoSPA_m6A	16.8
+C	entries on the Curlcake control	10
+C	specificity range on the Curlcake control	99.66-100.00 %
+D	ELIGOS2_solo hit rate 0 -> 50 bp	0.0043 -> 0.1429
+D	ELIGOS2_solo localization accuracy 0 -> 50 bp	1.0000 -> 0.0300
+D	m6Anet hit rate / accuracy 0 -> 50 bp	0.4763 -> 0.5268 / 1.0000 -> 0.9042
+D	best DRACH hit rate / accuracy 0 -> 50 bp	0.8208 -> 0.8573 / 1.0000 -> 0.9575
+E	m6Anet r vs GLORI (95 % CI)	0.653 (0.643-0.662), n = 14559
+E	m6Anet effect size (OLS slope of tool on GLORI ratio)	0.612 (0.600-0.623)
+G	m6Anet Lin's CCC (95 % CI)	0.645 (0.634-0.655)
+G	ratio tools, Lin's CCC range	9 (0.151-0.645)
+E	ratio tools on the r / slope blocks	9
+F	ratio tools with an effect size (slope, bootstrap CI)	9 (slopes 0.149-0.612)

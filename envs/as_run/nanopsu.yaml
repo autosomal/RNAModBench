@@ -1,0 +1,9 @@
+name: nanopsu
+dependencies:
+  - python=3.8
+  - minimap2
+  - samtools
+  - pip
+  - numpy=1.16
+  - scikit-learn=0.24.1
+  - pandas=0.24

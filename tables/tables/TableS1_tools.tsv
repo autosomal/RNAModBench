@@ -1,0 +1,18 @@
+# Table S1: Modification detection tools benchmarked in this study.
+Tool	Classification strategy	Classification method	Specific algorithms	Targeted modification	Modes evaluated in this study
+m6Anet	Signal (current)	Deep learning	Multiple-instance-learning neural network	m6A	de novo (RNA002 and RNA004-optimised models)
+MINES	Signal (current)	Machine learning	Random forest	m6A	de novo
+DENA	Signal (current)	Deep learning	Bidirectional LSTM	m6A	de novo
+Nanom6A	Signal (current)	Machine learning	XGBoost	m6A	de novo
+Yanocomp	Signal (current)	Machine learning + statistical test	Gaussian mixture model, G-test	m6A	de novo
+xPore	Signal (current)	Clustering	Multi-sample two-Gaussian mixture model	m6A	comparative (WT vs control)
+DRUMMER	Basecalling errors	Statistical test	Comparative profiling of basecall error rates, G-test	m6A	comparative (WT vs control)
+ELIGOS2	Basecalling errors	Statistical test	Fisher's exact test	m6A, m5C	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)
+EpiNano	Basecalling errors	Machine learning	Support vector machine (error features)	m6A	error-based mode (EpiNano_Error)
+Nanocompore	Signal (current)	Machine learning + statistical test	Two-GMM followed by logit test	m6A	comparative (WT vs control)
+CHEUI	Signal (current)	Deep learning + statistical test	Convolutional neural network, two-tailed Mann-Whitney U-test	m6A, m5C	CHEUI_m6A, CHEUI_m5C
+NanoSPA	Signal (current)	Machine learning	Feedforward neural network	m6A, Psi	NanoSPA_m6A, NanoSPA_Psi
+NanoMUD	Signal (current)	Machine learning + deep learning	Bidirectional LSTM, regression and motif-specific models	Psi, m1Psi	NanoMUD_Psi, NanoMUD_m1Psi
+NanoPsu	Basecalling errors	Machine learning + statistical test	U-to-C mismatch error analysis, EXT	Psi	de novo
+NanoNm	Signal (current)	Machine learning	XGBoost	Nm	de novo
+# note: RNA002 datasets for all tools; Dorado built-in modification models (RNA004) and the RNA004-optimised m6Anet model are reported separately in Fig. 8 / Fig. S8. Tool names follow the standardized nomenclature of the manuscript; versions and command lines are in Table S6.

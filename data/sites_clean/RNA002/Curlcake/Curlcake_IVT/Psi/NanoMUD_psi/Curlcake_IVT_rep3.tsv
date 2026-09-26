@@ -1,0 +1,4 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status
+Curlcake1	371	372	+	1	Prob	13895	T	TATCA	ok
+Curlcake2	2281	2282	+	1	Prob	135368	T	ACTTC	ok
+Curlcake3	1426	1427	+	0.960959	Prob	96208	T	TTTTG	ok

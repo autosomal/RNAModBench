@@ -1,0 +1,16 @@
+mod_type	tool	construct	construct_role	n_calls	n_calls_in_universe	n_calls_out_of_universe	universe_n	region_bp	fp_per_10kb	fp_per_1e6_candidates
+Nm	NanoNm	Curlcake_IVT_rep1	independent	39	39	0	9993	10135	38.480513073507645	3902.731912338637
+Nm	NanoNm	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	35	35	0	9994	10135	34.53379378391712	3502.101260756454
+Nm	NanoNm	Curlcake_IVT_rep3	independent	36	36	0	10005	10135	35.52047360631475	3598.2008995502247
+Psi	NanoMUD_psi	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0.0	0.0
+Psi	NanoMUD_psi	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	39	39	0	4916	10135	38.480513073507645	7933.279088689992
+Psi	NanoMUD_psi	Curlcake_IVT_rep3	independent	3	3	0	4921	10135	2.960039467192896	609.632188579557
+Psi	NanoPsu	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0.0	0.0
+Psi	NanoPsu	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	1	1	0	4916	10135	0.986679822397632	203.41741253051262
+Psi	NanoPsu	Curlcake_IVT_rep3	independent	1	1	0	4921	10135	0.986679822397632	203.210729526519
+Psi	NanoSPA_psU	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0.0	0.0
+Psi	NanoSPA_psU	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	1	1	0	4916	10135	0.986679822397632	203.41741253051262
+Psi	NanoSPA_psU	Curlcake_IVT_rep3	independent	1	1	0	4921	10135	0.986679822397632	203.210729526519
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep1	independent	89	89	0	4917	10135	87.81450419338924	18100.467764897294
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	97	97	0	4916	10135	95.7079427725703	19731.489015459723
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep3	independent	93	93	0	4921	10135	91.76122348297977	18898.597845966266

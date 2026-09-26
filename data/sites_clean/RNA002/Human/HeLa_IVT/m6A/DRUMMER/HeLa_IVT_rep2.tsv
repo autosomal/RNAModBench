@@ -1,0 +1,10 @@
+chrom	start	end	strand	score	score_type	frac_diff	coverage	ref_base	five_mer_raw	center_status	drach
+chr9	114598055	114598056	+	0.0187	Pvalue	-0.256	499	A	TTAAA	ok	False
+chr3	40462243	40462244	+	0.0152	Pvalue	0.139	3555	A	ATAAA	ok	False
+chr15	59638919	59638920	-	0.0456	Pvalue	-0.171	355	T	TTTGT	ok	False
+chr1	67430260	67430261	-	0.000332	Pvalue	-0.109	2034	T	GGTGA	ok	False
+chr20	2657104	2657105	+	0.0149	Pvalue	0.323	348	A	TTACT	ok	False
+chr14	21211457	21211458	-	0.0003	Pvalue	0.319	865	T	CCTCA	ok	False
+chr12	56111509	56111510	+	0.00044	Pvalue	0.126	767	A	CCAGA	ok	False
+chr9	114598055	114598056	+	0.0174	Pvalue	-0.477	499	A	TTAAA	ok	False
+chr12	56111522	56111523	+	0.000443	Pvalue	0.138	724	A	AAAAA	ok	False

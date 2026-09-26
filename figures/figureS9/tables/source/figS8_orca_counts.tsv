@@ -1,0 +1,9 @@
+source	mod_type	tool	WT	IVT
+ORCA_filtered	Nm	ORCA_Nm	3389	1873
+ORCA_filtered	inosine	ORCA_inosine	252	128
+ORCA_filtered	m1A	ORCA_m1A	507	758
+ORCA_filtered	m5C	ORCA_m5C	14784	20580
+ORCA_filtered	m6A	ORCA_m6A	8389	10190
+ORCA_filtered	m6Am	ORCA_m6Am	39	58
+ORCA_filtered	m7G	ORCA_m7G	53	55
+ORCA_filtered	pseU	ORCA_pseU	533	568

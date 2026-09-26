@@ -1,0 +1,14 @@
+tool	precision_rank_studyA	precision_rank_studyB	recall_rank_studyA	recall_rank_studyB	f1_rank_studyA	f1_rank_studyB	mcc_rank_studyA	mcc_rank_studyB
+CHEUI_m6A	13	13	13	13	13	13	13	13
+DENA	6	8	3	3	2	2	2	3
+DRUMMER	1	1	11	12	11	9	6	5
+ELIGOS2_diff	2	3	10	7	9	4	5	2
+ELIGOS2_solo	11	12	4	4	5	11	7	10
+EpiNano_Error	10	10	6	8	6	12	8	12
+MINES	7	9	2	2	4	6	4	8
+NanoSPA_m6A	3	2	5	9	3	5	3	4
+Nanocompore	5	4	12	11	12	7	11	6
+Nanom6A	9	7	8	5	7	3	9	7
+m6Anet	4	5	1	1	1	1	1	1
+xPore	12	11	7	6	10	10	12	11
+yanocomp	8	6	9	10	8	8	10	9

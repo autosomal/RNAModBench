@@ -1,0 +1,9 @@
+data:
+   ko:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/mES_KO_transcripts
+   wt:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/mES_WT_transcripts
+out: $RNAMODBENCH_LOCAL/raw/result/xPore/mES_WT
+criteria:
+   readcount_min: 20
+   readcount_max: 2000000

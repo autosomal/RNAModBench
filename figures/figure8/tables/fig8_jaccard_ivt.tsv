@@ -1,0 +1,9 @@
+tool	Dorado_hac@v5.0.0_m6A@v1	Dorado_hac@v5.0.0_m6A_DRACH@v1	Dorado_hac@v5.1.0_inosine_m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	Dorado_sup@v5.0.0_m6A@v1	Dorado_sup@v5.0.0_m6A_DRACH@v1	Dorado_sup@v5.1.0_inosine_m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1
+Dorado_hac@v5.0.0_m6A@v1	1	7.67106e-05	0.0046729	0	0.208546	0	0.00451415	0
+Dorado_hac@v5.0.0_m6A_DRACH@v1	7.67106e-05	1	0	0.1875	2.12897e-05	0	0	0
+Dorado_hac@v5.1.0_inosine_m6A	0.0046729	0	1	0	0.000893465	0	0.253333	0
+Dorado_hac@v5.1.0_m6A_DRACH@v1	0	0.1875	0	1	0	0	0	0.0909091
+Dorado_sup@v5.0.0_m6A@v1	0.208546	2.12897e-05	0.000893465	0	1	2.12929e-05	0.00106351	0
+Dorado_sup@v5.0.0_m6A_DRACH@v1	0	0	0	0	2.12929e-05	1	0	0
+Dorado_sup@v5.1.0_inosine_m6A	0.00451415	0	0.253333	0	0.00106351	0	1	0
+Dorado_sup@v5.1.0_m6A_DRACH@v1	0	0	0	0.0909091	0	0	0	1

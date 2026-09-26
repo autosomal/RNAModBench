@@ -1,0 +1,14 @@
+name: NanoSPA
+channels:
+  - defaults
+  - conda-forge
+  - bioconda  
+  - r 
+dependencies:
+  - python=3.10
+  - minimap2
+  - numpy=1.24.3
+  - pandas=1.5.2
+  - samtools=1.11
+  - scikit-learn=1.2.0
+  - tensorflow=2.11.1

@@ -1,0 +1,6 @@
+chrom	start	end	strand	score	score_type	mod_ratio	src_coverage	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake2	2075	2076	+	0.629838	probability_modified	0.305263	95	95	A	TGAAC	ok	False
+Curlcake3	644	645	+	0.627795	probability_modified	0.216561	314	314	A	CGAAC	ok	False
+Curlcake3	674	675	+	0.519433	probability_modified	0.280645	310	310	A	GGAAC	ok	False
+Curlcake3	1494	1495	+	0.567735	probability_modified	0.404167	240	240	A	CGAAC	ok	False
+Curlcake4	932	933	+	0.534308	probability_modified	0.320665	421	421	A	CTAAC	ok	False

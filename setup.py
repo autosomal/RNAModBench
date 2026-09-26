@@ -39,7 +39,7 @@ def create_directories():
     print("Creating directory structure...")
     
     directories = [
-        'data',
+        'raw_data',
         'reference',
         'results',
         'results/summary',
@@ -91,7 +91,7 @@ def download_test_data():
     # This is a placeholder - in a real implementation, you would
     # download actual test data from a public repository
     
-    test_data_dir = "data/test"
+    test_data_dir = "raw_data/test"
     os.makedirs(test_data_dir, exist_ok=True)
     
     # Create placeholder files
@@ -165,7 +165,7 @@ def main():
     print("\n=== Setup Complete ===")
     print("\nNext steps:")
     print("1. Edit config/config.yaml with your sample names and settings")
-    print("2. Place your fast5 files in the data/ directory")
+    print("2. Place your fast5/pod5 files in the raw_data/ directory")
     print("3. Download reference genome and annotation files")
     print("4. Run the pipeline: snakemake --use-conda --cores 40")
     print("\nFor more information, see README.md")

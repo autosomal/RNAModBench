@@ -1,0 +1,4 @@
+kind,mean,count
+diff_both,0.6570048309178744,828
+same_tool_diff_species,2.0434782608695654,69
+within_species_diff_tool,1.2114695340501793,279

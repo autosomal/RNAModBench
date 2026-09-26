@@ -1,0 +1,14 @@
+key	value
+source	$RNAMODBENCH_LOCAL/submission/manuscript/Figure1.pdf
+source_page_pt	595.276 x 532.615
+crop_x0_pt	18.160
+crop_y0_pt	372.695
+crop_x1_pt	573.920
+crop_y1_pt	485.175
+crop_w_pt	555.760
+crop_h_pt	112.480
+aspect_w_over_h	4.940967
+artwork_box_pt	20.16,374.70,571.92,483.18
+letter_box_pt	13.20,499.74,22.56,508.86
+letter_kept_out_by_pt	14.56
+gs_cmd	gs -sDEVICE=pdfwrite -dFIXEDMEDIA -dDEVICEWIDTHPOINTS=w -dDEVICEHEIGHTPOINTS=h -c '<</PageOffset [-x0 -y0]>> setpagedevice'

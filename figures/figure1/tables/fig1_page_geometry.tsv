@@ -1,0 +1,11 @@
+key	value
+page_w_pt	506.46
+page_h_pt	506.00
+margin_pt	10.0
+A_strip_pt	486.46 x 121.00 at (10.0,375.0)
+B_rect_pt	16.0,10.0,284.0,357.0
+C_rect_pt	318.0,195.5,178.5,171.5
+D_rect_pt	318.0,10.0,178.5,171.5
+font_sizes_pt	tick=7.5; tool=7.2; axis=8.5; title=9.5; legend=7.2; legend_cd=8.0; letter=11.0
+row_order	Nanocompore > ELIGOS2_diff > ELIGOS2_solo > yanocomp > xPore > DRUMMER > Nanom6A > EpiNano_Error > DENA > m6Anet > MINES > NanoSPA_m6A
+b_panel_cells	2 x 2 species, 13 tools

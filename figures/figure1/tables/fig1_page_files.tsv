@@ -1,0 +1,10 @@
+key	value
+figure	$RNAMODBENCH_ROOT/figures/figure1/figures/Figure1_rev.pdf
+page_pt	506.459 x 506 pts
+A_source	$RNAMODBENCH_ROOT/figures/figure1/figures/panels/Figure1_A_from_ai_srgb.pdf
+A_scale	1.000000
+body_source	$RNAMODBENCH_ROOT/figures/figure1/figures/Figure1_rev_body.pdf
+md5_final_pdf	3613a2500fbae490567e6bf8f232fb54
+md5_final_png	6f9f087cdc02fef1bf0a5097d1f238b9
+md5_body_pdf	f2a5be7402afda9729f3c86c67af80dc
+md5_A_pdf	c21951f726e8421f1aed1d81ce328172

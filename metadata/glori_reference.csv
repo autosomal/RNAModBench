@@ -1,0 +1,4 @@
+reference,species,accession,high_confidence_sites,selection_criterion,coordinate_handling,note
+GLORI_HeLa,Homo sapiens,GSE210563,112451,modification ratio > 0.1 in each of the two replicates,"BED, 0-based, end = start + 1","the raw two-replicate intersection is 113,606 sites; the criterion above is applied uniformly"
+GLORI_Arabidopsis,Arabidopsis thaliana,GSE246632,80624,modification ratio > 0.1 in each of the two replicates,"BED, 0-based, end = start + 1",same criterion as the human reference
+GLORI_Mouse,Mus musculus,GSE246632,41961,modification ratio > 0.1 in each of the two replicates,"BED, 0-based, end = start + 1",the liftover coordinate version is the only one used here

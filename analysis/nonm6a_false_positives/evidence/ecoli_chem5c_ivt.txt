@@ -1,0 +1,9 @@
+# GSE271571 (E. coli) - the original authors' CHEUI site-level output high-confidence (prob>=0.9) site counts 
+# purpose shows that unmodified IVT control also yield high-confidence m5C/m6A calls -> CHEUI systematic FP independent of this benchmark pipeline 
+
+m5C    WT    rows=252920    prob>=0.9=25085
+m5C    IVT   rows=155009    prob>=0.9=16640
+m6A    WT    rows=247600    prob>=0.9=20976
+m6A    IVT   rows=149719    prob>=0.9=13015
+
+# columns : contig position site coverage stoichiometry probability (probability= columns )

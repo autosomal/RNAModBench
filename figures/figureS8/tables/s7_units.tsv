@@ -1,0 +1,49 @@
+tool	display	mod_type	tool_class	condition	profile	unit_kind	n_units_used	n_calls_raw	n_calls_in_universe	n_calls_on_ncrna	share_five_prime_flank	share_ncRNA_body	share_three_prime_flank
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	WT	HeLa_WT1	unit	1	14137	13651	8328	0.193564	0.509606	0.29683
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	WT	HeLa_WT2	unit	1	20967	20264	11391	0.188746	0.542358	0.268896
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	WT	HeLa_WT3	unit	1	14020	13620	8721	0.208692	0.515652	0.275656
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	WT	majority	majority	3		947	947	0.173178	0.461457	0.365364
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	IVT	HeLa_IVT_rep1	unit	1	10222	10062	6063	0.192149	0.573149	0.234702
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	IVT	HeLa_IVT_rep2	unit	1	26285	25673	15532	0.184844	0.608614	0.206541
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	IVT	HeLa_IVT_rep3	unit	1	15917	15652	9713	0.195511	0.568722	0.235766
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	IVT	majority	majority	3		739	739	0.14479	0.615697	0.239513
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	WT	HeLa_WT1	unit	1	6128	5906	3108	0.175032	0.543115	0.281853
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	WT	HeLa_WT2	unit	1	9255	8836	4346	0.16751	0.561666	0.270824
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	WT	HeLa_WT3	unit	1	4269	4133	2349	0.177097	0.53725	0.285653
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	WT	majority	majority	3		2283	2283	0.178712	0.537451	0.283837
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	IVT	HeLa_IVT_rep1	unit	1	7845	7650	4136	0.163443	0.593569	0.242988
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	IVT	HeLa_IVT_rep2	unit	1	9690	9428	5231	0.163831	0.604091	0.232078
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	IVT	HeLa_IVT_rep3	unit	1	4821	4718	2732	0.170205	0.603221	0.226574
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	IVT	majority	majority	3		2872	2872	0.16539	0.59993	0.23468
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	WT	HeLa_WT1	unit	1	17920	17196	9087	0.166832	0.552107	0.281061
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	WT	HeLa_WT2	unit	1	31649	30118	14339	0.164726	0.558337	0.276937
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	WT	HeLa_WT3	unit	1	13096	12675	6979	0.180398	0.52443	0.295171
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	WT	majority	majority	3		7801	7801	0.173696	0.540444	0.285861
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	IVT	HeLa_IVT_rep1	unit	1	22847	22284	12199	0.166407	0.586196	0.247397
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	IVT	HeLa_IVT_rep2	unit	1	33001	32070	17547	0.167094	0.60147	0.231436
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	IVT	HeLa_IVT_rep3	unit	1	15803	15490	8750	0.173257	0.601371	0.225371
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	IVT	majority	majority	3		10311	10311	0.165066	0.594608	0.240326
+NanoNm	NanoNm	Nm	Intermediate	WT	HeLa_WT1	unit	1	1673	1630	999	0.206206	0.514515	0.279279
+NanoNm	NanoNm	Nm	Intermediate	WT	HeLa_WT2	unit	1	3536	3433	2013	0.205166	0.541977	0.252856
+NanoNm	NanoNm	Nm	Intermediate	WT	HeLa_WT3	unit	1	1682	1648	1016	0.230315	0.48622	0.283465
+NanoNm	NanoNm	Nm	Intermediate	WT	majority	majority	3		1046	1046	0.226577	0.493308	0.280115
+NanoNm	NanoNm	Nm	Intermediate	IVT	HeLa_IVT_rep1	unit	1	4676	4609	2920	0.192123	0.558219	0.249658
+NanoNm	NanoNm	Nm	Intermediate	IVT	HeLa_IVT_rep2	unit	1	5134	5040	3230	0.19969	0.558204	0.242105
+NanoNm	NanoNm	Nm	Intermediate	IVT	HeLa_IVT_rep3	unit	1	1880	1854	1187	0.211457	0.535805	0.252738
+NanoNm	NanoNm	Nm	Intermediate	IVT	majority	majority	3		2297	2297	0.198955	0.553766	0.247279
+NanoPsu	NanoPsu	Psi	Sparse	WT	HeLa_WT1	unit	1	354	175	105	0.0666667	0.742857	0.190476
+NanoPsu	NanoPsu	Psi	Sparse	WT	HeLa_WT2	unit	1	538	288	180	0.05	0.75	0.2
+NanoPsu	NanoPsu	Psi	Sparse	WT	HeLa_WT3	unit	1	322	141	85	0.0705882	0.611765	0.317647
+NanoPsu	NanoPsu	Psi	Sparse	WT	majority	majority	3		32	32	0.0625	0.625	0.3125
+NanoPsu	NanoPsu	Psi	Sparse	IVT	HeLa_IVT_rep1	unit	1	283	165	136	0.0514706	0.786765	0.161765
+NanoPsu	NanoPsu	Psi	Sparse	IVT	HeLa_IVT_rep2	unit	1	367	229	175	0.0857143	0.76	0.154286
+NanoPsu	NanoPsu	Psi	Sparse	IVT	HeLa_IVT_rep3	unit	1	177	110	86	0.0348837	0.872093	0.0930233
+NanoPsu	NanoPsu	Psi	Sparse	IVT	majority	majority	3		45	45	0.0666667	0.8	0.133333
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	WT	HeLa_WT1	unit	1	351	172	102	0.0686275	0.745098	0.186275
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	WT	HeLa_WT2	unit	1	540	297	186	0.0483871	0.752688	0.198925
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	WT	HeLa_WT3	unit	1	325	144	88	0.0795455	0.613636	0.306818
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	WT	majority	majority	3		32	32	0.0625	0.625	0.3125
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	IVT	HeLa_IVT_rep1	unit	1	290	170	140	0.05	0.792857	0.157143
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	IVT	HeLa_IVT_rep2	unit	1	373	234	176	0.0795455	0.767045	0.153409
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	IVT	HeLa_IVT_rep3	unit	1	179	112	87	0.045977	0.862069	0.091954
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	IVT	majority	majority	3		45	45	0.0666667	0.8	0.133333

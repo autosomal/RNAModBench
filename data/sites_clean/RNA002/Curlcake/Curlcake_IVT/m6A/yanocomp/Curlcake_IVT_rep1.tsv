@@ -1,0 +1,6 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake3	426	427	+	8.1e-06	FDR	1048	A	GCACA	ok	False
+Curlcake4	59	60	+	2.1e-57	FDR	2193	A	CCACC	ok	False
+Curlcake4	1047	1048	+	2.3e-12	FDR	3322	A	TCACG	ok	False
+Curlcake4	1308	1309	+	2.6e-08	FDR	4093	A	TCACG	ok	False
+Curlcake4	2136	2137	+	0	FDR	8385	A	CGACT	ok	False

@@ -1,0 +1,41 @@
+species	sample	tool	n	refbase_AorT_pct
+Arabidopsis	Arabidopsis_fip37_rep1	m6Anet	2818	100.0
+Arabidopsis	Arabidopsis_fip37_rep2	m6Anet	4738	100.0
+Arabidopsis	Arabidopsis_WT_rep1	m6Anet	13200	100.0
+Arabidopsis	Arabidopsis_WT_rep2	m6Anet	11328	100.0
+E.coli	E_IVT_neg1	m6Anet	731	100.0
+E.coli	E_ss_rd_RNA1	m6Anet	2648	100.0
+Mouse	mESCs_Mettl3_KO	m6Anet	8158	99.8
+Mouse	mESCs_Mettl3_WT	m6Anet	31041	99.8
+Arabidopsis	Arabidopsis_fip37_rep2	MINES	45001	100.0
+Arabidopsis	Arabidopsis_WT_rep1	MINES	70690	100.0
+Arabidopsis	Arabidopsis_WT_rep2	MINES	53146	100.0
+Mouse	mESCs_Mettl3_KO	MINES	41115	99.8
+Mouse	mESCs_Mettl3_WT	MINES	91016	99.8
+Arabidopsis	Arabidopsis_fip37_rep1	DENA	9906	100.0
+Arabidopsis	Arabidopsis_fip37_rep2	DENA	14278	100.0
+Arabidopsis	Arabidopsis_WT_rep1	DENA	25131	100.0
+Arabidopsis	Arabidopsis_WT_rep2	DENA	18688	100.0
+Mouse	mESCs_Mettl3_KO	DENA	13385	99.8
+Mouse	mESCs_Mettl3_WT	DENA	37034	99.8
+Arabidopsis	Arabidopsis_fip37_rep1	Nanom6A	15967	100.0
+Arabidopsis	Arabidopsis_fip37_rep2	Nanom6A	15196	100.0
+Arabidopsis	Arabidopsis_fip37_rep3	Nanom6A	12612	100.0
+Arabidopsis	Arabidopsis_WT_rep1	Nanom6A	21815	99.9
+Arabidopsis	Arabidopsis_WT_rep2	Nanom6A	20037	99.9
+Arabidopsis	Arabidopsis_WT_rep3	Nanom6A	19758	100.0
+Curlcake	Curlcake_IVT_rep1	Nanom6A	1	
+Curlcake	Curlcake_IVT_rep2_partial	Nanom6A	17	
+Curlcake	Curlcake_IVT_rep3	Nanom6A	22	
+Curlcake	Curlcake_m6A_rep1	Nanom6A	127	100.0
+Curlcake	Curlcake_m6A_rep2	Nanom6A	130	100.0
+Human	HeLa_IVT_rep1	Nanom6A	12658	100.0
+Human	HeLa_IVT_rep2	Nanom6A	15092	100.0
+Human	HeLa_IVT_rep3	Nanom6A	11442	100.0
+Human	HeLa_WT1	Nanom6A	20915	100.0
+Human	HeLa_WT2	Nanom6A	18311	100.0
+Human	HeLa_WT3	Nanom6A	17066	100.0
+Mouse	mESCs_Mettl3_KO	Nanom6A	8225	99.8
+Mouse	mES_KO	Nanom6A	18978	100.0
+Mouse	mESCs_Mettl3_WT	Nanom6A	10812	99.8
+Mouse	mES_WT	Nanom6A	23952	100.0

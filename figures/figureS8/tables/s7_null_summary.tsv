@@ -1,0 +1,25 @@
+tool	display	mod_type	tool_class	statistic	observed	null_median	null_p2_5	null_p97_5	null_max	empirical_p	n_draws	seed	pool_WT	pool_IVT	counts_basis
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	jsd_wt_ivt_unit	0.00582079	0.00272639	0.00149661	0.00449067	0.00760502	0.003996	1000	20260919	3337755	3436623	per-chromosome counts of the observed majority call set
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	jsd_wt_ivt_majority	0.0296968	0.0140665	0.00689765	0.02587	0.0374426	0.00899101	1000	20260919	3337755	3436623	per-chromosome counts of the observed majority call set
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	jsd_wt_background	0.0234862	0.00578901	0.00290452	0.0111806	0.0169066	0.000999001	1000	20260919	3337755	3436623	per-chromosome counts of the observed majority call set
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	jsd_ivt_background	0.0128829	0.00708996	0.00385183	0.0140814	0.0217371	0.041958	1000	20260919	3337755	3436623	per-chromosome counts of the observed majority call set
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	jsd_wt_ivt_unit	0.00509552	0.0045662	0.00234844	0.00840461	0.0105859	0.381618	1000	20260920	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	jsd_wt_ivt_majority	0.00511814	0.0061341	0.00293992	0.0114521	0.0176398	0.694306	1000	20260920	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	jsd_wt_background	0.0087896	0.00262348	0.00132891	0.00536855	0.00788729	0.000999001	1000	20260920	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	jsd_ivt_background	0.00332108	0.00194702	0.000981378	0.00369756	0.00647958	0.0599401	1000	20260920	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	jsd_wt_ivt_unit	0.00419025	0.00244072	0.00136166	0.00407266	0.00655622	0.020979	1000	20260921	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	jsd_wt_ivt_majority	0.00367634	0.00275145	0.00142798	0.00492653	0.00849983	0.154845	1000	20260921	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	jsd_wt_background	0.00630463	0.000792802	0.000398902	0.0014971	0.00226712	0.000999001	1000	20260921	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	jsd_ivt_background	0.00304132	0.000552167	0.000286869	0.00104214	0.0013588	0.000999001	1000	20260921	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoNm	NanoNm	Nm	Intermediate	jsd_wt_ivt_unit	0.00578049	0.00788474	0.00390324	0.0151106	0.0204206	0.804196	1000	20260922	6652171	6826338	per-chromosome counts of the observed majority call set
+NanoNm	NanoNm	Nm	Intermediate	jsd_wt_ivt_majority	0.00807736	0.00909185	0.00450304	0.0190372	0.0273581	0.629371	1000	20260922	6652171	6826338	per-chromosome counts of the observed majority call set
+NanoNm	NanoNm	Nm	Intermediate	jsd_wt_background	0.015109	0.00550874	0.00280963	0.0109628	0.0184643	0.001998	1000	20260922	6652171	6826338	per-chromosome counts of the observed majority call set
+NanoNm	NanoNm	Nm	Intermediate	jsd_ivt_background	0.0082514	0.00225875	0.00118221	0.00433672	0.00803148	0.000999001	1000	20260922	6652171	6826338	per-chromosome counts of the observed majority call set
+NanoPsu	NanoPsu	Psi	Sparse	jsd_wt_ivt_unit	0.121053	0.0975622	0.0489951	0.192463	0.263045	0.27972	1000	20260923	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoPsu	NanoPsu	Psi	Sparse	jsd_wt_ivt_majority	0.239282	0.327138	0.161072	0.603413	0.838669	0.811189	1000	20260923	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoPsu	NanoPsu	Psi	Sparse	jsd_wt_background	0.335504	0.223581	0.120877	0.427297	0.587061	0.100899	1000	20260923	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoPsu	NanoPsu	Psi	Sparse	jsd_ivt_background	0.131799	0.150976	0.0748672	0.305898	0.440879	0.664336	1000	20260923	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	jsd_wt_ivt_unit	0.117599	0.0982424	0.0481598	0.195222	0.275302	0.314685	1000	20260924	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	jsd_wt_ivt_majority	0.214501	0.322752	0.168931	0.613819	0.832744	0.886114	1000	20260924	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	jsd_wt_background	0.335504	0.21387	0.119162	0.435595	0.626894	0.0999001	1000	20260924	3314416	3389715	per-chromosome counts of the observed majority call set
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	jsd_ivt_background	0.169997	0.151922	0.0783101	0.294404	0.460521	0.362637	1000	20260924	3314416	3389715	per-chromosome counts of the observed majority call set

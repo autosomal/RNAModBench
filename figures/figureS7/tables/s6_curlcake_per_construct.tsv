@@ -1,0 +1,21 @@
+tool	display	mod_type	tool_class	construct	construct_role	n_calls	n_calls_in_universe	n_calls_out_of_universe	universe_n	region_bp	fp_per_10kb	fp_per_1e6_candidates	row_type
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0	0	construct
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	39	39	0	4916	10135	38.4805	7933.28	construct
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	Curlcake_IVT_rep3	independent	3	3	0	4921	10135	2.96004	609.632	construct
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	independent_mean	independent_mean					10135	1.48002	304.816	independent_mean
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	Curlcake_IVT_rep1	independent	89	89	0	4917	10135	87.8145	18100.5	construct
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	97	97	0	4916	10135	95.7079	19731.5	construct
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	Curlcake_IVT_rep3	independent	93	93	0	4921	10135	91.7612	18898.6	construct
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	independent_mean	independent_mean					10135	89.7879	18499.5	independent_mean
+NanoNm	NanoNm	Nm	Intermediate	Curlcake_IVT_rep1	independent	39	39	0	9993	10135	38.4805	3902.73	construct
+NanoNm	NanoNm	Nm	Intermediate	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	35	35	0	9994	10135	34.5338	3502.1	construct
+NanoNm	NanoNm	Nm	Intermediate	Curlcake_IVT_rep3	independent	36	36	0	10005	10135	35.5205	3598.2	construct
+NanoNm	NanoNm	Nm	Intermediate	independent_mean	independent_mean					10135	37.0005	3750.47	independent_mean
+NanoPsu	NanoPsu	Psi	Sparse	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0	0	construct
+NanoPsu	NanoPsu	Psi	Sparse	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	1	1	0	4916	10135	0.98668	203.417	construct
+NanoPsu	NanoPsu	Psi	Sparse	Curlcake_IVT_rep3	independent	1	1	0	4921	10135	0.98668	203.211	construct
+NanoPsu	NanoPsu	Psi	Sparse	independent_mean	independent_mean					10135	0.49334	101.605	independent_mean
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	Curlcake_IVT_rep1	independent	0	0	0	4917	10135	0	0	construct
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	Curlcake_IVT_rep2_partial	depth_matched_subset_of_rep3	1	1	0	4916	10135	0.98668	203.417	construct
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	Curlcake_IVT_rep3	independent	1	1	0	4921	10135	0.98668	203.211	construct
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	independent_mean	independent_mean					10135	0.49334	101.605	independent_mean

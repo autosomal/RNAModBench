@@ -1,0 +1,400 @@
+platform	species	dataset_group	mod_type	tool	sample	n_rows	n_unknown_before	n_imputed_plus	n_imputed_minus	n_ambiguous	n_no_exon	n_unknown_after	pct_unknown_after	strand_source	read_n_read_plus	read_n_read_minus	read_n_read_both	read_n_exon_plus	read_n_exon_minus	read_n_ambiguous	read_n_no_exon
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	Arabidopsis_fip37_rep1	14533	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	Arabidopsis_fip37_rep2	11777	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	Arabidopsis_fip37_rep3	10299	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	DENA	Arabidopsis_fip37_rep1	9906	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	DENA	Arabidopsis_fip37_rep2	14278	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	DENA	Arabidopsis_fip37_rep3	5885	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	DRUMMER	Arabidopsis_fip37_rep1	16	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	DRUMMER	Arabidopsis_fip37_rep3	19	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	Arabidopsis_fip37_rep1	20	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	Arabidopsis_fip37_rep2	25	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	Arabidopsis_fip37_rep3	8	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	Arabidopsis_fip37_rep1	24162	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	Arabidopsis_fip37_rep2	31148	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	Arabidopsis_fip37_rep3	12026	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	Arabidopsis_fip37_rep1	8557	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	Arabidopsis_fip37_rep2	5317	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	Arabidopsis_fip37_rep3	5105	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	MINES	Arabidopsis_fip37_rep1	30156	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	MINES	Arabidopsis_fip37_rep2	45001	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	MINES	Arabidopsis_fip37_rep3	20419	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	Arabidopsis_fip37_rep1	314	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	Arabidopsis_fip37_rep2	504	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	Arabidopsis_fip37_rep3	229	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	Arabidopsis_fip37_rep1	197	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	Arabidopsis_fip37_rep2	161	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	Arabidopsis_fip37_rep3	693	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	Arabidopsis_fip37_rep1	15967	15967	7802	8165	0	0	0	0	read_bed	7802	8165	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	Arabidopsis_fip37_rep2	15196	15196	7433	7763	0	0	0	0	read_bed	7433	7763	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	Arabidopsis_fip37_rep3	12612	12612	6132	6480	0	0	0	0	read_bed	6132	6480	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	Arabidopsis_fip37_rep1	2818	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	Arabidopsis_fip37_rep2	4738	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	Arabidopsis_fip37_rep3	1839	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	xPore	Arabidopsis_fip37_rep1	21263	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	xPore	Arabidopsis_fip37_rep2	22369	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	xPore	Arabidopsis_fip37_rep3	23090	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	Arabidopsis_fip37_rep1	4176	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	Arabidopsis_fip37_rep2	2090	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	Arabidopsis_fip37_rep3	5017	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	Arabidopsis_WT_rep1	17598	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	Arabidopsis_WT_rep2	19019	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	Arabidopsis_WT_rep3	19197	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DENA	Arabidopsis_WT_rep1	25131	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DENA	Arabidopsis_WT_rep2	18688	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DENA	Arabidopsis_WT_rep3	22872	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	Arabidopsis_WT_rep1	483	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	Arabidopsis_WT_rep2	627	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	Arabidopsis_WT_rep3	339	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	Arabidopsis_WT_rep1	1021	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	Arabidopsis_WT_rep2	1255	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	Arabidopsis_WT_rep3	745	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	Arabidopsis_WT_rep1	57933	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	Arabidopsis_WT_rep2	40414	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	Arabidopsis_WT_rep3	50357	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	Arabidopsis_WT_rep1	9586	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	Arabidopsis_WT_rep2	15404	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	Arabidopsis_WT_rep3	5912	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	MINES	Arabidopsis_WT_rep1	70690	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	MINES	Arabidopsis_WT_rep2	53146	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	MINES	Arabidopsis_WT_rep3	66253	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	Arabidopsis_WT_rep1	1391	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	Arabidopsis_WT_rep2	1281	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	Arabidopsis_WT_rep3	1455	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	Arabidopsis_WT_rep1	462	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	Arabidopsis_WT_rep2	1070	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	Arabidopsis_WT_rep3	255	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	Arabidopsis_WT_rep1	21872	21872	10856	11016	0	0	0	0	read_bed	10856	11016	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	Arabidopsis_WT_rep2	20152	20152	10005	10147	0	0	0	0	read_bed	10005	10147	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	Arabidopsis_WT_rep3	19758	19758	9651	10107	0	0	0	0	read_bed	9651	10107	0	0	0	0	0
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	Arabidopsis_WT_rep1	13200	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	Arabidopsis_WT_rep2	11328	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	Arabidopsis_WT_rep3	11073	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	xPore	Arabidopsis_WT_rep1	27372	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	xPore	Arabidopsis_WT_rep2	38273	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	xPore	Arabidopsis_WT_rep3	21168	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	Arabidopsis_WT_rep1	3583	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	Arabidopsis_WT_rep2	13037	0	0	0	0	0	0	0	none							
+RNA002	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	Arabidopsis_WT_rep3	2058	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	Nm	NanoNm	Curlcake_IVT_rep1	39	39	39	0	0	0	0	0	exon	0	0	0	39	0	0	0
+RNA002	Curlcake	Curlcake_IVT	Nm	NanoNm	Curlcake_IVT_rep2_partial	35	35	35	0	0	0	0	0	exon	0	0	0	35	0	0	0
+RNA002	Curlcake	Curlcake_IVT	Nm	NanoNm	Curlcake_IVT_rep3	36	36	36	0	0	0	0	0	exon	0	0	0	36	0	0	0
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoMUD_psi	Curlcake_IVT_rep2_partial	39	39	39	0	0	0	0	0	exon	0	0	0	39	0	0	0
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoMUD_psi	Curlcake_IVT_rep3	3	3	3	0	0	0	0	0	exon	0	0	0	3	0	0	0
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoPsu	Curlcake_IVT_rep2_partial	1	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoPsu	Curlcake_IVT_rep3	1	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoSPA_psU	Curlcake_IVT_rep2_partial	1	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	Psi	NanoSPA_psU	Curlcake_IVT_rep3	1	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep1	89	89	89	0	0	0	0	0	exon	0	0	0	89	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep2_partial	97	97	97	0	0	0	0	0	exon	0	0	0	97	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep3	93	93	93	0	0	0	0	0	exon	0	0	0	93	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	DENA	Curlcake_IVT_rep1	20	20	20	0	0	0	0	0	exon	0	0	0	20	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	DENA	Curlcake_IVT_rep2_partial	19	19	19	0	0	0	0	0	exon	0	0	0	19	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	DENA	Curlcake_IVT_rep3	14	14	14	0	0	0	0	0	exon	0	0	0	14	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	Curlcake_IVT_rep1	44	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	Curlcake_IVT_rep2_partial	42	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	Curlcake_IVT_rep3	42	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	EpiNano_Error	Curlcake_IVT_rep1	1	1	1	0	0	0	0	0	exon	0	0	0	1	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	EpiNano_Error	Curlcake_IVT_rep2_partial	1	1	1	0	0	0	0	0	exon	0	0	0	1	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	MINES	Curlcake_IVT_rep1	72	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	MINES	Curlcake_IVT_rep2_partial	74	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	MINES	Curlcake_IVT_rep3	75	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	Curlcake_IVT_rep1	31	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	Curlcake_IVT_rep2_partial	31	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	Curlcake_IVT_rep3	31	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanocompore	Curlcake_IVT_rep1	8	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanocompore	Curlcake_IVT_rep2_partial	8	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanocompore	Curlcake_IVT_rep3	13	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanom6A	Curlcake_IVT_rep1	1	1	1	0	0	0	0	0	read_bed	1	0	0	0	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanom6A	Curlcake_IVT_rep2_partial	17	17	17	0	0	0	0	0	read_bed	17	0	0	0	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	Nanom6A	Curlcake_IVT_rep3	22	22	22	0	0	0	0	0	read_bed	22	0	0	0	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	m6Anet	Curlcake_IVT_rep1	14	14	14	0	0	0	0	0	exon	0	0	0	14	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	m6Anet	Curlcake_IVT_rep2_partial	13	13	13	0	0	0	0	0	exon	0	0	0	13	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	m6Anet	Curlcake_IVT_rep3	12	12	12	0	0	0	0	0	exon	0	0	0	12	0	0	0
+RNA002	Curlcake	Curlcake_IVT	m6A	xPore	Curlcake_IVT_rep1	15	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	xPore	Curlcake_IVT_rep2_partial	14	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	xPore	Curlcake_IVT_rep3	14	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	yanocomp	Curlcake_IVT_rep1	5	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_IVT	m6A	yanocomp	Curlcake_IVT_rep2_partial	1	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	DENA	Curlcake_m6A_rep1	112	112	112	0	0	0	0	0	exon	0	0	0	112	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	DENA	Curlcake_m6A_rep2	113	113	113	0	0	0	0	0	exon	0	0	0	113	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	DRUMMER	Curlcake_m6A_rep1	166	166	166	0	0	0	0	0	exon	0	0	0	166	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	DRUMMER	Curlcake_m6A_rep2	181	181	181	0	0	0	0	0	exon	0	0	0	181	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	ELIGOS2_diff	Curlcake_m6A_rep1	1588	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	ELIGOS2_diff	Curlcake_m6A_rep2	1590	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	ELIGOS2_solo	Curlcake_m6A_rep1	1569	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	ELIGOS2_solo	Curlcake_m6A_rep2	1565	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	EpiNano_Error	Curlcake_m6A_rep1	109	109	109	0	0	0	0	0	exon	0	0	0	109	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	EpiNano_Error	Curlcake_m6A_rep2	127	127	127	0	0	0	0	0	exon	0	0	0	127	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	MINES	Curlcake_m6A_rep1	89	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	MINES	Curlcake_m6A_rep2	92	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	NanoSPA_m6A	Curlcake_m6A_rep1	39	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	NanoSPA_m6A	Curlcake_m6A_rep2	38	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	Nanocompore	Curlcake_m6A_rep1	1734	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	Nanocompore	Curlcake_m6A_rep2	1585	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	Nanom6A	Curlcake_m6A_rep1	127	127	127	0	0	0	0	0	read_bed	127	0	0	0	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	Nanom6A	Curlcake_m6A_rep2	130	130	130	0	0	0	0	0	read_bed	130	0	0	0	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	m6Anet	Curlcake_m6A_rep1	99	99	99	0	0	0	0	0	exon	0	0	0	99	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	m6Anet	Curlcake_m6A_rep2	103	103	103	0	0	0	0	0	exon	0	0	0	103	0	0	0
+RNA002	Curlcake	Curlcake_m6A	m6A	xPore	Curlcake_m6A_rep1	1050	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	xPore	Curlcake_m6A_rep2	1050	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	yanocomp	Curlcake_m6A_rep1	501	0	0	0	0	0	0	0	none							
+RNA002	Curlcake	Curlcake_m6A	m6A	yanocomp	Curlcake_m6A_rep2	2057	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	CHEUI_m6A	E_IVT_neg1	2077	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	CHEUI_m6A	E_IVT_neg2	1013	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	ELIGOS2_solo	E_IVT_neg1	6430	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	ELIGOS2_solo	E_IVT_neg2	5791	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	EpiNano_Error	E_IVT_neg2	4072	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	NanoSPA_m6A	E_IVT_neg1	108	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	NanoSPA_m6A	E_IVT_neg2	78	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	Nanocompore	E_IVT_neg2	4	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	Nanom6A	E_IVT_neg1	3121	3121	1820	1300	1	0	1	0.032	read_bed	1820	1300	1	0	0	0	0
+RNA002	E.coli	E.coli_IVT	m6A	Nanom6A	E_IVT_neg2	2367	2367	1380	984	3	0	3	0.1267	read_bed	1380	984	3	0	0	0	0
+RNA002	E.coli	E.coli_IVT	m6A	m6Anet	E_IVT_neg1	731	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	m6Anet	E_IVT_neg2	565	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	xPore	E_IVT_neg2	1248	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_IVT	m6A	yanocomp	E_IVT_neg2	79	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	CHEUI_m6A	E_ss_rd_RNA1	11732	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	CHEUI_m6A	E_ss_rd_RNA2	7332	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	DRUMMER	E_ss_rd_RNA1	31	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	DRUMMER	E_ss_rd_RNA2	94	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	ELIGOS2_diff	E_ss_rd_RNA1	177	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	ELIGOS2_diff	E_ss_rd_RNA2	183	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	ELIGOS2_solo	E_ss_rd_RNA1	15674	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	ELIGOS2_solo	E_ss_rd_RNA2	16067	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	EpiNano_Error	E_ss_rd_RNA1	4694	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	EpiNano_Error	E_ss_rd_RNA2	2671	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	NanoSPA_m6A	E_ss_rd_RNA1	208	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	NanoSPA_m6A	E_ss_rd_RNA2	266	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	Nanocompore	E_ss_rd_RNA2	4085	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	Nanom6A	E_ss_rd_RNA1	6312	6312	3387	2925	0	0	0	0	read_bed	3387	2925	0	0	0	0	0
+RNA002	E.coli	E.coli_WT	m6A	Nanom6A	E_ss_rd_RNA2	10070	10070	5263	4806	1	0	1	0.0099	read_bed	5263	4806	1	0	0	0	0
+RNA002	E.coli	E.coli_WT	m6A	m6Anet	E_ss_rd_RNA1	2648	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	m6Anet	E_ss_rd_RNA2	2779	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	xPore	E_ss_rd_RNA1	5714	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	xPore	E_ss_rd_RNA2	6641	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	yanocomp	E_ss_rd_RNA1	3705	0	0	0	0	0	0	0	none							
+RNA002	E.coli	E.coli_WT	m6A	yanocomp	E_ss_rd_RNA2	5182	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Nm	NanoNm	HeLa_IVT_rep1	4677	4677	2284	2137	253	3	256	5.4736	exon	0	0	0	2284	2137	253	3
+RNA002	Human	HeLa_IVT	Nm	NanoNm	HeLa_IVT_rep2	5137	5137	2512	2368	252	5	257	5.0029	exon	0	0	0	2512	2368	252	5
+RNA002	Human	HeLa_IVT	Nm	NanoNm	HeLa_IVT_rep3	1880	1880	885	914	79	2	81	4.3085	exon	0	0	0	885	914	79	2
+RNA002	Human	HeLa_IVT	Psi	NanoMUD_psi	HeLa_IVT_rep1	9873	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoMUD_psi	HeLa_IVT_rep2	11694	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoMUD_psi	HeLa_IVT_rep3	5781	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoPsu	HeLa_IVT_rep1	283	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoPsu	HeLa_IVT_rep2	367	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoPsu	HeLa_IVT_rep3	177	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoSPA_psU	HeLa_IVT_rep1	290	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoSPA_psU	HeLa_IVT_rep2	373	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	Psi	NanoSPA_psU	HeLa_IVT_rep3	179	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	HeLa_IVT_rep1	30047	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	HeLa_IVT_rep2	41481	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	HeLa_IVT_rep3	19549	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m5C	CHEUI_m5C	HeLa_IVT_rep1	10287	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m5C	CHEUI_m5C	HeLa_IVT_rep2	26558	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m5C	CHEUI_m5C	HeLa_IVT_rep3	16129	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	CHEUI_m6A	HeLa_IVT_rep1	23853	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	CHEUI_m6A	HeLa_IVT_rep2	37949	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	CHEUI_m6A	HeLa_IVT_rep3	13587	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DENA	HeLa_IVT_rep1	20594	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DENA	HeLa_IVT_rep2	27978	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DENA	HeLa_IVT_rep3	10881	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DRUMMER	HeLa_IVT_rep1	19	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DRUMMER	HeLa_IVT_rep2	9	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	DRUMMER	HeLa_IVT_rep3	75	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_diff	HeLa_IVT_rep1	27	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_diff	HeLa_IVT_rep2	82	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_diff	HeLa_IVT_rep3	72	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_solo	HeLa_IVT_rep1	45923	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_solo	HeLa_IVT_rep2	58353	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	ELIGOS2_solo	HeLa_IVT_rep3	22995	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	EpiNano_Error	HeLa_IVT_rep1	33972	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	EpiNano_Error	HeLa_IVT_rep2	29312	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	EpiNano_Error	HeLa_IVT_rep3	20905	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	MINES	HeLa_IVT_rep1	59684	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	MINES	HeLa_IVT_rep2	86605	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	MINES	HeLa_IVT_rep3	39902	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	NanoSPA_m6A	HeLa_IVT_rep1	408	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	NanoSPA_m6A	HeLa_IVT_rep2	227	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	NanoSPA_m6A	HeLa_IVT_rep3	230	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	Nanocompore	HeLa_IVT_rep1	107	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	Nanocompore	HeLa_IVT_rep2	63	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	Nanocompore	HeLa_IVT_rep3	219	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	Nanom6A	HeLa_IVT_rep1	12658	12658	6365	6293	0	0	0	0	read_bed	6365	6293	0	0	0	0	0
+RNA002	Human	HeLa_IVT	m6A	Nanom6A	HeLa_IVT_rep2	15092	15092	7689	7403	0	0	0	0	read_bed	7689	7403	0	0	0	0	0
+RNA002	Human	HeLa_IVT	m6A	Nanom6A	HeLa_IVT_rep3	11442	11442	5792	5650	0	0	0	0	read_bed	5792	5650	0	0	0	0	0
+RNA002	Human	HeLa_IVT	m6A	m6Anet	HeLa_IVT_rep1	8007	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	m6Anet	HeLa_IVT_rep2	14954	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	m6Anet	HeLa_IVT_rep3	5730	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	xPore	HeLa_IVT_rep1	35819	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	xPore	HeLa_IVT_rep2	26693	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	xPore	HeLa_IVT_rep3	28087	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	yanocomp	HeLa_IVT_rep1	3569	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	yanocomp	HeLa_IVT_rep2	1867	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_IVT	m6A	yanocomp	HeLa_IVT_rep3	3504	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Nm	NanoNm	HeLa_WT1	1673	1673	762	841	69	1	70	4.1841	exon	0	0	0	762	841	69	1
+RNA002	Human	HeLa_WT	Nm	NanoNm	HeLa_WT2	3538	3538	1627	1745	165	1	166	4.6919	exon	0	0	0	1627	1745	165	1
+RNA002	Human	HeLa_WT	Nm	NanoNm	HeLa_WT3	1683	1683	720	875	87	1	88	5.2288	exon	0	0	0	720	875	87	1
+RNA002	Human	HeLa_WT	Psi	NanoMUD_psi	HeLa_WT1	7079	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoMUD_psi	HeLa_WT2	10809	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoMUD_psi	HeLa_WT3	5057	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoPsu	HeLa_WT1	354	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoPsu	HeLa_WT2	538	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoPsu	HeLa_WT3	322	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoSPA_psU	HeLa_WT1	351	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoSPA_psU	HeLa_WT2	540	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	Psi	NanoSPA_psU	HeLa_WT3	325	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	HeLa_WT1	20943	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	HeLa_WT2	37880	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	HeLa_WT3	15706	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m5C	CHEUI_m5C	HeLa_WT1	14243	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m5C	CHEUI_m5C	HeLa_WT2	21409	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m5C	CHEUI_m5C	HeLa_WT3	14198	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	CHEUI_m6A	HeLa_WT1	20167	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	CHEUI_m6A	HeLa_WT2	31397	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	CHEUI_m6A	HeLa_WT3	17033	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DENA	HeLa_WT1	20224	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DENA	HeLa_WT2	20487	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DENA	HeLa_WT3	17166	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DRUMMER	HeLa_WT1	432	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DRUMMER	HeLa_WT2	746	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	DRUMMER	HeLa_WT3	293	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_diff	HeLa_WT1	1065	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_diff	HeLa_WT2	1816	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_diff	HeLa_WT3	820	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_solo	HeLa_WT1	49814	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_solo	HeLa_WT2	58726	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	ELIGOS2_solo	HeLa_WT3	35520	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	EpiNano_Error	HeLa_WT1	24182	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	EpiNano_Error	HeLa_WT2	46813	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	EpiNano_Error	HeLa_WT3	18904	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	MINES	HeLa_WT1	39154	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	MINES	HeLa_WT2	77840	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	MINES	HeLa_WT3	33160	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	NanoSPA_m6A	HeLa_WT1	1375	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	NanoSPA_m6A	HeLa_WT2	2490	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	NanoSPA_m6A	HeLa_WT3	941	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	Nanocompore	HeLa_WT1	1237	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	Nanocompore	HeLa_WT2	1798	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	Nanocompore	HeLa_WT3	1261	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	Nanom6A	HeLa_WT1	20915	20915	10399	10516	0	0	0	0	read_bed	10399	10516	0	0	0	0	0
+RNA002	Human	HeLa_WT	m6A	Nanom6A	HeLa_WT2	18311	18311	8931	9380	0	0	0	0	read_bed	8931	9380	0	0	0	0	0
+RNA002	Human	HeLa_WT	m6A	Nanom6A	HeLa_WT3	17066	17066	8324	8742	0	0	0	0	read_bed	8324	8742	0	0	0	0	0
+RNA002	Human	HeLa_WT	m6A	m6Anet	HeLa_WT1	8884	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	m6Anet	HeLa_WT2	16953	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	m6Anet	HeLa_WT3	6783	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	xPore	HeLa_WT1	25216	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	xPore	HeLa_WT2	41850	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	xPore	HeLa_WT3	21149	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	yanocomp	HeLa_WT1	4619	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	yanocomp	HeLa_WT2	6845	0	0	0	0	0	0	0	none							
+RNA002	Human	HeLa_WT	m6A	yanocomp	HeLa_WT3	4340	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	CHEUI_m6A	mESCs_Mettl3_KO	16210	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	CHEUI_m6A	mES_KO	33277	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	DENA	mESCs_Mettl3_KO	13385	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	DENA	mES_KO	25834	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	DRUMMER	mES_KO	441	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	ELIGOS2_diff	mES_KO	596	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	ELIGOS2_solo	mESCs_Mettl3_KO	27517	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	ELIGOS2_solo	mES_KO	58199	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	EpiNano_Error	mESCs_Mettl3_KO	21420	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	MINES	mESCs_Mettl3_KO	41115	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	MINES	mES_KO	98477	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	NanoSPA_m6A	mESCs_Mettl3_KO	724	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	NanoSPA_m6A	mES_KO	163	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	Nanocompore	mESCs_Mettl3_KO	7581	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	Nanom6A	mESCs_Mettl3_KO	8386	8386	4326	4060	0	0	0	0	read_bed	4326	4060	0	0	0	0	0
+RNA002	Mouse	Mouse_KO	m6A	Nanom6A	mES_KO	18978	18978	9406	9572	0	0	0	0	read_bed	9406	9572	0	0	0	0	0
+RNA002	Mouse	Mouse_KO	m6A	m6Anet	mESCs_Mettl3_KO	8158	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	m6Anet	mES_KO	17431	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	xPore	mES_KO	45426	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_KO	m6A	yanocomp	mES_KO	44052	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	CHEUI_m6A	mESCs_Mettl3_WT	14586	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	CHEUI_m6A	mES_WT	37347	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	DENA	mESCs_Mettl3_WT	37034	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	DENA	mES_WT	38880	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	DRUMMER	mESCs_Mettl3_WT	564	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	DRUMMER	mES_WT	1913	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	ELIGOS2_diff	mESCs_Mettl3_WT	823	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	ELIGOS2_diff	mES_WT	3919	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	ELIGOS2_solo	mESCs_Mettl3_WT	74653	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	ELIGOS2_solo	mES_WT	87246	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	EpiNano_Error	mESCs_Mettl3_WT	17186	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	EpiNano_Error	mES_WT	33073	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	MINES	mESCs_Mettl3_WT	91016	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	MINES	mES_WT	93504	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	NanoSPA_m6A	mESCs_Mettl3_WT	4178	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	NanoSPA_m6A	mES_WT	3267	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	Nanocompore	mES_WT	3115	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	Nanom6A	mESCs_Mettl3_WT	11052	11052	5630	5422	0	0	0	0	read_bed	5630	5422	0	0	0	0	0
+RNA002	Mouse	Mouse_WT	m6A	Nanom6A	mES_WT	23952	23952	11869	12083	0	0	0	0	read_bed	11869	12083	0	0	0	0	0
+RNA002	Mouse	Mouse_WT	m6A	m6Anet	mESCs_Mettl3_WT	31041	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	m6Anet	mES_WT	29296	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	xPore	mESCs_Mettl3_WT	43485	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	xPore	mES_WT	60259	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	yanocomp	mESCs_Mettl3_WT	8749	0	0	0	0	0	0	0	none							
+RNA002	Mouse	Mouse_WT	m6A	yanocomp	mES_WT	7226	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_hac@v5.0.0_pseU_m6A_Psi	Curlcake_RNA004_IVT	3829	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_hac@v5.1.0_all_Psi	Curlcake_RNA004_IVT	3580	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_sup@v5.0.0_pseU_m6A_Psi	Curlcake_RNA004_IVT	3089	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_sup@v5.1.0_all_Psi	Curlcake_RNA004_IVT	2998	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	NanoPsu	Curlcake_RNA004_IVT	4667	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	Psi	NanoSPA_psU	Curlcake_RNA004_IVT	29	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	inosine	Dorado_hac@v5.1.0_inosine_m6A_inosine	Curlcake_RNA004_IVT	3387	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_inosine	Curlcake_RNA004_IVT	2797	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m5C	Dorado_hac@v5.1.0_all_m5C	Curlcake_RNA004_IVT	3189	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m5C	Dorado_sup@v5.1.0_all_m5C	Curlcake_RNA004_IVT	2675	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH	Curlcake_RNA004_IVT	302	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.0.0_pseU_m6A	Curlcake_RNA004_IVT	3865	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.1.0_all	Curlcake_RNA004_IVT	303	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	Curlcake_RNA004_IVT	3773	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH	Curlcake_RNA004_IVT	229	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.0.0_pseU_m6A	Curlcake_RNA004_IVT	3171	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.1.0_all	Curlcake_RNA004_IVT	236	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	Curlcake_RNA004_IVT	3056	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	NanoSPA_m6A	Curlcake_RNA004_IVT	23	0	0	0	0	0	0	0	none							
+RNA004	Curlcake	RNA004_Curlcake_IVT	m6A	m6Anet	Curlcake_RNA004_IVT	17	17	17	0	0	0	0	0	exon	0	0	0	17	0	0	0
+RNA004	Human	RNA004_HeLa_IVT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	HeLa_RNA004_IVT	608	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	HeLa_RNA004_IVT	137	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	HeLa_RNA004_IVT	1455	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	HeLa_RNA004_IVT	284	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	Psi	NanoPsu	HeLa_RNA004_IVT	238	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	Psi	NanoSPA_psU	HeLa_RNA004_IVT	247	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	inosine	Dorado_hac@v5.1.0_inosine_m6A_otherMod	HeLa_RNA004_IVT	5	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	HeLa_RNA004_IVT	18	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	HeLa_RNA004_IVT	263	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	HeLa_RNA004_IVT	101	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.0.0_m6A@v1	HeLa_RNA004_IVT	14660	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	HeLa_RNA004_IVT	10	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	HeLa_RNA004_IVT	130	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	HeLa_RNA004_IVT	11	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.0.0_m6A@v1	HeLa_RNA004_IVT	51898	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	HeLa_RNA004_IVT	3	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	HeLa_RNA004_IVT	108	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	HeLa_RNA004_IVT	4	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	ELIGOS2_solo	HeLa_RNA004_IVT	2582	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	NanoSPA_m6A	HeLa_RNA004_IVT	295	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_IVT	m6A	m6Anet	HeLa_RNA004_IVT	21440	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	HeLa_RNA004_WT	392	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	HeLa_RNA004_WT	298	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	HeLa_RNA004_WT	697	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	HeLa_RNA004_WT	678	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	NanoPsu	HeLa_RNA004_WT	76	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	Psi	NanoSPA_psU	HeLa_RNA004_WT	76	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	inosine	Dorado_hac@v5.1.0_inosine_m6A_otherMod	HeLa_RNA004_WT	18	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	HeLa_RNA004_WT	51	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	HeLa_RNA004_WT	733	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	HeLa_RNA004_WT	219	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	DRUMMER	HeLa_RNA004_WT	334	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.0.0_m6A@v1	HeLa_RNA004_WT	10032	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	HeLa_RNA004_WT	4428	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.1.0_inosine_m6A	HeLa_RNA004_WT	3922	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	HeLa_RNA004_WT	4108	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.0.0_m6A@v1	HeLa_RNA004_WT	11161	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	HeLa_RNA004_WT	5008	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.1.0_inosine_m6A	HeLa_RNA004_WT	3919	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	HeLa_RNA004_WT	4329	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	ELIGOS2_diff	HeLa_RNA004_WT	780	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	ELIGOS2_solo	HeLa_RNA004_WT	9389	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	NanoSPA_m6A	HeLa_RNA004_WT	323	0	0	0	0	0	0	0	none							
+RNA004	Human	RNA004_HeLa_WT	m6A	m6Anet	HeLa_RNA004_WT	31879	0	0	0	0	0	0	0	none							

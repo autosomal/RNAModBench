@@ -1,0 +1,29 @@
+anchor	value	unit	source_table	detail
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_sup@v5.0.0_m6A_DRACH@v1	0.822192	fraction	fig8_ppv_glori.tsv	tp=3653 fp=790 n_calls_in_universe=4443
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_sup@v5.1.0_m6A_DRACH@v1	0.8221	fraction	fig8_ppv_glori.tsv	tp=3147 fp=681 n_calls_in_universe=3828
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_hac@v5.1.0_m6A_DRACH@v1	0.821831	fraction	fig8_ppv_glori.tsv	tp=2989 fp=648 n_calls_in_universe=3637
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_hac@v5.0.0_m6A_DRACH@v1	0.819714	fraction	fig8_ppv_glori.tsv	tp=3210 fp=706 n_calls_in_universe=3916
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_sup@v5.1.0_inosine_m6A	0.806669	fraction	fig8_ppv_glori.tsv	tp=2758 fp=661 n_calls_in_universe=3419
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_hac@v5.1.0_inosine_m6A	0.802907	fraction	fig8_ppv_glori.tsv	tp=2762 fp=678 n_calls_in_universe=3440
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_sup@v5.0.0_m6A@v1	0.691578	fraction	fig8_ppv_glori.tsv	tp=3572 fp=1593 n_calls_in_universe=5165
+PPV vs GLORI (2 bp) | HeLa WT | Dorado_hac@v5.0.0_m6A@v1	0.638494	fraction	fig8_ppv_glori.tsv	tp=2916 fp=1651 n_calls_in_universe=4567
+PPV vs GLORI (2 bp) | HeLa WT | m6Anet	0.476372	fraction	fig8_ppv_glori.tsv	tp=13599 fp=14948 n_calls_in_universe=28547
+PPV vs GLORI (2 bp) | HeLa WT | NanoSPA_m6A	0.353211	fraction	fig8_ppv_glori.tsv	tp=77 fp=141 n_calls_in_universe=218
+PPV vs GLORI (2 bp) | HeLa WT | DRUMMER	0.04797	fraction	fig8_ppv_glori.tsv	tp=13 fp=258 n_calls_in_universe=271
+PPV vs GLORI (2 bp) | HeLa WT | ELIGOS2_diff	0.029228	fraction	fig8_ppv_glori.tsv	tp=14 fp=465 n_calls_in_universe=479
+PPV vs GLORI (2 bp) | HeLa WT | ELIGOS2_solo	0.012111	fraction	fig8_ppv_glori.tsv	tp=79 fp=6444 n_calls_in_universe=6523
+Curlcake IVT FP/10kb | Dorado_hac@v5.0.0_m6A_DRACH @ 10%	37.4938	per 10 kb	fig8_fpr_curlcake_scan.tsv	n_fp=38, per 1e6 candidates=7711
+Curlcake IVT FP/10kb | Dorado_hac@v5.0.0_m6A_DRACH @ 50%	3.9467	per 10 kb	fig8_fpr_curlcake_scan.tsv	n_fp=4, per 1e6 candidates=812
+Curlcake IVT FP/10kb | Dorado_sup@v5.0.0_m6A_DRACH @ 10%	9.8668	per 10 kb	fig8_fpr_curlcake_scan.tsv	n_fp=10, per 1e6 candidates=2029
+Curlcake IVT FP/10kb | Dorado_sup@v5.0.0_m6A_DRACH @ 50%	0	per 10 kb	fig8_fpr_curlcake_scan.tsv	n_fp=0, per 1e6 candidates=0
+HeLa IVT FP/10kb | Dorado_hac@v5.0.0_m6A@v1 (delivered cutoff)	0.82925	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=13028, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_hac@v5.0.0_m6A_DRACH@v1 (delivered cutoff)	0.00057	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=9, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_hac@v5.1.0_inosine_m6A (delivered cutoff)	0.00554	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=87, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_hac@v5.1.0_m6A_DRACH@v1 (delivered cutoff)	0.00064	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=10, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_sup@v5.0.0_m6A@v1 (delivered cutoff)	2.98926	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=46963, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_sup@v5.0.0_m6A_DRACH@v1 (delivered cutoff)	0.00013	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=2, min_score_pct=95
+HeLa IVT FP/10kb | Dorado_sup@v5.1.0_inosine_m6A (delivered cutoff)	0.00643	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=101, min_score_pct=90
+HeLa IVT FP/10kb | Dorado_sup@v5.1.0_m6A_DRACH@v1 (delivered cutoff)	0.00013	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=2, min_score_pct=91
+HeLa IVT FP/10kb | ELIGOS2_solo (delivered cutoff)	0.16435	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=2582, min_score_pct=0
+HeLa IVT FP/10kb | NanoSPA_m6A (delivered cutoff)	0.01878	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=295, min_score_pct=50
+HeLa IVT FP/10kb | m6Anet (delivered cutoff)	1.19397	per 10 kb	fig8_fpr_hela_ivt.tsv	n_fp=18758, min_score_pct=50

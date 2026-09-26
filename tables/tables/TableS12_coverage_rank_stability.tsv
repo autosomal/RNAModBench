@@ -1,0 +1,36 @@
+# Table S12: Sensitivity of the site-level tool ranking to transcript coverage and to the reference's own composition.
+Species	Units	Sensitivity axis	Level	n tools	Spearman rho vs primary	BH-FDR	Top-ranked tool identical	Top-ranked tool
+Arabidopsis	3	coverage floor	coverage floor >= 5 reads	13	0.999	5.5e-15	yes	m6Anet
+Arabidopsis	3	coverage floor	coverage floor >= 20 reads	13	1.000	< 1e-16	yes	m6Anet
+Arabidopsis	3	coverage floor	coverage floor >= 50 reads	13	0.876	0.00011	yes	m6Anet
+Arabidopsis	3	coverage floor	coverage floor >= 100 reads	13	0.629	0.022	yes	m6Anet
+Arabidopsis	3	coverage stratum	stratum 5-9 reads	10	0.835	0.0048	no	DENA
+Arabidopsis	3	coverage stratum	stratum 10-19 reads	11	0.879	0.00083	no	DENA
+Arabidopsis	3	coverage stratum	stratum 20-49 reads	13	0.801	0.002	yes	m6Anet
+Arabidopsis	3	coverage stratum	stratum >= 50 reads	13	0.876	0.00025	yes	m6Anet
+Arabidopsis	3	reference ratio stratum	reference ratio 0.1-0.3	13	0.581	0.039	no	MINES
+Arabidopsis	3	reference ratio stratum	reference ratio 0.3-0.6	13	0.737	0.0048	no	ELIGOS2_solo
+Arabidopsis	3	reference ratio stratum	reference ratio > 0.6	13	0.845	0.00044	no	ELIGOS2_solo
+Mouse	1	coverage floor	coverage floor >= 5 reads	13	1.000	< 1e-16	yes	m6Anet
+Mouse	1	coverage floor	coverage floor >= 20 reads	13	0.995	9.4e-12	yes	m6Anet
+Mouse	1	coverage floor	coverage floor >= 50 reads	13	0.918	1.4e-05	yes	m6Anet
+Mouse	1	coverage floor	coverage floor >= 100 reads	13	0.830	0.00051	no	ELIGOS2_diff
+Mouse	1	coverage stratum	stratum 5-9 reads	10	0.267	0.56	no	NanoSPA_m6A
+Mouse	1	coverage stratum	stratum 10-19 reads	12	0.699	0.018	no	DENA
+Mouse	1	coverage stratum	stratum 20-49 reads	13	0.874	0.00025	yes	m6Anet
+Mouse	1	coverage stratum	stratum >= 50 reads	13	0.918	4e-05	yes	m6Anet
+Mouse	1	reference ratio stratum	reference ratio 0.1-0.3	13	0.478	0.1	yes	m6Anet
+Mouse	1	reference ratio stratum	reference ratio 0.3-0.6	13	0.714	0.0068	yes	m6Anet
+Mouse	1	reference ratio stratum	reference ratio > 0.6	13	0.720	0.0064	yes	m6Anet
+Human	3	coverage floor	coverage floor >= 5 reads	13	1.000	< 1e-16	yes	m6Anet
+Human	3	coverage floor	coverage floor >= 20 reads	13	1.000	< 1e-16	yes	m6Anet
+Human	3	coverage floor	coverage floor >= 50 reads	13	0.985	2.2e-09	yes	m6Anet
+Human	3	coverage floor	coverage floor >= 100 reads	13	0.884	7.8e-05	yes	m6Anet
+Human	3	coverage stratum	stratum 5-9 reads	9	0.119	0.79	no	ELIGOS2_diff
+Human	3	coverage stratum	stratum 10-19 reads	11	0.442	0.24	no	ELIGOS2_diff
+Human	3	coverage stratum	stratum 20-49 reads	13	0.968	5.5e-07	no	Nanom6A
+Human	3	coverage stratum	stratum >= 50 reads	13	0.985	1.7e-08	yes	m6Anet
+Human	3	reference ratio stratum	reference ratio 0.1-0.3	13	0.743	0.0045	no	MINES
+Human	3	reference ratio stratum	reference ratio 0.3-0.6	13	0.899	5.2e-05	no	Nanom6A
+Human	3	reference ratio stratum	reference ratio > 0.6	13	0.904	4.3e-05	no	Nanom6A
+# note: Ranking statistic MCC (the metric that orders the rows of Fig. 5A), computed per independent sequencing unit inside each sample's own candidate-site set and averaged across units, exactly as in the main analysis; each row restricts the evaluation to the listed level and compares the resulting per-unit mean rank with the primary ranking (13 m6A tool configurations, candidate-site set with coverage >= 10 reads, full high-confidence reference). Spearman rho is that rank correlation and BH-FDR its correction within the axis. Arabidopsis and HeLa contribute three units, the mouse study one, so no interval is reported for mouse. The three coverage floors that leave the evaluation set comparable (>= 5, >= 10 and >= 20 reads) give the same ordering (rho = 0.99-1.00, top-ranked tool unchanged in every species); inside the informative coverage strata (20-49 and >= 50 reads) the ranking is reproduced at rho = 0.80-0.98. The sparse strata (5-9 and 10-19 reads) carry almost no information - the mean recall of every tool is <= 0.9 % there - and are reported as sensitivity checks only. Stratifying the reference by modification ratio changes the ordering more strongly (rho = 0.48-0.90, with the top-ranked tool changing in seven of the nine rows), which is why the primary metrics are reported against the full high-confidence reference.

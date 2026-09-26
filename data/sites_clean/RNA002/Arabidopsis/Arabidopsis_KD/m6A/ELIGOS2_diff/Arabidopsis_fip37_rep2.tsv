@@ -1,0 +1,26 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	offset_flag	drach
+chr1	1960236	1960237	-	1.34986e-05	adjPval	134	T	TGTTG	ok		False
+chr1	9732160	9732161	-	4.54944e-05	adjPval	20	T	GATGT	ok		False
+chr1	9732162	9732163	-	5.99025e-06	adjPval	20	T	TGTCG	ok		False
+chr1	9889599	9889600	-	4.85253e-07	adjPval	50	T	TGTTA	ok		True
+chr1	9889600	9889601	-	5.0915e-07	adjPval	50	T	GTTAT	ok		False
+chr2	10217841	10217842	-	1.47704e-06	adjPval	69	T	AGTTG	ok		False
+chr2	11475937	11475938	-	6.99182e-05	adjPval	47	T	GGTAG	ok		False
+chr2	14302303	14302304	-	7.00072e-06	adjPval	162	T	GGTGT	ok		False
+chr2	19524678	19524679	-	5.00802e-05	adjPval	10	T	TGTCG	ok		False
+chr3	3172428	3172429	-	6.17449e-05	adjPval	22	T	CATGT	ok		False
+chr3	5890150	5890151	-	3.42836e-05	adjPval	30	T	TCTCC	ok		False
+chr3	6349957	6349958	-	3.86945e-06	adjPval	112	T	TGTAT	ok		False
+chr3	17789934	17789935	-	3.12508e-05	adjPval	18	T	TCTGC	ok		False
+chr3	22088281	22088282	+	4.42473e-05	adjPval	44	A	TCACC	ok		False
+chr4	921665	921666	+	3.76345e-05	adjPval	59	A	TCACA	ok		False
+chr4	11023457	11023458	-	8.98779e-06	adjPval	28	T	GCTGG	ok		False
+chr4	12767001	12767002	-	8.17441e-05	adjPval	455	T	GGTTG	ok		False
+chr4	12820689	12820690	-	8.11073e-07	adjPval	37	T	TTTTG	ok		False
+chr5	3554838	3554839	+	2.00794e-05	adjPval	52	A	GCAGG	ok		False
+chr5	3647050	3647051	+	5.38299e-09	adjPval	97	A	AAATA	ok		False
+chr5	16382902	16382903	-	7.03666e-05	adjPval	49	T	GATGT	ok		False
+chr5	21650518	21650519	-	1.55045e-05	adjPval	25	T	GGTTA	ok		True
+chr5	21650519	21650520	-	6.55412e-05	adjPval	25	T	GTTAT	ok		False
+chr5	23725884	23725885	-	2.05607e-05	adjPval	16	T	GTTTG	ok	systematic_+1	False
+chr5	23725885	23725886	-	8.27567e-05	adjPval	16	T	TTTGT	ok		False

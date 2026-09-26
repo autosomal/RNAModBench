@@ -1,0 +1,12 @@
+item	value
+page_in	6.66 x 7.47
+page_pt	479.5 x 537.5
+text_width_fraction	0.95
+row_A	Fig3A_tool_similarity_mds.pdf (matplotlib (56_fig3a)), 6.66 x 1.98 in, y_bottom 5.49 in, min font 7.20 pt
+row_B	Fig3B_modratio_boxplot.pdf (matplotlib (57_fig3b)), 6.66 x 1.95 in, y_bottom 3.49 in, min font 7.40 pt
+row_C	Fig3C_metagene_species.pdf (R/Guitar (58_fig3cd)), 6.65 x 1.53 in, y_bottom 1.94 in, min font 7.20 pt
+row_D	Fig3D_metagene_tools.pdf (R/Guitar (58_fig3cd)), 6.65 x 1.53 in, y_bottom 0.39 in, min font 7.20 pt
+row_L	Fig3_legend_band.pdf (matplotlib (61_legend_band)), 6.66 x 0.34 in, y_bottom 0.00 in, min font 7.20 pt
+min_font_pt	7.20 (per row); 7.20 (merged page)
+fonts_embedded	9/9
+vector	pypdf translation merge (no rasterisation)

@@ -1,0 +1,16 @@
+name: dena
+channels:
+  - anaconda
+  - pytorch
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.7
+  - pytorch
+  - cudatoolkit
+  - ont-tombo
+  - minimap2
+  - samtools
+  - pip:
+    - torchvision  

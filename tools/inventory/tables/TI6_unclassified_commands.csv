@@ -1,0 +1,41 @@
+tool_raw,n_commands,datasets,example_command,script,generated_at
+watch_disk_sampcomp,125,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/watch_disk_sampcomp.sh,2026-09-14 02:14:51
+verify_step3_early,104,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/verify_step3_early.sh,2026-09-14 02:14:51
+step2_cheui_m6a_fast,88,all,PY=$RNAMODBENCH_LOCAL/miniconda3/envs/cheui/bin/python,$RNAMODBENCH_LOCAL/code/rerun/step2_cheui_m6a_fast.sh,2026-09-14 02:14:51
+step4_validate,76,all,RES=$RNAMODBENCH_LOCAL/raw/result,$RNAMODBENCH_LOCAL/code/rerun/step4_validate.sh,2026-09-14 02:14:51
+downstream_watcher3,72,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/downstream_watcher3.sh,2026-09-14 02:14:51
+run_one_sample,69,all,SAMPLE=${1:?usage: run_one_sample.sh <sample>},$RNAMODBENCH_LOCAL/code/f5c_mode/run_one_sample.sh,2026-09-14 02:14:51
+verify_fip37_release,52,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/verify_fip37_release.sh,2026-09-14 02:14:51
+step3_yanocomp,47,all,LOCK=$RNAMODBENCH_LOCAL/code/rerun/logs/.step3.pid,$RNAMODBENCH_LOCAL/code/rerun/step3_yanocomp.sh,2026-09-14 02:14:51
+deploy_m2_par,44,all,STEP2=$RNAMODBENCH_LOCAL/code/rerun/step2_cheui_m6a_fast.sh,$RNAMODBENCH_LOCAL/code/rerun/deploy_m2_par.sh,2026-09-14 02:14:51
+downstream_watcher2,43,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/downstream_watcher2.sh,2026-09-14 02:14:51
+run_step3_early,38,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/run_step3_early.sh,2026-09-14 02:14:51
+step1_eventalign,36,all,FB=$RNAMODBENCH_LOCAL/raw/fastq_backup,$RNAMODBENCH_LOCAL/code/rerun/step1_eventalign.sh,2026-09-14 02:14:51
+reclaim_test_artifact,35,all,F=$RNAMODBENCH_LOCAL/legacy/intermediate/tmp/wtest,$RNAMODBENCH_LOCAL/code/rerun/reclaim_test_artifact.sh,2026-09-14 02:14:51
+step2_cheui_m6a,32,all,PY=$RNAMODBENCH_LOCAL/miniconda3/envs/cheui/bin/python,$RNAMODBENCH_LOCAL/code/rerun/step2_cheui_m6a.sh,2026-09-14 02:14:51
+prep_yanocomp_early,27,all,YANO=$RNAMODBENCH_LOCAL/miniconda3/envs/yanocomp/bin/yanocomp,$RNAMODBENCH_LOCAL/code/rerun/prep_yanocomp_early.sh,2026-09-14 02:14:51
+downstream_watcher,27,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/downstream_watcher.sh,2026-09-14 02:14:51
+step0_unlabel_fastq_backup,25,all,BASE=$RNAMODBENCH_LOCAL/raw/fastq_backup,$RNAMODBENCH_LOCAL/code/rerun/step0_unlabel_fastq_backup.sh,2026-09-14 02:14:51
+Epinano_delta,22,all,epinano_delta=path_to_Epinano_delta_results,$RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/Epinano_delta.sh,2026-09-14 02:14:51
+parse_existing_shards,21,all,SAMPLE=$1,$RNAMODBENCH_LOCAL/code/rerun/cheui_cpp_fixed/parse_existing_shards.sh,2026-09-14 02:14:51
+single_tools,21,all,tombo=path_to_Tombo_results,$RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/single_tools.sh,2026-09-14 02:14:51
+warm_cache,20,all,N=${1:-24}; shift,$RNAMODBENCH_LOCAL/code/rerun/warm_cache.sh,2026-09-14 02:14:51
+IL-AD,17,Curlcake,python ./scripts/train.py --device cuda:0 taiyaki/models/mLstm_cat_mod_flipflop.py taiyaki/models/mLstm_flipflop_model_r941_DNA.checkpoint train.hdf5 --outdir path/to/output --save_every 100 --niteration 500 --warmup_batches 5 --lr_max 5.0e-5,$RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/IL-AD.sh,2026-09-14 02:14:51
+launch_after_pcount,17,all,B=code/rerun/cheui_cpp_fixed,$RNAMODBENCH_LOCAL/code/rerun/launch_after_pcount.sh,2026-09-14 02:14:51
+run_all_f5c,13,all,"CODE=$(cd ""$(dirname ""$0"")"" && pwd)",$RNAMODBENCH_LOCAL/code/f5c_mode/run_all_f5c.sh,2026-09-14 02:14:51
+DeepEdit,10,Curlcake;HeLa,perl $RNAMODBENCH_LOCAL/source_code/benchmark/DeepEdit/Docs/Get_trained_sites.pl $RNAMODBENCH_LOCAL/reference/curlcakes/cc.fasta $RNAMODBENCH_LOCAL/source_code/benchmark/DeepEdit/Docs/Trained_motifs_v1.0.txt $RNAMODBENCH_LOCAL/raw/result/DeepEdit/trained_site/cc.bed,$RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/DeepEdit.sh,2026-09-14 02:14:51
+prepare_refs,8,all,source $RNAMODBENCH_LOCAL/miniconda3/etc/profile.d/conda.sh && conda activate nanom6A,$RNAMODBENCH_LOCAL/code/f5c_mode/prepare_refs.sh,2026-09-14 02:14:51
+xron,7,Curlcake;HeLa,xron call -i <input_pod5_folder> -o <output_folder> -m models/RNA004,$RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/xron.sh,2026-09-14 02:14:51
+NanoPsiPy,7,Curlcake,NanoPsiPy_estimation -i . -r cc.fasta -o RNAAB089716_control.csv -s control,$RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/NanoPsiPy.sh,2026-09-14 02:14:51
+test_offset_battery,7,all,source $RNAMODBENCH_LOCAL/miniconda3/etc/profile.d/conda.sh,$RNAMODBENCH_LOCAL/code/f5c_mode/tools/test_offset_battery.sh,2026-09-14 02:14:51
+run_all,6,all,DIR=$RNAMODBENCH_LOCAL/code/rerun,$RNAMODBENCH_LOCAL/code/rerun/run_all.sh,2026-09-14 02:14:51
+RedNano,5,Curlcake,"awk 'NR==1{ h=$0 }NR>1{ print (!a[$2]++? h ORS $0 : $0) > """"$1"".txt"" }' test.tsv",$RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/RedNano.sh,2026-09-14 02:14:51
+test_legacy_semantics,5,all,source $RNAMODBENCH_LOCAL/miniconda3/etc/profile.d/conda.sh,$RNAMODBENCH_LOCAL/code/f5c_mode/tools/test_legacy_semantics.sh,2026-09-14 02:14:51
+test_mirror_hypothesis,5,all,source $RNAMODBENCH_LOCAL/miniconda3/etc/profile.d/conda.sh,$RNAMODBENCH_LOCAL/code/f5c_mode/tools/test_mirror_hypothesis.sh,2026-09-14 02:14:51
+process_all_orca,5,RNA004,"SCRIPT_DIR=""$RNAMODBENCH_LOCAL/nanopore/result/HeLa""",$RNAMODBENCH_LOCAL/raw/result_RNA004/scripts/processing/process_all_orca.sh,2026-09-14 02:14:51
+m6atm,4,Curlcake;HeLa,m6atm run -f $RNAMODBENCH_LOCAL/nanopore/data/SRP174366/RNAAB089716/fast5guppy/pass -b $RNAMODBENCH_LOCAL/nanopore/data/SRP174366/RNAAB089716/pastfastq/RNAAB089716.bam -r $RNAMODBENCH_LOCAL/reference/curlcakes/cc.fasta -o $RNAMODBENCH_LOCAL/raw/result/m6ATM/RNAAB089716/out -N 10,$RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/m6atm.sh,2026-09-14 02:14:51
+pum6a,4,Curlcake;HeLa,python run.py predict --config $config.toml,$RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/pum6a.sh,2026-09-14 02:14:51
+modena,2,HeLa,$ poetry run python -m modena -a a.blow5 -ax a.tsv -b b.blow5 -bx b.tsv -o out.tsv,$RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/modena.sh,2026-09-14 02:14:51
+run_visualization,2,RNA004,python visualization.py,$RNAMODBENCH_LOCAL/raw/result_RNA004/scripts/processing/run_visualization.sh,2026-09-14 02:14:51
+PsiNanopore,1,Curlcake,Rscript PsiDetect.R -f $RNAMODBENCH_LOCAL/nanopore/data/SRP174366/RNA081120181/partpastfastq/RNA081120181part.bam -g $RNAMODBENCH_LOCAL/nanopore/data/SRP174366/RNAAB089716/pastfastq/RNAAB089716.bam -k $RNAMODBENCH_LOCAL/source_code/benchmark/PsiNanopore-1.0.0/data/kmer_summary.csv -r $RNAMODBENCH_LOCAL/reference/curlcakes/cc.fasta -s 1 -e 2277 -c Curlcake1 -m 0.05 -o $RNAMODBENCH_LOCAL/raw/result/PsiNanopore/RNAAB089716/psi_Curlcake1.csv,$RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/PsiNanopore.sh,2026-09-14 02:14:51
+DInoPORE,1,Curlcake,bash mainscript11.sh -e $RNAMODBENCH_LOCAL/nanopore/data/SRP174366/RNAAB089716/fast5guppy/workspace -r $RNAMODBENCH_LOCAL/reference/curlcakes/cc.fasta -n 20 -g RNAAB089716,$RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/DInoPORE.sh,2026-09-14 02:14:51

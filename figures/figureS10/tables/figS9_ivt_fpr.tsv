@@ -1,0 +1,7 @@
+block	slot	mod	model	label	n_calls	n_calls_in_universe	n_universe	region_bp	fp_per_10kb	fp_per_1e6_candidates	min_cov	source
+A	R1C1	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	hac@v5.0.0_pseU	138	97	15817652	157105601	0.0087839	8.72443	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
+A	R1C2	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	hac@v5.1.0_pseU	70	54	15817652	157105601	0.0044556	4.42544	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
+A	R1C3	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	sup@v5.0.0_pseU	953	243	15817652	157105601	0.0606598	60.2491	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
+A	R2C1	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	sup@v5.1.0_pseU	233	187	15817652	157105601	0.0148308	14.7304	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
+A	R2C2	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	hac@v5.1.0_m5C	261	216	14155581	157105601	0.016613	18.438	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
+A	R2C3	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	sup@v5.1.0_m5C	97	87	14155581	157105601	0.00617419	6.85242	10	04_revision_analysis/sites_v2/evaluation/tables/controls_ivt_fpr.tsv
