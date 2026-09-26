@@ -33,7 +33,7 @@ import s3_common as sc
 
 
 def main() -> int:
-    #: the sibling module sets its own rcParams at import -> our style last
+    #: the companion module sets its own rcParams at import -> our style last
     other = make_s3c_reuse_other.load_other_recipe()
     sc.apply_page_style()
 

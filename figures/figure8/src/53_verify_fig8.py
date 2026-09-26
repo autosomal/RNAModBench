@@ -3,7 +3,7 @@
 
 Checks
 ------
-1. the assembled page: 500.4 x 586.8 pt (= 6.95 x 8.15 in), 300 dpi PNG sibling,
+1. the assembled page: 500.4 x 586.8 pt (= 6.95 x 8.15 in), 300 dpi PNG companion,
    Arial-only embedded fonts (no DejaVu, no Noto fallback, every font embedded);
 2. no false-positive count is drawn inside panel B (the numbers live in the
    legend and the source tables): the B piece and the page must not contain the

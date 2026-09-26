@@ -70,7 +70,7 @@ from common.refs import EXON_CSV  # noqa: E402
 
 
 def _load_04():
-    """Import the sibling ``04_build_universe.py`` (module name starts with a digit)."""
+    """Import the companion ``04_build_universe.py`` (module name starts with a digit)."""
     spec = importlib.util.spec_from_file_location(
         "u04_build_universe", SCRIPTS / "04_build_universe.py")
     mod = importlib.util.module_from_spec(spec)

@@ -56,7 +56,7 @@ FIGS = (_RB / "figures/figureS9/figures")
 PANELS = (_RB / "figures/figureS9/figures/panels")
 LOGS = (_RB / "figures/figureS9/logs")
 
-#: frozen evidence tables owned by the sibling Figure-8 workflow (read-only)
+#: frozen evidence tables owned by the companion Figure-8 workflow (read-only)
 SRC_TABLES = (_RB / "figures/figureS9/tables/source")
 
 # --------------------------------------------------------------------------- #

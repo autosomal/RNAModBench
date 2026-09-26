@@ -6,7 +6,7 @@ Checks, in order:
      `figures/figure3/figures/Figure3_rev.pdf`;
   2. the merged page is one page of the expected printed size;
   3. every font is embedded (pdf resolution) and no text is below 7.2 pt;
-  4. the PNG sibling is 300 dpi;
+  4. the PNG companion is 300 dpi;
   5. the manuscript caption mentions all four panels and carries no stale
      p-value-only wording for this figure;
   6. the legacy-vs-revision table covers the twelve tool x species cells.

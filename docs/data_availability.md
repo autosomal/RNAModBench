@@ -109,7 +109,23 @@ knock-down metrics, RNA004 evaluations, non-m6A panels, and the offset/anchor/
 pileup QC audits that justify the filtering. [`pipeline.md`](pipeline.md)
 describes which stage writes which table.
 
-## 6. What is deliberately not in this repository
+## 6. Supporting analyses behind individual figures - `analysis/`
+
+Five directories, each named for what it shows rather than for the review point it
+answered:
+
+| directory | read by |
+|---|---|
+| `analysis/nonm6a_false_positives/` | Figure 7 and Figures S7-S8: non-m6A calls against unmodified and knock-out controls |
+| `analysis/motif_bias_control/` | Figure 4 and Figure S2: motif preference with the algorithmic-bias control |
+| `analysis/mod_ratio_replicates/` | Figure 3 and Figure S3: modification-ratio agreement between replicates |
+| `analysis/coverage_rank_stability/`, `analysis/reference_transcript_strata/` | Table S12: the ranking recomputed inside coverage and reference-ratio strata |
+| `analysis/supp_table_inputs/` | Tables S6 and S7: per-tool implementation and chemistry-applicability ledgers |
+
+These are frozen inputs, read by the renderers and by `tables/`; their own producers
+belong to the `producers` group in [`reproducing.md`](reproducing.md).
+
+## 7. What is deliberately not in this repository
 
 | not deposited | why | where it comes from instead |
 |---|---|---|
@@ -126,7 +142,7 @@ The panel and page renderers do not read it - they rebuild from the tables depos
 here - but the producers, the Guitar metagene panels, Figure 1's Illustrator strip and
 a few `verify_*` gates do, and `docs/reproducing.md` says which is which.
 
-## 7. Integrity
+## 8. Integrity
 
 `scripts/verify_deposit.py` re-reads the deposit and checks that: no personal
 absolute paths remain, every Python/R/shell file parses, the row counts of each

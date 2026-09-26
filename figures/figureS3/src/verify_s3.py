@@ -97,7 +97,7 @@ def main() -> int:
     check("panel C provenance file", prov.exists(), str(prov))
     if prov.exists():
         ptxt = prov.read_text()
-        check("panel C credits the sibling script",
+        check("panel C credits the companion script",
               "16_mod_ratio_regression_fig.py" in ptxt
               and "mod_ratio_matched_sites.tsv" in ptxt,
               "script + cached tables recorded with md5")

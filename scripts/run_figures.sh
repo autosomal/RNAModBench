@@ -28,6 +28,9 @@ FAILED=()
 # conda is preferred when it is on PATH; otherwise run with an already activated
 # environment (export CONDA= to force that path).
 CONDA="${CONDA-$(command -v conda 2>/dev/null || true)}"
+#: copy of the committed tables, taken before the first step and re-installed after
+#: any step that fails, so one aborted producer cannot blank a renderer's input
+SNAP="${TMPDIR:-/tmp}/rnamodbench_tables_$$"
 
 with_env() {  # with_env <conda-env> <command...>
   local env="$1"; shift
@@ -87,7 +90,21 @@ run_env() {  # run_env <conda-env> <label> <script> [args...]
   fi
   printf '%s\n' "$msg" | tail -2 | sed 's/^/    | /'
   classify "$script" "$msg"
+  restore_tables
   return 0
+}
+
+snapshot_tables() {  # keep a copy of every frozen table, before any producer runs
+  rm -rf "$SNAP"; mkdir -p "$SNAP"
+  (cd "$RB" && tar -cf "$SNAP/tables.tar" \
+      figures/*/tables figures/*/inputs figures/*/analysis data/evaluation/tables analysis 2>/dev/null) || true
+}
+
+restore_tables() {  # undo a producer that died part-way through rewriting a table
+  if [ -f "$SNAP/tables.tar" ]; then
+    tar -C "$RB" -xf "$SNAP/tables.tar" 2>/dev/null || true
+    RESTORED=1
+  fi
 }
 
 run() {  # run <label> <script> [args...] -- default analysis environment
@@ -104,10 +121,13 @@ runr() {  # R/Guitar panels, opt-in
   if ! with_env "$env" Rscript "$script"; then
     echo "   .. failed"
     FAILED+=("$label -- $(basename "$script")")
+    restore_tables
   fi
 }
 
 cd "$RB"
+snapshot_tables
+trap 'rm -rf "$SNAP"' EXIT
 
 echo "### Figure 1"
 run "fig1 counts"   src/harmonisation/scripts/28_fig_tool_counts_replicates.py
@@ -203,5 +223,10 @@ run "figure S10 gate" figures/figureS10/src/61_verify_figS9.py
 echo
 if [ ${#failed[@]} -gt 0 ]; then
   echo "failed (${#failed[@]}):"; printf '  %s\n' "${failed[@]}"
+  if [ -n "${RESTORED:-}" ]; then
+    echo "the committed tables were re-installed after every failing step, so a"
+    echo "producer that could not read \$RNAMODBENCH_LOCAL has not altered any input a"
+    echo "renderer needs; the panels that were rebuilt stay in figures/<figure>/figures/."
+  fi
 fi
 echo "done.  Panels land in figures/<figure>/figures/; compare against figures/<figure>/delivered/."

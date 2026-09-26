@@ -4,7 +4,8 @@
 Verifies, without touching the network:
 
 1. no personal absolute path survives anywhere in the deposit;
-2. no directory name from the private working tree survives in a text source;
+2. no directory name from the private working tree, and no working note in a
+   language other than English, survives in a text source;
 3. every Python / R / shell source file parses;
 4. every deposited callset is listed in ``metadata/callsets_index.tsv`` and its
    recorded site count equals the file's row count;
@@ -49,14 +50,18 @@ def read_files():
 INTERNAL_NAMES = re.compile(
     r"04_[r]evision_analysis|01_[c]ode|02_[r]aw_results|05_[s]ubmission|06_[r]eviewers"
     r"|07_[t]hird_party|08_[r]evision|sites_[v]2|sites_[c]lean|[c]ode_user"
-    r"|the [a]nalysis tree")
+    r"|the [a]nalysis tree|revision_[o]utput")
+#: written with escapes so that no CJK character appears in this file itself
+CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
+TEXT = (".py", ".R", ".r", ".sh", ".md", ".tex", ".json", ".yml", ".yaml",
+        ".csv", ".tsv", ".txt", ".bed")
 
 
 def check_internal_names() -> None:
     """Working-tree directory names must not survive into the deposit."""
     hits = []
     for p in read_files():
-        if p.suffix not in (".py", ".R", ".sh", ".md", ".tex", ".json", ".yml", ".yaml"):
+        if p.suffix not in TEXT:
             continue
         try:
             text = p.read_text(encoding="utf-8")
@@ -67,6 +72,24 @@ def check_internal_names() -> None:
             hits.append((p.relative_to(ROOT).as_posix(), n))
     shown = "; ".join(f"{a} ({b})" for a, b in sorted(hits)[:6])
     note(not hits, f"no internal working-tree names in {sum(1 for _ in read_files())} text sources"
+         + ("" if not hits else f"; {len(hits)} file(s): {shown}"))
+
+
+def check_language() -> None:
+    """The deposit is published in English; no working note in another language is."""
+    hits = []
+    for p in read_files():
+        if p.suffix not in TEXT:
+            continue
+        try:
+            text = p.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        n = len(CJK.findall(text))
+        if n:
+            hits.append((p.relative_to(ROOT).as_posix(), n))
+    shown = "; ".join(f"{a} ({b})" for a, b in sorted(hits)[:6])
+    note(not hits, "no CJK (working-note) characters in the text sources"
          + ("" if not hits else f"; {len(hits)} file(s): {shown}"))
 
 
@@ -145,6 +168,7 @@ def main() -> int:
     print(f"verifying {ROOT}")
     check_paths()
     check_internal_names()
+    check_language()
     check_parses()
     check_callsets()
     check_figure_index()

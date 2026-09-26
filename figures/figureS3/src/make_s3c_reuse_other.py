@@ -14,7 +14,7 @@ pooled fit, identity line, per-tool legend with r / Lin's CCC) onto this page's
 panel-C box.  Rationale: their figure is laid out for a 21.6-in canvas, so
 dropping it into a 2-in page panel would render its legend at ~5 pt and break
 the house rule (>= 7 pt ticks/labels).  Tool colours and the tool list are
-imported from their script so the visual identity is preserved; the sibling
+imported from their script so the visual identity is preserved; the companion
 directory is never written.
 
 Outputs: panels/S3C_modratio_perrep.{pdf,png}, tables/S3C_provenance.tsv
@@ -62,7 +62,7 @@ REP_ALPHA = 0.55
 
 
 def load_other_recipe():
-    """Import the sibling script to reuse its tool list / colours verbatim."""
+    """Import the companion script to reuse its tool list / colours verbatim."""
     spec = importlib.util.spec_from_file_location("other_s3c", OTHER_SCRIPT)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -165,8 +165,8 @@ def write_provenance(summary: pd.DataFrame, tools: list[str]) -> Path:
     path = sc.TABLE_DIR / "S3C_provenance.tsv"
     with path.open("w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh, delimiter="\t")
-        w.writerow(["# panel C analysis (per-replicate fits + CCC) is the sibling "
-                    "session's; this page re-renders its recipe at page geometry"])
+        w.writerow(["# panel C analysis (per-replicate fits + CCC) is the companion analysis "
+                    "of this repository; this page re-renders its recipe at page geometry"])
         w.writerow(["artifact", "path", "md5", "mtime"])
         for p in (OTHER_SCRIPT, MATCHED, SUMMARY,
                   (_RB / "analysis/mod_ratio_replicates/figures/mod_ratio_regression_S3C_style.pdf")):

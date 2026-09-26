@@ -475,13 +475,13 @@ def _legend_hits(ax, leg, fig) -> list[str]:
             continue
         ol = o.get_legend()
         if ol is not None and lb.overlaps(ol.get_window_extent(rend)):
-            hits.append("sibling-legend")
+            hits.append("companion-legend")
     return hits
 
 
 def relayout_legends(fig) -> None:
     """Re-run the legend search once every panel letter / label is on the canvas."""
-    for _ in range(2):                     # second pass sees all sibling keys
+    for _ in range(2):                     # second pass sees all companion keys
         for ax in fig.axes:
             spec = getattr(ax, "_fig7_legend", None)
             if spec is None:
@@ -679,7 +679,7 @@ def layout_report(fig) -> dict:
                                  "b": type(coll).__name__, "dx": round(dx, 1),
                                  "dy": round(dy, 1)})
         texts = list(ax.texts) + list(ax.get_xticklabels()) + list(ax.get_yticklabels())
-        for o in axes:                     # sibling labels must stay clear too
+        for o in axes:                     # companion labels must stay clear too
             if o is ax:
                 continue
             texts += (list(o.texts) + list(o.get_xticklabels())

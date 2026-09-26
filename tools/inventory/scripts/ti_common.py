@@ -88,26 +88,26 @@ FIELDS: list[str] = [
 #: how a missing value should be chased down (used by the curated template)
 HOW_TO_OBTAIN: dict[str, str] = {
     "software_or_version":
-        "conda activate <env> && conda list | grep -i <tool> <tool> --version"
+        "conda activate <env> && conda list | grep -i <tool> or <tool> --version"
  "GitHub release / commit hash",
     "model_checkpoint":
-        " models/ ",
+        " the model path printed in the run log the tool repository's models/ directory the weight file actually used here ",
     "required_input":
-        " TI2 and README",
+        " the tool's actual command line this ledger's command_lines.csv and the tool README ",
     "min_read_coverage":
-        " --min-coverage/--support/readcount_min min_coverage",
+        " the --min-coverage/--support/readcount_min tool default run log min_coverage",
     "filtering_parameters":
-        " and *.yml / *.toml",
+        " non-default command-line parameters and the configuration files *.yml / *.toml",
     "calling_threshold":
-        " --threshold/-p/--pval",
+        " the --threshold/-p/--pval tool default threshold used in the manuscript ",
     "multiple_testing_correction":
-        "/ BH Bonferroni qvalue / FDR / adj.P.Val",
+        " the tool documentation / or its source BH or Bonferroni implementation output columns qvalue / FDR / adj.P.Val",
     "default_vs_optimised":
-        " optimised/changed",
+        " compare each parameter against the tool default anything given explicitly on the command line here is optimised/changed",
     "coordinate_harmonisation":
-        "tool_scripts/*_postprocessing transcript→genomic ",
+        " the post-processing scripts tool_scripts/*_postprocessing transcript→genomic ",
     "notes":
-        " ",
+        " anything else worth recording whether a control sample is needed, which modification type it suits ",
 }
 
 MISSING = "not recorded"

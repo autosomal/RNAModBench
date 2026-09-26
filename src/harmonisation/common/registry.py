@@ -669,7 +669,7 @@ def load_legacy_copy_map() -> pd.DataFrame:
     
     
     
-    p = ((_RB / "metadata/sample_metadata/scripts/mapping/aggregation_copy_map.csv"))
+    p = ((_XB / "sample_metadata/scripts/mapping/aggregation_copy_map.csv"))
     if not p.exists():
         return pd.DataFrame(columns=["tool", "header_tool", "output_group", "src_parent_dir",
                                      "src_file", "src_exists"])

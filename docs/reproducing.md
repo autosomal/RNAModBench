@@ -67,9 +67,10 @@ Two notes on the gates. They measure the *rendered* file - page budget, tick-lab
 collisions, the smallest effective font - so their verdict depends on the local
 matplotlib and font-metric versions; `figures/<figure>/delivered/` is the reference
 output the analysis was accepted with. And because several steps read and write the
-same figure directory, run them in the documented order: an interrupted producer can
-leave a rewritten table behind, which `git checkout -- figures/<figure>/tables`
-restores.
+same figure directory, run them in the documented order: a producer that dies
+part-way can leave a rewritten table behind, which is why the driver snapshots the
+committed tables first and re-installs them after any failing step. Without the
+driver, `git checkout -- figures/<figure>/tables` restores them by hand.
 
 ## Rebuild the callsets (needs the private inputs)
 

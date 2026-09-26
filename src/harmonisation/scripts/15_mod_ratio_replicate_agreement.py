@@ -58,7 +58,7 @@ SITES = f"{_RB}/data"
 # raw `callsets`.  Layout is identical: <species>/<group>/<mod>/<tool>/<sample>.tsv
 CALLSETS = f"{SITES}/callsets/RNA002"
 REGISTRY = f"{SITES}/manifest/sample_registry.csv"
-OUT = f"{_XB}//mod_ratio_replicates"
+OUT = f"{_XB}/mod_ratio_replicates"
 TABDIR = f"{OUT}/tables"
 FIGDIR = f"{OUT}/figures"
 os.makedirs(TABDIR, exist_ok=True)

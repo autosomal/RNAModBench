@@ -4,7 +4,7 @@
 Checks
 ------
 1. the page is exactly the page of the replaced ``sup9.pdf`` (1152 x 864 pt)
-   and the 300 dpi PNG sibling exists;
+   and the 300 dpi PNG companion exists;
 2. every embedded font is Arial (no DejaVu fallback, nothing unembedded);
 3. house rules in the plotting script: no grid element, no font below 7 pt, the
    six-model white list, the inosine models never drawn, THREE bold block
@@ -140,7 +140,7 @@ def main() -> None:
     check(f"page size {PAGE[0]:g} x {PAGE[1]:g} pt (replaced sup9.pdf)",
           close(size[0], PAGE[0], 1e-4) and close(size[1], PAGE[1], 1e-4),
           f"got {size}")
-    check("PNG sibling exists", PDF.with_suffix(".png").exists())
+    check("PNG companion exists", PDF.with_suffix(".png").exists())
     fonts = pdf_fonts()
     bad = [f for f in fonts if f[1] != "yes" or "Arial" not in f[0]]
     check("all fonts embedded Arial", bool(fonts) and not bad, f"offending: {bad}")

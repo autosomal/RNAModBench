@@ -32,7 +32,7 @@ Outputs
 -------
 ``figures/figure1/figures/panels/Figure1_A_artwork.pdf``
 ``figures/figure1/figures/panels/Figure1_A_artwork.png``
-``figures/figure1/tables/fig1a_ai_printed_type.tsv``
+``figures/figure1/tables/fig1a_printed_type.tsv``
 ``$RNAMODBENCH_LOCAL/_figfix_20260923/_audit_tmp/fig1a_noletter.pdf`` (scratch)
 
 Usage
@@ -258,14 +258,14 @@ def main() -> None:
             {"key": "images_in_strip", "value": "0 (fully vector)"},
             {"key": "note", "value": "panel A: artwork look and own type sizes; "
                                      "DIC spot inks kept as Separation/Lab"}]
-    write_table(pd.DataFrame(rows), TAB / "fig1a_ai_printed_type.tsv")
+    write_table(pd.DataFrame(rows), TAB / "fig1a_printed_type.tsv")
     write_table(pd.DataFrame([{"word": t, "box_h_pt": round(d - b, 2),
                               "printed_pt": round((d - b) / BOX_PER_PT, 2)}
                              for _, b, _, d, t in
                              sorted(words, key=lambda v: v[3] - v[1])]),
-                TAB / "fig1a_ai_words.tsv")
+                TAB / "fig1a_words.tsv")
     logger.info("wrote %s (+ .png preview) and %s", STRIP,
-                TAB / "fig1a_ai_printed_type.tsv")
+                TAB / "fig1a_printed_type.tsv")
 
 
 if __name__ == "__main__":

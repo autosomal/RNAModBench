@@ -21,6 +21,8 @@ The second column contains, on the machine that ran the analysis:
   inputs, the pickled region models, and the GLORI BED files behind the
   overlap panels of Figure S3.
 - `third_party/` -- other groups' processed data used for cross-checks.
+- `superseded_output/` -- tables written by the earlier form of this
+  analysis, which stage `10` still cross-checks against.
 - `review/`, `manuscript/`, `submission/` -- peer-review and manuscript
   files that a few verification gates also cross-check.
 
