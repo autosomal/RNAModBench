@@ -14,5 +14,5 @@ jobs:
           python-version: "3.11"
       - name: Check paths, syntax, callset counts and figure index
         run: python scripts/verify_deposit.py
-      - name: Fail if the check changed anything it should not
-        run: python scripts/verify_deposit.py
+      - name: Assert the committed checksum file matches the tree just hashed
+        run: git diff --exit-code metadata/deposited_files.sha256

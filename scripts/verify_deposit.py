@@ -55,13 +55,19 @@ INTERNAL_NAMES = re.compile(
 CJK = re.compile(r"[\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uff00-\uffef]")
 TEXT = (".py", ".R", ".r", ".sh", ".md", ".tex", ".json", ".yml", ".yaml",
         ".csv", ".tsv", ".txt", ".bed")
+#: the repository's own configuration files have no suffix to test
+EXTRA_TEXT = (".gitignore", ".gitattributes")
+
+
+def is_text(p: Path) -> bool:
+    return p.suffix in TEXT or p.name in EXTRA_TEXT
 
 
 def check_internal_names() -> None:
     """Working-tree directory names must not survive into the deposit."""
     hits = []
     for p in read_files():
-        if p.suffix not in TEXT:
+        if not is_text(p):
             continue
         try:
             text = p.read_text(encoding="utf-8")
@@ -79,7 +85,7 @@ def check_language() -> None:
     """The deposit is published in English; no working note in another language is."""
     hits = []
     for p in read_files():
-        if p.suffix not in TEXT:
+        if not is_text(p):
             continue
         try:
             text = p.read_text(encoding="utf-8")
