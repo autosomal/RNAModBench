@@ -1,0 +1,6 @@
+quantity	na9_value	s8_value	reason
+m6Anet FPR per 10 kb, Curlcake RNA002	13.813517513566849	12.826837691169215	NA-9 pooled the three runs into one union call set; S8 uses the mean over the two independent runs (rep1, rep3)
+NanoSPA_m6A FPR per 10 kb, Curlcake RNA002	41.44055254070054	30.093734583127777	same union -> per-unit change (41.4 -> 30.1)
+m6Anet FPR per 10 kb, Curlcake RNA004	4.933399111988161	4.93339911198816	unchanged (single run)
+NanoSPA_m6A FPR per 10 kb, Curlcake RNA004	16.773556980759743	16.773556980759743	unchanged (single run)
+m6Anet FP per 10^6 candidates, Curlcake RNA002	5473.02580140735	2642.8966732746317	NA-9 denominator = 2,558 A only and pooled runs; S8 denominator = candidate universe (A/T, cov>=10, 4,916-4,921 per unit) and per-unit rates

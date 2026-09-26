@@ -1,4 +1,16 @@
-```
-# Backup files
-*.bak
-```
+__pycache__/
+*.pyc
+.Rhistory
+.DS_Store
+*.log
+
+# private inputs resolved through $RNAMODBENCH_LOCAL (see _local/README.md)
+_local/raw/
+_local/reference/
+_local/sites_v2/
+_local/review/
+
+# pipeline working directories (created by the Snakefile)
+raw_data/
+reference/
+results/

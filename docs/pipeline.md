@@ -1,0 +1,46 @@
+# The callset pipeline (`src/sites_v2/`)
+
+Stages that turn each tool's own output format into the harmonised callsets under
+`data/sites_clean/`, then the metrics behind the figures. Run in order with
+`bash src/sites_v2/scripts/run_all.sh`; the header of that script explains why the order is
+what it is (scope pruning must happen before the audits and the evaluations, so no
+table can retain a callset that is later removed).
+
+| stage | what it does | main output |
+|---|---|---|
+| `00_build_registry.py` | sample/tool registry, replicate and independence assignment | `metadata/sample_registry.csv` |
+| `01_extract_callsets.py` | parse every tool's native output into the common schema | `callsets/<platform>/<species>/<group>/<mod>/<tool>/<sample>.tsv` |
+| `01b_liftover_missing.py`, `02b_validate_liftover.py` | coordinate lift-over for the mouse reference, and its validation | `metadata/liftover_validation*.csv` |
+| `32_impute_strand.py` | infer strand where a tool reports none (Nanom6A) | `metadata/strand_imputation.csv` |
+| `03_annotate_callsets.py` | reference base, 5-mer context, DRACH membership, transcript annotation (Ensembl) | callset annotation columns |
+| `11_scope_split.py` | drop tool × dataset combinations that are outside the study scope | `metadata/nonm6a_scope.csv` |
+| `33_center_base_filter.py --apply` | hard filter: called base must be compatible with the modification and strand | `metadata/center_base_filter.csv` |
+| `05_offset_audit.py` | coordinate-offset distribution per callset versus the reference | `data/evaluation/tables/offset_*.tsv` |
+| `04_build_universe.py` | candidate universe per sample (skipped by default; ~15 GB) | `sites_v2/universe/` (not deposited) |
+| `06_eval_m6a_glori.py` | precision/recall/F1/MCC against GLORI per match window, with bootstrap intervals; localisation curve | `m6a_glori_confusion.tsv`, `m6a_localization_curve.tsv` |
+| `07_eval_controls.py` | IVT negative-control false-positive rates, Curlcake synthetic truth, purified-site and knock-down metrics | `controls_ivt_fpr.tsv`, `curlcake_truth.tsv`, `purified_sites.tsv`, `ko_kd_metrics.tsv` |
+| `08_eval_nonm6a.py` | m5C / Ψ / m1Ψ / Nm / inosine panels | `hela_nonm6a.tsv`, `nonm6a_*.tsv` |
+| `09_eval_rna004.py` | RNA004 chemistry evaluations and Dorado model scans | `rna004_*.tsv` |
+| `12_nonm6a_fig7.py` | known-site comparison for the non-m6A tools (Figure 7) | `nonm6a_fig7_summary.tsv` |
+| `13_completeness_audit.py`, `14_legacy_coverage_audit.py` | grid completeness and comparison against the earlier assembly | `metadata/completeness_audit.csv` |
+| `29_anchor_audit.py`, `30_pileup_call_filter_audit.py`, `31_persite_reference_audit.py` | anchor/offset correctness, no-call leakage, per-site reference check | `anchor_audit.tsv`, `pileup_call_filter_audit.tsv`, `persite_reference_audit.tsv` |
+| `10_qc_reconcile.py` | reconciliation and the QC narrative | `data/evaluation/qc_report.md` |
+| `export_figure_ready.py` | per-replicate, figure-grade metrics | `figure_ready_replicates.tsv` |
+| `34_export_sites_clean.py` | the deposited layer: deduplicate overlapping-transcript coordinates, keep the strongest call, drop bookkeeping columns | `data/sites_clean/` |
+
+`20`–`28` and `35`–`72` are the analysis/figure stages built on top of it; see
+[`figure_index.md`](figure_index.md) for which of them
+draws which figure.
+
+## Shared library (`common/`)
+
+| module | role |
+|---|---|
+| `config.py` | all roots and the locked conventions (window, coverage floor, modification vocabulary, Dorado groups) |
+| `registry.py`, `rawinfo.py` | sample/tool registry and resolution of each tool's source files |
+| `parsers/` | one parser per tool output format |
+| `extract`/`annotate.py`, `center.py`, `strand.py`, `liftover.py` | schema harmonisation, centre-base logic, strand inference, lift-over |
+| `match.py`, `evaluation.py`, `metrics.py`, `consensus*.py` | window matching, TP/FP/FN/TN definitions, metric computation, replicate-aware consensus |
+| `regionmodel.py`, `refs.py` | transcript region models (UTR/metagene) and reference handling |
+| `manifest.py`, `io_utils.py` | provenance ledger writing and table I/O |
+| `figstyle.py`, `pagelayout.py`, `panelpage.py` | typography, page budget and collision gates, panel composition |

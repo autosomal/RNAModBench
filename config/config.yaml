@@ -22,11 +22,30 @@ tools:
   - xPore
   - yanocomp
   - NanoSPA
+  - NanoNm
+  - dorado_modkit
 
 # Directory paths
-data_dir: "data"
+# raw reads (pod5/fast5) go here; kept separate from data/, which holds the
+# deposited per-site callsets.
+data_dir: "raw_data"
 reference_dir: "reference"
 results_dir: "results"
+
+# Dorado & Modkit configuration
+dorado:
+  # Dorado installation and its basecalling models are not redistributed: set these
+  # to your own installation (or export $RNAMODBENCH_LOCAL and edit here).
+  bin: "dorado"  # on PATH, or an absolute path to the dorado executable
+  model_dir: "/path/to/dorado_model"
+  model_name: "rna004_130bps_sup@v5.0.0"
+  mod_model: "rna004_130bps_sup@v5.0.0_m6A@v1"
+  device: "cuda:0"
+  threads: 32
+
+modkit:
+  threads: 32
+  ref_fasta: "/path/to/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 
 # Guppy basecalling configuration
 guppy:
@@ -130,6 +149,14 @@ yanocomp:
 # NanoSPA configuration
 nanospa:
   prob_threshold: 0.5
+
+# NanoNm configuration
+nanonm:
+  clip: 5
+  cpu_extract: 30
+  cpu_predict: 20
+  model_dir: "resources/NanoNm/model"
+  support_threshold: 20
 
 # Utilities configuration
 utilities:

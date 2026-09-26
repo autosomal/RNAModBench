@@ -1,0 +1,53 @@
+step	tool_added	combination	k	union_recall_mean	union_precision_mean	isect_precision_mean	isect_recall_mean	species	group
+1	ELIGOS2_solo	ELIGOS2_solo	1	0.237848	0.230466	0.230466	0.237848	Arabidopsis	Arabidopsis_WT
+2	MINES	ELIGOS2_solo+MINES	2	0.375076	0.153776	0.779977	0.0311893	Arabidopsis	Arabidopsis_WT
+3	xPore	ELIGOS2_solo+MINES+xPore	3	0.416844	0.134449	0.926866	0.00350066	Arabidopsis	Arabidopsis_WT
+4	m6Anet	ELIGOS2_solo+MINES+xPore+m6Anet	4	0.445868	0.1398	0.973904	0.0032011	Arabidopsis	Arabidopsis_WT
+5	yanocomp	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp	5	0.466881	0.141428	1	0.00121539	Arabidopsis	Arabidopsis_WT
+6	DENA	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA	6	0.484187	0.141425	1	0.00105277	Arabidopsis	Arabidopsis_WT
+7	EpiNano_Error	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error	7	0.497702	0.138524	1	0.000539222	Arabidopsis	Arabidopsis_WT
+8	CHEUI_m6A	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A	8	0.509317	0.126833		0	Arabidopsis	Arabidopsis_WT
+9	Nanom6A	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A+Nanom6A	9	0.519485	0.125455		0	Arabidopsis	Arabidopsis_WT
+10	NanoSPA_m6A	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A+Nanom6A+NanoSPA_m6A	10	0.521727	0.125886		0	Arabidopsis	Arabidopsis_WT
+11	DRUMMER	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A+Nanom6A+NanoSPA_m6A+DRUMMER	11	0.523028	0.126146		0	Arabidopsis	Arabidopsis_WT
+12	Nanocompore	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A+Nanom6A+NanoSPA_m6A+DRUMMER+Nanocompore	12	0.523833	0.126256		0	Arabidopsis	Arabidopsis_WT
+13	ELIGOS2_diff	ELIGOS2_solo+MINES+xPore+m6Anet+yanocomp+DENA+EpiNano_Error+CHEUI_m6A+Nanom6A+NanoSPA_m6A+DRUMMER+Nanocompore+ELIGOS2_diff	13	0.524235	0.126333		0	Arabidopsis	Arabidopsis_WT
+1	m6Anet	m6Anet	1	0.470699	0.345264	0.345264	0.470699	Mouse	studyB
+2	ELIGOS2_solo	m6Anet+ELIGOS2_solo	2	0.594101	0.11819	0.661101	0.13666	Mouse	studyB
+3	MINES	m6Anet+ELIGOS2_solo+MINES	3	0.674276	0.0824761	0.66597	0.0999451	Mouse	studyB
+4	xPore	m6Anet+ELIGOS2_solo+MINES+xPore	4	0.711305	0.0656724	0.711017	0.0658194	Mouse	studyB
+5	EpiNano_Error	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error	5	0.739939	0.0632388	0.755102	0.0174159	Mouse	studyB
+6	DENA	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA	6	0.766376	0.0637193	0.757353	0.0161607	Mouse	studyB
+7	CHEUI_m6A	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A	7	0.777752	0.0574338	0.5	0.000235349	Mouse	studyB
+8	yanocomp	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp	8	0.787715	0.0570706	0.6	0.000235349	Mouse	studyB
+9	ELIGOS2_diff	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp+ELIGOS2_diff	9	0.797129	0.0576596	0.6	0.000235349	Mouse	studyB
+10	NanoSPA_m6A	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp+ELIGOS2_diff+NanoSPA_m6A	10	0.804974	0.0581594	0.6	0.000235349	Mouse	studyB
+11	DRUMMER	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp+ELIGOS2_diff+NanoSPA_m6A+DRUMMER	11	0.810622	0.058526	0.333333	7.84498e-05	Mouse	studyB
+12	Nanom6A	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp+ELIGOS2_diff+NanoSPA_m6A+DRUMMER+Nanom6A	12	0.814701	0.0582478	0.333333	7.84498e-05	Mouse	studyB
+13	Nanocompore	m6Anet+ELIGOS2_solo+MINES+xPore+EpiNano_Error+DENA+CHEUI_m6A+yanocomp+ELIGOS2_diff+NanoSPA_m6A+DRUMMER+Nanom6A+Nanocompore	13	0.816741	0.0582062	0	0	Mouse	studyB
+1	m6Anet	m6Anet	1	0.514788	0.340512	0.340512	0.514788	Mouse	studyA
+2	ELIGOS2_solo	m6Anet+ELIGOS2_solo	2	0.663293	0.116764	0.57683	0.168746	Mouse	studyA
+3	MINES	m6Anet+ELIGOS2_solo+MINES	3	0.758139	0.0845376	0.56747	0.123715	Mouse	studyA
+4	xPore	m6Anet+ELIGOS2_solo+MINES+xPore	4	0.783322	0.0677431	0.624242	0.024241	Mouse	studyA
+5	DENA	m6Anet+ELIGOS2_solo+MINES+xPore+DENA	5	0.801051	0.0677185	0.650685	0.0223582	Mouse	studyA
+6	EpiNano_Error	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error	6	0.817526	0.0652291	0.626263	0.00972778	Mouse	studyA
+7	NanoSPA_m6A	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A	7	0.827097	0.065876	0.621622	0.00541304	Mouse	studyA
+8	yanocomp	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp	8	0.834079	0.0639603	0.78125	0.00196125	Mouse	studyA
+9	CHEUI_m6A	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp+CHEUI_m6A	9	0.839649	0.0606141	1	7.84498e-05	Mouse	studyA
+10	Nanom6A	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp+CHEUI_m6A+Nanom6A	10	0.842473	0.0601392	1	7.84498e-05	Mouse	studyA
+11	DRUMMER	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp+CHEUI_m6A+Nanom6A+DRUMMER	11	0.845062	0.0603098	1	7.84498e-05	Mouse	studyA
+12	ELIGOS2_diff	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp+CHEUI_m6A+Nanom6A+DRUMMER+ELIGOS2_diff	12	0.845454	0.0603341	1	7.84498e-05	Mouse	studyA
+13	Nanocompore	m6Anet+ELIGOS2_solo+MINES+xPore+DENA+EpiNano_Error+NanoSPA_m6A+yanocomp+CHEUI_m6A+Nanom6A+DRUMMER+ELIGOS2_diff+Nanocompore	13	0.845768	0.0602816		0	Mouse	studyA
+1	MINES	MINES	1	0.327517	0.116883	0.116883	0.327517	Human	HeLa_WT
+2	ELIGOS2_solo	MINES+ELIGOS2_solo	2	0.437735	0.0779432	0.630319	0.0756643	Human	HeLa_WT
+3	Nanom6A	MINES+ELIGOS2_solo+Nanom6A	3	0.510235	0.0861499	0.704059	0.0668833	Human	HeLa_WT
+4	m6Anet	MINES+ELIGOS2_solo+Nanom6A+m6Anet	4	0.541253	0.0888819	0.90319	0.0528567	Human	HeLa_WT
+5	EpiNano_Error	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error	5	0.567881	0.0746125	0.928745	0.0157943	Human	HeLa_WT
+6	DENA	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA	6	0.585557	0.0755429	0.914969	0.00860988	Human	HeLa_WT
+7	xPore	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore	7	0.600952	0.0625077	0.968691	0.00530277	Human	HeLa_WT
+8	CHEUI_m6A	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A	8	0.608051	0.055111	1	0.000142548	Human	HeLa_WT
+9	NanoSPA_m6A	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A+NanoSPA_m6A	9	0.613582	0.0555538	1	5.7019e-05	Human	HeLa_WT
+10	yanocomp	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A+NanoSPA_m6A+yanocomp	10	0.617915	0.054527	1	2.85095e-05	Human	HeLa_WT
+11	ELIGOS2_diff	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A+NanoSPA_m6A+yanocomp+ELIGOS2_diff	11	0.620595	0.0547367	1	2.85095e-05	Human	HeLa_WT
+12	DRUMMER	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A+NanoSPA_m6A+yanocomp+ELIGOS2_diff+DRUMMER	12	0.621422	0.0547881		0	Human	HeLa_WT
+13	Nanocompore	MINES+ELIGOS2_solo+Nanom6A+m6Anet+EpiNano_Error+DENA+xPore+CHEUI_m6A+NanoSPA_m6A+yanocomp+ELIGOS2_diff+DRUMMER+Nanocompore	13	0.622049	0.0546868		0	Human	HeLa_WT

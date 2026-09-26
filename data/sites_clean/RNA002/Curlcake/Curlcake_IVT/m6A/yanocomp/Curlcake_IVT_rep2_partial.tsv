@@ -1,0 +1,2 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake1	2189	2190	+	0.00078	FDR	3765	A	ATACG	ok	False

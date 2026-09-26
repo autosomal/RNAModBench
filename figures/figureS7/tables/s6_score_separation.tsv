@@ -1,0 +1,7 @@
+tool	display	mod_type	tool_class	score_kind	score_type	n_units_wt	n_units_ivt	n_pairs	n_sites_wt	n_sites_ivt	n_sites_total	auc_pooled	pair_auc_mean	pair_auc_min	pair_auc_max	ks_stat	ks_p	p_mannwhitney	pair_basis
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	mod_ratio	Prob	3	3	9	47992	51928	99920	0.20617	0.16616	4.40752e-05	0.552021	0.43684	0	0	nine WT x IVT independent unit pairs
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	score	Prob	3	3	9	22073	26694	48767	0.509339	0.509238	0.497349	0.519444	0.0191099	0.000290301	8.41143e-06	nine WT x IVT independent unit pairs
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	score	Prob	3	3	9	71470	88934	160404	0.500557	0.500084	0.496754	0.506303	0.00389092	0.58468	0.614574	nine WT x IVT independent unit pairs
+NanoNm	NanoNm	Nm	Intermediate	score	mod_ratio	3	3	9	6714	11507	18221	0.563194	0.564836	0.537471	0.590241	0.0975565	1.41152e-35	4.22235e-46	nine WT x IVT independent unit pairs
+NanoPsu	NanoPsu	Psi	Sparse	score	Prob	3	3	9	604	504	1108	0.51855	0.523392	0.483007	0.559432	0.0444392	0.628193	0.281118	nine WT x IVT independent unit pairs
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	score	Prob	3	3	9	613	516	1129	0.514587	0.522428	0.472638	0.555773	0.0489238	0.493414	0.391865	nine WT x IVT independent unit pairs

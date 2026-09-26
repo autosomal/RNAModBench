@@ -1,0 +1,6 @@
+species	criterion	rep1_sites	rep2_sites	only1	only2	intersection	union	jaccard
+Arabidopsis	both replicates > 0.1 (unified 2026-09-19)	121085	122518	40461	41894	80624	162979	0.4947
+Mouse	both replicates > 0.1 (unified 2026-09-19)	90182	101541	48221	59580	41961	149762	0.2802
+Human	both replicates > 0.1 (unified 2026-09-19)	136137	139057	23686	26606	112451	162743	0.6910
+Human	raw replicate intersection, no ratio filter (legacy figure)	136137	139057	22531	25451	113606	161588	
+Human	mean NormeRatio > 0.1 (legacy Hela_GLORI.bed, backup Hela_GLORI.bed.bak_20260919_063142)					113485		

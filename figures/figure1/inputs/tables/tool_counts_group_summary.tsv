@@ -1,0 +1,100 @@
+species	dataset_group	condition_class	tool	replicate_class	n_units	units	sites_each	sites_mean	sites_sd	sites_min	sites_max	replicate_display
+Arabidopsis	Arabidopsis_WT	WT	CHEUI_m6A	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	17596|19018|19181	18598.3	871.864	17596	19181	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	DENA	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	23775|17742|21683	21066.7	3063.36	17742	23775	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	DRUMMER	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	463|597|324	461.333	136.508	324	597	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_diff	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	1021|1255|745	1007	255.288	745	1255	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_solo	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	57933|40414|50357	49568	8786.11	40414	57933	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	EpiNano_Error	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	9586|15404|5912	10300.7	4786.19	5912	15404	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	m6Anet	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	11963|10349|10078	10796.7	1019.12	10078	11963	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	MINES	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	65404|49479|61512	58798.3	8302.07	49479	65404	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	Nanocompore	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	443|1070|245	586	430.689	245	1070	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	Nanom6A	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	21699|19910|19743	20450.7	1084.31	19743	21699	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	NanoSPA_m6A	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	1391|1281|1455	1375.67	88.0076	1281	1455	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	xPore	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	27086|37732|20957	28591.7	8488.25	20957	37732	mean of 3 independent units
+Arabidopsis	Arabidopsis_WT	WT	yanocomp	replicate	3	Arabidopsis_WT_rep1|Arabidopsis_WT_rep2|Arabidopsis_WT_rep3	3583|13037|2058	6226	5947.58	2058	13037	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	CHEUI_m6A	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	14499|11775|10283	12185.7	2137.79	10283	14499	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	DENA	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	9420|13588|5649	9552.33	3971.15	5649	13588	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	DRUMMER	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	16|0|19	11.6667	10.2144	0	19	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	ELIGOS2_diff	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	20|25|8	17.6667	8.73689	8	25	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	ELIGOS2_solo	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	24162|31148|12026	22445.3	9675.89	12026	31148	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	EpiNano_Error	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	8557|5317|5105	6326.33	1934.72	5105	8557	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	m6Anet	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	2594|4354|1703	2883.67	1349.03	1703	4354	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	MINES	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	28098|41900|19144	29714	11463.7	19144	41900	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	Nanocompore	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	191|160|661	337.333	280.732	160	661	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	Nanom6A	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	15961|15190|12607	14586	1756.68	12607	15961	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	NanoSPA_m6A	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	314|504|229	349	140.801	229	504	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	xPore	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	21082|22161|22672	21971.7	811.733	21082	22672	mean of 3 independent units
+Arabidopsis	Arabidopsis_KD	KD	yanocomp	replicate	3	Arabidopsis_fip37_rep1|Arabidopsis_fip37_rep2|Arabidopsis_fip37_rep3	4176|2090|5017	3761	1506.98	2090	5017	mean of 3 independent units
+Mouse	Mouse_WT	WT	CHEUI_m6A	cross_study	2	mESCs_Mettl3_WT|mES_WT	14512|37114	25813	15982	14512	37114	two study points, never pooled
+Mouse	Mouse_WT	WT	DENA	cross_study	2	mESCs_Mettl3_WT|mES_WT	29873|35754	32813.5	4158.49	29873	35754	two study points, never pooled
+Mouse	Mouse_WT	WT	DRUMMER	cross_study	2	mESCs_Mettl3_WT|mES_WT	514|1831	1172.5	931.26	514	1831	two study points, never pooled
+Mouse	Mouse_WT	WT	ELIGOS2_diff	cross_study	2	mESCs_Mettl3_WT|mES_WT	823|3919	2371	2189.2	823	3919	two study points, never pooled
+Mouse	Mouse_WT	WT	ELIGOS2_solo	cross_study	2	mESCs_Mettl3_WT|mES_WT	74653|87246	80949.5	8904.6	74653	87246	two study points, never pooled
+Mouse	Mouse_WT	WT	EpiNano_Error	cross_study	2	mESCs_Mettl3_WT|mES_WT	17186|33073	25129.5	11233.8	17186	33073	two study points, never pooled
+Mouse	Mouse_WT	WT	m6Anet	cross_study	2	mESCs_Mettl3_WT|mES_WT	22826|26610	24718	2675.69	22826	26610	two study points, never pooled
+Mouse	Mouse_WT	WT	MINES	cross_study	2	mESCs_Mettl3_WT|mES_WT	64731|83912	74321.5	13563	64731	83912	two study points, never pooled
+Mouse	Mouse_WT	WT	Nanocompore	cross_study	2	mESCs_Mettl3_WT|mES_WT	918|3023	1970.5	1488.46	918	3023	two study points, never pooled
+Mouse	Mouse_WT	WT	Nanom6A	cross_study	2	mESCs_Mettl3_WT|mES_WT	10724|23838	17281	9273	10724	23838	two study points, never pooled
+Mouse	Mouse_WT	WT	NanoSPA_m6A	cross_study	2	mESCs_Mettl3_WT|mES_WT	4178|3267	3722.5	644.174	3267	4178	two study points, never pooled
+Mouse	Mouse_WT	WT	xPore	cross_study	2	mESCs_Mettl3_WT|mES_WT	41046|59261	50153.5	12880	41046	59261	two study points, never pooled
+Mouse	Mouse_WT	WT	yanocomp	cross_study	2	mESCs_Mettl3_WT|mES_WT	8749|7224	7986.5	1078.34	7224	8749	two study points, never pooled
+Mouse	Mouse_KO	KO	CHEUI_m6A	cross_study	2	mESCs_Mettl3_KO|mES_KO	16053|33097	24575	12051.9	16053	33097	two study points, never pooled
+Mouse	Mouse_KO	KO	DENA	cross_study	2	mESCs_Mettl3_KO|mES_KO	11144|23866	17505	8995.81	11144	23866	two study points, never pooled
+Mouse	Mouse_KO	KO	DRUMMER	cross_study	1	mES_KO	409	409		409	409	one study only for this tool
+Mouse	Mouse_KO	KO	ELIGOS2_diff	cross_study	1	mES_KO	596	596		596	596	one study only for this tool
+Mouse	Mouse_KO	KO	ELIGOS2_solo	cross_study	2	mESCs_Mettl3_KO|mES_KO	27517|58199	42858	21695.5	27517	58199	two study points, never pooled
+Mouse	Mouse_KO	KO	EpiNano_Error	cross_study	1	mESCs_Mettl3_KO	21420	21420		21420	21420	one study only for this tool
+Mouse	Mouse_KO	KO	m6Anet	cross_study	2	mESCs_Mettl3_KO|mES_KO	6349|15844	11096.5	6713.98	6349	15844	two study points, never pooled
+Mouse	Mouse_KO	KO	MINES	cross_study	2	mESCs_Mettl3_KO|mES_KO	29600|88417	59008.5	41589.9	29600	88417	two study points, never pooled
+Mouse	Mouse_KO	KO	Nanocompore	cross_study	1	mESCs_Mettl3_KO	7297	7297		7297	7297	one study only for this tool
+Mouse	Mouse_KO	KO	Nanom6A	cross_study	2	mESCs_Mettl3_KO|mES_KO	8145|18902	13523.5	7606.35	8145	18902	two study points, never pooled
+Mouse	Mouse_KO	KO	NanoSPA_m6A	cross_study	2	mESCs_Mettl3_KO|mES_KO	724|163	443.5	396.687	163	724	two study points, never pooled
+Mouse	Mouse_KO	KO	xPore	cross_study	1	mES_KO	43556	43556		43556	43556	one study only for this tool
+Mouse	Mouse_KO	KO	yanocomp	cross_study	1	mES_KO	44046	44046		44046	44046	one study only for this tool
+Human	HeLa_WT	WT	CHEUI_m6A	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	19932|31096|16812	22613.3	7510.02	16812	31096	mean of 3 independent units
+Human	HeLa_WT	WT	DENA	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	17473|17352|14665	16496.7	1587.42	14665	17473	mean of 3 independent units
+Human	HeLa_WT	WT	DRUMMER	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	367|637|255	419.667	196.37	255	637	mean of 3 independent units
+Human	HeLa_WT	WT	ELIGOS2_diff	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	1065|1816|820	1233.67	518.98	820	1816	mean of 3 independent units
+Human	HeLa_WT	WT	ELIGOS2_solo	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	49814|58726|35520	48020	11706.6	35520	58726	mean of 3 independent units
+Human	HeLa_WT	WT	EpiNano_Error	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	24182|46813|18904	29966.3	14826.4	18904	46813	mean of 3 independent units
+Human	HeLa_WT	WT	m6Anet	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	7437|13883|5611	8977	4345.71	5611	13883	mean of 3 independent units
+Human	HeLa_WT	WT	MINES	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	31998|61460|26272	39910	18881.2	26272	61460	mean of 3 independent units
+Human	HeLa_WT	WT	Nanocompore	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	1079|1534|1181	1264.67	238.76	1079	1534	mean of 3 independent units
+Human	HeLa_WT	WT	Nanom6A	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	20892|18286|17048	18742	1962.15	17048	20892	mean of 3 independent units
+Human	HeLa_WT	WT	NanoSPA_m6A	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	1375|2490|941	1602	799.06	941	2490	mean of 3 independent units
+Human	HeLa_WT	WT	xPore	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	23881|39851|19952	27894.7	10539.2	19952	39851	mean of 3 independent units
+Human	HeLa_WT	WT	yanocomp	replicate	3	HeLa_WT1|HeLa_WT2|HeLa_WT3	4614|6842|4338	5264.67	1372.96	4338	6842	mean of 3 independent units
+Human	HeLa_IVT	IVT	CHEUI_m6A	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	23527|37544|13473	24848	12089.7	13473	37544	mean of 3 independent units
+Human	HeLa_IVT	IVT	DENA	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	16121|22584|9009	15904.7	6790.09	9009	22584	mean of 3 independent units
+Human	HeLa_IVT	IVT	DRUMMER	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	19|8|69	32	32.5115	8	69	mean of 3 independent units
+Human	HeLa_IVT	IVT	ELIGOS2_diff	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	27|82|72	60.3333	29.2973	27	82	mean of 3 independent units
+Human	HeLa_IVT	IVT	ELIGOS2_solo	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	45923|58353|22995	42423.7	17936.9	22995	58353	mean of 3 independent units
+Human	HeLa_IVT	IVT	EpiNano_Error	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	33972|29312|20905	28063	6622.43	20905	33972	mean of 3 independent units
+Human	HeLa_IVT	IVT	m6Anet	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	5996|11536|4528	7353.33	3695.91	4528	11536	mean of 3 independent units
+Human	HeLa_IVT	IVT	MINES	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	42134|64266|30215	45538.3	17278.9	30215	64266	mean of 3 independent units
+Human	HeLa_IVT	IVT	Nanocompore	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	105|59|201	121.667	72.4523	59	201	mean of 3 independent units
+Human	HeLa_IVT	IVT	Nanom6A	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	12644|15078|11431	13051	1857.25	11431	15078	mean of 3 independent units
+Human	HeLa_IVT	IVT	NanoSPA_m6A	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	408|227|230	288.333	103.645	227	408	mean of 3 independent units
+Human	HeLa_IVT	IVT	xPore	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	34645|25623|27252	29173.3	4808.09	25623	34645	mean of 3 independent units
+Human	HeLa_IVT	IVT	yanocomp	replicate	3	HeLa_IVT_rep1|HeLa_IVT_rep2|HeLa_IVT_rep3	3569|1867|3504	2980	964.434	1867	3569	mean of 3 independent units
+E.coli	E.coli_WT	WT	CHEUI_m6A	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	11732|7332	9532	3111.27	7332	11732	mean of 2 independent units
+E.coli	E.coli_WT	WT	DRUMMER	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	31|94	62.5	44.5477	31	94	mean of 2 independent units
+E.coli	E.coli_WT	WT	ELIGOS2_diff	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	177|183	180	4.24264	177	183	mean of 2 independent units
+E.coli	E.coli_WT	WT	ELIGOS2_solo	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	15674|16067	15870.5	277.893	15674	16067	mean of 2 independent units
+E.coli	E.coli_WT	WT	EpiNano_Error	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	4694|2671	3682.5	1430.48	2671	4694	mean of 2 independent units
+E.coli	E.coli_WT	WT	m6Anet	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	2648|2777	2712.5	91.2168	2648	2777	mean of 2 independent units
+E.coli	E.coli_WT	WT	Nanocompore	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	386|4085	2235.5	2615.59	386	4085	mean of 2 independent units
+E.coli	E.coli_WT	WT	Nanom6A	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	5795|9394	7594.5	2544.88	5795	9394	mean of 2 independent units
+E.coli	E.coli_WT	WT	NanoSPA_m6A	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	208|266	237	41.0122	208	266	mean of 2 independent units
+E.coli	E.coli_WT	WT	xPore	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	5714|6641	6177.5	655.488	5714	6641	mean of 2 independent units
+E.coli	E.coli_WT	WT	yanocomp	replicate	2	E_ss_rd_RNA1|E_ss_rd_RNA2	3705|5182	4443.5	1044.4	3705	5182	mean of 2 independent units
+E.coli	E.coli_IVT	IVT	CHEUI_m6A	single	1	E_IVT_neg2	1013	1013		1013	1013	single unit, one point
+E.coli	E.coli_IVT	IVT	DRUMMER	single	1	E_IVT_neg2[via E_IVT_neg1]	0	0		0	0	single unit, one point
+E.coli	E.coli_IVT	IVT	ELIGOS2_solo	single	1	E_IVT_neg2	5791	5791		5791	5791	single unit, one point
+E.coli	E.coli_IVT	IVT	EpiNano_Error	single	1	E_IVT_neg2	4072	4072		4072	4072	single unit, one point
+E.coli	E.coli_IVT	IVT	m6Anet	single	1	E_IVT_neg2	565	565		565	565	single unit, one point
+E.coli	E.coli_IVT	IVT	Nanocompore	single	1	E_IVT_neg2	4	4		4	4	single unit, one point
+E.coli	E.coli_IVT	IVT	Nanom6A	single	1	E_IVT_neg2	2102	2102		2102	2102	single unit, one point
+E.coli	E.coli_IVT	IVT	NanoSPA_m6A	single	1	E_IVT_neg2	78	78		78	78	single unit, one point
+E.coli	E.coli_IVT	IVT	xPore	single	1	E_IVT_neg2	1248	1248		1248	1248	single unit, one point
+E.coli	E.coli_IVT	IVT	yanocomp	single	1	E_IVT_neg2	79	79		79	79	single unit, one point

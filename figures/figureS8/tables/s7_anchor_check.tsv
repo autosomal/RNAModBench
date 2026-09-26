@@ -1,0 +1,85 @@
+quantity	s7_value	r39_value	rel_diff	status	note
+universe_n/Nm/HeLa_WT1	7.88956e+06	7.88956e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Nm/HeLa_WT2	1.31793e+07	1.31793e+07	0	OK	coverage>=10 + modification-compatible base
+universe_n/Nm/HeLa_WT3	6.10973e+06	6.10973e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Nm/HeLa_IVT_rep1	8.70577e+06	8.70577e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Nm/HeLa_IVT_rep2	1.22806e+07	1.22806e+07	0	OK	coverage>=10 + modification-compatible base
+universe_n/Nm/HeLa_IVT_rep3	6.39662e+06	6.39662e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_WT1	3.82134e+06	3.82134e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_WT2	6.26098e+06	6.26098e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_WT3	3.05738e+06	3.05738e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_IVT_rep1	4.18156e+06	4.18156e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_IVT_rep2	5.99104e+06	5.99104e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m5C/HeLa_IVT_rep3	3.10504e+06	3.10504e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_WT1	4.06823e+06	4.06823e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_WT2	6.91831e+06	6.91831e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_WT3	3.05235e+06	3.05235e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_IVT_rep1	4.52421e+06	4.52421e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_IVT_rep2	6.28951e+06	6.28951e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/Psi/HeLa_IVT_rep3	3.29158e+06	3.29158e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_WT1	4.06823e+06	4.06823e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_WT2	6.91831e+06	6.91831e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_WT3	3.05235e+06	3.05235e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_IVT_rep1	4.52421e+06	4.52421e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_IVT_rep2	6.28951e+06	6.28951e+06	0	OK	coverage>=10 + modification-compatible base
+universe_n/m1Psi/HeLa_IVT_rep3	3.29158e+06	3.29158e+06	0	OK	coverage>=10 + modification-compatible base
+per-replicate in-universe calls/CHEUI_m5C/HeLa_WT1	13651	13651	0	OK	
+per-replicate in-universe calls/CHEUI_m5C/HeLa_WT2	20264	20264	0	OK	
+per-replicate in-universe calls/CHEUI_m5C/HeLa_WT3	13620	13620	0	OK	
+union in-universe calls/CHEUI_m5C/WT	46198	46198	0	OK	
+union in-universe calls/CHEUI_m5C/IVT	50149	50149	0	OK	
+per-replicate in-universe calls/CHEUI_m5C/HeLa_IVT_rep1	10062	10062	0	OK	
+per-replicate in-universe calls/CHEUI_m5C/HeLa_IVT_rep2	25673	25673	0	OK	
+per-replicate in-universe calls/CHEUI_m5C/HeLa_IVT_rep3	15652	15652	0	OK	
+union in-universe calls/CHEUI_m5C/WT	46198	46198	0	OK	
+union in-universe calls/CHEUI_m5C/IVT	50149	50149	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_WT1	5906	5906	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_WT2	8836	8836	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_WT3	4133	4133	0	OK	
+union in-universe calls/NanoMUD_psi/WT	13121	13121	0	OK	
+union in-universe calls/NanoMUD_psi/IVT	14400	14400	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_IVT_rep1	7650	7650	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_IVT_rep2	9428	9428	0	OK	
+per-replicate in-universe calls/NanoMUD_psi/HeLa_IVT_rep3	4718	4718	0	OK	
+union in-universe calls/NanoMUD_psi/WT	13121	13121	0	OK	
+union in-universe calls/NanoMUD_psi/IVT	14400	14400	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_WT1	17196	17196	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_WT2	30118	30118	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_WT3	12675	12675	0	OK	
+union in-universe calls/NanoMUD_m1psi/WT	38757	38757	0	OK	
+union in-universe calls/NanoMUD_m1psi/IVT	41876	41876	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_IVT_rep1	22284	22284	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_IVT_rep2	32070	32070	0	OK	
+per-replicate in-universe calls/NanoMUD_m1psi/HeLa_IVT_rep3	15490	15490	0	OK	
+union in-universe calls/NanoMUD_m1psi/WT	38757	38757	0	OK	
+union in-universe calls/NanoMUD_m1psi/IVT	41876	41876	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_WT1	1630	1630	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_WT2	3433	3433	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_WT3	1648	1648	0	OK	
+union in-universe calls/NanoNm/WT	4061	4061	0	OK	
+union in-universe calls/NanoNm/IVT	6287	6287	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_IVT_rep1	4609	4609	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_IVT_rep2	5040	5040	0	OK	
+per-replicate in-universe calls/NanoNm/HeLa_IVT_rep3	1854	1854	0	OK	
+union in-universe calls/NanoNm/WT	4061	4061	0	OK	
+union in-universe calls/NanoNm/IVT	6287	6287	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_WT1	175	175	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_WT2	288	288	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_WT3	141	141	0	OK	
+union in-universe calls/NanoPsu/WT	488	488	0	OK	
+union in-universe calls/NanoPsu/IVT	436	436	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_IVT_rep1	165	165	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_IVT_rep2	229	229	0	OK	
+per-replicate in-universe calls/NanoPsu/HeLa_IVT_rep3	110	110	0	OK	
+union in-universe calls/NanoPsu/WT	488	488	0	OK	
+union in-universe calls/NanoPsu/IVT	436	436	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_WT1	172	172	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_WT2	297	297	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_WT3	144	144	0	OK	
+union in-universe calls/NanoSPA_psU/WT	497	497	0	OK	
+union in-universe calls/NanoSPA_psU/IVT	448	448	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_IVT_rep1	170	170	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_IVT_rep2	234	234	0	OK	
+per-replicate in-universe calls/NanoSPA_psU/HeLa_IVT_rep3	112	112	0	OK	
+union in-universe calls/NanoSPA_psU/WT	497	497	0	OK	
+union in-universe calls/NanoSPA_psU/IVT	448	448	0	OK	

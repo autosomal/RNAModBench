@@ -1,0 +1,9 @@
+name: modkit
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.10
+  - samtools>=1.17
+  - modkit>=0.2.5
+  - bedtools

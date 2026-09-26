@@ -1,0 +1,11 @@
+# Supplementary table index (2026-09-21)
+table	content	source
+S1	Tools benchmarked (classification, algorithms, targets)	curated + Table S6
+S2	HeLa per-unit m6A calls, mean/SD/CV	figure1b_replicates/tables/tool_counts_group_summary.tsv
+S3	Wild-type vs deficient calls on the shared testable universe	fig2_revision/tables/fig2a_testable_ratio.tsv
+S4	Top-5 5-mer motifs per tool and species	figS2_revision/analysis/figS2_top5_full.tsv
+S5	Non-m6A calls and IVT/WT ratios	figS6_revision/tables/s6_counts_summary.tsv + s6_ratio_ci.tsv
+S6	Per-tool implementation details (E4 / R1-5)	revision_output/tables/NA4_per_tool_implementation.csv
+S7	Chemistry applicability and inclusion matrix (R3-10 / R1-6)	revision_output/tables/NA5_compatibility_matrix.csv
+S8	GLORI reference vs matched nanopore dataset (E1 / R1-1)	curated from the cited accessions
+S9	Evaluation boundary per modification type (R2-2 / R3-9)	curated from the delivered figure scope

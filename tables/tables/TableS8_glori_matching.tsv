@@ -1,0 +1,6 @@
+# Table S8: Biological source of each GLORI reference relative to the matched nanopore dataset.
+Species	Nanopore libraries	GLORI reference	Biological relationship	GLORI sites
+Human	HeLa WT (SRP393373, RNA002) and HeLa WT/IVT (ERP164259, RNA004)	HeLa, GSE210563 (Liu et al. 2023)	Same cell line, independent laboratory and independent RNA extract	112,451
+Arabidopsis	Col-0 WT (SRP329449) and fip37 KD (SRP363914), RNA002	Col-0 seedlings, GSE246632 (Xie et al. 2025)	Same species and accession from independent studies and independent RNA extracts	80,624
+Mouse	mESC Mettl3 KO (SRP166020) and mESC WT (SRP357195), RNA002	mESC, GSE246632	Same cell type (mESC) from independent studies and independent RNA extracts	41,961
+# note: Counts are the replicate-overlapping GLORI sites with modification ratio > 0.1 in both replicates (Fig. S3A). GSE210563 also contains HEK293T GLORI, and its mouse samples are MEF; neither was used. Nanopore and GLORI libraries were never derived from the same RNA extract, so a GLORI-positive site is not assumed to be modified in the corresponding nanopore sample and the PPV against GLORI is a precision-like measure conditioned on this site-level partial reference, not sensitivity.

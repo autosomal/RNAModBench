@@ -1,0 +1,10 @@
+chrom	start	end	strand	score	score_type	src_coverage	coverage	ref_base	five_mer_raw	center_status
+Curlcake1	414	415	-	0.645	prob	47	47	A	CTAAC	ok
+Curlcake1	778	779	-	0.61	prob	70	70	A	TAAGC	ok
+Curlcake1	1965	1966	-	0.625	prob	26	26	A	GGACT	ok
+Curlcake2	1936	1937	-	0.505	prob	59	59	A	GTAGC	ok
+Curlcake2	2005	2006	-	0.675	prob	36	36	A	CAATT	ok
+Curlcake3	6	7	-	0.54	prob	43	43	A	TAATT	ok
+Curlcake3	2426	2427	-	0.605	prob	38	38	A	CAATA	ok
+Curlcake4	1862	1863	-	0.52	prob	24	24	A	GCAGG	ok
+Curlcake4	2219	2220	-	0.625	prob	37	37	A	AAACA	ok

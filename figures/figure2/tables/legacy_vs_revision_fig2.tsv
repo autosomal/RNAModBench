@@ -1,0 +1,10 @@
+panel	metric	legacy_published	revision_value	note
+B	fraction of sites detected by exactly ONE tool	76.17%	0.796843	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+B	mean number of distinct sites per independent unit at k = 1	277,819 (pooled across replicates)	195452	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+B	fraction of sites supported by >= 4 tools	< 1%	0.0223876	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+A	human control/WT ratio, ELIGOS2_diff (pooled files)	0.062	0.0355568	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+D	mean WT-vs-control Jaccard, Nanom6A (human)	0.448	0.328411	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+D	mean WT-vs-control Jaccard, MINES (human)	0.424	0.355365	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+D	mean WT-vs-control Jaccard, CHEUI_m6A (human)	0.015	0.0113005	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+D	mean WT-vs-control Jaccard, Yanocomp (human)	0.023	0.0175159	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe
+D	mean WT-vs-control Jaccard, Nanocompore (human)	0.029	0.0168131	legacy = pooled / single-replicate aggregate; revision = per independent unit on the shared testable universe

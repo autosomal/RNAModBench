@@ -1,0 +1,626 @@
+platform	species	dataset_group	sample	replicate_tag	condition_class	mod_type	tool	in_scope	status	n_sites	provenance	callset	result_subdir	registry_status
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	CHEUI_m6A	1	filled	20167	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/CHEUI_m6A/HeLa_WT1.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m5C	CHEUI_m5C	1	filled	14243	01_converted	callsets/RNA002/Human/HeLa_WT/m5C/CHEUI_m5C/HeLa_WT1.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	DENA	1	filled	20224	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DENA/HeLa_WT1.tsv	DENA	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	DRUMMER	1	filled	432	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DRUMMER/HeLa_WT1.tsv	DRUMMER	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	ELIGOS2_diff	1	filled	1065	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_diff/HeLa_WT1.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	ELIGOS2_solo	1	filled	49814	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_solo/HeLa_WT1.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	EpiNano_Error	1	filled	24182	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/EpiNano_Error/HeLa_WT1.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	m6Anet	1	filled	8884	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/m6Anet/HeLa_WT1.tsv	m6Anet	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	MINES	1	filled	39154	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/MINES/HeLa_WT1.tsv	MINES	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	Nanocompore	1	filled	1237	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanocompore/HeLa_WT1.tsv	Nanocompore	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	Nanom6A	1	filled	20900	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanom6A/HeLa_WT1.tsv	Nanom6A	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	Psi	NanoMUD_psi	1	filled	7079	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoMUD_psi/HeLa_WT1.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m1Psi	NanoMUD_m1psi	1	filled	20943	01_converted	callsets/RNA002/Human/HeLa_WT/m1Psi/NanoMUD_m1psi/HeLa_WT1.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	Nm	NanoNm	1	filled	1673	01_converted	callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT1.tsv	NanoNm	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	Psi	NanoPsu	1	filled	354	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoPsu/HeLa_WT1.tsv	NanoPsu	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	NanoSPA_m6A	1	filled	1375	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/NanoSPA_m6A/HeLa_WT1.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	Psi	NanoSPA_psU	1	filled	351	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoSPA_psU/HeLa_WT1.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	xPore	1	filled	25216	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/xPore/HeLa_WT1.tsv	xPore	ok
+RNA002	Human	HeLa_WT	HeLa_WT1	rep1	WT	m6A	yanocomp	1	filled	4619	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/yanocomp/HeLa_WT1.tsv	yanocomp	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	CHEUI_m6A	1	filled	31397	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/CHEUI_m6A/HeLa_WT2.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m5C	CHEUI_m5C	1	filled	21149	01_converted	callsets/RNA002/Human/HeLa_WT/m5C/CHEUI_m5C/HeLa_WT2.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	DENA	1	filled	20487	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DENA/HeLa_WT2.tsv	DENA	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	DRUMMER	1	filled	746	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DRUMMER/HeLa_WT2.tsv	DRUMMER	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	ELIGOS2_diff	1	filled	1816	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_diff/HeLa_WT2.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	ELIGOS2_solo	1	filled	58726	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_solo/HeLa_WT2.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	EpiNano_Error	1	filled	46813	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/EpiNano_Error/HeLa_WT2.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	m6Anet	1	filled	16953	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/m6Anet/HeLa_WT2.tsv	m6Anet	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	MINES	1	filled	77840	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/MINES/HeLa_WT2.tsv	MINES	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	Nanocompore	1	filled	1798	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanocompore/HeLa_WT2.tsv	Nanocompore	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	Nanom6A	1	filled	18297	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanom6A/HeLa_WT2.tsv	Nanom6A	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	Psi	NanoMUD_psi	1	filled	10809	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoMUD_psi/HeLa_WT2.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m1Psi	NanoMUD_m1psi	1	filled	37880	01_converted	callsets/RNA002/Human/HeLa_WT/m1Psi/NanoMUD_m1psi/HeLa_WT2.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	Nm	NanoNm	1	filled	3538	01_converted	callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT2.tsv	NanoNm	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	Psi	NanoPsu	1	filled	538	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoPsu/HeLa_WT2.tsv	NanoPsu	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	NanoSPA_m6A	1	filled	2490	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/NanoSPA_m6A/HeLa_WT2.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	Psi	NanoSPA_psU	1	filled	540	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoSPA_psU/HeLa_WT2.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	xPore	1	filled	41850	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/xPore/HeLa_WT2.tsv	xPore	ok
+RNA002	Human	HeLa_WT	HeLa_WT2	rep2	WT	m6A	yanocomp	1	filled	6845	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/yanocomp/HeLa_WT2.tsv	yanocomp	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	CHEUI_m6A	1	filled	17033	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/CHEUI_m6A/HeLa_WT3.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m5C	CHEUI_m5C	1	filled	14198	01_converted	callsets/RNA002/Human/HeLa_WT/m5C/CHEUI_m5C/HeLa_WT3.tsv	CHEUI	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	DENA	1	filled	17166	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DENA/HeLa_WT3.tsv	DENA	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	DRUMMER	1	filled	293	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/DRUMMER/HeLa_WT3.tsv	DRUMMER	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	ELIGOS2_diff	1	filled	820	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_diff/HeLa_WT3.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	ELIGOS2_solo	1	filled	35520	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/ELIGOS2_solo/HeLa_WT3.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	EpiNano_Error	1	filled	18904	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/EpiNano_Error/HeLa_WT3.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	m6Anet	1	filled	6783	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/m6Anet/HeLa_WT3.tsv	m6Anet	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	MINES	1	filled	33160	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/MINES/HeLa_WT3.tsv	MINES	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	Nanocompore	1	filled	1261	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanocompore/HeLa_WT3.tsv	Nanocompore	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	Nanom6A	1	filled	17057	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/Nanom6A/HeLa_WT3.tsv	Nanom6A	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	Psi	NanoMUD_psi	1	filled	5057	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoMUD_psi/HeLa_WT3.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m1Psi	NanoMUD_m1psi	1	filled	15706	01_converted	callsets/RNA002/Human/HeLa_WT/m1Psi/NanoMUD_m1psi/HeLa_WT3.tsv	NanoMUD	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	Nm	NanoNm	1	filled	1683	01_converted	callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT3.tsv	NanoNm	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	Psi	NanoPsu	1	filled	322	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoPsu/HeLa_WT3.tsv	NanoPsu	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	NanoSPA_m6A	1	filled	941	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/NanoSPA_m6A/HeLa_WT3.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	Psi	NanoSPA_psU	1	filled	325	01_converted	callsets/RNA002/Human/HeLa_WT/Psi/NanoSPA_psU/HeLa_WT3.tsv	NanoSPA	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	xPore	1	filled	21149	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/xPore/HeLa_WT3.tsv	xPore	ok
+RNA002	Human	HeLa_WT	HeLa_WT3	rep3	WT	m6A	yanocomp	1	filled	4340	01_converted	callsets/RNA002/Human/HeLa_WT/m6A/yanocomp/HeLa_WT3.tsv	yanocomp	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	CHEUI_m6A	1	filled	23853	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/CHEUI_m6A/HeLa_IVT_rep1.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m5C	CHEUI_m5C	1	filled	10287	01_converted	callsets/RNA002/Human/HeLa_IVT/m5C/CHEUI_m5C/HeLa_IVT_rep1.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	DENA	1	filled	20594	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DENA/HeLa_IVT_rep1.tsv	DENA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	DRUMMER	1	filled	19	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DRUMMER/HeLa_IVT_rep1.tsv	DRUMMER	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	ELIGOS2_diff	1	filled	27	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_diff/HeLa_IVT_rep1.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	ELIGOS2_solo	1	filled	45923	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_solo/HeLa_IVT_rep1.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	EpiNano_Error	1	filled	33972	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/EpiNano_Error/HeLa_IVT_rep1.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	m6Anet	1	filled	8007	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/m6Anet/HeLa_IVT_rep1.tsv	m6Anet	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	MINES	1	filled	59684	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/MINES/HeLa_IVT_rep1.tsv	MINES	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	Nanocompore	1	filled	107	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanocompore/HeLa_IVT_rep1.tsv	Nanocompore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	Nanom6A	1	filled	12650	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanom6A/HeLa_IVT_rep1.tsv	Nanom6A	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	Psi	NanoMUD_psi	1	filled	9873	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoMUD_psi/HeLa_IVT_rep1.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m1Psi	NanoMUD_m1psi	1	filled	30047	01_converted	callsets/RNA002/Human/HeLa_IVT/m1Psi/NanoMUD_m1psi/HeLa_IVT_rep1.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	Nm	NanoNm	1	filled	4677	01_converted	callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep1.tsv	NanoNm	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	Psi	NanoPsu	1	filled	283	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoPsu/HeLa_IVT_rep1.tsv	NanoPsu	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	NanoSPA_m6A	1	filled	408	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/NanoSPA_m6A/HeLa_IVT_rep1.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	Psi	NanoSPA_psU	1	filled	290	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoSPA_psU/HeLa_IVT_rep1.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	xPore	1	filled	35819	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/xPore/HeLa_IVT_rep1.tsv	xPore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	rep1	IVT	m6A	yanocomp	1	filled	3569	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/yanocomp/HeLa_IVT_rep1.tsv	yanocomp	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	CHEUI_m6A	1	filled	37949	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/CHEUI_m6A/HeLa_IVT_rep2.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m5C	CHEUI_m5C	1	filled	26558	01_converted	callsets/RNA002/Human/HeLa_IVT/m5C/CHEUI_m5C/HeLa_IVT_rep2.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	DENA	1	filled	27978	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DENA/HeLa_IVT_rep2.tsv	DENA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	DRUMMER	1	filled	9	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DRUMMER/HeLa_IVT_rep2.tsv	DRUMMER	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	ELIGOS2_diff	1	filled	82	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_diff/HeLa_IVT_rep2.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	ELIGOS2_solo	1	filled	58353	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_solo/HeLa_IVT_rep2.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	EpiNano_Error	1	filled	29312	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/EpiNano_Error/HeLa_IVT_rep2.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	m6Anet	1	filled	14954	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/m6Anet/HeLa_IVT_rep2.tsv	m6Anet	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	MINES	1	filled	86605	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/MINES/HeLa_IVT_rep2.tsv	MINES	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	Nanocompore	1	filled	63	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanocompore/HeLa_IVT_rep2.tsv	Nanocompore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	Nanom6A	1	filled	15085	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanom6A/HeLa_IVT_rep2.tsv	Nanom6A	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	Psi	NanoMUD_psi	1	filled	11694	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoMUD_psi/HeLa_IVT_rep2.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m1Psi	NanoMUD_m1psi	1	filled	41481	01_converted	callsets/RNA002/Human/HeLa_IVT/m1Psi/NanoMUD_m1psi/HeLa_IVT_rep2.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	Nm	NanoNm	1	filled	5137	01_converted	callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep2.tsv	NanoNm	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	Psi	NanoPsu	1	filled	367	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoPsu/HeLa_IVT_rep2.tsv	NanoPsu	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	NanoSPA_m6A	1	filled	227	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/NanoSPA_m6A/HeLa_IVT_rep2.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	Psi	NanoSPA_psU	1	filled	373	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoSPA_psU/HeLa_IVT_rep2.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	xPore	1	filled	26693	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/xPore/HeLa_IVT_rep2.tsv	xPore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	rep2	IVT	m6A	yanocomp	1	filled	1867	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/yanocomp/HeLa_IVT_rep2.tsv	yanocomp	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	CHEUI_m6A	1	filled	13587	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/CHEUI_m6A/HeLa_IVT_rep3.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m5C	CHEUI_m5C	1	filled	16129	01_converted	callsets/RNA002/Human/HeLa_IVT/m5C/CHEUI_m5C/HeLa_IVT_rep3.tsv	CHEUI	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	DENA	1	filled	10881	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DENA/HeLa_IVT_rep3.tsv	DENA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	DRUMMER	1	filled	75	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/DRUMMER/HeLa_IVT_rep3.tsv	DRUMMER	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	ELIGOS2_diff	1	filled	72	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_diff/HeLa_IVT_rep3.tsv	ELIGOS2_diff	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	ELIGOS2_solo	1	filled	22995	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/ELIGOS2_solo/HeLa_IVT_rep3.tsv	ELIGOS2_solo	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	EpiNano_Error	1	filled	20905	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/EpiNano_Error/HeLa_IVT_rep3.tsv	EpiNano_DiffErr	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	m6Anet	1	filled	5730	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/m6Anet/HeLa_IVT_rep3.tsv	m6Anet	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	MINES	1	filled	39902	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/MINES/HeLa_IVT_rep3.tsv	MINES	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	Nanocompore	1	filled	219	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanocompore/HeLa_IVT_rep3.tsv	Nanocompore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	Nanom6A	1	filled	11436	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/Nanom6A/HeLa_IVT_rep3.tsv	Nanom6A	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	Psi	NanoMUD_psi	1	filled	5781	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoMUD_psi/HeLa_IVT_rep3.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m1Psi	NanoMUD_m1psi	1	filled	19549	01_converted	callsets/RNA002/Human/HeLa_IVT/m1Psi/NanoMUD_m1psi/HeLa_IVT_rep3.tsv	NanoMUD	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	Nm	NanoNm	1	filled	1880	01_converted	callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep3.tsv	NanoNm	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	Psi	NanoPsu	1	filled	177	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoPsu/HeLa_IVT_rep3.tsv	NanoPsu	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	NanoSPA_m6A	1	filled	230	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/NanoSPA_m6A/HeLa_IVT_rep3.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	Psi	NanoSPA_psU	1	filled	179	01_converted	callsets/RNA002/Human/HeLa_IVT/Psi/NanoSPA_psU/HeLa_IVT_rep3.tsv	NanoSPA	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	xPore	1	filled	28087	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/xPore/HeLa_IVT_rep3.tsv	xPore	ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	rep3	IVT	m6A	yanocomp	1	filled	3504	01_converted	callsets/RNA002/Human/HeLa_IVT/m6A/yanocomp/HeLa_IVT_rep3.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	CHEUI_m6A	1	filled	17598	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/CHEUI_m6A/Arabidopsis_WT_rep1.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	DENA	1	filled	25131	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DENA/Arabidopsis_WT_rep1.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	DRUMMER	1	filled	483	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DRUMMER/Arabidopsis_WT_rep1.tsv	DRUMMER	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	ELIGOS2_diff	1	filled	1021	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_diff/Arabidopsis_WT_rep1.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	ELIGOS2_solo	1	filled	57933	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_solo/Arabidopsis_WT_rep1.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	EpiNano_Error	1	filled	9586	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/EpiNano_Error/Arabidopsis_WT_rep1.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	m6Anet	1	filled	13200	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/m6Anet/Arabidopsis_WT_rep1.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	MINES	1	filled	70690	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/MINES/Arabidopsis_WT_rep1.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	Nanocompore	1	filled	462	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanocompore/Arabidopsis_WT_rep1.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	Nanom6A	1	filled	21756	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanom6A/Arabidopsis_WT_rep1.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	NanoSPA_m6A	1	filled	1391	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/NanoSPA_m6A/Arabidopsis_WT_rep1.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	xPore	1	filled	27372	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/xPore/Arabidopsis_WT_rep1.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	rep1	WT	m6A	yanocomp	1	filled	3583	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/yanocomp/Arabidopsis_WT_rep1.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	CHEUI_m6A	1	filled	19019	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/CHEUI_m6A/Arabidopsis_WT_rep2.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	DENA	1	filled	18688	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DENA/Arabidopsis_WT_rep2.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	DRUMMER	1	filled	627	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DRUMMER/Arabidopsis_WT_rep2.tsv	DRUMMER	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	ELIGOS2_diff	1	filled	1255	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_diff/Arabidopsis_WT_rep2.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	ELIGOS2_solo	1	filled	40414	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_solo/Arabidopsis_WT_rep2.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	EpiNano_Error	1	filled	15404	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/EpiNano_Error/Arabidopsis_WT_rep2.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	m6Anet	1	filled	11328	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/m6Anet/Arabidopsis_WT_rep2.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	MINES	1	filled	53146	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/MINES/Arabidopsis_WT_rep2.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	Nanocompore	1	filled	1070	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanocompore/Arabidopsis_WT_rep2.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	Nanom6A	1	filled	20025	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanom6A/Arabidopsis_WT_rep2.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	NanoSPA_m6A	1	filled	1281	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/NanoSPA_m6A/Arabidopsis_WT_rep2.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	xPore	1	filled	38273	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/xPore/Arabidopsis_WT_rep2.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	rep2	WT	m6A	yanocomp	1	filled	13037	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/yanocomp/Arabidopsis_WT_rep2.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	CHEUI_m6A	1	filled	19197	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/CHEUI_m6A/Arabidopsis_WT_rep3.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	DENA	1	filled	22872	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DENA/Arabidopsis_WT_rep3.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	DRUMMER	1	filled	339	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/DRUMMER/Arabidopsis_WT_rep3.tsv	DRUMMER	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	ELIGOS2_diff	1	filled	745	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_diff/Arabidopsis_WT_rep3.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	ELIGOS2_solo	1	filled	50357	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/ELIGOS2_solo/Arabidopsis_WT_rep3.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	EpiNano_Error	1	filled	5912	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/EpiNano_Error/Arabidopsis_WT_rep3.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	m6Anet	1	filled	11073	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/m6Anet/Arabidopsis_WT_rep3.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	MINES	1	filled	66253	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/MINES/Arabidopsis_WT_rep3.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	Nanocompore	1	filled	255	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanocompore/Arabidopsis_WT_rep3.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	Nanom6A	1	filled	19743	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/Nanom6A/Arabidopsis_WT_rep3.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	NanoSPA_m6A	1	filled	1455	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/NanoSPA_m6A/Arabidopsis_WT_rep3.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	xPore	1	filled	21168	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/xPore/Arabidopsis_WT_rep3.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	rep3	WT	m6A	yanocomp	1	filled	2058	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_WT/m6A/yanocomp/Arabidopsis_WT_rep3.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	CHEUI_m6A	1	filled	14533	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/CHEUI_m6A/Arabidopsis_fip37_rep1.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	DENA	1	filled	9906	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DENA/Arabidopsis_fip37_rep1.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	DRUMMER	1	filled	16	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DRUMMER/Arabidopsis_fip37_rep1.tsv	DRUMMER	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	ELIGOS2_diff	1	filled	20	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_diff/Arabidopsis_fip37_rep1.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	ELIGOS2_solo	1	filled	24162	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_solo/Arabidopsis_fip37_rep1.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	EpiNano_Error	1	filled	8557	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/EpiNano_Error/Arabidopsis_fip37_rep1.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	m6Anet	1	filled	2818	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/m6Anet/Arabidopsis_fip37_rep1.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	MINES	1	filled	30156	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/MINES/Arabidopsis_fip37_rep1.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	Nanocompore	1	filled	197	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanocompore/Arabidopsis_fip37_rep1.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	Nanom6A	1	filled	15966	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanom6A/Arabidopsis_fip37_rep1.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	NanoSPA_m6A	1	filled	314	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/NanoSPA_m6A/Arabidopsis_fip37_rep1.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	xPore	1	filled	21263	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/xPore/Arabidopsis_fip37_rep1.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	rep1	KD	m6A	yanocomp	1	filled	4176	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/yanocomp/Arabidopsis_fip37_rep1.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	CHEUI_m6A	1	filled	11777	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/CHEUI_m6A/Arabidopsis_fip37_rep2.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	DENA	1	filled	14278	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DENA/Arabidopsis_fip37_rep2.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	DRUMMER	1	ok_zero	0	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DRUMMER/Arabidopsis_fip37_rep2.tsv	DRUMMER	ok_zero
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	ELIGOS2_diff	1	filled	25	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_diff/Arabidopsis_fip37_rep2.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	ELIGOS2_solo	1	filled	31148	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_solo/Arabidopsis_fip37_rep2.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	EpiNano_Error	1	filled	5317	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/EpiNano_Error/Arabidopsis_fip37_rep2.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	m6Anet	1	filled	4738	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/m6Anet/Arabidopsis_fip37_rep2.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	MINES	1	filled	45001	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/MINES/Arabidopsis_fip37_rep2.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	Nanocompore	1	filled	161	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanocompore/Arabidopsis_fip37_rep2.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	Nanom6A	1	filled	15195	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanom6A/Arabidopsis_fip37_rep2.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	NanoSPA_m6A	1	filled	504	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/NanoSPA_m6A/Arabidopsis_fip37_rep2.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	xPore	1	filled	22369	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/xPore/Arabidopsis_fip37_rep2.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	rep2	KD	m6A	yanocomp	1	filled	2090	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/yanocomp/Arabidopsis_fip37_rep2.tsv	yanocomp	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	CHEUI_m6A	1	filled	10299	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/CHEUI_m6A/Arabidopsis_fip37_rep3.tsv	CHEUI	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	DENA	1	filled	5885	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DENA/Arabidopsis_fip37_rep3.tsv	DENA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	DRUMMER	1	filled	19	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/DRUMMER/Arabidopsis_fip37_rep3.tsv	DRUMMER	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	ELIGOS2_diff	1	filled	8	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_diff/Arabidopsis_fip37_rep3.tsv	ELIGOS2_diff	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	ELIGOS2_solo	1	filled	12026	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/ELIGOS2_solo/Arabidopsis_fip37_rep3.tsv	ELIGOS2_solo	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	EpiNano_Error	1	filled	5105	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/EpiNano_Error/Arabidopsis_fip37_rep3.tsv	EpiNano_DiffErr	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	m6Anet	1	filled	1839	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/m6Anet/Arabidopsis_fip37_rep3.tsv	m6Anet	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	MINES	1	filled	20419	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/MINES/Arabidopsis_fip37_rep3.tsv	MINES	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	Nanocompore	1	filled	693	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanocompore/Arabidopsis_fip37_rep3.tsv	Nanocompore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	Nanom6A	1	filled	12610	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/Nanom6A/Arabidopsis_fip37_rep3.tsv	Nanom6A	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	NanoSPA_m6A	1	filled	229	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/NanoSPA_m6A/Arabidopsis_fip37_rep3.tsv	NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	xPore	1	filled	23090	01b_from_raw	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/xPore/Arabidopsis_fip37_rep3.tsv	xPore	ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	rep3	KD	m6A	yanocomp	1	filled	5017	01_converted	callsets/RNA002/Arabidopsis/Arabidopsis_KD/m6A/yanocomp/Arabidopsis_fip37_rep3.tsv	yanocomp	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	CHEUI_m6A	1	filled	37223	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/CHEUI_m6A/mES_WT.tsv	CHEUI	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	DENA	1	filled	38721	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/DENA/mES_WT.tsv	DENA	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	DRUMMER	1	filled	1910	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/DRUMMER/mES_WT.tsv	DRUMMER	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	ELIGOS2_diff	1	filled	3919	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/ELIGOS2_diff/mES_WT.tsv	ELIGOS2_diff	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	ELIGOS2_solo	1	filled	87246	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/ELIGOS2_solo/mES_WT.tsv	ELIGOS2_solo	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	EpiNano_Error	1	filled	33073	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/EpiNano_Error/mES_WT.tsv	EpiNano_DiffErr	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	m6Anet	1	filled	29225	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/m6Anet/mES_WT.tsv	m6Anet	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	MINES	1	filled	93221	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/MINES/mES_WT.tsv	MINES	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	Nanocompore	1	filled	3114	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/Nanocompore/mES_WT.tsv	Nanocompore	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	Nanom6A	1	filled	23942	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/Nanom6A/mES_WT.tsv	Nanom6A	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	NanoSPA_m6A	1	filled	3267	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/NanoSPA_m6A/mES_WT.tsv	NanoSPA	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	xPore	1	filled	60097	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/xPore/mES_WT.tsv	xPore	ok
+RNA002	Mouse	Mouse_WT	mES_WT	studyB	WT	m6A	yanocomp	1	filled	7226	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/yanocomp/mES_WT.tsv	yanocomp	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	CHEUI_m6A	1	filled	33212	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/CHEUI_m6A/mES_KO.tsv	CHEUI	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	DENA	1	filled	25717	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/DENA/mES_KO.tsv	DENA	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	DRUMMER	1	filled	439	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/DRUMMER/mES_KO.tsv	DRUMMER	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	ELIGOS2_diff	1	filled	596	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/ELIGOS2_diff/mES_KO.tsv	ELIGOS2_diff	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	ELIGOS2_solo	1	filled	58199	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/ELIGOS2_solo/mES_KO.tsv	ELIGOS2_solo	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	EpiNano_Error	1	raw_missing	0			EpiNano_DiffErr	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	m6Anet	1	filled	17398	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/m6Anet/mES_KO.tsv	m6Anet	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	MINES	1	filled	98189	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/MINES/mES_KO.tsv	MINES	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	Nanocompore	1	raw_missing	0			Nanocompore	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	Nanom6A	1	filled	18969	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/Nanom6A/mES_KO.tsv	Nanom6A	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	NanoSPA_m6A	1	filled	163	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/NanoSPA_m6A/mES_KO.tsv	NanoSPA	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	xPore	1	filled	45335	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/xPore/mES_KO.tsv	xPore	ok
+RNA002	Mouse	Mouse_KO	mES_KO	studyB	KO	m6A	yanocomp	1	filled	44052	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/yanocomp/mES_KO.tsv	yanocomp	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	CHEUI_m6A	1	filled	14518	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/CHEUI_m6A/mESCs_Mettl3_WT.tsv	CHEUI	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	DENA	1	filled	36904	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/DENA/mESCs_Mettl3_WT.tsv	DENA	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	DRUMMER	1	filled	564	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/DRUMMER/mESCs_Mettl3_WT.tsv	DRUMMER	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	ELIGOS2_diff	1	filled	823	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/ELIGOS2_diff/mESCs_Mettl3_WT.tsv	ELIGOS2_diff	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	ELIGOS2_solo	1	filled	74653	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/ELIGOS2_solo/mESCs_Mettl3_WT.tsv	ELIGOS2_solo	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	EpiNano_Error	1	filled	17186	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/EpiNano_Error/mESCs_Mettl3_WT.tsv	EpiNano_DiffErr	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	m6Anet	1	filled	30952	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/m6Anet/mESCs_Mettl3_WT.tsv	m6Anet	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	MINES	1	filled	90744	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/MINES/mESCs_Mettl3_WT.tsv	MINES	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	Nanocompore	1	filled	920	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/Nanocompore/mESCs_Mettl3_WT.tsv	Nanocompore	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	Nanom6A	1	filled	10963	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/Nanom6A/mESCs_Mettl3_WT.tsv	Nanom6A	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	NanoSPA_m6A	1	filled	4178	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/NanoSPA_m6A/mESCs_Mettl3_WT.tsv	NanoSPA	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	xPore	1	filled	43367	01b_from_raw	callsets/RNA002/Mouse/Mouse_WT/m6A/xPore/mESCs_Mettl3_WT.tsv	xPore	ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	studyA	WT	m6A	yanocomp	1	filled	8749	01_converted	callsets/RNA002/Mouse/Mouse_WT/m6A/yanocomp/mESCs_Mettl3_WT.tsv	yanocomp	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	CHEUI_m6A	1	filled	16173	01b_from_raw	callsets/RNA002/Mouse/Mouse_KO/m6A/CHEUI_m6A/mESCs_Mettl3_KO.tsv	CHEUI	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	DENA	1	filled	13339	01b_from_raw	callsets/RNA002/Mouse/Mouse_KO/m6A/DENA/mESCs_Mettl3_KO.tsv	DENA	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	DRUMMER	1	raw_missing	0			DRUMMER	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	ELIGOS2_diff	1	raw_missing	0			ELIGOS2_diff	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	ELIGOS2_solo	1	filled	27517	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/ELIGOS2_solo/mESCs_Mettl3_KO.tsv	ELIGOS2_solo	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	EpiNano_Error	1	filled	21420	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/EpiNano_Error/mESCs_Mettl3_KO.tsv	EpiNano_DiffErr	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	m6Anet	1	filled	8131	01b_from_raw	callsets/RNA002/Mouse/Mouse_KO/m6A/m6Anet/mESCs_Mettl3_KO.tsv	m6Anet	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	MINES	1	filled	40992	01b_from_raw	callsets/RNA002/Mouse/Mouse_KO/m6A/MINES/mESCs_Mettl3_KO.tsv	MINES	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	Nanocompore	1	filled	7579	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/Nanocompore/mESCs_Mettl3_KO.tsv	Nanocompore	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	Nanom6A	1	filled	8305	01_converted	callsets/RNA002/Mouse/Mouse_KO/m6A/Nanom6A/mESCs_Mettl3_KO.tsv	Nanom6A	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	NanoSPA_m6A	1	filled	724	01b_from_raw	callsets/RNA002/Mouse/Mouse_KO/m6A/NanoSPA_m6A/mESCs_Mettl3_KO.tsv	NanoSPA	ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	xPore	1	raw_missing	0			xPore	missing
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	studyA	KO	m6A	yanocomp	1	raw_missing	0			yanocomp	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	CHEUI_m6A	1	filled	11732	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/CHEUI_m6A/E_ss_rd_RNA1.tsv	CHEUI	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	DENA	0	out_of_scope_combination	0	combination_not_in_manuscript		DENA	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	DRUMMER	1	filled	31	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/DRUMMER/E_ss_rd_RNA1.tsv	DRUMMER	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	ELIGOS2_diff	1	filled	177	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/ELIGOS2_diff/E_ss_rd_RNA1.tsv	ELIGOS2_diff	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	ELIGOS2_solo	1	filled	15674	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/ELIGOS2_solo/E_ss_rd_RNA1.tsv	ELIGOS2_solo	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	EpiNano_Error	1	filled	4694	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/EpiNano_Error/E_ss_rd_RNA1.tsv	EpiNano_DiffErr	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	m6Anet	1	filled	2648	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/m6Anet/E_ss_rd_RNA1.tsv	m6Anet	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	MINES	0	out_of_scope_combination	0	combination_not_in_manuscript		MINES	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	Nanocompore	1	filled	386	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/Nanocompore/E_ss_rd_RNA1.tsv	Nanocompore	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	Nanom6A	1	filled	5795	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/Nanom6A/E_ss_rd_RNA1.tsv	Nanom6A	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	NanoSPA_m6A	1	filled	208	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/NanoSPA_m6A/E_ss_rd_RNA1.tsv	NanoSPA	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	xPore	1	filled	5714	01b_from_raw	callsets/RNA002/E.coli/E.coli_WT/m6A/xPore/E_ss_rd_RNA1.tsv	xPore	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	run1	WT	m6A	yanocomp	1	filled	3705	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/yanocomp/E_ss_rd_RNA1.tsv	yanocomp	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	CHEUI_m6A	1	filled	7332	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/CHEUI_m6A/E_ss_rd_RNA2.tsv	CHEUI	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	DENA	0	out_of_scope_combination	0	combination_not_in_manuscript		DENA	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	DRUMMER	1	filled	94	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/DRUMMER/E_ss_rd_RNA2.tsv	DRUMMER	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	ELIGOS2_diff	1	filled	183	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/ELIGOS2_diff/E_ss_rd_RNA2.tsv	ELIGOS2_diff	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	ELIGOS2_solo	1	filled	16067	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/ELIGOS2_solo/E_ss_rd_RNA2.tsv	ELIGOS2_solo	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	EpiNano_Error	1	filled	2671	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/EpiNano_Error/E_ss_rd_RNA2.tsv	EpiNano_DiffErr	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	m6Anet	1	filled	2779	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/m6Anet/E_ss_rd_RNA2.tsv	m6Anet	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	MINES	0	out_of_scope_combination	0	combination_not_in_manuscript		MINES	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	Nanocompore	1	filled	4085	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/Nanocompore/E_ss_rd_RNA2.tsv	Nanocompore	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	Nanom6A	1	filled	9394	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/Nanom6A/E_ss_rd_RNA2.tsv	Nanom6A	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	NanoSPA_m6A	1	filled	266	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/NanoSPA_m6A/E_ss_rd_RNA2.tsv	NanoSPA	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	xPore	1	filled	6641	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/xPore/E_ss_rd_RNA2.tsv	xPore	ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	run2	WT	m6A	yanocomp	1	filled	5182	01_converted	callsets/RNA002/E.coli/E.coli_WT/m6A/yanocomp/E_ss_rd_RNA2.tsv	yanocomp	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	CHEUI_m6A	1	filled	2077	01b_from_raw	callsets/RNA002/E.coli/E.coli_IVT/m6A/CHEUI_m6A/E_IVT_neg1.tsv	CHEUI	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	DENA	0	out_of_scope_combination	0	combination_not_in_manuscript		DENA	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	DRUMMER	1	ok_zero	0	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/DRUMMER/E_IVT_neg1.tsv	DRUMMER	ok_zero
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	ELIGOS2_diff	0	out_of_scope_combination	0	combination_not_in_manuscript		ELIGOS2_diff	empty
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	ELIGOS2_solo	1	filled	6430	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/ELIGOS2_solo/E_IVT_neg1.tsv	ELIGOS2_solo	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	EpiNano_Error	1	raw_missing	0			EpiNano_DiffErr	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	m6Anet	1	filled	731	01b_from_raw	callsets/RNA002/E.coli/E.coli_IVT/m6A/m6Anet/E_IVT_neg1.tsv	m6Anet	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	MINES	0	out_of_scope_combination	0	combination_not_in_manuscript		MINES	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	Nanocompore	1	raw_missing	0			Nanocompore	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	Nanom6A	1	filled	2770	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/Nanom6A/E_IVT_neg1.tsv	Nanom6A	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	NanoSPA_m6A	1	filled	108	01b_from_raw	callsets/RNA002/E.coli/E.coli_IVT/m6A/NanoSPA_m6A/E_IVT_neg1.tsv	NanoSPA	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	xPore	1	raw_missing	0			xPore	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	run1	IVT	m6A	yanocomp	1	raw_missing	0			yanocomp	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	CHEUI_m6A	1	filled	1013	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/CHEUI_m6A/E_IVT_neg2.tsv	CHEUI	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m5C	CHEUI_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_deleted	0	removed_by_11		CHEUI-diff	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	DENA	0	out_of_scope_combination	0	combination_not_in_manuscript		DENA	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	DRUMMER	1	raw_missing	0			DRUMMER	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	ELIGOS2_diff	0	out_of_scope_combination	0	combination_not_in_manuscript		ELIGOS2_diff	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	ELIGOS2_solo	1	filled	5791	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/ELIGOS2_solo/E_IVT_neg2.tsv	ELIGOS2_solo	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	EpiNano_Error	1	filled	4072	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/EpiNano_Error/E_IVT_neg2.tsv	EpiNano_DiffErr	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	m6Anet	1	filled	565	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/m6Anet/E_IVT_neg2.tsv	m6Anet	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	MINES	0	out_of_scope_combination	0	combination_not_in_manuscript		MINES	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	Nanocompore	1	filled	4	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/Nanocompore/E_IVT_neg2.tsv	Nanocompore	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	Nanom6A	1	filled	2102	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/Nanom6A/E_IVT_neg2.tsv	Nanom6A	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	Psi	NanoMUD_psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m1Psi	NanoMUD_m1psi	0	out_of_scope_deleted	0	removed_by_11		NanoMUD	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	Nm	NanoNm	0	out_of_scope_deleted	0	removed_by_11		NanoNm	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	Psi	NanoPsu	0	out_of_scope_deleted	0	removed_by_11		NanoPsu	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	NanoSPA_m6A	1	filled	78	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/NanoSPA_m6A/E_IVT_neg2.tsv	NanoSPA	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	Psi	NanoSPA_psU	0	out_of_scope_deleted	0	removed_by_11		NanoSPA	missing
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	xPore	1	filled	1248	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/xPore/E_IVT_neg2.tsv	xPore	ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	run2	IVT	m6A	yanocomp	1	filled	79	01_converted	callsets/RNA002/E.coli/E.coli_IVT/m6A/yanocomp/E_IVT_neg2.tsv	yanocomp	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	CHEUI_m6A	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m5C	CHEUI_m5C	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	DENA	1	filled	20	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/DENA/Curlcake_IVT_rep1.tsv	DENA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	DRUMMER	0	out_of_scope_combination	0	combination_not_in_manuscript		DRUMMER	empty
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	ELIGOS2_diff	0	out_of_scope_combination	0	combination_not_in_manuscript		ELIGOS2_diff	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	ELIGOS2_solo	1	filled	44	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/ELIGOS2_solo/Curlcake_IVT_rep1.tsv	ELIGOS2_solo	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	EpiNano_Error	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/EpiNano_Error/Curlcake_IVT_rep1.tsv	EpiNano_DiffErr	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	m6Anet	1	filled	14	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/m6Anet/Curlcake_IVT_rep1.tsv	m6Anet	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	MINES	1	filled	72	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/MINES/Curlcake_IVT_rep1.tsv	MINES	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	Nanocompore	1	filled	8	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanocompore/Curlcake_IVT_rep1.tsv	Nanocompore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	Nanom6A	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanom6A/Curlcake_IVT_rep1.tsv	Nanom6A	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	Psi	NanoMUD_psi	1	ok_zero	0	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoMUD_psi/Curlcake_IVT_rep1.tsv	NanoMUD	ok_zero
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m1Psi	NanoMUD_m1psi	1	filled	89	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m1Psi/NanoMUD_m1psi/Curlcake_IVT_rep1.tsv	NanoMUD	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	Nm	NanoNm	1	filled	39	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Nm/NanoNm/Curlcake_IVT_rep1.tsv	NanoNm	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	Psi	NanoPsu	1	ok_zero	0	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoPsu/Curlcake_IVT_rep1.tsv	NanoPsu	ok_zero
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	NanoSPA_m6A	1	filled	31	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/NanoSPA_m6A/Curlcake_IVT_rep1.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	Psi	NanoSPA_psU	1	ok_zero	0	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoSPA_psU/Curlcake_IVT_rep1.tsv	NanoSPA	ok_zero
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	xPore	1	filled	15	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/xPore/Curlcake_IVT_rep1.tsv	xPore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	rep1	IVT	m6A	yanocomp	1	filled	5	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/yanocomp/Curlcake_IVT_rep1.tsv	yanocomp	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	CHEUI_m6A	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m5C	CHEUI_m5C	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	DENA	1	filled	19	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/DENA/Curlcake_IVT_rep2_partial.tsv	DENA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	DRUMMER	0	out_of_scope_combination	0	combination_not_in_manuscript		DRUMMER	empty
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	ELIGOS2_diff	0	out_of_scope_combination	0	combination_not_in_manuscript		ELIGOS2_diff	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	ELIGOS2_solo	1	filled	42	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/ELIGOS2_solo/Curlcake_IVT_rep2_partial.tsv	ELIGOS2_solo	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	EpiNano_Error	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/EpiNano_Error/Curlcake_IVT_rep2_partial.tsv	EpiNano_DiffErr	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	m6Anet	1	filled	13	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/m6Anet/Curlcake_IVT_rep2_partial.tsv	m6Anet	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	MINES	1	filled	74	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/MINES/Curlcake_IVT_rep2_partial.tsv	MINES	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	Nanocompore	1	filled	8	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanocompore/Curlcake_IVT_rep2_partial.tsv	Nanocompore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	Nanom6A	1	filled	17	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanom6A/Curlcake_IVT_rep2_partial.tsv	Nanom6A	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	Psi	NanoMUD_psi	1	filled	39	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoMUD_psi/Curlcake_IVT_rep2_partial.tsv	NanoMUD	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m1Psi	NanoMUD_m1psi	1	filled	97	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m1Psi/NanoMUD_m1psi/Curlcake_IVT_rep2_partial.tsv	NanoMUD	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	Nm	NanoNm	1	filled	35	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Nm/NanoNm/Curlcake_IVT_rep2_partial.tsv	NanoNm	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	Psi	NanoPsu	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoPsu/Curlcake_IVT_rep2_partial.tsv	NanoPsu	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	NanoSPA_m6A	1	filled	31	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/NanoSPA_m6A/Curlcake_IVT_rep2_partial.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	Psi	NanoSPA_psU	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoSPA_psU/Curlcake_IVT_rep2_partial.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	xPore	1	filled	14	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/xPore/Curlcake_IVT_rep2_partial.tsv	xPore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	rep2	IVT	m6A	yanocomp	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/yanocomp/Curlcake_IVT_rep2_partial.tsv	yanocomp	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	CHEUI_m6A	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m5C	CHEUI_m5C	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	DENA	1	filled	14	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/DENA/Curlcake_IVT_rep3.tsv	DENA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	DRUMMER	0	out_of_scope_combination	0	combination_not_in_manuscript		DRUMMER	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	ELIGOS2_diff	0	out_of_scope_combination	0	combination_not_in_manuscript		ELIGOS2_diff	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	ELIGOS2_solo	1	filled	42	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/ELIGOS2_solo/Curlcake_IVT_rep3.tsv	ELIGOS2_solo	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	EpiNano_Error	1	raw_missing	0			EpiNano_DiffErr	missing
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	m6Anet	1	filled	12	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/m6Anet/Curlcake_IVT_rep3.tsv	m6Anet	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	MINES	1	filled	75	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/MINES/Curlcake_IVT_rep3.tsv	MINES	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	Nanocompore	1	filled	13	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanocompore/Curlcake_IVT_rep3.tsv	Nanocompore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	Nanom6A	1	filled	20	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/Nanom6A/Curlcake_IVT_rep3.tsv	Nanom6A	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	Psi	NanoMUD_psi	1	filled	3	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoMUD_psi/Curlcake_IVT_rep3.tsv	NanoMUD	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m1Psi	NanoMUD_m1psi	1	filled	93	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m1Psi/NanoMUD_m1psi/Curlcake_IVT_rep3.tsv	NanoMUD	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	Nm	NanoNm	1	filled	36	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Nm/NanoNm/Curlcake_IVT_rep3.tsv	NanoNm	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	Psi	NanoPsu	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoPsu/Curlcake_IVT_rep3.tsv	NanoPsu	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	NanoSPA_m6A	1	filled	30	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/NanoSPA_m6A/Curlcake_IVT_rep3.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	Psi	NanoSPA_psU	1	filled	1	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/Psi/NanoSPA_psU/Curlcake_IVT_rep3.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	xPore	1	filled	14	01_converted	callsets/RNA002/Curlcake/Curlcake_IVT/m6A/xPore/Curlcake_IVT_rep3.tsv	xPore	ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	rep3	IVT	m6A	yanocomp	1	raw_missing	0			yanocomp	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	CHEUI_m6A	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m5C	CHEUI_m5C	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	DENA	1	filled	112	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/DENA/Curlcake_m6A_rep1.tsv	DENA	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	DRUMMER	1	filled	166	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/DRUMMER/Curlcake_m6A_rep1.tsv	DRUMMER	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	ELIGOS2_diff	1	filled	1588	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/ELIGOS2_diff/Curlcake_m6A_rep1.tsv	ELIGOS2_diff	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	ELIGOS2_solo	1	filled	1569	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/ELIGOS2_solo/Curlcake_m6A_rep1.tsv	ELIGOS2_solo	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	EpiNano_Error	1	filled	109	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/EpiNano_Error/Curlcake_m6A_rep1.tsv	EpiNano_DiffErr	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	m6Anet	1	filled	99	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/m6Anet/Curlcake_m6A_rep1.tsv	m6Anet	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	MINES	1	filled	89	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/MINES/Curlcake_m6A_rep1.tsv	MINES	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	Nanocompore	1	filled	1734	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/Nanocompore/Curlcake_m6A_rep1.tsv	Nanocompore	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	Nanom6A	1	filled	127	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/Nanom6A/Curlcake_m6A_rep1.tsv	Nanom6A	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	Psi	NanoMUD_psi	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoMUD	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m1Psi	NanoMUD_m1psi	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoMUD	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	Nm	NanoNm	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoNm	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	Psi	NanoPsu	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoPsu	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	NanoSPA_m6A	1	filled	39	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/NanoSPA_m6A/Curlcake_m6A_rep1.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	Psi	NanoSPA_psU	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoSPA	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	xPore	1	filled	1050	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/xPore/Curlcake_m6A_rep1.tsv	xPore	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	rep1	modified	m6A	yanocomp	1	filled	501	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/yanocomp/Curlcake_m6A_rep1.tsv	yanocomp	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	CHEUI_m6A	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m5C	CHEUI_m5C	0	out_of_scope_combination	0	combination_not_in_manuscript		CHEUI	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	CHEUI-diff_m6A	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m5C	CHEUI-diff_m5C	0	out_of_scope_tool	0	removed_by_11		CHEUI-diff	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	DENA	1	filled	113	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/DENA/Curlcake_m6A_rep2.tsv	DENA	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	differr	0	out_of_scope_tool	0	removed_by_11		differr	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	DRUMMER	1	filled	181	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/DRUMMER/Curlcake_m6A_rep2.tsv	DRUMMER	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	ELIGOS2_diff	1	filled	1590	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/ELIGOS2_diff/Curlcake_m6A_rep2.tsv	ELIGOS2_diff	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	ELIGOS2_solo	1	filled	1565	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/ELIGOS2_solo/Curlcake_m6A_rep2.tsv	ELIGOS2_solo	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	EpiNano_Error	1	filled	127	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/EpiNano_Error/Curlcake_m6A_rep2.tsv	EpiNano_DiffErr	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	EpiNano_SVM	0	out_of_scope_tool	0	removed_by_11		Epinano_SVM	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	m6Anet	1	filled	103	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/m6Anet/Curlcake_m6A_rep2.tsv	m6Anet	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	mAFiA	0	out_of_scope_tool	0	removed_by_11		mAFiA	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	MINES	1	filled	92	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/MINES/Curlcake_m6A_rep2.tsv	MINES	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	Nanocompore	1	filled	1585	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/Nanocompore/Curlcake_m6A_rep2.tsv	Nanocompore	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	Nanom6A	1	filled	130	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/Nanom6A/Curlcake_m6A_rep2.tsv	Nanom6A	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	Psi	NanoMUD_psi	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoMUD	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m1Psi	NanoMUD_m1psi	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoMUD	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	Nm	NanoNm	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoNm	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	Psi	NanoPsu	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoPsu	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	NanoSPA_m6A	1	filled	38	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/NanoSPA_m6A/Curlcake_m6A_rep2.tsv	NanoSPA	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	Psi	NanoSPA_psU	0	out_of_scope_combination	0	combination_not_in_manuscript		NanoSPA	missing
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	Tombo_com	0	out_of_scope_tool	0	removed_by_11		Tombo_com	
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	xPore	1	filled	1050	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/xPore/Curlcake_m6A_rep2.tsv	xPore	ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	rep2	modified	m6A	yanocomp	1	filled	2057	01_converted	callsets/RNA002/Curlcake/Curlcake_m6A/m6A/yanocomp/Curlcake_m6A_rep2.tsv	yanocomp	ok

@@ -1,0 +1,40 @@
+species	tool	panel_A_counts	panel_A_ratio	panel_B_support	panel_C_high_conf	panel_D_jaccard	panel_D_fp_rate	panel_E_consistency	n_wt_units	n_ctrl_units	n_high_conf_sites	n_units_without_calls	units_without_calls	inclusion_note
+Arabidopsis	CHEUI_m6A	1	1	1	1	1	1	1	3	3	3	0		
+Arabidopsis	DENA	1	1	1	1	1	1	1	3	3	788	0		
+Arabidopsis	DRUMMER	1	1	1	1	1	1	1	3	3	97	1	fip37 KD:Arabidopsis_fip37_rep2	1 unit(s) with zero calls
+Arabidopsis	ELIGOS2_diff	1	1	1	1	1	1	1	3	3	218	0		
+Arabidopsis	ELIGOS2_solo	1	1	1	1	1	1	1	3	3	613	0		
+Arabidopsis	EpiNano_Error	1	1	1	1	1	1	1	3	3	262	0		
+Arabidopsis	m6Anet	1	1	1	1	1	1	1	3	3	883	0		
+Arabidopsis	MINES	1	1	1	1	1	1	1	3	3	842	0		
+Arabidopsis	Nanocompore	1	1	1	1	1	1	1	3	3	148	0		
+Arabidopsis	Nanom6A	1	1	1	1	1	1	1	3	3	663	0		
+Arabidopsis	NanoSPA_m6A	1	1	1	1	1	1	1	3	3	319	0		
+Arabidopsis	xPore	1	1	1	1	1	1	1	3	3	322	0		
+Arabidopsis	yanocomp	1	1	1	1	1	1	1	3	3	332	0		
+Mouse	CHEUI_m6A	1	1	1	1	1	1	1	2	2	2	0		
+Mouse	DENA	1	1	1	1	1	1	1	2	2	1226	0		
+Mouse	DRUMMER	1	1	1	1	1	1	1	2	2	170	1	Mettl3 KO:mESCs_Mettl3_KO	1 unit(s) with zero calls
+Mouse	ELIGOS2_diff	1	1	1	1	1	1	1	2	2	305	1	Mettl3 KO:mESCs_Mettl3_KO	1 unit(s) with zero calls
+Mouse	ELIGOS2_solo	1	1	1	1	1	1	1	2	2	1024	0		
+Mouse	EpiNano_Error	1	1	1	1	1	1	1	2	2	271	1	Mettl3 KO:mES_KO	1 unit(s) with zero calls
+Mouse	m6Anet	1	1	1	1	1	1	1	2	2	1354	0		
+Mouse	MINES	1	1	1	1	1	1	1	2	2	1191	0		
+Mouse	Nanocompore	1	1	1	1	1	1	1	2	2	152	1	Mettl3 KO:mES_KO	1 unit(s) with zero calls
+Mouse	Nanom6A	1	1	1	1	1	1	1	2	2	463	0		
+Mouse	NanoSPA_m6A	1	1	1	1	1	1	1	2	2	577	0		
+Mouse	xPore	1	1	1	1	1	1	1	2	2	433	1	Mettl3 KO:mESCs_Mettl3_KO	1 unit(s) with zero calls
+Mouse	yanocomp	1	1	1	1	1	1	1	2	2	353	1	Mettl3 KO:mESCs_Mettl3_KO	1 unit(s) with zero calls
+Human	CHEUI_m6A	1	1	1	1	1	1	1	3	3	16	0		
+Human	DENA	1	1	1	1	1	1	1	3	3	867	0		
+Human	DRUMMER	1	1	1	1	1	1	1	3	3	174	0		
+Human	ELIGOS2_diff	1	1	1	1	1	1	1	3	3	334	0		
+Human	ELIGOS2_solo	1	1	1	1	1	1	1	3	3	787	0		
+Human	EpiNano_Error	1	1	1	1	1	1	1	3	3	378	0		
+Human	m6Anet	1	1	1	1	1	1	1	3	3	1011	0		
+Human	MINES	1	1	1	1	1	1	1	3	3	1016	0		
+Human	Nanocompore	1	1	1	1	1	1	1	3	3	246	0		
+Human	Nanom6A	1	1	1	1	1	1	1	3	3	1104	0		
+Human	NanoSPA_m6A	1	1	1	1	1	1	1	3	3	379	0		
+Human	xPore	1	1	1	1	1	1	1	3	3	559	0		
+Human	yanocomp	1	1	1	1	1	1	1	3	3	271	0		

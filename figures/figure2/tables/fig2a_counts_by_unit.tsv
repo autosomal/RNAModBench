@@ -1,0 +1,209 @@
+species	group	condition	tool	sample	replicate_tag	unit	study	n_sites	n_sites_in_universe
+Arabidopsis	Arabidopsis_WT	WT	CHEUI_m6A	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	17596	17574
+Arabidopsis	Arabidopsis_WT	WT	DENA	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	23775	23570
+Arabidopsis	Arabidopsis_WT	WT	DRUMMER	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	463	463
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_diff	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	1021	1017
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_solo	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	57933	52404
+Arabidopsis	Arabidopsis_WT	WT	EpiNano_Error	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	9586	9350
+Arabidopsis	Arabidopsis_WT	WT	m6Anet	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	11963	11935
+Arabidopsis	Arabidopsis_WT	WT	MINES	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	65404	65204
+Arabidopsis	Arabidopsis_WT	WT	Nanocompore	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	443	443
+Arabidopsis	Arabidopsis_WT	WT	Nanom6A	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	21699	21641
+Arabidopsis	Arabidopsis_WT	WT	NanoSPA_m6A	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	1391	1103
+Arabidopsis	Arabidopsis_WT	WT	xPore	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	27086	27072
+Arabidopsis	Arabidopsis_WT	WT	yanocomp	Arabidopsis_WT_rep1	rep1	Arabidopsis_WT_rep1	SRP329449	3583	3581
+Arabidopsis	Arabidopsis_WT	WT	CHEUI_m6A	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	19018	18990
+Arabidopsis	Arabidopsis_WT	WT	DENA	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	17742	17584
+Arabidopsis	Arabidopsis_WT	WT	DRUMMER	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	597	597
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_diff	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	1255	1248
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_solo	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	40414	35885
+Arabidopsis	Arabidopsis_WT	WT	EpiNano_Error	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	15404	14451
+Arabidopsis	Arabidopsis_WT	WT	m6Anet	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	10349	10326
+Arabidopsis	Arabidopsis_WT	WT	MINES	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	49479	49327
+Arabidopsis	Arabidopsis_WT	WT	Nanocompore	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	1070	1070
+Arabidopsis	Arabidopsis_WT	WT	Nanom6A	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	19910	19855
+Arabidopsis	Arabidopsis_WT	WT	NanoSPA_m6A	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	1281	1012
+Arabidopsis	Arabidopsis_WT	WT	xPore	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	37732	37683
+Arabidopsis	Arabidopsis_WT	WT	yanocomp	Arabidopsis_WT_rep2	rep2	Arabidopsis_WT_rep2	SRP329449	13037	13031
+Arabidopsis	Arabidopsis_WT	WT	CHEUI_m6A	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	19181	19167
+Arabidopsis	Arabidopsis_WT	WT	DENA	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	21683	21669
+Arabidopsis	Arabidopsis_WT	WT	DRUMMER	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	324	324
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_diff	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	745	745
+Arabidopsis	Arabidopsis_WT	WT	ELIGOS2_solo	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	50357	47521
+Arabidopsis	Arabidopsis_WT	WT	EpiNano_Error	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	5912	5575
+Arabidopsis	Arabidopsis_WT	WT	m6Anet	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	10078	10072
+Arabidopsis	Arabidopsis_WT	WT	MINES	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	61512	61479
+Arabidopsis	Arabidopsis_WT	WT	Nanocompore	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	245	245
+Arabidopsis	Arabidopsis_WT	WT	Nanom6A	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	19743	19741
+Arabidopsis	Arabidopsis_WT	WT	NanoSPA_m6A	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	1455	1180
+Arabidopsis	Arabidopsis_WT	WT	xPore	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	20957	20935
+Arabidopsis	Arabidopsis_WT	WT	yanocomp	Arabidopsis_WT_rep3	rep3	Arabidopsis_WT_rep3	SRP329449	2058	2058
+Arabidopsis	Arabidopsis_KD	fip37 KD	CHEUI_m6A	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	14499	14441
+Arabidopsis	Arabidopsis_KD	fip37 KD	DENA	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	9420	9347
+Arabidopsis	Arabidopsis_KD	fip37 KD	DRUMMER	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	16	16
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_diff	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	20	13
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_solo	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	24162	20995
+Arabidopsis	Arabidopsis_KD	fip37 KD	EpiNano_Error	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	8557	8312
+Arabidopsis	Arabidopsis_KD	fip37 KD	m6Anet	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	2594	2586
+Arabidopsis	Arabidopsis_KD	fip37 KD	MINES	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	28098	27995
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanocompore	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	191	191
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanom6A	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	15961	15907
+Arabidopsis	Arabidopsis_KD	fip37 KD	NanoSPA_m6A	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	314	246
+Arabidopsis	Arabidopsis_KD	fip37 KD	xPore	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	21082	21050
+Arabidopsis	Arabidopsis_KD	fip37 KD	yanocomp	Arabidopsis_fip37_rep1	rep1	Arabidopsis_fip37_rep1	SRP363914	4176	4175
+Arabidopsis	Arabidopsis_KD	fip37 KD	CHEUI_m6A	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	11775	11750
+Arabidopsis	Arabidopsis_KD	fip37 KD	DENA	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	13588	13577
+Arabidopsis	Arabidopsis_KD	fip37 KD	DRUMMER	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	0	0
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_diff	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	25	25
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_solo	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	31148	28999
+Arabidopsis	Arabidopsis_KD	fip37 KD	EpiNano_Error	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	5317	5016
+Arabidopsis	Arabidopsis_KD	fip37 KD	m6Anet	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	4354	4348
+Arabidopsis	Arabidopsis_KD	fip37 KD	MINES	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	41900	41866
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanocompore	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	160	160
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanom6A	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	15190	15173
+Arabidopsis	Arabidopsis_KD	fip37 KD	NanoSPA_m6A	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	504	399
+Arabidopsis	Arabidopsis_KD	fip37 KD	xPore	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	22161	22137
+Arabidopsis	Arabidopsis_KD	fip37 KD	yanocomp	Arabidopsis_fip37_rep2	rep2	Arabidopsis_fip37_rep2	SRP363914	2090	2088
+Arabidopsis	Arabidopsis_KD	fip37 KD	CHEUI_m6A	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	10283	10253
+Arabidopsis	Arabidopsis_KD	fip37 KD	DENA	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	5649	5595
+Arabidopsis	Arabidopsis_KD	fip37 KD	DRUMMER	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	19	19
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_diff	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	8	7
+Arabidopsis	Arabidopsis_KD	fip37 KD	ELIGOS2_solo	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	12026	10309
+Arabidopsis	Arabidopsis_KD	fip37 KD	EpiNano_Error	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	5105	4775
+Arabidopsis	Arabidopsis_KD	fip37 KD	m6Anet	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	1703	1695
+Arabidopsis	Arabidopsis_KD	fip37 KD	MINES	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	19144	19081
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanocompore	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	661	661
+Arabidopsis	Arabidopsis_KD	fip37 KD	Nanom6A	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	12607	12569
+Arabidopsis	Arabidopsis_KD	fip37 KD	NanoSPA_m6A	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	229	183
+Arabidopsis	Arabidopsis_KD	fip37 KD	xPore	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	22672	22618
+Arabidopsis	Arabidopsis_KD	fip37 KD	yanocomp	Arabidopsis_fip37_rep3	rep3	Arabidopsis_fip37_rep3	SRP363914	5017	5017
+Mouse	Mouse_WT	WT	CHEUI_m6A	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	14512	14450
+Mouse	Mouse_WT	WT	DENA	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	29873	29532
+Mouse	Mouse_WT	WT	DRUMMER	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	514	510
+Mouse	Mouse_WT	WT	ELIGOS2_diff	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	823	817
+Mouse	Mouse_WT	WT	ELIGOS2_solo	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	74653	69521
+Mouse	Mouse_WT	WT	EpiNano_Error	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	17186	16356
+Mouse	Mouse_WT	WT	m6Anet	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	22826	22701
+Mouse	Mouse_WT	WT	MINES	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	64731	64212
+Mouse	Mouse_WT	WT	Nanocompore	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	918	918
+Mouse	Mouse_WT	WT	Nanom6A	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	10724	10242
+Mouse	Mouse_WT	WT	NanoSPA_m6A	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	4178	3148
+Mouse	Mouse_WT	WT	xPore	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	41046	40757
+Mouse	Mouse_WT	WT	yanocomp	mESCs_Mettl3_WT	studyA	mESCs_Mettl3_WT	SRP166020	8749	8733
+Mouse	Mouse_WT	WT	CHEUI_m6A	mES_WT	studyB	mES_WT	SRP357195	37114	37095
+Mouse	Mouse_WT	WT	DENA	mES_WT	studyB	mES_WT	SRP357195	35754	35746
+Mouse	Mouse_WT	WT	DRUMMER	mES_WT	studyB	mES_WT	SRP357195	1831	1831
+Mouse	Mouse_WT	WT	ELIGOS2_diff	mES_WT	studyB	mES_WT	SRP357195	3919	3868
+Mouse	Mouse_WT	WT	ELIGOS2_solo	mES_WT	studyB	mES_WT	SRP357195	87246	80616
+Mouse	Mouse_WT	WT	EpiNano_Error	mES_WT	studyB	mES_WT	SRP357195	33073	26911
+Mouse	Mouse_WT	WT	m6Anet	mES_WT	studyB	mES_WT	SRP357195	26610	26594
+Mouse	Mouse_WT	WT	MINES	mES_WT	studyB	mES_WT	SRP357195	83912	83894
+Mouse	Mouse_WT	WT	Nanocompore	mES_WT	studyB	mES_WT	SRP357195	3023	3022
+Mouse	Mouse_WT	WT	Nanom6A	mES_WT	studyB	mES_WT	SRP357195	23838	23793
+Mouse	Mouse_WT	WT	NanoSPA_m6A	mES_WT	studyB	mES_WT	SRP357195	3267	2757
+Mouse	Mouse_WT	WT	xPore	mES_WT	studyB	mES_WT	SRP357195	59261	59208
+Mouse	Mouse_WT	WT	yanocomp	mES_WT	studyB	mES_WT	SRP357195	7224	7216
+Mouse	Mouse_KO	Mettl3 KO	CHEUI_m6A	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	16053	15959
+Mouse	Mouse_KO	Mettl3 KO	DENA	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	11144	10984
+Mouse	Mouse_KO	Mettl3 KO	DRUMMER	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	0	0
+Mouse	Mouse_KO	Mettl3 KO	ELIGOS2_diff	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	0	0
+Mouse	Mouse_KO	Mettl3 KO	ELIGOS2_solo	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	27517	24944
+Mouse	Mouse_KO	Mettl3 KO	EpiNano_Error	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	21420	18162
+Mouse	Mouse_KO	Mettl3 KO	m6Anet	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	6349	6316
+Mouse	Mouse_KO	Mettl3 KO	MINES	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	29600	29294
+Mouse	Mouse_KO	Mettl3 KO	Nanocompore	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	7297	7219
+Mouse	Mouse_KO	Mettl3 KO	Nanom6A	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	8145	7686
+Mouse	Mouse_KO	Mettl3 KO	NanoSPA_m6A	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	724	551
+Mouse	Mouse_KO	Mettl3 KO	xPore	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	0	0
+Mouse	Mouse_KO	Mettl3 KO	yanocomp	mESCs_Mettl3_KO	studyA	mESCs_Mettl3_KO	SRP166020	0	0
+Mouse	Mouse_KO	Mettl3 KO	CHEUI_m6A	mES_KO	studyB	mES_KO	SRP357195	33097	33078
+Mouse	Mouse_KO	Mettl3 KO	DENA	mES_KO	studyB	mES_KO	SRP357195	23866	23861
+Mouse	Mouse_KO	Mettl3 KO	DRUMMER	mES_KO	studyB	mES_KO	SRP357195	409	409
+Mouse	Mouse_KO	Mettl3 KO	ELIGOS2_diff	mES_KO	studyB	mES_KO	SRP357195	596	591
+Mouse	Mouse_KO	Mettl3 KO	ELIGOS2_solo	mES_KO	studyB	mES_KO	SRP357195	58199	54447
+Mouse	Mouse_KO	Mettl3 KO	EpiNano_Error	mES_KO	studyB	mES_KO	SRP357195	0	0
+Mouse	Mouse_KO	Mettl3 KO	m6Anet	mES_KO	studyB	mES_KO	SRP357195	15844	15833
+Mouse	Mouse_KO	Mettl3 KO	MINES	mES_KO	studyB	mES_KO	SRP357195	88417	88399
+Mouse	Mouse_KO	Mettl3 KO	Nanocompore	mES_KO	studyB	mES_KO	SRP357195	0	0
+Mouse	Mouse_KO	Mettl3 KO	Nanom6A	mES_KO	studyB	mES_KO	SRP357195	18902	18865
+Mouse	Mouse_KO	Mettl3 KO	NanoSPA_m6A	mES_KO	studyB	mES_KO	SRP357195	163	132
+Mouse	Mouse_KO	Mettl3 KO	xPore	mES_KO	studyB	mES_KO	SRP357195	43556	43490
+Mouse	Mouse_KO	Mettl3 KO	yanocomp	mES_KO	studyB	mES_KO	SRP357195	44046	44012
+Human	HeLa_WT	WT	CHEUI_m6A	HeLa_WT1	rep1	HeLa_WT1	SRP393373	19932	19209
+Human	HeLa_WT	WT	DENA	HeLa_WT1	rep1	HeLa_WT1	SRP393373	17473	16798
+Human	HeLa_WT	WT	DRUMMER	HeLa_WT1	rep1	HeLa_WT1	SRP393373	367	358
+Human	HeLa_WT	WT	ELIGOS2_diff	HeLa_WT1	rep1	HeLa_WT1	SRP393373	1065	970
+Human	HeLa_WT	WT	ELIGOS2_solo	HeLa_WT1	rep1	HeLa_WT1	SRP393373	49814	43563
+Human	HeLa_WT	WT	EpiNano_Error	HeLa_WT1	rep1	HeLa_WT1	SRP393373	24182	19825
+Human	HeLa_WT	WT	m6Anet	HeLa_WT1	rep1	HeLa_WT1	SRP393373	7437	7108
+Human	HeLa_WT	WT	MINES	HeLa_WT1	rep1	HeLa_WT1	SRP393373	31998	30914
+Human	HeLa_WT	WT	Nanocompore	HeLa_WT1	rep1	HeLa_WT1	SRP393373	1079	1051
+Human	HeLa_WT	WT	Nanom6A	HeLa_WT1	rep1	HeLa_WT1	SRP393373	20892	20160
+Human	HeLa_WT	WT	NanoSPA_m6A	HeLa_WT1	rep1	HeLa_WT1	SRP393373	1375	990
+Human	HeLa_WT	WT	xPore	HeLa_WT1	rep1	HeLa_WT1	SRP393373	23881	23315
+Human	HeLa_WT	WT	yanocomp	HeLa_WT1	rep1	HeLa_WT1	SRP393373	4614	4450
+Human	HeLa_WT	WT	CHEUI_m6A	HeLa_WT2	rep2	HeLa_WT2	SRP393373	31096	29869
+Human	HeLa_WT	WT	DENA	HeLa_WT2	rep2	HeLa_WT2	SRP393373	17352	16515
+Human	HeLa_WT	WT	DRUMMER	HeLa_WT2	rep2	HeLa_WT2	SRP393373	637	607
+Human	HeLa_WT	WT	ELIGOS2_diff	HeLa_WT2	rep2	HeLa_WT2	SRP393373	1816	1659
+Human	HeLa_WT	WT	ELIGOS2_solo	HeLa_WT2	rep2	HeLa_WT2	SRP393373	58726	52267
+Human	HeLa_WT	WT	EpiNano_Error	HeLa_WT2	rep2	HeLa_WT2	SRP393373	46813	39713
+Human	HeLa_WT	WT	m6Anet	HeLa_WT2	rep2	HeLa_WT2	SRP393373	13883	13234
+Human	HeLa_WT	WT	MINES	HeLa_WT2	rep2	HeLa_WT2	SRP393373	61460	59103
+Human	HeLa_WT	WT	Nanocompore	HeLa_WT2	rep2	HeLa_WT2	SRP393373	1534	1471
+Human	HeLa_WT	WT	Nanom6A	HeLa_WT2	rep2	HeLa_WT2	SRP393373	18286	17583
+Human	HeLa_WT	WT	NanoSPA_m6A	HeLa_WT2	rep2	HeLa_WT2	SRP393373	2490	1777
+Human	HeLa_WT	WT	xPore	HeLa_WT2	rep2	HeLa_WT2	SRP393373	39851	38857
+Human	HeLa_WT	WT	yanocomp	HeLa_WT2	rep2	HeLa_WT2	SRP393373	6842	6548
+Human	HeLa_WT	WT	CHEUI_m6A	HeLa_WT3	rep3	HeLa_WT3	SRP393373	16812	16354
+Human	HeLa_WT	WT	DENA	HeLa_WT3	rep3	HeLa_WT3	SRP393373	14665	14162
+Human	HeLa_WT	WT	DRUMMER	HeLa_WT3	rep3	HeLa_WT3	SRP393373	255	249
+Human	HeLa_WT	WT	ELIGOS2_diff	HeLa_WT3	rep3	HeLa_WT3	SRP393373	820	754
+Human	HeLa_WT	WT	ELIGOS2_solo	HeLa_WT3	rep3	HeLa_WT3	SRP393373	35520	31008
+Human	HeLa_WT	WT	EpiNano_Error	HeLa_WT3	rep3	HeLa_WT3	SRP393373	18904	16301
+Human	HeLa_WT	WT	m6Anet	HeLa_WT3	rep3	HeLa_WT3	SRP393373	5611	5419
+Human	HeLa_WT	WT	MINES	HeLa_WT3	rep3	HeLa_WT3	SRP393373	26272	25555
+Human	HeLa_WT	WT	Nanocompore	HeLa_WT3	rep3	HeLa_WT3	SRP393373	1181	1164
+Human	HeLa_WT	WT	Nanom6A	HeLa_WT3	rep3	HeLa_WT3	SRP393373	17048	16501
+Human	HeLa_WT	WT	NanoSPA_m6A	HeLa_WT3	rep3	HeLa_WT3	SRP393373	941	655
+Human	HeLa_WT	WT	xPore	HeLa_WT3	rep3	HeLa_WT3	SRP393373	19952	19567
+Human	HeLa_WT	WT	yanocomp	HeLa_WT3	rep3	HeLa_WT3	SRP393373	4338	4240
+Human	HeLa_IVT	IVT	CHEUI_m6A	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	23527	22982
+Human	HeLa_IVT	IVT	DENA	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	16121	15747
+Human	HeLa_IVT	IVT	DRUMMER	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	19	19
+Human	HeLa_IVT	IVT	ELIGOS2_diff	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	27	19
+Human	HeLa_IVT	IVT	ELIGOS2_solo	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	45923	41128
+Human	HeLa_IVT	IVT	EpiNano_Error	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	33972	28532
+Human	HeLa_IVT	IVT	m6Anet	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	5996	5866
+Human	HeLa_IVT	IVT	MINES	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	42134	41272
+Human	HeLa_IVT	IVT	Nanocompore	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	105	104
+Human	HeLa_IVT	IVT	Nanom6A	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	12644	12404
+Human	HeLa_IVT	IVT	NanoSPA_m6A	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	408	298
+Human	HeLa_IVT	IVT	xPore	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	34645	33936
+Human	HeLa_IVT	IVT	yanocomp	HeLa_IVT_rep1	rep1	HeLa_IVT_rep1	SRP428418	3569	3495
+Human	HeLa_IVT	IVT	CHEUI_m6A	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	37544	36640
+Human	HeLa_IVT	IVT	DENA	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	22584	21984
+Human	HeLa_IVT	IVT	DRUMMER	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	8	8
+Human	HeLa_IVT	IVT	ELIGOS2_diff	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	82	74
+Human	HeLa_IVT	IVT	ELIGOS2_solo	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	58353	52414
+Human	HeLa_IVT	IVT	EpiNano_Error	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	29312	26448
+Human	HeLa_IVT	IVT	m6Anet	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	11536	11279
+Human	HeLa_IVT	IVT	MINES	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	64266	62905
+Human	HeLa_IVT	IVT	Nanocompore	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	59	59
+Human	HeLa_IVT	IVT	Nanom6A	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	15078	14795
+Human	HeLa_IVT	IVT	NanoSPA_m6A	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	227	154
+Human	HeLa_IVT	IVT	xPore	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	25623	25134
+Human	HeLa_IVT	IVT	yanocomp	HeLa_IVT_rep2	rep2	HeLa_IVT_rep2	SRP428418	1867	1827
+Human	HeLa_IVT	IVT	CHEUI_m6A	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	13473	13275
+Human	HeLa_IVT	IVT	DENA	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	9009	8829
+Human	HeLa_IVT	IVT	DRUMMER	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	69	69
+Human	HeLa_IVT	IVT	ELIGOS2_diff	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	72	57
+Human	HeLa_IVT	IVT	ELIGOS2_solo	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	22995	20319
+Human	HeLa_IVT	IVT	EpiNano_Error	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	20905	17850
+Human	HeLa_IVT	IVT	m6Anet	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	4528	4440
+Human	HeLa_IVT	IVT	MINES	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	30215	29698
+Human	HeLa_IVT	IVT	Nanocompore	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	201	201
+Human	HeLa_IVT	IVT	Nanom6A	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	11431	11224
+Human	HeLa_IVT	IVT	NanoSPA_m6A	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	230	161
+Human	HeLa_IVT	IVT	xPore	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	27252	26709
+Human	HeLa_IVT	IVT	yanocomp	HeLa_IVT_rep3	rep3	HeLa_IVT_rep3	SRP428418	3504	3418

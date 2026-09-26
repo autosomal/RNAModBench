@@ -1,0 +1,7 @@
+chrom	start	end	strand	score	score_type	mod_label	src_coverage	coverage	ref_base	five_mer_raw	center_status
+chr11	64318312	64318313	+	0.9958	percent_modified/100	inosine	713	6494	A	GTACA	ok
+chr12	56642735	56642736	-	0.9175	percent_modified/100	inosine	1054	4537	T	TCTTG	ok
+chr19	582774	582775	+	0.9083	percent_modified/100	inosine	3283	5558	A	CCACG	ok
+chr2	38481950	38481951	+	0.9642	percent_modified/100	inosine	7963	732	A	CAATG	ok
+chr2	38482433	38482434	+	0.9532	percent_modified/100	inosine	8168	1079	A	CAATG	ok
+chr3	73648782	73648783	-	0.9885	percent_modified/100	inosine	87	0	T	CGTAG	ok

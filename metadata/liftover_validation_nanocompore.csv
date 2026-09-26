@@ -1,0 +1,17 @@
+sample	species	tool	gtf	legacy_file	n_legacy	n_rebuilt	only_rebuilt	only_legacy	verdict	filtered_verdict	n_filtered	n_legacy_remove_chr
+Arabidopsis_WT_rep3	Arabidopsis	Nanocompore	Arabidopsis_thaliana.TAIR10.61.gtf	Arabidopsis_WT_result3_Nanocompore_liftover.txt	255	255	118	118	different	different	255	255
+Arabidopsis_fip37_rep3	Arabidopsis	Nanocompore	Arabidopsis_thaliana.TAIR10.61.gtf	Arabidopsis_fip37_result3_Nanocompore_liftover.txt	693	693	278	278	different	different	693	693
+E_IVT_neg1	E.coli	Nanocompore	Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61.gtf	E_IVT_neg_Nanocompore_liftover.txt	4	4	0	0	identical	identical	4	4
+E_ss_rd_RNA2	E.coli	Nanocompore	Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61.gtf	E_ss_rd_RNA2_Nanocompore_liftover.txt	4085	4085	0	0	identical	identical	4085	4085
+HeLa_WT1	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_WT_result1_Nanocompore_liftover.txt	1332	1332	0	0	identical	identical	1237	1237
+HeLa_WT2	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_WT_result2_Nanocompore_liftover.txt	1859	1859	0	0	identical	identical	1798	1798
+HeLa_WT3	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_WT_result3_Nanocompore_liftover.txt	1072	1072	0	0	identical	different	975	1261
+HeLa_IVT_rep1	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_IVT_result1_Nanocompore_liftover.txt	111	111	0	0	identical	identical	107	107
+HeLa_IVT_rep2	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_IVT_result2_Nanocompore_liftover.txt	67	67	0	0	identical	identical	63	63
+HeLa_IVT_rep3	Human	Nanocompore	Homo_sapiens.GRCh38.112.chr.gtf	HeLa_IVT_result3_Nanocompore_liftover.txt	225	225	0	0	identical	identical	219	219
+mESCs_Mettl3_KO	Mouse	Nanocompore	Mus_musculus.GRCm39.114.gtf	mESCs_Mettl3_KO_result_Nanocompore_liftover.txt	7723	7723	0	0	identical	identical	7581	7581
+mES_WT	Mouse	Nanocompore	Mus_musculus.GRCm39.114.gtf	mES_WT_result_Nanocompore_liftover.txt	3226	3226	0	0	identical	identical	3115	3115
+RNA081120181part	Curlcake	Nanocompore		Curlcake_IVT_result1_Nanocompore.txt	8	8	0	0	identical			
+RNA081120181	Curlcake	Nanocompore		Curlcake_IVT_result2_Nanocompore.txt	13	13	0	0	identical			
+RNA081120182	Curlcake	Nanocompore		Curlcake_m6A_result1_Nanocompore.txt	1585	1585	0	0	identical			
+RNAAB090763	Curlcake	Nanocompore		Curlcake_m6A_result2_Nanocompore.txt	1734	1734	0	0	identical			

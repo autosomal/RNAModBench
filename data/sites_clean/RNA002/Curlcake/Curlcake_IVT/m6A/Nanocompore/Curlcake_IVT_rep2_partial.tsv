@@ -1,0 +1,9 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake3	362	363	+	0.021299	Pvalue	4659	A	GCAAT	ok	False
+Curlcake1	2218	2219	+	4.05919e-16	Pvalue	3670	A	ATAAA	ok	False
+Curlcake1	2229	2230	+	1.06083e-37	Pvalue	3438	A	AAAAC	ok	False
+Curlcake1	2230	2231	+	1.48844e-05	Pvalue	3401	A	AAACA	ok	True
+Curlcake4	199	200	+	2.08642e-05	Pvalue	5239	A	GCATG	ok	False
+Curlcake2	2162	2163	+	0.0400355	Pvalue	10636	A	ACAAT	ok	False
+Curlcake2	2479	2480	+	3.70374e-13	Pvalue	8832	A	CAAAT	ok	False
+Curlcake2	2486	2487	+	4.21334e-14	Pvalue	6333	A	TAATT	ok	False

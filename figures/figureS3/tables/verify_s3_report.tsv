@@ -1,0 +1,29 @@
+check	detail	status
+Hela_GLORI.bed rows == 112,451	112451 rows	PASS
+Hela_GLORI.bed unique + sorted	112451 unique, sorted=True	PASS
+old reference backed up	Hela_GLORI.bed.bak_20260919_063142	PASS
+rebuild map rows == 1,034	1034 dropped sites	PASS
+venn counts (unified criterion)	Arab 40461/80624/41894, Mouse 48221/41961/59580, Human 23686/112451/26606	PASS
+panel A label 'Arabidopsis-rep1'	present	PASS
+panel A label 'Arabidopsis-rep2'	present	PASS
+panel A label 'Mouse-rep1'	present	PASS
+panel A label 'Mouse-rep2'	present	PASS
+panel A label 'HeLa-rep1'	present	PASS
+panel A label 'HeLa-rep2'	present	PASS
+panel A: retired names gone	no 'Hela-1/Hela-2/mESC-rep1' in the panel text	PASS
+panel B files exist	S3B_ppv_by_unit.tsv + S3B_ppv.pdf	PASS
+panel B Arabidopsis units	['Arabidopsis_WT_rep1', 'Arabidopsis_WT_rep2', 'Arabidopsis_WT_rep3']	PASS
+panel B Mouse units	['mESCs_Mettl3_WT', 'mES_WT']	PASS
+panel B Human units	['HeLa_WT1', 'HeLa_WT2', 'HeLa_WT3']	PASS
+panel B tool scope == 13 m6A tools	13 tools	PASS
+panel B y-label == 'PPV vs. GLORI (2 bp)'	retired 'Hit Rate' label absent	PASS
+panel B: the two mouse studies labelled	study numbers in the legend; no sample id / accession (user 2026-09-21)	PASS
+panel C provenance file	$RNAMODBENCH_ROOT/figures/figureS3/tables/S3C_provenance.tsv	PASS
+panel C credits the sibling script	script + cached tables recorded with md5	PASS
+panel C legend carries r/CCC	sibling session's stats format	PASS
+panel C: no in-figure study note (house rule)	removed per user 2026-09-20 (legend/caption carries it)	PASS
+FigureS3_rev page size == sup3	Page size:       595.276 x 633.598 pts	PASS
+no Type-3 fonts (editable vector text)	Arial embedded	PASS
+no study accession printed on the page	page prints the study numbers only (user 2026-09-21)	PASS
+submitted sup3.pdf untouched	736344 bytes	PASS
+no grid anywhere (rcParam)	axes.grid=False, font=['Arial']	PASS

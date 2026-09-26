@@ -1,0 +1,18 @@
+item	value
+page_in	6.96 x 8.03 (natural-size stitch, not A4)
+blocks	3
+panels_per_block	10
+ncol	5
+tools_drawn	10
+min_font_pt	8
+font_axis_ytitle_tool_species_legend_struct_pt	8/8/11/13/8.5/8.5
+panel_size_in	1.3 x 1.0
+panel_legend	none in panels (block-level collected legend)
+consensus_gate	100
+gated_consensus_n	3
+font_backend	cairo_pdf with embedded Arial (showtext off); PNG via showtext
+label_layout	region labels on one line under the panel
+merge	majority
+min_sites	10
+CI_ResamplingTime	20
+consensus_rule	sites supported by strictly more than half of the group's independent units

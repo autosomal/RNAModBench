@@ -1,0 +1,26 @@
+platform	species	dataset_group	sample	tool	mod_type	n_calls	source_file	frac_expected_base	frac_drach_raw	frac_dist_center_0	frac_dist_drach_0	best_shift	frac_at_best_shift	shift_scan	anchor_flag
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	Nanom6A	m6A	15967	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_fip37_rep1/Arabidopsis_fip37_rep1_Nanom6A.txt	1	0.488069	0.488695	0.488069				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	Nanom6A	m6A	15196	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_fip37_rep2/ratio.0.5.tsv	1	0.488747	0.489208	0.488747				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	Nanom6A	m6A	12612	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_fip37_rep3/Arabidopsis_fip37_rep3_Nanom6A_remove_chr.txt	1	0.485728	0.486362	0.485728				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	Nanom6A	m6A	21872	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_WT_rep1/ratio.0.5.anchorfix.tsv	0.998857	0.380121	0.497943	0.380121				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	Nanom6A	m6A	20152	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_WT_rep2/ratio.0.5.anchorfix.tsv	0.998611	0.382692	0.497916	0.382692				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	Nanom6A	m6A	19758	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_WT_rep3/Arabidopsis_WT_rep3_Nanom6A_remove_chr.txt	1	0.488157	0.488612	0.488157				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	Nanom6A	m6A	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep1/Curlcake_IVT_rep1_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	Nanom6A	m6A	17	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	Nanom6A	m6A	22	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep3/Curlcake_IVT_rep3_Nanom6A.txt	1	0.909091	0.909091	0.909091				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	Nanom6A	m6A	127	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_m6A_rep1/Curlcake_m6A_rep1_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	Nanom6A	m6A	130	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_m6A_rep2/Curlcake_m6A_rep2_Nanom6A.txt	1	1	1	1				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	Nanom6A	m6A	3121	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_IVT_neg1/ratio.0.5.anchorfix.tsv	0.978212	0.301506	0.512015	0.301506				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	Nanom6A	m6A	2367	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_IVT_neg2/ratio.0.5.anchorfix.tsv	0.970427	0.309252	0.510351	0.309252				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	Nanom6A	m6A	6312	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_ss_rd_RNA1/ratio.0.5.anchorfix.tsv	0.972275	0.277883	0.495247	0.277883				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	Nanom6A	m6A	10070	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_ss_rd_RNA2/ratio.0.5.anchorfix.tsv	0.989275	0.298709	0.497021	0.298709				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	Nanom6A	m6A	12658	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep1/HeLa_IVT_rep1_Nanom6A_remove_chr.txt	0.999921	0.501343	0.502923	0.501343				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	Nanom6A	m6A	15092	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep2/HeLa_IVT_rep2_Nanom6A_remove_chr.txt	0.999934	0.508548	0.509873	0.508548				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	Nanom6A	m6A	11442	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep3/HeLa_IVT_rep3_Nanom6A_remove_chr.txt	0.999913	0.504894	0.506467	0.504894				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	Nanom6A	m6A	20915	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT1/HeLa_WT_rep1_Nanom6A_remove_chr.txt	1	0.496581	0.497538	0.496581				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	Nanom6A	m6A	18311	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT2/HeLa_WT_rep2_Nanom6A_remove_chr.txt	1	0.487467	0.488286	0.487467				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	Nanom6A	m6A	17066	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT3/HeLa_WT_rep3_Nanom6A_remove_chr.txt	1	0.48664	0.487812	0.48664				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	Nanom6A	m6A	8386	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/mESCs_Mettl3_KO/ratio.0.5.anchorfix.tsv	0.997734	0.43668	0.512521	0.43668				ok
+RNA002	Mouse	Mouse_KO	mES_KO	Nanom6A	m6A	18978	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/mES_KO/mES_KO_Nanom6A_remove_chr.txt	0.999947	0.494309	0.495258	0.494309				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	Nanom6A	m6A	11052	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/mESCs_Mettl3_WT/ratio.0.5.anchorfix.tsv	0.998009	0.430329	0.507962	0.430329				ok
+RNA002	Mouse	Mouse_WT	mES_WT	Nanom6A	m6A	23952	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/mES_WT/mES_WT_Nanom6A_remove_chr.txt	1	0.494656	0.495282	0.494656				ok

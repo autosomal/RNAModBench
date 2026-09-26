@@ -1,0 +1,16 @@
+mod_type	tool	construct	construct_role	n_sites	n_sites_in_universe
+Nm	NanoNm	Curlcake_IVT_rep3	independent	36	36
+Nm	NanoNm	Curlcake_IVT_rep1	independent	39	39
+Nm	NanoNm	Curlcake_IVT_rep2_partial	subset_of_Curlcake_IVT_rep3	35	35
+Psi	NanoMUD_psi	Curlcake_IVT_rep3	independent	3	3
+Psi	NanoMUD_psi	Curlcake_IVT_rep1	independent	0	0
+Psi	NanoMUD_psi	Curlcake_IVT_rep2_partial	subset_of_Curlcake_IVT_rep3	39	39
+Psi	NanoPsu	Curlcake_IVT_rep3	independent	1	1
+Psi	NanoPsu	Curlcake_IVT_rep1	independent	0	0
+Psi	NanoPsu	Curlcake_IVT_rep2_partial	subset_of_Curlcake_IVT_rep3	1	1
+Psi	NanoSPA_psU	Curlcake_IVT_rep3	independent	1	1
+Psi	NanoSPA_psU	Curlcake_IVT_rep1	independent	0	0
+Psi	NanoSPA_psU	Curlcake_IVT_rep2_partial	subset_of_Curlcake_IVT_rep3	1	1
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep3	independent	93	93
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep1	independent	89	89
+m1Psi	NanoMUD_m1psi	Curlcake_IVT_rep2_partial	subset_of_Curlcake_IVT_rep3	97	97

@@ -1,0 +1,9 @@
+# GSE271571 (E. coli) - 原作者 CHEUI site-level 输出：高置信(prob>=0.9)位点计数
+# 目的：证明未修饰 IVT 对照同样产生海量高置信 m5C/m6A 调用 -> CHEUI 系统性 FP，与本 benchmark 流水线无关
+
+m5C    WT    rows=252920    prob>=0.9=25085
+m5C    IVT   rows=155009    prob>=0.9=16640
+m6A    WT    rows=247600    prob>=0.9=20976
+m6A    IVT   rows=149719    prob>=0.9=13015
+
+# 列: contig position site coverage stoichiometry probability (probability=最后一列)

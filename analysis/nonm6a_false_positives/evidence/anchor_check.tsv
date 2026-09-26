@@ -1,0 +1,57 @@
+anchor	item	expected	got	ok	note
+HeLa_WT_union_vs_frozen_table	CHEUI_m5C	frozen 48627 (published 48627, legacy 48627)	47747		current callset differs from the frozen/published value by -880 sites; the 2026-09-18 CHEUI coordinate / centre-base fixes changed the HeLa WT union (legacy tree reproduces 48627)
+HeLa_WT_union_vs_frozen_table	NanoPsu	frozen 883 (published 883, legacy 883)	883	True	raw union over the three HeLa WT replicates
+HeLa_WT_union_vs_frozen_table	NanoSPA_psU	frozen 888 (published 888, legacy 888)	888	True	raw union over the three HeLa WT replicates
+HeLa_WT_global_jaccard_vs_frozen_table	NanoNm	0.23248	0.23248	True	published value 0.23248; raw (not universe-restricted)
+HeLa_WT_global_jaccard_vs_frozen_table	NanoMUD_m1psi	0.170209	0.170209	True	published value 0.170209; raw (not universe-restricted)
+HeLa_WT_global_jaccard_vs_frozen_table	CHEUI_m5C	0.000185	0.000524	True	published value 0.000185082; raw (not universe-restricted)
+curlcake_per_construct_calls	NanoNm@Curlcake_IVT_rep3	36	36	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoNm@Curlcake_IVT_rep1	39	39	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoNm@Curlcake_IVT_rep2_partial	35	35	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_psi@Curlcake_IVT_rep3	3	3	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_psi@Curlcake_IVT_rep1	0	0	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_psi@Curlcake_IVT_rep2_partial	39	39	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoPsu@Curlcake_IVT_rep3	1	1	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoPsu@Curlcake_IVT_rep1	0	0	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoPsu@Curlcake_IVT_rep2_partial	1	1	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoSPA_psU@Curlcake_IVT_rep3	1	1	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoSPA_psU@Curlcake_IVT_rep1	0	0	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoSPA_psU@Curlcake_IVT_rep2_partial	1	1	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_m1psi@Curlcake_IVT_rep3	93	93	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_m1psi@Curlcake_IVT_rep1	89	89	True	frozen nonm6a_curlcake_detail.tsv
+curlcake_per_construct_calls	NanoMUD_m1psi@Curlcake_IVT_rep2_partial	97	97	True	frozen nonm6a_curlcake_detail.tsv
+universe_denominator	HeLa_IVT_rep1/Nm/NanoNm	8997926	8997926	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/Nm/NanoNm	12700424	12700424	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/Nm/NanoNm	6563590	6563590	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep1/Psi/NanoMUD_psi	4684068	4684068	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/Psi/NanoMUD_psi	6514655	6514655	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/Psi/NanoMUD_psi	3382805	3382805	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep1/Psi/NanoPsu	4684068	4684068	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/Psi/NanoPsu	6514655	6514655	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/Psi/NanoPsu	3382805	3382805	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep1/Psi/NanoSPA_psU	4684068	4684068	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/Psi/NanoSPA_psU	6514655	6514655	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/Psi/NanoSPA_psU	3382805	3382805	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep1/m1Psi/NanoMUD_m1psi	4684068	4684068	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/m1Psi/NanoMUD_m1psi	6514655	6514655	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/m1Psi/NanoMUD_m1psi	3382805	3382805	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep1/m5C/CHEUI_m5C	4313858	4313858	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep2/m5C/CHEUI_m5C	6185769	6185769	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	HeLa_IVT_rep3/m5C/CHEUI_m5C	3180785	3180785	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep1/Nm/NanoNm	9993	9993	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep2_partial/Nm/NanoNm	9994	9994	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep3/Nm/NanoNm	10005	10005	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep2_partial/Psi/NanoMUD_psi	4916	4916	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep3/Psi/NanoMUD_psi	4921	4921	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep2_partial/Psi/NanoPsu	4916	4916	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep3/Psi/NanoPsu	4921	4921	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep2_partial/Psi/NanoSPA_psU	4916	4916	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep3/Psi/NanoSPA_psU	4921	4921	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep1/m1Psi/NanoMUD_m1psi	4917	4917	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep2_partial/m1Psi/NanoMUD_m1psi	4916	4916	True	frozen controls_ivt_fpr.tsv n_universe
+universe_denominator	Curlcake_IVT_rep3/m1Psi/NanoMUD_m1psi	4921	4921	True	frozen controls_ivt_fpr.tsv n_universe
+NA9_strict_fpr_curlcake_FP_count	NanoNm	40 FP (NA-9), 15637 per 1e6 candidate bases	40 FP (union of the three constructs), 40 FP (independent constructs only)	True	NA-9 counts the union of all three Curlcake constructs (incl. the depth-matched subset) and scales by candidate *bases* (A/C/T); the universe-based density in curlcake_ivt_fp_per_construct.tsv uses the coverage>=10 / base-compatible candidate universe instead
+NA9_strict_fpr_curlcake_FP_count	NanoPsu	1 FP (NA-9), 409 per 1e6 candidate bases	1 FP (union of the three constructs), 1 FP (independent constructs only)	True	NA-9 counts the union of all three Curlcake constructs (incl. the depth-matched subset) and scales by candidate *bases* (A/C/T); the universe-based density in curlcake_ivt_fp_per_construct.tsv uses the coverage>=10 / base-compatible candidate universe instead
+NA9_strict_fpr_curlcake_FP_count	NanoSPA_psU	1 FP (NA-9), 409 per 1e6 candidate bases	1 FP (union of the three constructs), 1 FP (independent constructs only)	True	NA-9 counts the union of all three Curlcake constructs (incl. the depth-matched subset) and scales by candidate *bases* (A/C/T); the universe-based density in curlcake_ivt_fp_per_construct.tsv uses the coverage>=10 / base-compatible candidate universe instead
+NA9_strict_fpr_curlcake_FP_count	NanoMUD_psi	42 FP (NA-9), 17164 per 1e6 candidate bases	42 FP (union of the three constructs), 3 FP (independent constructs only)	True	NA-9 counts the union of all three Curlcake constructs (incl. the depth-matched subset) and scales by candidate *bases* (A/C/T); the universe-based density in curlcake_ivt_fp_per_construct.tsv uses the coverage>=10 / base-compatible candidate universe instead
+NA9_strict_fpr_curlcake_FP_count	NanoMUD_m1psi	102 FP (NA-9), 41684 per 1e6 candidate bases	102 FP (union of the three constructs), 97 FP (independent constructs only)	True	NA-9 counts the union of all three Curlcake constructs (incl. the depth-matched subset) and scales by candidate *bases* (A/C/T); the universe-based density in curlcake_ivt_fp_per_construct.tsv uses the coverage>=10 / base-compatible candidate universe instead

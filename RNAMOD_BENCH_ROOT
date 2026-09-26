@@ -1,0 +1,2 @@
+RNAModBench deposit root marker -- do not remove; scripts locate the
+repository by walking up to this file (or $RNAMODBENCH_ROOT).

@@ -1,0 +1,22 @@
+species	window	recomputed_hit_rate	published_or_NA1	delta
+Arabidopsis	0	0.158943		
+Arabidopsis	1	0.171949		
+Arabidopsis	2	0.195438		
+Arabidopsis	5	0.21913		
+Arabidopsis	10	0.236148		
+Arabidopsis	20	0.255408		
+Arabidopsis	50	0.293326		
+Mouse	0	0.101353		
+Mouse	1	0.103587		
+Mouse	2	0.111687		
+Mouse	5	0.122443		
+Mouse	10	0.134739		
+Mouse	20	0.156788		
+Mouse	50	0.211288		
+Human (HeLa)	0	0.0828398		
+Human (HeLa)	1	0.0848896		
+Human (HeLa)	2	0.0919539		
+Human (HeLa)	5	0.103588		
+Human (HeLa)	10	0.118612		
+Human (HeLa)	20	0.145123		
+Human (HeLa)	50	0.20741		

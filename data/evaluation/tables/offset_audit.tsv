@@ -1,0 +1,399 @@
+sample	species	dataset_group	mod_type	tool	n_calls	n_audited	reference	mode_offset	mode_share	pct_exact	pct_within_2	offset_flag
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	14533	816	Arabidopsis_GLORI.bed	0	0.216912	0.216912	0.561275	diffuse
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	11777	639	Arabidopsis_GLORI.bed	0	0.234742	0.234742	0.610329	diffuse
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	CHEUI_m6A	10299	622	Arabidopsis_GLORI.bed	0	0.233119	0.233119	0.590032	diffuse
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	DENA	9906	1851	Arabidopsis_GLORI.bed	0	0.909238	0.909238	0.929227	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	DENA	14278	2534	Arabidopsis_GLORI.bed	0	0.925414	0.925414	0.942384	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	DENA	5885	1101	Arabidopsis_GLORI.bed	0	0.892825	0.892825	0.920073	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	DRUMMER	16	0	Arabidopsis_GLORI.bed					none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	DRUMMER	19	3	Arabidopsis_GLORI.bed	4	0.333333	0	0.333333	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	20	3	Arabidopsis_GLORI.bed	0	0.333333	0.333333	1	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	25	2	Arabidopsis_GLORI.bed	1	0.5	0	1	systematic_+1
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_diff	8	0	Arabidopsis_GLORI.bed					none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	24162	2217	Arabidopsis_GLORI.bed	0	0.291385	0.291385	0.661705	diffuse
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	31148	2681	Arabidopsis_GLORI.bed	0	0.317419	0.317419	0.666169	diffuse
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	ELIGOS2_solo	12026	1150	Arabidopsis_GLORI.bed	0	0.272174	0.272174	0.63913	diffuse
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	8557	604	Arabidopsis_GLORI.bed	0	0.241722	0.241722	0.572848	diffuse
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	5317	341	Arabidopsis_GLORI.bed	0	0.231672	0.231672	0.565982	diffuse
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	EpiNano_Error	5105	327	Arabidopsis_GLORI.bed	0	0.214067	0.214067	0.510703	diffuse
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	MINES	30156	3568	Arabidopsis_GLORI.bed	0	0.859865	0.859865	0.890415	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	MINES	45001	5084	Arabidopsis_GLORI.bed	0	0.88808	0.88808	0.91188	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	MINES	20419	2514	Arabidopsis_GLORI.bed	0	0.826571	0.826571	0.863962	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	314	100	Arabidopsis_GLORI.bed	0	1	1	1	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	504	180	Arabidopsis_GLORI.bed	0	0.994444	0.994444	1	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	NanoSPA_m6A	229	84	Arabidopsis_GLORI.bed	0	1	1	1	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	197	16	Arabidopsis_GLORI.bed	1	0.3125	0	0.625	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	161	17	Arabidopsis_GLORI.bed	-1	0.176471	0.117647	0.529412	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	Nanocompore	693	69	Arabidopsis_GLORI.bed	3	0.217391	0	0.362319	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	15966	2637	Arabidopsis_GLORI.bed	0	0.864619	0.864619	0.901403	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	15195	2574	Arabidopsis_GLORI.bed	0	0.871018	0.871018	0.906371	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	Nanom6A	12610	2116	Arabidopsis_GLORI.bed	0	0.85397	0.85397	0.893195	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	2818	664	Arabidopsis_GLORI.bed	0	0.951807	0.951807	0.980422	none
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	4738	1150	Arabidopsis_GLORI.bed	0	0.964348	0.964348	0.984348	none
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	m6Anet	1839	490	Arabidopsis_GLORI.bed	0	0.944898	0.944898	0.981633	none
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	xPore	21263	1312	Arabidopsis_GLORI.bed	0	0.223323	0.223323	0.570884	diffuse
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	xPore	22369	1561	Arabidopsis_GLORI.bed	0	0.190263	0.190263	0.556694	diffuse
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	xPore	23090	1538	Arabidopsis_GLORI.bed	0	0.1671	0.1671	0.544863	diffuse
+Arabidopsis_fip37_rep1	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	4176	209	Arabidopsis_GLORI.bed	0	0.167464	0.167464	0.521531	diffuse
+Arabidopsis_fip37_rep2	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	2090	103	Arabidopsis_GLORI.bed	1	0.165049	0.135922	0.592233	diffuse
+Arabidopsis_fip37_rep3	Arabidopsis	Arabidopsis_KD	m6A	yanocomp	5017	228	Arabidopsis_GLORI.bed	-2	0.144737	0.0745614	0.460526	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	17598	1067	Arabidopsis_GLORI.bed	0	0.252109	0.252109	0.611059	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	19019	1174	Arabidopsis_GLORI.bed	0	0.280239	0.280239	0.632879	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	CHEUI_m6A	19197	1085	Arabidopsis_GLORI.bed	0	0.274654	0.274654	0.621198	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	DENA	25131	7139	Arabidopsis_GLORI.bed	0	0.968203	0.968203	0.974366	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	DENA	18688	5662	Arabidopsis_GLORI.bed	0	0.966973	0.966973	0.975274	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	DENA	22872	6731	Arabidopsis_GLORI.bed	0	0.966721	0.966721	0.973407	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	483	465	Arabidopsis_GLORI.bed	0	0.262366	0.262366	0.875269	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	627	616	Arabidopsis_GLORI.bed	0	0.310065	0.310065	0.917208	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	DRUMMER	339	337	Arabidopsis_GLORI.bed	0	0.293769	0.293769	0.878338	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	1021	1003	Arabidopsis_GLORI.bed	0	0.383848	0.383848	0.84347	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	1255	1235	Arabidopsis_GLORI.bed	0	0.439676	0.439676	0.869636	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_diff	745	738	Arabidopsis_GLORI.bed	0	0.406504	0.406504	0.840108	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	57933	14758	Arabidopsis_GLORI.bed	0	0.431224	0.431224	0.806207	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	40414	10987	Arabidopsis_GLORI.bed	0	0.447074	0.447074	0.81378	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	ELIGOS2_solo	50357	13335	Arabidopsis_GLORI.bed	0	0.43607	0.43607	0.811174	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	9586	2511	Arabidopsis_GLORI.bed	0	0.353246	0.353246	0.757467	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	15404	3543	Arabidopsis_GLORI.bed	0	0.35055	0.35055	0.765453	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	EpiNano_Error	5912	1766	Arabidopsis_GLORI.bed	0	0.360136	0.360136	0.777463	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	MINES	70690	9117	Arabidopsis_GLORI.bed	0	0.929034	0.929034	0.943402	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	MINES	53146	7118	Arabidopsis_GLORI.bed	0	0.915426	0.915426	0.933268	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	MINES	66253	8539	Arabidopsis_GLORI.bed	0	0.925167	0.925167	0.94086	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	1391	914	Arabidopsis_GLORI.bed	0	0.997812	0.997812	0.997812	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	1281	859	Arabidopsis_GLORI.bed	0	0.996508	0.996508	0.998836	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	NanoSPA_m6A	1455	996	Arabidopsis_GLORI.bed	0	0.99498	0.99498	0.996988	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	462	413	Arabidopsis_GLORI.bed	0	0.835351	0.835351	0.983051	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	1070	566	Arabidopsis_GLORI.bed	0	0.683746	0.683746	0.939929	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	Nanocompore	255	231	Arabidopsis_GLORI.bed	0	0.878788	0.878788	0.991342	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	21756	3804	Arabidopsis_GLORI.bed	0	0.819926	0.819926	0.894848	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	20025	3527	Arabidopsis_GLORI.bed	0	0.821945	0.821945	0.89311	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	Nanom6A	19743	5331	Arabidopsis_GLORI.bed	0	0.935659	0.935659	0.951791	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	13200	6511	Arabidopsis_GLORI.bed	0	0.989556	0.989556	0.994778	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	11328	5323	Arabidopsis_GLORI.bed	0	0.988165	0.988165	0.993613	none
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	m6Anet	11073	5890	Arabidopsis_GLORI.bed	0	0.991681	0.991681	0.996095	none
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	xPore	27372	3266	Arabidopsis_GLORI.bed	0	0.448561	0.448561	0.76087	diffuse
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	xPore	38273	4686	Arabidopsis_GLORI.bed	0	0.434272	0.434272	0.772941	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	xPore	21168	2410	Arabidopsis_GLORI.bed	0	0.412863	0.412863	0.719917	diffuse
+Arabidopsis_WT_rep1	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	3583	1740	Arabidopsis_GLORI.bed	0	0.544253	0.544253	0.912644	none
+Arabidopsis_WT_rep2	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	13037	3591	Arabidopsis_GLORI.bed	0	0.479254	0.479254	0.861041	diffuse
+Arabidopsis_WT_rep3	Arabidopsis	Arabidopsis_WT	m6A	yanocomp	2058	1130	Arabidopsis_GLORI.bed	0	0.588496	0.588496	0.918584	none
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	Nm	NanoNm	39	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	Nm	NanoNm	35	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	Nm	NanoNm	36	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	Psi	NanoMUD_psi	39	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	Psi	NanoMUD_psi	3	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	Psi	NanoPsu	1	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	Psi	NanoPsu	1	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	Psi	NanoSPA_psU	1	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	Psi	NanoSPA_psU	1	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	89	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	97	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m1Psi	NanoMUD_m1psi	93	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	DENA	20	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	DENA	19	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	DENA	14	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	44	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	42	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	ELIGOS2_solo	42	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	EpiNano_Error	1	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	EpiNano_Error	1	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	MINES	72	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	MINES	74	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	MINES	75	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	31	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	31	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	NanoSPA_m6A	30	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	Nanocompore	8	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	Nanocompore	8	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	Nanocompore	13	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	Nanom6A	1	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	Nanom6A	17	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	Nanom6A	20	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	m6Anet	14	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	m6Anet	13	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	m6Anet	12	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	xPore	15	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	xPore	14	0	none					no_reference
+Curlcake_IVT_rep3	Curlcake	Curlcake_IVT	m6A	xPore	14	0	none					no_reference
+Curlcake_IVT_rep1	Curlcake	Curlcake_IVT	m6A	yanocomp	5	0	none					no_reference
+Curlcake_IVT_rep2_partial	Curlcake	Curlcake_IVT	m6A	yanocomp	1	0	none					no_reference
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	DENA	112	112	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	DENA	113	113	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	DRUMMER	166	64	curlcake_DRACH_A	0	0.1875	0.1875	0.65625	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	DRUMMER	181	77	curlcake_DRACH_A	0	0.233766	0.233766	0.688312	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	ELIGOS2_diff	1588	644	curlcake_DRACH_A	0	0.225155	0.225155	0.684783	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	ELIGOS2_diff	1590	653	curlcake_DRACH_A	0	0.232772	0.232772	0.683002	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	ELIGOS2_solo	1569	653	curlcake_DRACH_A	0	0.232772	0.232772	0.686064	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	ELIGOS2_solo	1565	643	curlcake_DRACH_A	0	0.225505	0.225505	0.687403	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	EpiNano_Error	109	58	curlcake_DRACH_A	-2	0.206897	0.137931	0.534483	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	EpiNano_Error	127	69	curlcake_DRACH_A	-2	0.202899	0.144928	0.550725	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	MINES	89	89	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	MINES	92	92	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	NanoSPA_m6A	39	39	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	NanoSPA_m6A	38	38	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	Nanocompore	1734	667	curlcake_DRACH_A	0	0.223388	0.223388	0.631184	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	Nanocompore	1585	624	curlcake_DRACH_A	0	0.201923	0.201923	0.639423	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	Nanom6A	127	127	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	Nanom6A	130	130	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	m6Anet	99	99	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	m6Anet	103	103	curlcake_DRACH_A	0	1	1	1	none
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	xPore	1050	447	curlcake_DRACH_A	0	0.259508	0.259508	0.671141	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	xPore	1050	420	curlcake_DRACH_A	0	0.233333	0.233333	0.638095	diffuse
+Curlcake_m6A_rep1	Curlcake	Curlcake_m6A	m6A	yanocomp	501	177	curlcake_DRACH_A	0	0.180791	0.180791	0.59887	diffuse
+Curlcake_m6A_rep2	Curlcake	Curlcake_m6A	m6A	yanocomp	2057	785	curlcake_DRACH_A	0	0.229299	0.229299	0.634395	diffuse
+E_IVT_neg1	E.coli	E.coli_IVT	m6A	CHEUI_m6A	2077	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	CHEUI_m6A	1013	0	none					no_reference
+E_IVT_neg1	E.coli	E.coli_IVT	m6A	ELIGOS2_solo	6430	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	ELIGOS2_solo	5791	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	EpiNano_Error	4072	0	none					no_reference
+E_IVT_neg1	E.coli	E.coli_IVT	m6A	NanoSPA_m6A	108	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	NanoSPA_m6A	78	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	Nanocompore	4	0	none					no_reference
+E_IVT_neg1	E.coli	E.coli_IVT	m6A	Nanom6A	2770	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	Nanom6A	2102	0	none					no_reference
+E_IVT_neg1	E.coli	E.coli_IVT	m6A	m6Anet	731	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	m6Anet	565	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	xPore	1248	0	none					no_reference
+E_IVT_neg2	E.coli	E.coli_IVT	m6A	yanocomp	79	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	CHEUI_m6A	11732	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	CHEUI_m6A	7332	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	DRUMMER	31	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	DRUMMER	94	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	ELIGOS2_diff	177	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	ELIGOS2_diff	183	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	ELIGOS2_solo	15674	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	ELIGOS2_solo	16067	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	EpiNano_Error	4694	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	EpiNano_Error	2671	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	NanoSPA_m6A	208	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	NanoSPA_m6A	266	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	Nanocompore	4085	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	Nanom6A	5795	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	Nanom6A	9394	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	m6Anet	2648	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	m6Anet	2779	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	xPore	5714	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	xPore	6641	0	none					no_reference
+E_ss_rd_RNA1	E.coli	E.coli_WT	m6A	yanocomp	3705	0	none					no_reference
+E_ss_rd_RNA2	E.coli	E.coli_WT	m6A	yanocomp	5182	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	Nm	NanoNm	4677	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	Nm	NanoNm	5137	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	Nm	NanoNm	1880	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	Psi	NanoMUD_psi	9873	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	Psi	NanoMUD_psi	11694	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	Psi	NanoMUD_psi	5781	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	Psi	NanoPsu	283	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	Psi	NanoPsu	367	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	Psi	NanoPsu	177	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	Psi	NanoSPA_psU	290	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	Psi	NanoSPA_psU	373	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	Psi	NanoSPA_psU	179	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	30047	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	41481	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	m1Psi	NanoMUD_m1psi	19549	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	m5C	CHEUI_m5C	10287	0	none					no_reference
+HeLa_IVT_rep2	Human	HeLa_IVT	m5C	CHEUI_m5C	26558	0	none					no_reference
+HeLa_IVT_rep3	Human	HeLa_IVT	m5C	CHEUI_m5C	16129	0	none					no_reference
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	CHEUI_m6A	23853	616	Hela_GLORI.bed	0	0.323052	0.323052	0.527597	diffuse
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	CHEUI_m6A	37949	954	Hela_GLORI.bed	0	0.29979	0.29979	0.540881	diffuse
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	CHEUI_m6A	13587	324	Hela_GLORI.bed	0	0.351852	0.351852	0.589506	diffuse
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	DENA	20594	1871	Hela_GLORI.bed	0	0.966863	0.966863	0.967397	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	DENA	27978	2416	Hela_GLORI.bed	0	0.963162	0.963162	0.964404	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	DENA	10881	805	Hela_GLORI.bed	0	0.968944	0.968944	0.970186	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	DRUMMER	19	0	Hela_GLORI.bed					none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	DRUMMER	9	0	Hela_GLORI.bed					none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	DRUMMER	75	0	Hela_GLORI.bed					none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	ELIGOS2_diff	27	2	Hela_GLORI.bed	4	0.5	0	0	systematic_+4
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	ELIGOS2_diff	82	1	Hela_GLORI.bed	-5	1	0	0	systematic_-5
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	ELIGOS2_diff	72	1	Hela_GLORI.bed	-5	1	0	0	systematic_-5
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	ELIGOS2_solo	45923	933	Hela_GLORI.bed	0	0.180064	0.180064	0.387996	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	ELIGOS2_solo	58353	1077	Hela_GLORI.bed	0	0.167131	0.167131	0.365831	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	ELIGOS2_solo	22995	387	Hela_GLORI.bed	0	0.173127	0.173127	0.431525	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	EpiNano_Error	33972	969	Hela_GLORI.bed	0	0.23839	0.23839	0.444788	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	EpiNano_Error	29312	668	Hela_GLORI.bed	0	0.263473	0.263473	0.461078	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	EpiNano_Error	20905	486	Hela_GLORI.bed	0	0.279835	0.279835	0.485597	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	MINES	59684	6969	Hela_GLORI.bed	0	0.962548	0.962548	0.965705	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	MINES	86605	9516	Hela_GLORI.bed	0	0.962274	0.962274	0.966372	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	MINES	39902	3953	Hela_GLORI.bed	0	0.961295	0.961295	0.96762	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	NanoSPA_m6A	408	119	Hela_GLORI.bed	0	1	1	1	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	NanoSPA_m6A	227	45	Hela_GLORI.bed	0	0.955556	0.955556	0.955556	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	NanoSPA_m6A	230	52	Hela_GLORI.bed	0	0.980769	0.980769	1	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	Nanocompore	107	2	Hela_GLORI.bed	2	0.5	0	0.5	systematic_+2
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	Nanocompore	63	0	Hela_GLORI.bed					none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	Nanocompore	219	2	Hela_GLORI.bed	0	1	1	1	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	Nanom6A	12650	1317	Hela_GLORI.bed	0	0.957479	0.957479	0.958998	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	Nanom6A	15085	1491	Hela_GLORI.bed	0	0.964453	0.964453	0.965795	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	Nanom6A	11436	1071	Hela_GLORI.bed	0	0.960784	0.960784	0.961718	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	m6Anet	8007	1676	Hela_GLORI.bed	0	0.983294	0.983294	0.983294	none
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	m6Anet	14954	3020	Hela_GLORI.bed	0	0.979801	0.979801	0.980132	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	m6Anet	5730	1056	Hela_GLORI.bed	0	0.979167	0.979167	0.979167	none
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	xPore	35819	897	Hela_GLORI.bed	0	0.331104	0.331104	0.567447	diffuse
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	xPore	26693	589	Hela_GLORI.bed	0	0.358234	0.358234	0.590832	diffuse
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	xPore	28087	647	Hela_GLORI.bed	0	0.327666	0.327666	0.540958	diffuse
+HeLa_IVT_rep1	Human	HeLa_IVT	m6A	yanocomp	3569	94	Hela_GLORI.bed	0	0.393617	0.393617	0.595745	diffuse
+HeLa_IVT_rep2	Human	HeLa_IVT	m6A	yanocomp	1867	36	Hela_GLORI.bed	0	0.416667	0.416667	0.666667	none
+HeLa_IVT_rep3	Human	HeLa_IVT	m6A	yanocomp	3504	79	Hela_GLORI.bed	0	0.367089	0.367089	0.582278	diffuse
+HeLa_WT1	Human	HeLa_WT	Nm	NanoNm	1673	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	Nm	NanoNm	3538	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	Nm	NanoNm	1683	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	Psi	NanoMUD_psi	7079	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	Psi	NanoMUD_psi	10809	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	Psi	NanoMUD_psi	5057	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	Psi	NanoPsu	354	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	Psi	NanoPsu	538	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	Psi	NanoPsu	322	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	Psi	NanoSPA_psU	351	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	Psi	NanoSPA_psU	540	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	Psi	NanoSPA_psU	325	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	20943	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	37880	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	m1Psi	NanoMUD_m1psi	15706	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	m5C	CHEUI_m5C	14243	0	none					no_reference
+HeLa_WT2	Human	HeLa_WT	m5C	CHEUI_m5C	21149	0	none					no_reference
+HeLa_WT3	Human	HeLa_WT	m5C	CHEUI_m5C	14198	0	none					no_reference
+HeLa_WT1	Human	HeLa_WT	m6A	CHEUI_m6A	20167	420	Hela_GLORI.bed	0	0.304762	0.304762	0.504762	diffuse
+HeLa_WT2	Human	HeLa_WT	m6A	CHEUI_m6A	31397	696	Hela_GLORI.bed	0	0.314655	0.314655	0.553161	diffuse
+HeLa_WT3	Human	HeLa_WT	m6A	CHEUI_m6A	17033	394	Hela_GLORI.bed	0	0.350254	0.350254	0.56599	diffuse
+HeLa_WT1	Human	HeLa_WT	m6A	DENA	20224	3837	Hela_GLORI.bed	0	0.983842	0.983842	0.984102	none
+HeLa_WT2	Human	HeLa_WT	m6A	DENA	20487	1734	Hela_GLORI.bed	0	0.94233	0.94233	0.943483	none
+HeLa_WT3	Human	HeLa_WT	m6A	DENA	17166	3088	Hela_GLORI.bed	0	0.983161	0.983161	0.983484	none
+HeLa_WT1	Human	HeLa_WT	m6A	DRUMMER	432	298	Hela_GLORI.bed	0	0.687919	0.687919	0.979866	none
+HeLa_WT2	Human	HeLa_WT	m6A	DRUMMER	746	603	Hela_GLORI.bed	0	0.668325	0.668325	0.991708	none
+HeLa_WT3	Human	HeLa_WT	m6A	DRUMMER	293	177	Hela_GLORI.bed	0	0.621469	0.621469	0.99435	none
+HeLa_WT1	Human	HeLa_WT	m6A	ELIGOS2_diff	1065	709	Hela_GLORI.bed	0	0.657264	0.657264	0.895628	none
+HeLa_WT2	Human	HeLa_WT	m6A	ELIGOS2_diff	1816	1305	Hela_GLORI.bed	0	0.63908	0.63908	0.908046	none
+HeLa_WT3	Human	HeLa_WT	m6A	ELIGOS2_diff	820	512	Hela_GLORI.bed	0	0.595703	0.595703	0.865234	none
+HeLa_WT1	Human	HeLa_WT	m6A	ELIGOS2_solo	49814	3746	Hela_GLORI.bed	0	0.514949	0.514949	0.719968	none
+HeLa_WT2	Human	HeLa_WT	m6A	ELIGOS2_solo	58726	5920	Hela_GLORI.bed	0	0.55	0.55	0.77348	none
+HeLa_WT3	Human	HeLa_WT	m6A	ELIGOS2_solo	35520	2710	Hela_GLORI.bed	0	0.512177	0.512177	0.728782	none
+HeLa_WT1	Human	HeLa_WT	m6A	EpiNano_Error	24182	1605	Hela_GLORI.bed	0	0.484112	0.484112	0.738941	diffuse
+HeLa_WT2	Human	HeLa_WT	m6A	EpiNano_Error	46813	2769	Hela_GLORI.bed	0	0.479957	0.479957	0.739617	diffuse
+HeLa_WT3	Human	HeLa_WT	m6A	EpiNano_Error	18904	1071	Hela_GLORI.bed	0	0.431373	0.431373	0.690943	diffuse
+HeLa_WT1	Human	HeLa_WT	m6A	MINES	39154	4601	Hela_GLORI.bed	0	0.96892	0.96892	0.969572	none
+HeLa_WT2	Human	HeLa_WT	m6A	MINES	77840	9418	Hela_GLORI.bed	0	0.972393	0.972393	0.972924	none
+HeLa_WT3	Human	HeLa_WT	m6A	MINES	33160	3893	Hela_GLORI.bed	0	0.974056	0.974056	0.974313	none
+HeLa_WT1	Human	HeLa_WT	m6A	NanoSPA_m6A	1375	935	Hela_GLORI.bed	0	1	1	1	none
+HeLa_WT2	Human	HeLa_WT	m6A	NanoSPA_m6A	2490	1686	Hela_GLORI.bed	0	0.999407	0.999407	0.999407	none
+HeLa_WT3	Human	HeLa_WT	m6A	NanoSPA_m6A	941	639	Hela_GLORI.bed	0	1	1	1	none
+HeLa_WT1	Human	HeLa_WT	m6A	Nanocompore	1237	363	Hela_GLORI.bed	0	0.964187	0.964187	0.980716	none
+HeLa_WT2	Human	HeLa_WT	m6A	Nanocompore	1798	719	Hela_GLORI.bed	0	0.94854	0.94854	0.974965	none
+HeLa_WT3	Human	HeLa_WT	m6A	Nanocompore	1261	194	Hela_GLORI.bed	0	0.938144	0.938144	0.969072	none
+HeLa_WT1	Human	HeLa_WT	m6A	Nanom6A	20900	4619	Hela_GLORI.bed	0	0.983979	0.983979	0.984196	none
+HeLa_WT2	Human	HeLa_WT	m6A	Nanom6A	18297	4582	Hela_GLORI.bed	0	0.987997	0.987997	0.987997	none
+HeLa_WT3	Human	HeLa_WT	m6A	Nanom6A	17057	3686	Hela_GLORI.bed	0	0.983993	0.983993	0.984265	none
+HeLa_WT1	Human	HeLa_WT	m6A	m6Anet	8884	3669	Hela_GLORI.bed	0	0.993731	0.993731	0.993731	none
+HeLa_WT2	Human	HeLa_WT	m6A	m6Anet	16953	7249	Hela_GLORI.bed	0	0.993792	0.993792	0.993792	none
+HeLa_WT3	Human	HeLa_WT	m6A	m6Anet	6783	2729	Hela_GLORI.bed	0	0.994503	0.994503	0.994503	none
+HeLa_WT1	Human	HeLa_WT	m6A	xPore	25216	1375	Hela_GLORI.bed	0	0.712	0.712	0.815273	none
+HeLa_WT2	Human	HeLa_WT	m6A	xPore	41850	2478	Hela_GLORI.bed	0	0.718321	0.718321	0.83293	none
+HeLa_WT3	Human	HeLa_WT	m6A	xPore	21149	967	Hela_GLORI.bed	0	0.646329	0.646329	0.772492	none
+HeLa_WT1	Human	HeLa_WT	m6A	yanocomp	4619	480	Hela_GLORI.bed	0	0.729167	0.729167	0.85	none
+HeLa_WT2	Human	HeLa_WT	m6A	yanocomp	6845	949	Hela_GLORI.bed	0	0.736565	0.736565	0.88725	none
+HeLa_WT3	Human	HeLa_WT	m6A	yanocomp	4340	302	Hela_GLORI.bed	0	0.735099	0.735099	0.854305	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	CHEUI_m6A	16173	478	Mouse_GLORI_liftover.bed	0	0.286611	0.286611	0.51046	diffuse
+mES_KO	Mouse	Mouse_KO	m6A	CHEUI_m6A	33212	771	Mouse_GLORI_liftover.bed	0	0.298314	0.298314	0.551232	diffuse
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	DENA	13339	2003	Mouse_GLORI_liftover.bed	0	0.971043	0.971043	0.971043	none
+mES_KO	Mouse	Mouse_KO	m6A	DENA	25717	1725	Mouse_GLORI_liftover.bed	0	0.944928	0.944928	0.947826	none
+mES_KO	Mouse	Mouse_KO	m6A	DRUMMER	439	197	Mouse_GLORI_liftover.bed	0	0.730964	0.730964	0.974619	none
+mES_KO	Mouse	Mouse_KO	m6A	ELIGOS2_diff	596	305	Mouse_GLORI_liftover.bed	0	0.632787	0.632787	0.84918	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	ELIGOS2_solo	27517	1111	Mouse_GLORI_liftover.bed	0	0.410441	0.410441	0.594059	diffuse
+mES_KO	Mouse	Mouse_KO	m6A	ELIGOS2_solo	58199	842	Mouse_GLORI_liftover.bed	0	0.148456	0.148456	0.347981	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	EpiNano_Error	21420	1014	Mouse_GLORI_liftover.bed	0	0.45069	0.45069	0.657791	diffuse
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	MINES	40992	5148	Mouse_GLORI_liftover.bed	0	0.958236	0.958236	0.959402	none
+mES_KO	Mouse	Mouse_KO	m6A	MINES	98189	8350	Mouse_GLORI_liftover.bed	0	0.95521	0.95521	0.957006	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	NanoSPA_m6A	724	294	Mouse_GLORI_liftover.bed	0	0.993197	0.993197	0.993197	none
+mES_KO	Mouse	Mouse_KO	m6A	NanoSPA_m6A	163	25	Mouse_GLORI_liftover.bed	0	1	1	1	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	Nanocompore	7579	473	Mouse_GLORI_liftover.bed	0	0.731501	0.731501	0.835095	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	Nanom6A	8305	785	Mouse_GLORI_liftover.bed	0	0.919745	0.919745	0.929936	none
+mES_KO	Mouse	Mouse_KO	m6A	Nanom6A	18969	1852	Mouse_GLORI_liftover.bed	0	0.948164	0.948164	0.949784	none
+mESCs_Mettl3_KO	Mouse	Mouse_KO	m6A	m6Anet	8131	2982	Mouse_GLORI_liftover.bed	0	0.988598	0.988598	0.988598	none
+mES_KO	Mouse	Mouse_KO	m6A	m6Anet	17398	2857	Mouse_GLORI_liftover.bed	0	0.982849	0.982849	0.984249	none
+mES_KO	Mouse	Mouse_KO	m6A	xPore	45335	1527	Mouse_GLORI_liftover.bed	0	0.327439	0.327439	0.555337	diffuse
+mES_KO	Mouse	Mouse_KO	m6A	yanocomp	44052	1522	Mouse_GLORI_liftover.bed	0	0.431669	0.431669	0.600526	diffuse
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	CHEUI_m6A	14518	368	Mouse_GLORI_liftover.bed	0	0.307065	0.307065	0.559783	diffuse
+mES_WT	Mouse	Mouse_WT	m6A	CHEUI_m6A	37223	812	Mouse_GLORI_liftover.bed	0	0.295567	0.295567	0.555419	diffuse
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	DENA	36904	7068	Mouse_GLORI_liftover.bed	0	0.977363	0.977363	0.977787	none
+mES_WT	Mouse	Mouse_WT	m6A	DENA	38721	6889	Mouse_GLORI_liftover.bed	0	0.975758	0.975758	0.976194	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	DRUMMER	564	422	Mouse_GLORI_liftover.bed	0	0.611374	0.611374	0.966825	none
+mES_WT	Mouse	Mouse_WT	m6A	DRUMMER	1910	1367	Mouse_GLORI_liftover.bed	0	0.623994	0.623994	0.969276	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	ELIGOS2_diff	823	612	Mouse_GLORI_liftover.bed	0	0.616013	0.616013	0.888889	none
+mES_WT	Mouse	Mouse_WT	m6A	ELIGOS2_diff	3919	2648	Mouse_GLORI_liftover.bed	0	0.594789	0.594789	0.861027	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	ELIGOS2_solo	74653	6233	Mouse_GLORI_liftover.bed	0	0.503449	0.503449	0.744264	none
+mES_WT	Mouse	Mouse_WT	m6A	ELIGOS2_solo	87246	6430	Mouse_GLORI_liftover.bed	0	0.513064	0.513064	0.746812	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	EpiNano_Error	17186	1928	Mouse_GLORI_liftover.bed	0	0.488071	0.488071	0.77749	diffuse
+mES_WT	Mouse	Mouse_WT	m6A	EpiNano_Error	33073	2516	Mouse_GLORI_liftover.bed	0	0.45628	0.45628	0.736089	diffuse
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	MINES	90744	10287	Mouse_GLORI_liftover.bed	0	0.961602	0.961602	0.962866	none
+mES_WT	Mouse	Mouse_WT	m6A	MINES	93221	7982	Mouse_GLORI_liftover.bed	0	0.956151	0.956151	0.95778	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	NanoSPA_m6A	4178	1655	Mouse_GLORI_liftover.bed	0	0.999396	0.999396	0.999396	none
+mES_WT	Mouse	Mouse_WT	m6A	NanoSPA_m6A	3267	1709	Mouse_GLORI_liftover.bed	0	0.997074	0.997074	0.997074	none
+mES_WT	Mouse	Mouse_WT	m6A	Nanocompore	3114	1627	Mouse_GLORI_liftover.bed	0	0.966195	0.966195	0.99201	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	Nanom6A	10963	1067	Mouse_GLORI_liftover.bed	0	0.928772	0.928772	0.94283	none
+mES_WT	Mouse	Mouse_WT	m6A	Nanom6A	23942	4385	Mouse_GLORI_liftover.bed	0	0.979247	0.979247	0.979932	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	m6Anet	30952	10731	Mouse_GLORI_liftover.bed	0	0.988817	0.988817	0.988911	none
+mES_WT	Mouse	Mouse_WT	m6A	m6Anet	29225	8874	Mouse_GLORI_liftover.bed	0	0.990083	0.990083	0.990196	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	xPore	43367	2284	Mouse_GLORI_liftover.bed	0	0.577496	0.577496	0.721541	none
+mES_WT	Mouse	Mouse_WT	m6A	xPore	60097	4687	Mouse_GLORI_liftover.bed	0	0.756347	0.756347	0.858332	none
+mESCs_Mettl3_WT	Mouse	Mouse_WT	m6A	yanocomp	8749	1020	Mouse_GLORI_liftover.bed	0	0.765686	0.765686	0.877451	none
+mES_WT	Mouse	Mouse_WT	m6A	yanocomp	7226	1796	Mouse_GLORI_liftover.bed	0	0.804009	0.804009	0.932071	none
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_hac@v5.0.0_pseU_m6A_Psi	2422	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_hac@v5.1.0_all_Psi	2400	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_sup@v5.0.0_pseU_m6A_Psi	2406	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	Dorado_sup@v5.1.0_all_Psi	2368	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	NanoPsu	3018	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	Psi	NanoSPA_psU	9	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	inosine	Dorado_hac@v5.1.0_inosine_m6A_inosine	2474	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_inosine	2431	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m5C	Dorado_hac@v5.1.0_all_m5C	2488	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m5C	Dorado_sup@v5.1.0_all_m5C	2435	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH	284	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.0.0_pseU_m6A	2535	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.1.0_all	281	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	2520	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH	222	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.0.0_pseU_m6A	2522	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.1.0_all	226	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	2510	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	NanoSPA_m6A	17	0	none					no_reference
+Curlcake_RNA004_IVT	Curlcake	RNA004_Curlcake_IVT	m6A	m6Anet	5	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	138	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	70	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	953	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	233	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	NanoPsu	238	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	Psi	NanoSPA_psU	247	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	6	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	261	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	97	0	none					no_reference
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.0.0_m6A@v1	13028	12	Hela_GLORI.bed	-4	0.333333	0	0.333333	none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	9	0	Hela_GLORI.bed					none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	87	3	Hela_GLORI.bed	4	0.333333	0	0.333333	none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	10	0	Hela_GLORI.bed					none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.0.0_m6A@v1	46963	35	Hela_GLORI.bed	-4	0.2	0.0571429	0.257143	none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	2	0	Hela_GLORI.bed					none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	101	0	Hela_GLORI.bed					none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	2	0	Hela_GLORI.bed					none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	ELIGOS2_solo	2582	11	Hela_GLORI.bed	-5	0.181818	0.0909091	0.272727	none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	NanoSPA_m6A	295	17	Hela_GLORI.bed	0	1	1	1	none
+HeLa_RNA004_IVT	Human	RNA004_HeLa_IVT	m6A	m6Anet	21440	5722	Hela_GLORI.bed	0	0.990038	0.990038	0.990738	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	279	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	235	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	549	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	610	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	NanoPsu	76	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	Psi	NanoSPA_psU	76	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	inosine	Dorado_hac@v5.1.0_inosine_m6A_otherMod	15	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	32	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	725	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	218	0	none					no_reference
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	DRUMMER	334	14	Hela_GLORI.bed	0	0.357143	0.357143	1	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.0.0_m6A@v1	9603	3240	Hela_GLORI.bed	0	0.987037	0.987037	0.987963	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	4423	3531	Hela_GLORI.bed	0	0.996035	0.996035	0.998584	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.1.0_inosine_m6A	3886	3033	Hela_GLORI.bed	0	0.998681	0.998681	0.999011	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	4103	3288	Hela_GLORI.bed	0	0.996655	0.996655	0.999696	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.0.0_m6A@v1	10818	3929	Hela_GLORI.bed	0	0.996182	0.996182	0.996691	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	5001	4006	Hela_GLORI.bed	0	0.996755	0.996755	0.998752	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.1.0_inosine_m6A	3909	3040	Hela_GLORI.bed	0	0.998684	0.998684	0.998684	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	4324	3457	Hela_GLORI.bed	0	0.996529	0.996529	0.998843	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	ELIGOS2_diff	780	19	Hela_GLORI.bed	0	0.473684	0.473684	0.842105	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	ELIGOS2_solo	9389	171	Hela_GLORI.bed	0	0.181287	0.181287	0.497076	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	NanoSPA_m6A	323	88	Hela_GLORI.bed	0	0.988636	0.988636	0.988636	none
+HeLa_RNA004_WT	Human	RNA004_HeLa_WT	m6A	m6Anet	31879	15337	Hela_GLORI.bed	0	0.995631	0.995631	0.995697	none

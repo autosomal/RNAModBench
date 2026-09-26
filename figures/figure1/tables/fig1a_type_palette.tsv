@@ -1,0 +1,19 @@
+artwork	class	placement_scale	n_words	font_min_pt_artwork	font_median_pt_artwork	font_max_pt_artwork	font_min_pt_printed	smallest_word	meets_7pt_floor	note	colour	share	nearest_constant	nearest_hex	rgb_distance
+Figure1_A_from_published.pdf	published crop	0.8753	30	2.83	5.96	23.48	2.47	a	False	min word box 2.83 pt at scale 0.875					
+Figure1_A_redrawn.pdf	redrawn	1	28	7.5	7.5	22.38	7.5	deficient	True	min word box 7.50 pt at scale 1.000					
+Figure1_A_from_published.pdf	palette										#A492C3	0.1521	Nm / grey	#7F7F7F	79.7
+Figure1_A_from_published.pdf	palette										#7E7696	0.0423	Nm / grey	#7F7F7F	24.7
+Figure1_A_from_published.pdf	palette										#F5F4F5	0.0371	m6A / Curlcake_m6A	#F5B264	159.3
+Figure1_A_from_published.pdf	palette										#525169	0.0305	Nm / grey	#7F7F7F	68
+Figure1_A_from_published.pdf	palette										#C48793	0.03	Nm / grey	#7F7F7F	72.3
+Figure1_A_from_published.pdf	palette										#D8B59C	0.0271	m6A / Curlcake_m6A	#F5B264	63.1
+Figure1_A_from_published.pdf	palette										#A6C8CF	0.0263	Nm / grey	#7F7F7F	115.1
+Figure1_A_from_published.pdf	palette										#ACBD98	0.0262	Nm / grey	#7F7F7F	80.6
+Figure1_A_redrawn.pdf	palette										#F5B264	0.135	m6A / Curlcake_m6A	#F5B264	0
+Figure1_A_redrawn.pdf	palette										#000000	0.1322	m1Ψ	#6A994E	201.8
+Figure1_A_redrawn.pdf	palette										#A23B72	0.1128	Ψ	#A23B72	0
+Figure1_A_redrawn.pdf	palette										#7F7F7F	0.111	Nm / grey	#7F7F7F	0
+Figure1_A_redrawn.pdf	palette										#6A994E	0.11	m1Ψ	#6A994E	0
+Figure1_A_redrawn.pdf	palette										#2E86AB	0.1095	m5C	#2E86AB	0
+Figure1_A_redrawn.pdf	palette										#4D4D4D	0.0875	m1Ψ	#6A994E	81.4
+Figure1_A_redrawn.pdf	palette										#3778A0	0.0678	WT / unmodified	#3778A0	0

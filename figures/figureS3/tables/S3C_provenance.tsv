@@ -1,0 +1,20 @@
+# panel C analysis (per-replicate fits + CCC) is the sibling session's; this page re-renders its recipe at page geometry
+artifact	path	md5	mtime
+16_mod_ratio_regression_fig.py	$RNAMODBENCH_ROOT/src/sites_v2/scripts/16_mod_ratio_regression_fig.py	148950995f23	2026-09-18T17:32:59.700751305
+mod_ratio_matched_sites.tsv	$RNAMODBENCH_ROOT/analysis/mod_ratio_replicates/tables/mod_ratio_matched_sites.tsv	ab68581b7719	2026-09-19T00:37:43.788137436
+mod_ratio_summary_by_group.tsv	$RNAMODBENCH_ROOT/analysis/mod_ratio_replicates/tables/mod_ratio_summary_by_group.tsv	fa3812bc4332	2026-09-19T00:37:59.419919252
+mod_ratio_regression_S3C_style.pdf	$RNAMODBENCH_ROOT/analysis/mod_ratio_replicates/figures/mod_ratio_regression_S3C_style.pdf	3ce50c72f046	2026-09-19T01:17:30.286808014
+
+species	group	tool	n_replicates	replicate_labels	pearson_r_mean	pearson_r_sd	ccc_mean	ccc_sd	n_overlap_mean
+Arabidopsis	Arabidopsis_WT	m6Anet	3	rep1,rep2,rep3	0.5347	0.0099	0.3843	0.0235	5241.333333333333
+Arabidopsis	Arabidopsis_WT	Nanom6A	3	rep1,rep2,rep3	0.2282	0.1973	0.2169	0.1948	3666.0
+Arabidopsis	Arabidopsis_WT	DENA	3	rep1,rep2,rep3	0.2135	0.0076	0.0713	0.0013	5895.0
+Arabidopsis	Arabidopsis_WT	MINES	3	rep1,rep2,rep3	0.1048	0.0066	0.0911	0.0074	6959.0
+Mouse	Mouse_WT	m6Anet	2	studyA,studyB	0.7360	0.0253	0.6969	0.0260	7633.0
+Mouse	Mouse_WT	Nanom6A	2	studyA,studyB	0.4744	0.3312	0.4336	0.2847	2607.5
+Mouse	Mouse_WT	DENA	2	studyA,studyB	0.3303	0.0180	0.1378	0.0150	5788.5
+Mouse	Mouse_WT	MINES	2	studyA,studyB	0.0529	0.0099	0.0529	0.0099	6843.0
+Human	HeLa_WT	m6Anet	3	rep1,rep2,rep3	0.7443	0.0290	0.7187	0.0320	3637.3333333333335
+Human	HeLa_WT	Nanom6A	3	rep1,rep2,rep3	0.6908	0.0449	0.6670	0.0477	4143.0
+Human	HeLa_WT	DENA	3	rep1,rep2,rep3	0.3552	0.0358	0.1700	0.0310	2491.333333333333
+Human	HeLa_WT	MINES	3	rep1,rep2,rep3	0.0215	0.0261	0.0214	0.0259	4708.333333333333

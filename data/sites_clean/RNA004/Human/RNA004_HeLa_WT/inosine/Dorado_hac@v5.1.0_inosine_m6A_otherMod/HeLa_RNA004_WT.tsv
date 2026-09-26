@@ -1,0 +1,16 @@
+chrom	start	end	strand	score	score_type	mod_label	src_coverage	coverage	ref_base	five_mer_raw	center_status
+chr1	145922140	145922141	-	0.9062	percent_modified/100	inosine	32	43	T	GCTTG	ok
+chr10	119572890	119572891	-	0.9	percent_modified/100	inosine	20	24	T	TCTAC	ok
+chr12	56730695	56730696	-	0.9091	percent_modified/100	inosine	33	55	T	GCTAA	ok
+chr19	11450408	11450409	+	0.9231	percent_modified/100	inosine	26	92	A	GTAGA	ok
+chr2	200909963	200909964	-	0.9524	percent_modified/100	inosine	21	32	T	TATGT	ok
+chr20	38578745	38578746	+	0.9524	percent_modified/100	inosine	21	40	A	GAAGA	ok
+chr20	45884568	45884569	+	0.9048	percent_modified/100	inosine	21	48	A	TTAGC	ok
+chr3	49423590	49423591	-	0.9583	percent_modified/100	inosine	24	29	T	TCTAC	ok
+chr3	132679208	132679209	+	0.95	percent_modified/100	inosine	20	20	A	GCAGT	ok
+chr3	136331880	136331881	+	0.9167	percent_modified/100	inosine	24	32	A	CAAGC	ok
+chr4	17801935	17801936	-	0.9	percent_modified/100	inosine	20	22	T	TCTAC	ok
+chr6	42888371	42888372	+	0.975	percent_modified/100	inosine	40	70	A	CTAGT	ok
+chr6	149725422	149725423	-	0.9688	percent_modified/100	inosine	32	41	T	TCTAC	ok
+chr7	20003286	20003287	+	0.913	percent_modified/100	inosine	69	213	A	ACAAA	ok
+chr7	101216484	101216485	-	0.9767	percent_modified/100	inosine	43	83	T	TCTGT	ok

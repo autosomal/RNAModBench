@@ -1,0 +1,407 @@
+platform	species	dataset_group	sample	tool	mod_type	n_calls	source_file	frac_expected_base	frac_drach_raw	frac_dist_center_0	frac_dist_drach_0	best_shift	frac_at_best_shift	shift_scan	anchor_flag
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	CHEUI_m6A	m6A	14533	CHEUI/Arabidopsis_fip37_rep1	1	0.0647492	1	0.0647492				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	CHEUI_m6A	m6A	11777	CHEUI/Arabidopsis_fip37_rep2	1	0.0626645	1	0.0626645				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	CHEUI_m6A	m6A	10299	CHEUI/Arabidopsis_fip37_rep3	1	0.0648607	1	0.0648607				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	DENA	m6A	9906	DENA/Arabidopsis_fip37_rep1	1	0.998587	1	0.998587				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	DENA	m6A	14278	DENA/Arabidopsis_fip37_rep2	1	0.998809	1	0.998809				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	DENA	m6A	5885	DENA/Arabidopsis_fip37_rep3	1	0.99898	1	0.99898				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	DRUMMER	m6A	16	DRUMMER/Arabidopsis_fip37_rep1	1	0	1	0				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	DRUMMER	m6A	0									empty
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	DRUMMER	m6A	19	DRUMMER/Arabidopsis_fip37_rep3	1	0	1	0				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	ELIGOS2_diff	m6A	20	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_fip37_rep1/Arabidopsis_fip37_rep1G_sort_vs_Arabidopsis_fip37_rep2G_sort_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.1	1	0.1				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	ELIGOS2_diff	m6A	25	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_fip37_rep2/Arabidopsis_fip37_rep1G_sort_vs_Arabidopsis_fip37_rep3G_sort_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.08	1	0.08				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	ELIGOS2_diff	m6A	8	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_fip37_rep3/Arabidopsis_fip37_result3_ELIGOS2_diff_remove_chr.txt	1	0	1	0				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	ELIGOS2_solo	m6A	24162	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_fip37_rep1/Arabidopsis_fip37_rep1G_sort_vs_model_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.0528516	1	0.0528516				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	ELIGOS2_solo	m6A	31148	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_fip37_rep2/Arabidopsis_fip37_rep2G_sort_vs_model_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.0493451	1	0.0493451				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	ELIGOS2_solo	m6A	12026	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_fip37_rep3/Arabidopsis_fip37_rep3_ELIGOS2_solo_remove_chr.txt	1	0.047231	1	0.047231				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	EpiNano_Error	m6A	8557	EpiNano_DiffErr/Arabidopsis_fip37_rep1	1	0.0380975	1	0.0380975				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	EpiNano_Error	m6A	5317	EpiNano_DiffErr/Arabidopsis_fip37_rep2	1	0.0347941	1	0.0347941				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	EpiNano_Error	m6A	5105	EpiNano_DiffErr/Arabidopsis_fip37_rep3	1	0.0370225	1	0.0370225				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	MINES	m6A	30156	MINES/Arabidopsis_fip37_rep1	1	0.999005	1	0.999005				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	MINES	m6A	45001	MINES/Arabidopsis_fip37_rep2	1	0.998844	1	0.998844				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	MINES	m6A	20419	MINES/Arabidopsis_fip37_rep3	1	0.998874	1	0.998874				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	NanoSPA_m6A	m6A	314	NanoSPA/Arabidopsis_fip37_rep1	1	0.792994	1	0.792994				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	NanoSPA_m6A	m6A	504	NanoSPA/Arabidopsis_fip37_rep2	1	0.797619	1	0.797619				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	NanoSPA_m6A	m6A	229	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Arabidopsis_fip37_rep3/Arabidopsis_fip37_rep3_NanoSPA_m6A_5mer.txt	1	0.812227	1	0.812227				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	Nanocompore	m6A	197	Nanocompore/Arabidopsis_fip37_rep1	1	0.0253807	1	0.0253807				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	Nanocompore	m6A	161	Nanocompore/Arabidopsis_fip37_rep2	1	0	1	0				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	Nanocompore	m6A	693	Nanocompore/Arabidopsis_fip37_rep3	1	0.01443	1	0.01443				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	Nanom6A	m6A	15967	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_fip37_rep1/Arabidopsis_fip37_rep1_Nanom6A.txt	1	0.488069	0.488695	0.488069				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	Nanom6A	m6A	15196	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_fip37_rep2/ratio.0.5.tsv	1	0.488747	0.489208	0.488747				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	Nanom6A	m6A	12612	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_fip37_rep3/Arabidopsis_fip37_rep3_Nanom6A_remove_chr.txt	1	0.485728	0.486362	0.485728				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	m6Anet	m6A	2818	m6Anet/Arabidopsis_fip37_rep1	1	0.999645	1	0.999645				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	m6Anet	m6A	4738	m6Anet/Arabidopsis_fip37_rep2	1	0.999789	1	0.999789				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	m6Anet	m6A	1839	m6Anet/Arabidopsis_fip37_rep3	1	1	1	1				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	xPore	m6A	21263	xPore/Arabidopsis_fip37_rep1	1	0.057847	1	0.057847				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	xPore	m6A	22369	xPore/Arabidopsis_fip37_rep2	1	0.0522598	1	0.0522598				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	xPore	m6A	23090	xPore/Arabidopsis_fip37_rep3	1	0.0451711	1	0.0451711				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep1	yanocomp	m6A	4176	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_fip37_rep1/Arabidopsis_fip37_result1_yanocomp_remove_chr.txt	1	0.029454	1	0.029454				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep2	yanocomp	m6A	2090	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_fip37_rep2/Arabidopsis_fip37_result2_yanocomp_remove_chr.txt	1	0.0382775	1	0.0382775				ok
+RNA002	Arabidopsis	Arabidopsis_KD	Arabidopsis_fip37_rep3	yanocomp	m6A	5017	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_fip37_rep3/Arabidopsis_fip37_result3_yanocomp_remove_chr.txt	1	0.0245166	1	0.0245166				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	CHEUI_m6A	m6A	17598	CHEUI/Arabidopsis_WT_rep1	1	0.0605182	1	0.0605182				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	CHEUI_m6A	m6A	19019	CHEUI/Arabidopsis_WT_rep2	1	0.0640938	1	0.0640938				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	CHEUI_m6A	m6A	19197	CHEUI/Arabidopsis_WT_rep3	1	0.0634474	1	0.0634474				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	DENA	m6A	25131	DENA/Arabidopsis_WT_rep1	1	0.998965	1	0.998965				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	DENA	m6A	18688	DENA/Arabidopsis_WT_rep2	1	0.998769	1	0.998769				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	DENA	m6A	22872	DENA/Arabidopsis_WT_rep3	1	0.998645	1	0.998645				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	DRUMMER	m6A	483	DRUMMER/Arabidopsis_WT_rep1	1	0.178054	1	0.178054				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	DRUMMER	m6A	627	DRUMMER/Arabidopsis_WT_rep2	1	0.240829	1	0.240829				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	DRUMMER	m6A	339	DRUMMER/Arabidopsis_WT_rep3	1	0.224189	1	0.224189				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	ELIGOS2_diff	m6A	1021	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_WT_rep1/Arabidopsis_WT_rep1G_sort_vs_Arabidopsis_fip37_rep1G_sort_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.246817	1	0.246817				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	ELIGOS2_diff	m6A	1255	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_WT_rep2/Arabidopsis_WT_rep2G_sort_vs_Arabidopsis_fip37_rep2G_sort_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.312351	1	0.312351				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	ELIGOS2_diff	m6A	745	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Arabidopsis_WT_rep3/Arabidopsis_WT_result3_ELIGOS2_diff_remove_chr.txt	1	0.27651	1	0.27651				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	ELIGOS2_solo	m6A	57933	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_WT_rep1/Arabidopsis_WT_rep1G_sort_vs_model_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.0900696	1	0.0900696				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	ELIGOS2_solo	m6A	40414	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_WT_rep2/Arabidopsis_WT_rep2G_sort_vs_model_on_Arabidopsis_thaliana.TAIR10.61_combine.txt	1	0.0927649	1	0.0927649				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	ELIGOS2_solo	m6A	50357	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Arabidopsis_WT_rep3/Arabidopsis_WT_rep3_ELIGOS2_solo_remove_chr.txt	1	0.0919038	1	0.0919038				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	EpiNano_Error	m6A	9586	EpiNano_DiffErr/Arabidopsis_WT_rep1	1	0.0751095	1	0.0751095				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	EpiNano_Error	m6A	15404	EpiNano_DiffErr/Arabidopsis_WT_rep2	1	0.0709556	1	0.0709556				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	EpiNano_Error	m6A	5912	EpiNano_DiffErr/Arabidopsis_WT_rep3	1	0.0761164	1	0.0761164				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	MINES	m6A	70690	MINES/Arabidopsis_WT_rep1	1	0.998557	1	0.998557				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	MINES	m6A	53146	MINES/Arabidopsis_WT_rep2	1	0.998608	1	0.998608				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	MINES	m6A	66253	MINES/Arabidopsis_WT_rep3	1	0.998551	1	0.998551				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	NanoSPA_m6A	m6A	1391	NanoSPA/Arabidopsis_WT_rep1	1	0.790798	1	0.790798				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	NanoSPA_m6A	m6A	1281	NanoSPA/Arabidopsis_WT_rep2	1	0.797034	1	0.797034				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	NanoSPA_m6A	m6A	1455	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Arabidopsis_WT_rep3/Arabidopsis_WT_rep3_NanoSPA_m6A_5mer.txt	1	0.797251	1	0.797251				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	Nanocompore	m6A	462	Nanocompore/Arabidopsis_WT_rep1	1	0.541126	1	0.541126				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	Nanocompore	m6A	1070	Nanocompore/Arabidopsis_WT_rep2	1	0.245794	1	0.245794				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	Nanocompore	m6A	255	Nanocompore/Arabidopsis_WT_rep3	1	0.592157	1	0.592157				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	Nanom6A	m6A	21872	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_WT_rep1/ratio.0.5.anchorfix.tsv	0.998857	0.380121	0.497943	0.380121				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	Nanom6A	m6A	20152	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/Arabidopsis_WT_rep2/ratio.0.5.anchorfix.tsv	0.998611	0.382692	0.497916	0.382692				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	Nanom6A	m6A	19758	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Arabidopsis_WT_rep3/Arabidopsis_WT_rep3_Nanom6A_remove_chr.txt	1	0.488157	0.488612	0.488157				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	m6Anet	m6A	13200	m6Anet/Arabidopsis_WT_rep1	1	0.999394	1	0.999394				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	m6Anet	m6A	11328	m6Anet/Arabidopsis_WT_rep2	1	0.999382	1	0.999382				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	m6Anet	m6A	11073	m6Anet/Arabidopsis_WT_rep3	1	0.999368	1	0.999368				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	xPore	m6A	27372	xPore/Arabidopsis_WT_rep1	1	0.0781821	1	0.0781821				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	xPore	m6A	38273	xPore/Arabidopsis_WT_rep2	1	0.0698404	1	0.0698404				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	xPore	m6A	21168	xPore/Arabidopsis_WT_rep3	1	0.0753968	1	0.0753968				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	yanocomp	m6A	3583	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_WT_rep1/Arabidopsis_WT_result1_yanocomp_remove_chr.txt	1	0.17583	1	0.17583				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	yanocomp	m6A	13037	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_WT_rep2/Arabidopsis_WT_result2_yanocomp_remove_chr.txt	1	0.0964946	1	0.0964946				ok
+RNA002	Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	yanocomp	m6A	2058	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Arabidopsis_WT_rep3/Arabidopsis_WT_result3_yanocomp_remove_chr.txt	1	0.206025	1	0.206025				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoNm	Nm	39	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/Curlcake_IVT_rep1/Curlcake_IVT_rep1_NanoNm.txt		0	0	0				no_reference_base
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoNm	Nm	35	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoNm.txt		0	0	0				no_reference_base
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoNm	Nm	36	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoNm.txt		0	0	0				no_reference_base
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoMUD_psi	Psi	0									empty
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoMUD_psi	Psi	39	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoMUD_psi.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoMUD_psi	Psi	3	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoMUD_psi.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoPsu	Psi	0									empty
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoPsu	Psi	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoPsu.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoPsu	Psi	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoPsu.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoSPA_psU	Psi	0									empty
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoSPA_psU	Psi	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoSPA_psU.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoSPA_psU	Psi	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoSPA_psU.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoMUD_m1psi	m1Psi	89	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/Curlcake_IVT_rep1/Curlcake_IVT_rep1_NanoMUD_m1psi.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoMUD_m1psi	m1Psi	97	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoMUD_m1psi.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoMUD_m1psi	m1Psi	93	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoMUD_m1psi.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	DENA	m6A	20	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/Curlcake_IVT_rep1/Curlcake_IVT_rep1_DENA.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	DENA	m6A	19	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_DENA.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	DENA	m6A	14	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/Curlcake_IVT_rep3/Curlcake_IVT_rep3_DENA.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	ELIGOS2_solo	m6A	44	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Curlcake_IVT_rep1/RNAAB089716_vs_model_on_Curlcake_combine.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	ELIGOS2_solo	m6A	42	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Curlcake_IVT_rep2_partial/RNA081120181part_vs_model_on_Curlcake_combine.txt	1	0.0238095	1	0.0238095				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	ELIGOS2_solo	m6A	42	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Curlcake_IVT_rep3/RNA081120181_vs_model_on_Curlcake_combine.txt	1	0.0238095	1	0.0238095				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	EpiNano_Error	m6A	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_EpiNano_Error.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	EpiNano_Error	m6A	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/Curlcake_IVT_rep3_vs_IVT_rep1/Curlcake_IVT_result2_EpiNano_Error.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	MINES	m6A	72	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/Curlcake_IVT_rep1/Curlcake_IVT_rep1_MINES.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	MINES	m6A	74	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_MINES.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	MINES	m6A	75	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/Curlcake_IVT_rep3/Curlcake_IVT_rep3_MINES.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	NanoSPA_m6A	m6A	31	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_IVT_rep1/Curlcake_IVT_rep1_NanoSPA_m6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	NanoSPA_m6A	m6A	31	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_NanoSPA_m6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	NanoSPA_m6A	m6A	31	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_IVT_rep3/Curlcake_IVT_rep3_NanoSPA_m6A.txt	0.967742	0.935484	0.967742	0.935484				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	Nanocompore	m6A	8	$RNAMODBENCH_ROOT/analysis/callsets/Nanocompore/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_Nanocompore.txt	1	0.125	1	0.125				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	Nanocompore	m6A	8	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_Nanocompore.txt	1	0.125	1	0.125				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	Nanocompore	m6A	13	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/Curlcake_IVT_rep3_vs_IVT_rep1/Curlcake_IVT_result2_Nanocompore.txt	1	0.230769	1	0.230769				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	Nanom6A	m6A	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep1/Curlcake_IVT_rep1_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	Nanom6A	m6A	17	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	Nanom6A	m6A	22	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_IVT_rep3/Curlcake_IVT_rep3_Nanom6A.txt	1	0.909091	0.909091	0.909091				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	m6Anet	m6A	14	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/Curlcake_IVT_rep1/Curlcake_IVT_rep1_m6Anet.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	m6Anet	m6A	13	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/Curlcake_IVT_rep2_partial/Curlcake_IVT_rep2_m6Anet.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	m6Anet	m6A	12	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/Curlcake_IVT_rep3/Curlcake_IVT_rep3_m6Anet.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	xPore	m6A	15	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_xPore.txt	1	0.0666667	1	0.0666667				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	xPore	m6A	14	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/Curlcake_IVT_rep3_vs_IVT_rep1/Curlcake_IVT_result2_xPore.txt	1	0.0714286	1	0.0714286				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep3	xPore	m6A	14	$RNAMODBENCH_ROOT/analysis/callsets/xPore/Curlcake_IVT_rep3_vs_IVT_rep1/Curlcake_IVT_result2_xPore.txt	1	0.0714286	1	0.0714286				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep1	yanocomp	m6A	5	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_yanocomp.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_IVT	Curlcake_IVT_rep2_partial	yanocomp	m6A	1	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Curlcake_IVT_rep3_vs_IVT_rep1/Curlcake_IVT_result2_yanocomp.txt	1	0	1	0				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	DENA	m6A	112	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/Curlcake_m6A_rep1/Curlcake_m6A_rep1_DENA.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	DENA	m6A	113	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/Curlcake_m6A_rep2/Curlcake_m6A_rep2_DENA.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	DRUMMER	m6A	166	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_DRUMMER.txt	1	0.0722892	1	0.0722892				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	DRUMMER	m6A	181	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_DRUMMER.txt	1	0.0994475	1	0.0994475				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	ELIGOS2_diff	m6A	1588	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_ELIGOS2_diff.txt	1	0.0913098	1	0.0913098				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	ELIGOS2_diff	m6A	1590	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_ELIGOS2_diff.txt	1	0.0955975	1	0.0955975				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	ELIGOS2_solo	m6A	1569	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Curlcake_m6A_rep1/RNAAB090763_vs_model_on_Curlcake_combine.txt	1	0.096877	1	0.096877				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	ELIGOS2_solo	m6A	1565	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/Curlcake_m6A_rep2/RNA081120182_vs_model_on_Curlcake_combine.txt	1	0.0926518	1	0.0926518				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	EpiNano_Error	m6A	109	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_EpiNano_Error.txt	1	0.0733945	1	0.0733945				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	EpiNano_Error	m6A	127	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_EpiNano_Error.txt	1	0.0787402	1	0.0787402				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	MINES	m6A	89	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/Curlcake_m6A_rep1/Curlcake_m6A_rep1_MINES.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	MINES	m6A	92	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/Curlcake_m6A_rep2/Curlcake_m6A_rep2_MINES.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	NanoSPA_m6A	m6A	39	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_m6A_rep1/Curlcake_m6A_rep1_NanoSPA_m6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	NanoSPA_m6A	m6A	38	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/Curlcake_m6A_rep2/Curlcake_m6A_rep2_NanoSPA_m6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	Nanocompore	m6A	1734	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_Nanocompore.txt	1	0.0859285	1	0.0859285				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	Nanocompore	m6A	1585	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_Nanocompore.txt	1	0.0794953	1	0.0794953				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	Nanom6A	m6A	127	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_m6A_rep1/Curlcake_m6A_rep1_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	Nanom6A	m6A	130	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/Curlcake_m6A_rep2/Curlcake_m6A_rep2_Nanom6A.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	m6Anet	m6A	99	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/Curlcake_m6A_rep1/Curlcake_m6A_rep1_m6Anet.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	m6Anet	m6A	103	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/Curlcake_m6A_rep2/Curlcake_m6A_rep2_m6Anet.txt	1	1	1	1				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	xPore	m6A	1050	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_xPore.txt	1	0.110476	1	0.110476				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	xPore	m6A	1050	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_xPore.txt	1	0.0933333	1	0.0933333				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep1	yanocomp	m6A	501	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Curlcake_m6A_rep2_vs_IVT_rep3/Curlcake_m6A_result1_yanocomp.txt	1	0.0638723	1	0.0638723				ok
+RNA002	Curlcake	Curlcake_m6A	Curlcake_m6A_rep2	yanocomp	m6A	2057	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_yanocomp.txt	1	0.0875061	1	0.0875061				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	CHEUI_m6A	m6A	2077	CHEUI/E_IVT_neg1	1	0.0649976	1	0.0649976				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	CHEUI_m6A	m6A	1013	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/E_IVT_neg2/E_IVT_neg2_CHEUI_m6A_remove_chr.txt	1	0.0730503	1	0.0730503				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	DRUMMER	m6A	0									empty
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	ELIGOS2_solo	m6A	6430	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/E_IVT_neg1/E_IVT_neg1G_sort_vs_model_on_Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61_combine.txt	1	0.0592535	1	0.0592535				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	ELIGOS2_solo	m6A	5791	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/E_IVT_neg2/E_IVT_neg2_ELIGOS2_solo_remove_chr.txt	1	0.0600932	1	0.0600932				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	EpiNano_Error	m6A	4072	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/E_IVT_neg1_vs_E_IVT_neg2/E_IVT_neg_result1_EpiNano_Error_remove_chr.txt	1	0.0653242	1	0.0653242				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	NanoSPA_m6A	m6A	108	NanoSPA/E_IVT_neg1	1	0.685185	1	0.685185				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	NanoSPA_m6A	m6A	78	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/E_IVT_neg2/E_IVT_neg2_NanoSPA_m6A_5mer.txt	1	0.628205	1	0.628205				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	Nanocompore	m6A	4	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/E_IVT_neg1_vs_E_IVT_neg2/E_IVT_neg_Nanocompore_remove_chr.txt	1	0	1	0				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	Nanom6A	m6A	3121	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_IVT_neg1/ratio.0.5.anchorfix.tsv	0.978212	0.301506	0.512015	0.301506				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	Nanom6A	m6A	2367	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_IVT_neg2/ratio.0.5.anchorfix.tsv	0.970427	0.309252	0.510351	0.309252				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg1	m6Anet	m6A	731	m6Anet/E_IVT_neg1_transcripts_inference	1	1	1	1				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	m6Anet	m6A	565	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/E_IVT_neg2/E_IVT_neg2_m6Anet_remove_chr.txt	1	1	1	1				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	xPore	m6A	1248	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/E_IVT_neg1_vs_E_IVT_neg2/E_IVT_neg_result_xPore_remove_chr.txt	1	0.056891	1	0.056891				ok
+RNA002	E.coli	E.coli_IVT	E_IVT_neg2	yanocomp	m6A	79	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/E_IVT_neg1_vs_E_IVT_neg2/E_IVT_neg_result_yanocomp_remove_chr.txt	1	0.0759494	1	0.0759494				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	CHEUI_m6A	m6A	11732	CHEUI/E_ss_rd_RNA1	1	0.0656325	1	0.0656325				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	CHEUI_m6A	m6A	7332	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/E_ss_rd_RNA2/E_ss_rd_RNA2_CHEUI_m6A_remove_chr.txt	1	0.0612384	1	0.0612384				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	DRUMMER	m6A	31	DRUMMER/E_ss_rd_RNA_result1	1	0	1	0				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	DRUMMER	m6A	94	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/E_ss_rd_RNA2/E_ss_rd_RNA_result2_DRUMMER_remove_chr.txt	1	0.0531915	1	0.0531915				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	ELIGOS2_diff	m6A	177	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/E_ss_rd_RNA1/E_ss_rd_RNA1G_sort_vs_E_IVT_neg1G_sort_on_Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61_combine.txt	1	0.19774	1	0.19774				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	ELIGOS2_diff	m6A	183	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/E_ss_rd_RNA2/E_ss_rd_RNA2_ELIGOS2_diff_remove_chr.txt	1	0.202186	1	0.202186				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	ELIGOS2_solo	m6A	15674	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/E_ss_rd_RNA1/E_ss_rd_RNA1G_sort_vs_model_on_Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61_combine.txt	1	0.0578665	1	0.0578665				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	ELIGOS2_solo	m6A	16067	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/E_ss_rd_RNA2/E_ss_rd_RNA2_ELIGOS2_solo_remove_chr.txt	1	0.0578826	1	0.0578826				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	EpiNano_Error	m6A	4694	Epinano_DiffErr/E_ss_rd_RNA1_result	1	0.0481466	1	0.0481466				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	EpiNano_Error	m6A	2671	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/E_ss_rd_RNA2/E_ss_rd_RNA2_result_EpiNano_Error_remove_chr.txt	1	0.0423063	1	0.0423063				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	NanoSPA_m6A	m6A	208	NanoSPA/E_ss_rd_RNA1	1	0.677885	1	0.677885				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	NanoSPA_m6A	m6A	266	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/E_ss_rd_RNA2/E_ss_rd_RNA2_NanoSPA_m6A_5mer.txt	1	0.672932	1	0.672932				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	Nanocompore	m6A	0									empty
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	Nanocompore	m6A	4085	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/E_ss_rd_RNA2/E_ss_rd_RNA2_Nanocompore_remove_chr.txt	1	0.0411261	1	0.0411261				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	Nanom6A	m6A	6312	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_ss_rd_RNA1/ratio.0.5.anchorfix.tsv	0.972275	0.277883	0.495247	0.277883				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	Nanom6A	m6A	10070	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/E_ss_rd_RNA2/ratio.0.5.anchorfix.tsv	0.989275	0.298709	0.497021	0.298709				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	m6Anet	m6A	2648	m6Anet/E_ss_rd_RNA1_transcripts_inference	1	1	1	1				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	m6Anet	m6A	2779	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/E_ss_rd_RNA2/E_ss_rd_RNA2_m6Anet_remove_chr.txt	1	1	1	1				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	xPore	m6A	5714	xPore/E_ss_rd_RNA1_result	1	0.059328	1	0.059328				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	xPore	m6A	6641	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/E_ss_rd_RNA2/E_ss_rd_RNA2_xPore_remove_chr.txt	1	0.0382473	1	0.0382473				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA1	yanocomp	m6A	3705	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/E_ss_rd_RNA1/E_ss_rd_RNA1_result_yanocomp_remove_chr.txt	1	0.0704453	1	0.0704453				ok
+RNA002	E.coli	E.coli_WT	E_ss_rd_RNA2	yanocomp	m6A	5182	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/E_ss_rd_RNA2/E_ss_rd_RNA2_result_yanocomp_remove_chr.txt	1	0.0509456	1	0.0509456				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoNm	Nm	4677	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoNm_remove_chr.txt		0.00449006	0	0.00449006				no_reference_base
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoNm	Nm	5137	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoNm_remove_chr.txt		0.00467199	0	0.00467199				no_reference_base
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoNm	Nm	1880	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoNm_remove_chr.txt		0.00212766	0	0.00212766				no_reference_base
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoMUD_psi	Psi	9873	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoMUD_psi	Psi	11694	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoMUD_psi	Psi	5781	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoPsu	Psi	283	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoPsu	Psi	367	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoPsu	Psi	177	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoSPA_psU	Psi	290	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoSPA_psU	Psi	373	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoSPA_psU	Psi	179	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoMUD_m1psi	m1Psi	30047	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoMUD_m1psi	m1Psi	41481	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoMUD_m1psi	m1Psi	19549	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	CHEUI_m5C	m5C	10287	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep1/HeLa_IVT_rep1_CHEUI_m5C_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	CHEUI_m5C	m5C	26558	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep2/HeLa_IVT_rep2_CHEUI_m5C_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	CHEUI_m5C	m5C	16129	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep3/HeLa_IVT_rep3_CHEUI_m5C_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	CHEUI_m6A	m6A	23853	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep1/HeLa_IVT_rep1_CHEUI_m6A_remove_chr.txt	1	0.0721503	1	0.0721503				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	CHEUI_m6A	m6A	37949	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep2/HeLa_IVT_rep2_CHEUI_m6A_remove_chr.txt	1	0.0739413	1	0.0739413				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	CHEUI_m6A	m6A	13587	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_IVT_rep3/HeLa_IVT_rep3_CHEUI_m6A_remove_chr.txt	1	0.0795613	1	0.0795613				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	DENA	m6A	20594	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_IVT_rep1/HeLa_IVT_rep1_DENA_remove_chr.txt	1	0.997718	1	0.997718				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	DENA	m6A	27978	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_IVT_rep2/HeLa_IVT_rep2_DENA_remove_chr.txt	1	0.99757	1	0.99757				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	DENA	m6A	10881	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_IVT_rep3/HeLa_IVT_rep3_DENA_remove_chr.txt	1	0.996783	1	0.996783				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	DRUMMER	m6A	19	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_IVT_rep1/HeLa_IVT_result1_DRUMMER_remove_chr.txt	1	0.0526316	1	0.0526316				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	DRUMMER	m6A	9	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_IVT_rep2/HeLa_IVT_result2_DRUMMER_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	DRUMMER	m6A	75	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_IVT_rep3/HeLa_IVT_result3_DRUMMER_remove_chr.txt	1	0.0133333	1	0.0133333				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	ELIGOS2_diff	m6A	27	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_IVT_rep1/HeLa_IVT_result1_ELIGOS2_diff_remove_chr.txt	1	0.111111	1	0.111111				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	ELIGOS2_diff	m6A	82	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_IVT_rep2/HeLa_IVT_result2_ELIGOS2_diff_remove_chr.txt	1	0.0243902	1	0.0243902				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	ELIGOS2_diff	m6A	72	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_IVT_rep3/HeLa_IVT_result3_ELIGOS2_diff_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	ELIGOS2_solo	m6A	45923	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_IVT_rep1/HeLa_IVT_rep1_ELIGOS2_solo_remove_chr.txt	1	0.0451626	1	0.0451626				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	ELIGOS2_solo	m6A	58353	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_IVT_rep2/HeLa_IVT_rep2_ELIGOS2_solo_remove_chr.txt	1	0.0415403	1	0.0415403				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	ELIGOS2_solo	m6A	22995	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_IVT_rep3/HeLa_IVT_rep3_ELIGOS2_solo_remove_chr.txt	1	0.0437921	1	0.0437921				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	EpiNano_Error	m6A	33972	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_IVT_rep1/HeLa_IVT_result1_EpiNano_Error_remove_chr.txt	1	0.0541917	1	0.0541917				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	EpiNano_Error	m6A	29312	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_IVT_rep2/HeLa_IVT_result2_EpiNano_Error_remove_chr.txt	1	0.0544828	1	0.0544828				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	EpiNano_Error	m6A	20905	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_IVT_rep3/HeLa_IVT_result3_EpiNano_Error_remove_chr.txt	1	0.0525712	1	0.0525712				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	MINES	m6A	59684	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_IVT_rep1/HeLa_IVT_rep1_MINES_remove_chr.txt	1	0.998107	1	0.998107				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	MINES	m6A	86605	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_IVT_rep2/HeLa_IVT_rep2_MINES_remove_chr.txt	1	0.998037	1	0.998037				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	MINES	m6A	39902	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_IVT_rep3/HeLa_IVT_rep3_MINES_remove_chr.txt	1	0.997719	1	0.997719				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	NanoSPA_m6A	m6A	408	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep1/HeLa_IVT_rep1_NanoSPA_m6A_5mer.txt	1	0.769608	1	0.769608				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	NanoSPA_m6A	m6A	227	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep2/HeLa_IVT_rep2_NanoSPA_m6A_5mer.txt	1	0.779736	1	0.779736				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	NanoSPA_m6A	m6A	230	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_IVT_rep3/HeLa_IVT_rep3_NanoSPA_m6A_5mer.txt	1	0.726087	1	0.726087				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	Nanocompore	m6A	107	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_IVT_rep1/HeLa_IVT_result1_Nanocompore_remove_chr.txt	1	0.102804	1	0.102804				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	Nanocompore	m6A	63	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_IVT_rep2/HeLa_IVT_result2_Nanocompore_remove_chr.txt	1	0.031746	1	0.031746				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	Nanocompore	m6A	219	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_IVT_rep3/HeLa_IVT_result3_Nanocompore_remove_chr.txt	1	0.0684932	1	0.0684932				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	Nanom6A	m6A	12658	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep1/HeLa_IVT_rep1_Nanom6A_remove_chr.txt	0.999921	0.501343	0.502923	0.501343				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	Nanom6A	m6A	15092	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep2/HeLa_IVT_rep2_Nanom6A_remove_chr.txt	0.999934	0.508548	0.509873	0.508548				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	Nanom6A	m6A	11442	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_IVT_rep3/HeLa_IVT_rep3_Nanom6A_remove_chr.txt	0.999913	0.504894	0.506467	0.504894				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	m6Anet	m6A	8007	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_IVT_rep1/HeLa_IVT_rep1_m6Anet_remove_chr.txt	1	0.997752	1	0.997752				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	m6Anet	m6A	14954	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_IVT_rep2/HeLa_IVT_rep2_m6Anet_remove_chr.txt	1	0.998328	1	0.998328				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	m6Anet	m6A	5730	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_IVT_rep3/HeLa_IVT_rep3_m6Anet_remove_chr.txt	1	0.99808	1	0.99808				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	xPore	m6A	35819	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_IVT_rep1/HeLa_IVT_result1_xPore_remove_chr.txt	1	0.0771099	1	0.0771099				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	xPore	m6A	26693	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_IVT_rep2/HeLa_IVT_result2_xPore_remove_chr.txt	1	0.0748511	1	0.0748511				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	xPore	m6A	28087	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_IVT_rep3/HeLa_IVT_result3_xPore_remove_chr.txt	1	0.0732011	1	0.0732011				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep1	yanocomp	m6A	3569	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_IVT_rep1/HeLa_IVT_result1_yanocomp_remove_chr.txt	1	0.0804147	1	0.0804147				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep2	yanocomp	m6A	1867	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_IVT_rep2/HeLa_IVT_result2_yanocomp_remove_chr.txt	1	0.0899839	1	0.0899839				ok
+RNA002	Human	HeLa_IVT	HeLa_IVT_rep3	yanocomp	m6A	3504	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_IVT_rep3/HeLa_IVT_result3_yanocomp_remove_chr.txt	1	0.0859018	1	0.0859018				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoNm	Nm	1673	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_WT1/HeLa_WT_rep1_NanoNm_remove_chr.txt		0.00298864	0	0.00298864				no_reference_base
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoNm	Nm	3538	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_WT2/HeLa_WT_rep2_NanoNm_remove_chr.txt		0.00226116	0	0.00226116				no_reference_base
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoNm	Nm	1683	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoNm/HeLa_WT3/HeLa_WT_rep3_NanoNm_remove_chr.txt		0.00415924	0	0.00415924				no_reference_base
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoMUD_psi	Psi	7079	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT1/HeLa_WT_rep1_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoMUD_psi	Psi	10809	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT2/HeLa_WT_rep2_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoMUD_psi	Psi	5057	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT3/HeLa_WT_rep3_NanoMUD_psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoPsu	Psi	354	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_WT1/HeLa_WT_rep1_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoPsu	Psi	538	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_WT2/HeLa_WT_rep2_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoPsu	Psi	322	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoPsu/HeLa_WT3/HeLa_WT_rep3_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoSPA_psU	Psi	351	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT1/HeLa_WT_rep1_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoSPA_psU	Psi	540	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT2/HeLa_WT_rep2_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoSPA_psU	Psi	325	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT3/HeLa_WT_rep3_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoMUD_m1psi	m1Psi	20943	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT1/HeLa_WT_rep1_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoMUD_m1psi	m1Psi	37880	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT2/HeLa_WT_rep2_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoMUD_m1psi	m1Psi	15706	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoMUD/HeLa_WT3/HeLa_WT_rep3_NanoMUD_m1psi_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	CHEUI_m5C	m5C	14243	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT1/HeLa_WT_rep1_CHEUI_m5C_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	CHEUI_m5C	m5C	21409	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT2/HeLa_WT_rep2_CHEUI_m5C_remove_chr.txt	0.524919	0.0184502	0.25905	0.0184502	1	0.5169	-2:0.5059,-1:0.5154,0:0.509,1:0.5169,2:0.5053	suspect_reference_mismatch
+RNA002	Human	HeLa_WT	HeLa_WT3	CHEUI_m5C	m5C	14198	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT3/HeLa_WT_rep3_CHEUI_m5C_remove_chr.txt	1	0	1	0				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	CHEUI_m6A	m6A	20167	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT1/HeLa_WT_rep1_CHEUI_m6A_remove_chr.txt	1	0.0737839	1	0.0737839				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	CHEUI_m6A	m6A	31397	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT2/HeLa_WT_rep2_CHEUI_m6A_remove_chr.txt	1	0.0722681	1	0.0722681				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	CHEUI_m6A	m6A	17033	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/HeLa_WT3/HeLa_WT_rep3_CHEUI_m6A_remove_chr.txt	1	0.0731521	1	0.0731521				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	DENA	m6A	20224	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_WT1/HeLa_WT_rep1_DENA_remove_chr.txt	1	0.998368	1	0.998368				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	DENA	m6A	20487	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_WT2/HeLa_WT_rep2_DENA_remove_chr.txt	1	0.998438	1	0.998438				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	DENA	m6A	17166	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/HeLa_WT3/HeLa_WT_rep3_DENA_remove_chr.txt	1	0.997845	1	0.997845				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	DRUMMER	m6A	432	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_WT1/HeLa_WT_result1_DRUMMER_remove_chr.txt	1	0.511574	1	0.511574				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	DRUMMER	m6A	746	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_WT2/HeLa_WT_result2_DRUMMER_remove_chr.txt	1	0.572386	1	0.572386				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	DRUMMER	m6A	293	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/HeLa_WT3/HeLa_WT_result3_DRUMMER_remove_chr.txt	1	0.416382	1	0.416382				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	ELIGOS2_diff	m6A	1065	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_WT1/HeLa_WT_result1_ELIGOS2_diff_remove_chr.txt	1	0.477934	1	0.477934				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	ELIGOS2_diff	m6A	1816	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_WT2/HeLa_WT_result2_ELIGOS2_diff_remove_chr.txt	1	0.491189	1	0.491189				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	ELIGOS2_diff	m6A	820	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/HeLa_WT3/HeLa_WT_result3_ELIGOS2_diff_remove_chr.txt	1	0.403659	1	0.403659				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	ELIGOS2_solo	m6A	49814	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_WT1/HeLa_WT_rep1_ELIGOS2_solo_remove_chr.txt	1	0.0845947	1	0.0845947				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	ELIGOS2_solo	m6A	58726	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_WT2/HeLa_WT_rep2_ELIGOS2_solo_remove_chr.txt	1	0.0985935	1	0.0985935				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	ELIGOS2_solo	m6A	35520	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/HeLa_WT3/HeLa_WT_rep3_ELIGOS2_solo_remove_chr.txt	1	0.0806869	1	0.0806869				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	EpiNano_Error	m6A	24182	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_WT1/HeLa_WT_result1_EpiNano_Error_remove_chr.txt	1	0.0808453	1	0.0808453				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	EpiNano_Error	m6A	46813	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_WT2/HeLa_WT_result2_EpiNano_Error_remove_chr.txt	1	0.0798283	1	0.0798283				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	EpiNano_Error	m6A	18904	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/HeLa_WT3/HeLa_WT_result3_EpiNano_Error_remove_chr.txt	1	0.0792425	1	0.0792425				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	MINES	m6A	39154	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_WT1/HeLa_WT_rep1_MINES_remove_chr.txt	1	0.998263	1	0.998263				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	MINES	m6A	77840	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_WT2/HeLa_WT_rep2_MINES_remove_chr.txt	1	0.998638	1	0.998638				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	MINES	m6A	33160	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/HeLa_WT3/HeLa_WT_rep3_MINES_remove_chr.txt	1	0.99801	1	0.99801				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	NanoSPA_m6A	m6A	1375	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT1/HeLa_WT_rep1_NanoSPA_m6A_5mer.txt	1	0.786182	1	0.786182				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	NanoSPA_m6A	m6A	2490	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT2/HeLa_WT_rep2_NanoSPA_m6A_5mer.txt	1	0.785542	1	0.785542				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	NanoSPA_m6A	m6A	941	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/HeLa_WT3/HeLa_WT_rep3_NanoSPA_m6A_5mer.txt	1	0.77577	1	0.77577				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	Nanocompore	m6A	1237	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_WT1/HeLa_WT_result1_Nanocompore_remove_chr.txt	1	0.320129	1	0.320129				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	Nanocompore	m6A	1798	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_WT2/HeLa_WT_result2_Nanocompore_remove_chr.txt	1	0.413237	1	0.413237				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	Nanocompore	m6A	1261	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/HeLa_WT3/HeLa_WT_result3_Nanocompore_remove_chr.txt	1	0.185567	1	0.185567				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	Nanom6A	m6A	20915	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT1/HeLa_WT_rep1_Nanom6A_remove_chr.txt	1	0.496581	0.497538	0.496581				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	Nanom6A	m6A	18311	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT2/HeLa_WT_rep2_Nanom6A_remove_chr.txt	1	0.487467	0.488286	0.487467				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	Nanom6A	m6A	17066	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/HeLa_WT3/HeLa_WT_rep3_Nanom6A_remove_chr.txt	1	0.48664	0.487812	0.48664				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	m6Anet	m6A	8884	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_WT1/HeLa_WT_rep1_m6Anet_remove_chr.txt	1	0.998762	1	0.998762				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	m6Anet	m6A	16953	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_WT2/HeLa_WT_rep2_m6Anet_remove_chr.txt	1	0.998997	1	0.998997				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	m6Anet	m6A	6783	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/HeLa_WT3/HeLa_WT_rep3_m6Anet_remove_chr.txt	1	0.998526	1	0.998526				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	xPore	m6A	25216	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_WT1/HeLa_WT_result1_xPore_remove_chr.txt	1	0.106996	1	0.106996				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	xPore	m6A	41850	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_WT2/HeLa_WT_result2_xPore_remove_chr.txt	1	0.103728	1	0.103728				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	xPore	m6A	21149	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/HeLa_WT3/HeLa_WT_result3_xPore_remove_chr.txt	1	0.0906426	1	0.0906426				ok
+RNA002	Human	HeLa_WT	HeLa_WT1	yanocomp	m6A	4619	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_WT1/HeLa_WT_result1_yanocomp_remove_chr.txt	1	0.138558	1	0.138558				ok
+RNA002	Human	HeLa_WT	HeLa_WT2	yanocomp	m6A	6845	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_WT2/HeLa_WT_result2_yanocomp_remove_chr.txt	1	0.160993	1	0.160993				ok
+RNA002	Human	HeLa_WT	HeLa_WT3	yanocomp	m6A	4340	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/HeLa_WT3/HeLa_WT_result3_yanocomp_remove_chr.txt	1	0.111982	1	0.111982				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	CHEUI_m6A	m6A	16210	CHEUI/mESCs_Mettl3_KO	0.998396	0.0758791	0.997717	0.0758791				ok
+RNA002	Mouse	Mouse_KO	mES_KO	CHEUI_m6A	m6A	33277	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/mES_KO/mES_KO_CHEUI_m6A_remove_chr.txt	0.998738	0.0787631	0.998047	0.0787631				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	DENA	m6A	13385	DENA/mESCs_Mettl3_KO_result	0.997983	0.99492	0.996563	0.99492				ok
+RNA002	Mouse	Mouse_KO	mES_KO	DENA	m6A	25834	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/mES_KO/mES_KO_DENA_remove_chr.txt	0.997136	0.991871	0.995471	0.991871				ok
+RNA002	Mouse	Mouse_KO	mES_KO	DRUMMER	m6A	441	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/mESCs_Mettl3_KO_vs_mES_KO/mES_KO_result_DRUMMER_remove_chr.txt	0.997732	0.44898	0.995465	0.44898				ok
+RNA002	Mouse	Mouse_KO	mES_KO	ELIGOS2_diff	m6A	596	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/mESCs_Mettl3_KO_vs_mES_KO/mES_KO_ELIGOS2_diff_remove_chr.txt	1	0.489933	1	0.489933				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	ELIGOS2_solo	m6A	27517	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/mESCs_Mettl3_KO/mESCs_Mettl3_KO_rep1G_sort_vs_model_on_GRCm39.annotation_combine.txt	1	0.0661773	1	0.0661773				ok
+RNA002	Mouse	Mouse_KO	mES_KO	ELIGOS2_solo	m6A	58199	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/mES_KO/mES_KO_ELIGOS2_solo_remove_chr.txt	1	0.0423031	1	0.0423031				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	EpiNano_Error	m6A	21420	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/mESCs_Mettl3_KO_vs_mES_KO/mESCs_Mettl3_KO_result1_EpiNano_Error_remove_chr.txt	1	0.0758637	1	0.0758637				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	MINES	m6A	41115	MINES/mESCs_Mettl3_KO	0.997933	0.994819	0.997008	0.994819				ok
+RNA002	Mouse	Mouse_KO	mES_KO	MINES	m6A	98477	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/mES_KO/mES_KO_MINES_remove_chr.txt	0.99806	0.994384	0.997075	0.994384				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	NanoSPA_m6A	m6A	724	NanoSPA/mESCs_Mettl3_KO	1	0.783149	1	0.783149				ok
+RNA002	Mouse	Mouse_KO	mES_KO	NanoSPA_m6A	m6A	163	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/mES_KO/mES_KO_NanoSPA_m6A_5mer.txt	1	0.858896	1	0.858896				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	Nanocompore	m6A	7581	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/mESCs_Mettl3_KO_vs_mES_KO/mESCs_Mettl3_KO_result_Nanocompore_remove_chr.txt	0.999736	0.106582	0.999736	0.106582				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	Nanom6A	m6A	8386	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/mESCs_Mettl3_KO/ratio.0.5.anchorfix.tsv	0.997734	0.43668	0.512521	0.43668				ok
+RNA002	Mouse	Mouse_KO	mES_KO	Nanom6A	m6A	18978	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/mES_KO/mES_KO_Nanom6A_remove_chr.txt	0.999947	0.494309	0.495258	0.494309				ok
+RNA002	Mouse	Mouse_KO	mESCs_Mettl3_KO	m6Anet	m6A	8158	m6Anet/mESCs_Mettl3_KO_transcripts_inference	0.997671	0.996077	0.99669	0.996077				ok
+RNA002	Mouse	Mouse_KO	mES_KO	m6Anet	m6A	17431	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/mES_KO/mES_KO_m6Anet_remove_chr.txt	0.998738	0.996328	0.998107	0.996328				ok
+RNA002	Mouse	Mouse_KO	mES_KO	xPore	m6A	45426	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/mESCs_Mettl3_KO_vs_mES_KO/mES_KO_xPore_remove_chr.txt	0.998657	0.076366	0.997997	0.076366				ok
+RNA002	Mouse	Mouse_KO	mES_KO	yanocomp	m6A	44052	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/mESCs_Mettl3_KO_vs_mES_KO/mES_KO_result_yanocomp_remove_chr.txt	1	0.101085	1	0.101085				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	CHEUI_m6A	m6A	14586	CHEUI/mESCs_Mettl3_WT	0.996641	0.0821336	0.995338	0.0821336				ok
+RNA002	Mouse	Mouse_WT	mES_WT	CHEUI_m6A	m6A	37347	$RNAMODBENCH_LOCAL/raw/converted_callsets/CHEUI/mES_WT/mES_WT_CHEUI_m6A_remove_chr.txt	0.997751	0.0766327	0.99668	0.0766327				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	DENA	m6A	37034	DENA/mESCs_Mettl3_WT_result	0.99757	0.994114	0.99649	0.994114				ok
+RNA002	Mouse	Mouse_WT	mES_WT	DENA	m6A	38880	$RNAMODBENCH_LOCAL/raw/converted_callsets/DENA/mES_WT/mES_WT_DENA_remove_chr.txt	0.997119	0.992978	0.99591	0.992978				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	DRUMMER	m6A	564	DRUMMER/mESCs_Mettl3_WT_result	1	0.572695	1	0.572695				ok
+RNA002	Mouse	Mouse_WT	mES_WT	DRUMMER	m6A	1913	$RNAMODBENCH_LOCAL/raw/converted_callsets/DRUMMER/mES_WT/mES_WT_result_DRUMMER_remove_chr.txt	0.999477	0.620491	0.998432	0.620491				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	ELIGOS2_diff	m6A	823	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/mESCs_Mettl3_WT/mESCs_Mettl3_WT_rep1G_sort_vs_mESCs_Mettl3_KO_rep1G_sort_on_GRCm39.annotation_combine.txt	1	0.623329	1	0.623329				ok
+RNA002	Mouse	Mouse_WT	mES_WT	ELIGOS2_diff	m6A	3919	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_diff/mES_WT/mES_WT_ELIGOS2_diff_remove_chr.txt	1	0.589181	1	0.589181				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	ELIGOS2_solo	m6A	74653	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/mESCs_Mettl3_WT/mESCs_Mettl3_WT_rep1G_sort_vs_model_on_GRCm39.annotation_combine.txt	1	0.11674	1	0.11674				ok
+RNA002	Mouse	Mouse_WT	mES_WT	ELIGOS2_solo	m6A	87246	$RNAMODBENCH_LOCAL/raw/converted_callsets/ELIGOS2_solo/mES_WT/mES_WT_ELIGOS2_solo_remove_chr.txt	1	0.097483	1	0.097483				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	EpiNano_Error	m6A	17186	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/mESCs_Mettl3_WT/mESCs_Mettl3_WT_result1_EpiNano_Error_remove_chr.txt	1	0.130804	1	0.130804				ok
+RNA002	Mouse	Mouse_WT	mES_WT	EpiNano_Error	m6A	33073	$RNAMODBENCH_LOCAL/raw/converted_callsets/EpiNano_DiffErr/mES_WT/mES_WT_result_EpiNano_Error_remove_chr.txt	1	0.097693	1	0.097693				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	MINES	m6A	91016	MINES/mESCs_Mettl3_WT	0.997956	0.994715	0.997012	0.994715				ok
+RNA002	Mouse	Mouse_WT	mES_WT	MINES	m6A	93504	$RNAMODBENCH_LOCAL/raw/converted_callsets/MINES/mES_WT/mES_WT_MINES_remove_chr.txt	0.998043	0.994139	0.996973	0.994139				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	NanoSPA_m6A	m6A	4178	NanoSPA/mESCs_Mettl3_WT	1	0.779799	1	0.779799				ok
+RNA002	Mouse	Mouse_WT	mES_WT	NanoSPA_m6A	m6A	3267	$RNAMODBENCH_LOCAL/raw/converted_callsets/NanoSPA/mES_WT/mES_WT_NanoSPA_m6A_5mer.txt	1	0.863483	1	0.863483				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	Nanocompore	m6A	0									empty
+RNA002	Mouse	Mouse_WT	mES_WT	Nanocompore	m6A	3115	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanocompore/mES_WT/mES_WT_result_Nanocompore_remove_chr.txt	0.999679	0.716533	0.999679	0.716533				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	Nanom6A	m6A	11052	$RNAMODBENCH_LOCAL/raw/result/Nanom6A/mESCs_Mettl3_WT/ratio.0.5.anchorfix.tsv	0.998009	0.430329	0.507962	0.430329				ok
+RNA002	Mouse	Mouse_WT	mES_WT	Nanom6A	m6A	23952	$RNAMODBENCH_LOCAL/raw/converted_callsets/Nanom6A/mES_WT/mES_WT_Nanom6A_remove_chr.txt	1	0.494656	0.495282	0.494656				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	m6Anet	m6A	31041	m6Anet/mESCs_Mettl3_WT_transcripts_inference	0.998067	0.996134	0.997133	0.996134				ok
+RNA002	Mouse	Mouse_WT	mES_WT	m6Anet	m6A	29296	$RNAMODBENCH_LOCAL/raw/converted_callsets/m6Anet/mES_WT/mES_WT_m6Anet_remove_chr.txt	0.998464	0.995972	0.997576	0.995972				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	xPore	m6A	43485	xPore/mESCs_Mettl3_WT	0.998068	0.0995976	0.997286	0.0995976				ok
+RNA002	Mouse	Mouse_WT	mES_WT	xPore	m6A	60259	$RNAMODBENCH_LOCAL/raw/converted_callsets/xPore/mES_WT/mES_WT_xPore_remove_chr.txt	0.998407	0.147746	0.997312	0.147746				ok
+RNA002	Mouse	Mouse_WT	mESCs_Mettl3_WT	yanocomp	m6A	8749	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/mESCs_Mettl3_WT/mESCs_Mettl3_WT_result_yanocomp_remove_chr.txt	1	0.169048	1	0.169048				ok
+RNA002	Mouse	Mouse_WT	mES_WT	yanocomp	m6A	7226	$RNAMODBENCH_LOCAL/raw/converted_callsets/yanocomp/mES_WT/mES_WT_result_yanocomp_remove_chr.txt	1	0.298782	1	0.298782				ok
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_pseU_m6A_Psi	Psi	3829	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.0.0_pseU_m6A_pileup.bed	0.730739	0.0114913	0.632541	0.0114913	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all_Psi	Psi	3580	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.1.0_all_pileup.bed	0.746089	0.0103352	0.670391	0.0103352	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_pseU_m6A_Psi	Psi	3089	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.0.0_pseU_m6A_pileup.bed	0.833603	0.0077695	0.778893	0.0077695	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all_Psi	Psi	2998	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.1.0_all_pileup.bed	0.835223	0.00500334	0.78986	0.00500334	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	NanoPsu	Psi	4667	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/NanoPsu/prediction.csv	0.754446	0.00664238	0.646668	0.00664238	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	NanoSPA_psU	Psi	29	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/NanoSPA/prediction_psU.csv	0.517241	0.0344828	0.310345	0.0344828	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A_inosine	inosine	3387	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.1.0_inosine_m6A_pileup.bed	0.809566	0.0549159	0.73044	0.0549159	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A_inosine	inosine	2797	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.1.0_inosine_m6A_pileup.bed	0.903826	0.0647122	0.869146	0.0647122				warn_partial_offset
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all_m5C	m5C	3189	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.1.0_all_pileup.bed	0.788021	0.00156789	0.780182	0.00156789	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all_m5C	m5C	2675	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.1.0_all_pileup.bed	0.913645	0	0.91028	0				warn_partial_offset
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_m6A_DRACH	m6A	302	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.0.0_m6A_DRACH_pileup.bed	0.976821	0.639073	0.940397	0.639073				ok
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_pseU_m6A	m6A	3865	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.0.0_pseU_m6A_pileup.bed	0.780078	0.050194	0.655886	0.050194	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all	m6A	303	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.1.0_all_pileup.bed	0.973597	0.636964	0.927393	0.636964				ok
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	3773	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_hac@v5.1.0_inosine_m6A_pileup.bed	0.791413	0.051683	0.667904	0.051683	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_m6A_DRACH	m6A	229	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.0.0_m6A_DRACH_pileup.bed	0.991266	0.842795	0.969432	0.842795				ok
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_pseU_m6A	m6A	3171	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.0.0_pseU_m6A_pileup.bed	0.872911	0.0618102	0.795333	0.0618102	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all	m6A	236	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.1.0_all_pileup.bed	0.987288	0.813559	0.957627	0.813559				ok
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	3056	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/dorado_model/curlcake_004_rna004_130bps_sup@v5.1.0_inosine_m6A_pileup.bed	0.893979	0.0634817	0.821335	0.0634817	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	NanoSPA_m6A	m6A	23	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/NanoSPA/prediction_m6A.csv	0.782609	0.695652	0.73913	0.695652	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Curlcake	RNA004_Curlcake_IVT	Curlcake_RNA004_IVT	m6Anet	m6A	17	$RNAMODBENCH_LOCAL/raw/result_RNA004/Curlcake/raw_calls/RNA004_result/m6Anet/data.site_proba.csv	0.294118	0	0.294118	0	-2	0	-2:0.0,-1:0.0,0:0.0,1:0.0,2:0.0	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	608	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_hac@v5.0.0_pseU@v1_pileup.bed	0.251645	0	0.226974	0	1	0.3602	-2:0.1086,-1:0.3454,0:0.2434,1:0.3602,2:0.1217	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	137	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_hac@v5.1.0_pseU@v1_pileup.bed	0.525547	0	0.510949	0	-1	0.708	-2:0.2774,-1:0.708,0:0.5109,1:0.6934,2:0.3066	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	1455	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_sup@v5.0.0_pseU@v1_pileup.bed	0.675601	0.000687285	0.654983	0.000687285	0	0.6708	-2:0.1581,-1:0.2433,0:0.6708,1:0.244,2:0.1581	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	284	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_sup@v5.1.0_pseU@v1_pileup.bed	0.823944	0	0.820423	0	-1	0.8134	-2:0.3873,-1:0.8134,0:0.7993,1:0.7993,2:0.3908	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	NanoPsu	Psi	238	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoPsu/HeLa_IVT_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	NanoSPA_psU	Psi	247	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoSPA/HeLa_IVT_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	5	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_hac@v5.1.0_inosine_m6A#inosine@v1_pileup.bed	0	0	0	0	-2	0.4	-2:0.4,-1:0.2,0:0.0,1:0.0,2:0.4	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	18	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_sup@v5.1.0_inosine_m6A#inosine@v1_pileup.bed	0.388889	0	0.333333	0	-1	0.7222	-2:0.5556,-1:0.7222,0:0.3889,1:0.7222,2:0.6111	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	263	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_hac@v5.1.0_m5C@v1_pileup.bed	0.992395	0	0.992395	0				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	101	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_IVT_rna004_130bps_sup@v5.1.0_m5C@v1_pileup.bed	0.970297	0	0.960396	0				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_m6A@v1	m6A	14660	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_hac@v5.0.0_m6A@v1_pileup.bed	0.909345	0.0145975	0.888677	0.0145975				warn_partial_offset
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	10	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_hac@v5.0.0_m6A_DRACH@v1_pileup.bed	0.9	0	0.9	0				warn_partial_offset
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	130	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_hac@v5.1.0_inosine_m6A#m6A@v1_pileup.bed	0.784615	0	0.669231	0	0	0.7308	-2:0.3385,-1:0.3462,0:0.7308,1:0.3077,2:0.3308	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	11	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_hac@v5.1.0_m6A_DRACH@v1_pileup.bed	0.909091	0	0.909091	0				warn_partial_offset
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_m6A@v1	m6A	51898	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_sup@v5.0.0_m6A@v1_pileup.bed	0.928186	0.0176693	0.90491	0.0176693				warn_partial_offset
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	3	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_sup@v5.0.0_m6A_DRACH@v1_pileup.bed	0.666667	0.333333	0.666667	0.333333	0	0.6667	-2:0.3333,-1:0.3333,0:0.6667,1:0.6667,2:0.0	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	108	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_sup@v5.1.0_inosine_m6A#m6A@v1_pileup.bed	0.944444	0.00925926	0.935185	0.00925926				warn_partial_offset
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_IVT_rna004_130bps_sup@v5.1.0_m6A_DRACH@v1_pileup.bed	0.5	0.25	0.5	0.25	2	0.75	-2:0.25,-1:0.5,0:0.5,1:0.25,2:0.75	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	ELIGOS2_solo	m6A	2582	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ELIGOS2_solo/HeLa_IVT_RNA004_ELIGOS2_solo_remove_chr_processed.txt	1	0.0685515	1	0.0685515				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	NanoSPA_m6A	m6A	295	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoSPA/HeLa_IVT_NanoSPA_m6A_5mer.txt	1	0.745763	1	0.745763				ok
+RNA004	Human	RNA004_HeLa_IVT	HeLa_RNA004_IVT	m6Anet	m6A	21440	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/m6Anet/HeLa_IVT_RNA004_m6Anet_remove_chr.txt	1	0.999114	1	0.999114				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	392	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_hac@v5.0.0_pseU@v1_pileup.bed	0.734694	0	0.711735	0	0	0.7219	-2:0.3469,-1:0.5255,0:0.7219,1:0.523,2:0.3291	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	298	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_hac@v5.1.0_pseU@v1_pileup.bed	0.802013	0.00671141	0.788591	0.00671141	0	0.7987	-2:0.3758,-1:0.5671,0:0.7987,1:0.6007,2:0.3826	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	697	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_sup@v5.0.0_pseU@v1_pileup.bed	0.810617	0	0.787661	0	0	0.7934	-2:0.3501,-1:0.4864,0:0.7934,1:0.5108,2:0.363	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	678	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_sup@v5.1.0_pseU@v1_pileup.bed	0.910029	0	0.899705	0				warn_partial_offset
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	NanoPsu	Psi	76	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoPsu/HeLa_WT_NanoPsu_5mer.txt	1	0	1	0				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	NanoSPA_psU	Psi	76	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoSPA/HeLa_WT_NanoSPA_psU_5mer.txt	1	0	1	0				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	18	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_hac@v5.1.0_inosine_m6A#inosine@v1_pileup.bed	0.833333	0	0.833333	0	0	0.8333	-2:0.5,-1:0.3889,0:0.8333,1:0.3889,2:0.5	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	51	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_sup@v5.1.0_inosine_m6A#inosine@v1_pileup.bed	0.647059	0	0.627451	0	0	0.6471	-2:0.4902,-1:0.3725,0:0.6471,1:0.6275,2:0.4314	suspect_reference_mismatch
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	733	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_hac@v5.1.0_m5C@v1_pileup.bed	0.994543	0	0.989086	0				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	219	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_sup@v5.1.0_m5C@v1_pileup.bed	0.995434	0	0.995434	0				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	DRUMMER	m6A	334	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/DRUMMER/HeLa_WT_RNA004_DRUMMER_remove_chr.txt	1	0.131737	1	0.131737				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.0.0_m6A@v1	m6A	10032	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_hac@v5.0.0_m6A@v1_pileup.bed	0.975379	0.39703	0.957237	0.39703				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	4428	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_hac@v5.0.0_m6A_DRACH@v1_pileup.bed	0.998871	0.99187	0.998871	0.99187				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.1.0_inosine_m6A	m6A	3922	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_hac@v5.1.0_inosine_m6A#m6A@v1_pileup.bed	0.993626	0.934217	0.990821	0.934217				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	4108	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_hac@v5.1.0_m6A_DRACH@v1_pileup.bed	0.998783	0.99221	0.998783	0.99221				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.0.0_m6A@v1	m6A	11161	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_sup@v5.0.0_m6A@v1_pileup.bed	0.981632	0.437326	0.969268	0.437326				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	5008	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_sup@v5.0.0_m6A_DRACH@v1_pileup.bed	0.998802	0.99401	0.998602	0.99401				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.1.0_inosine_m6A	m6A	3919	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_sup@v5.1.0_inosine_m6A#m6A@v1_pileup.bed	0.998214	0.947691	0.997448	0.947691				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4329	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/m6A/HeLa_WT_rna004_130bps_sup@v5.1.0_m6A_DRACH@v1_pileup.bed	0.998845	0.994687	0.998845	0.994687				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	ELIGOS2_diff	m6A	780	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ELIGOS2_diff/HeLa_WT_RNA004_ELIGOS2_diff_remove_chr_processed.txt	1	0.0461538	1	0.0461538				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	ELIGOS2_solo	m6A	9389	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ELIGOS2_solo/HeLa_WT_RNA004_ELIGOS2_solo_remove_chr_processed.txt	1	0.0525083	1	0.0525083				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	NanoSPA_m6A	m6A	323	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoSPA/HeLa_WT_NanoSPA_m6A_5mer.txt	1	0.631579	1	0.631579				ok
+RNA004	Human	RNA004_HeLa_WT	HeLa_RNA004_WT	m6Anet	m6A	31879	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/m6Anet/HeLa_WT_RNA004_m6Anet_remove_chr.txt	1	0.999373	1	0.999373				ok

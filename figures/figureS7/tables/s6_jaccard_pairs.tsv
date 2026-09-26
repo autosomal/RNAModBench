@@ -1,0 +1,91 @@
+tool	display	mod_type	tool_class	comparison	unit_a	unit_b	jaccard_uni	jaccard_raw	basis
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_WT	HeLa_WT1	HeLa_WT2	0.0117236	0.0116427	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_WT	HeLa_WT1	HeLa_WT3	0.0191718	0.0188522	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_WT	HeLa_WT2	HeLa_WT3	0.0136413	0.0138221	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.0106624	0.0105184	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.0137192	0.0136503	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.0134389	0.0133506	each unit's own candidate universe
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep1	0.00837758	0.00719454	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep2	0.0101781	0.00835682	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep3	0.0150998	0.0129424	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep1	0.0102485	0.00847156	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep2	0.011353	0.00983074	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep3	0.0130076	0.0106313	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep1	0.00992336	0.00857048	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep2	0.0128879	0.0099985	shared candidate universe of the pair
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep3	0.0159011	0.0138169	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_WT	HeLa_WT1	HeLa_WT2	0.238928	0.236476	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_WT	HeLa_WT1	HeLa_WT3	0.302582	0.300275	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_WT	HeLa_WT2	HeLa_WT3	0.210359	0.207069	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.302372	0.301299	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.312533	0.311044	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.238487	0.236557	each unit's own candidate universe
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep1	0.266667	0.216313	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep2	0.242348	0.185579	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep3	0.26917	0.211709	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep1	0.264139	0.205839	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep2	0.260466	0.207457	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep3	0.270988	0.184649	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep1	0.247439	0.191854	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep2	0.236375	0.163347	shared candidate universe of the pair
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep3	0.282834	0.221282	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_WT	HeLa_WT1	HeLa_WT2	0.30745	0.304688	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_WT	HeLa_WT1	HeLa_WT3	0.379532	0.376104	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_WT	HeLa_WT2	HeLa_WT3	0.251733	0.247456	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.380629	0.378623	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.415923	0.4143	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.311457	0.309261	each unit's own candidate universe
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep1	0.33149	0.267552	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep2	0.305207	0.229916	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT1	HeLa_IVT_rep3	0.34669	0.268784	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep1	0.341794	0.258278	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep2	0.345439	0.270088	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT2	HeLa_IVT_rep3	0.353374	0.231656	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep1	0.317775	0.245858	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep2	0.293656	0.199724	shared candidate universe of the pair
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	cross	HeLa_WT3	HeLa_IVT_rep3	0.34459	0.266334	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	within_WT	HeLa_WT1	HeLa_WT2	0.330268	0.32781	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	within_WT	HeLa_WT1	HeLa_WT3	0.502291	0.500447	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	within_WT	HeLa_WT2	HeLa_WT3	0.326286	0.324029	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.552035	0.550008	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.351527	0.351474	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.331917	0.330677	each unit's own candidate universe
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT1	HeLa_IVT_rep1	0.211943	0.191406	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT1	HeLa_IVT_rep2	0.203271	0.184032	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT1	HeLa_IVT_rep3	0.281237	0.249297	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT2	HeLa_IVT_rep1	0.273922	0.23936	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT2	HeLa_IVT_rep2	0.278624	0.2491	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT2	HeLa_IVT_rep3	0.28439	0.225894	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT3	HeLa_IVT_rep1	0.200639	0.176754	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT3	HeLa_IVT_rep2	0.200843	0.17497	shared candidate universe of the pair
+NanoNm	NanoNm	Nm	Intermediate	cross	HeLa_WT3	HeLa_IVT_rep3	0.278756	0.240683	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	within_WT	HeLa_WT1	HeLa_WT2	0.137592	0.213605	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	within_WT	HeLa_WT1	HeLa_WT3	0.179104	0.258845	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	within_WT	HeLa_WT2	HeLa_WT3	0.125984	0.199442	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.106742	0.150442	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.0826772	0.130221	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.0761905	0.103448	each unit's own candidate universe
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep1	0.07109	0.0599002	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep2	0.0735931	0.0479651	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep3	0.0632184	0.0535714	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep1	0.0875912	0.0620957	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep2	0.0787879	0.0523256	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep3	0.076555	0.0514706	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep1	0.0795455	0.0614035	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep2	0.0810811	0.0551302	shared candidate universe of the pair
+NanoPsu	NanoPsu	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep3	0.0748299	0.0572034	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_WT	HeLa_WT1	HeLa_WT2	0.135593	0.207317	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_WT	HeLa_WT1	HeLa_WT3	0.179104	0.254174	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_WT	HeLa_WT2	HeLa_WT3	0.122137	0.198061	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep2	0.100817	0.141136	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_IVT	HeLa_IVT_rep1	HeLa_IVT_rep3	0.0846154	0.13285	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	within_IVT	HeLa_IVT_rep2	HeLa_IVT_rep3	0.0745342	0.101796	each unit's own candidate universe
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep1	0.07109	0.0577558	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep2	0.0732759	0.0462428	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT1	HeLa_IVT_rep3	0.0632184	0.0515873	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep1	0.0851064	0.0600255	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep2	0.0769231	0.0494253	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT2	HeLa_IVT_rep3	0.0754717	0.049635	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep1	0.0777778	0.0621762	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep2	0.0789474	0.0559758	shared candidate universe of the pair
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	cross	HeLa_WT3	HeLa_IVT_rep3	0.0733333	0.0588235	shared candidate universe of the pair

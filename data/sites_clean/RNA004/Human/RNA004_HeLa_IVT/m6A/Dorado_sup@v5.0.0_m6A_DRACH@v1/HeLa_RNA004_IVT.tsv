@@ -1,0 +1,3 @@
+chrom	start	end	strand	score	score_type	mod_label	src_coverage	coverage	ref_base	five_mer_raw	center_status	drach
+chr1	236484330	236484331	+	0.9895	percent_modified/100	m6A	1337	1	A	TGACC	ok	True
+chr10	120355086	120355087	-	0.95	percent_modified/100	m6A	20	40504	T	GATTC	ok	False

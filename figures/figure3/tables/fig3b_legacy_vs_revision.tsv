@@ -1,0 +1,13 @@
+species	tool	legacy_median_wt	legacy_median_trt	legacy_condition	legacy_n_common_sites	legacy_wilcoxon_p	legacy_basis	revision_median_wt_mean	revision_median_trt_mean	revision_median_diff_mean	revision_median_diff_sd	revision_units	revision_n_paired	legacy_text_median_wt	legacy_text_median_trt
+Arabidopsis	m6Anet	0.672722	0.620479	FIP37 KD	1957	3.75769e-53	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.382921	0.320932	0.0393858	0.0111661	rep1; rep2; rep3	6063	67.2	62
+Arabidopsis	MINES	0.4	0.375	FIP37 KD	24823	5.79884e-75	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.3887	0.380833	0.000733333	0.0129516	rep1; rep2; rep3	74225		
+Arabidopsis	Nanom6A	0.333333	0.307692	FIP37 KD	10365	6.37818e-109	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.377929	0.318326	0.0301537	0.0135896	rep1; rep2; rep3	24502		
+Arabidopsis	DENA	0.198312	0.186047	FIP37 KD	5594	7.38211e-19	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.197166	0.18874	0.003138	0.00534757	rep1; rep2; rep3	18875		
+Mouse	m6Anet	0.716243	0.628342	Mettl3 KO	14265	0	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.430357	0.340498	0.075416	0.0459634	studyB (SRP357195); studyA (SRP166020)	14917	71.6	62.8
+Mouse	MINES	0.4091	0.3929	Mettl3 KO	91642	2.05189e-64	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.3885	0.3846	-0.00365	0.010253	studyB (SRP357195); studyA (SRP166020)	86927		
+Mouse	Nanom6A	0.391892	0.334821	Mettl3 KO	14871	0	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.426804	0.379842	0.027563	0.000717006	studyB (SRP357195); studyA (SRP166020)	20604		
+Mouse	DENA	0.222222	0.185065	Mettl3 KO	20771	0	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.21256	0.182485	0.0176135	0.00952544	studyB (SRP357195); studyA (SRP166020)	23220		
+Human	m6Anet	0.6854	0.636885	IVT	5108	1.24594e-178	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.383557	0.348535	0.0273965	0.0116127	rep1; rep2; rep3	8229	68.5	63.9
+Human	MINES	0.4286	0.381	IVT	44448	0	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.402667	0.361433	0.0219167	0.00828799	rep1; rep2; rep3	68722		
+Human	Nanom6A	0.365301	0.309091	IVT	6918	1.0043e-296	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.361771	0.327709	0.0163363	0.0198647	rep1; rep2; rep3	22683		
+Human	DENA	0.208333	0.172414	IVT	9169	9.79532e-230	legacy notebook aggregate (single replicate, Modification_Ratio_comparison.csv)	0.203318	0.173938	0.0205782	0.0125487	rep1; rep2; rep3	17172		

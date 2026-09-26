@@ -1,0 +1,13 @@
+tool	display	mod_type	tool_class	condition	n_units	count_mean_raw	count_sd_raw	count_mean_in_universe	count_sd_in_universe	union_raw	union_in_universe	mean_union_ratio
+NanoNm	NanoNm	Nm	Intermediate	WT	3	2297	1073.01	2237	1035.81	4181	4061	0.535039
+NanoNm	NanoNm	Nm	Intermediate	IVT	3	3896.67	1761.43	3834.33	1728.51	6399	6287	0.599208
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	WT	3	6550.67	2519.73	6291.67	2375.1	13711	13121	0.458877
+NanoMUD_psi	NanoMUD-Ψ	Psi	FP-dominated	IVT	3	7452	2458.18	7265.33	2378.45	14794	14400	0.4911
+NanoPsu	NanoPsu	Psi	Sparse	WT	3	404.667	116.573	201.333	76.9567	883	488	0.228011
+NanoPsu	NanoPsu	Psi	Sparse	IVT	3	275.667	95.212	168	59.5567	678	436	0.247788
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	WT	3	405.333	117.347	204.333	81.4637	888	497	0.230105
+NanoSPA_psU	NanoSPA-Ψ	Psi	Sparse	IVT	3	280.667	97.3362	172	61.0246	694	448	0.247839
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	WT	3	20888.3	9626.09	19996.3	9052.4	40656	38757	0.491842
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	FP-dominated	IVT	3	23883.7	8645.74	23281.3	8334.87	43063	41876	0.540634
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	WT	3	16374.7	3977.51	15845	3827	47747	46198	0.331853
+CHEUI_m5C	CHEUI-m5C	m5C	FP-dominated	IVT	3	17474.7	8144	17129	7909.61	51171	50149	0.33474

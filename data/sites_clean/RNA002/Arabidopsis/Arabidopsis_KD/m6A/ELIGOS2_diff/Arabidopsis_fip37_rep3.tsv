@@ -1,0 +1,9 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+chr1	8079403	8079404	+	1.79892e-06	Padj	47	A	GCACC	ok	False
+chr1	26710713	26710714	-	1.07972e-08	Padj	56	T	CTTTG	ok	False
+chr2	13256693	13256694	+	4.0284e-05	Padj	13	A	TTACT	ok	False
+chr2	13851124	13851125	+	8.08971e-05	Padj	15	A	TCACA	ok	False
+chr3	8669793	8669794	+	9.76912e-05	Padj	10	A	GTACT	ok	False
+chr3	21113442	21113443	-	5.85378e-08	Padj	24	T	GATAG	ok	False
+chr4	820624	820625	-	5.77744e-05	Padj	14	T	GCTTC	ok	False
+chr5	25762465	25762466	-	7.08214e-05	Padj	8	T	TATAT	ok	False

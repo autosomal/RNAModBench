@@ -1,0 +1,165 @@
+platform	sample	mod_type	tool	family	mode	version	n_rows	n_sites	median_coverage
+RNA002	Curlcake_IVT_rep1	Nm	NanoNm				39	39	
+RNA002	Curlcake_IVT_rep1	Psi	NanoMUD_psi				0	0	
+RNA002	Curlcake_IVT_rep1	Psi	NanoPsu				0	0	
+RNA002	Curlcake_IVT_rep1	Psi	NanoSPA_psU				0	0	
+RNA002	Curlcake_IVT_rep1	m1Psi	NanoMUD_m1psi				89	89	5200
+RNA002	Curlcake_IVT_rep1	m6A	DENA				20	20	4135
+RNA002	Curlcake_IVT_rep1	m6A	ELIGOS2_solo				44	44	4012.5
+RNA002	Curlcake_IVT_rep1	m6A	EpiNano_Error				1	1	3883
+RNA002	Curlcake_IVT_rep1	m6A	MINES				72	72	5730.5
+RNA002	Curlcake_IVT_rep1	m6A	NanoSPA_m6A				31	31	3665
+RNA002	Curlcake_IVT_rep1	m6A	Nanocompore				8	8	6047.5
+RNA002	Curlcake_IVT_rep1	m6A	Nanom6A				1	1	5090
+RNA002	Curlcake_IVT_rep1	m6A	m6Anet				14	14	2828.5
+RNA002	Curlcake_IVT_rep1	m6A	xPore				15	15	3800
+RNA002	Curlcake_IVT_rep1	m6A	yanocomp				5	5	3322
+RNA002	Curlcake_IVT_rep2_partial	Nm	NanoNm				35	35	
+RNA002	Curlcake_IVT_rep2_partial	Psi	NanoMUD_psi				39	39	7746
+RNA002	Curlcake_IVT_rep2_partial	Psi	NanoPsu				1	1	7938
+RNA002	Curlcake_IVT_rep2_partial	Psi	NanoSPA_psU				1	1	7938
+RNA002	Curlcake_IVT_rep2_partial	m1Psi	NanoMUD_m1psi				97	97	7244
+RNA002	Curlcake_IVT_rep2_partial	m6A	DENA				19	19	6244
+RNA002	Curlcake_IVT_rep2_partial	m6A	ELIGOS2_solo				42	42	6475
+RNA002	Curlcake_IVT_rep2_partial	m6A	EpiNano_Error				1	1	6478
+RNA002	Curlcake_IVT_rep2_partial	m6A	MINES				74	74	5946.5
+RNA002	Curlcake_IVT_rep2_partial	m6A	NanoSPA_m6A				31	31	5884
+RNA002	Curlcake_IVT_rep2_partial	m6A	Nanocompore				8	8	4949
+RNA002	Curlcake_IVT_rep2_partial	m6A	Nanom6A				17	17	7055
+RNA002	Curlcake_IVT_rep2_partial	m6A	m6Anet				13	13	5978
+RNA002	Curlcake_IVT_rep2_partial	m6A	xPore				14	14	5792
+RNA002	Curlcake_IVT_rep2_partial	m6A	yanocomp				1	1	3765
+RNA002	Curlcake_IVT_rep3	Nm	NanoNm				36	36	
+RNA002	Curlcake_IVT_rep3	Psi	NanoMUD_psi				3	3	96208
+RNA002	Curlcake_IVT_rep3	Psi	NanoPsu				1	1	103614
+RNA002	Curlcake_IVT_rep3	Psi	NanoSPA_psU				1	1	103614
+RNA002	Curlcake_IVT_rep3	m1Psi	NanoMUD_m1psi				93	93	94657
+RNA002	Curlcake_IVT_rep3	m6A	DENA				14	14	96228.5
+RNA002	Curlcake_IVT_rep3	m6A	ELIGOS2_solo				42	42	84989
+RNA002	Curlcake_IVT_rep3	m6A	MINES				75	75	76274
+RNA002	Curlcake_IVT_rep3	m6A	NanoSPA_m6A				30	30	74639
+RNA002	Curlcake_IVT_rep3	m6A	Nanocompore				13	13	46949
+RNA002	Curlcake_IVT_rep3	m6A	Nanom6A				20	20	87684
+RNA002	Curlcake_IVT_rep3	m6A	m6Anet				12	12	76611.5
+RNA002	Curlcake_IVT_rep3	m6A	xPore				14	14	75910.5
+RNA002	HeLa_IVT_rep1	Nm	NanoNm				4677	4676	
+RNA002	HeLa_IVT_rep1	Psi	NanoMUD_psi				9873	7845	68
+RNA002	HeLa_IVT_rep1	Psi	NanoPsu				283	283	24
+RNA002	HeLa_IVT_rep1	Psi	NanoSPA_psU				290	290	24
+RNA002	HeLa_IVT_rep1	m1Psi	NanoMUD_m1psi				30047	22847	71
+RNA002	HeLa_IVT_rep1	m5C	CHEUI_m5C				10287	10222	92.5
+RNA002	HeLa_IVT_rep1	m6A	CHEUI_m6A				23853	23527	87
+RNA002	HeLa_IVT_rep1	m6A	DENA				20594	16121	73
+RNA002	HeLa_IVT_rep1	m6A	DRUMMER				19	19	927
+RNA002	HeLa_IVT_rep1	m6A	ELIGOS2_diff				27	27	17
+RNA002	HeLa_IVT_rep1	m6A	ELIGOS2_solo				45923	45923	53
+RNA002	HeLa_IVT_rep1	m6A	EpiNano_Error				33972	33972	36
+RNA002	HeLa_IVT_rep1	m6A	MINES				59684	42134	69
+RNA002	HeLa_IVT_rep1	m6A	NanoSPA_m6A				408	408	31
+RNA002	HeLa_IVT_rep1	m6A	Nanocompore				107	105	1161
+RNA002	HeLa_IVT_rep1	m6A	Nanom6A				12650	12644	165
+RNA002	HeLa_IVT_rep1	m6A	m6Anet				8007	5996	77
+RNA002	HeLa_IVT_rep1	m6A	xPore				35819	34645	96
+RNA002	HeLa_IVT_rep1	m6A	yanocomp				3569	3569	91
+RNA002	HeLa_IVT_rep2	Nm	NanoNm				5137	5134	
+RNA002	HeLa_IVT_rep2	Psi	NanoMUD_psi				11694	9690	68
+RNA002	HeLa_IVT_rep2	Psi	NanoPsu				367	367	26
+RNA002	HeLa_IVT_rep2	Psi	NanoSPA_psU				373	373	26
+RNA002	HeLa_IVT_rep2	m1Psi	NanoMUD_m1psi				41481	33001	69
+RNA002	HeLa_IVT_rep2	m5C	CHEUI_m5C				26558	26285	87
+RNA002	HeLa_IVT_rep2	m6A	CHEUI_m6A				37949	37544	86
+RNA002	HeLa_IVT_rep2	m6A	DENA				27978	22584	74
+RNA002	HeLa_IVT_rep2	m6A	DRUMMER				9	8	745.5
+RNA002	HeLa_IVT_rep2	m6A	ELIGOS2_diff				82	82	107
+RNA002	HeLa_IVT_rep2	m6A	ELIGOS2_solo				58353	58353	56
+RNA002	HeLa_IVT_rep2	m6A	EpiNano_Error				29312	29312	92
+RNA002	HeLa_IVT_rep2	m6A	MINES				86605	64266	73
+RNA002	HeLa_IVT_rep2	m6A	NanoSPA_m6A				227	227	30
+RNA002	HeLa_IVT_rep2	m6A	Nanocompore				63	59	1527
+RNA002	HeLa_IVT_rep2	m6A	Nanom6A				15085	15078	220
+RNA002	HeLa_IVT_rep2	m6A	m6Anet				14954	11536	78
+RNA002	HeLa_IVT_rep2	m6A	xPore				26693	25623	207
+RNA002	HeLa_IVT_rep2	m6A	yanocomp				1867	1867	178
+RNA002	HeLa_IVT_rep3	Nm	NanoNm				1880	1880	
+RNA002	HeLa_IVT_rep3	Psi	NanoMUD_psi				5781	4821	60
+RNA002	HeLa_IVT_rep3	Psi	NanoPsu				177	177	24
+RNA002	HeLa_IVT_rep3	Psi	NanoSPA_psU				179	179	25
+RNA002	HeLa_IVT_rep3	m1Psi	NanoMUD_m1psi				19549	15803	59
+RNA002	HeLa_IVT_rep3	m5C	CHEUI_m5C				16129	15917	81
+RNA002	HeLa_IVT_rep3	m6A	CHEUI_m6A				13587	13473	76
+RNA002	HeLa_IVT_rep3	m6A	DENA				10881	9009	62
+RNA002	HeLa_IVT_rep3	m6A	DRUMMER				75	69	1190
+RNA002	HeLa_IVT_rep3	m6A	ELIGOS2_diff				72	72	29
+RNA002	HeLa_IVT_rep3	m6A	ELIGOS2_solo				22995	22995	50
+RNA002	HeLa_IVT_rep3	m6A	EpiNano_Error				20905	20905	33
+RNA002	HeLa_IVT_rep3	m6A	MINES				39902	30215	61
+RNA002	HeLa_IVT_rep3	m6A	NanoSPA_m6A				230	230	30
+RNA002	HeLa_IVT_rep3	m6A	Nanocompore				219	201	857
+RNA002	HeLa_IVT_rep3	m6A	Nanom6A				11436	11431	102
+RNA002	HeLa_IVT_rep3	m6A	m6Anet				5730	4528	68
+RNA002	HeLa_IVT_rep3	m6A	xPore				28087	27252	71
+RNA002	HeLa_IVT_rep3	m6A	yanocomp				3504	3504	89
+RNA004	Curlcake_RNA004_IVT	Psi	Dorado_hac@v5.0.0_pseU_m6A_Psi	pseU_m6A_Psi	hac	v5.0.0	2422	2422	7358.5
+RNA004	Curlcake_RNA004_IVT	Psi	Dorado_hac@v5.1.0_all_Psi	all_Psi	hac	v5.1.0	2400	2400	7320.5
+RNA004	Curlcake_RNA004_IVT	Psi	Dorado_sup@v5.0.0_pseU_m6A_Psi	pseU_m6A_Psi	sup	v5.0.0	2406	2406	7530
+RNA004	Curlcake_RNA004_IVT	Psi	Dorado_sup@v5.1.0_all_Psi	all_Psi	sup	v5.1.0	2368	2368	7474.5
+RNA004	Curlcake_RNA004_IVT	Psi	NanoPsu				3018	3018	7985
+RNA004	Curlcake_RNA004_IVT	Psi	NanoSPA_psU				9	9	38
+RNA004	Curlcake_RNA004_IVT	inosine	Dorado_hac@v5.1.0_inosine_m6A_inosine	inosine_m6A_inosine	hac	v5.1.0	2474	2474	7192.5
+RNA004	Curlcake_RNA004_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_inosine	inosine_m6A_inosine	sup	v5.1.0	2431	2431	7320
+RNA004	Curlcake_RNA004_IVT	m5C	Dorado_hac@v5.1.0_all_m5C	all_m5C	hac	v5.1.0	2488	2488	7228
+RNA004	Curlcake_RNA004_IVT	m5C	Dorado_sup@v5.1.0_all_m5C	all_m5C	sup	v5.1.0	2435	2435	7368
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH	m6A_DRACH	hac	v5.0.0	284	284	6662.5
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_hac@v5.0.0_pseU_m6A	pseU_m6A	hac	v5.0.0	2535	2535	7225
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_hac@v5.1.0_all	all	hac	v5.1.0	281	281	6608
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	inosine_m6A	hac	v5.1.0	2520	2520	7188.5
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH	m6A_DRACH	sup	v5.0.0	222	222	7188.5
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_sup@v5.0.0_pseU_m6A	pseU_m6A	sup	v5.0.0	2522	2522	7350
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_sup@v5.1.0_all	all	sup	v5.1.0	226	226	7202.5
+RNA004	Curlcake_RNA004_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	inosine_m6A	sup	v5.1.0	2510	2510	7324
+RNA004	Curlcake_RNA004_IVT	m6A	NanoSPA_m6A				17	17	56992
+RNA004	Curlcake_RNA004_IVT	m6A	m6Anet				5	5	310
+RNA004	HeLa_RNA004_IVT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	pseU@v1	hac	v5.0.0	138	138	69
+RNA004	HeLa_RNA004_IVT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	pseU@v1	hac	v5.1.0	70	70	47.5
+RNA004	HeLa_RNA004_IVT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	pseU@v1	sup	v5.0.0	953	953	6
+RNA004	HeLa_RNA004_IVT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	pseU@v1	sup	v5.1.0	233	233	50
+RNA004	HeLa_RNA004_IVT	Psi	NanoPsu				238	238	34
+RNA004	HeLa_RNA004_IVT	Psi	NanoSPA_psU				247	247	34
+RNA004	HeLa_RNA004_IVT	inosine	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine_m6A	hac	v5.1.0	0	0	
+RNA004	HeLa_RNA004_IVT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine_m6A	sup	v5.1.0	6	6	2808
+RNA004	HeLa_RNA004_IVT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C@v1	hac	v5.1.0	261	261	60
+RNA004	HeLa_RNA004_IVT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C@v1	sup	v5.1.0	97	97	102
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	hac	v5.0.0	13028	13028	52
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A_DRACH	hac	v5.0.0	9	9	4508
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_hac@v5.1.0_inosine_m6A	inosine_m6A	hac	v5.1.0	87	87	51
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A_DRACH	hac	v5.1.0	10	10	786
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	sup	v5.0.0	46963	46963	49
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A_DRACH	sup	v5.0.0	2	2	20252.5
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_sup@v5.1.0_inosine_m6A	inosine_m6A	sup	v5.1.0	101	101	60
+RNA004	HeLa_RNA004_IVT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A_DRACH	sup	v5.1.0	2	2	15586
+RNA004	HeLa_RNA004_IVT	m6A	ELIGOS2_solo				2582	2582	26
+RNA004	HeLa_RNA004_IVT	m6A	NanoSPA_m6A				295	295	30
+RNA004	HeLa_RNA004_IVT	m6A	m6Anet				21440	18758	151
+RNA004	HeLa_RNA004_WT	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	pseU@v1	hac	v5.0.0	279	279	135
+RNA004	HeLa_RNA004_WT	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	pseU@v1	hac	v5.1.0	235	235	174
+RNA004	HeLa_RNA004_WT	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	pseU@v1	sup	v5.0.0	549	549	145
+RNA004	HeLa_RNA004_WT	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	pseU@v1	sup	v5.1.0	610	610	112
+RNA004	HeLa_RNA004_WT	Psi	NanoPsu				76	76	100
+RNA004	HeLa_RNA004_WT	Psi	NanoSPA_psU				76	76	138.5
+RNA004	HeLa_RNA004_WT	inosine	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine_m6A	hac	v5.1.0	15	15	41
+RNA004	HeLa_RNA004_WT	inosine	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine_m6A	sup	v5.1.0	32	32	61.5
+RNA004	HeLa_RNA004_WT	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C@v1	hac	v5.1.0	725	725	65
+RNA004	HeLa_RNA004_WT	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C@v1	sup	v5.1.0	218	218	79
+RNA004	HeLa_RNA004_WT	m6A	DRUMMER				334	296	173.5
+RNA004	HeLa_RNA004_WT	m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	hac	v5.0.0	9603	9603	36
+RNA004	HeLa_RNA004_WT	m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A_DRACH	hac	v5.0.0	4423	4423	53
+RNA004	HeLa_RNA004_WT	m6A	Dorado_hac@v5.1.0_inosine_m6A	inosine_m6A	hac	v5.1.0	3886	3886	51
+RNA004	HeLa_RNA004_WT	m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A_DRACH	hac	v5.1.0	4103	4103	53
+RNA004	HeLa_RNA004_WT	m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	sup	v5.0.0	10818	10818	37
+RNA004	HeLa_RNA004_WT	m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A_DRACH	sup	v5.0.0	5001	5001	51
+RNA004	HeLa_RNA004_WT	m6A	Dorado_sup@v5.1.0_inosine_m6A	inosine_m6A	sup	v5.1.0	3909	3909	49
+RNA004	HeLa_RNA004_WT	m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A_DRACH	sup	v5.1.0	4324	4324	51
+RNA004	HeLa_RNA004_WT	m6A	ELIGOS2_diff				780	780	41
+RNA004	HeLa_RNA004_WT	m6A	ELIGOS2_solo				9389	9389	40
+RNA004	HeLa_RNA004_WT	m6A	NanoSPA_m6A				323	323	29
+RNA004	HeLa_RNA004_WT	m6A	m6Anet				31879	30327	90

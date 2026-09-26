@@ -1,0 +1,5 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+chromosome	9104	9105	+	0.00717524	Pvalue	337	A	CAATG	ok	False
+chromosome	13294	13295	+	0.0184575	Pvalue	183	A	TCAGG	ok	False
+chromosome	788064	788065	-	0.0260583	Pvalue	60	T	CTTTC	ok	False
+chromosome	4249204	4249205	+	0.0152909	Pvalue	600	A	CAACG	ok	False

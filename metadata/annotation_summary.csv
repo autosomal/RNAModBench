@@ -1,0 +1,14 @@
+sample	tool	mod_type	rows	pct_ref_base_found	pct_expected_base_at_raw	pct_is_drach_center	median_abs_dist_center	median_coverage	pct_glori_exact	cov_source
+mESCs_Mettl3_WT	CHEUI_m6A	m6A	14518	100	100	8.25183	0	56	0.778344	nanom6a_bam
+mESCs_Mettl3_WT	DENA	m6A	36904	100	100	99.7615	0	87	18.7188	nanom6a_bam
+mESCs_Mettl3_WT	DRUMMER	m6A	564	100	100	57.2695	0	448.5	45.7447	nanom6a_bam
+mESCs_Mettl3_WT	ELIGOS2_diff	m6A	823	100	100	62.3329	0	262	45.808	nanom6a_bam
+mESCs_Mettl3_WT	ELIGOS2_solo	m6A	74653	100	100	11.674	0	56	4.20345	nanom6a_bam
+mESCs_Mettl3_WT	EpiNano_Error	m6A	17186	100	100	13.0804	0	88	5.47539	nanom6a_bam
+mESCs_Mettl3_WT	MINES	m6A	90744	100	100	99.7697	0	97	10.901	nanom6a_bam
+mESCs_Mettl3_WT	NanoSPA_m6A	m6A	4178	100	100	77.9799	0	34	39.5883	nanom6a_bam
+mESCs_Mettl3_WT	Nanocompore	m6A	920	100	100	35.3261	0		28.913	src_coverage(Nanocompore)
+mESCs_Mettl3_WT	Nanom6A	m6A	10963	100	100	83.6267	0	410	9.0395	nanom6a_bam
+mESCs_Mettl3_WT	m6Anet	m6A	30952	100	100	99.8998	0	96	34.2821	nanom6a_bam
+mESCs_Mettl3_WT	xPore	m6A	43367	100	100	9.98686	0	200	3.04148	nanom6a_bam
+mESCs_Mettl3_WT	yanocomp	m6A	8749	100	100	16.9048	0	316	8.92673	nanom6a_bam

@@ -1,0 +1,9 @@
+data:
+   ko:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/mESCs_Mettl3_KO_transcripts
+   wt:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xPore/mESCs_Mettl3_WT_transcripts
+out: $RNAMODBENCH_LOCAL/raw/result/xPore/mESCs_Mettl3_WT
+criteria:
+   readcount_min: 20
+   readcount_max: 2000000

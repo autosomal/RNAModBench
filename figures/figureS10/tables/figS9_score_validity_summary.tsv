@@ -1,0 +1,7 @@
+block	slot	mod	model	label	n_WT	n_IVT	median_score_WT	median_score_IVT	auc_WT_vs_IVT	p_mannwhitney	frac_ge_0p99_WT	frac_ge_0p99_IVT	median_coverage_WT	median_coverage_IVT	verdict
+A	R1C1	Psi	Dorado_hac@v5.0.0_pseU@v1_otherMod	hac@v5.0.0_pseU	279	138	0.929	0.9298	0.4767	0.43866843968767977	0.06451612903225806	0.14492753623188406	135.0	69.0	no discrimination
+A	R1C2	Psi	Dorado_hac@v5.1.0_pseU@v1_otherMod	hac@v5.1.0_pseU	235	70	0.9333	0.92505	0.5799	0.042350244214510495	0.05531914893617021	0.014285714285714285	174.0	47.5	no discrimination
+A	R1C3	Psi	Dorado_sup@v5.0.0_pseU@v1_otherMod	sup@v5.0.0_pseU	549	953	0.949	1.0	0.2394	1.5345060566638211e-68	0.14754098360655737	0.633788037775446	145.0	6.0	inverted (unmodified control scores higher)
+A	R2C1	Psi	Dorado_sup@v5.1.0_pseU@v1_otherMod	sup@v5.1.0_pseU	610	233	0.9348	0.921	0.6074	1.3693062535776382e-06	0.05573770491803279	0.02575107296137339	112.0	50.0	wild type scores higher
+A	R2C2	m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	hac@v5.1.0_m5C	725	261	0.9302	0.9259	0.5486	0.019596248818386303	0.05931034482758621	0.05363984674329502	65.0	60.0	no discrimination
+A	R2C3	m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	sup@v5.1.0_m5C	218	97	0.9319	0.9333	0.5036	0.919391786374741	0.05045871559633028	0.05154639175257732	79.0	102.0	no discrimination

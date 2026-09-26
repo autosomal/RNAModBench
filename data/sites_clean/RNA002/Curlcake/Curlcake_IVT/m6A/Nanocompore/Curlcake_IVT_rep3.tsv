@@ -1,0 +1,14 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake1	270	271	+	0.0285494	Pvalue	12953	A	ACACC	ok	False
+Curlcake1	357	358	+	0.0208481	Pvalue	13877	A	CAACC	ok	False
+Curlcake1	687	688	+	0.0143463	Pvalue	16309	A	GGACT	ok	True
+Curlcake1	2218	2219	+	5.03303e-16	Pvalue	48101	A	ATAAA	ok	False
+Curlcake1	2227	2228	+	4.33194e-12	Pvalue	46949	A	GCAAA	ok	False
+Curlcake1	2229	2230	+	4.45955e-49	Pvalue	45162	A	AAAAC	ok	False
+Curlcake1	2230	2231	+	1.77676e-08	Pvalue	44661	A	AAACA	ok	True
+Curlcake1	2232	2233	+	7.74068e-05	Pvalue	44610	A	ACAGC	ok	False
+Curlcake4	2258	2259	+	0.000176992	Pvalue	126732	A	ACAGG	ok	False
+Curlcake2	431	432	+	0.0111444	Pvalue	77467	A	TAACT	ok	True
+Curlcake2	1441	1442	+	0.000104941	Pvalue	106024	A	ACAAG	ok	False
+Curlcake2	2479	2480	+	6.88364e-12	Pvalue	112648	A	CAAAT	ok	False
+Curlcake2	2486	2487	+	9.87382e-14	Pvalue	80966	A	TAATT	ok	False

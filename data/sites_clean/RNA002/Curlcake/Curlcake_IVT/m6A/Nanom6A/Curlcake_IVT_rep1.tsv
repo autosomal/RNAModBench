@@ -1,0 +1,2 @@
+chrom	start	end	strand	score	score_type	coverage	ref_base	five_mer_raw	center_status	drach
+Curlcake2	2476	2477	+	0.10976	mod_ratio	5090	A	AGACA	ok	True

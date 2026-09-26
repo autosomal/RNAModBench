@@ -1,0 +1,3 @@
+scope	n_within_species_pairs	n_same_tool_pairs	median_within	median_across	mean_within	mean_across	U	p_one_sided_less	p_two_sided
+all four species	289	72	1.0	2.5	1.1730103806228374	2.1527777777777777	6999.5	3.5871544676473164e-06	7.174308935294633e-06
+three species (panel A/C/D scope)	234	39	1.0	3.0	1.4059829059829059	2.871794871794872	2158.0	3.156469276471727e-08	6.312938552943454e-08

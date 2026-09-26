@@ -1,0 +1,553 @@
+quantity	s6_value	r39_value	rel_diff	status	note
+NanoNm/WT union raw	4181	4181	0	OK	
+NanoNm/WT union in-universe	4061	4061	0	OK	
+NanoNm/IVT union raw	6399	6399	0	OK	
+NanoNm/IVT union in-universe	6287	6287	0	OK	
+NanoMUD_psi/WT union raw	13711	13711	0	OK	
+NanoMUD_psi/WT union in-universe	13121	13121	0	OK	
+NanoMUD_psi/IVT union raw	14794	14794	0	OK	
+NanoMUD_psi/IVT union in-universe	14400	14400	0	OK	
+NanoPsu/WT union raw	883	883	0	OK	
+NanoPsu/WT union in-universe	488	488	0	OK	
+NanoPsu/IVT union raw	678	678	0	OK	
+NanoPsu/IVT union in-universe	436	436	0	OK	
+NanoSPA_psU/WT union raw	888	888	0	OK	
+NanoSPA_psU/WT union in-universe	497	497	0	OK	
+NanoSPA_psU/IVT union raw	694	694	0	OK	
+NanoSPA_psU/IVT union in-universe	448	448	0	OK	
+NanoMUD_m1psi/WT union raw	40656	40656	0	OK	
+NanoMUD_m1psi/WT union in-universe	38757	38757	0	OK	
+NanoMUD_m1psi/IVT union raw	43063	43063	0	OK	
+NanoMUD_m1psi/IVT union in-universe	41876	41876	0	OK	
+CHEUI_m5C/WT union raw	47747	47747	0	OK	
+CHEUI_m5C/WT union in-universe	46198	46198	0	OK	
+CHEUI_m5C/IVT union raw	51171	51171	0	OK	
+CHEUI_m5C/IVT union in-universe	50149	50149	0	OK	
+CHEUI_m5C/ratio union raw (Table S5 basis)	1.07171	1.07171	0	OK	
+CHEUI_m5C/ratio mean-of-counts	1.08104	1.08104	0	OK	
+NanoMUD_psi/ratio union raw (Table S5 basis)	1.07899	1.07899	0	OK	
+NanoMUD_psi/ratio mean-of-counts	1.15475	1.15475	0	OK	
+NanoMUD_m1psi/ratio union raw (Table S5 basis)	1.0592	1.0592	2.09633e-16	OK	
+NanoMUD_m1psi/ratio mean-of-counts	1.16428	1.16428	1.90714e-16	OK	
+NanoNm/ratio union raw (Table S5 basis)	1.5305	1.5305	0	OK	
+NanoNm/ratio mean-of-counts	1.71405	1.71405	0	OK	
+NanoPsu/ratio union raw (Table S5 basis)	0.767837	0.767837	0	OK	
+NanoPsu/ratio mean-of-counts	0.834437	0.834437	0	OK	
+NanoSPA_psU/ratio union raw (Table S5 basis)	0.781532	0.781532	0	OK	
+NanoSPA_psU/ratio mean-of-counts	0.841762	0.841762	0	OK	
+CHEUI_m5C/within WT global Jaccard raw	0.000523593	0.000523593	1.70211e-13	OK	
+CHEUI_m5C/within WT global Jaccard uni	0.000541149	0.000541149	1.29427e-13	OK	
+CHEUI_m5C/within WT pairwise Jaccard raw	0.0147723	0.0147723	1.87889e-15	OK	
+CHEUI_m5C/within WT pairwise Jaccard uni	0.0148456	0.0148456	3.38868e-15	OK	
+CHEUI_m5C/within IVT global Jaccard raw	0.000683981	0.000683981	1.29505e-13	OK	
+CHEUI_m5C/within IVT global Jaccard uni	0.00069792	0.00069792	3.54192e-14	OK	
+CHEUI_m5C/within IVT pairwise Jaccard raw	0.0125065	0.0125065	0	OK	
+CHEUI_m5C/within IVT pairwise Jaccard uni	0.0126068	0.0126068	3.57765e-15	OK	
+NanoMUD_psi/within WT global Jaccard raw	0.125593	0.125593	2.20997e-16	OK	
+NanoMUD_psi/within WT global Jaccard uni	0.127658	0.127658	0	OK	
+NanoMUD_psi/within WT pairwise Jaccard raw	0.24794	0.24794	1.11945e-16	OK	
+NanoMUD_psi/within WT pairwise Jaccard uni	0.250623	0.250623	0	OK	
+NanoMUD_psi/within IVT global Jaccard raw	0.154049	0.154049	1.80174e-16	OK	
+NanoMUD_psi/within IVT global Jaccard uni	0.155417	0.155417	5.35764e-16	OK	
+NanoMUD_psi/within IVT pairwise Jaccard raw	0.282967	0.282967	1.96175e-16	OK	
+NanoMUD_psi/within IVT pairwise Jaccard uni	0.284464	0.284464	1.95143e-16	OK	
+NanoMUD_m1psi/within WT global Jaccard raw	0.170209	0.170209	4.89204e-16	OK	
+NanoMUD_m1psi/within WT global Jaccard uni	0.173336	0.173336	3.20251e-16	OK	
+NanoMUD_m1psi/within WT pairwise Jaccard raw	0.309416	0.309416	0	OK	
+NanoMUD_m1psi/within WT pairwise Jaccard uni	0.312905	0.312905	0	OK	
+NanoMUD_m1psi/within IVT global Jaccard raw	0.222929	0.222929	1.24504e-16	OK	
+NanoMUD_m1psi/within IVT global Jaccard uni	0.224663	0.224663	1.23543e-16	OK	
+NanoMUD_m1psi/within IVT pairwise Jaccard raw	0.367395	0.367395	0	OK	
+NanoMUD_m1psi/within IVT pairwise Jaccard uni	0.369337	0.369337	1.503e-16	OK	
+NanoNm/within WT global Jaccard raw	0.23248	0.23248	2.38778e-16	OK	
+NanoNm/within WT global Jaccard uni	0.234671	0.234671	1.18274e-16	OK	
+NanoNm/within WT pairwise Jaccard raw	0.384096	0.384096	1.44524e-16	OK	
+NanoNm/within WT pairwise Jaccard uni	0.386282	0.386282	0	OK	
+NanoNm/within IVT global Jaccard raw	0.255977	0.255977	0	OK	
+NanoNm/within IVT global Jaccard uni	0.256879	0.256879	0	OK	
+NanoNm/within IVT pairwise Jaccard raw	0.41072	0.41072	1.35156e-16	OK	
+NanoNm/within IVT pairwise Jaccard uni	0.411826	0.411826	1.34793e-16	OK	
+NanoPsu/within WT global Jaccard raw	0.12231	0.12231	2.26928e-16	OK	
+NanoPsu/within WT global Jaccard uni	0.0737705	0.0737705	1.12873e-15	OK	
+NanoPsu/within WT pairwise Jaccard raw	0.223964	0.223964	2.47857e-16	OK	
+NanoPsu/within WT pairwise Jaccard uni	0.14756	0.14756	5.6429e-16	OK	
+NanoPsu/within IVT global Jaccard raw	0.0589971	0.0589971	4.70457e-16	OK	
+NanoPsu/within IVT global Jaccard uni	0.0344037	0.0344037	1.21014e-15	OK	
+NanoPsu/within IVT pairwise Jaccard raw	0.128037	0.128037	0	OK	
+NanoPsu/within IVT pairwise Jaccard uni	0.0885364	0.0885364	3.13493e-16	OK	
+NanoSPA_psU/within WT global Jaccard raw	0.118243	0.118243	3.52099e-16	OK	
+NanoSPA_psU/within WT global Jaccard uni	0.0724346	0.0724346	7.66362e-16	OK	
+NanoSPA_psU/within WT pairwise Jaccard raw	0.219851	0.219851	2.52495e-16	OK	
+NanoSPA_psU/within WT pairwise Jaccard uni	0.145612	0.145612	0	OK	
+NanoSPA_psU/within IVT global Jaccard raw	0.0576369	0.0576369	1.08351e-15	OK	
+NanoSPA_psU/within IVT global Jaccard uni	0.0334821	0.0334821	1.65793e-15	OK	
+NanoSPA_psU/within IVT pairwise Jaccard raw	0.125261	0.125261	4.43164e-16	OK	
+NanoSPA_psU/within IVT pairwise Jaccard uni	0.0866557	0.0866557	4.80446e-16	OK	
+CHEUI_m5C/pairs mean Jaccard within WT (universe basis)	0.0148456	0.0148456	3.38868e-15	OK	
+CHEUI_m5C/pairs mean Jaccard within WT (raw)	0.0147723	0.0147723	1.87889e-15	OK	
+CHEUI_m5C/pairs mean Jaccard within IVT (universe basis)	0.0126068	0.0126068	3.57765e-15	OK	
+CHEUI_m5C/pairs mean Jaccard within IVT (raw)	0.0125065	0.0125065	0	OK	
+CHEUI_m5C/pairs mean Jaccard WT x IVT (shared universe)	0.0118863	0.0118863	0	OK	
+CHEUI_m5C/pairs mean Jaccard WT x IVT (raw)	0.00997925	0.00997925	0	OK	
+NanoMUD_psi/pairs mean Jaccard within WT (universe basis)	0.250623	0.250623	0	OK	
+NanoMUD_psi/pairs mean Jaccard within WT (raw)	0.24794	0.24794	1.11945e-16	OK	
+NanoMUD_psi/pairs mean Jaccard within IVT (universe basis)	0.284464	0.284464	1.95143e-16	OK	
+NanoMUD_psi/pairs mean Jaccard within IVT (raw)	0.282967	0.282967	1.96175e-16	OK	
+NanoMUD_psi/pairs mean Jaccard WT x IVT (shared universe)	0.260047	0.260047	0	OK	
+NanoMUD_psi/pairs mean Jaccard WT x IVT (raw)	0.19867	0.19867	0	OK	
+NanoMUD_m1psi/pairs mean Jaccard within WT (universe basis)	0.312905	0.312905	0	OK	
+NanoMUD_m1psi/pairs mean Jaccard within WT (raw)	0.309416	0.309416	0	OK	
+NanoMUD_m1psi/pairs mean Jaccard within IVT (universe basis)	0.369337	0.369337	1.503e-16	OK	
+NanoMUD_m1psi/pairs mean Jaccard within IVT (raw)	0.367395	0.367395	0	OK	
+NanoMUD_m1psi/pairs mean Jaccard WT x IVT (shared universe)	0.331113	0.331113	0	OK	
+NanoMUD_m1psi/pairs mean Jaccard WT x IVT (raw)	0.248688	0.248688	0	OK	
+NanoNm/pairs mean Jaccard within WT (universe basis)	0.386282	0.386282	0	OK	
+NanoNm/pairs mean Jaccard within WT (raw)	0.384096	0.384096	1.44524e-16	OK	
+NanoNm/pairs mean Jaccard within IVT (universe basis)	0.411826	0.411826	1.34793e-16	OK	
+NanoNm/pairs mean Jaccard within IVT (raw)	0.41072	0.41072	1.35156e-16	OK	
+NanoNm/pairs mean Jaccard WT x IVT (shared universe)	0.245958	0.245958	0	OK	
+NanoNm/pairs mean Jaccard WT x IVT (raw)	0.21461	0.21461	0	OK	
+NanoPsu/pairs mean Jaccard within WT (universe basis)	0.14756	0.14756	5.6429e-16	OK	
+NanoPsu/pairs mean Jaccard within WT (raw)	0.223964	0.223964	2.47857e-16	OK	
+NanoPsu/pairs mean Jaccard within IVT (universe basis)	0.0885364	0.0885364	3.13493e-16	OK	
+NanoPsu/pairs mean Jaccard within IVT (raw)	0.128037	0.128037	0	OK	
+NanoPsu/pairs mean Jaccard WT x IVT (shared universe)	0.0762547	0.0762547	0	OK	
+NanoPsu/pairs mean Jaccard WT x IVT (raw)	0.055674	0.055674	0	OK	
+NanoSPA_psU/pairs mean Jaccard within WT (universe basis)	0.145612	0.145612	0	OK	
+NanoSPA_psU/pairs mean Jaccard within WT (raw)	0.219851	0.219851	2.52495e-16	OK	
+NanoSPA_psU/pairs mean Jaccard within IVT (universe basis)	0.0866557	0.0866557	4.80446e-16	OK	
+NanoSPA_psU/pairs mean Jaccard within IVT (raw)	0.125261	0.125261	4.43164e-16	OK	
+NanoSPA_psU/pairs mean Jaccard WT x IVT (shared universe)	0.075016	0.075016	0	OK	
+NanoSPA_psU/pairs mean Jaccard WT x IVT (raw)	0.0546275	0.0546275	0	OK	
+CHEUI_m5C/WT k=1 sites	44886	44886	0	OK	
+CHEUI_m5C/WT k=2 sites	1287	1287	0	OK	
+CHEUI_m5C/WT k=3 sites	25	25	0	OK	
+CHEUI_m5C/IVT k=1 sites	48946	48946	0	OK	
+CHEUI_m5C/IVT k=2 sites	1168	1168	0	OK	
+CHEUI_m5C/IVT k=3 sites	35	35	0	OK	
+NanoMUD_psi/WT k=1 sites	9042	9042	0	OK	
+NanoMUD_psi/WT k=2 sites	2404	2404	0	OK	
+NanoMUD_psi/WT k=3 sites	1675	1675	0	OK	
+NanoMUD_psi/IVT k=1 sites	9242	9242	0	OK	
+NanoMUD_psi/IVT k=2 sites	2920	2920	0	OK	
+NanoMUD_psi/IVT k=3 sites	2238	2238	0	OK	
+NanoMUD_m1psi/WT k=1 sites	24243	24243	0	OK	
+NanoMUD_m1psi/WT k=2 sites	7796	7796	0	OK	
+NanoMUD_m1psi/WT k=3 sites	6718	6718	0	OK	
+NanoMUD_m1psi/IVT k=1 sites	23316	23316	0	OK	
+NanoMUD_m1psi/IVT k=2 sites	9152	9152	0	OK	
+NanoMUD_m1psi/IVT k=3 sites	9408	9408	0	OK	
+NanoNm/WT k=1 sites	2364	2364	0	OK	
+NanoNm/WT k=2 sites	744	744	0	OK	
+NanoNm/WT k=3 sites	953	953	0	OK	
+NanoNm/IVT k=1 sites	2686	2686	0	OK	
+NanoNm/IVT k=2 sites	1986	1986	0	OK	
+NanoNm/IVT k=3 sites	1615	1615	0	OK	
+NanoPsu/WT k=1 sites	408	408	0	OK	
+NanoPsu/WT k=2 sites	44	44	0	OK	
+NanoPsu/WT k=3 sites	36	36	0	OK	
+NanoPsu/IVT k=1 sites	383	383	0	OK	
+NanoPsu/IVT k=2 sites	38	38	0	OK	
+NanoPsu/IVT k=3 sites	15	15	0	OK	
+NanoSPA_psU/WT k=1 sites	417	417	0	OK	
+NanoSPA_psU/WT k=2 sites	44	44	0	OK	
+NanoSPA_psU/WT k=3 sites	36	36	0	OK	
+NanoSPA_psU/IVT k=1 sites	395	395	0	OK	
+NanoSPA_psU/IVT k=2 sites	38	38	0	OK	
+NanoSPA_psU/IVT k=3 sites	15	15	0	OK	
+CHEUI_m5C/HeLa_WT1 histogram counts	13756	13756	0	OK	
+CHEUI_m5C/HeLa_WT1 recomputed density (max abs diff)	4.44089e-16	0		OK	
+CHEUI_m5C/HeLa_WT2 histogram counts	20442	20442	0	OK	
+CHEUI_m5C/HeLa_WT2 recomputed density (max abs diff)	4.44089e-16	0		OK	
+CHEUI_m5C/HeLa_WT3 histogram counts	13794	13794	0	OK	
+CHEUI_m5C/HeLa_WT3 recomputed density (max abs diff)	4.44089e-16	0		OK	
+CHEUI_m5C/HeLa_IVT_rep1 histogram counts	10127	10127	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 recomputed density (max abs diff)	8.88178e-16	0		OK	
+CHEUI_m5C/HeLa_IVT_rep2 histogram counts	25940	25940	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 recomputed density (max abs diff)	4.44089e-16	0		OK	
+CHEUI_m5C/HeLa_IVT_rep3 histogram counts	15861	15861	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 recomputed density (max abs diff)	4.44089e-16	0		OK	
+CHEUI_m5C/score sites covered by the per-unit histograms	99920	99920	0	OK	
+NanoMUD_psi/HeLa_WT1 histogram counts	6833	6833	0	OK	
+NanoMUD_psi/HeLa_WT1 recomputed density (max abs diff)	5.68434e-14	0		OK	
+NanoMUD_psi/HeLa_WT2 histogram counts	10341	10341	0	OK	
+NanoMUD_psi/HeLa_WT2 recomputed density (max abs diff)	3.55271e-15	0		OK	
+NanoMUD_psi/HeLa_WT3 histogram counts	4899	4899	0	OK	
+NanoMUD_psi/HeLa_WT3 recomputed density (max abs diff)	3.55271e-15	0		OK	
+NanoMUD_psi/HeLa_IVT_rep1 histogram counts	9637	9637	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 recomputed density (max abs diff)	5.68434e-14	0		OK	
+NanoMUD_psi/HeLa_IVT_rep2 histogram counts	11393	11393	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 recomputed density (max abs diff)	5.68434e-14	0		OK	
+NanoMUD_psi/HeLa_IVT_rep3 histogram counts	5664	5664	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 recomputed density (max abs diff)	0	0		OK	
+NanoMUD_psi/score sites covered by the per-unit histograms	48767	48767	0	OK	
+NanoMUD_m1psi/HeLa_WT1 histogram counts	20122	20122	0	OK	
+NanoMUD_m1psi/HeLa_WT1 recomputed density (max abs diff)	0	0		OK	
+NanoMUD_m1psi/HeLa_WT2 histogram counts	36134	36134	0	OK	
+NanoMUD_m1psi/HeLa_WT2 recomputed density (max abs diff)	5.68434e-14	0		OK	
+NanoMUD_m1psi/HeLa_WT3 histogram counts	15214	15214	0	OK	
+NanoMUD_m1psi/HeLa_WT3 recomputed density (max abs diff)	0	0		OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 histogram counts	29347	29347	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 recomputed density (max abs diff)	3.55271e-15	0		OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 histogram counts	40400	40400	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 recomputed density (max abs diff)	5.68434e-14	0		OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 histogram counts	19187	19187	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 recomputed density (max abs diff)	3.55271e-15	0		OK	
+NanoMUD_m1psi/score sites covered by the per-unit histograms	160404	160404	0	OK	
+NanoNm/HeLa_WT1 histogram counts	1630	1630	0	OK	
+NanoNm/HeLa_WT1 recomputed density (max abs diff)	2.22045e-16	0		OK	
+NanoNm/HeLa_WT2 histogram counts	3435	3435	0	OK	
+NanoNm/HeLa_WT2 recomputed density (max abs diff)	4.44089e-16	0		OK	
+NanoNm/HeLa_WT3 histogram counts	1649	1649	0	OK	
+NanoNm/HeLa_WT3 recomputed density (max abs diff)	2.22045e-16	0		OK	
+NanoNm/HeLa_IVT_rep1 histogram counts	4610	4610	0	OK	
+NanoNm/HeLa_IVT_rep1 recomputed density (max abs diff)	8.88178e-16	0		OK	
+NanoNm/HeLa_IVT_rep2 histogram counts	5043	5043	0	OK	
+NanoNm/HeLa_IVT_rep2 recomputed density (max abs diff)	5.55112e-17	0		OK	
+NanoNm/HeLa_IVT_rep3 histogram counts	1854	1854	0	OK	
+NanoNm/HeLa_IVT_rep3 recomputed density (max abs diff)	4.44089e-16	0		OK	
+NanoNm/score sites covered by the per-unit histograms	18221	18221	0	OK	
+NanoPsu/HeLa_WT1 histogram counts	175	175	0	OK	
+NanoPsu/HeLa_WT1 recomputed density (max abs diff)	0	0		OK	
+NanoPsu/HeLa_WT2 histogram counts	288	288	0	OK	
+NanoPsu/HeLa_WT2 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoPsu/HeLa_WT3 histogram counts	141	141	0	OK	
+NanoPsu/HeLa_WT3 recomputed density (max abs diff)	7.10543e-15	0		OK	
+NanoPsu/HeLa_IVT_rep1 histogram counts	165	165	0	OK	
+NanoPsu/HeLa_IVT_rep1 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoPsu/HeLa_IVT_rep2 histogram counts	229	229	0	OK	
+NanoPsu/HeLa_IVT_rep2 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoPsu/HeLa_IVT_rep3 histogram counts	110	110	0	OK	
+NanoPsu/HeLa_IVT_rep3 recomputed density (max abs diff)	0	0		OK	
+NanoPsu/score sites covered by the per-unit histograms	1108	1108	0	OK	
+NanoSPA_psU/HeLa_WT1 histogram counts	172	172	0	OK	
+NanoSPA_psU/HeLa_WT1 recomputed density (max abs diff)	0	0		OK	
+NanoSPA_psU/HeLa_WT2 histogram counts	297	297	0	OK	
+NanoSPA_psU/HeLa_WT2 recomputed density (max abs diff)	3.55271e-15	0		OK	
+NanoSPA_psU/HeLa_WT3 histogram counts	144	144	0	OK	
+NanoSPA_psU/HeLa_WT3 recomputed density (max abs diff)	1.77636e-15	0		OK	
+NanoSPA_psU/HeLa_IVT_rep1 histogram counts	170	170	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoSPA_psU/HeLa_IVT_rep2 histogram counts	234	234	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoSPA_psU/HeLa_IVT_rep3 histogram counts	112	112	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 recomputed density (max abs diff)	1.42109e-14	0		OK	
+NanoSPA_psU/score sites covered by the per-unit histograms	1129	1129	0	OK	
+CHEUI_m5C/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.20617	0.20617	0	OK	
+CHEUI_m5C/separation pair AUC mean	0.16616	0.16616	0	OK	
+CHEUI_m5C/separation pair AUC min	4.40752e-05	4.40752e-05	0	OK	
+CHEUI_m5C/separation pair AUC max	0.552021	0.552021	0	OK	
+CHEUI_m5C/separation KS p	0	0		OK	
+CHEUI_m5C/separation score sites	99920	99920	0	OK	
+NanoMUD_psi/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.509339	0.509339	0	OK	
+NanoMUD_psi/separation pair AUC mean	0.509238	0.509238	0	OK	
+NanoMUD_psi/separation pair AUC min	0.497349	0.497349	0	OK	
+NanoMUD_psi/separation pair AUC max	0.519444	0.519444	0	OK	
+NanoMUD_psi/separation KS p	0.000290301	0.000290301	0	OK	
+NanoMUD_psi/separation score sites	48767	48767	0	OK	
+NanoMUD_m1psi/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.500557	0.500557	0	OK	
+NanoMUD_m1psi/separation pair AUC mean	0.500084	0.500084	0	OK	
+NanoMUD_m1psi/separation pair AUC min	0.496754	0.496754	0	OK	
+NanoMUD_m1psi/separation pair AUC max	0.506303	0.506303	0	OK	
+NanoMUD_m1psi/separation KS p	0.58468	0.58468	0	OK	
+NanoMUD_m1psi/separation score sites	160404	160404	0	OK	
+NanoNm/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.563194	0.563194	0	OK	
+NanoNm/separation pair AUC mean	0.564836	0.564836	0	OK	
+NanoNm/separation pair AUC min	0.537471	0.537471	0	OK	
+NanoNm/separation pair AUC max	0.590241	0.590241	0	OK	
+NanoNm/separation KS p	1.41152e-35	1.41152e-35	0	OK	
+NanoNm/separation score sites	18221	18221	0	OK	
+NanoPsu/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.51855	0.51855	0	OK	
+NanoPsu/separation pair AUC mean	0.523392	0.523392	0	OK	
+NanoPsu/separation pair AUC min	0.483007	0.483007	0	OK	
+NanoPsu/separation pair AUC max	0.559432	0.559432	0	OK	
+NanoPsu/separation KS p	0.628193	0.628193	0	OK	
+NanoPsu/separation score sites	1108	1108	0	OK	
+NanoSPA_psU/separation pooled AUC (Fig. 7F value, not drawn in S6C)	0.514587	0.514587	0	OK	
+NanoSPA_psU/separation pair AUC mean	0.522428	0.522428	0	OK	
+NanoSPA_psU/separation pair AUC min	0.472638	0.472638	0	OK	
+NanoSPA_psU/separation pair AUC max	0.555773	0.555773	0	OK	
+NanoSPA_psU/separation KS p	0.493414	0.493414	0	OK	
+NanoSPA_psU/separation score sites	1129	1129	0	OK	
+CHEUI_m5C/HeLa_WT1 median	0.315789	0.315789	0	OK	
+CHEUI_m5C/HeLa_WT1 q25	0.26087	0.26087	0	OK	
+CHEUI_m5C/HeLa_WT1 q75	0.375	0.375	0	OK	
+CHEUI_m5C/HeLa_WT1 q05	0.184077	0.184077	0	OK	
+CHEUI_m5C/HeLa_WT1 q95	0.48	0.48	0	OK	
+CHEUI_m5C/HeLa_WT1 frac_ge_0p9	0	0		OK	
+CHEUI_m5C/HeLa_WT1 n_sites	13756	13756	0	OK	
+CHEUI_m5C/HeLa_WT2 median	0.366667	0.366667	0	OK	
+CHEUI_m5C/HeLa_WT2 q25	0.3125	0.3125	0	OK	
+CHEUI_m5C/HeLa_WT2 q75	0.423077	0.423077	0	OK	
+CHEUI_m5C/HeLa_WT2 q05	0.227273	0.227273	0	OK	
+CHEUI_m5C/HeLa_WT2 q95	0.510184	0.510184	0	OK	
+CHEUI_m5C/HeLa_WT2 frac_ge_0p9	0	0		OK	
+CHEUI_m5C/HeLa_WT2 n_sites	20442	20442	0	OK	
+CHEUI_m5C/HeLa_WT3 median	0.444444	0.444444	0	OK	
+CHEUI_m5C/HeLa_WT3 q25	0.375	0.375	0	OK	
+CHEUI_m5C/HeLa_WT3 q75	0.521739	0.521739	0	OK	
+CHEUI_m5C/HeLa_WT3 q05	0.285714	0.285714	0	OK	
+CHEUI_m5C/HeLa_WT3 q95	0.666667	0.666667	0	OK	
+CHEUI_m5C/HeLa_WT3 frac_ge_0p9	0.000217486	0.000217486	0	OK	
+CHEUI_m5C/HeLa_WT3 n_sites	13794	13794	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 median	0.541667	0.541667	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 q25	0.481481	0.481481	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 q75	0.6	0.6	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 q05	0.392857	0.392857	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 q95	0.692308	0.692308	0	OK	
+CHEUI_m5C/HeLa_IVT_rep1 frac_ge_0p9	0	0		OK	
+CHEUI_m5C/HeLa_IVT_rep1 n_sites	10127	10127	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 median	0.413793	0.413793	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 q25	0.354839	0.354839	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 q75	0.5	0.5	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 q05	0.269202	0.269202	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 q95	0.744186	0.744186	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 frac_ge_0p9	0.00138782	0.00138782	0	OK	
+CHEUI_m5C/HeLa_IVT_rep2 n_sites	25940	25940	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 median	0.842105	0.842105	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 q25	0.8	0.8	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 q75	0.88	0.88	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 q05	0.729167	0.729167	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 q95	0.939394	0.939394	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 frac_ge_0p9	0.174075	0.174075	0	OK	
+CHEUI_m5C/HeLa_IVT_rep3 n_sites	15861	15861	0	OK	
+NanoMUD_psi/HeLa_WT1 median	1	1	0	OK	
+NanoMUD_psi/HeLa_WT1 q25	0.998973	0.998973	0	OK	
+NanoMUD_psi/HeLa_WT1 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_WT1 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_WT1 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_WT1 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_WT1 n_sites	6833	6833	0	OK	
+NanoMUD_psi/HeLa_WT2 median	1	1	0	OK	
+NanoMUD_psi/HeLa_WT2 q25	0.997777	0.997777	0	OK	
+NanoMUD_psi/HeLa_WT2 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_WT2 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_WT2 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_WT2 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_WT2 n_sites	10341	10341	0	OK	
+NanoMUD_psi/HeLa_WT3 median	1	1	0	OK	
+NanoMUD_psi/HeLa_WT3 q25	0.998748	0.998748	0	OK	
+NanoMUD_psi/HeLa_WT3 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_WT3 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_WT3 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_WT3 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_WT3 n_sites	4899	4899	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 median	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 q25	0.997676	0.997676	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep1 n_sites	9637	9637	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 median	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 q25	0.996952	0.996952	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep2 n_sites	11393	11393	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 median	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 q25	0.998262	0.998262	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 q75	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 q05	0.991329	0.991329	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 q95	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 frac_ge_0p9	1	1	0	OK	
+NanoMUD_psi/HeLa_IVT_rep3 n_sites	5664	5664	0	OK	
+NanoMUD_m1psi/HeLa_WT1 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT1 q25	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT1 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT1 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_WT1 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT1 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT1 n_sites	20122	20122	0	OK	
+NanoMUD_m1psi/HeLa_WT2 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT2 q25	0.999773	0.999773	0	OK	
+NanoMUD_m1psi/HeLa_WT2 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT2 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_WT2 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT2 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT2 n_sites	36134	36134	0	OK	
+NanoMUD_m1psi/HeLa_WT3 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT3 q25	0.999796	0.999796	0	OK	
+NanoMUD_m1psi/HeLa_WT3 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT3 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_WT3 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT3 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_WT3 n_sites	15214	15214	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 q25	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep1 n_sites	29347	29347	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 q25	0.999494	0.999494	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep2 n_sites	40400	40400	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 median	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 q25	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 q75	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 q05	0.991329	0.991329	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 q95	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 frac_ge_0p9	1	1	0	OK	
+NanoMUD_m1psi/HeLa_IVT_rep3 n_sites	19187	19187	0	OK	
+NanoNm/HeLa_WT1 median	0.224429	0.224429	0	OK	
+NanoNm/HeLa_WT1 q25	0.148395	0.148395	0	OK	
+NanoNm/HeLa_WT1 q75	0.345822	0.345822	0	OK	
+NanoNm/HeLa_WT1 q05	0.107845	0.107845	0	OK	
+NanoNm/HeLa_WT1 q95	0.610024	0.610024	0	OK	
+NanoNm/HeLa_WT1 frac_ge_0p9	0.00736196	0.00736196	0	OK	
+NanoNm/HeLa_WT1 n_sites	1630	1630	0	OK	
+NanoNm/HeLa_WT2 median	0.203883	0.203883	0	OK	
+NanoNm/HeLa_WT2 q25	0.143546	0.143546	0	OK	
+NanoNm/HeLa_WT2 q75	0.313274	0.313274	0	OK	
+NanoNm/HeLa_WT2 q05	0.107455	0.107455	0	OK	
+NanoNm/HeLa_WT2 q95	0.581976	0.581976	0	OK	
+NanoNm/HeLa_WT2 frac_ge_0p9	0.0055313	0.0055313	0	OK	
+NanoNm/HeLa_WT2 n_sites	3435	3435	0	OK	
+NanoNm/HeLa_WT3 median	0.213018	0.213018	0	OK	
+NanoNm/HeLa_WT3 q25	0.141176	0.141176	0	OK	
+NanoNm/HeLa_WT3 q75	0.333333	0.333333	0	OK	
+NanoNm/HeLa_WT3 q05	0.107108	0.107108	0	OK	
+NanoNm/HeLa_WT3 q95	0.625	0.625	0	OK	
+NanoNm/HeLa_WT3 frac_ge_0p9	0.00848999	0.00848999	0	OK	
+NanoNm/HeLa_WT3 n_sites	1649	1649	0	OK	
+NanoNm/HeLa_IVT_rep1 median	0.18	0.18	0	OK	
+NanoNm/HeLa_IVT_rep1 q25	0.131929	0.131929	0	OK	
+NanoNm/HeLa_IVT_rep1 q75	0.277778	0.277778	0	OK	
+NanoNm/HeLa_IVT_rep1 q05	0.105733	0.105733	0	OK	
+NanoNm/HeLa_IVT_rep1 q95	0.500597	0.500597	0	OK	
+NanoNm/HeLa_IVT_rep1 frac_ge_0p9	0.00021692	0.00021692	0	OK	
+NanoNm/HeLa_IVT_rep1 n_sites	4610	4610	0	OK	
+NanoNm/HeLa_IVT_rep2 median	0.182796	0.182796	0	OK	
+NanoNm/HeLa_IVT_rep2 q25	0.131014	0.131014	0	OK	
+NanoNm/HeLa_IVT_rep2 q75	0.275622	0.275622	0	OK	
+NanoNm/HeLa_IVT_rep2 q05	0.105348	0.105348	0	OK	
+NanoNm/HeLa_IVT_rep2 q95	0.5	0.5	0	OK	
+NanoNm/HeLa_IVT_rep2 frac_ge_0p9	0.000594884	0.000594884	0	OK	
+NanoNm/HeLa_IVT_rep2 n_sites	5043	5043	0	OK	
+NanoNm/HeLa_IVT_rep3 median	0.187836	0.187836	0	OK	
+NanoNm/HeLa_IVT_rep3 q25	0.133706	0.133706	0	OK	
+NanoNm/HeLa_IVT_rep3 q75	0.294675	0.294675	0	OK	
+NanoNm/HeLa_IVT_rep3 q05	0.105181	0.105181	0	OK	
+NanoNm/HeLa_IVT_rep3 q95	0.5389	0.5389	0	OK	
+NanoNm/HeLa_IVT_rep3 frac_ge_0p9	0	0		OK	
+NanoNm/HeLa_IVT_rep3 n_sites	1854	1854	0	OK	
+NanoPsu/HeLa_WT1 median	0.965	0.965	0	OK	
+NanoPsu/HeLa_WT1 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_WT1 q75	0.9775	0.9775	0	OK	
+NanoPsu/HeLa_WT1 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_WT1 q95	0.99	0.99	0	OK	
+NanoPsu/HeLa_WT1 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_WT1 n_sites	175	175	0	OK	
+NanoPsu/HeLa_WT2 median	0.965	0.965	0	OK	
+NanoPsu/HeLa_WT2 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_WT2 q75	0.975	0.975	0	OK	
+NanoPsu/HeLa_WT2 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_WT2 q95	0.98825	0.98825	0	OK	
+NanoPsu/HeLa_WT2 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_WT2 n_sites	288	288	0	OK	
+NanoPsu/HeLa_WT3 median	0.97	0.97	0	OK	
+NanoPsu/HeLa_WT3 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_WT3 q75	0.98	0.98	0	OK	
+NanoPsu/HeLa_WT3 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_WT3 q95	0.99	0.99	0	OK	
+NanoPsu/HeLa_WT3 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_WT3 n_sites	141	141	0	OK	
+NanoPsu/HeLa_IVT_rep1 median	0.965	0.965	0	OK	
+NanoPsu/HeLa_IVT_rep1 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_IVT_rep1 q75	0.975	0.975	0	OK	
+NanoPsu/HeLa_IVT_rep1 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_IVT_rep1 q95	0.99	0.99	0	OK	
+NanoPsu/HeLa_IVT_rep1 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_IVT_rep1 n_sites	165	165	0	OK	
+NanoPsu/HeLa_IVT_rep2 median	0.965	0.965	0	OK	
+NanoPsu/HeLa_IVT_rep2 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_IVT_rep2 q75	0.975	0.975	0	OK	
+NanoPsu/HeLa_IVT_rep2 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_IVT_rep2 q95	0.985	0.985	0	OK	
+NanoPsu/HeLa_IVT_rep2 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_IVT_rep2 n_sites	229	229	0	OK	
+NanoPsu/HeLa_IVT_rep3 median	0.965	0.965	0	OK	
+NanoPsu/HeLa_IVT_rep3 q25	0.96	0.96	0	OK	
+NanoPsu/HeLa_IVT_rep3 q75	0.975	0.975	0	OK	
+NanoPsu/HeLa_IVT_rep3 q05	0.955	0.955	0	OK	
+NanoPsu/HeLa_IVT_rep3 q95	0.985	0.985	0	OK	
+NanoPsu/HeLa_IVT_rep3 frac_ge_0p9	1	1	0	OK	
+NanoPsu/HeLa_IVT_rep3 n_sites	110	110	0	OK	
+NanoSPA_psU/HeLa_WT1 median	0.965	0.965	0	OK	
+NanoSPA_psU/HeLa_WT1 q25	0.96	0.96	0	OK	
+NanoSPA_psU/HeLa_WT1 q75	0.98	0.98	0	OK	
+NanoSPA_psU/HeLa_WT1 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_WT1 q95	0.99	0.99	0	OK	
+NanoSPA_psU/HeLa_WT1 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_WT1 n_sites	172	172	0	OK	
+NanoSPA_psU/HeLa_WT2 median	0.965	0.965	0	OK	
+NanoSPA_psU/HeLa_WT2 q25	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_WT2 q75	0.975	0.975	0	OK	
+NanoSPA_psU/HeLa_WT2 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_WT2 q95	0.986	0.986	0	OK	
+NanoSPA_psU/HeLa_WT2 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_WT2 n_sites	297	297	0	OK	
+NanoSPA_psU/HeLa_WT3 median	0.97	0.97	0	OK	
+NanoSPA_psU/HeLa_WT3 q25	0.96	0.96	0	OK	
+NanoSPA_psU/HeLa_WT3 q75	0.98	0.98	0	OK	
+NanoSPA_psU/HeLa_WT3 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_WT3 q95	0.99	0.99	0	OK	
+NanoSPA_psU/HeLa_WT3 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_WT3 n_sites	144	144	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 median	0.965	0.965	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 q25	0.96	0.96	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 q75	0.975	0.975	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 q95	0.99	0.99	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_IVT_rep1 n_sites	170	170	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 median	0.965	0.965	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 q25	0.96	0.96	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 q75	0.975	0.975	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 q95	0.985	0.985	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_IVT_rep2 n_sites	234	234	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 median	0.965	0.965	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 q25	0.96	0.96	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 q75	0.975	0.975	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 q05	0.955	0.955	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 q95	0.985	0.985	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 frac_ge_0p9	1	1	0	OK	
+NanoSPA_psU/HeLa_IVT_rep3 n_sites	112	112	0	OK	
+NanoMUD_psi/Curlcake_IVT_rep1 in-universe calls	0	0		OK	
+NanoMUD_psi/Curlcake_IVT_rep1 FP per 1e6	0	0		OK	
+NanoMUD_psi/Curlcake_IVT_rep2_partial in-universe calls	39	39	0	OK	
+NanoMUD_psi/Curlcake_IVT_rep2_partial FP per 1e6	7933.28	7933.28	0	OK	
+NanoMUD_psi/Curlcake_IVT_rep3 in-universe calls	3	3	0	OK	
+NanoMUD_psi/Curlcake_IVT_rep3 FP per 1e6	609.632	609.632	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep1 in-universe calls	89	89	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep1 FP per 1e6	18100.5	18100.5	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep2_partial in-universe calls	97	97	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep2_partial FP per 1e6	19731.5	19731.5	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep3 in-universe calls	93	93	0	OK	
+NanoMUD_m1psi/Curlcake_IVT_rep3 FP per 1e6	18898.6	18898.6	0	OK	
+NanoNm/Curlcake_IVT_rep1 in-universe calls	39	39	0	OK	
+NanoNm/Curlcake_IVT_rep1 FP per 1e6	3902.73	3902.73	0	OK	
+NanoNm/Curlcake_IVT_rep2_partial in-universe calls	35	35	0	OK	
+NanoNm/Curlcake_IVT_rep2_partial FP per 1e6	3502.1	3502.1	0	OK	
+NanoNm/Curlcake_IVT_rep3 in-universe calls	36	36	0	OK	
+NanoNm/Curlcake_IVT_rep3 FP per 1e6	3598.2	3598.2	0	OK	
+NanoPsu/Curlcake_IVT_rep1 in-universe calls	0	0		OK	
+NanoPsu/Curlcake_IVT_rep1 FP per 1e6	0	0		OK	
+NanoPsu/Curlcake_IVT_rep2_partial in-universe calls	1	1	0	OK	
+NanoPsu/Curlcake_IVT_rep2_partial FP per 1e6	203.417	203.417	1.39721e-16	OK	
+NanoPsu/Curlcake_IVT_rep3 in-universe calls	1	1	0	OK	
+NanoPsu/Curlcake_IVT_rep3 FP per 1e6	203.211	203.211	0	OK	
+NanoSPA_psU/Curlcake_IVT_rep1 in-universe calls	0	0		OK	
+NanoSPA_psU/Curlcake_IVT_rep1 FP per 1e6	0	0		OK	
+NanoSPA_psU/Curlcake_IVT_rep2_partial in-universe calls	1	1	0	OK	
+NanoSPA_psU/Curlcake_IVT_rep2_partial FP per 1e6	203.417	203.417	1.39721e-16	OK	
+NanoSPA_psU/Curlcake_IVT_rep3 in-universe calls	1	1	0	OK	
+NanoSPA_psU/Curlcake_IVT_rep3 FP per 1e6	203.211	203.211	0	OK	

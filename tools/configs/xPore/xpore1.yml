@@ -1,0 +1,9 @@
+data:
+   ko:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xpore/RNA081120181part_dataprep
+   wt:
+       rep1: $RNAMODBENCH_LOCAL/raw/result/xpore/RNAAB089716_dataprep
+out: $RNAMODBENCH_LOCAL/raw/result/xpore/result1
+criteria:
+   readcount_min: 5
+   readcount_max: 2000000

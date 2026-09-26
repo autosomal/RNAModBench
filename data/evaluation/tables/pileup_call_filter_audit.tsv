@@ -1,0 +1,97 @@
+kind	sample_group	tool	mod_type	n_rows	n_no_call	n_below_floor	declared_filter	retained_frac	violation
+source	HeLa_RNA004_WT	Dorado_hac@v5.0.0_m6A@v1	m6A	10032	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	4428	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.1.0_inosine_m6A	m6A	3922	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	4108	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.0.0_m6A@v1	m6A	11161	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	5008	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.1.0_inosine_m6A	m6A	3919	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4329	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	392	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	18	0		"{""mod_code"": ""17596""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	733	0		"{""mod_code"": ""m""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	298	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	697	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	51	0		"{""mod_code"": ""17596""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	219	0		"{""mod_code"": ""m""}"	1.0	
+source	HeLa_RNA004_WT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	678	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_m6A@v1	m6A	14660	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	10	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	130	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	11	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_m6A@v1	m6A	51898	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	3	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	108	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4	0		"{""mod_code"": ""a""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	608	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	5	0		"{""mod_code"": ""17596""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	263	0		"{""mod_code"": ""m""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	137	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	1455	0		"{""mod_code"": ""17802""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	18	0		"{""mod_code"": ""17596""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	101	0		"{""mod_code"": ""m""}"	1.0	
+source	HeLa_RNA004_IVT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	284	0		"{""mod_code"": ""17802""}"	1.0	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_m6A_DRACH	m6A	2366	1496	2014	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.1276	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_pseU_m6A	m6A	21816	7961	13708	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.3527	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.0.0_pseU_m6A_Psi	Psi	21816	7961	13708	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17802""}"	0.3527	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all_Psi	Psi	23737	13620	15321	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17802""}"	0.2979	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all_m5C	m5C	23737	13620	15321	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""m""}"	0.2979	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_all	m6A	23737	13620	15321	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.2979	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	21824	9816	14018	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.3281	
+source	Curlcake_RNA004_IVT	Dorado_hac@v5.1.0_inosine_m6A_inosine	inosine	21824	9816	14018	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17596""}"	0.3281	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_m6A_DRACH	m6A	1906	1292	1642	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.1201	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_pseU_m6A	m6A	20661	9064	14063	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.303	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.0.0_pseU_m6A_Psi	Psi	20661	9064	14063	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17802""}"	0.303	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all_Psi	Psi	22744	14659	15691	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17802""}"	0.2598	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all_m5C	m5C	22744	14659	15691	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""m""}"	0.2598	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_all	m6A	22744	14659	15691	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.2598	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	21010	11393	14670	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""a""}"	0.2786	
+source	Curlcake_RNA004_IVT	Dorado_sup@v5.1.0_inosine_m6A_inosine	inosine	21010	11393	14670	"{""min_cov"": 20, ""min_pct"": 0.0, ""mod_code"": ""17596""}"	0.2786	
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.0.0_pseU_m6A_Psi	Psi	3829	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.1.0_all_Psi	Psi	3580	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.0.0_pseU_m6A_Psi	Psi	3089	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.1.0_all_Psi	Psi	2998	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.1.0_inosine_m6A_inosine	inosine	3387	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.1.0_inosine_m6A_inosine	inosine	2797	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.1.0_all_m5C	m5C	3189	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.1.0_all_m5C	m5C	2675	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.0.0_m6A_DRACH	m6A	302	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.0.0_pseU_m6A	m6A	3865	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.1.0_all	m6A	303	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	3773	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.0.0_m6A_DRACH	m6A	229	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.0.0_pseU_m6A	m6A	3171	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.1.0_all	m6A	236	0	0			
+callset	Curlcake/RNA004_Curlcake_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	3056	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	608	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	137	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	1455	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	284	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	5	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	18	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	263	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	101	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.0.0_m6A@v1	m6A	14660	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	10	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.1.0_inosine_m6A	m6A	130	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	11	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.0.0_m6A@v1	m6A	51898	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	3	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.1.0_inosine_m6A	m6A	108	0	0			
+callset	Human/RNA004_HeLa_IVT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	392	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	298	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	697	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	678	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.1.0_inosine_m6A_otherMod	inosine	18	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.1.0_inosine_m6A_otherMod	inosine	51	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	733	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	219	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.0.0_m6A@v1	m6A	10032	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.0.0_m6A_DRACH@v1	m6A	4428	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.1.0_inosine_m6A	m6A	3922	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_hac@v5.1.0_m6A_DRACH@v1	m6A	4108	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.0.0_m6A@v1	m6A	11161	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.0.0_m6A_DRACH@v1	m6A	5008	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.1.0_inosine_m6A	m6A	3919	0	0			
+callset	Human/RNA004_HeLa_WT	Dorado_sup@v5.1.0_m6A_DRACH@v1	m6A	4329	0	0			
