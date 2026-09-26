@@ -66,6 +66,9 @@ BODY = FIG / "Figure1_rev_body.pdf"
 #: baked into the page box).  Point this back at Figure1_A_redrawn.pdf to fall
 #: back to the redraw, which is the variant that meets the 7 pt floor.
 A_PDF = FIG / "panels" / "Figure1_A_artwork.pdf"
+if not A_PDF.exists():
+    #: without the supplied artwork, compose from the code-only redraw (71)
+    A_PDF = FIG / "panels" / "Figure1_A_redrawn.pdf"
 PAGE = FIG / "Figure1_rev.pdf"
 PNG = FIG / "Figure1_rev.png"
 

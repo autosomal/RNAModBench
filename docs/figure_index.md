@@ -1,6 +1,6 @@
 # Figure index
 
-Every delivered figure, the script that draws it, and the tables it reads. Paths
+Every published figure, the script that draws it, and the tables it reads. Paths
 are relative to the repository root. **Run order** is the order within a figure:
 producers first, then panels, then the page assembly, then the layout gate.
 
@@ -12,7 +12,7 @@ Environments: `py` = `envs/analysis/env-benchmark-revision.yml`,
 
 | figure | panels | scripts, in run order | env | reads |
 |---|---|---|---|---|
-| **Figure 1** | A–D overview, tool call counts, Curlcake density, DRACH counts | `src/harmonisation/scripts/28_fig_tool_counts_replicates.py` → `35_fig1C_curlcake_density.py` → `36_fig1D_rrach_counts.py` → `67_fig1_panels.py` → `72_fig1_A_panel.py` → `69_fig1_page.py`; gate `70_verify_fig1_page.py` | py | `figures/figure1/inputs/`, `figures/figure1/tables/` |
+| **Figure 1** | A–D overview, tool call counts, Curlcake density, DRACH counts | `src/harmonisation/scripts/28_fig_tool_counts_replicates.py` → `35_fig1C_curlcake_density.py` → `36_fig1D_rrach_counts.py` → `67_fig1_panels.py` → `72_fig1_A_artwork.py` → `69_fig1_page.py`; gate `70_verify_fig1_page.py` | py | `figures/figure1/inputs/`, `figures/figure1/tables/` |
 | **Figure 2** | A–F | `figures/figure2/src/01_fig2_panel_inputs.py` → `02_fig2_go_enrichment.R` → `03_fig2_figure.py`; gate `04_verify_fig2.py` | py, enrich | `figures/figure2/tables/`, `data/evaluation/tables/` |
 | **Figure 3** | A MDS, B modification-ratio agreement, C–D metagene | `src/harmonisation/scripts/56_fig3a_tool_similarity_mds.py` → `57_fig3b_modratio_wt_treatment.py` → `58_fig3cd_guitar.R` → `61_fig3_legend_band.py` → `59_fig3_assembled.py`; gate `60_verify_fig3.py` | py, guitar | `figures/figure3/tables/`, `figures/figure3/bed/` |
 | **Figure 4** | A–D motif / KL | `figures/figure4/src/fig4_kl.py` → `fig4_figures.py` | motif | `figures/figure4/tables/`, `figures/figure4/analysis/fig4_kmer_counts.tsv.gz` |
@@ -42,12 +42,12 @@ The page assembly of the combined `Supplementary_Figures.pdf` and of
 
 ## Naming note
 
-Folders are named by the **delivered** figure number. Internal working folders
+Folders are named by the **published** figure number. Internal working folders
 `figS5`–`figS10` were renumbered when the supplementary material was ordered for
 publication, so inside a few file names and comments the older numbers still
 appear. The mapping is:
 
-| delivered | was internally |
+| published | was internally |
 |---|---|
 | Figure S5 | `figures/figureS5` |
 | Figure S6 | `figures/figureS6` |
@@ -59,7 +59,7 @@ appear. The mapping is:
 ## Two panels are not code-generated
 
 * **Figure 1A** is a hand-drawn schematic, in the original submission as well.
-  `72_fig1_A_panel.py`
+  `72_fig1_A_artwork.py`
   only places the artwork into the page, and the artwork file itself is not
   redistributed. The
   code-only alternative is `src/harmonisation/scripts/71_fig1_A_redraw.py` (a pure

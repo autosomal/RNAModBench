@@ -11,8 +11,9 @@ Verifies, without touching the network:
    recorded site count equals the file's row count;
 5. the callset layout is the documented ``<platform>/<species>/<group>/<mod>/<tool>/
    <sample>.tsv``;
-6. every figure in ``docs/figure_index.md`` has a delivered file, and every
-   script path the index names exists;
+6. the figure tree is complete as documented: 8 main and 10 supplementary
+   directories, each named in ``docs/figure_index.md``, and every script path the
+   index names exists;
 7. writes ``metadata/deposited_files.sha256``.
 
 Exit status is non-zero when a check fails.
@@ -153,10 +154,13 @@ def check_figure_index() -> None:
     missing = sorted(p for p in named if "*" not in p and not (ROOT / p).exists())
     note(not missing, f"{len(named)} paths named in figure_index.md all exist"
          + ("" if not missing else f"; missing: {missing[:6]}"))
-    undelivered = [d.relative_to(ROOT).as_posix() for d in sorted(ROOT.glob("figures/figure*"))
-                   if not list(d.glob("delivered/*.pdf"))]
-    note(not undelivered, "every figure directory has a delivered/ figure"
-         + ("" if not undelivered else f"; missing for {undelivered[:6]}"))
+    dirs = sorted(d for d in ROOT.glob("figures/figure*") if d.is_dir())
+    note(len(dirs) == 18, f"8 main and 10 supplementary figure directories"
+         + ("" if len(dirs) == 18 else f"; found {len(dirs)}"))
+    undocumented = [d.relative_to(ROOT).as_posix() for d in dirs
+                    if d.name not in text]
+    note(not undocumented, "every figure directory is named in figure_index.md"
+         + ("" if not undocumented else f"; missing: {undocumented[:6]}"))
 
 
 def write_hashes() -> None:

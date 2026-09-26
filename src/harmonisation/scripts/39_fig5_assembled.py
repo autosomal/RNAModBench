@@ -71,7 +71,8 @@ FIG = (_RB / "figures/figure5/figures")
 CANVAS_W = 6.66
 #: \textheight = 276 - 12 - 30 mm = 234 mm = 9.21 in; a full-page figure* must
 #: still fit the caption, so the canvas stays below this
-MAX_H = 8.50
+MAX_H = 8.95            # 2026-09-27: raised from 8.50 so the C row can keep its
+# own 13-tool key in the service strip under the row (\textheight = 9.21 in)
 MIN_PT = 7.0
 
 TOP = 0.02
@@ -83,7 +84,9 @@ ROW_TITLE = 0.13           # space reserved above each row of axes for its title
 #: 2026-09-20: widened by ~0.10 in per gap (user request) so the four panel
 #: rows read as clearly separated facets; canvas total 8.14 -> 8.45 in,
 #: still below the 8.50 in full-page cap.
-ROW_GAP = {"A": 0.55, "B": 0.58, "C": 0.40}
+
+#: 13-tool key fits under the C row without touching its x axis label.
+ROW_GAP = {"A": 0.55, "B": 0.58, "C": 0.72}
 ROWS_H = {"A": 1.88, "B": 1.28, "C": 1.28, "D": 1.28}
 LEGEND_H = 0.66            # hosts the D row's axis label + the 13-tool legend
 
@@ -259,9 +262,12 @@ def draw_row_b(fig, rects, bins, fig_w, fig_h):
         ax.set_xlabel("Tool-reported modification ratio", fontsize=FS["label"])
     axes[0].set_ylabel(f"PPV vs. GLORI ({C.PRIMARY_WINDOW} bp)",
                        fontsize=FS["label"])
-    axes[0].legend(frameon=False, fontsize=FS["legend"], loc="upper left",
-                   handlelength=1.3, labelspacing=.25, borderpad=.1,
-                   handletextpad=.4)
+    
+    #: original figure carried one on each of the three; every panel gets its own.
+    for ax in axes:
+        ax.legend(frameon=False, fontsize=FS["legend"], loc="upper left",
+                  handlelength=1.3, labelspacing=.25, borderpad=.1,
+                  handletextpad=.4)
     return axes
 
 
@@ -296,6 +302,10 @@ def draw_window_row(fig, rects, curve, metric, ylabel, row, fig_w, fig_h):
         ax.tick_params(labelsize=FS["tick"], length=2, pad=1.5)
         ax.set_xlabel("Matching window (bp)", fontsize=FS["label"])
     axes[0].set_ylabel(ylabel, fontsize=FS["label"])
+    
+    #: by the caller in the service strip under the C row.  A 13-entry key inside
+    #: the axes overruns the panel width and covers the curves, so the window rows
+    #: keep their keys outside the axes.
     return handles, axes
 
 
@@ -403,6 +413,13 @@ def main() -> None:
     handles, axes_c = draw_window_row(fig, rects, curve, "hit_rate",
                                       f"PPV vs. GLORI ({C.PRIMARY_WINDOW} bp)", "C",
                                       CANVAS_W, fig_h)
+    
+    #: the C row (its own row, so C is not left without a key like before).
+    fig.legend(handles=handles, labels=[DISPLAY.get(t, t) for t in TOOL_ORDER],
+               loc="upper center",
+               bbox_to_anchor=(0.5, (rects["C"][0] - 0.30) / fig_h), ncol=7,
+               frameon=False, fontsize=FS["legend"], handlelength=1.5,
+               columnspacing=1.1, handletextpad=0.45, labelspacing=0.35)
     _, axes_d = draw_window_row(fig, rects, curve, "localization_accuracy",
                                 "Exact localisation", "D", CANVAS_W, fig_h)
     fig.legend(handles=handles, labels=[DISPLAY.get(t, t) for t in TOOL_ORDER],

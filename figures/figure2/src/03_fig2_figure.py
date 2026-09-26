@@ -118,16 +118,34 @@ def style(ax) -> None:
     ax.minorticks_off()
 
 
-def letter(ax, ch: str, dx=0.0, dy=0.007) -> None:
-    """Panel letter just outside the top-left corner (figure coordinates).
+#: Deferred panel letters: (axes, letter, dx, dy) queued while the panels are
+#: built and drawn by ``place_letters()`` once every tick label exists.
+_LETTERS: list = []
 
-    Using the axes' own bounding box keeps the letter clear of the neighbouring
-    column whatever the grid spacing is (an axes-relative offset lands inside
-    the other column as soon as the gap changes).
+
+def letter(ax, ch: str, dx=0.0, dy=0.007) -> None:
+    """Queue a panel letter; it is drawn at the panel's own top-left corner.
+
+    2026-09-27 (user): the letter used to sit at the top-left of the *axes*
+    bounding box, i.e. directly over the y axis, so it read as part of the axis
+    rather than of the panel (and E's letter collided with C's x tick labels
+    one row above).  It must sit at the top-left of the whole panel, left of the
+    y tick labels.  The tick labels are unknown while a panel is being built, so
+    the letters are queued here and placed after the figure has been drawn.
     """
-    bb = ax.get_position()
-    ax.figure.text(bb.x0 + dx, bb.y1 + dy, ch, fontsize=FS_PANEL,
-                   fontweight="bold", va="bottom", ha="left")
+    _LETTERS.append((ax, ch, dx, dy))
+
+
+def place_letters(fig) -> None:
+    """Draw the queued letters at each panel's own top-left corner."""
+    fig.canvas.draw()
+    inv = fig.transFigure.inverted()
+    for ax, ch, dx, dy in _LETTERS:
+        #: tight bbox = axes + tick labels + axis labels (legends below the axes
+        #: only push the box downwards, so the top stays the panel's top)
+        bb = ax.get_tightbbox(fig.canvas.get_renderer()).transformed(inv)
+        fig.text(bb.x0 + dx, bb.y1 + dy, ch, fontsize=FS_PANEL,
+                 fontweight="bold", va="bottom", ha="left")
 
 
 # --------------------------------------------------------------------------- #
@@ -261,6 +279,15 @@ def panel_d_gobp(fig, rects, tab: Path) -> None:
             t.set_fontweight("normal")
         if i == 0:
             letter(ax, "D")
+    
+    #: same species patches as B/E, in the service strip under the shared x
+    #: label of the bottom block (rects[-1] = the third GO block).
+    handles = [Patch(facecolor=COLOR[sp], edgecolor="white", linewidth=0.3,
+                     label=sp) for sp in BLOCKS]
+    fig.legend(handles=handles, frameon=False, fontsize=7.0, ncol=3,
+               handlelength=0.7, handletextpad=0.25, columnspacing=0.6,
+               borderpad=0.0, loc="upper left",
+               bbox_to_anchor=(rects[-1][0] + 0.037, rects[-1][1] - 0.055))
 
 
 def order_by(series, asc: bool) -> list:
@@ -498,6 +525,10 @@ def main() -> None:
     panel_e_jaccard(fig, ax_e, tab)
     panel_f_fp(fig, ax_f, tab)
     panel_g_replicate(fig, ax_g, tab)
+
+    
+    #: at each panel's own top-left corner (see place_letters()).
+    place_letters(fig)
 
     # NOT figstyle.save(): its bbox_inches="tight" crop changes the page size,
     # and the page size IS the contract here -- the manuscript includes the PDF

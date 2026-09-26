@@ -86,6 +86,7 @@ run_env() {  # run_env <conda-env> <label> <script> [args...]
   echo "== $label: $(basename "$script") (env: $env)"
   local msg
   if msg=$(with_env "$env" "$PY" "$script" "$@" 2>&1); then
+    guard_tables
     return 0
   fi
   printf '%s\n' "$msg" | tail -2 | sed 's/^/    | /'
@@ -98,12 +99,36 @@ snapshot_tables() {  # keep a copy of every frozen table, before any producer ru
   rm -rf "$SNAP"; mkdir -p "$SNAP"
   (cd "$RB" && tar -cf "$SNAP/tables.tar" \
       figures/*/tables figures/*/inputs figures/*/analysis data/evaluation/tables analysis 2>/dev/null) || true
+  # the size of every table that holds data at the start.  A step that leaves one
+  # with only its header line has produced nothing, whatever its exit status said;
+  # sizes are compared so that no table has to be re-read after every step.
+  : > "$SNAP/size.txt"
+  while IFS= read -r f; do
+    case "$f" in *.tsv|*.csv) ;; *) continue ;; esac
+    [ -f "$RB/$f" ] || continue
+    n=$(stat -c %s "$RB/$f")
+    [ "$n" -gt 200 ] && printf '%s\t%s\n' "$f" "$n" >> "$SNAP/size.txt"
+  done < <(tar -tf "$SNAP/tables.tar" 2>/dev/null) || true
 }
 
 restore_tables() {  # undo a producer that died part-way through rewriting a table
   if [ -f "$SNAP/tables.tar" ]; then
     tar -C "$RB" -xf "$SNAP/tables.tar" 2>/dev/null || true
     RESTORED=1
+  fi
+}
+
+guard_tables() {  # run after every step: a frozen input must not end up emptied
+  [ -s "$SNAP/size.txt" ] || return 0
+  local f n now lost=0
+  while IFS=$'\t' read -r f n; do
+    [ -f "$RB/$f" ] || continue
+    now=$(stat -c %s "$RB/$f")
+    [ "$now" -lt "$((n / 10))" ] && lost=$((lost + 1))
+  done < "$SNAP/size.txt"
+  if [ "$lost" -gt 0 ]; then
+    echo "   .. $lost table(s) left almost empty; re-installed from the snapshot"
+    restore_tables
   fi
 }
 
@@ -134,6 +159,10 @@ run "fig1 counts"   src/harmonisation/scripts/28_fig_tool_counts_replicates.py
 run "fig1 panelC"   src/harmonisation/scripts/35_fig1C_curlcake_density.py
 run "fig1 panelD"   src/harmonisation/scripts/36_fig1D_rrach_counts.py
 run "fig1 panels"   src/harmonisation/scripts/67_fig1_panels.py
+# panel A: the published figure uses the supplied Illustrator strip (72, which reads
+# $RNAMODBENCH_LOCAL/figures_original/Fig1a.pdf); the redraw below is what a checkout
+# without that artwork composes from, and it is the variant meeting the 7 pt floor.
+run "fig1 panelA"   src/harmonisation/scripts/71_fig1_A_redraw.py
 run "fig1 page"     src/harmonisation/scripts/69_fig1_page.py
 run "fig1 gate"     src/harmonisation/scripts/70_verify_fig1_page.py
 
@@ -224,9 +253,11 @@ echo
 if [ ${#failed[@]} -gt 0 ]; then
   echo "failed (${#failed[@]}):"; printf '  %s\n' "${failed[@]}"
   if [ -n "${RESTORED:-}" ]; then
-    echo "the committed tables were re-installed after every failing step, so a"
-    echo "producer that could not read \$RNAMODBENCH_LOCAL has not altered any input a"
-    echo "renderer needs; the panels that were rebuilt stay in figures/<figure>/figures/."
+    echo "the committed tables were re-installed wherever a step had altered them"
+    echo "(a failure, or a table left with only its header line), so no step here drew on"
+    echo "input that the deposit does not ship; the panels and pages it did build stay in"
+    echo "figures/<figure>/figures/."
   fi
 fi
-echo "done.  Panels land in figures/<figure>/figures/; compare against figures/<figure>/delivered/."
+echo "done.  Panels and pages land in figures/<figure>/figures/ as vector PDF;"
+echo "compare them against the figures in the manuscript and its supplementary info."

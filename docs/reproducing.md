@@ -57,20 +57,26 @@ frozen tables from raw tool output, candidate universes, region models or the GL
 BEDs; and the gates that additionally re-read a caption or number from the
 manuscript or the peer-review correspondence.
 
-What was actually executed here, on a checkout with no `$RNAMODBENCH_LOCAL`: the
-page/panel renderers of Figures 1, 2, 3, 4, 5, 6, 8 and of Figures S4, S5, S6, S7,
-S9 each produced their PDF from the committed tables; the remaining steps are the
-Guitar metagene panels (they need the GTF-derived region models), Figure S3's GLORI
-overlap panels (they read the GLORI BEDs), the producers, and the `verify_*` gates.
+What this actually yields on a checkout with no `$RNAMODBENCH_LOCAL`, measured by
+running the driver on one: the page renderers of Figures 1, 2, 4, 5 and 6 and of
+Figures S2, S4, S5, S6, S7 and S9 each produced their PDF from the committed tables,
+with Figure 1 composing panel A from the code-only redraw. What does not build is
+everything downstream of a step that needs the private layer: the Guitar metagene
+panels and with them the pages of Figures 3, 7, 8, S1, S8 and S10, Figure S3's GLORI
+overlap panels, the producers, and the `verify_*` gates that also re-read the
+manuscript. Those are the same steps the table above attributes to
+`$RNAMODBENCH_LOCAL`; `GUITAR=1` runs the R panels once the reference layer is there.
 
 Two notes on the gates. They measure the *rendered* file - page budget, tick-label
 collisions, the smallest effective font - so their verdict depends on the local
-matplotlib and font-metric versions; `figures/<figure>/delivered/` is the reference
-output the analysis was accepted with. And because several steps read and write the
-same figure directory, run them in the documented order: a producer that dies
-part-way can leave a rewritten table behind, which is why the driver snapshots the
-committed tables first and re-installs them after any failing step. Without the
-driver, `git checkout -- figures/<figure>/tables` restores them by hand.
+matplotlib and font-metric versions, and a re-rendered page is equivalent to the
+published figure rather than byte-identical to it; the figures as accepted are the
+ones in the manuscript and its supplementary information, which are not deposited
+here. And because several steps read and write the same figure directory, run them
+in the documented order: a producer that dies part-way can leave a rewritten table
+behind, which is why the driver snapshots the committed tables first and re-installs
+them after any failing step. Without the driver,
+`git checkout -- figures/<figure>/tables` restores them by hand.
 
 ## Rebuild the callsets (needs the private inputs)
 

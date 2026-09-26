@@ -26,7 +26,7 @@ accession is recorded in [`metadata/samples.csv`](metadata/samples.csv).
 | exact command lines recorded | 3,608 | `tools/inventory/tables/command_lines.csv` |
 | per-tool implementation fields | 42 configurations × 10 fields | `tools/inventory/tables/per_tool_implementation.md` |
 | figure, table and callset code | 176 Python + 14 R + 5 shell sources | `src/harmonisation/`, `figures/*/src/`, `tables/`, `tools/inventory/scripts/` |
-| delivered figures (vector) | 8 main + 10 supplementary | `figures/*/delivered/` |
+| rendered figure PDFs | produced by that code, not deposited | `bash scripts/run_figures.sh` |
 | pipeline rules / tool envs / post-processors | 59 rules, 15 envs, 20 scripts | `Snakefile`, `envs/`, `scripts/` |
 
 ## Repository map
@@ -49,7 +49,7 @@ RNAModBench/
 │   └── configs/           the configuration files tools were driven from
 ├── src/harmonisation/     callset harmonisation pipeline (stages 00-34) + shared library
 ├── figures/figure{1..8}, figures/figureS{1..10}
-│                          src (renderer) · tables (inputs/outputs) · figures (panels) · delivered
+│                          src (renderer) · tables (the inputs it reads) · panels and PDFs on request
 ├── tables/                supplementary-table builders (Table S1-S12) and the SI assembly
 ├── analysis/              evidence tables individual figures re-use
 ├── envs/                  per-tool envs (pipeline) · as_run/ (reported runs) · analysis/ (figure code)
@@ -113,10 +113,12 @@ Rebuild the callsets themselves from raw tool output with
 python scripts/verify_deposit.py
 ```
 
-It asserts that no machine-specific absolute path is present, that every Python/R/shell
-source parses, that each of the 406 callsets is listed in `metadata/callsets_index.tsv`
-with a matching row count, and that every script named in the figure index exists - then
-writes `metadata/deposited_files.sha256`. The same check runs on every push
+It asserts that no machine-specific absolute path is present, that no folder name from
+the private working tree and no non-English working note survives in a text source,
+that every Python/R/shell source parses, that each of the 406 callsets is listed in
+`metadata/callsets_index.tsv` with a matching row count, and that every script named
+in the figure index exists - then writes `metadata/deposited_files.sha256`, which the
+second CI step compares against the committed copy. The same check runs on every push
 (`.github/workflows/deposit-integrity.yml`).
 
 ## Licence and reuse

@@ -256,7 +256,10 @@ def draw_b(fig, pwms: dict[str, np.ndarray], per: pd.DataFrame,
            order: list[str], x0: float, w: float) -> None:
     logo_tools = order[:3]                     # three lowest mean-KL tools
     y0, h = row_y(1) - ROW1_H, ROW1_H - 0.26   # band below the B title
-    lab_w, ylab_w, yax_w = 0.60, 0.30, 0.18
+    
+    #: bold in the caption now), so the label gutter shrinks to a margin and the
+    #: three logo columns take the space back.
+    lab_w, ylab_w, yax_w = 0.06, 0.30, 0.18
     col_w = (w - lab_w - ylab_w - yax_w - 0.06) / 3
     row_h = (h - 0.17 - 0.13) / 3
     panel_letter(fig, "B", row_y(1) - 0.26, x0)
@@ -288,10 +291,9 @@ def draw_b(fig, pwms: dict[str, np.ndarray], per: pd.DataFrame,
             if r == 0:
                 ax.set_title(DISPLAY.get(tool, tool), fontsize=FS["title"],
                              fontweight="bold", pad=2)
-    for r, sp in enumerate(SP_ORDER):          # species row labels
-        ytop = y0 + h - 0.17 - r * row_h
-        fig.text((x0 + lab_w / 2) / CANVAS_W, (ytop - row_h / 2) / FIG_H,
-                 sp.replace(" (HeLa)", ""), fontsize=FS["tick"], va="center", ha="center")
+    
+    #: y axis ("awkward"); they now live in the caption, bold, and the rows are
+    #: read top-to-bottom as Arabidopsis / Mouse / Human.
     fig.text((x0 + lab_w + ylab_w / 2) / CANVAS_W,
              (y0 + h - 0.17 - 1.5 * row_h) / FIG_H,
              "Information content (bits)", rotation=90,

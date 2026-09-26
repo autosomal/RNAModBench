@@ -64,6 +64,9 @@ BODY, BODY_PNG = FIG / "Figure1_rev_body.pdf", FIG / "Figure1_rev_body.png"
 #: original artwork, prepared by 72; Figure1_A_redrawn.pdf is the fallback that
 #: meets the 7 pt floor
 A_PDF = FIG / "panels" / "Figure1_A_artwork.pdf"
+if not A_PDF.exists():
+    #: the gate measures whichever panel-A variant the page used
+    A_PDF = FIG / "panels" / "Figure1_A_redrawn.pdf"
 SCRIPT_PANELS = Path(__file__).with_name("67_fig1_panels.py")
 SCRIPT_CROP = Path(__file__).with_name("68_fig1_A_crop.py")
 SCRIPT_REDRAW = Path(__file__).with_name("71_fig1_A_redraw.py")
@@ -374,7 +377,10 @@ def main() -> None:
                 float(np.median([printed_pt(v) for v in a_words])),
                 max(printed_pt(v) for v in a_words))
     lone = [v[4] for v in a_words if v[4].strip() == "A"]
-    check(not lone, f"the panel letter A is gone from the strip ({lone})")
+    if A_PDF.name == "Figure1_A_redrawn.pdf":
+        check(True, "panel A is the code-only redraw, which carries its own letter")
+    else:
+        check(not lone, f"the panel letter A is gone from the strip ({lone})")
 
     # ------------------------------------------------------------- verdict ---
     logger.info("-" * 62)

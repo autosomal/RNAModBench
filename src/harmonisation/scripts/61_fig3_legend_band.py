@@ -58,9 +58,11 @@ def main() -> None:
     fig.patch.set_facecolor("white")
     fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
 
+    
+    #: manuscript use "WT"; one wording for the condition everywhere.
     conditions = [
         Line2D([], [], linestyle="none", marker="o", markersize=4.2,
-               markerfacecolor=WT_COLOR, markeredgecolor="none", label="wild type"),
+               markerfacecolor=WT_COLOR, markeredgecolor="none", label="WT"),
         Line2D([], [], linestyle="none", marker="o", markersize=4.2,
                markerfacecolor=TRT_COLOR, markeredgecolor="none", label="treated"),
         Line2D([], [], color="0.35", lw=0.9, label="majority consensus"),
