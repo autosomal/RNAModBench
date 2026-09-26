@@ -1,8 +1,8 @@
-# The callset pipeline (`src/sites_v2/`)
+# The callset pipeline (`src/harmonisation/`)
 
 Stages that turn each tool's own output format into the harmonised callsets under
-`data/sites_clean/`, then the metrics behind the figures. Run in order with
-`bash src/sites_v2/scripts/run_all.sh`; the header of that script explains why the order is
+`data/callsets/`, then the metrics behind the figures. Run in order with
+`bash src/harmonisation/scripts/run_all.sh`; the header of that script explains why the order is
 what it is (scope pruning must happen before the audits and the evaluations, so no
 table can retain a callset that is later removed).
 
@@ -16,7 +16,7 @@ table can retain a callset that is later removed).
 | `11_scope_split.py` | drop tool × dataset combinations that are outside the study scope | `metadata/nonm6a_scope.csv` |
 | `33_center_base_filter.py --apply` | hard filter: called base must be compatible with the modification and strand | `metadata/center_base_filter.csv` |
 | `05_offset_audit.py` | coordinate-offset distribution per callset versus the reference | `data/evaluation/tables/offset_*.tsv` |
-| `04_build_universe.py` | candidate universe per sample (skipped by default; ~15 GB) | `sites_v2/universe/` (not deposited) |
+| `04_build_universe.py` | candidate universe per sample (skipped by default; ~15 GB) | `harmonisation/universe/` (not deposited) |
 | `06_eval_m6a_glori.py` | precision/recall/F1/MCC against GLORI per match window, with bootstrap intervals; localisation curve | `m6a_glori_confusion.tsv`, `m6a_localization_curve.tsv` |
 | `07_eval_controls.py` | IVT negative-control false-positive rates, Curlcake synthetic truth, purified-site and knock-down metrics | `controls_ivt_fpr.tsv`, `curlcake_truth.tsv`, `purified_sites.tsv`, `ko_kd_metrics.tsv` |
 | `08_eval_nonm6a.py` | m5C / Ψ / m1Ψ / Nm / inosine panels | `hela_nonm6a.tsv`, `nonm6a_*.tsv` |
@@ -26,7 +26,7 @@ table can retain a callset that is later removed).
 | `29_anchor_audit.py`, `30_pileup_call_filter_audit.py`, `31_persite_reference_audit.py` | anchor/offset correctness, no-call leakage, per-site reference check | `anchor_audit.tsv`, `pileup_call_filter_audit.tsv`, `persite_reference_audit.tsv` |
 | `10_qc_reconcile.py` | reconciliation and the QC narrative | `data/evaluation/qc_report.md` |
 | `export_figure_ready.py` | per-replicate, figure-grade metrics | `figure_ready_replicates.tsv` |
-| `34_export_sites_clean.py` | the deposited layer: deduplicate overlapping-transcript coordinates, keep the strongest call, drop bookkeeping columns | `data/sites_clean/` |
+| `34_export_callsets.py` | the deposited layer: deduplicate overlapping-transcript coordinates, keep the strongest call, drop bookkeeping columns | `data/callsets/` |
 
 `20`–`28` and `35`–`72` are the analysis/figure stages built on top of it; see
 [`figure_index.md`](figure_index.md) for which of them

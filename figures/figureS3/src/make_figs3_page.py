@@ -6,13 +6,13 @@ Page geometry is identical to the submitted ``sup3.pdf`` (595.276 x 633.598
 pt).  Rows:
   A  GLORI replicate-overlap venns (unified criterion, both replicates > 0.1)
   B  PPV vs. GLORI (2 bp), per independent unit (revision evaluation layer)
-  C  per-replicate modification-ratio agreement (sibling session's recipe,
+  C  per-replicate modification-ratio agreement (the companion analysis recipe,
      re-rendered at page geometry from their cached tables)
 Every row is drawn by the same code that produces its standalone panel (the
 ``page=True`` drawing mode places the row at its absolute page position), so
 the page can never drift from the panels.
 
-Output: 04_revision_analysis/figS3_revision/FigureS3_rev.pdf / .png
+Output: figures/figureS3/FigureS3_rev.pdf / .png
 (the submitted sup3.pdf is never touched).
 """
 
@@ -42,7 +42,7 @@ def main() -> int:
     sc.check_overlap(overlaps)
     print("[compute] panel B per-unit PPV ...")
     table_b = make_s3b_ppv.load_confusion()
-    print("[compute] panel C (sibling session's cached tables) ...")
+    print("[compute] panel C (the companion analysis cached tables) ...")
     sites = pd.read_csv(make_s3c_reuse_other.MATCHED, sep="\t")
     summary = pd.read_csv(make_s3c_reuse_other.SUMMARY, sep="\t")
     tools, colors = list(other.TOOLS), dict(other.TOOL_COLOR)

@@ -48,10 +48,10 @@ Arabidopsis	xPore	rep1	3346442	27049	20949	0.774
 Arabidopsis	xPore	rep2	4364433	37680	22000	0.584
 Arabidopsis	xPore	rep3	2478089	20904	22544	1.078
 Arabidopsis	xPore	mean				0.812
-Arabidopsis	yanocomp	rep1	3346442	3578	4167	1.165
-Arabidopsis	yanocomp	rep2	4364433	13031	2081	0.16
-Arabidopsis	yanocomp	rep3	2478089	2058	5011	2.435
-Arabidopsis	yanocomp	mean				1.253
+Arabidopsis	Yanocomp	rep1	3346442	3578	4167	1.165
+Arabidopsis	Yanocomp	rep2	4364433	13031	2081	0.16
+Arabidopsis	Yanocomp	rep3	2478089	2058	5011	2.435
+Arabidopsis	Yanocomp	mean				1.253
 Human	CHEUI_m6A	rep1	2767950	16871	20153	1.195
 Human	CHEUI_m6A	rep2	4308139	25484	33110	1.299
 Human	CHEUI_m6A	rep3	1959262	14499	11366	0.784
@@ -100,10 +100,10 @@ Human	xPore	rep1	2767950	23313	30213	1.296
 Human	xPore	rep2	4308139	38853	24299	0.625
 Human	xPore	rep3	1959262	19559	22681	1.16
 Human	xPore	mean				1.027
-Human	yanocomp	rep1	2767950	4449	3206	0.721
-Human	yanocomp	rep2	4308139	6547	1770	0.27
-Human	yanocomp	rep3	1959262	4240	3010	0.71
-Human	yanocomp	mean				0.567
+Human	Yanocomp	rep1	2767950	4449	3206	0.721
+Human	Yanocomp	rep2	4308139	6547	1770	0.27
+Human	Yanocomp	rep3	1959262	4240	3010	0.71
+Human	Yanocomp	mean				0.567
 Mouse	CHEUI_m6A	SRP166020	2586167	10238	15957	1.559
 Mouse	CHEUI_m6A	SRP357195	6666647	36581	32217	0.881
 Mouse	CHEUI_m6A	mean				1.22
@@ -140,7 +140,7 @@ Mouse	m6Anet	mean				0.461
 Mouse	xPore	SRP166020	2586167	40639	0	0.0
 Mouse	xPore	SRP357195	6666647	59195	43192	0.73
 Mouse	xPore	mean				0.365
-Mouse	yanocomp	SRP166020	2586167	8723	0	0.0
-Mouse	yanocomp	SRP357195	6666647	7216	43985	6.095
-Mouse	yanocomp	mean				3.048
+Mouse	Yanocomp	SRP166020	2586167	8723	0	0.0
+Mouse	Yanocomp	SRP357195	6666647	7216	43985	6.095
+Mouse	Yanocomp	mean				3.048
 # note: The shared testable universe of a matched pair is the set of exonic positions with coverage >= 10 and a modification-compatible reference base in BOTH samples; the ratio is the deficient-condition call count over the wild-type call count on that universe (Fig. 2A). Mouse pairs are one per independent study and are never pooled. Deficient samples are fip37 KD (Arabidopsis), Mettl3 KO (mouse) and the unmodified IVT library (HeLa); KO/KD are partial negatives, so the ratio is a relative enrichment change, not a specificity measure. The per-pair values are deposited in the machine-readable table that accompanies the source code.

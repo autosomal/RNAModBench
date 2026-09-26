@@ -1,0 +1,10 @@
+check	scope	n_total	n_pass	max_abs_diff	status	note
+pooled_row_vs_confusion_table	all units x tools	202	202	0	pass	reference table m6a_glori_confusion.tsv (w=2, min_cov=10); metrics rows missing there: 0
+pooled_arrays_vs_load_universe	Arabidopsis_WT_rep1	6	6	0	pass	same base filter / chromosome normalisation / dedup
+reference_count_independent_method	Arabidopsis_WT_rep1, HeLa_WT1, mES_WT	15	15	0	pass	pandas hash join vs searchsorted membership (GLORI bed x stratum universe)
+universe_file_in_glori_column	Arabidopsis_WT_rep1, HeLa_WT1, mES_WT	15	10	246	warn	legacy annotation column vs the GLORI bed; differing strata on HeLa_WT1 -- the column is stale there and is never used as a denominator
+primary_strata_partition_pooled	all units x tools	606	606	0	pass	universe / n_glori / calls must be additive
+strata_cover_all_rows_read	Arabidopsis_WT_rep1, HeLa_WT1, mES_WT	3	3	0	pass	5-9 + 10-19 + 20-49 + >=50 == A/T rows of the universe file (pooled is their union and is not counted twice)
+contingency_integrity	every row	1010	1010	0	pass	tp+fp == calls; tn == U-tp-fp-fn; fn <= n_glori; tp <= calls; max |(tp+fn) - n_glori| = 1730 (tp+fn is the window-counted reference denominator of the existing pipeline: one call can match two nearby sites and several calls can match one site, so it differs from |G|)
+drawn_unit_tool_grid	Fig. 5A drawn units	7	7	0	pass	expected 13 tools per drawn unit; missing: 
+cross_band_spill	all units x tools	202	202	703	info	pooled_tp - sum(primary tp): calls matched to a GLORI site in another band; median 0.00%, max 8.74% (ELIGOS2_solo on Arabidopsis_fip37_rep3); rows > 20%: 0; leak-free companions: *_global columns

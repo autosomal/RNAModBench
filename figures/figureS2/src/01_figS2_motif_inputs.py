@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Supplementary Figure S2 (revision) - full-count motif inputs from sites_clean.
+"""Supplementary Figure S2 (revision) - full-count motif inputs from callsets.
 
-Computes, per species x tool x replicate (sites_clean RNA002 WT groups):
+Computes, per species x tool x replicate (callsets RNA002 WT groups):
   * strand-normalized full-count 5-mer spectrum (center base A after norm)
   * KL(position-wise PWM || theoretical RRACH PWM), two zero-frequency
     treatments:
@@ -60,7 +60,7 @@ from collections import Counter, defaultdict
 import numpy as np
 import pandas as pd
 
-CLEAN = str(_RB / "data/sites_clean/RNA002")
+CLEAN = str(_RB / "data/callsets/RNA002")
 HERE = os.path.dirname(os.path.abspath(__file__))
 ANALYSIS = os.path.normpath(os.path.join(HERE, "..", "analysis"))
 R36 = str(_RB / "analysis/motif_bias_control/analysis")
@@ -82,7 +82,7 @@ KL_SPECIES = ["Arabidopsis", "Mouse", "Human"]  # Panel A species (E.coli = Pane
 # Mouse cross-study rule: Panel display uses mES_WT (studyB) only
 NOT_IN_FIGURE_REPS = {"mESCs_Mettl3_WT"}
 
-# sites_clean dir name -> published display name (legacy sup2/Fig4 names)
+# callsets dir name -> published display name (legacy sup2/Fig4 names)
 DISPLAY = {"ELIGOS2_diff": "ELIGOS_diff", "ELIGOS2_solo": "ELIGOS_solo", "yanocomp": "Yanocomp"}
 REVERSE_DISPLAY = {v: k for k, v in DISPLAY.items()}
 
@@ -96,7 +96,7 @@ RRACH = np.array([
     [1.0, 0.0, 0.0, 0.0],   # A
     [0.0, 0.0, 1.0, 0.0],   # C
     [0.33, 0.34, 0.33, 0.0],  # H  (A .33 / U .34 / C .33, as published;
-                              # identical to fig4_revision & R3-6 constants)
+                              # identical to figures/figure4 & R3-6 constants)
 ])
 COMP = str.maketrans("ACUG", "UGAC")
 RRACH_RE = re.compile(r"^[AG][AG]AC[ACU]$")
@@ -173,7 +173,7 @@ def main():
     os.makedirs(ANALYSIS, exist_ok=True)
     log("=" * 72)
     log("FigS2 revision - full-count motif inputs  (2026-09-20)")
-    log(f"sites_clean root: {CLEAN}")
+    log(f"callsets root: {CLEAN}")
     log("=" * 72)
 
     full_rows, cov_rows = [], []
@@ -344,7 +344,7 @@ def main():
             pl, on=["Tool", "Species_norm"], how="left", indicator=True)
         miss = miss[miss._merge != "both"]
         if len(miss):
-            log(f"  legacy rows without sites_clean match: "
+            log(f"  legacy rows without callsets match: "
                 f"{miss[['Tool', 'Species_norm']].to_dict('records')}")
     else:
         r_pear = np.nan

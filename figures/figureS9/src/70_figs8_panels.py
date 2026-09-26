@@ -42,7 +42,7 @@ def assert_on_canvas(fig, key: str) -> None:
     """Abort when any drawn ink sticks out of the panel canvas.
 
     A title placed above an axis that already reaches the top of the canvas is
-    silently clipped at export -- the defect class the Figure 8 session hit with
+    silently clipped at export -- the defect class the Figure 8 revision hit with
     a lost x title.  ``get_tightbbox`` reports the real ink box in inches, so
     the check is arithmetic instead of a look at the preview.
     """

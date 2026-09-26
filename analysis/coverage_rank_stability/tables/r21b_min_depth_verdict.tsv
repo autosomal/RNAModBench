@@ -1,0 +1,13 @@
+species	dataset_group	metric	criterion	min_depth_stable	rho_cov>=5	fdr_cov>=5	top1same_cov>=5	rho_cov>=20	fdr_cov>=20	top1same_cov>=20	rho_cov>=50	fdr_cov>=50	top1same_cov>=50	rho_cov>=100	fdr_cov>=100	top1same_cov>=100
+Arabidopsis	Arabidopsis_WT	precision	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	0.993123	3.06161e-11	True	0.954609	6.4069e-07	False	0.932601	4.76383e-06	False
+Arabidopsis	Arabidopsis_WT	recall	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	1	0	True	0.943605	1.94014e-06	True	0.847319	0.000299385	True
+Arabidopsis	Arabidopsis_WT	f1	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	0.982119	4.64097e-09	True	0.998625	5.45289e-15	True	0.938103	3.1058e-06	False	0.847319	0.000299385	False
+Arabidopsis	Arabidopsis_WT	mcc	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	0.998625	5.45289e-15	True	1	0	True	0.875863	0.000109595	True	0.628966	0.0222098	True
+Mouse	Mouse_WT	precision	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	0.994505	9.38259e-12	True	1	0	True	0.989011	3.81977e-10	True	0.967033	1.21099e-07	False
+Mouse	Mouse_WT	recall	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	1	0	True	0.873626	0.000117279	True	0.802198	0.00108143	True
+Mouse	Mouse_WT	f1	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	0.978022	1.37917e-08	True	0.950549	9.85348e-07	True	0.71978	0.00590519	True	0.626374	0.0224564	False
+Mouse	Mouse_WT	mcc	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	0.994505	9.38259e-12	True	0.917582	1.35857e-05	True	0.82967	0.000514613	False
+Human	HeLa_WT	precision	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	1	0	True	0.998625	5.45289e-15	True	0.982119	4.64097e-09	True
+Human	HeLa_WT	recall	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	1	0	True	0.965374	1.52682e-07	True	0.891042	5.81937e-05	False
+Human	HeLa_WT	f1	rho>=0.9 & FDR<0.05 & top1_same	cov>=20	0.994505	9.38259e-12	False	0.982119	4.64097e-09	True	0.737277	0.00439666	True	0.536452	0.0587558	True
+Human	HeLa_WT	mcc	rho>=0.9 & FDR<0.05 & top1_same	cov>=5	1	0	True	1	0	True	0.984807	2.1531e-09	True	0.884301	7.7722e-05	True

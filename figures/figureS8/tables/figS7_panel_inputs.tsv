@@ -1,49 +1,49 @@
 tool	display	mod	cond_group	role	kind	unit_tag	path	n_sites	group
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/m5C/CHEUI_m5C.bed	1352	CHEUI_m5C|WT|consensus|
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m5C/CHEUI_m5C.bed	14137	CHEUI_m5C|WT|unit|rep1
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m5C/CHEUI_m5C.bed	20967	CHEUI_m5C|WT|unit|rep2
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m5C/CHEUI_m5C.bed	14020	CHEUI_m5C|WT|unit|rep3
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m5C/CHEUI_m5C.bed	1218	CHEUI_m5C|IVT|consensus|
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m5C/CHEUI_m5C.bed	10222	CHEUI_m5C|IVT|unit|rep1
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m5C/CHEUI_m5C.bed	26285	CHEUI_m5C|IVT|unit|rep2
-CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m5C/CHEUI_m5C.bed	15917	CHEUI_m5C|IVT|unit|rep3
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoMUD_psi.bed	4219	NanoMUD_psi|WT|consensus|
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoMUD_psi.bed	6128	NanoMUD_psi|WT|unit|rep1
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoMUD_psi.bed	9255	NanoMUD_psi|WT|unit|rep2
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoMUD_psi.bed	4269	NanoMUD_psi|WT|unit|rep3
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoMUD_psi.bed	5283	NanoMUD_psi|IVT|consensus|
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoMUD_psi.bed	7845	NanoMUD_psi|IVT|unit|rep1
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoMUD_psi.bed	9690	NanoMUD_psi|IVT|unit|rep2
-NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoMUD_psi.bed	4821	NanoMUD_psi|IVT|unit|rep3
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	15089	NanoMUD_m1psi|WT|consensus|
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	17920	NanoMUD_m1psi|WT|unit|rep1
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	31649	NanoMUD_m1psi|WT|unit|rep2
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	13096	NanoMUD_m1psi|WT|unit|rep3
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	18988	NanoMUD_m1psi|IVT|consensus|
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	22847	NanoMUD_m1psi|IVT|unit|rep1
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	33001	NanoMUD_m1psi|IVT|unit|rep2
-NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	15803	NanoMUD_m1psi|IVT|unit|rep3
-NanoNm	NanoNm	Nm	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/Nm/NanoNm.bed	1738	NanoNm|WT|consensus|
-NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Nm/NanoNm.bed	1673	NanoNm|WT|unit|rep1
-NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Nm/NanoNm.bed	3536	NanoNm|WT|unit|rep2
-NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Nm/NanoNm.bed	1682	NanoNm|WT|unit|rep3
-NanoNm	NanoNm	Nm	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Nm/NanoNm.bed	3653	NanoNm|IVT|consensus|
-NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Nm/NanoNm.bed	4676	NanoNm|IVT|unit|rep1
-NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Nm/NanoNm.bed	5134	NanoNm|IVT|unit|rep2
-NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Nm/NanoNm.bed	1880	NanoNm|IVT|unit|rep3
-NanoPsu	NanoPsu	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoPsu.bed	223	NanoPsu|WT|consensus|
-NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoPsu.bed	354	NanoPsu|WT|unit|rep1
-NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoPsu.bed	538	NanoPsu|WT|unit|rep2
-NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoPsu.bed	322	NanoPsu|WT|unit|rep3
-NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoPsu.bed	109	NanoPsu|IVT|consensus|
-NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoPsu.bed	283	NanoPsu|IVT|unit|rep1
-NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoPsu.bed	367	NanoPsu|IVT|unit|rep2
-NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoPsu.bed	177	NanoPsu|IVT|unit|rep3
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoSPA_psU.bed	223	NanoSPA_psU|WT|consensus|
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoSPA_psU.bed	351	NanoSPA_psU|WT|unit|rep1
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoSPA_psU.bed	540	NanoSPA_psU|WT|unit|rep2
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoSPA_psU.bed	325	NanoSPA_psU|WT|unit|rep3
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoSPA_psU.bed	108	NanoSPA_psU|IVT|consensus|
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoSPA_psU.bed	290	NanoSPA_psU|IVT|unit|rep1
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoSPA_psU.bed	373	NanoSPA_psU|IVT|unit|rep2
-NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoSPA_psU.bed	179	NanoSPA_psU|IVT|unit|rep3
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/m5C/CHEUI_m5C.bed	1352	CHEUI_m5C|WT|consensus|
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m5C/CHEUI_m5C.bed	14137	CHEUI_m5C|WT|unit|rep1
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m5C/CHEUI_m5C.bed	20967	CHEUI_m5C|WT|unit|rep2
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m5C/CHEUI_m5C.bed	14020	CHEUI_m5C|WT|unit|rep3
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m5C/CHEUI_m5C.bed	1218	CHEUI_m5C|IVT|consensus|
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m5C/CHEUI_m5C.bed	10222	CHEUI_m5C|IVT|unit|rep1
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m5C/CHEUI_m5C.bed	26285	CHEUI_m5C|IVT|unit|rep2
+CHEUI_m5C	CHEUI-m5C	m5C	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m5C/CHEUI_m5C.bed	15917	CHEUI_m5C|IVT|unit|rep3
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoMUD_psi.bed	4219	NanoMUD_psi|WT|consensus|
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoMUD_psi.bed	6128	NanoMUD_psi|WT|unit|rep1
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoMUD_psi.bed	9255	NanoMUD_psi|WT|unit|rep2
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoMUD_psi.bed	4269	NanoMUD_psi|WT|unit|rep3
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoMUD_psi.bed	5283	NanoMUD_psi|IVT|consensus|
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoMUD_psi.bed	7845	NanoMUD_psi|IVT|unit|rep1
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoMUD_psi.bed	9690	NanoMUD_psi|IVT|unit|rep2
+NanoMUD_psi	NanoMUD-Ψ	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoMUD_psi.bed	4821	NanoMUD_psi|IVT|unit|rep3
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	15089	NanoMUD_m1psi|WT|consensus|
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	17920	NanoMUD_m1psi|WT|unit|rep1
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	31649	NanoMUD_m1psi|WT|unit|rep2
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m1Psi/NanoMUD_m1psi.bed	13096	NanoMUD_m1psi|WT|unit|rep3
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	18988	NanoMUD_m1psi|IVT|consensus|
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	22847	NanoMUD_m1psi|IVT|unit|rep1
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	33001	NanoMUD_m1psi|IVT|unit|rep2
+NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m1Psi/NanoMUD_m1psi.bed	15803	NanoMUD_m1psi|IVT|unit|rep3
+NanoNm	NanoNm	Nm	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/Nm/NanoNm.bed	1738	NanoNm|WT|consensus|
+NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Nm/NanoNm.bed	1673	NanoNm|WT|unit|rep1
+NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Nm/NanoNm.bed	3536	NanoNm|WT|unit|rep2
+NanoNm	NanoNm	Nm	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Nm/NanoNm.bed	1682	NanoNm|WT|unit|rep3
+NanoNm	NanoNm	Nm	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Nm/NanoNm.bed	3653	NanoNm|IVT|consensus|
+NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Nm/NanoNm.bed	4676	NanoNm|IVT|unit|rep1
+NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Nm/NanoNm.bed	5134	NanoNm|IVT|unit|rep2
+NanoNm	NanoNm	Nm	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Nm/NanoNm.bed	1880	NanoNm|IVT|unit|rep3
+NanoPsu	NanoPsu	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoPsu.bed	223	NanoPsu|WT|consensus|
+NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoPsu.bed	354	NanoPsu|WT|unit|rep1
+NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoPsu.bed	538	NanoPsu|WT|unit|rep2
+NanoPsu	NanoPsu	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoPsu.bed	322	NanoPsu|WT|unit|rep3
+NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoPsu.bed	109	NanoPsu|IVT|consensus|
+NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoPsu.bed	283	NanoPsu|IVT|unit|rep1
+NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoPsu.bed	367	NanoPsu|IVT|unit|rep2
+NanoPsu	NanoPsu	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoPsu.bed	177	NanoPsu|IVT|unit|rep3
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/Psi/NanoSPA_psU.bed	223	NanoSPA_psU|WT|consensus|
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/Psi/NanoSPA_psU.bed	351	NanoSPA_psU|WT|unit|rep1
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/Psi/NanoSPA_psU.bed	540	NanoSPA_psU|WT|unit|rep2
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_WT	WT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/Psi/NanoSPA_psU.bed	325	NanoSPA_psU|WT|unit|rep3
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	consensus		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/Psi/NanoSPA_psU.bed	108	NanoSPA_psU|IVT|consensus|
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep1	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/Psi/NanoSPA_psU.bed	290	NanoSPA_psU|IVT|unit|rep1
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep2	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/Psi/NanoSPA_psU.bed	373	NanoSPA_psU|IVT|unit|rep2
+NanoSPA_psU	NanoSPA-Ψ	Psi	HeLa_IVT	IVT	unit	rep3	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/Psi/NanoSPA_psU.bed	179	NanoSPA_psU|IVT|unit|rep3

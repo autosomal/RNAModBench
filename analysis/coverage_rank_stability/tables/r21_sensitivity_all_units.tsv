@@ -1,0 +1,29 @@
+family	species	dataset_group	metric	stratum	stratum_kind	n_units	n_tools	spearman_rho	kendall_tau	p_value	rho_ci_lo	rho_ci_hi	rho_per_unit_mean	rho_per_unit_min	max_abs_rank_shift	mean_abs_rank_shift	top1_tool_pooled	top1_tool_stratum	top1_same	top3_overlap	p_value_fdr_bh
+all_units	Arabidopsis	Arabidopsis_WT	mcc	5-9	sensitivity	3	10	0.835366	0.659091	0.00262164	0.672727	0.890909	0.786726	0.672727	4.66667	1.9	m6Anet	DENA	False	0.666667	0.00458788
+all_units	Arabidopsis	Arabidopsis_WT	mcc	10-19	primary	3	11	0.879273	0.697277	0.000362006	0.8	0.90303	0.834343	0.8	5	1.68182	m6Anet	DENA	False	1	0.000779706
+all_units	Arabidopsis	Arabidopsis_WT	mcc	20-49	primary	3	13	0.80138	0.666681	0.000989344	0.741758	0.909091	0.821345	0.741758	5.5	1.47436	m6Anet	m6Anet	True	1	0.00197869
+all_units	Arabidopsis	Arabidopsis_WT	mcc	>=50	primary	3	13	0.875863	0.797403	8.67628e-05	0.82069	0.945055	0.893773	0.846154	4	1.12821	m6Anet	m6Anet	True	1	0.000220851
+all_units	Mouse	Mouse_WT	mcc	5-9	sensitivity	1	10	0.267478	0.224733	0.454986			0.267478	0.267478	8	3.8	m6Anet	NanoSPA_m6A	False	0.333333	0.489985
+all_units	Mouse	Mouse_WT	mcc	10-19	primary	1	12	0.699301	0.515152	0.0113742			0.699301	0.699301	5	2.33333	m6Anet	DENA	False	0.666667	0.016762
+all_units	Mouse	Mouse_WT	mcc	20-49	primary	1	13	0.873626	0.692308	9.5289e-05			0.873626	0.873626	4	1.53846	m6Anet	m6Anet	True	0.666667	0.000222341
+all_units	Mouse	Mouse_WT	mcc	>=50	primary	1	13	0.917582	0.794872	9.90623e-06			0.917582	0.917582	4	1.07692	m6Anet	m6Anet	True	0.666667	3.08194e-05
+all_units	Human	HeLa_WT	mcc	5-9	sensitivity	3	9	0.119159	0.117698	0.760106	0.119159	0.8	0.529879	0.394665	8	4.87037	m6Anet	ELIGOS2_diff	False	0	0.760106
+all_units	Human	HeLa_WT	mcc	10-19	primary	3	11	0.441915	0.366988	0.173559	0.35991	0.583589	0.455323	0.35991	5.33333	3.24242	m6Anet	ELIGOS2_diff	False	0	0.211289
+all_units	Human	HeLa_WT	mcc	20-49	primary	3	13	0.968277	0.888908	5.73106e-08	0.933794	0.978022	0.965201	0.945055	1.66667	0.666667	m6Anet	Nanom6A	False	1	2.67449e-07
+all_units	Human	HeLa_WT	mcc	>=50	primary	3	13	0.984807	0.947368	1.03169e-09	0.934066	0.987621	0.967033	0.934066	1	0.564103	m6Anet	m6Anet	True	1	7.22184e-09
+all_units	Arabidopsis	Arabidopsis_KD	mcc	5-9	sensitivity	3	10	0.609257	0.418718	0.0615171	0.4	0.823171	0.616887	0.4	6.33333	1.76667	MINES	ELIGOS2_solo	False	0.666667	0.0782945
+all_units	Arabidopsis	Arabidopsis_KD	mcc	10-19	primary	3	11	0.833715	0.623879	0.0014273	0.19162	0.920276	0.660843	0.19162	4.33333	1.4697	MINES	DENA	False	1	0.00266429
+all_units	Arabidopsis	Arabidopsis_KD	mcc	20-49	primary	3	12	0.970229	0.90079	1.752e-07	0.970229	0.981818	0.976535	0.972028	2	0.541667	MINES	MINES	True	1	7.008e-07
+all_units	Arabidopsis	Arabidopsis_KD	mcc	>=50	primary	3	13	0.998625	0.993569	1.93123e-15	0.965035	0.998625	0.975524	0.965035	0.666667	0.25641	MINES	Nanom6A	False	1	2.70373e-14
+all_units	Mouse	Mouse_WT	mcc	5-9	sensitivity	1	10	0.741645	0.53936	0.0140752			0.741645	0.741645	5	2.5	m6Anet	DENA	False	0.666667	0.0197052
+all_units	Mouse	Mouse_WT	mcc	10-19	primary	1	9	0.8	0.611111	0.00962792			0.8	0.8	7	2.22222	m6Anet	DENA	False	0.666667	0.0149768
+all_units	Mouse	Mouse_WT	mcc	20-49	primary	1	12	0.895105	0.727273	8.36659e-05			0.895105	0.895105	3	1.33333	m6Anet	m6Anet	True	1	0.000220851
+all_units	Mouse	Mouse_WT	mcc	>=50	primary	1	13	1	1	0			1	1	0	0	m6Anet	m6Anet	True	1	0
+all_units	Mouse	Mouse_KO	mcc	5-9	sensitivity	2	11	0.342593	0.235294	0.302377	0.0952381	0.342593	0.0964141	0.0952381	7	2.59091	MINES	Nanocompore	False	0.333333	0.338662
+all_units	Mouse	Mouse_KO	mcc	10-19	primary	2	11	0.691619	0.5001	0.018395	0.666667	0.738095	0.702381	0.666667	3.5	2.09091	MINES	DENA	False	0.666667	0.0245267
+all_units	Mouse	Mouse_KO	mcc	20-49	primary	2	13	0.713293	0.579434	0.00619242	0.713293	0.816667	0.803788	0.790909	4	1.42308	MINES	MINES	True	1	0.0101993
+all_units	Mouse	Mouse_KO	mcc	>=50	primary	2	13	0.994429	0.97952	4.21798e-12	0.990909	1	0.995455	0.990909	1	0.115385	MINES	MINES	True	0.666667	3.93678e-11
+all_units	Human	HeLa_IVT	mcc	5-9	sensitivity	3	9	0.393309	0.366234	0.29499	0	0.583333	0.169822	0.0714286	6.66667	2.88889	MINES	EpiNano_Error	False	0.666667	0.338662
+all_units	Human	HeLa_IVT	mcc	10-19	primary	3	9	0.209207	0.140859	0.589047	-0.0359288	0.466667	0.151516	-0.0359288	6.33333	3.01852	MINES	DENA	False	0.666667	0.610864
+all_units	Human	HeLa_IVT	mcc	20-49	primary	3	12	0.965035	0.878788	3.88099e-07	0.90303	0.979021	0.951593	0.90303	1.66667	0.708333	MINES	MINES	True	1	1.35834e-06
+all_units	Human	HeLa_IVT	mcc	>=50	primary	3	13	0.972527	0.897436	2.61913e-08	0.960111	0.99449	0.978917	0.960111	1.66667	0.410256	MINES	MINES	True	0.666667	1.46671e-07

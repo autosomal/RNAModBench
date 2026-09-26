@@ -70,7 +70,7 @@ KNOWN: dict[tuple[str, str], tuple[str, str, str]] = {
         ("0.5", "manuscript (reviewer R1-5 quotes this value)", "CONFIRMED"),
     ("Nanom6A", "required_input"):
         ("basecalled BAM + reference genome (minimap2, -x map-ont / splice)",
-         "code_user/detection/*/Nanom6A.sh", "NEEDS_CHECK"),
+         "tool_scripts/detection/*/Nanom6A.sh", "NEEDS_CHECK"),
     ("Nanom6A", "min_read_coverage"):
         ("20 (f5c-mode re-run: predict_sites --support 20); "
          "the original RNA002 run did not record this value",
@@ -79,7 +79,7 @@ KNOWN: dict[tuple[str, str], tuple[str, str, str]] = {
         ("0.1", "manuscript (reviewer R1-5 quotes this value)", "CONFIRMED"),
     ("DENA", "required_input"):
         ("nanopolish eventalign output; needs a WT + modification-deficient pair",
-         "code_user/detection/Hela/IVT/DENA.sh", "NEEDS_CHECK"),
+         "tool_scripts/detection/Hela/IVT/DENA.sh", "NEEDS_CHECK"),
     ("m6Anet", "calling_threshold"):
         ("probability >= 0.5 (tool default)", "m6Anet documentation", "NEEDS_CHECK"),
     ("m6Anet", "min_read_coverage"):
@@ -109,7 +109,7 @@ KNOWN: dict[tuple[str, str], tuple[str, str, str]] = {
     ("Tombo", "required_input"):
         ("raw FAST5 (resquiggle); used here for coverage and as input to "
          "DRUMMER / MINES / ELIGOS2 / Yanocomp",
-         "code_user/detection/*/Tombo.sh", "NEEDS_CHECK"),
+         "tool_scripts/detection/*/Tombo.sh", "NEEDS_CHECK"),
     ("Tombo", "multiple_testing_correction"):
         ("FDR (Tombo default)", "Tombo documentation", "NEEDS_CHECK"),
 }
@@ -190,7 +190,7 @@ DEFAULT_PARAMS: dict[str, str] = {
     "CHEUI_m6A": "default", "CHEUI_m5C": "default", "CHEUI-diff": "default",
 }
 
-EVIDENCE_CMD = "code_user/detection/<species>/<sample>/<tool>.sh (see TI2)"
+EVIDENCE_CMD = "tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2)"
 
 
 def expand_known() -> None:
@@ -200,7 +200,7 @@ def expand_known() -> None:
                          (value, EVIDENCE_CMD, "NEEDS_CHECK"))
     for tool, value in COORD.items():
         KNOWN.setdefault((tool, "coordinate_harmonisation"),
-                         (value, "post-processing scripts in code_user/*postprocessing",
+                         (value, "post-processing scripts in tool_scripts/*postprocessing",
                           "NEEDS_CHECK"))
     for tool, value in DEFAULT_PARAMS.items():
         KNOWN.setdefault((tool, "default_vs_optimised"),

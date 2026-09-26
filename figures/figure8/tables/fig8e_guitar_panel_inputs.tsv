@@ -1,7 +1,7 @@
 label	model	mod	condition	cond_label	n_sites	path
-hac@v5.0.0_m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	WT	WT	9603	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A@v1.bed
-hac@v5.0.0_m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	IVT	unmodified IVT	13028	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_hac@v5.0.0_m6A@v1.bed
-hac@v5.1.0_inosine+m6A	Dorado_hac@v5.1.0_inosine_m6A	m6A	WT	WT	3886	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_inosine_m6A.bed
-hac@v5.1.0_inosine+m6A	Dorado_hac@v5.1.0_inosine_m6A	m6A	IVT	unmodified IVT	87	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_hac@v5.1.0_inosine_m6A.bed
-sup@v5.0.0_m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	WT	WT	10818	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A@v1.bed
-sup@v5.0.0_m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	IVT	unmodified IVT	46963	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_sup@v5.0.0_m6A@v1.bed
+hac@v5.0.0_m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	WT	WT	9603	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A@v1.bed
+hac@v5.0.0_m6A	Dorado_hac@v5.0.0_m6A@v1	m6A	IVT	unmodified IVT	13028	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_hac@v5.0.0_m6A@v1.bed
+hac@v5.1.0_inosine+m6A	Dorado_hac@v5.1.0_inosine_m6A	m6A	WT	WT	3886	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_inosine_m6A.bed
+hac@v5.1.0_inosine+m6A	Dorado_hac@v5.1.0_inosine_m6A	m6A	IVT	unmodified IVT	87	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_hac@v5.1.0_inosine_m6A.bed
+sup@v5.0.0_m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	WT	WT	10818	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A@v1.bed
+sup@v5.0.0_m6A	Dorado_sup@v5.0.0_m6A@v1	m6A	IVT	unmodified IVT	46963	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m6A/Dorado_sup@v5.0.0_m6A@v1.bed

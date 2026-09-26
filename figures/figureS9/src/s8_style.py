@@ -49,7 +49,7 @@ import numpy as np
 PROJECT = Path(str(_RB))
 
 #: the shared versioned helpers (layout gate, panel/page composition)
-sys.path.insert(0, str((_RB / "src/sites_v2")))
+sys.path.insert(0, str((_RB / "src/harmonisation")))
 OUT = (_RB / "figures/figureS9")
 TABLES = (_RB / "figures/figureS9/tables")
 FIGS = (_RB / "figures/figureS9/figures")

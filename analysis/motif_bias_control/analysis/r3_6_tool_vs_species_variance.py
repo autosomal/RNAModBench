@@ -3,9 +3,9 @@
 versus SPECIES? Uses existing project outputs only (no re-calling).
 
 Inputs
-  01_code/code/next_postprocessing/Total_new/combined_kl_data.csv
+  $RNAMODBENCH_LOCAL/code/code/next_postprocessing/Total_new/combined_kl_data.csv
       per-tool per-species KL divergence of the 5-mer PWM vs RRACH
-  01_code/code/next_postprocessing/Total_new/All_Species_Top5_5mer_Data.csv
+  $RNAMODBENCH_LOCAL/code/code/next_postprocessing/Total_new/All_Species_Top5_5mer_Data.csv
       per-tool per-species top-20 strand-aware 5-mers with frequencies
 
 Outputs (into this folder's analysis/ dir)

@@ -24,8 +24,9 @@ conda env create -f envs/analysis/env-enrich_r.yml             # Figure 2 GO:BP
 
 `envs/` holds the rest: `envs/*.yaml` are the per-tool environments the Snakemake
 pipeline creates when it runs the detection tools, and `envs/as_run/*.yaml` are the
-specifications the reported runs actually used. Neither is needed to re-render a figure. A TeX Live installation is needed for the two LaTeX assemblies
-(Figure 7 page, combined supplementary figures); `pdflatex` is invoked from `PATH`.
+specifications the reported runs actually used. Neither is needed to re-render a
+figure. A TeX Live installation is needed for the two LaTeX assemblies (Figure 7
+page, combined supplementary figures); `pdflatex` is invoked from `PATH`.
 
 ## Re-render the figures
 
@@ -33,8 +34,8 @@ Each figure directory carries both kinds of step, and they differ in what they
 need:
 
 * **renderers** build panels and pages from the frozen tables shipped beside them
-  (`figures/<figure>/tables`, `.../analysis`) and from `data/`; they run on a public
-  checkout;
+  (`figures/<figure>/tables`, `.../analysis`) and from `data/` and `analysis/`; they
+  run on a public checkout;
 * **producers** recompute those tables from the intermediate layer (raw tool output,
   candidate universes, region models, the GLORI BEDs) and need
   `$RNAMODBENCH_LOCAL`.
@@ -42,13 +43,13 @@ need:
 ```bash
 # one page renderer, straight from the deposited tables
 conda run -n benchmark-revision --no-capture-output \
-    python src/sites_v2/scripts/39_fig5_assembled.py
+    python src/harmonisation/scripts/39_fig5_assembled.py
 # every figure, in dependency order
 bash scripts/run_figures.sh
 ```
 
 `scripts/run_figures.sh` attempts every step in the order given by
-[`figure_index.md`](figure_index.md) — producers, panel renderers, page assembly, then
+[`figure_index.md`](figure_index.md) - producers, panel renderers, page assembly, then
 the `verify_*` layout gate. It does not abort on a failing step, and it groups the
 failures afterwards by the reason each step actually printed. On a checkout without
 `$RNAMODBENCH_LOCAL` two groups are expected: the producers, which recompute the
@@ -62,8 +63,8 @@ S9 each produced their PDF from the committed tables; the remaining steps are th
 Guitar metagene panels (they need the GTF-derived region models), Figure S3's GLORI
 overlap panels (they read the GLORI BEDs), the producers, and the `verify_*` gates.
 
-Two notes on the gates. They measure the *rendered* file — page budget, tick-label
-collisions, the smallest effective font — so their verdict depends on the local
+Two notes on the gates. They measure the *rendered* file - page budget, tick-label
+collisions, the smallest effective font - so their verdict depends on the local
 matplotlib and font-metric versions; `figures/<figure>/delivered/` is the reference
 output the analysis was accepted with. And because several steps read and write the
 same figure directory, run them in the documented order: an interrupted producer can
@@ -72,13 +73,13 @@ restores.
 
 ## Rebuild the callsets (needs the private inputs)
 
-`src/sites_v2/` is the pipeline that produced `data/sites_clean/`. It reads the
+`src/harmonisation/` is the pipeline that produced `data/callsets/`. It reads the
 per-tool result trees and the reference layer under `$RNAMODBENCH_LOCAL`:
 
 ```bash
-bash src/sites_v2/scripts/run_all.sh                 # stages 00 -> 10 (extraction, evaluation, QC)
-python src/sites_v2/scripts/34_export_sites_clean.py # writes data/sites_clean/
-bash src/sites_v2/scripts/run_replicate_aware.sh RNA002   # replicate-aware revision analyses
+bash src/harmonisation/scripts/run_all.sh                 # stages 00 -> 10 (extraction, evaluation, QC)
+python src/harmonisation/scripts/34_export_callsets.py # writes data/callsets/
+bash src/harmonisation/scripts/run_replicate_aware.sh RNA002   # replicate-aware revision analyses
 ```
 
 Stage order matters and is documented in the header of `run_all.sh`: extraction
@@ -99,12 +100,12 @@ conda run -n benchmark-revision --no-capture-output python scripts/verify_deposi
 
 It re-hashes the deposit, checks that no personal absolute path is present, that
 every source file parses, and that the row counts of the 406 deposited callsets
-agree with `metadata/callsets_summary.csv`.
+agree with `metadata/callsets_index.tsv`.
 
 ## Conventions the code assumes
 
 * Match windows and coverage floors are the constants in
-  `src/sites_v2/common/config.py` (`w = 2` bp primary, `c = 10` reads); metrics
+  `src/harmonisation/common/config.py` (`w = 2` bp primary, `c = 10` reads); metrics
   are precision against GLORI at that window.
 * Replicates are never merged before evaluation: cross-replicate agreement is
   reported as pairwise Jaccard / k-of-n / within-group mean ± SD, and a union over

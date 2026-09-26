@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """Panel C of the rebuilt Figure S3: per-replicate modification-ratio agreement.
 
-The ANALYSIS behind this panel belongs to the sibling session and is NOT
+The ANALYSIS behind this panel belongs to the a companion analysis and is NOT
 re-run here:
-  * ``sites_v2/scripts/15_mod_ratio_replicate_agreement.py`` -> cached tables in
-    ``04_revision_analysis/mod_ratio_replicates/tables`` (read-only for us);
-  * ``sites_v2/scripts/16_mod_ratio_regression_fig.py`` -> their standalone
+  * ``harmonisation/scripts/15_mod_ratio_replicate_agreement.py`` -> cached tables in
+    ``analysis/mod_ratio_replicates/tables`` (read-only for us);
+  * ``harmonisation/scripts/16_mod_ratio_regression_fig.py`` -> their standalone
     figure ``mod_ratio_replicates/figures/mod_ratio_regression_S3C_style.pdf``.
 
 This module re-renders *their recipe* (per-replicate thin fit lines + bold
@@ -50,7 +50,7 @@ import pandas as pd
 
 import s3_common as sc
 
-OTHER_SCRIPT = (Path(str(_RB / "src/sites_v2/scripts"))
+OTHER_SCRIPT = (Path(str(_RB / "src/harmonisation/scripts"))
                 / "16_mod_ratio_regression_fig.py")
 OTHER_DIR = Path(str(_RB / "analysis/mod_ratio_replicates"))
 MATCHED = (_RB / "analysis/mod_ratio_replicates/tables/mod_ratio_matched_sites.tsv")
@@ -92,7 +92,7 @@ def draw_row_c(fig: plt.Figure, sites: pd.DataFrame, summary: pd.DataFrame,
                tools: list[str], colors: dict[str, str], titles: bool = True,
                y_top: float = 420.0, row_h: float = 213.598,
                page: bool = False) -> None:
-    """Three species panels at page geometry (sibling session's recipe)."""
+    """Three species panels at page geometry (the companion analysis recipe)."""
     xx = np.linspace(0, 1, 2)
     for i, (species, group) in enumerate(PANELS):
         ax = fig.add_axes(_axes_rect(i, y_top, row_h, page=page))
@@ -198,7 +198,7 @@ def write_provenance(summary: pd.DataFrame, tools: list[str]) -> Path:
 
 def main() -> int:
     import argparse
-    ap = argparse.ArgumentParser(description="S3 panel C (sibling session's recipe)")
+    ap = argparse.ArgumentParser(description="S3 panel C (the companion analysis recipe)")
     ap.add_argument("--no-titles", action="store_true")
     args = ap.parse_args()
 

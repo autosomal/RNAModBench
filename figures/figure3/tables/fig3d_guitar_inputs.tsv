@@ -1,67 +1,67 @@
 panel	species	tool	cond_group	role	kind	unit_tag	n_sites	path
-D	Arabidopsis	DENA	Arabidopsis_WT	WT	consensus		18778	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep1	23775	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep2	17742	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep3	21683	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_KD	treated	consensus		7718	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep1	9420	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep2	13588	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/DENA.bed
-D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep3	5649	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/DENA.bed
-D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	consensus		9614	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep1	11963	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep2	10349	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep3	10078	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	consensus		2133	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep1	2594	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep2	4354	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/m6Anet.bed
-D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep3	1703	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/m6Anet.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	consensus		19295	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep1	21699	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep2	19910	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep3	19743	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	consensus		14031	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep1	15961	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep2	15190	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/Nanom6A.bed
-D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep3	12607	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/Nanom6A.bed
-D	Mouse	DENA	Mouse_WT	WT	consensus		14806	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/DENA.bed
-D	Mouse	DENA	Mouse_WT	WT	unit	studyA	29873	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/DENA.bed
-D	Mouse	DENA	Mouse_WT	WT	unit	studyB	35754	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/DENA.bed
-D	Mouse	DENA	Mouse_KO	treated	consensus		5096	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/DENA.bed
-D	Mouse	DENA	Mouse_KO	treated	unit	studyA	11144	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/DENA.bed
-D	Mouse	DENA	Mouse_KO	treated	unit	studyB	23866	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/DENA.bed
-D	Mouse	m6Anet	Mouse_WT	WT	consensus		11830	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/m6Anet.bed
-D	Mouse	m6Anet	Mouse_WT	WT	unit	studyA	22826	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/m6Anet.bed
-D	Mouse	m6Anet	Mouse_WT	WT	unit	studyB	26610	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/m6Anet.bed
-D	Mouse	m6Anet	Mouse_KO	treated	consensus		2833	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/m6Anet.bed
-D	Mouse	m6Anet	Mouse_KO	treated	unit	studyA	6349	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/m6Anet.bed
-D	Mouse	m6Anet	Mouse_KO	treated	unit	studyB	15844	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/m6Anet.bed
-D	Mouse	Nanom6A	Mouse_WT	WT	consensus		4606	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/Nanom6A.bed
-D	Mouse	Nanom6A	Mouse_WT	WT	unit	studyA	10715	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/Nanom6A.bed
-D	Mouse	Nanom6A	Mouse_WT	WT	unit	studyB	23838	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/Nanom6A.bed
-D	Mouse	Nanom6A	Mouse_KO	treated	consensus		2848	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/Nanom6A.bed
-D	Mouse	Nanom6A	Mouse_KO	treated	unit	studyA	8136	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/Nanom6A.bed
-D	Mouse	Nanom6A	Mouse_KO	treated	unit	studyB	18902	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/Nanom6A.bed
-D	Human	DENA	HeLa_WT	WT	consensus		12884	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/DENA.bed
-D	Human	DENA	HeLa_WT	WT	unit	rep1	17473	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/DENA.bed
-D	Human	DENA	HeLa_WT	WT	unit	rep2	17352	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/DENA.bed
-D	Human	DENA	HeLa_WT	WT	unit	rep3	14665	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/DENA.bed
-D	Human	DENA	HeLa_IVT	treated	consensus		12795	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/DENA.bed
-D	Human	DENA	HeLa_IVT	treated	unit	rep1	16121	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/DENA.bed
-D	Human	DENA	HeLa_IVT	treated	unit	rep2	22584	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/DENA.bed
-D	Human	DENA	HeLa_IVT	treated	unit	rep3	9009	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/DENA.bed
-D	Human	m6Anet	HeLa_WT	WT	consensus		6714	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_WT	WT	unit	rep1	7437	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_WT	WT	unit	rep2	13883	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_WT	WT	unit	rep3	5611	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_IVT	treated	consensus		5632	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_IVT	treated	unit	rep1	5996	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_IVT	treated	unit	rep2	11536	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/m6Anet.bed
-D	Human	m6Anet	HeLa_IVT	treated	unit	rep3	4528	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/m6Anet.bed
-D	Human	Nanom6A	HeLa_WT	WT	consensus		16939	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_WT	WT	unit	rep1	20892	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_WT	WT	unit	rep2	18286	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_WT	WT	unit	rep3	17048	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_IVT	treated	consensus		12748	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_IVT	treated	unit	rep1	12644	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_IVT	treated	unit	rep2	15078	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/Nanom6A.bed
-D	Human	Nanom6A	HeLa_IVT	treated	unit	rep3	11431	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/Nanom6A.bed
+D	Arabidopsis	DENA	Arabidopsis_WT	WT	consensus		18778	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep1	23775	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep2	17742	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_WT	WT	unit	rep3	21683	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_KD	treated	consensus		7718	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep1	9420	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep2	13588	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/DENA.bed
+D	Arabidopsis	DENA	Arabidopsis_KD	treated	unit	rep3	5649	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/DENA.bed
+D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	consensus		9614	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep1	11963	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep2	10349	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_WT	WT	unit	rep3	10078	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	consensus		2133	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep1	2594	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep2	4354	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/m6Anet.bed
+D	Arabidopsis	m6Anet	Arabidopsis_KD	treated	unit	rep3	1703	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/m6Anet.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	consensus		19295	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_WT/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep1	21699	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep2	19910	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_WT	WT	unit	rep3	19743	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	consensus		14031	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Arabidopsis_KD/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep1	15961	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep2	15190	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/Nanom6A.bed
+D	Arabidopsis	Nanom6A	Arabidopsis_KD	treated	unit	rep3	12607	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/Nanom6A.bed
+D	Mouse	DENA	Mouse_WT	WT	consensus		14806	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/DENA.bed
+D	Mouse	DENA	Mouse_WT	WT	unit	studyA	29873	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/DENA.bed
+D	Mouse	DENA	Mouse_WT	WT	unit	studyB	35754	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/DENA.bed
+D	Mouse	DENA	Mouse_KO	treated	consensus		5096	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/DENA.bed
+D	Mouse	DENA	Mouse_KO	treated	unit	studyA	11144	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/DENA.bed
+D	Mouse	DENA	Mouse_KO	treated	unit	studyB	23866	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/DENA.bed
+D	Mouse	m6Anet	Mouse_WT	WT	consensus		11830	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/m6Anet.bed
+D	Mouse	m6Anet	Mouse_WT	WT	unit	studyA	22826	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/m6Anet.bed
+D	Mouse	m6Anet	Mouse_WT	WT	unit	studyB	26610	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/m6Anet.bed
+D	Mouse	m6Anet	Mouse_KO	treated	consensus		2833	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/m6Anet.bed
+D	Mouse	m6Anet	Mouse_KO	treated	unit	studyA	6349	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/m6Anet.bed
+D	Mouse	m6Anet	Mouse_KO	treated	unit	studyB	15844	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/m6Anet.bed
+D	Mouse	Nanom6A	Mouse_WT	WT	consensus		4606	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_WT/m6A/Nanom6A.bed
+D	Mouse	Nanom6A	Mouse_WT	WT	unit	studyA	10715	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_WT/m6A/Nanom6A.bed
+D	Mouse	Nanom6A	Mouse_WT	WT	unit	studyB	23838	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_WT/m6A/Nanom6A.bed
+D	Mouse	Nanom6A	Mouse_KO	treated	consensus		2848	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/Mouse_KO/m6A/Nanom6A.bed
+D	Mouse	Nanom6A	Mouse_KO	treated	unit	studyA	8136	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyA/Mouse_KO/m6A/Nanom6A.bed
+D	Mouse	Nanom6A	Mouse_KO	treated	unit	studyB	18902	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_studyB/Mouse_KO/m6A/Nanom6A.bed
+D	Human	DENA	HeLa_WT	WT	consensus		12884	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/DENA.bed
+D	Human	DENA	HeLa_WT	WT	unit	rep1	17473	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/DENA.bed
+D	Human	DENA	HeLa_WT	WT	unit	rep2	17352	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/DENA.bed
+D	Human	DENA	HeLa_WT	WT	unit	rep3	14665	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/DENA.bed
+D	Human	DENA	HeLa_IVT	treated	consensus		12795	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/DENA.bed
+D	Human	DENA	HeLa_IVT	treated	unit	rep1	16121	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/DENA.bed
+D	Human	DENA	HeLa_IVT	treated	unit	rep2	22584	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/DENA.bed
+D	Human	DENA	HeLa_IVT	treated	unit	rep3	9009	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/DENA.bed
+D	Human	m6Anet	HeLa_WT	WT	consensus		6714	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_WT	WT	unit	rep1	7437	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_WT	WT	unit	rep2	13883	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_WT	WT	unit	rep3	5611	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_IVT	treated	consensus		5632	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_IVT	treated	unit	rep1	5996	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_IVT	treated	unit	rep2	11536	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/m6Anet.bed
+D	Human	m6Anet	HeLa_IVT	treated	unit	rep3	4528	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/m6Anet.bed
+D	Human	Nanom6A	HeLa_WT	WT	consensus		16939	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_WT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_WT	WT	unit	rep1	20892	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_WT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_WT	WT	unit	rep2	18286	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_WT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_WT	WT	unit	rep3	17048	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_WT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_IVT	treated	consensus		12748	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority/HeLa_IVT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_IVT	treated	unit	rep1	12644	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep1/HeLa_IVT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_IVT	treated	unit	rep2	15078	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep2/HeLa_IVT/m6A/Nanom6A.bed
+D	Human	Nanom6A	HeLa_IVT	treated	unit	rep3	11431	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/rep_rep3/HeLa_IVT/m6A/Nanom6A.bed

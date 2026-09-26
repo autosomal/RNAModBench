@@ -4,7 +4,7 @@
 Input  : ``research/group{A,B,C,D}_*.md`` -- one line per fact,
          ``TOOL|field|value|evidence_path:line|confidence|note``
 Output : ``raw/research_facts.csv`` (normalised facts) and
-         ``tables/TI7_proposed_values.csv`` (gap-filling proposals per tool/field)
+         ``tables/proposed_values.csv`` (gap-filling proposals per tool/field)
 
 Only *structurally valid* lines are accepted: exactly six ``|`` separated columns,
 a known tool and a known R1-5 field.  Every rejection is reported with its file:line
@@ -25,7 +25,7 @@ PLACEHOLDER_EVIDENCE = {"", "-", "\u2014", "n/a", "not recorded", "CM"}
 
 
 def known_tools() -> set[str]:
-    ti1 = tp.TABLE_DIR / "TI1_per_tool_implementation.csv"
+    ti1 = tp.TABLE_DIR / "per_tool_implementation.csv"
     return {r["tool_canonical"] for r in tp.read_csv(ti1)}
 
 
@@ -179,9 +179,9 @@ def main() -> int:
         })
     pcols = ["tool_canonical", "field", "n_facts", "best_confidence",
              "proposed_value", "evidence", "notes", "source_files"]
-    tp.write_csv(tp.TABLE_DIR / "TI7_proposed_values.csv", proposals, pcols)
+    tp.write_csv(tp.TABLE_DIR / "proposed_values.csv", proposals, pcols)
 
-    ti1 = tp.read_csv(tp.TABLE_DIR / "TI1_per_tool_implementation.csv")
+    ti1 = tp.read_csv(tp.TABLE_DIR / "per_tool_implementation.csv")
     current = {(r["tool_canonical"], f): r[f] for r in ti1 for f in tp.FIELDS}
     gaps_filled = sum(1 for p in proposals
                       if current.get((p["tool_canonical"], p["field"])) == tp.MISSING)

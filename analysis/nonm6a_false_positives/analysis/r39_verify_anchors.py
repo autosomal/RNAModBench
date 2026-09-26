@@ -5,7 +5,7 @@ Anchors
 -------
 1. Published Fig. 7A HeLa WT union sizes (CHEUI_m5C 48,627; NanoPsu 883;
    NanoSPA_psU 888) and the published Global Jaccard values reproduced in
-   ``sites_v2/evaluation/tables/nonm6a_fig7_summary.tsv``.
+   ``harmonisation/evaluation/tables/nonm6a_fig7_summary.tsv``.
 2. The same table's ``legacy_*`` columns (legacy ``output/`` tree, 0-based).
 3. The strict-FPR table of the revision summary (NA-9): FP counts and FP per
    10^6 *candidate bases* on unmodified Curlcake -- a different normalisation
@@ -18,7 +18,7 @@ Writes ``evidence/anchor_check.tsv`` and exits non-zero if a hard anchor fails.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    04_revision_analysis/R3-9_nonm6a_fp_analysis/analysis/r39_verify_anchors.py
+    analysis/nonm6a_false_positives/analysis/r39_verify_anchors.py
 """
 
 from __future__ import annotations
@@ -46,10 +46,10 @@ import pandas as pd
 HERE = Path(__file__).resolve()
 PKG = HERE.parents[1]
 PROJECT = HERE.parents[3]
-SITES = PROJECT / "04_revision_analysis" / "sites_v2"
+SITES = PROJECT / "data" / "callsets"
 EV = PKG / "evidence"
 TABLES = (_RB / "data/evaluation/tables")
-sys.path.insert(0, str(PROJECT / "src/sites_v2"))
+sys.path.insert(0, str(PROJECT / "src/harmonisation"))
 
 from common.config import LEGACY_OUTPUT                    # noqa: E402
 from common.match import fix_chromosome                    # noqa: E402
@@ -80,7 +80,7 @@ def curlcake_positions(tool: str, constructs: list[str], *, legacy: bool) -> set
             path = files[0] if files else Path("/nonexistent")
             out |= _positions(path, "Chr", "Start")
         else:
-            path = ((_RB / "data/sites_clean/RNA002/Curlcake/Curlcake_IVT")
+            path = ((_RB / "data/callsets/RNA002/Curlcake/Curlcake_IVT")
                     / mod / tool / f"{s}.tsv")
             out |= _positions(path, "chrom", "start")
     return out

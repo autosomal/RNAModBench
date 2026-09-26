@@ -6,7 +6,7 @@ Why this script exists
 The published Figure 2 was drawn from ``output/<group>/Tools.txt`` -- a single
 replicate in most groups (or an undocumented pile-up), with the panels computed
 on a pooled union.  The revision rebuilds every panel from the per-sample layer
-(``sites_v2/sites_clean/``) plus the replicate-aware evaluation tables, so that
+(``harmonisation/callsets/``) plus the replicate-aware evaluation tables, so that
 
 * every number is traceable to one sample (= one independent sequencing unit);
 * mouse is never pooled across its two studies (SRP166020 / SRP357195);
@@ -20,7 +20,7 @@ Exactly the one used by the evaluation tables (``07_eval_controls.py``):
 the **generic** ``universe/<sample>__universe.tsv[.gz]`` read through
 ``common.evaluation.load_universe`` -- coverage >= 10 **and** a
 modification-compatible reference base -- grouped per chromosome as sorted
-unique int64 arrays.  ``sites_clean/`` supplies the call sets (position level,
+unique int64 arrays.  ``callsets/`` supplies the call sets (position level,
 one row per site x overlapping gene collapsed to unique ``(chrom, pos)``).
 
 Panels (drawing is ``03_fig2_figure.py``; GO enrichment is
@@ -78,7 +78,7 @@ import pandas as pd
 
 HERE = Path(__file__).resolve()
 REV = HERE.parents[1]
-CODE_ROOT = Path(str(_RB / "src/sites_v2"))
+CODE_ROOT = Path(str(_RB / "src/harmonisation"))
 sys.path.insert(0, str(CODE_ROOT))
 
 from common.config import (  # noqa: E402
@@ -94,7 +94,7 @@ MIN_COV = 10            # candidate-universe coverage threshold (main convention
 SUPPORT_HIGH = 5        # published "high-confidence" support level
 WINDOW = 2              # primary GLORI matching window
 
-SITES_CLEAN = (_RB / "data/sites_clean")
+SITES_CLEAN = (_RB / "data/callsets")
 TABLE_DIR = (_RB / "data/evaluation/tables")
 
 #: species block -> dataset groups; ``pairing`` = how a WT unit is matched to a

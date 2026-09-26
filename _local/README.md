@@ -11,11 +11,12 @@ The second column contains, on the machine that ran the analysis:
 
 - `raw/` -- the per-tool result trees (`result/`, `result_RNA004/`,
   `converted_callsets/`) that stages `00`-`34` parse, and the BAM/FASTQ
-  files the coverage columns were read from.  Public accessions are in
-  `metadata/sample_metadata/`.
-- `sites_v2/callsets/`, `sites_v2/callsets_extended/`, `sites_v2/universe/`
-  -- intermediate extraction and candidate-universe output (the universe
-  layer alone is ~15 GB); regenerate with the pipeline scripts.
+  files the coverage columns were read from.  The accessions of those reads
+  are deposited: `metadata/samples.csv`, `metadata/runs.csv`.
+- `harmonisation/callsets/`, `harmonisation/callsets_extended/`,
+  `harmonisation/universe/` -- intermediate extraction and candidate-universe
+  output (the universe layer alone is ~15 GB); regenerate with the pipeline
+  scripts in `src/harmonisation/`.
 - `reference/` -- Ensembl/TAIR/GRC annotations, GTF-derived Guitar BED
   inputs, the pickled region models, and the GLORI BED files behind the
   overlap panels of Figure S3.
@@ -28,7 +29,7 @@ What each layer unblocks:
 | layer | needed by |
 |---|---|
 | (nothing) | the page and panel renderers, which read `figures/*/tables/`, `figures/*/analysis/` and `data/` |
-| `sites_v2/callsets/` | the table-recomputing stages (`28_`, `36_`, `40_`, `41_`, `50_`, `53_figS6`, `61_figS5`, `60_figS9`, `fig4_kl`, S2 inputs) and `src/sites_v2/scripts/run_all.sh` |
+| `harmonisation/callsets/` | the table-recomputing stages (`28_`, `36_`, `40_`, `41_`, `50_`, `53_figS6`, `61_figS5`, `60_figS9`, `fig4_kl`, S2 inputs) and `src/harmonisation/scripts/run_all.sh` |
 | `reference/` | the Guitar metagene panels (Figures 3, 7, 8, S1, S8, S10) and the GLORI overlap panels of Figure S3 |
 | `review/`, `manuscript/` | the caption and number cross-checks inside some `verify_*` gates |
 

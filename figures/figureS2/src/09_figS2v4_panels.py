@@ -53,7 +53,7 @@ from matplotlib.patches import Rectangle
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 TAB, FIG = ROOT / "analysis", ROOT / "figures"
-sys.path.insert(0, str(_RB / "src/sites_v2"))
+sys.path.insert(0, str(_RB / "src/harmonisation"))
 from common.figstyle import apply as apply_style  # noqa: E402
 
 PAGE_W, PAGE_H = 595.276 / 72.0, 841.89 / 72.0

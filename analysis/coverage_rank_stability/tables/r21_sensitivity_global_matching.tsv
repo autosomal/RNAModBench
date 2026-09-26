@@ -1,0 +1,25 @@
+family	species	dataset_group	metric	stratum	stratum_kind	n_units	n_tools	spearman_rho	kendall_tau	p_value	rho_ci_lo	rho_ci_hi	rho_per_unit_mean	rho_per_unit_min	max_abs_rank_shift	mean_abs_rank_shift	top1_tool_pooled	top1_tool_stratum	top1_same	top3_overlap	p_value_fdr_bh
+drawn_units_global	Arabidopsis	Arabidopsis_WT	precision_global	5-9	sensitivity	3	10	-0.382673	-0.290191	0.275092	-0.500364	0.02595	-0.271956	-0.410117	10.5	4.81667	DRUMMER	ELIGOS2_solo	False	0	0.28957
+drawn_units_global	Arabidopsis	Arabidopsis_WT	precision_global	10-19	primary	3	11	0.887893	0.747958	0.000262758	0.753803	0.887893	0.799292	0.761513	4.66667	2.24242	DRUMMER	Nanocompore	False	0.333333	0.00043793
+drawn_units_global	Arabidopsis	Arabidopsis_WT	precision_global	20-49	primary	3	13	0.831959	0.727334	0.000419951	0.4	0.93956	0.746886	0.4	5.33333	1.5	DRUMMER	Nanocompore	False	0.666667	0.000646078
+drawn_units_global	Arabidopsis	Arabidopsis_WT	precision_global	>=50	primary	3	13	0.954609	0.864534	4.00431e-07	0.938103	0.967033	0.959707	0.956044	2.33333	0.615385	DRUMMER	NanoSPA_m6A	False	0.666667	1.60172e-06
+drawn_units_global	Arabidopsis	Arabidopsis_WT	recall_global	5-9	sensitivity	3	13	0.551457	0.435369	0.0507479	0.267519	0.590833	0.428769	0.267519	9	3.89744	ELIGOS2_solo	ELIGOS2_solo	True	0.666667	0.0597035
+drawn_units_global	Arabidopsis	Arabidopsis_WT	recall_global	10-19	primary	3	13	0.73554	0.597453	0.00416371	0.523831	0.769231	0.677132	0.523831	4.66667	2.15385	ELIGOS2_solo	ELIGOS2_solo	True	1	0.00549812
+drawn_units_global	Arabidopsis	Arabidopsis_WT	recall_global	20-49	primary	3	13	0.879121	0.769231	7.54456e-05	0.813187	0.907587	0.856784	0.822559	3.66667	1.20513	ELIGOS2_solo	ELIGOS2_solo	True	1	0.000167657
+drawn_units_global	Arabidopsis	Arabidopsis_WT	recall_global	>=50	primary	3	13	0.946215	0.849837	1.00173e-06	0.90509	0.961538	0.940891	0.90509	2.66667	0.897436	ELIGOS2_solo	ELIGOS2_solo	True	0.666667	3.33908e-06
+drawn_units_global	Mouse	Mouse_WT	precision_global	5-9	sensitivity	1	10								12	6.5	DRUMMER	CHEUI_m6A	False	0.333333	
+drawn_units_global	Mouse	Mouse_WT	precision_global	10-19	primary	1	12	0.756569	0.595437	0.00439849			0.756569	0.756569	5	2.25	DRUMMER	Nanocompore	False	0.666667	0.00549812
+drawn_units_global	Mouse	Mouse_WT	precision_global	20-49	primary	1	13	0.785714	0.666667	0.00145419			0.785714	0.785714	7	1.84615	DRUMMER	Nanocompore	False	0.666667	0.00207741
+drawn_units_global	Mouse	Mouse_WT	precision_global	>=50	primary	1	13	0.989011	0.948718	1.75073e-10			0.989011	0.989011	1	0.307692	DRUMMER	DRUMMER	True	1	1.75073e-09
+drawn_units_global	Mouse	Mouse_WT	recall_global	5-9	sensitivity	1	13								12	6	m6Anet	CHEUI_m6A	False	0.333333	
+drawn_units_global	Mouse	Mouse_WT	recall_global	10-19	primary	1	13	0.354089	0.289574	0.23523			0.354089	0.354089	6	3.53846	m6Anet	DENA	False	0.333333	0.261366
+drawn_units_global	Mouse	Mouse_WT	recall_global	20-49	primary	1	13	0.967033	0.871795	7.06411e-08			0.967033	0.967033	2	0.769231	m6Anet	m6Anet	True	1	3.53206e-07
+drawn_units_global	Mouse	Mouse_WT	recall_global	>=50	primary	1	13	0.868132	0.717949	0.000119103			0.868132	0.868132	4	1.38462	m6Anet	m6Anet	True	0.666667	0.00021655
+drawn_units_global	Human	HeLa_WT	precision_global	5-9	sensitivity	3	9								12	6.81481	NanoSPA_m6A	CHEUI_m6A	False	0.333333	
+drawn_units_global	Human	HeLa_WT	precision_global	10-19	primary	3	11	0.911164	0.770675	9.54742e-05	0.874718	0.92695	0.88732	0.874718	4.33333	2	NanoSPA_m6A	DRUMMER	False	0.666667	0.000190948
+drawn_units_global	Human	HeLa_WT	precision_global	20-49	primary	3	13	0.914601	0.805195	1.19744e-05	0.812415	0.923077	0.8663	0.818681	4.66667	1.23077	NanoSPA_m6A	NanoSPA_m6A	True	0.666667	2.9936e-05
+drawn_units_global	Human	HeLa_WT	precision_global	>=50	primary	3	13	0.998625	0.993569	1.93123e-15	0.982094	1	0.994505	0.989011	0.666667	0.153846	NanoSPA_m6A	NanoSPA_m6A	True	1	3.86247e-14
+drawn_units_global	Human	HeLa_WT	recall_global	5-9	sensitivity	3	13								11.6667	6	MINES	CHEUI_m6A	False	0	
+drawn_units_global	Human	HeLa_WT	recall_global	10-19	primary	3	13	0.185855	0.133345	0.543239	0.0777826	0.262607	0.181768	0.0777826	8.33333	3.74359	MINES	DENA	False	0	0.543239
+drawn_units_global	Human	HeLa_WT	recall_global	20-49	primary	3	13	0.936643	0.805263	2.42046e-06	0.912088	0.946208	0.932234	0.912088	3	0.871795	MINES	MINES	True	1	6.91559e-06
+drawn_units_global	Human	HeLa_WT	recall_global	>=50	primary	3	13	0.973757	0.907895	2.04092e-08	0.945055	0.973757	0.956044	0.945055	2.66667	0.615385	MINES	MINES	True	1	1.36061e-07

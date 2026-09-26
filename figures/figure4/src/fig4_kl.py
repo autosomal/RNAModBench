@@ -2,13 +2,13 @@
 """Figure 4 revision, step 1: replicate-aware KL divergence recompute.
 
 Rebuilds the numbers behind Figure 4A/B from the replicate-aware, site-level
-``sites_clean`` export (13 m6A tool configurations x 3 species WT groups),
+``callsets`` export (13 m6A tool configurations x 3 species WT groups),
 replacing the legacy per-condition merged ``output/<cond>/5mer/*_5mer.txt``
 input that had no replicate structure at all.
 
 Method (identical to the published Figure-4 pipeline
 ``Position-wise_Frequency_Differences.ipynb`` and to the R3-6 recompute
-``R3-6_motif_algorithmic_bias/analysis/r3_6_sites_clean_kl.py``):
+``R3-6_motif_algorithmic_bias/analysis/r3_6_callsets_kl.py``):
   * 5-mers are strand-normalised so the centre base is A (U -> revcomp);
   * per-position base frequencies form the observed PWM P;
   * KL = sum over positions of sum over bases b of
@@ -36,9 +36,9 @@ same PWMs and asserted equal to the R3-6 table ``fullcount_kl.tsv``, which
 is itself the bridge to the published numbers (pooled r = 0.991).
 
 Inputs (read-only)
-  sites_v2/sites_clean/RNA002/<Sp>/<group>_WT/m6A/<tool>/<rep>.tsv
+  harmonisation/callsets/RNA002/<Sp>/<group>_WT/m6A/<tool>/<rep>.tsv
       columns used: five_mer_raw
-  sites_v2/universe/RNA002/<Sp>/<rep>__m6A.tsv
+  harmonisation/universe/RNA002/<Sp>/<rep>__m6A.tsv
       columns used: five_mer, coverage
   R3-6_motif_algorithmic_bias/analysis/fullcount_kl.tsv   (validation)
 
@@ -79,11 +79,11 @@ from scipy import stats
 HERE = os.path.dirname(os.path.abspath(__file__))
 TABLES = os.path.join(os.path.dirname(HERE), "tables")
 ROOT = str(_RB)
-CLEAN = f"{ROOT}/04_revision_analysis/sites_v2/sites_clean/RNA002"
-UNIVERSE = f"{ROOT}/04_revision_analysis/sites_v2/universe/RNA002"
-R36_KL = f"{ROOT}/04_revision_analysis/R3-6_motif_algorithmic_bias/analysis/fullcount_kl.tsv"
+CLEAN = f"{ROOT}/data/callsets/RNA002"
+UNIVERSE = f"{ROOT}/data/universe/RNA002"
+R36_KL = f"{ROOT}/analysis/motif_bias_control/analysis/fullcount_kl.tsv"
 
-# locked analysis constants (sites_v2/common/config.py)
+# locked analysis constants (harmonisation/common/config.py)
 PRIMARY_C_MIN = 10
 EPS_PRIMARY = 1e-4
 EPS_SCAN = [1e-5, 1e-4, 1e-3]

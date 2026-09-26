@@ -18,10 +18,10 @@ ecoli_gse271571_prob.tsv             third-party GSE271571 (E. coli) WT/IVT/rlm 
 
 Conventions
 -----------
-* analysis layer = ``sites_v2/sites_clean`` (0-based BED, coordinate fixes applied);
-* scores / stoichiometry are read from ``sites_v2/callsets`` (holds ``mod_ratio``; the
+* analysis layer = ``harmonisation/callsets`` (0-based BED, coordinate fixes applied);
+* scores / stoichiometry are read from ``harmonisation/callsets`` (holds ``mod_ratio``; the
   two layers are row-level equivalent after the centre-base filter);
-* candidate universe = ``sites_v2/universe/<platform>/<species>/<sample>__universe.tsv[.gz]``
+* candidate universe = ``harmonisation/universe/<platform>/<species>/<sample>__universe.tsv[.gz]``
   filtered to ``coverage >= --min-cov`` and to bases that can carry the modification
   (identical to ``common.evaluation.load_universe``, i.e. the denominator behind the
   published FPR tables);
@@ -34,7 +34,7 @@ Conventions
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    04_revision_analysis/R3-9_nonm6a_fp_analysis/analysis/r39_build_evidence.py
+    analysis/nonm6a_false_positives/analysis/r39_build_evidence.py
 """
 
 from __future__ import annotations
@@ -67,16 +67,16 @@ from scipy import stats
 HERE = Path(__file__).resolve()
 PKG = HERE.parents[1]                     # R3-9_nonm6a_fp_analysis/
 PROJECT = HERE.parents[3]                 # $RNAMODBENCH_ROOT
-SITES = PROJECT / "04_revision_analysis" / "sites_v2"
-sys.path.insert(0, str(PROJECT / "src/sites_v2"))
+SITES = PROJECT / "data" / "callsets"
+sys.path.insert(0, str(PROJECT / "src/harmonisation"))
 
 from common.config import SAMPLES_BY_NAME, TABLE_DIR        # noqa: E402
 from common.match import fix_chromosome                     # noqa: E402
 from common.manifest import setup_logger                    # noqa: E402
 
-SC = (_RB / "data/sites_clean")
-CS = (_XB / "sites_v2/callsets")
-UNI = (_XB / "sites_v2/universe")
+SC = (_RB / "data/callsets")
+CS = (_XB / "harmonisation/callsets")
+UNI = (_XB / "harmonisation/universe")
 
 HELA_GROUPS: dict[str, list[str]] = {
     "WT": ["HeLa_WT1", "HeLa_WT2", "HeLa_WT3"],
@@ -98,13 +98,13 @@ TOOLMOD: list[tuple[str, str]] = [
 ORCA_MOD = {"Psi": "pseudoU", "m5C": "m5C", "Nm": "Nm"}
 ORCA_PATH = Path(str(_XB / "nanopore/reference/orca_annotation/Answer_from_RMBase_and_DirectRMDB_human.csv"))
 NGS_REF = {
-    "m5C": ("UBS-seq_m5C_HeLa", PROJECT / "07_third_party" / "NGS" / "UBS-seq" /
+    "m5C": ("UBS-seq_m5C_HeLa", _XB / "third_party" / "NGS" / "UBS-seq" /
             "UBS-seq_m5C_HeLa.txt"),
-    "Nm": ("Nm-Mut-seq_Nm_HeLa", PROJECT / "07_third_party" / "NGS" / "Nm-Mut-seq" /
+    "Nm": ("Nm-Mut-seq_Nm_HeLa", _XB / "third_party" / "NGS" / "Nm-Mut-seq" /
            "Nm-Mut-seq_Nm_HeLa.bed"),
 }
-GLORI_HELA = PROJECT / "07_third_party" / "NGS" / "GLORI" / "Hela_GLORI.bed"
-ECOLI = PROJECT / "07_third_party" / "GEO" / "GSE271571_Ecoli_epitranscriptome"
+GLORI_HELA = _XB / "third_party" / "NGS" / "GLORI" / "Hela_GLORI.bed"
+ECOLI = _XB / "third_party" / "GEO" / "GSE271571_Ecoli_epitranscriptome"
 
 #: score column that actually carries information for each tool (CHEUI's Prob is
 #: constant ~1; its stoichiometry lives in ``mod_ratio``)

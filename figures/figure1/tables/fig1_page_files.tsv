@@ -1,7 +1,7 @@
 key	value
 figure	$RNAMODBENCH_ROOT/figures/figure1/figures/Figure1_rev.pdf
 page_pt	506.459 x 506 pts
-A_source	$RNAMODBENCH_ROOT/figures/figure1/figures/panels/Figure1_A_from_ai_srgb.pdf
+A_source	$RNAMODBENCH_ROOT/figures/figure1/figures/panels/Figure1_A_artwork.pdf
 A_scale	1.000000
 body_source	$RNAMODBENCH_ROOT/figures/figure1/figures/Figure1_rev_body.pdf
 md5_final_pdf	3613a2500fbae490567e6bf8f232fb54

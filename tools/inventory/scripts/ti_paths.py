@@ -38,7 +38,7 @@ RESEARCH_DIR = (_RB / "tools/inventory/research")
 
 #: live locations of the things the legacy collectors called code/ result / yaml
 CODE_USER = (_XB / "tool_scripts")
-CODE = (_XB / "code/code")
+CODE = (_XB / "code")
 YAML_DIR = (_RB / "envs/as_run")
 RESULT = (_XB / "raw/result")
 RESULT_RNA004 = (_XB / "raw/result_RNA004")
@@ -52,7 +52,7 @@ PREFIXES: dict[str, str] = {
     "DM": str((_XB / "source_code/benchmark/DRUMMER")),
     "EL": str((_XB / "source_code/benchmark/eligos2-v2.1.0")),
     "SC": str((_XB / "tool_scripts/detection")),
-    "HA": str((_RB / "src/sites_v2/common/legacy_liftover.py")),
+    "HA": str((_XB / "code/harmonisation/common/legacy_liftover.py")),
     "CM": str((_RB / "tools/inventory/raw/commands_raw.csv")),
     "CU/": str(CODE_USER),
     "CO/": str(CODE),
@@ -63,14 +63,14 @@ PREFIXES: dict[str, str] = {
     "MFI": str(_XB / "miniconda3/envs/mafia"),
     "TB": str(_XB / "miniconda3/envs/tombo/lib/python3.7/site-packages/tombo"),
     "PB": str((_XB / "tool_scripts/python_postprocessing")),
-    "SV": str((_RB / "src/sites_v2")),
+    "SV": str((_XB / "code/harmonisation")),
     "GU": str(_XB / "miniconda3/envs/guitar_asm/lib/R/library/Guitar"),
     "RS": str((_XB / "raw/result/_not_in_manuscript")),
     "CC": str((_XB / "raw/converted_callsets/_not_in_manuscript")),
     "CM": str((_RB / "tools/inventory/raw/commands_raw.csv")),
     "VW": str((_RB / "tools/inventory/raw/versions_raw.csv")),
     "R2": str(_XB / "source_code/nanopore/R2Dtool"),
-    "GTR": str((_XB / "sites_v2/guitar_metagene")),
+    "GTR": str((_XB / "harmonisation/guitar_metagene")),
 }
 
 MISSING = "not recorded"
@@ -109,10 +109,10 @@ PATH_FIXUPS: list[tuple[str, str]] = [
     (str(_RB / "envs/as_run"), f"{YAML_DIR}/"),
     (str(_XB / "code"), f"{CODE}/"),
     (str(_RB / "tools/inventory"), f"{INV_ROOT}/"),
-    (str(_RB / "revision_output"),
-     f"{PROJECT_ROOT}/04_revision_analysis/revision_output/"),
+    (str(_RB / "superseded_output"),
+     f"{PROJECT_ROOT}/$RNAMODBENCH_LOCAL/superseded_output/"),
     (str(_XB / "archive/output"),
-     f"{PROJECT_ROOT}/04_revision_analysis/output/"),
+     f"{PROJECT_ROOT}/$RNAMODBENCH_LOCAL/superseded_output/"),
 ]
 
 

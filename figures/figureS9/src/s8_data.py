@@ -52,10 +52,10 @@ import pandas as pd
 
 from s8_style import PROJECT, SRC_TABLES, TABLES
 
-#: frozen window-sweep table of the sites_v2 evaluation (read-only)
+#: frozen window-sweep table of the harmonisation evaluation (read-only)
 LOCALIZATION = ((_RB / "data/evaluation/tables/m6a_localization_curve.tsv"))
 
-#: frozen confusion table of the sites_v2 evaluation (read-only)
+#: frozen confusion table of the harmonisation evaluation (read-only)
 CONFUSION = ((_RB / "data/evaluation/tables/m6a_glori_confusion.tsv"))
 
 #: the only chemistry on this page (RNA004); sample labels of the frozen tables

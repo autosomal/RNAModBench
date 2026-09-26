@@ -4,14 +4,15 @@
 Verifies, without touching the network:
 
 1. no personal absolute path survives anywhere in the deposit;
-2. every Python / R / shell source file parses;
-3. every deposited callset is listed in ``metadata/callsets_index.tsv`` and its
+2. no directory name from the private working tree survives in a text source;
+3. every Python / R / shell source file parses;
+4. every deposited callset is listed in ``metadata/callsets_index.tsv`` and its
    recorded site count equals the file's row count;
-4. the callset layout is the documented ``<platform>/<species>/<group>/<mod>/<tool>/
+5. the callset layout is the documented ``<platform>/<species>/<group>/<mod>/<tool>/
    <sample>.tsv``;
-5. every figure in ``docs/figure_index.md`` has a delivered file, and every
+6. every figure in ``docs/figure_index.md`` has a delivered file, and every
    script path the index names exists;
-6. writes ``metadata/deposited_files.sha256``.
+7. writes ``metadata/deposited_files.sha256``.
 
 Exit status is non-zero when a check fails.
 """
@@ -25,7 +26,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SITES = ROOT / "data" / "sites_clean"
+SITES = ROOT / "data" / "callsets"
 # character classes so that this checker does not match itself
 PERSONAL = re.compile(rb"/[d]ata/l[xy]|/[h]ome/l[xy]|/[U]sers/[a-z]")
 LAYOUT = re.compile(r"^RNA00[24]/[^/]+/[^/]+/(m6A|m5C|Psi|m1Psi|Nm|inosine)/[^/]+/[^/]+\.tsv$")
@@ -42,6 +43,31 @@ def read_files():
     for p in sorted(ROOT.rglob("*")):
         if p.is_file() and "_local" not in p.parts and ".git" not in p.parts:
             yield p
+
+
+# character classes so that this checker does not match itself
+INTERNAL_NAMES = re.compile(
+    r"04_[r]evision_analysis|01_[c]ode|02_[r]aw_results|05_[s]ubmission|06_[r]eviewers"
+    r"|07_[t]hird_party|08_[r]evision|sites_[v]2|sites_[c]lean|[c]ode_user"
+    r"|the [a]nalysis tree")
+
+
+def check_internal_names() -> None:
+    """Working-tree directory names must not survive into the deposit."""
+    hits = []
+    for p in read_files():
+        if p.suffix not in (".py", ".R", ".sh", ".md", ".tex", ".json", ".yml", ".yaml"):
+            continue
+        try:
+            text = p.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        n = len(INTERNAL_NAMES.findall(text))
+        if n:
+            hits.append((p.relative_to(ROOT).as_posix(), n))
+    shown = "; ".join(f"{a} ({b})" for a, b in sorted(hits)[:6])
+    note(not hits, f"no internal working-tree names in {sum(1 for _ in read_files())} text sources"
+         + ("" if not hits else f"; {len(hits)} file(s): {shown}"))
 
 
 def check_paths() -> None:
@@ -72,11 +98,11 @@ def check_callsets() -> None:
     import csv
     idx = {r["deposited_file"]: r for r in csv.DictReader(
         (ROOT / "metadata" / "callsets_index.tsv").open(encoding="utf-8"), delimiter="\t")}
-    on_disk = {"data/sites_clean/" + p.relative_to(SITES).as_posix(): p
+    on_disk = {"data/callsets/" + p.relative_to(SITES).as_posix(): p
                for p in SITES.rglob("*.tsv")}
     note(set(idx) == set(on_disk),
          f"index and files agree ({len(idx)} indexed, {len(on_disk)} on disk)")
-    layout_bad = [k for k in on_disk if not LAYOUT.match(k[len("data/sites_clean/"):])]
+    layout_bad = [k for k in on_disk if not LAYOUT.match(k[len("data/callsets/"):])]
     note(not layout_bad, f"callset layout is platform/species/group/mod/tool/sample.tsv"
          + ("" if not layout_bad else f"; {len(layout_bad)} off, e.g. {layout_bad[:3]}"))
     drift = []
@@ -118,6 +144,7 @@ def write_hashes() -> None:
 def main() -> int:
     print(f"verifying {ROOT}")
     check_paths()
+    check_internal_names()
     check_parses()
     check_callsets()
     check_figure_index()

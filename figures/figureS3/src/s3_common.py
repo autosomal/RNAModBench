@@ -7,7 +7,7 @@ sized exactly like the submitted ``sup3.pdf`` (595.276 x 633.598 pt) so the
 rebuilt page can replace it one-to-one.
 
 Style constants were sampled from a 150-dpi raster of the submitted page
-(``05_submission_work/03_figures_and_build_inputs/sup/sup3.pdf``):
+(``$RNAMODBENCH_LOCAL/submission/$RNAMODBENCH_LOCAL/figures_original_and_build_inputs/sup/sup3.pdf``):
 
 * venn fills   -- orange #F1BA8A, steel blue #7D9EBB, lens sage #D7D7C2
 * text ink     -- #231F20 (no pure black)
@@ -51,8 +51,8 @@ GLORI_DIR = (_XB / "third_party/NGS/GLORI")
 M6ASEQ_DIR = (_XB / "third_party/NGS/m6A-Seq")
 LEGACY = (_XB / "archive/output_legacy_20260916")
 
-#: moved by the user on 2026-09-19 (was 03_figures/NGS_visualization/S3_revision);
-#: renamed S3_revision -> figS3_revision on 2026-09-21 (fig*_revision house style)
+#: moved by the user on 2026-09-19 (was $RNAMODBENCH_LOCAL/figures_original/NGS_visualization/S3_revision);
+#: renamed S3_revision -> figures/figureS3 on 2026-09-21 (fig*_revision house style)
 OUT_DIR = (_RB / "figures/figureS3")
 PANEL_DIR = (_RB / "figures/figureS3/panels")
 TABLE_DIR = (_RB / "figures/figureS3/tables")
@@ -64,18 +64,18 @@ REPLICATE_LABELS = {
     "Human": ("HeLa-rep1", "HeLa-rep2"),
 }
 
-#: retired "GLORI hit rate" / "Hit Rate" -> house label (fig5_revision README)
+#: retired "GLORI hit rate" / "Hit Rate" -> house label (figures/figure5 README)
 YLABEL_PPV = "PPV vs. GLORI (2 bp)"
 
 SUP3_PDF = (_XB / "submission/manuscript/sup/sup3.pdf")
 
 # --------------------------------------------------------------------------- #
-# revision evaluation layer (sites_v2) -- the source of panels B and C
+# revision evaluation layer (harmonisation) -- the source of panels B and C
 # --------------------------------------------------------------------------- #
 SITES_V2 = (_RB / "data")
 EVAL_TABLES = (_RB / "data/evaluation/tables")
-SITES_CLEAN = (_RB / "data/sites_clean")
-UNIVERSE_ROOT = (_XB / "sites_v2/universe")
+SITES_CLEAN = (_RB / "data/callsets")
+UNIVERSE_ROOT = (_XB / "harmonisation/universe")
 CONFUSION_TSV = (_RB / "data/evaluation/tables/m6a_glori_confusion.tsv")
 
 #: manuscript tool scope (13 m6A tools actually used in the paper)

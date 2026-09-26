@@ -1,23 +1,23 @@
 panel	species	tool	cond_group	role	kind	unit_tag	n_sites	path
-C	Arabidopsis	ALL	Arabidopsis_WT	WT	consensus		159651	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/Arabidopsis_WT/m6A/ALL.bed
+C	Arabidopsis	ALL	Arabidopsis_WT	WT	consensus		159651	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/Arabidopsis_WT/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_WT	WT	unit	rep1	189275	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep1/Arabidopsis_WT/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_WT	WT	unit	rep2	177245	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep2/Arabidopsis_WT/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_WT	WT	unit	rep3	164007	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep3/Arabidopsis_WT/m6A/ALL.bed
-C	Arabidopsis	ALL	Arabidopsis_KD	treated	consensus		83539	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/Arabidopsis_KD/m6A/ALL.bed
+C	Arabidopsis	ALL	Arabidopsis_KD	treated	consensus		83539	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/Arabidopsis_KD/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_KD	treated	unit	rep1	102227	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep1/Arabidopsis_KD/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_KD	treated	unit	rep2	118955	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep2/Arabidopsis_KD/m6A/ALL.bed
 C	Arabidopsis	ALL	Arabidopsis_KD	treated	unit	rep3	75946	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep3/Arabidopsis_KD/m6A/ALL.bed
-C	Mouse	ALL	Mouse_WT	WT	consensus		113046	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/Mouse_WT/m6A/ALL.bed
+C	Mouse	ALL	Mouse_WT	WT	consensus		113046	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/Mouse_WT/m6A/ALL.bed
 C	Mouse	ALL	Mouse_WT	WT	unit	studyA	218700	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_studyA/Mouse_WT/m6A/ALL.bed
 C	Mouse	ALL	Mouse_WT	WT	unit	studyB	305374	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_studyB/Mouse_WT/m6A/ALL.bed
-C	Mouse	ALL	Mouse_KO	treated	consensus		162780	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/Mouse_KO/m6A/ALL.bed
+C	Mouse	ALL	Mouse_KO	treated	consensus		162780	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/Mouse_KO/m6A/ALL.bed
 C	Mouse	ALL	Mouse_KO	treated	unit	studyA	102990	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_studyA/Mouse_KO/m6A/ALL.bed
 C	Mouse	ALL	Mouse_KO	treated	unit	studyB	269769	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_studyB/Mouse_KO/m6A/ALL.bed
-C	Human	ALL	HeLa_WT	WT	consensus		128608	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/HeLa_WT/m6A/ALL.bed
+C	Human	ALL	HeLa_WT	WT	consensus		128608	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/HeLa_WT/m6A/ALL.bed
 C	Human	ALL	HeLa_WT	WT	unit	rep1	152660	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep1/HeLa_WT/m6A/ALL.bed
 C	Human	ALL	HeLa_WT	WT	unit	rep2	236609	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep2/HeLa_WT/m6A/ALL.bed
 C	Human	ALL	HeLa_WT	WT	unit	rep3	119729	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep3/HeLa_WT/m6A/ALL.bed
-C	Human	ALL	HeLa_IVT	treated	consensus		139677	$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA002/majority_pooled/HeLa_IVT/m6A/ALL.bed
+C	Human	ALL	HeLa_IVT	treated	consensus		139677	$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA002/majority_pooled/HeLa_IVT/m6A/ALL.bed
 C	Human	ALL	HeLa_IVT	treated	unit	rep1	180213	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep1/HeLa_IVT/m6A/ALL.bed
 C	Human	ALL	HeLa_IVT	treated	unit	rep2	217539	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep2/HeLa_IVT/m6A/ALL.bed
 C	Human	ALL	HeLa_IVT	treated	unit	rep3	118408	$RNAMODBENCH_ROOT/figures/figure3/bed/RNA002/rep_rep3/HeLa_IVT/m6A/ALL.bed

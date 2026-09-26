@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """R3-9 -- main figure for the non-m6A false-positive analysis (2026-09-19).
 
-House rules enforced here (see ``01_code/code/sites_v2/common/figstyle.py``):
+House rules enforced here (see ``src/harmonisation/common/figstyle.py``):
 no figure/panel titles, no grid lines, no in-figure annotations or value
 callouts -- numbers live in the evidence tables; only axis labels, ticks,
 legends and bold panel letters are allowed.  Fonts are as large as the 180 mm
@@ -18,7 +18,7 @@ E  third-party GSE271571 (E. coli): CHEUI probability density, WT vs IVT
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    04_revision_analysis/R3-9_nonm6a_fp_analysis/analysis/r39_figure.py
+    analysis/nonm6a_false_positives/analysis/r39_figure.py
 """
 
 from __future__ import annotations
@@ -36,7 +36,7 @@ from matplotlib.lines import Line2D
 HERE = Path(__file__).resolve()
 PKG = HERE.parents[1]
 PROJECT = HERE.parents[3]
-sys.path.insert(0, str(PROJECT / "src/sites_v2/common"))
+sys.path.insert(0, str(PROJECT / "src/harmonisation/common"))
 
 import figstyle  # noqa: E402
 

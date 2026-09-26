@@ -1,7 +1,7 @@
 # Tool scripts the Snakefile expects but does not ship
 
 The pipeline rules invoke helper scripts that belong to the detection tools
-themselves — they are the tools' own code, under the tools' own licences, so they
+themselves - they are the tools' own code, under the tools' own licences, so they
 are **not** copied into this repository. The workflow files reference them under
 `scripts/`; obtain the tool, then place (or symlink) the file under the name the
 rule expects.
@@ -23,15 +23,15 @@ rule expects.
 Two of these names differ from the upstream file name (DENA and MINES); the table
 gives the mapping that was actually used in the reported runs.
 
-The scripts that *are* in `scripts/` — `postprocess_*.py`, `extract_5mer.py`,
-`r2d_liftover.py`, `Epinano_DiffErr.R`, the report and plotting helpers — are part
+The scripts that *are* in `scripts/` - `postprocess_*.py`, `extract_5mer.py`,
+`r2d_liftover.py`, `Epinano_DiffErr.R`, the report and plotting helpers - are part
 of this benchmark, written to normalise each tool's output into the common
 BED-like format.
 
 Every command line that was run against these tools, including the paths of the
 tool distributions used, is in
-[`../tools/inventory/tables/TI2_command_lines.csv`](../tools/inventory/tables/TI2_command_lines.csv),
-with versions in `TI3_software_versions.csv` and model/checkpoint files in
-`TI4_model_checkpoints.csv`. See [tool_inventory_notes.md](tool_inventory_notes.md)
+[`../tools/inventory/tables/command_lines.csv`](../tools/inventory/tables/command_lines.csv),
+with versions in `software_versions.csv` and model/checkpoint files in
+`model_checkpoints.csv`. See [tool_inventory_notes.md](tool_inventory_notes.md)
 for how those were collected and what "static_script" means for their evidence
 strength.

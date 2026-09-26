@@ -3,8 +3,8 @@
 """Acceptance checks for the rebuilt Figure S3 (exit 1 on any FAIL).
 
 Checks: rebuilt HeLa GLORI reference, venn counts + naming, panel B per-unit
-PPV (sites_clean/revision layer, unified "PPV vs. GLORI (2 bp)" label), panel
-C provenance (sibling session's analysis), page geometry, embedded fonts, and
+PPV (callsets/revision layer, unified "PPV vs. GLORI (2 bp)" label), panel
+C provenance (the companion analysis analysis), page geometry, embedded fonts, and
 the untouched original.
 """
 
@@ -67,7 +67,7 @@ def main() -> int:
           all(s not in txt for s in ("Hela-1", "Hela-2", "mESC-rep1")),
           "no 'Hela-1/Hela-2/mESC-rep1' in the panel text")
 
-    # 4. panel B (PPV, sites_clean layer) --------------------------------------
+    # 4. panel B (PPV, callsets layer) --------------------------------------
     by_unit = sc.TABLE_DIR / "S3B_ppv_by_unit.tsv"
     check("panel B files exist",
           by_unit.exists() and (sc.PANEL_DIR / "S3B_ppv.pdf").exists(),
@@ -92,7 +92,7 @@ def main() -> int:
           and not any(s in btxt for s in ("SRP", "mES_WT", "mESCs_Mettl3_WT")),
           "study numbers in the legend; no sample id / accession (user 2026-09-21)")
 
-    # 5. panel C (sibling session's analysis) ----------------------------------
+    # 5. panel C (the companion analysis analysis) ----------------------------------
     prov = sc.TABLE_DIR / "S3C_provenance.tsv"
     check("panel C provenance file", prov.exists(), str(prov))
     if prov.exists():
@@ -105,7 +105,7 @@ def main() -> int:
         ["pdftotext", str(sc.PANEL_DIR / "S3C_modratio_perrep.pdf"), "-"],
         capture_output=True, text=True).stdout
     check("panel C legend carries r/CCC",
-          "CCC=" in ctxt and "r=" in ctxt, "sibling session's stats format")
+          "CCC=" in ctxt and "r=" in ctxt, "the companion analysis stats format")
     check("panel C: no in-figure study note (house rule)",
           "studies:" not in ctxt, "removed per user 2026-09-20 (legend/caption carries it)")
 

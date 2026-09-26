@@ -11,8 +11,8 @@ criteria per species.
 
 Outputs
 -------
-04_revision_analysis/figS3_revision/panels/S3A_venn.pdf / .png
-04_revision_analysis/figS3_revision/tables/S3A_overlap_counts.tsv
+figures/figureS3/panels/S3A_venn.pdf / .png
+figures/figureS3/tables/S3A_overlap_counts.tsv
 """
 
 from __future__ import annotations

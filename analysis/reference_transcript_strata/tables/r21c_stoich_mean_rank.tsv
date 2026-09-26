@@ -1,0 +1,781 @@
+species	dataset_group	tool	stratum	stratum_kind	metric	n_units	n_units_total	k_of_n	rank_mean	rank_min	rank_max	value_mean	value_min	value_max
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	pooled>=10	pooled	precision	3	3	3/3	13	13	13	0.0370559	0.0351124	0.0391259
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	pooled>=10	pooled	recall	3	3	3/3	10.6667	10	11	0.012993	0.0116202	0.015318
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	pooled>=10	pooled	f1	3	3	3/3	11	11	11	0.0192089	0.0176779	0.0220164
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	pooled>=10	pooled	mcc	3	3	3/3	13	13	13	0.0172805	0.016002	0.0193625
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.1-0.3	fine	precision	3	3	3/3	13	13	13	0.197548	0.190893	0.204283
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.1-0.3	fine	recall	3	3	3/3	8	7	9	0.0119797	0.0105949	0.013152
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.1-0.3	fine	f1	3	3	3/3	8.33333	8	9	0.0225826	0.0200755	0.0246614
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.1-0.3	fine	mcc	3	3	3/3	11.3333	10	12	0.0390658	0.0358594	0.0408157
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.3-0.6	fine	precision	3	3	3/3	13	13	13	0.234682	0.21875	0.253606
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.3-0.6	fine	recall	3	3	3/3	10.3333	10	11	0.0127406	0.0105581	0.0162433
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.3-0.6	fine	f1	3	3	3/3	10.3333	10	11	0.0241475	0.0201439	0.030531
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio0.3-0.6	fine	mcc	3	3	3/3	13	13	13	0.044902	0.0389006	0.0536105
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio>0.6	fine	precision	3	3	3/3	13	13	13	0.25702	0.249255	0.270541
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio>0.6	fine	recall	3	3	3/3	11.6667	11	13	0.0142097	0.0123493	0.0168048
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio>0.6	fine	f1	3	3	3/3	12	11	13	0.0269023	0.0235327	0.0315027
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	ratio>0.6	fine	mcc	3	3	3/3	13	13	13	0.0488985	0.0447538	0.0521494
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	CHEUI_m6A	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DENA	pooled>=10	pooled	precision	3	3	3/3	6.66667	6	7	0.281533	0.271447	0.290491
+Arabidopsis	Arabidopsis_WT	DENA	pooled>=10	pooled	recall	3	3	3/3	3	3	3	0.110536	0.106041	0.115275
+Arabidopsis	Arabidopsis_WT	DENA	pooled>=10	pooled	f1	3	3	3/3	3	3	3	0.158622	0.155367	0.161827
+Arabidopsis	Arabidopsis_WT	DENA	pooled>=10	pooled	mcc	3	3	3/3	3	3	3	0.1723	0.171466	0.172846
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.1-0.3	fine	precision	3	3	3/3	6.66667	6	8	0.626759	0.612259	0.638278
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.1-0.3	fine	recall	3	3	3/3	3.33333	3	4	0.040615	0.0376008	0.043313
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.1-0.3	fine	f1	3	3	3/3	3.33333	3	4	0.0762622	0.0710179	0.0809028
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.1-0.3	fine	mcc	3	3	3/3	3.33333	3	4	0.152133	0.147906	0.155197
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.3-0.6	fine	precision	3	3	3/3	5.66667	5	7	0.850848	0.839266	0.863014
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.3-0.6	fine	recall	3	3	3/3	3.33333	3	4	0.0957143	0.0925611	0.0992371
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.3-0.6	fine	f1	3	3	3/3	3.33333	3	4	0.172047	0.16719	0.177488
+Arabidopsis	Arabidopsis_WT	DENA	ratio0.3-0.6	fine	mcc	3	3	3/3	4	4	4	0.276981	0.274457	0.280063
+Arabidopsis	Arabidopsis_WT	DENA	ratio>0.6	fine	precision	3	3	3/3	4.66667	4	5	0.870298	0.866176	0.874158
+Arabidopsis	Arabidopsis_WT	DENA	ratio>0.6	fine	recall	3	3	3/3	3	3	3	0.191457	0.183869	0.200441
+Arabidopsis	Arabidopsis_WT	DENA	ratio>0.6	fine	f1	3	3	3/3	2.33333	2	3	0.313794	0.303831	0.325547
+Arabidopsis	Arabidopsis_WT	DENA	ratio>0.6	fine	mcc	3	3	3/3	2	2	2	0.395874	0.388632	0.404323
+Arabidopsis	Arabidopsis_WT	DENA	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	DENA	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DENA	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DENA	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DRUMMER	pooled>=10	pooled	precision	3	3	3/3	1.66667	1	2	0.868823	0.838013	0.901173
+Arabidopsis	Arabidopsis_WT	DRUMMER	pooled>=10	pooled	recall	3	3	3/3	12	12	12	0.00771659	0.00504353	0.0111387
+Arabidopsis	Arabidopsis_WT	DRUMMER	pooled>=10	pooled	f1	3	3	3/3	12	12	12	0.0152848	0.0100287	0.0220054
+Arabidopsis	Arabidopsis_WT	DRUMMER	pooled>=10	pooled	mcc	3	3	3/3	9.66667	8	11	0.0804961	0.0657967	0.0996847
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.1-0.3	fine	precision	3	3	3/3	2.33333	1	3	0.802605	0.777778	0.820513
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.1-0.3	fine	recall	3	3	3/3	13	13	13	0.00122163	0.000838223	0.00180373
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.1-0.3	fine	f1	3	3	3/3	13	13	13	0.00243915	0.00167471	0.00359955
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.1-0.3	fine	mcc	3	3	3/3	13	13	13	0.0299223	0.0252334	0.0372705
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.3-0.6	fine	precision	3	3	3/3	4	2	6	0.877163	0.854167	0.916667
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.3-0.6	fine	recall	3	3	3/3	12	12	12	0.00806769	0.00539722	0.0119038
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.3-0.6	fine	f1	3	3	3/3	12	12	12	0.0159744	0.0107267	0.0235025
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio0.3-0.6	fine	mcc	3	3	3/3	11	11	11	0.0806792	0.0657735	0.101553
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio>0.6	fine	precision	3	3	3/3	3.66667	3	4	0.896155	0.879195	0.921466
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio>0.6	fine	recall	3	3	3/3	11.6667	11	12	0.0140127	0.00898277	0.0199388
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio>0.6	fine	f1	3	3	3/3	11.3333	11	12	0.0275553	0.0177856	0.039033
+Arabidopsis	Arabidopsis_WT	DRUMMER	ratio>0.6	fine	mcc	3	3	3/3	11.3333	11	12	0.107039	0.0862674	0.131157
+Arabidopsis	Arabidopsis_WT	DRUMMER	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	DRUMMER	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DRUMMER	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	DRUMMER	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	pooled>=10	pooled	precision	3	3	3/3	3	2	4	0.84036	0.829892	0.858974
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	pooled>=10	pooled	recall	3	3	3/3	10	9	11	0.0161321	0.0111171	0.0221442
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	pooled>=10	pooled	f1	3	3	3/3	9.66667	9	10	0.0316147	0.0219411	0.0431753
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	pooled>=10	pooled	mcc	3	3	3/3	5.66667	4	7	0.114764	0.0956559	0.137166
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.1-0.3	fine	precision	3	3	3/3	2	2	2	0.823027	0.788462	0.871795
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.1-0.3	fine	recall	3	3	3/3	11.6667	11	12	0.00225765	0.00167636	0.00309981
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.1-0.3	fine	f1	3	3	3/3	11.6667	11	12	0.00450191	0.00334629	0.00617596
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.1-0.3	fine	mcc	3	3	3/3	10.6667	10	11	0.0413438	0.037177	0.0484729
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.3-0.6	fine	precision	3	3	3/3	6	4	8	0.850223	0.822115	0.886447
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.3-0.6	fine	recall	3	3	3/3	10	9	11	0.0127753	0.00841939	0.0186743
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.3-0.6	fine	f1	3	3	3/3	10	9	11	0.0251373	0.0166721	0.036578
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio0.3-0.6	fine	mcc	3	3	3/3	9.66667	9	10	0.0997627	0.0815061	0.124868
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio>0.6	fine	precision	3	3	3/3	5.66667	5	6	0.847289	0.834244	0.864955
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio>0.6	fine	recall	3	3	3/3	9.66667	9	10	0.0325538	0.022536	0.0436104
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio>0.6	fine	f1	3	3	3/3	9.66667	9	10	0.0625594	0.0438865	0.0830342
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	ratio>0.6	fine	mcc	3	3	3/3	8.66667	8	9	0.158727	0.13195	0.187246
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_diff	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	pooled>=10	pooled	precision	3	3	3/3	8.66667	8	10	0.224554	0.215766	0.234499
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	pooled>=10	pooled	recall	3	3	3/3	1	1	1	0.183951	0.169973	0.196811
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	pooled>=10	pooled	f1	3	3	3/3	1	1	1	0.201792	0.197089	0.205853
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	pooled>=10	pooled	mcc	3	3	3/3	2	2	2	0.197072	0.193807	0.200017
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.1-0.3	fine	precision	3	3	3/3	10.3333	10	11	0.424289	0.418705	0.427551
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.1-0.3	fine	recall	3	3	3/3	1	1	1	0.0810653	0.0704202	0.0892633
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.1-0.3	fine	f1	3	3	3/3	1	1	1	0.13592	0.120924	0.147155
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.1-0.3	fine	mcc	3	3	3/3	2	2	2	0.170959	0.160066	0.178371
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.3-0.6	fine	precision	3	3	3/3	10.3333	10	11	0.61213	0.599349	0.629114
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.3-0.6	fine	recall	3	3	3/3	1	1	1	0.17412	0.160539	0.187815
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.3-0.6	fine	f1	3	3	3/3	1	1	1	0.270791	0.255801	0.286006
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio0.3-0.6	fine	mcc	3	3	3/3	1	1	1	0.310359	0.302733	0.31899
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio>0.6	fine	precision	3	3	3/3	10	9	11	0.645886	0.639129	0.654536
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio>0.6	fine	recall	3	3	3/3	1	1	1	0.286474	0.26919	0.304108
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio>0.6	fine	f1	3	3	3/3	1	1	1	0.396607	0.381486	0.412122
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	ratio>0.6	fine	mcc	3	3	3/3	1	1	1	0.408547	0.398674	0.419024
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	ELIGOS2_solo	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	pooled>=10	pooled	precision	3	3	3/3	9	9	9	0.21151	0.186907	0.244843
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	pooled>=10	pooled	recall	3	3	3/3	7.33333	7	8	0.0378912	0.0243881	0.0554279
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	pooled>=10	pooled	f1	3	3	3/3	6.33333	6	7	0.0626284	0.0443578	0.0855004
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	pooled>=10	pooled	mcc	3	3	3/3	9	9	9	0.0843006	0.0750954	0.097742
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.1-0.3	fine	precision	3	3	3/3	10.6667	10	11	0.410812	0.368247	0.469903
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.1-0.3	fine	recall	3	3	3/3	7.33333	7	8	0.0184389	0.0119171	0.0271592
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.1-0.3	fine	f1	3	3	3/3	7	7	7	0.0350572	0.0232446	0.050818
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.1-0.3	fine	mcc	3	3	3/3	7.33333	7	8	0.0780317	0.0696487	0.0943952
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.3-0.6	fine	precision	3	3	3/3	10.6667	10	11	0.603861	0.563369	0.661716
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.3-0.6	fine	recall	3	3	3/3	7.33333	7	8	0.0395084	0.0262813	0.055892
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.3-0.6	fine	f1	3	3	3/3	7.33333	7	8	0.07357	0.0505547	0.101695
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio0.3-0.6	fine	mcc	3	3	3/3	7.33333	7	8	0.143519	0.125695	0.166921
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio>0.6	fine	precision	3	3	3/3	9.33333	9	10	0.669491	0.65307	0.686965
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio>0.6	fine	recall	3	3	3/3	7	6	8	0.0559723	0.0353212	0.0827912
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio>0.6	fine	f1	3	3	3/3	7	6	8	0.102281	0.0671878	0.146953
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	ratio>0.6	fine	mcc	3	3	3/3	7.33333	7	8	0.179982	0.147731	0.219473
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	EpiNano_Error	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	m6Anet	pooled>=10	pooled	precision	3	3	3/3	5	5	5	0.488489	0.460004	0.521843
+Arabidopsis	Arabidopsis_WT	m6Anet	pooled>=10	pooled	recall	3	3	3/3	4	4	4	0.0989573	0.0945188	0.10385
+Arabidopsis	Arabidopsis_WT	m6Anet	pooled>=10	pooled	f1	3	3	3/3	2	2	2	0.164431	0.160049	0.170984
+Arabidopsis	Arabidopsis_WT	m6Anet	pooled>=10	pooled	mcc	3	3	3/3	1	1	1	0.217141	0.21008	0.221587
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.1-0.3	fine	precision	3	3	3/3	4.33333	4	5	0.759124	0.742671	0.780055
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.1-0.3	fine	recall	3	3	3/3	5	5	5	0.031938	0.0281572	0.0343331
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.1-0.3	fine	f1	3	3	3/3	4.66667	4	5	0.0612719	0.0543525	0.0656781
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.1-0.3	fine	mcc	3	3	3/3	4	3	5	0.150164	0.143371	0.155338
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.3-0.6	fine	precision	3	3	3/3	1.66667	1	2	0.926813	0.920841	0.93454
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.3-0.6	fine	recall	3	3	3/3	3.66667	3	4	0.0935872	0.0883592	0.0979154
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.3-0.6	fine	f1	3	3	3/3	3.66667	3	4	0.169974	0.161453	0.177009
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio0.3-0.6	fine	mcc	3	3	3/3	3	3	3	0.287095	0.28031	0.29281
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio>0.6	fine	precision	3	3	3/3	2.66667	2	3	0.948937	0.943744	0.955962
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio>0.6	fine	recall	3	3	3/3	4	4	4	0.170284	0.165111	0.180302
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio>0.6	fine	f1	3	3	3/3	4	4	4	0.288682	0.281526	0.302933
+Arabidopsis	Arabidopsis_WT	m6Anet	ratio>0.6	fine	mcc	3	3	3/3	3	3	3	0.391539	0.384564	0.402797
+Arabidopsis	Arabidopsis_WT	m6Anet	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	m6Anet	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	m6Anet	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	m6Anet	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	MINES	pooled>=10	pooled	precision	3	3	3/3	11	11	11	0.120258	0.118796	0.122327
+Arabidopsis	Arabidopsis_WT	MINES	pooled>=10	pooled	recall	3	3	3/3	2	2	2	0.132406	0.125244	0.139542
+Arabidopsis	Arabidopsis_WT	MINES	pooled>=10	pooled	f1	3	3	3/3	4.33333	4	5	0.125941	0.123768	0.128336
+Arabidopsis	Arabidopsis_WT	MINES	pooled>=10	pooled	mcc	3	3	3/3	5.66667	4	7	0.118796	0.116351	0.121464
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.1-0.3	fine	precision	3	3	3/3	8.66667	8	9	0.534839	0.530685	0.541007
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.1-0.3	fine	recall	3	3	3/3	2	2	2	0.0690691	0.0654601	0.0728974
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.1-0.3	fine	f1	3	3	3/3	2	2	2	0.122306	0.116789	0.128186
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.1-0.3	fine	mcc	3	3	3/3	1	1	1	0.181307	0.177583	0.185589
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.3-0.6	fine	precision	3	3	3/3	8.66667	8	9	0.772622	0.759245	0.790323
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.3-0.6	fine	recall	3	3	3/3	2	2	2	0.123584	0.11747	0.132316
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.3-0.6	fine	f1	3	3	3/3	2	2	2	0.212973	0.204538	0.225358
+Arabidopsis	Arabidopsis_WT	MINES	ratio0.3-0.6	fine	mcc	3	3	3/3	2	2	2	0.298393	0.294468	0.306108
+Arabidopsis	Arabidopsis_WT	MINES	ratio>0.6	fine	precision	3	3	3/3	8.33333	7	10	0.678467	0.663633	0.686316
+Arabidopsis	Arabidopsis_WT	MINES	ratio>0.6	fine	recall	3	3	3/3	2	2	2	0.202038	0.190061	0.212367
+Arabidopsis	Arabidopsis_WT	MINES	ratio>0.6	fine	f1	3	3	3/3	2.66667	2	3	0.311303	0.295494	0.324366
+Arabidopsis	Arabidopsis_WT	MINES	ratio>0.6	fine	mcc	3	3	3/3	4	4	4	0.353097	0.337598	0.364827
+Arabidopsis	Arabidopsis_WT	MINES	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	MINES	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	MINES	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	MINES	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanocompore	pooled>=10	pooled	precision	3	3	3/3	2	1	4	0.758361	0.497196	0.902041
+Arabidopsis	Arabidopsis_WT	Nanocompore	pooled>=10	pooled	recall	3	3	3/3	13	13	13	0.00731112	0.00396541	0.0110047
+Arabidopsis	Arabidopsis_WT	Nanocompore	pooled>=10	pooled	f1	3	3	3/3	13	13	13	0.0144152	0.0078961	0.0215328
+Arabidopsis	Arabidopsis_WT	Nanocompore	pooled>=10	pooled	mcc	3	3	3/3	11	10	12	0.0700908	0.0595202	0.0777107
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.1-0.3	fine	precision	3	3	3/3	2	1	4	0.898942	0.785714	1
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.1-0.3	fine	recall	3	3	3/3	11	10	12	0.00223432	0.000986096	0.00371978
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.1-0.3	fine	f1	3	3	3/3	11	10	12	0.00445339	0.00197025	0.0074045
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.1-0.3	fine	mcc	3	3	3/3	10	9	12	0.0415201	0.0307359	0.0522503
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.3-0.6	fine	precision	3	3	3/3	3	1	7	0.893917	0.814208	0.93617
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.3-0.6	fine	recall	3	3	3/3	13	13	13	0.0068853	0.00289607	0.0115156
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.3-0.6	fine	f1	3	3	3/3	13	13	13	0.0136299	0.00577428	0.02271
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio0.3-0.6	fine	mcc	3	3	3/3	12	12	12	0.0728082	0.0506889	0.0934979
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio>0.6	fine	precision	3	3	3/3	3	1	6	0.889246	0.727064	0.975155
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio>0.6	fine	recall	3	3	3/3	12.6667	12	13	0.012761	0.00774658	0.0179319
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio>0.6	fine	f1	3	3	3/3	12.6667	12	13	0.0250852	0.0153711	0.0350006
+Arabidopsis	Arabidopsis_WT	Nanocompore	ratio>0.6	fine	mcc	3	3	3/3	11.6667	11	12	0.100056	0.0844397	0.108595
+Arabidopsis	Arabidopsis_WT	Nanocompore	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	Nanocompore	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanocompore	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanocompore	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanom6A	pooled>=10	pooled	precision	3	3	3/3	9.33333	8	10	0.190329	0.156416	0.257029
+Arabidopsis	Arabidopsis_WT	Nanom6A	pooled>=10	pooled	recall	3	3	3/3	5.33333	5	6	0.0722194	0.0606924	0.0913017
+Arabidopsis	Arabidopsis_WT	Nanom6A	pooled>=10	pooled	f1	3	3	3/3	5	4	6	0.104628	0.0874519	0.134741
+Arabidopsis	Arabidopsis_WT	Nanom6A	pooled>=10	pooled	mcc	3	3	3/3	7.33333	4	10	0.112861	0.0931384	0.149288
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.1-0.3	fine	precision	3	3	3/3	7.33333	7	8	0.605751	0.583333	0.645051
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.1-0.3	fine	recall	3	3	3/3	5.33333	4	6	0.0342378	0.0319237	0.0372763
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.1-0.3	fine	f1	3	3	3/3	5.33333	4	6	0.0648098	0.0605641	0.0704797
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.1-0.3	fine	mcc	3	3	3/3	4.66667	4	5	0.137032	0.130233	0.148288
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.3-0.6	fine	precision	3	3	3/3	6.33333	5	8	0.836693	0.809302	0.866616
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.3-0.6	fine	recall	3	3	3/3	5.66667	5	7	0.0658697	0.0570866	0.0757227
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.3-0.6	fine	f1	3	3	3/3	5.66667	5	7	0.122061	0.10665	0.139276
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio0.3-0.6	fine	mcc	3	3	3/3	5	5	5	0.22729	0.207898	0.248827
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio>0.6	fine	precision	3	3	3/3	10	8	11	0.668744	0.614519	0.772871
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio>0.6	fine	recall	3	3	3/3	5	5	5	0.114996	0.0928293	0.156483
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio>0.6	fine	f1	3	3	3/3	5.33333	5	6	0.195762	0.161442	0.260269
+Arabidopsis	Arabidopsis_WT	Nanom6A	ratio>0.6	fine	mcc	3	3	3/3	5.33333	5	6	0.262769	0.225897	0.334471
+Arabidopsis	Arabidopsis_WT	Nanom6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	Nanom6A	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanom6A	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	Nanom6A	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	pooled>=10	pooled	precision	3	3	3/3	3.33333	3	4	0.837513	0.825023	0.846838
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	pooled>=10	pooled	recall	3	3	3/3	9.33333	9	10	0.0172946	0.0163384	0.0178071
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	pooled>=10	pooled	f1	3	3	3/3	9.33333	9	10	0.0338887	0.0320423	0.0348755
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	pooled>=10	pooled	mcc	3	3	3/3	5	5	5	0.119681	0.115473	0.121875
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.1-0.3	fine	precision	3	3	3/3	4.33333	3	5	0.726596	0.623377	0.8
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.1-0.3	fine	recall	3	3	3/3	10.3333	10	11	0.00287634	0.00233804	0.003382
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.1-0.3	fine	f1	3	3	3/3	10.3333	10	11	0.00572994	0.00465861	0.00673552
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.1-0.3	fine	mcc	3	3	3/3	10	9	11	0.0439902	0.0363798	0.0503238
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.3-0.6	fine	precision	3	3	3/3	3	3	3	0.901442	0.889381	0.911392
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.3-0.6	fine	recall	3	3	3/3	9.66667	9	11	0.0137307	0.0132141	0.014218
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.3-0.6	fine	f1	3	3	3/3	9.66667	9	11	0.0270493	0.0260413	0.0279992
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio0.3-0.6	fine	mcc	3	3	3/3	9	8	10	0.108103	0.105295	0.110692
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio>0.6	fine	precision	3	3	3/3	1.33333	1	2	0.975381	0.971545	0.98254
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio>0.6	fine	recall	3	3	3/3	8.33333	6	10	0.0345183	0.033093	0.0353952
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio>0.6	fine	f1	3	3	3/3	8.33333	6	10	0.0666753	0.064007	0.068302
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	ratio>0.6	fine	mcc	3	3	3/3	7.66667	6	10	0.178336	0.174354	0.180393
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	NanoSPA_m6A	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	xPore	pooled>=10	pooled	precision	3	3	3/3	12	12	12	0.087179	0.0804395	0.092482
+Arabidopsis	Arabidopsis_WT	xPore	pooled>=10	pooled	recall	3	3	3/3	5.66667	5	6	0.0483595	0.030203	0.0718764
+Arabidopsis	Arabidopsis_WT	xPore	pooled>=10	pooled	f1	3	3	3/3	7.33333	7	8	0.0609021	0.0439165	0.0808876
+Arabidopsis	Arabidopsis_WT	xPore	pooled>=10	pooled	mcc	3	3	3/3	11.6667	11	12	0.0586979	0.0446849	0.0747178
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.1-0.3	fine	precision	3	3	3/3	12	12	12	0.316452	0.310159	0.326968
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.1-0.3	fine	recall	3	3	3/3	4.33333	3	6	0.0358679	0.0250209	0.0484388
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.1-0.3	fine	f1	3	3	3/3	4.66667	3	6	0.063984	0.0463292	0.0837915
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.1-0.3	fine	mcc	3	3	3/3	6	6	6	0.0936193	0.0782712	0.108312
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.3-0.6	fine	precision	3	3	3/3	12	12	12	0.446564	0.428571	0.46304
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.3-0.6	fine	recall	3	3	3/3	5.66667	5	6	0.0520334	0.0329064	0.0765388
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.3-0.6	fine	f1	3	3	3/3	6	6	6	0.0923314	0.0611199	0.131364
+Arabidopsis	Arabidopsis_WT	xPore	ratio0.3-0.6	fine	mcc	3	3	3/3	8	7	9	0.138563	0.108667	0.173877
+Arabidopsis	Arabidopsis_WT	xPore	ratio>0.6	fine	precision	3	3	3/3	12	12	12	0.398495	0.344212	0.44
+Arabidopsis	Arabidopsis_WT	xPore	ratio>0.6	fine	recall	3	3	3/3	7.33333	7	8	0.0579737	0.0332643	0.0915172
+Arabidopsis	Arabidopsis_WT	xPore	ratio>0.6	fine	f1	3	3	3/3	7.33333	7	8	0.0999917	0.060666	0.151519
+Arabidopsis	Arabidopsis_WT	xPore	ratio>0.6	fine	mcc	3	3	3/3	9.66667	9	10	0.133942	0.0930356	0.181361
+Arabidopsis	Arabidopsis_WT	xPore	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	xPore	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	xPore	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	xPore	far	fine	mcc	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	yanocomp	pooled>=10	pooled	precision	3	3	3/3	6.33333	6	7	0.395009	0.237204	0.504373
+Arabidopsis	Arabidopsis_WT	yanocomp	pooled>=10	pooled	recall	3	3	3/3	7.66667	7	8	0.0366087	0.0185403	0.062966
+Arabidopsis	Arabidopsis_WT	yanocomp	pooled>=10	pooled	f1	3	3	3/3	7	5	8	0.0628403	0.035766	0.0995155
+Arabidopsis	Arabidopsis_WT	yanocomp	pooled>=10	pooled	mcc	3	3	3/3	7	6	8	0.108208	0.0955729	0.118487
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.1-0.3	fine	precision	3	3	3/3	7.33333	6	9	0.5635	0.432463	0.652941
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.1-0.3	fine	recall	3	3	3/3	8.66667	8	9	0.012041	0.00546798	0.0214105
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.1-0.3	fine	f1	3	3	3/3	8.66667	8	9	0.0232856	0.0108451	0.040801
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.1-0.3	fine	mcc	3	3	3/3	7.66667	7	8	0.0723119	0.0571266	0.0886811
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.3-0.6	fine	precision	3	3	3/3	6.66667	4	9	0.80652	0.723404	0.879699
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.3-0.6	fine	recall	3	3	3/3	7.33333	6	8	0.0438131	0.0229802	0.0748217
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.3-0.6	fine	f1	3	3	3/3	7	5	8	0.0816733	0.0447904	0.135617
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio0.3-0.6	fine	mcc	3	3	3/3	6	6	6	0.173815	0.138002	0.223213
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio>0.6	fine	precision	3	3	3/3	7.33333	7	8	0.761027	0.662567	0.813559
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio>0.6	fine	recall	3	3	3/3	7.66667	6	9	0.0555133	0.0281883	0.0947617
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio>0.6	fine	f1	3	3	3/3	7.33333	5	9	0.101003	0.0544887	0.165809
+Arabidopsis	Arabidopsis_WT	yanocomp	ratio>0.6	fine	mcc	3	3	3/3	6.33333	5	8	0.187462	0.145473	0.236773
+Arabidopsis	Arabidopsis_WT	yanocomp	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Arabidopsis	Arabidopsis_WT	yanocomp	far	fine	recall	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	yanocomp	far	fine	f1	0	3	0/3						
+Arabidopsis	Arabidopsis_WT	yanocomp	far	fine	mcc	0	3	0/3						
+Mouse	Mouse_WT	CHEUI_m6A	pooled>=10	pooled	precision	1	1	1/1	13	13	13	0.0121041	0.0121041	0.0121041
+Mouse	Mouse_WT	CHEUI_m6A	pooled>=10	pooled	recall	1	1	1/1	13	13	13	0.0201725	0.0201725	0.0201725
+Mouse	Mouse_WT	CHEUI_m6A	pooled>=10	pooled	f1	1	1	1/1	13	13	13	0.0151298	0.0151298	0.0151298
+Mouse	Mouse_WT	CHEUI_m6A	pooled>=10	pooled	mcc	1	1	1/1	13	13	13	0.011882	0.011882	0.011882
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.1-0.3	fine	precision	1	1	1/1	13	13	13	0.100877	0.100877	0.100877
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.1-0.3	fine	recall	1	1	1/1	10	10	10	0.0216532	0.0216532	0.0216532
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.1-0.3	fine	f1	1	1	1/1	11	11	11	0.0356534	0.0356534	0.0356534
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.1-0.3	fine	mcc	1	1	1/1	13	13	13	0.0359103	0.0359103	0.0359103
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.3-0.6	fine	precision	1	1	1/1	13	13	13	0.105605	0.105605	0.105605
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.3-0.6	fine	recall	1	1	1/1	13	13	13	0.0203093	0.0203093	0.0203093
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.3-0.6	fine	f1	1	1	1/1	13	13	13	0.0340671	0.0340671	0.0340671
+Mouse	Mouse_WT	CHEUI_m6A	ratio0.3-0.6	fine	mcc	1	1	1/1	13	13	13	0.0355902	0.0355902	0.0355902
+Mouse	Mouse_WT	CHEUI_m6A	ratio>0.6	fine	precision	1	1	1/1	13	13	13	0.0906314	0.0906314	0.0906314
+Mouse	Mouse_WT	CHEUI_m6A	ratio>0.6	fine	recall	1	1	1/1	13	13	13	0.017001	0.017001	0.017001
+Mouse	Mouse_WT	CHEUI_m6A	ratio>0.6	fine	f1	1	1	1/1	13	13	13	0.0286312	0.0286312	0.0286312
+Mouse	Mouse_WT	CHEUI_m6A	ratio>0.6	fine	mcc	1	1	1/1	13	13	13	0.0277843	0.0277843	0.0277843
+Mouse	Mouse_WT	CHEUI_m6A	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	CHEUI_m6A	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	CHEUI_m6A	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	CHEUI_m6A	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	DENA	pooled>=10	pooled	precision	1	1	1/1	8	8	8	0.175348	0.175348	0.175348
+Mouse	Mouse_WT	DENA	pooled>=10	pooled	recall	1	1	1/1	3	3	3	0.28289	0.28289	0.28289
+Mouse	Mouse_WT	DENA	pooled>=10	pooled	f1	1	1	1/1	2	2	2	0.2165	0.2165	0.2165
+Mouse	Mouse_WT	DENA	pooled>=10	pooled	mcc	1	1	1/1	3	3	3	0.219848	0.219848	0.219848
+Mouse	Mouse_WT	DENA	ratio0.1-0.3	fine	precision	1	1	1/1	7	7	7	0.553335	0.553335	0.553335
+Mouse	Mouse_WT	DENA	ratio0.1-0.3	fine	recall	1	1	1/1	3	3	3	0.186051	0.186051	0.186051
+Mouse	Mouse_WT	DENA	ratio0.1-0.3	fine	f1	1	1	1/1	3	3	3	0.27847	0.27847	0.27847
+Mouse	Mouse_WT	DENA	ratio0.1-0.3	fine	mcc	1	1	1/1	3	3	3	0.311801	0.311801	0.311801
+Mouse	Mouse_WT	DENA	ratio0.3-0.6	fine	precision	1	1	1/1	8	8	8	0.693543	0.693543	0.693543
+Mouse	Mouse_WT	DENA	ratio0.3-0.6	fine	recall	1	1	1/1	3	3	3	0.305037	0.305037	0.305037
+Mouse	Mouse_WT	DENA	ratio0.3-0.6	fine	f1	1	1	1/1	2	2	2	0.423714	0.423714	0.423714
+Mouse	Mouse_WT	DENA	ratio0.3-0.6	fine	mcc	1	1	1/1	2	2	2	0.451309	0.451309	0.451309
+Mouse	Mouse_WT	DENA	ratio>0.6	fine	precision	1	1	1/1	8	8	8	0.778475	0.778475	0.778475
+Mouse	Mouse_WT	DENA	ratio>0.6	fine	recall	1	1	1/1	1	1	1	0.451897	0.451897	0.451897
+Mouse	Mouse_WT	DENA	ratio>0.6	fine	f1	1	1	1/1	2	2	2	0.571844	0.571844	0.571844
+Mouse	Mouse_WT	DENA	ratio>0.6	fine	mcc	1	1	1/1	2	2	2	0.584905	0.584905	0.584905
+Mouse	Mouse_WT	DENA	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	DENA	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	DENA	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	DENA	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	DRUMMER	pooled>=10	pooled	precision	1	1	1/1	1	1	1	0.697979	0.697979	0.697979
+Mouse	Mouse_WT	DRUMMER	pooled>=10	pooled	recall	1	1	1/1	12	12	12	0.0576819	0.0576819	0.0576819
+Mouse	Mouse_WT	DRUMMER	pooled>=10	pooled	f1	1	1	1/1	9	9	9	0.106558	0.106558	0.106558
+Mouse	Mouse_WT	DRUMMER	pooled>=10	pooled	mcc	1	1	1/1	5	5	5	0.200127	0.200127	0.200127
+Mouse	Mouse_WT	DRUMMER	ratio0.1-0.3	fine	precision	1	1	1/1	1	1	1	0.830579	0.830579	0.830579
+Mouse	Mouse_WT	DRUMMER	ratio0.1-0.3	fine	recall	1	1	1/1	11	11	11	0.0190215	0.0190215	0.0190215
+Mouse	Mouse_WT	DRUMMER	ratio0.1-0.3	fine	f1	1	1	1/1	10	10	10	0.0371912	0.0371912	0.0371912
+Mouse	Mouse_WT	DRUMMER	ratio0.1-0.3	fine	mcc	1	1	1/1	7	7	7	0.123552	0.123552	0.123552
+Mouse	Mouse_WT	DRUMMER	ratio0.3-0.6	fine	precision	1	1	1/1	2	2	2	0.887029	0.887029	0.887029
+Mouse	Mouse_WT	DRUMMER	ratio0.3-0.6	fine	recall	1	1	1/1	12	12	12	0.0665307	0.0665307	0.0665307
+Mouse	Mouse_WT	DRUMMER	ratio0.3-0.6	fine	f1	1	1	1/1	12	12	12	0.123778	0.123778	0.123778
+Mouse	Mouse_WT	DRUMMER	ratio0.3-0.6	fine	mcc	1	1	1/1	10	10	10	0.239229	0.239229	0.239229
+Mouse	Mouse_WT	DRUMMER	ratio>0.6	fine	precision	1	1	1/1	3	3	3	0.924929	0.924929	0.924929
+Mouse	Mouse_WT	DRUMMER	ratio>0.6	fine	recall	1	1	1/1	11	11	11	0.125072	0.125072	0.125072
+Mouse	Mouse_WT	DRUMMER	ratio>0.6	fine	f1	1	1	1/1	11	11	11	0.220348	0.220348	0.220348
+Mouse	Mouse_WT	DRUMMER	ratio>0.6	fine	mcc	1	1	1/1	10	10	10	0.335273	0.335273	0.335273
+Mouse	Mouse_WT	DRUMMER	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	DRUMMER	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	DRUMMER	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	DRUMMER	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_diff	pooled>=10	pooled	precision	1	1	1/1	3	3	3	0.587384	0.587384	0.587384
+Mouse	Mouse_WT	ELIGOS2_diff	pooled>=10	pooled	recall	1	1	1/1	7	7	7	0.101655	0.101655	0.101655
+Mouse	Mouse_WT	ELIGOS2_diff	pooled>=10	pooled	f1	1	1	1/1	4	4	4	0.173316	0.173316	0.173316
+Mouse	Mouse_WT	ELIGOS2_diff	pooled>=10	pooled	mcc	1	1	1/1	2	2	2	0.243553	0.243553	0.243553
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.1-0.3	fine	precision	1	1	1/1	5	5	5	0.601307	0.601307	0.601307
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.1-0.3	fine	recall	1	1	1/1	13	13	13	0.0174045	0.0174045	0.0174045
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.1-0.3	fine	f1	1	1	1/1	13	13	13	0.0338297	0.0338297	0.0338297
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.1-0.3	fine	mcc	1	1	1/1	11	11	11	0.0994031	0.0994031	0.0994031
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.3-0.6	fine	precision	1	1	1/1	5	5	5	0.794413	0.794413	0.794413
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.3-0.6	fine	recall	1	1	1/1	7	7	7	0.110851	0.110851	0.110851
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.3-0.6	fine	f1	1	1	1/1	7	7	7	0.194555	0.194555	0.194555
+Mouse	Mouse_WT	ELIGOS2_diff	ratio0.3-0.6	fine	mcc	1	1	1/1	5	5	5	0.291427	0.291427	0.291427
+Mouse	Mouse_WT	ELIGOS2_diff	ratio>0.6	fine	precision	1	1	1/1	6	6	6	0.808573	0.808573	0.808573
+Mouse	Mouse_WT	ELIGOS2_diff	ratio>0.6	fine	recall	1	1	1/1	7	7	7	0.256616	0.256616	0.256616
+Mouse	Mouse_WT	ELIGOS2_diff	ratio>0.6	fine	f1	1	1	1/1	6	6	6	0.389588	0.389588	0.389588
+Mouse	Mouse_WT	ELIGOS2_diff	ratio>0.6	fine	mcc	1	1	1/1	4	4	4	0.447963	0.447963	0.447963
+Mouse	Mouse_WT	ELIGOS2_diff	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	ELIGOS2_diff	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_diff	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_diff	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_solo	pooled>=10	pooled	precision	1	1	1/1	12	12	12	0.0588345	0.0588345	0.0588345
+Mouse	Mouse_WT	ELIGOS2_solo	pooled>=10	pooled	recall	1	1	1/1	4	4	4	0.209849	0.209849	0.209849
+Mouse	Mouse_WT	ELIGOS2_solo	pooled>=10	pooled	f1	1	1	1/1	11	11	11	0.0919026	0.0919026	0.0919026
+Mouse	Mouse_WT	ELIGOS2_solo	pooled>=10	pooled	mcc	1	1	1/1	10	10	10	0.106207	0.106207	0.106207
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.1-0.3	fine	precision	1	1	1/1	12	12	12	0.15152	0.15152	0.15152
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.1-0.3	fine	recall	1	1	1/1	6	6	6	0.0834981	0.0834981	0.0834981
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.1-0.3	fine	f1	1	1	1/1	6	6	6	0.107665	0.107665	0.107665
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.1-0.3	fine	mcc	1	1	1/1	12	12	12	0.0961008	0.0961008	0.0961008
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.3-0.6	fine	precision	1	1	1/1	12	12	12	0.345631	0.345631	0.345631
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.3-0.6	fine	recall	1	1	1/1	4	4	4	0.246272	0.246272	0.246272
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.3-0.6	fine	f1	1	1	1/1	5	5	5	0.287612	0.287612	0.287612
+Mouse	Mouse_WT	ELIGOS2_solo	ratio0.3-0.6	fine	mcc	1	1	1/1	6	6	6	0.27588	0.27588	0.27588
+Mouse	Mouse_WT	ELIGOS2_solo	ratio>0.6	fine	precision	1	1	1/1	11	11	11	0.468997	0.468997	0.468997
+Mouse	Mouse_WT	ELIGOS2_solo	ratio>0.6	fine	recall	1	1	1/1	3	3	3	0.411614	0.411614	0.411614
+Mouse	Mouse_WT	ELIGOS2_solo	ratio>0.6	fine	f1	1	1	1/1	4	4	4	0.438436	0.438436	0.438436
+Mouse	Mouse_WT	ELIGOS2_solo	ratio>0.6	fine	mcc	1	1	1/1	6	6	6	0.423849	0.423849	0.423849
+Mouse	Mouse_WT	ELIGOS2_solo	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	ELIGOS2_solo	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_solo	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	ELIGOS2_solo	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	EpiNano_Error	pooled>=10	pooled	precision	1	1	1/1	10	10	10	0.0681877	0.0681877	0.0681877
+Mouse	Mouse_WT	EpiNano_Error	pooled>=10	pooled	recall	1	1	1/1	8	8	8	0.0816717	0.0816717	0.0816717
+Mouse	Mouse_WT	EpiNano_Error	pooled>=10	pooled	f1	1	1	1/1	12	12	12	0.0743231	0.0743231	0.0743231
+Mouse	Mouse_WT	EpiNano_Error	pooled>=10	pooled	mcc	1	1	1/1	12	12	12	0.0716154	0.0716154	0.0716154
+Mouse	Mouse_WT	EpiNano_Error	ratio0.1-0.3	fine	precision	1	1	1/1	11	11	11	0.23665	0.23665	0.23665
+Mouse	Mouse_WT	EpiNano_Error	ratio0.1-0.3	fine	recall	1	1	1/1	7	7	7	0.0548832	0.0548832	0.0548832
+Mouse	Mouse_WT	EpiNano_Error	ratio0.1-0.3	fine	f1	1	1	1/1	7	7	7	0.0891021	0.0891021	0.0891021
+Mouse	Mouse_WT	EpiNano_Error	ratio0.1-0.3	fine	mcc	1	1	1/1	10	10	10	0.10369	0.10369	0.10369
+Mouse	Mouse_WT	EpiNano_Error	ratio0.3-0.6	fine	precision	1	1	1/1	11	11	11	0.372598	0.372598	0.372598
+Mouse	Mouse_WT	EpiNano_Error	ratio0.3-0.6	fine	recall	1	1	1/1	9	9	9	0.0929765	0.0929765	0.0929765
+Mouse	Mouse_WT	EpiNano_Error	ratio0.3-0.6	fine	f1	1	1	1/1	10	10	10	0.148818	0.148818	0.148818
+Mouse	Mouse_WT	EpiNano_Error	ratio0.3-0.6	fine	mcc	1	1	1/1	12	12	12	0.176026	0.176026	0.176026
+Mouse	Mouse_WT	EpiNano_Error	ratio>0.6	fine	precision	1	1	1/1	12	12	12	0.416827	0.416827	0.416827
+Mouse	Mouse_WT	EpiNano_Error	ratio>0.6	fine	recall	1	1	1/1	12	12	12	0.121422	0.121422	0.121422
+Mouse	Mouse_WT	EpiNano_Error	ratio>0.6	fine	f1	1	1	1/1	12	12	12	0.188061	0.188061	0.188061
+Mouse	Mouse_WT	EpiNano_Error	ratio>0.6	fine	mcc	1	1	1/1	12	12	12	0.213688	0.213688	0.213688
+Mouse	Mouse_WT	EpiNano_Error	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	EpiNano_Error	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	EpiNano_Error	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	EpiNano_Error	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	m6Anet	pooled>=10	pooled	precision	1	1	1/1	5	5	5	0.302173	0.302173	0.302173
+Mouse	Mouse_WT	m6Anet	pooled>=10	pooled	recall	1	1	1/1	1	1	1	0.362668	0.362668	0.362668
+Mouse	Mouse_WT	m6Anet	pooled>=10	pooled	f1	1	1	1/1	1	1	1	0.329669	0.329669	0.329669
+Mouse	Mouse_WT	m6Anet	pooled>=10	pooled	mcc	1	1	1/1	1	1	1	0.328897	0.328897	0.328897
+Mouse	Mouse_WT	m6Anet	ratio0.1-0.3	fine	precision	1	1	1/1	2	2	2	0.762862	0.762862	0.762862
+Mouse	Mouse_WT	m6Anet	ratio0.1-0.3	fine	recall	1	1	1/1	1	1	1	0.301694	0.301694	0.301694
+Mouse	Mouse_WT	m6Anet	ratio0.1-0.3	fine	f1	1	1	1/1	1	1	1	0.432388	0.432388	0.432388
+Mouse	Mouse_WT	m6Anet	ratio0.1-0.3	fine	mcc	1	1	1/1	1	1	1	0.472453	0.472453	0.472453
+Mouse	Mouse_WT	m6Anet	ratio0.3-0.6	fine	precision	1	1	1/1	4	4	4	0.811828	0.811828	0.811828
+Mouse	Mouse_WT	m6Anet	ratio0.3-0.6	fine	recall	1	1	1/1	1	1	1	0.402793	0.402793	0.402793
+Mouse	Mouse_WT	m6Anet	ratio0.3-0.6	fine	f1	1	1	1/1	1	1	1	0.538437	0.538437	0.538437
+Mouse	Mouse_WT	m6Anet	ratio0.3-0.6	fine	mcc	1	1	1/1	1	1	1	0.564636	0.564636	0.564636
+Mouse	Mouse_WT	m6Anet	ratio>0.6	fine	precision	1	1	1/1	4	4	4	0.841697	0.841697	0.841697
+Mouse	Mouse_WT	m6Anet	ratio>0.6	fine	recall	1	1	1/1	2	2	2	0.436973	0.436973	0.436973
+Mouse	Mouse_WT	m6Anet	ratio>0.6	fine	f1	1	1	1/1	1	1	1	0.575284	0.575284	0.575284
+Mouse	Mouse_WT	m6Anet	ratio>0.6	fine	mcc	1	1	1/1	1	1	1	0.599192	0.599192	0.599192
+Mouse	Mouse_WT	m6Anet	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	m6Anet	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	m6Anet	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	m6Anet	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	MINES	pooled>=10	pooled	precision	1	1	1/1	9	9	9	0.0839869	0.0839869	0.0839869
+Mouse	Mouse_WT	MINES	pooled>=10	pooled	recall	1	1	1/1	2	2	2	0.318018	0.318018	0.318018
+Mouse	Mouse_WT	MINES	pooled>=10	pooled	f1	1	1	1/1	6	6	6	0.132881	0.132881	0.132881
+Mouse	Mouse_WT	MINES	pooled>=10	pooled	mcc	1	1	1/1	8	8	8	0.158855	0.158855	0.158855
+Mouse	Mouse_WT	MINES	ratio0.1-0.3	fine	precision	1	1	1/1	8	8	8	0.473756	0.473756	0.473756
+Mouse	Mouse_WT	MINES	ratio0.1-0.3	fine	recall	1	1	1/1	2	2	2	0.296394	0.296394	0.296394
+Mouse	Mouse_WT	MINES	ratio0.1-0.3	fine	f1	1	1	1/1	2	2	2	0.364652	0.364652	0.364652
+Mouse	Mouse_WT	MINES	ratio0.1-0.3	fine	mcc	1	1	1/1	2	2	2	0.362621	0.362621	0.362621
+Mouse	Mouse_WT	MINES	ratio0.3-0.6	fine	precision	1	1	1/1	9	9	9	0.531321	0.531321	0.531321
+Mouse	Mouse_WT	MINES	ratio0.3-0.6	fine	recall	1	1	1/1	2	2	2	0.331398	0.331398	0.331398
+Mouse	Mouse_WT	MINES	ratio0.3-0.6	fine	f1	1	1	1/1	3	3	3	0.408195	0.408195	0.408195
+Mouse	Mouse_WT	MINES	ratio0.3-0.6	fine	mcc	1	1	1/1	3	3	3	0.407889	0.407889	0.407889
+Mouse	Mouse_WT	MINES	ratio>0.6	fine	precision	1	1	1/1	9	9	9	0.582606	0.582606	0.582606
+Mouse	Mouse_WT	MINES	ratio>0.6	fine	recall	1	1	1/1	4	4	4	0.345277	0.345277	0.345277
+Mouse	Mouse_WT	MINES	ratio>0.6	fine	f1	1	1	1/1	5	5	5	0.43359	0.43359	0.43359
+Mouse	Mouse_WT	MINES	ratio>0.6	fine	mcc	1	1	1/1	5	5	5	0.436935	0.436935	0.436935
+Mouse	Mouse_WT	MINES	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	MINES	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	MINES	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	MINES	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	Nanocompore	pooled>=10	pooled	precision	1	1	1/1	4	4	4	0.516214	0.516214	0.516214
+Mouse	Mouse_WT	Nanocompore	pooled>=10	pooled	recall	1	1	1/1	11	11	11	0.0703431	0.0703431	0.0703431
+Mouse	Mouse_WT	Nanocompore	pooled>=10	pooled	f1	1	1	1/1	7	7	7	0.123814	0.123814	0.123814
+Mouse	Mouse_WT	Nanocompore	pooled>=10	pooled	mcc	1	1	1/1	6	6	6	0.189793	0.189793	0.189793
+Mouse	Mouse_WT	Nanocompore	ratio0.1-0.3	fine	precision	1	1	1/1	3	3	3	0.744949	0.744949	0.744949
+Mouse	Mouse_WT	Nanocompore	ratio0.1-0.3	fine	recall	1	1	1/1	9	9	9	0.0279145	0.0279145	0.0279145
+Mouse	Mouse_WT	Nanocompore	ratio0.1-0.3	fine	f1	1	1	1/1	8	8	8	0.0538125	0.0538125	0.0538125
+Mouse	Mouse_WT	Nanocompore	ratio0.1-0.3	fine	mcc	1	1	1/1	6	6	6	0.141279	0.141279	0.141279
+Mouse	Mouse_WT	Nanocompore	ratio0.3-0.6	fine	precision	1	1	1/1	3	3	3	0.87276	0.87276	0.87276
+Mouse	Mouse_WT	Nanocompore	ratio0.3-0.6	fine	recall	1	1	1/1	11	11	11	0.0763562	0.0763562	0.0763562
+Mouse	Mouse_WT	Nanocompore	ratio0.3-0.6	fine	f1	1	1	1/1	11	11	11	0.140427	0.140427	0.140427
+Mouse	Mouse_WT	Nanocompore	ratio0.3-0.6	fine	mcc	1	1	1/1	9	9	9	0.254131	0.254131	0.254131
+Mouse	Mouse_WT	Nanocompore	ratio>0.6	fine	precision	1	1	1/1	2	2	2	0.92619	0.92619	0.92619
+Mouse	Mouse_WT	Nanocompore	ratio>0.6	fine	recall	1	1	1/1	9	9	9	0.148729	0.148729	0.148729
+Mouse	Mouse_WT	Nanocompore	ratio>0.6	fine	f1	1	1	1/1	9	9	9	0.2563	0.2563	0.2563
+Mouse	Mouse_WT	Nanocompore	ratio>0.6	fine	mcc	1	1	1/1	9	9	9	0.365991	0.365991	0.365991
+Mouse	Mouse_WT	Nanocompore	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	Nanocompore	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	Nanocompore	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	Nanocompore	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	Nanom6A	pooled>=10	pooled	precision	1	1	1/1	7	7	7	0.180473	0.180473	0.180473
+Mouse	Mouse_WT	Nanom6A	pooled>=10	pooled	recall	1	1	1/1	5	5	5	0.193799	0.193799	0.193799
+Mouse	Mouse_WT	Nanom6A	pooled>=10	pooled	f1	1	1	1/1	3	3	3	0.186899	0.186899	0.186899
+Mouse	Mouse_WT	Nanom6A	pooled>=10	pooled	mcc	1	1	1/1	7	7	7	0.184548	0.184548	0.184548
+Mouse	Mouse_WT	Nanom6A	ratio0.1-0.3	fine	precision	1	1	1/1	6	6	6	0.576987	0.576987	0.576987
+Mouse	Mouse_WT	Nanom6A	ratio0.1-0.3	fine	recall	1	1	1/1	4	4	4	0.130501	0.130501	0.130501
+Mouse	Mouse_WT	Nanom6A	ratio0.1-0.3	fine	f1	1	1	1/1	4	4	4	0.212858	0.212858	0.212858
+Mouse	Mouse_WT	Nanom6A	ratio0.1-0.3	fine	mcc	1	1	1/1	4	4	4	0.266803	0.266803	0.266803
+Mouse	Mouse_WT	Nanom6A	ratio0.3-0.6	fine	precision	1	1	1/1	7	7	7	0.726377	0.726377	0.726377
+Mouse	Mouse_WT	Nanom6A	ratio0.3-0.6	fine	recall	1	1	1/1	5	5	5	0.196611	0.196611	0.196611
+Mouse	Mouse_WT	Nanom6A	ratio0.3-0.6	fine	f1	1	1	1/1	4	4	4	0.309459	0.309459	0.309459
+Mouse	Mouse_WT	Nanom6A	ratio0.3-0.6	fine	mcc	1	1	1/1	4	4	4	0.370637	0.370637	0.370637
+Mouse	Mouse_WT	Nanom6A	ratio>0.6	fine	precision	1	1	1/1	5	5	5	0.83728	0.83728	0.83728
+Mouse	Mouse_WT	Nanom6A	ratio>0.6	fine	recall	1	1	1/1	5	5	5	0.318513	0.318513	0.318513
+Mouse	Mouse_WT	Nanom6A	ratio>0.6	fine	f1	1	1	1/1	3	3	3	0.461474	0.461474	0.461474
+Mouse	Mouse_WT	Nanom6A	ratio>0.6	fine	mcc	1	1	1/1	3	3	3	0.509151	0.509151	0.509151
+Mouse	Mouse_WT	Nanom6A	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	Nanom6A	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	Nanom6A	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	Nanom6A	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	NanoSPA_m6A	pooled>=10	pooled	precision	1	1	1/1	2	2	2	0.61625	0.61625	0.61625
+Mouse	Mouse_WT	NanoSPA_m6A	pooled>=10	pooled	recall	1	1	1/1	9	9	9	0.0766662	0.0766662	0.0766662
+Mouse	Mouse_WT	NanoSPA_m6A	pooled>=10	pooled	f1	1	1	1/1	5	5	5	0.136367	0.136367	0.136367
+Mouse	Mouse_WT	NanoSPA_m6A	pooled>=10	pooled	mcc	1	1	1/1	4	4	4	0.216686	0.216686	0.216686
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.1-0.3	fine	precision	1	1	1/1	4	4	4	0.729008	0.729008	0.729008
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.1-0.3	fine	recall	1	1	1/1	12	12	12	0.0180751	0.0180751	0.0180751
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.1-0.3	fine	f1	1	1	1/1	12	12	12	0.0352756	0.0352756	0.0352756
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.1-0.3	fine	mcc	1	1	1/1	8	8	8	0.112362	0.112362	0.112362
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.3-0.6	fine	precision	1	1	1/1	1	1	1	0.906096	0.906096	0.906096
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.3-0.6	fine	recall	1	1	1/1	10	10	10	0.0863016	0.0863016	0.0863016
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.3-0.6	fine	f1	1	1	1/1	9	9	9	0.157593	0.157593	0.157593
+Mouse	Mouse_WT	NanoSPA_m6A	ratio0.3-0.6	fine	mcc	1	1	1/1	7	7	7	0.275623	0.275623	0.275623
+Mouse	Mouse_WT	NanoSPA_m6A	ratio>0.6	fine	precision	1	1	1/1	1	1	1	0.944773	0.944773	0.944773
+Mouse	Mouse_WT	NanoSPA_m6A	ratio>0.6	fine	recall	1	1	1/1	8	8	8	0.18349	0.18349	0.18349
+Mouse	Mouse_WT	NanoSPA_m6A	ratio>0.6	fine	f1	1	1	1/1	8	8	8	0.307298	0.307298	0.307298
+Mouse	Mouse_WT	NanoSPA_m6A	ratio>0.6	fine	mcc	1	1	1/1	7	7	7	0.411024	0.411024	0.411024
+Mouse	Mouse_WT	NanoSPA_m6A	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	NanoSPA_m6A	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	NanoSPA_m6A	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	NanoSPA_m6A	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	xPore	pooled>=10	pooled	precision	1	1	1/1	11	11	11	0.0644339	0.0644339	0.0644339
+Mouse	Mouse_WT	xPore	pooled>=10	pooled	recall	1	1	1/1	6	6	6	0.170915	0.170915	0.170915
+Mouse	Mouse_WT	xPore	pooled>=10	pooled	f1	1	1	1/1	10	10	10	0.0935863	0.0935863	0.0935863
+Mouse	Mouse_WT	xPore	pooled>=10	pooled	mcc	1	1	1/1	11	11	11	0.100688	0.100688	0.100688
+Mouse	Mouse_WT	xPore	ratio0.1-0.3	fine	precision	1	1	1/1	10	10	10	0.250674	0.250674	0.250674
+Mouse	Mouse_WT	xPore	ratio0.1-0.3	fine	recall	1	1	1/1	5	5	5	0.105233	0.105233	0.105233
+Mouse	Mouse_WT	xPore	ratio0.1-0.3	fine	f1	1	1	1/1	5	5	5	0.148237	0.148237	0.148237
+Mouse	Mouse_WT	xPore	ratio0.1-0.3	fine	mcc	1	1	1/1	5	5	5	0.149148	0.149148	0.149148
+Mouse	Mouse_WT	xPore	ratio0.3-0.6	fine	precision	1	1	1/1	10	10	10	0.380629	0.380629	0.380629
+Mouse	Mouse_WT	xPore	ratio0.3-0.6	fine	recall	1	1	1/1	6	6	6	0.166069	0.166069	0.166069
+Mouse	Mouse_WT	xPore	ratio0.3-0.6	fine	f1	1	1	1/1	6	6	6	0.231245	0.231245	0.231245
+Mouse	Mouse_WT	xPore	ratio0.3-0.6	fine	mcc	1	1	1/1	11	11	11	0.238834	0.238834	0.238834
+Mouse	Mouse_WT	xPore	ratio>0.6	fine	precision	1	1	1/1	10	10	10	0.525064	0.525064	0.525064
+Mouse	Mouse_WT	xPore	ratio>0.6	fine	recall	1	1	1/1	6	6	6	0.308069	0.308069	0.308069
+Mouse	Mouse_WT	xPore	ratio>0.6	fine	f1	1	1	1/1	7	7	7	0.388308	0.388308	0.388308
+Mouse	Mouse_WT	xPore	ratio>0.6	fine	mcc	1	1	1/1	8	8	8	0.389447	0.389447	0.389447
+Mouse	Mouse_WT	xPore	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	xPore	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	xPore	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	xPore	far	fine	mcc	0	1	0/1						
+Mouse	Mouse_WT	yanocomp	pooled>=10	pooled	precision	1	1	1/1	6	6	6	0.231707	0.231707	0.231707
+Mouse	Mouse_WT	yanocomp	pooled>=10	pooled	recall	1	1	1/1	10	10	10	0.0749037	0.0749037	0.0749037
+Mouse	Mouse_WT	yanocomp	pooled>=10	pooled	f1	1	1	1/1	8	8	8	0.11321	0.11321	0.11321
+Mouse	Mouse_WT	yanocomp	pooled>=10	pooled	mcc	1	1	1/1	9	9	9	0.130321	0.130321	0.130321
+Mouse	Mouse_WT	yanocomp	ratio0.1-0.3	fine	precision	1	1	1/1	9	9	9	0.435935	0.435935	0.435935
+Mouse	Mouse_WT	yanocomp	ratio0.1-0.3	fine	recall	1	1	1/1	8	8	8	0.0279667	0.0279667	0.0279667
+Mouse	Mouse_WT	yanocomp	ratio0.1-0.3	fine	f1	1	1	1/1	9	9	9	0.0525615	0.0525615	0.0525615
+Mouse	Mouse_WT	yanocomp	ratio0.1-0.3	fine	mcc	1	1	1/1	9	9	9	0.105606	0.105606	0.105606
+Mouse	Mouse_WT	yanocomp	ratio0.3-0.6	fine	precision	1	1	1/1	6	6	6	0.762025	0.762025	0.762025
+Mouse	Mouse_WT	yanocomp	ratio0.3-0.6	fine	recall	1	1	1/1	8	8	8	0.0936236	0.0936236	0.0936236
+Mouse	Mouse_WT	yanocomp	ratio0.3-0.6	fine	f1	1	1	1/1	8	8	8	0.166759	0.166759	0.166759
+Mouse	Mouse_WT	yanocomp	ratio0.3-0.6	fine	mcc	1	1	1/1	8	8	8	0.261866	0.261866	0.261866
+Mouse	Mouse_WT	yanocomp	ratio>0.6	fine	precision	1	1	1/1	7	7	7	0.792221	0.792221	0.792221
+Mouse	Mouse_WT	yanocomp	ratio>0.6	fine	recall	1	1	1/1	10	10	10	0.14579	0.14579	0.14579
+Mouse	Mouse_WT	yanocomp	ratio>0.6	fine	f1	1	1	1/1	10	10	10	0.246262	0.246262	0.246262
+Mouse	Mouse_WT	yanocomp	ratio>0.6	fine	mcc	1	1	1/1	11	11	11	0.333405	0.333405	0.333405
+Mouse	Mouse_WT	yanocomp	far	fine	precision	1	1	1/1	1	1	1	0	0	0
+Mouse	Mouse_WT	yanocomp	far	fine	recall	0	1	0/1						
+Mouse	Mouse_WT	yanocomp	far	fine	f1	0	1	0/1						
+Mouse	Mouse_WT	yanocomp	far	fine	mcc	0	1	0/1						
+Human	HeLa_WT	CHEUI_m6A	pooled>=10	pooled	precision	3	3	3/3	13	13	13	0.0116001	0.0101515	0.0125963
+Human	HeLa_WT	CHEUI_m6A	pooled>=10	pooled	recall	3	3	3/3	12.3333	11	13	0.0125418	0.0108183	0.0145429
+Human	HeLa_WT	CHEUI_m6A	pooled>=10	pooled	f1	3	3	3/3	13	13	13	0.0120438	0.0104743	0.0134998
+Human	HeLa_WT	CHEUI_m6A	pooled>=10	pooled	mcc	3	3	3/3	13	13	13	0.00747861	0.00593287	0.00859121
+Human	HeLa_WT	CHEUI_m6A	ratio0.1-0.3	fine	precision	3	3	3/3	13	13	13	0.0898436	0.0792393	0.100511
+Human	HeLa_WT	CHEUI_m6A	ratio0.1-0.3	fine	recall	3	3	3/3	8	8	8	0.0141206	0.0116266	0.0168596
+Human	HeLa_WT	CHEUI_m6A	ratio0.1-0.3	fine	f1	3	3	3/3	8.33333	8	9	0.0243966	0.0202778	0.0288756
+Human	HeLa_WT	CHEUI_m6A	ratio0.1-0.3	fine	mcc	3	3	3/3	12.6667	12	13	0.0243711	0.0194777	0.0294676
+Human	HeLa_WT	CHEUI_m6A	ratio0.3-0.6	fine	precision	3	3	3/3	13	13	13	0.0915677	0.0828729	0.106863
+Human	HeLa_WT	CHEUI_m6A	ratio0.3-0.6	fine	recall	3	3	3/3	13	13	13	0.0116642	0.0103462	0.0130664
+Human	HeLa_WT	CHEUI_m6A	ratio0.3-0.6	fine	f1	3	3	3/3	13	13	13	0.0206842	0.0184463	0.0232856
+Human	HeLa_WT	CHEUI_m6A	ratio0.3-0.6	fine	mcc	3	3	3/3	13	13	13	0.0221248	0.0193692	0.0273028
+Human	HeLa_WT	CHEUI_m6A	ratio>0.6	fine	precision	3	3	3/3	13	13	13	0.0939031	0.076179	0.118132
+Human	HeLa_WT	CHEUI_m6A	ratio>0.6	fine	recall	3	3	3/3	13	13	13	0.0104421	0.00843938	0.0131098
+Human	HeLa_WT	CHEUI_m6A	ratio>0.6	fine	f1	3	3	3/3	13	13	13	0.0187942	0.0151954	0.0236004
+Human	HeLa_WT	CHEUI_m6A	ratio>0.6	fine	mcc	3	3	3/3	13	13	13	0.0207172	0.0148049	0.0287138
+Human	HeLa_WT	CHEUI_m6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	CHEUI_m6A	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	CHEUI_m6A	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	CHEUI_m6A	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	DENA	pooled>=10	pooled	precision	3	3	3/3	7.33333	6	9	0.152255	0.0842265	0.190856
+Human	HeLa_WT	DENA	pooled>=10	pooled	recall	3	3	3/3	4.66667	3	8	0.135949	0.0475036	0.182134
+Human	HeLa_WT	DENA	pooled>=10	pooled	f1	3	3	3/3	4.33333	3	7	0.142324	0.0607463	0.184316
+Human	HeLa_WT	DENA	pooled>=10	pooled	mcc	3	3	3/3	5.66667	4	9	0.139767	0.0602748	0.180925
+Human	HeLa_WT	DENA	ratio0.1-0.3	fine	precision	3	3	3/3	6	5	8	0.520782	0.383958	0.591166
+Human	HeLa_WT	DENA	ratio0.1-0.3	fine	recall	3	3	3/3	3.33333	3	4	0.104775	0.043224	0.136982
+Human	HeLa_WT	DENA	ratio0.1-0.3	fine	f1	3	3	3/3	3.66667	3	4	0.172827	0.0777009	0.222145
+Human	HeLa_WT	DENA	ratio0.1-0.3	fine	mcc	3	3	3/3	4	4	4	0.222622	0.120986	0.274305
+Human	HeLa_WT	DENA	ratio0.3-0.6	fine	precision	3	3	3/3	7.66667	7	9	0.63719	0.457723	0.730067
+Human	HeLa_WT	DENA	ratio0.3-0.6	fine	recall	3	3	3/3	5	3	8	0.141706	0.0488157	0.196078
+Human	HeLa_WT	DENA	ratio0.3-0.6	fine	f1	3	3	3/3	5	3	8	0.228647	0.0882225	0.309132
+Human	HeLa_WT	DENA	ratio0.3-0.6	fine	mcc	3	3	3/3	4.33333	3	7	0.288117	0.142049	0.369571
+Human	HeLa_WT	DENA	ratio>0.6	fine	precision	3	3	3/3	8	7	10	0.709425	0.50953	0.816312
+Human	HeLa_WT	DENA	ratio>0.6	fine	recall	3	3	3/3	5	3	9	0.192594	0.0537966	0.262067
+Human	HeLa_WT	DENA	ratio>0.6	fine	f1	3	3	3/3	4.33333	2	9	0.296336	0.0973183	0.39676
+Human	HeLa_WT	DENA	ratio>0.6	fine	mcc	3	3	3/3	5.33333	2	12	0.353676	0.157865	0.453837
+Human	HeLa_WT	DENA	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	DENA	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	DENA	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	DENA	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	DRUMMER	pooled>=10	pooled	precision	3	3	3/3	2	2	2	0.695637	0.590361	0.812191
+Human	HeLa_WT	DRUMMER	pooled>=10	pooled	recall	3	3	3/3	12.3333	12	13	0.0136198	0.0104049	0.0168374
+Human	HeLa_WT	DRUMMER	pooled>=10	pooled	f1	3	3	3/3	12	12	12	0.0267144	0.0204493	0.0329909
+Human	HeLa_WT	DRUMMER	pooled>=10	pooled	mcc	3	3	3/3	7	6	8	0.0968854	0.0779442	0.116584
+Human	HeLa_WT	DRUMMER	ratio0.1-0.3	fine	precision	3	3	3/3	2.33333	2	3	0.842771	0.833333	0.857143
+Human	HeLa_WT	DRUMMER	ratio0.1-0.3	fine	recall	3	3	3/3	13	13	13	0.00217462	0.00143287	0.00279655
+Human	HeLa_WT	DRUMMER	ratio0.1-0.3	fine	f1	3	3	3/3	13	13	13	0.00433735	0.00286082	0.00557491
+Human	HeLa_WT	DRUMMER	ratio0.1-0.3	fine	mcc	3	3	3/3	9.66667	9	10	0.0415927	0.0338298	0.0480006
+Human	HeLa_WT	DRUMMER	ratio0.3-0.6	fine	precision	3	3	3/3	2.33333	2	3	0.920343	0.88	0.959459
+Human	HeLa_WT	DRUMMER	ratio0.3-0.6	fine	recall	3	3	3/3	12	12	12	0.0141198	0.0121259	0.0170755
+Human	HeLa_WT	DRUMMER	ratio0.3-0.6	fine	f1	3	3	3/3	12	12	12	0.0278063	0.0239368	0.0335539
+Human	HeLa_WT	DRUMMER	ratio0.3-0.6	fine	mcc	3	3	3/3	11	10	12	0.111753	0.103796	0.12593
+Human	HeLa_WT	DRUMMER	ratio>0.6	fine	precision	3	3	3/3	1.66667	1	2	0.985479	0.974843	1
+Human	HeLa_WT	DRUMMER	ratio>0.6	fine	recall	3	3	3/3	12	12	12	0.0352298	0.0274977	0.0429242
+Human	HeLa_WT	DRUMMER	ratio>0.6	fine	f1	3	3	3/3	12	12	12	0.0679491	0.0535236	0.0822516
+Human	HeLa_WT	DRUMMER	ratio>0.6	fine	mcc	3	3	3/3	8.33333	8	9	0.182445	0.1631	0.201923
+Human	HeLa_WT	DRUMMER	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	DRUMMER	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	DRUMMER	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	DRUMMER	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_diff	pooled>=10	pooled	precision	3	3	3/3	3	3	3	0.612093	0.549072	0.669681
+Human	HeLa_WT	ELIGOS2_diff	pooled>=10	pooled	recall	3	3	3/3	9	9	9	0.0334274	0.0292414	0.0378239
+Human	HeLa_WT	ELIGOS2_diff	pooled>=10	pooled	f1	3	3	3/3	6.66667	6	7	0.0633906	0.0555258	0.0716035
+Human	HeLa_WT	ELIGOS2_diff	pooled>=10	pooled	mcc	3	3	3/3	5.66667	5	6	0.142325	0.125948	0.1585
+Human	HeLa_WT	ELIGOS2_diff	ratio0.1-0.3	fine	precision	3	3	3/3	7.66667	7	8	0.407942	0.344262	0.453333
+Human	HeLa_WT	ELIGOS2_diff	ratio0.1-0.3	fine	recall	3	3	3/3	11.6667	11	12	0.00285164	0.00251628	0.0030296
+Human	HeLa_WT	ELIGOS2_diff	ratio0.1-0.3	fine	f1	3	3	3/3	12	12	12	0.00566237	0.00500478	0.00601643
+Human	HeLa_WT	ELIGOS2_diff	ratio0.1-0.3	fine	mcc	3	3	3/3	11.6667	11	12	0.0319676	0.0298565	0.0339773
+Human	HeLa_WT	ELIGOS2_diff	ratio0.3-0.6	fine	precision	3	3	3/3	4.33333	4	5	0.827224	0.785185	0.857143
+Human	HeLa_WT	ELIGOS2_diff	ratio0.3-0.6	fine	recall	3	3	3/3	9.33333	9	10	0.0289167	0.0273125	0.0307581
+Human	HeLa_WT	ELIGOS2_diff	ratio0.3-0.6	fine	f1	3	3	3/3	9.33333	9	10	0.0558775	0.0527888	0.0593417
+Human	HeLa_WT	ELIGOS2_diff	ratio0.3-0.6	fine	mcc	3	3	3/3	6.66667	6	7	0.151338	0.142963	0.157393
+Human	HeLa_WT	ELIGOS2_diff	ratio>0.6	fine	precision	3	3	3/3	5.33333	5	6	0.880631	0.87234	0.890456
+Human	HeLa_WT	ELIGOS2_diff	ratio>0.6	fine	recall	3	3	3/3	6.66667	6	7	0.097557	0.0869961	0.108857
+Human	HeLa_WT	ELIGOS2_diff	ratio>0.6	fine	f1	3	3	3/3	6.66667	6	7	0.175546	0.158214	0.193998
+Human	HeLa_WT	ELIGOS2_diff	ratio>0.6	fine	mcc	3	3	3/3	6.66667	6	7	0.28715	0.269864	0.305519
+Human	HeLa_WT	ELIGOS2_diff	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	ELIGOS2_diff	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_diff	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_diff	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_solo	pooled>=10	pooled	precision	3	3	3/3	10	10	10	0.0644183	0.0557354	0.0800505
+Human	HeLa_WT	ELIGOS2_solo	pooled>=10	pooled	recall	3	3	3/3	4.66667	4	5	0.133083	0.124746	0.141142
+Human	HeLa_WT	ELIGOS2_solo	pooled>=10	pooled	f1	3	3	3/3	5	4	6	0.0864876	0.0786155	0.10216
+Human	HeLa_WT	ELIGOS2_solo	pooled>=10	pooled	mcc	3	3	3/3	7.33333	7	8	0.0864867	0.0783567	0.101204
+Human	HeLa_WT	ELIGOS2_solo	ratio0.1-0.3	fine	precision	3	3	3/3	12	12	12	0.120829	0.109023	0.135532
+Human	HeLa_WT	ELIGOS2_solo	ratio0.1-0.3	fine	recall	3	3	3/3	5.33333	5	6	0.0445534	0.0414404	0.050627
+Human	HeLa_WT	ELIGOS2_solo	ratio0.1-0.3	fine	f1	3	3	3/3	5.66667	5	7	0.0648494	0.0600538	0.0708425
+Human	HeLa_WT	ELIGOS2_solo	ratio0.1-0.3	fine	mcc	3	3	3/3	8	8	8	0.0563925	0.0498616	0.0599895
+Human	HeLa_WT	ELIGOS2_solo	ratio0.3-0.6	fine	precision	3	3	3/3	10.3333	10	11	0.326505	0.298514	0.357707
+Human	HeLa_WT	ELIGOS2_solo	ratio0.3-0.6	fine	recall	3	3	3/3	4.33333	3	5	0.142856	0.138549	0.145198
+Human	HeLa_WT	ELIGOS2_solo	ratio0.3-0.6	fine	f1	3	3	3/3	4.66667	4	5	0.198615	0.189258	0.206553
+Human	HeLa_WT	ELIGOS2_solo	ratio0.3-0.6	fine	mcc	3	3	3/3	5.66667	5	6	0.199879	0.186654	0.213094
+Human	HeLa_WT	ELIGOS2_solo	ratio>0.6	fine	precision	3	3	3/3	9.66667	9	10	0.497144	0.463169	0.558064
+Human	HeLa_WT	ELIGOS2_solo	ratio>0.6	fine	recall	3	3	3/3	1.66667	1	2	0.290215	0.274376	0.311469
+Human	HeLa_WT	ELIGOS2_solo	ratio>0.6	fine	f1	3	3	3/3	2.33333	1	3	0.366351	0.346537	0.3998
+Human	HeLa_WT	ELIGOS2_solo	ratio>0.6	fine	mcc	3	3	3/3	4.33333	3	5	0.363612	0.342227	0.402392
+Human	HeLa_WT	ELIGOS2_solo	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	ELIGOS2_solo	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_solo	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	ELIGOS2_solo	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	EpiNano_Error	pooled>=10	pooled	precision	3	3	3/3	11	11	11	0.0479054	0.0418993	0.0549306
+Human	HeLa_WT	EpiNano_Error	pooled>=10	pooled	recall	3	3	3/3	5.66667	5	6	0.0569769	0.0479837	0.0629735
+Human	HeLa_WT	EpiNano_Error	pooled>=10	pooled	f1	3	3	3/3	8	8	8	0.051943	0.0447355	0.0573414
+Human	HeLa_WT	EpiNano_Error	pooled>=10	pooled	mcc	3	3	3/3	10.3333	10	11	0.047554	0.0400483	0.0529803
+Human	HeLa_WT	EpiNano_Error	ratio0.1-0.3	fine	precision	3	3	3/3	9.66667	9	11	0.185333	0.172068	0.205418
+Human	HeLa_WT	EpiNano_Error	ratio0.1-0.3	fine	recall	3	3	3/3	6.33333	6	7	0.0380291	0.0318117	0.0421638
+Human	HeLa_WT	EpiNano_Error	ratio0.1-0.3	fine	f1	3	3	3/3	6	6	6	0.0630558	0.0536961	0.0699664
+Human	HeLa_WT	EpiNano_Error	ratio0.1-0.3	fine	mcc	3	3	3/3	6.33333	6	7	0.0718088	0.0622492	0.081208
+Human	HeLa_WT	EpiNano_Error	ratio0.3-0.6	fine	precision	3	3	3/3	10.6667	10	11	0.297543	0.268456	0.317604
+Human	HeLa_WT	EpiNano_Error	ratio0.3-0.6	fine	recall	3	3	3/3	5.66667	5	6	0.0684188	0.0613654	0.0748574
+Human	HeLa_WT	EpiNano_Error	ratio0.3-0.6	fine	f1	3	3	3/3	5.66667	5	6	0.111215	0.0998959	0.120332
+Human	HeLa_WT	EpiNano_Error	ratio0.3-0.6	fine	mcc	3	3	3/3	8	8	8	0.130353	0.115615	0.139118
+Human	HeLa_WT	EpiNano_Error	ratio>0.6	fine	precision	3	3	3/3	12	12	12	0.387563	0.344288	0.409905
+Human	HeLa_WT	EpiNano_Error	ratio>0.6	fine	recall	3	3	3/3	8.66667	8	9	0.0804541	0.0664051	0.090801
+Human	HeLa_WT	EpiNano_Error	ratio>0.6	fine	f1	3	3	3/3	8.66667	8	9	0.133189	0.111336	0.148669
+Human	HeLa_WT	EpiNano_Error	ratio>0.6	fine	mcc	3	3	3/3	11	11	11	0.164694	0.139145	0.181077
+Human	HeLa_WT	EpiNano_Error	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	EpiNano_Error	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	EpiNano_Error	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	EpiNano_Error	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	m6Anet	pooled>=10	pooled	precision	3	3	3/3	4	4	4	0.406039	0.398413	0.414387
+Human	HeLa_WT	m6Anet	pooled>=10	pooled	recall	3	3	3/3	3.33333	2	4	0.166752	0.152828	0.187282
+Human	HeLa_WT	m6Anet	pooled>=10	pooled	f1	3	3	3/3	1.33333	1	2	0.236156	0.220915	0.257973
+Human	HeLa_WT	m6Anet	pooled>=10	pooled	mcc	3	3	3/3	1	1	1	0.258011	0.244673	0.276586
+Human	HeLa_WT	m6Anet	ratio0.1-0.3	fine	precision	3	3	3/3	2.66667	2	3	0.833107	0.828986	0.840161
+Human	HeLa_WT	m6Anet	ratio0.1-0.3	fine	recall	3	3	3/3	3.33333	2	4	0.136832	0.12294	0.154837
+Human	HeLa_WT	m6Anet	ratio0.1-0.3	fine	f1	3	3	3/3	3	2	4	0.234821	0.214125	0.261484
+Human	HeLa_WT	m6Anet	ratio0.1-0.3	fine	mcc	3	3	3/3	2	1	3	0.331082	0.313164	0.354278
+Human	HeLa_WT	m6Anet	ratio0.3-0.6	fine	precision	3	3	3/3	2.66667	2	3	0.909871	0.903866	0.915567
+Human	HeLa_WT	m6Anet	ratio0.3-0.6	fine	recall	3	3	3/3	3	2	4	0.191509	0.179051	0.213659
+Human	HeLa_WT	m6Anet	ratio0.3-0.6	fine	f1	3	3	3/3	2.33333	1	4	0.316078	0.299525	0.345619
+Human	HeLa_WT	m6Anet	ratio0.3-0.6	fine	mcc	3	3	3/3	1.66667	1	2	0.41069	0.39859	0.432921
+Human	HeLa_WT	m6Anet	ratio>0.6	fine	precision	3	3	3/3	3.33333	3	4	0.921941	0.919704	0.923896
+Human	HeLa_WT	m6Anet	ratio>0.6	fine	recall	3	3	3/3	4.66667	4	5	0.197052	0.185513	0.216662
+Human	HeLa_WT	m6Anet	ratio>0.6	fine	f1	3	3	3/3	4.33333	4	5	0.324457	0.308984	0.350706
+Human	HeLa_WT	m6Anet	ratio>0.6	fine	mcc	3	3	3/3	2.66667	2	3	0.41917	0.407221	0.439484
+Human	HeLa_WT	m6Anet	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	m6Anet	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	m6Anet	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	m6Anet	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	MINES	pooled>=10	pooled	precision	3	3	3/3	8	8	8	0.117457	0.116711	0.118657
+Human	HeLa_WT	MINES	pooled>=10	pooled	recall	3	3	3/3	1.66667	1	2	0.217244	0.200567	0.239515
+Human	HeLa_WT	MINES	pooled>=10	pooled	f1	3	3	3/3	3.66667	3	4	0.152317	0.147557	0.158696
+Human	HeLa_WT	MINES	pooled>=10	pooled	mcc	3	3	3/3	4.66667	4	5	0.154612	0.148092	0.163615
+Human	HeLa_WT	MINES	ratio0.1-0.3	fine	precision	3	3	3/3	6	5	7	0.535919	0.528532	0.542199
+Human	HeLa_WT	MINES	ratio0.1-0.3	fine	recall	3	3	3/3	1	1	1	0.217613	0.201841	0.23836
+Human	HeLa_WT	MINES	ratio0.1-0.3	fine	f1	3	3	3/3	1	1	1	0.309257	0.292123	0.330172
+Human	HeLa_WT	MINES	ratio0.1-0.3	fine	mcc	3	3	3/3	2	1	3	0.329422	0.314949	0.345594
+Human	HeLa_WT	MINES	ratio0.3-0.6	fine	precision	3	3	3/3	7.66667	7	8	0.595643	0.592504	0.597786
+Human	HeLa_WT	MINES	ratio0.3-0.6	fine	recall	3	3	3/3	1.66667	1	2	0.215551	0.198166	0.239509
+Human	HeLa_WT	MINES	ratio0.3-0.6	fine	f1	3	3	3/3	2.33333	2	3	0.316111	0.297516	0.341125
+Human	HeLa_WT	MINES	ratio0.3-0.6	fine	mcc	3	3	3/3	3.33333	2	4	0.346912	0.333111	0.36534
+Human	HeLa_WT	MINES	ratio>0.6	fine	precision	3	3	3/3	8.33333	8	9	0.649089	0.645208	0.651592
+Human	HeLa_WT	MINES	ratio>0.6	fine	recall	3	3	3/3	3.66667	3	4	0.218383	0.20082	0.241615
+Human	HeLa_WT	MINES	ratio>0.6	fine	f1	3	3	3/3	4	3	5	0.326469	0.306303	0.352515
+Human	HeLa_WT	MINES	ratio>0.6	fine	mcc	3	3	3/3	4	4	4	0.36524	0.349238	0.385614
+Human	HeLa_WT	MINES	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	MINES	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	MINES	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	MINES	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	Nanocompore	pooled>=10	pooled	precision	3	3	3/3	5.66667	5	7	0.276892	0.146048	0.405846
+Human	HeLa_WT	Nanocompore	pooled>=10	pooled	recall	3	3	3/3	11.3333	11	12	0.0162341	0.0120328	0.0203845
+Human	HeLa_WT	Nanocompore	pooled>=10	pooled	f1	3	3	3/3	11	11	11	0.0306085	0.0222338	0.0388192
+Human	HeLa_WT	Nanocompore	pooled>=10	pooled	mcc	3	3	3/3	8.66667	8	9	0.0657895	0.0406945	0.0902078
+Human	HeLa_WT	Nanocompore	ratio0.1-0.3	fine	precision	3	3	3/3	6.33333	6	7	0.490641	0.446809	0.532258
+Human	HeLa_WT	Nanocompore	ratio0.1-0.3	fine	recall	3	3	3/3	11.3333	11	12	0.00398666	0.0030086	0.00510657
+Human	HeLa_WT	Nanocompore	ratio0.1-0.3	fine	f1	3	3	3/3	11	11	11	0.00790661	0.00597695	0.0101084
+Human	HeLa_WT	Nanocompore	ratio0.1-0.3	fine	mcc	3	3	3/3	9.33333	9	10	0.0420164	0.0347479	0.0479018
+Human	HeLa_WT	Nanocompore	ratio0.3-0.6	fine	precision	3	3	3/3	4.66667	4	5	0.829268	0.814286	0.837838
+Human	HeLa_WT	Nanocompore	ratio0.3-0.6	fine	recall	3	3	3/3	11	11	11	0.0182132	0.0147059	0.0213968
+Human	HeLa_WT	Nanocompore	ratio0.3-0.6	fine	f1	3	3	3/3	11	11	11	0.0356289	0.02889	0.0417253
+Human	HeLa_WT	Nanocompore	ratio0.3-0.6	fine	mcc	3	3	3/3	9.33333	9	10	0.119974	0.106962	0.130945
+Human	HeLa_WT	Nanocompore	ratio>0.6	fine	precision	3	3	3/3	3.66667	3	4	0.909351	0.884615	0.935829
+Human	HeLa_WT	Nanocompore	ratio>0.6	fine	recall	3	3	3/3	11	11	11	0.0376944	0.0281174	0.0469421
+Human	HeLa_WT	Nanocompore	ratio>0.6	fine	f1	3	3	3/3	11	11	11	0.0722972	0.0545024	0.0893997
+Human	HeLa_WT	Nanocompore	ratio>0.6	fine	mcc	3	3	3/3	8.66667	7	10	0.180832	0.154432	0.205857
+Human	HeLa_WT	Nanocompore	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	Nanocompore	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	Nanocompore	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	Nanocompore	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	Nanom6A	pooled>=10	pooled	precision	3	3	3/3	5.66667	5	6	0.220948	0.207078	0.242621
+Human	HeLa_WT	Nanom6A	pooled>=10	pooled	recall	3	3	3/3	1.66667	1	3	0.208806	0.145687	0.241877
+Human	HeLa_WT	Nanom6A	pooled>=10	pooled	f1	3	3	3/3	1.66667	1	2	0.210151	0.182055	0.225269
+Human	HeLa_WT	Nanom6A	pooled>=10	pooled	mcc	3	3	3/3	2.33333	2	3	0.209084	0.185355	0.221994
+Human	HeLa_WT	Nanom6A	ratio0.1-0.3	fine	precision	3	3	3/3	4	4	4	0.625502	0.621264	0.627945
+Human	HeLa_WT	Nanom6A	ratio0.1-0.3	fine	recall	3	3	3/3	2.33333	2	3	0.150093	0.0884465	0.181688
+Human	HeLa_WT	Nanom6A	ratio0.1-0.3	fine	f1	3	3	3/3	2.33333	2	3	0.238719	0.155034	0.281153
+Human	HeLa_WT	Nanom6A	ratio0.1-0.3	fine	mcc	3	3	3/3	2	1	3	0.293808	0.228388	0.326859
+Human	HeLa_WT	Nanom6A	ratio0.3-0.6	fine	precision	3	3	3/3	6	6	6	0.781651	0.770682	0.79538
+Human	HeLa_WT	Nanom6A	ratio0.3-0.6	fine	recall	3	3	3/3	2	1	4	0.227412	0.144884	0.273994
+Human	HeLa_WT	Nanom6A	ratio0.3-0.6	fine	f1	3	3	3/3	1.66667	1	3	0.347668	0.245118	0.404263
+Human	HeLa_WT	Nanom6A	ratio0.3-0.6	fine	mcc	3	3	3/3	1.66667	1	3	0.409136	0.332582	0.450521
+Human	HeLa_WT	Nanom6A	ratio>0.6	fine	precision	3	3	3/3	5.66667	5	6	0.863012	0.847659	0.892823
+Human	HeLa_WT	Nanom6A	ratio>0.6	fine	recall	3	3	3/3	1.33333	1	2	0.302713	0.250335	0.332213
+Human	HeLa_WT	Nanom6A	ratio>0.6	fine	f1	3	3	3/3	1.33333	1	2	0.44633	0.391031	0.477487
+Human	HeLa_WT	Nanom6A	ratio>0.6	fine	mcc	3	3	3/3	1	1	1	0.501426	0.465277	0.522188
+Human	HeLa_WT	Nanom6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	Nanom6A	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	Nanom6A	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	Nanom6A	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	NanoSPA_m6A	pooled>=10	pooled	precision	3	3	3/3	1	1	1	0.873157	0.865657	0.885496
+Human	HeLa_WT	NanoSPA_m6A	pooled>=10	pooled	recall	3	3	3/3	7.66667	7	8	0.0471294	0.0410561	0.0526945
+Human	HeLa_WT	NanoSPA_m6A	pooled>=10	pooled	f1	3	3	3/3	5.33333	5	6	0.0893796	0.0784738	0.0993593
+Human	HeLa_WT	NanoSPA_m6A	pooled>=10	pooled	mcc	3	3	3/3	2.66667	2	3	0.201994	0.190134	0.213342
+Human	HeLa_WT	NanoSPA_m6A	ratio0.1-0.3	fine	precision	3	3	3/3	1	1	1	0.930755	0.907692	0.943396
+Human	HeLa_WT	NanoSPA_m6A	ratio0.1-0.3	fine	recall	3	3	3/3	9.33333	9	10	0.00902806	0.00716435	0.0111862
+Human	HeLa_WT	NanoSPA_m6A	ratio0.1-0.3	fine	f1	3	3	3/3	8.66667	8	9	0.017877	0.0142207	0.0221096
+Human	HeLa_WT	NanoSPA_m6A	ratio0.1-0.3	fine	mcc	3	3	3/3	5	5	5	0.0897446	0.0808408	0.100926
+Human	HeLa_WT	NanoSPA_m6A	ratio0.3-0.6	fine	precision	3	3	3/3	1	1	1	0.979304	0.97032	0.990148
+Human	HeLa_WT	NanoSPA_m6A	ratio0.3-0.6	fine	recall	3	3	3/3	7	7	7	0.0515973	0.0511002	0.0518576
+Human	HeLa_WT	NanoSPA_m6A	ratio0.3-0.6	fine	f1	3	3	3/3	6.66667	6	7	0.0980295	0.0970874	0.0985536
+Human	HeLa_WT	NanoSPA_m6A	ratio0.3-0.6	fine	mcc	3	3	3/3	4.66667	4	5	0.221367	0.219272	0.223166
+Human	HeLa_WT	NanoSPA_m6A	ratio>0.6	fine	precision	3	3	3/3	1.33333	1	2	0.993361	0.98912	1
+Human	HeLa_WT	NanoSPA_m6A	ratio>0.6	fine	recall	3	3	3/3	5.66667	5	6	0.116259	0.10055	0.134156
+Human	HeLa_WT	NanoSPA_m6A	ratio>0.6	fine	f1	3	3	3/3	5.66667	5	6	0.207875	0.182575	0.236267
+Human	HeLa_WT	NanoSPA_m6A	ratio>0.6	fine	mcc	3	3	3/3	5.66667	5	6	0.33418	0.310763	0.358973
+Human	HeLa_WT	NanoSPA_m6A	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	NanoSPA_m6A	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	NanoSPA_m6A	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	NanoSPA_m6A	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	xPore	pooled>=10	pooled	precision	3	3	3/3	12	12	12	0.040144	0.033628	0.0453715
+Human	HeLa_WT	xPore	pooled>=10	pooled	recall	3	3	3/3	6.66667	6	7	0.0533612	0.0464525	0.0600538
+Human	HeLa_WT	xPore	pooled>=10	pooled	f1	3	3	3/3	9	9	9	0.0458108	0.0390134	0.0516903
+Human	HeLa_WT	xPore	pooled>=10	pooled	mcc	3	3	3/3	11.3333	11	12	0.0413668	0.0342586	0.0475515
+Human	HeLa_WT	xPore	ratio0.1-0.3	fine	precision	3	3	3/3	10	9	11	0.183248	0.166038	0.200965
+Human	HeLa_WT	xPore	ratio0.1-0.3	fine	recall	3	3	3/3	6.33333	5	7	0.0374137	0.0314735	0.0430799
+Human	HeLa_WT	xPore	ratio0.1-0.3	fine	f1	3	3	3/3	6.33333	5	7	0.0621183	0.0529164	0.0709505
+Human	HeLa_WT	xPore	ratio0.1-0.3	fine	mcc	3	3	3/3	6.66667	6	7	0.0707616	0.0603978	0.0809184
+Human	HeLa_WT	xPore	ratio0.3-0.6	fine	precision	3	3	3/3	12	12	12	0.276543	0.256923	0.287975
+Human	HeLa_WT	xPore	ratio0.3-0.6	fine	recall	3	3	3/3	7.33333	6	8	0.0489424	0.0429306	0.0545825
+Human	HeLa_WT	xPore	ratio0.3-0.6	fine	f1	3	3	3/3	7.66667	7	8	0.0831357	0.0735683	0.0917709
+Human	HeLa_WT	xPore	ratio0.3-0.6	fine	mcc	3	3	3/3	11.6667	11	12	0.105368	0.0940113	0.114329
+Human	HeLa_WT	xPore	ratio>0.6	fine	precision	3	3	3/3	11	11	11	0.437378	0.415174	0.464744
+Human	HeLa_WT	xPore	ratio>0.6	fine	recall	3	3	3/3	7.66667	7	8	0.089594	0.0824962	0.0968216
+Human	HeLa_WT	xPore	ratio>0.6	fine	f1	3	3	3/3	7.66667	7	8	0.148671	0.138548	0.160256
+Human	HeLa_WT	xPore	ratio>0.6	fine	mcc	3	3	3/3	9	8	10	0.186695	0.17772	0.201224
+Human	HeLa_WT	xPore	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	xPore	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	xPore	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	xPore	far	fine	mcc	0	3	0/3						
+Human	HeLa_WT	yanocomp	pooled>=10	pooled	precision	3	3	3/3	8.33333	7	9	0.0889101	0.0582547	0.122633
+Human	HeLa_WT	yanocomp	pooled>=10	pooled	recall	3	3	3/3	10	10	10	0.0219997	0.0174546	0.0273445
+Human	HeLa_WT	yanocomp	pooled>=10	pooled	f1	3	3	3/3	10	10	10	0.0351938	0.026861	0.0447179
+Human	HeLa_WT	yanocomp	pooled>=10	pooled	mcc	3	3	3/3	11.3333	10	12	0.0420195	0.0294385	0.0560492
+Human	HeLa_WT	yanocomp	ratio0.1-0.3	fine	precision	3	3	3/3	10.3333	10	11	0.186447	0.165541	0.197403
+Human	HeLa_WT	yanocomp	ratio0.1-0.3	fine	recall	3	3	3/3	9.66667	9	10	0.00824599	0.00701604	0.00887443
+Human	HeLa_WT	yanocomp	ratio0.1-0.3	fine	f1	3	3	3/3	10	10	10	0.015793	0.0134615	0.0169815
+Human	HeLa_WT	yanocomp	ratio0.1-0.3	fine	mcc	3	3	3/3	11.6667	11	13	0.033546	0.0283974	0.0361629
+Human	HeLa_WT	yanocomp	ratio0.3-0.6	fine	precision	3	3	3/3	8.66667	8	9	0.508231	0.458763	0.55597
+Human	HeLa_WT	yanocomp	ratio0.3-0.6	fine	recall	3	3	3/3	9.66667	9	10	0.0280278	0.0229086	0.0356972
+Human	HeLa_WT	yanocomp	ratio0.3-0.6	fine	f1	3	3	3/3	9.66667	9	10	0.0530853	0.0436381	0.0670869
+Human	HeLa_WT	yanocomp	ratio0.3-0.6	fine	mcc	3	3	3/3	10	9	11	0.113844	0.0971644	0.135428
+Human	HeLa_WT	yanocomp	ratio>0.6	fine	precision	3	3	3/3	8	7	9	0.641385	0.570681	0.703839
+Human	HeLa_WT	yanocomp	ratio>0.6	fine	recall	3	3	3/3	10	10	10	0.0416603	0.0332115	0.0513607
+Human	HeLa_WT	yanocomp	ratio>0.6	fine	f1	3	3	3/3	10	10	10	0.0781967	0.0627699	0.0957354
+Human	HeLa_WT	yanocomp	ratio>0.6	fine	mcc	3	3	3/3	11.3333	10	12	0.157697	0.131931	0.184567
+Human	HeLa_WT	yanocomp	far	fine	precision	3	3	3/3	1	1	1	0	0	0
+Human	HeLa_WT	yanocomp	far	fine	recall	0	3	0/3						
+Human	HeLa_WT	yanocomp	far	fine	f1	0	3	0/3						
+Human	HeLa_WT	yanocomp	far	fine	mcc	0	3	0/3						

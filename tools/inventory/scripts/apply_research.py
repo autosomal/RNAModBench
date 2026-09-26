@@ -3,18 +3,18 @@
 
 What it does
 ------------
-1. Reads ``tables/TI1_per_tool_implementation.csv`` and ``raw/research_facts.csv``
+1. Reads ``tables/per_tool_implementation.csv`` and ``raw/research_facts.csv``
    (produced by ``parse_research.py`` from ``research/*.md``).
 2. Fills every ``not recorded`` cell and, where the research evidence contradicts a
    previously auto-guessed cell, replaces it -- the displaced text is kept in
-   ``tables/TI1_changes.csv`` so nothing is silently dropped.
+   ``tables/change_log.csv`` so nothing is silently dropped.
 3. Writes the curation layer ``curated/tool_inventory_curated.csv`` (the only
    hand-editable file in this directory).  Because the legacy merge ranks curated
    facts above every auto probe, the corrected values survive a future
    ``build_tables.py`` run.  ``notes`` is deliberately *not* curated -- the legacy
    template injects an unevidenced note that would otherwise stick forever.
-4. Rewrites ``tables/TI1_per_tool_implementation.csv`` (+ ``.md``) with live paths
-   and the merged values, and refreshes ``tables/TI5_todo_report.csv``.
+4. Rewrites ``tables/per_tool_implementation.csv`` (+ ``.md``) with live paths
+   and the merged values, and refreshes ``tables/todo_report.csv``.
 
 Inputs are never modified; the previous tables are copied to ``*.bak_<ts>``.
 
@@ -41,8 +41,8 @@ CURATED_FIELDS = [f for f in tp.FIELDS if f != "notes"]
 #: statements the legacy template injected without evidence -- safe to displace
 TEMPLATE_STRINGS = {
     "transcript -> genomic via BED12/gtf2bed12 transcript alignment",
-    "code_user/detection/<species>/<sample>/<tool>.sh (see TI2)",
-    "post-processing scripts in code_user/*postprocessing",
+    "tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2)",
+    "post-processing scripts in tool_scripts/*postprocessing",
 }
 
 
@@ -73,7 +73,7 @@ def main() -> int:
                     help="also use facts the research notes rated confidence=low")
     args = ap.parse_args()
 
-    ti1_path = tp.TABLE_DIR / "TI1_per_tool_implementation.csv"
+    ti1_path = tp.TABLE_DIR / "per_tool_implementation.csv"
     ti1 = tp.read_csv(ti1_path)
     if not ti1:
         print("TI1 missing", file=sys.stderr)
@@ -206,7 +206,7 @@ def main() -> int:
 
     md_cols = (["tool_canonical", "category", "modification", "role"] +
                CURATED_FIELDS)
-    with (tp.TABLE_DIR / "TI1_per_tool_implementation.md").open(
+    with (tp.TABLE_DIR / "per_tool_implementation.md").open(
             "w", encoding="utf-8") as fh:
         fh.write("# TI1 -- per-tool implementation detail (R1-5)\n\n")
         fh.write(f"Generated {stamp}. Values carry provenance in the CSV's "
@@ -221,7 +221,7 @@ def main() -> int:
                     fh.write(f"  - evidence: {row[f'{field}_evidence']}\n")
             fh.write(f"- **status**: {row['status']}\n\n")
 
-    tp.write_csv(tp.TABLE_DIR / "TI1_changes.csv", changes,
+    tp.write_csv(tp.TABLE_DIR / "change_log.csv", changes,
                  ["tool_canonical", "field", "change", "previous_value",
                   "previous_evidence", "new_value", "new_evidence", "confidence",
                   "reason"])
@@ -237,7 +237,7 @@ def main() -> int:
                     "note": next((n["note"] for n in notes
                                   if n["tool_canonical"] == row["tool_canonical"]),
                                  "")})
-    tp.write_csv(tp.TABLE_DIR / "TI5_todo_report.csv", todo_rows,
+    tp.write_csv(tp.TABLE_DIR / "todo_report.csv", todo_rows,
                  ["tool_canonical", "field", "tried", "note"])
     covered = {r["tool_canonical"] for r in todo_rows}
     print(f"TI5: {len(todo_rows)} cells still unresolved across {len(covered)} tools")
@@ -255,9 +255,9 @@ def main() -> int:
         report.append(f"| {row['tool_canonical']} | "
                       f"{len(CURATED_FIELDS) - len(open_fields)}/{len(CURATED_FIELDS)} "
                       f"| {', '.join(open_fields) or '-'} |")
-    (tp.TABLE_DIR / "TI8_coverage_report.md").write_text("\n".join(report) + "\n",
+    (tp.TABLE_DIR / "coverage_report.md").write_text("\n".join(report) + "\n",
                                                          encoding="utf-8")
-    print("TI8 coverage report -> tables/TI8_coverage_report.md")
+    print("TI8 coverage report -> tables/coverage_report.md")
     return 0
 
 

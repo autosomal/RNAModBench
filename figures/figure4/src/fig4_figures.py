@@ -36,11 +36,11 @@ House rules (2026-09-19): drawn at the final printed size
 >= 7.0 pt (asserted), no gridlines, no annotation text inside panels,
 Arial, vector PDF + 300 dpi PNG.
 
-Inputs  (fig4_revision/, written by fig4_kl.py)
+Inputs  (figures/figure4/, written by fig4_kl.py)
   tables/fig4_kl_per_rep.tsv
   analysis/fig4_pwm_per_rep.npz
   analysis/fig4_kmer_counts.tsv.gz
-Outputs (fig4_revision/)
+Outputs (figures/figure4/)
   figures/panel{A,B,C,D}_*.{pdf,png}
   figures/Figure4_rev.{pdf,png}
   tables/fig4_panelD_support.tsv
@@ -78,9 +78,9 @@ from matplotlib.lines import Line2D
 from matplotlib.text import Text
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent                       # fig4_revision/
+ROOT = HERE.parent                       # figures/figure4/
 TAB, FIG = ROOT / "tables", ROOT / "figures"
-sys.path.insert(0, str(_RB / "src/sites_v2"))
+sys.path.insert(0, str(_RB / "src/harmonisation"))
 from common.figstyle import apply as apply_style            # noqa: E402
 
 CANVAS_W, MIN_PT = 6.66, 7.0
@@ -137,12 +137,12 @@ def load_kl() -> tuple[pd.DataFrame, list[str]]:
 
 
 def load_pwms() -> dict[str, np.ndarray]:
-    return dict(np.load(HERE / "fig4_pwm_per_rep.npz"))
+    return dict(np.load(ROOT / "analysis" / "fig4_pwm_per_rep.npz"))
 
 
 def load_profiles() -> dict[str, pd.DataFrame]:
     """species -> tools x 256 replicate-mean 5-mer frequencies."""
-    cnt = pd.read_csv(HERE / "fig4_kmer_counts.tsv.gz", sep="\t")
+    cnt = pd.read_csv(ROOT / "analysis" / "fig4_kmer_counts.tsv.gz", sep="\t")
     cnt = cnt[cnt["Replicate"].map(lambda r: not r.startswith("mESCs_"))]
     out = {}
     for sp, g in cnt.groupby("Species_Name"):

@@ -1,0 +1,16 @@
+check	scope	n_total	n_pass	max_abs_diff	status	note
+anchor_pooled_transcript	unit x tool	91	91	0	pass	r21_strata_metrics_per_unit.tsv[pooled>=10]; missing rows: 0
+additivity_transcript	tx<10 + tx10-20 + tx20-50 + tx>=50 + tx_unassigned	273	273	0	pass	the axis' strata partition the pooled universe
+non_degenerate_transcript	species x stratum	12	12	0	pass	empty strata: none
+contingency_transcript	every row	455	455	0	pass	tp+fp == calls; tn == U-tp-fp-fn; fn <= n_glori; tp <= calls
+anchor_pooled_stoichiometry	unit x tool	91	91	0	pass	r21_strata_metrics_per_unit.tsv[pooled>=10]; missing rows: 0
+additivity_stoichiometry	ratio0.1-0.3 + ratio0.3-0.6 + ratio>0.6 + far	273	273	0	pass	the axis' strata partition the pooled universe
+non_degenerate_stoichiometry	species x stratum	12	12	0	pass	empty strata: none
+contingency_stoichiometry	every row	455	455	0	pass	tp+fp == calls; tn == U-tp-fp-fn; fn <= n_glori; tp <= calls
+anchor_pooled_distribution	unit x tool	91	91	0	pass	r21_strata_metrics_per_unit.tsv[pooled>=10]; missing rows: 0
+additivity_distribution:5UTR	5UTR + CDS + 3UTR + other	273	273	0	pass	the axis' strata partition the pooled universe
+non_degenerate_distribution:5UTR	species x stratum	12	12	0	pass	empty strata: none
+additivity_distribution:isolated	isolated + cluster2-3 + cluster>=4	273	273	0	pass	the axis' strata partition the pooled universe
+non_degenerate_distribution:isolated	species x stratum	9	9	0	pass	empty strata: none
+contingency_distribution	every row	728	728	0	pass	tp+fp == calls; tn == U-tp-fp-fn; fn <= n_glori; tp <= calls
+id_space_consistency	species	3	3	0	pass	Arabidopsis: region ids=48321, resolved in index=48321, gtf vocabulary=54013; Mouse: region ids=66647, resolved in index=66647, gtf vocabulary=278369; Human: region ids=111954, resolved in index=111954, gtf vocabulary=254070

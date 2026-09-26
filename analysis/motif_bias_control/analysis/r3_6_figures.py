@@ -18,7 +18,7 @@ presentation follows the house rules confirmed by the user on 2026-09-19:
   5-mer labels can no longer overlap each other.
 
 The same code path renders both the legacy Top-5 inputs and the full-count
-(sites_clean) inputs, selected purely by the CLI arguments.
+(callsets) inputs, selected purely by the CLI arguments.
 
 Outputs: ../figures/<out>.pdf, ../figures/<out>.png
          ../figures/FigR3_6_legends.md  (section <out> replaced in place)
@@ -72,7 +72,7 @@ FIGDIR = os.path.normpath(os.path.join(HERE, "..", "figures"))
 os.makedirs(FIGDIR, exist_ok=True)
 
 # shared house style (Arial, no gridlines, pdf.fonttype 42, save() -> pdf+png)
-sys.path.insert(0, str(_RB / "src/sites_v2"))
+sys.path.insert(0, str(_RB / "src/harmonisation"))
 from common.figstyle import apply as apply_style, save  # noqa: E402
 
 # style floor of this figure: nothing below 12 pt, panel letters much larger

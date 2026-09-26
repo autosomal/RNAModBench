@@ -3,7 +3,7 @@
 
 The previously submitted `Supplementary_Figures.pdf` carried a caption beneath every
 figure (e.g. "Figure S1. Metagene plots revealing ..."), so the rebuilt file does too.
-Captions are read from the delivered legends (`04_revision_analysis/figS*_revision/
+Captions are read from the delivered legends (`figures/figureS*/
 figures/*_legends.md`); S3 has no legend file yet, so its caption is written here.
 
 Usage: conda run -n benchmark-revision --no-capture-output python merge_supplementary_figures.py

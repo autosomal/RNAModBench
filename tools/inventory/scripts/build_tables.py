@@ -10,15 +10,15 @@ Inputs (all produced inside this directory)
 
 Merging rule: **curated > dynamic probe > static yml/md > static log > static
 script**.  Nothing is invented — unresolved cells are ``not recorded`` and are
-listed in ``TI5_todo_report.csv``.
+listed in ``todo_report.csv``.
 
 Outputs (``tables/``)
 ---------------------
-* ``TI1_per_tool_implementation.csv`` / ``.md`` -- R1-5 ten fields + evidence
-* ``TI2_command_lines.csv``                     -- R1-10 exact command lines
-* ``TI3_software_versions.csv``                 -- tool / env / version / method
-* ``TI4_model_checkpoints.csv``                 -- models and checkpoints
-* ``TI5_todo_report.csv``                       -- everything still missing
+* ``per_tool_implementation.csv`` / ``.md`` -- R1-5 ten fields + evidence
+* ``command_lines.csv``                     -- R1-10 exact command lines
+* ``software_versions.csv``                 -- tool / env / version / method
+* ``model_checkpoints.csv``                 -- models and checkpoints
+* ``todo_report.csv``                       -- everything still missing
 
 Usage
 -----
@@ -255,7 +255,7 @@ def main() -> None:
             ["command_line_evidence", "status"])
     ti1 = ti1[[c for c in cols if c in ti1.columns]]
     ti1["generated_at"] = tc.stamp()
-    ti1.to_csv(tc.TABLE_DIR / "TI1_per_tool_implementation.csv", index=False)
+    ti1.to_csv(tc.TABLE_DIR / "per_tool_implementation.csv", index=False)
     logger.info("TI1: %d tools", len(ti1))
 
     # ---------------------------------------------------------------- TI2
@@ -263,13 +263,13 @@ def main() -> None:
         subset=["tool_canonical", "dataset", "command", "source", "line_no"])
     ti2 = ti2.sort_values(["tool_canonical", "dataset", "source", "line_no"])
     ti2["generated_at"] = tc.stamp()
-    ti2.to_csv(tc.TABLE_DIR / "TI2_command_lines.csv", index=False)
+    ti2.to_csv(tc.TABLE_DIR / "command_lines.csv", index=False)
     logger.info("TI2: %d command lines", len(ti2))
 
     # ---------------------------------------------------------------- TI3
     ti3 = vers.copy()
     ti3["generated_at"] = tc.stamp()
-    ti3.to_csv(tc.TABLE_DIR / "TI3_software_versions.csv", index=False)
+    ti3.to_csv(tc.TABLE_DIR / "software_versions.csv", index=False)
     ok = int((ti3["version"] != tc.MISSING).sum())
     logger.info("TI3: %d rows (%d with a version)", len(ti3), ok)
 
@@ -298,7 +298,7 @@ def main() -> None:
     ti4 = ti4.drop_duplicates(subset=["tool_canonical", "value"])
     ti4 = ti4.sort_values(["tool_canonical", "value"])
     ti4["generated_at"] = tc.stamp()
-    ti4.to_csv(tc.TABLE_DIR / "TI4_model_checkpoints.csv", index=False)
+    ti4.to_csv(tc.TABLE_DIR / "model_checkpoints.csv", index=False)
     logger.info("TI4: %d model / checkpoint rows", len(ti4))
 
     # ---------------------------------------------------------------- TI5
@@ -335,7 +335,7 @@ def main() -> None:
     ti5 = pd.DataFrame(todo, columns=["tool_canonical", "field", "status",
                                       "how_to_obtain", "attempts"])
     ti5["generated_at"] = tc.stamp()
-    ti5.to_csv(tc.TABLE_DIR / "TI5_todo_report.csv", index=False)
+    ti5.to_csv(tc.TABLE_DIR / "todo_report.csv", index=False)
     logger.info("TI5: %d fields still to be filled in", len(ti5))
 
     # ---------------------------------------------------------------- TI6
@@ -349,7 +349,7 @@ def main() -> None:
                   .reset_index()
                   .sort_values("n_commands", ascending=False))
         ti6["generated_at"] = tc.stamp()
-        ti6.to_csv(tc.TABLE_DIR / "TI6_unclassified_commands.csv", index=False)
+        ti6.to_csv(tc.TABLE_DIR / "unattributed_commands.csv", index=False)
         logger.info("TI6: %d scripts whose tool could not be attributed "
                     "(needs manual classification)", len(ti6))
     else:
@@ -376,9 +376,9 @@ def main() -> None:
             r["coordinate_harmonisation"], r["n_command_lines"],
             (r["command_line_evidence"] or "-")[:180]))
     md.append("\nProvenance for every non-empty cell is in "
-              "`TI1_per_tool_implementation.csv` (`*_evidence` columns); the exact "
-              "command lines are in `TI2_command_lines.csv` (R1-10).\n")
-    (tc.TABLE_DIR / "TI1_per_tool_implementation.md").write_text(
+              "`per_tool_implementation.csv` (`*_evidence` columns); the exact "
+              "command lines are in `command_lines.csv` (R1-10).\n")
+    (tc.TABLE_DIR / "per_tool_implementation.md").write_text(
         "\n".join(md) + "\n", encoding="utf-8")
 
     logger.info("all tables written -> %s", tc.TABLE_DIR)

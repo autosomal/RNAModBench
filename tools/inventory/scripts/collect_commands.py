@@ -2,8 +2,8 @@
 """Collect the *exact command lines* the benchmark actually executed (R1-10).
 
 Reviewer 1 (R1-10) asks whether the exact command lines / configuration files
-are deposited.  Every shell script under ``code_user/detection``,
-``code_user/basecalling``, ``code/rerun``, ``code/f5c_mode`` and
+are deposited.  Every shell script under ``tool_scripts/detection``,
+``tool_scripts/basecalling``, ``code/rerun``, ``code/f5c_mode`` and
 ``result_RNA004/scripts`` is therefore parsed line by line:
 
 * ``conda activate <env>`` / ``source activate <env>`` -> conda environment

@@ -1,4 +1,4 @@
-# Column definitions for `data/sites_clean/`
+# Column definitions for `data/callsets/`
 
 Each file is one tool's retained calls on one sample, tab-separated with a header.
 The layout mirrors the extraction layer: `<platform>/<species>/<dataset_group>/
@@ -14,7 +14,7 @@ The layout mirrors the extraction layer: `<platform>/<species>/<dataset_group>/
 
 ## Score columns
 
-`score` and `score_type` always appear together — **never interpret a score
+`score` and `score_type` always appear together - **never interpret a score
 without its `score_type`**, because the quantity differs by tool.
 
 | tool | `score_type` | reading it |
@@ -61,7 +61,7 @@ without its `score_type`**, because the quantity differs by tool.
 
 A callset that ended up with zero calls is written as a **header-only file** rather
 than omitted, so the file set corresponds exactly to the tool × sample grid that was
-run. `metadata/callsets_summary.csv` gives the row counts.
+run. `metadata/callsets_index.tsv` gives the row counts.
 
 ## What is *not* a column
 
@@ -70,4 +70,4 @@ tool, sample). Also omitted because they are constant within a file or guarantee
 by the pipeline: the strand and coverage *source* (see `metadata/samples.csv`),
 `dist_center` / `pos_center` (zero after the hard filter), and parser bookkeeping
 notes. Fingerprinted provenance for every file is in
-`metadata/callsets_summary.csv` and `metadata/file_inventory.csv`.
+`metadata/callsets_index.tsv` and `metadata/file_inventory.csv`.

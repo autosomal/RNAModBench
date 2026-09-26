@@ -20,7 +20,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-import s8_style as S  # noqa: E402  (also puts 01_code/code/sites_v2 on sys.path)
+import s8_style as S  # noqa: E402  (also puts src/harmonisation on sys.path)
 from common.panelpage import Panel, compose_page, pdf_to_png  # noqa: E402
 
 PAGE = S.FIGS / "FigureS8_rev.pdf"

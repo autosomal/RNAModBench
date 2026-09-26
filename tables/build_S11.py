@@ -29,7 +29,7 @@ with (Path(__file__).resolve().parent / "tables" / "TableS1_tools.tsv").open() a
         modes[r["Tool"]] = r["Modes evaluated in this study"]
 
 ver = {}
-with ((_RB / "analysis/revision_output/tables/NA4_per_tool_implementation.csv")).open() as fh:
+with ((_RB / "analysis/supp_table_inputs/per_tool_implementation.csv")).open() as fh:
     for r in csv.DictReader(fh):
         name = (r["tool_display"] or r["tool"]).split(" /")[0].strip()
         s = re.sub(r"\s+", " ", r["software_or_version"]).strip()

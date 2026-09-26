@@ -1,0 +1,16 @@
+species	dataset_group	stratum	n_units	n_tools_min_per_unit	universe_mean	n_glori_mean	n_calls_mean	n_tools_ranked_mean
+Arabidopsis	Arabidopsis_WT	cov>=5	3	13	1.03193e+07	65684	17378.5	13
+Arabidopsis	Arabidopsis_WT	pooled>=10	3	13	6.69897e+06	53265.7	17105.8	13
+Arabidopsis	Arabidopsis_WT	cov>=20	3	13	3.77043e+06	36056	16311.6	13
+Arabidopsis	Arabidopsis_WT	cov>=50	3	13	1.53675e+06	17679	9791.41	13
+Arabidopsis	Arabidopsis_WT	cov>=100	3	13	714338	9532.33	5223.82	13
+Mouse	Mouse_WT	cov>=5	1	13	1.10855e+07	28400	30596.6	13
+Mouse	Mouse_WT	pooled>=10	1	13	7.58081e+06	22161	30196.2	13
+Mouse	Mouse_WT	cov>=20	1	13	4.63696e+06	14582	29160.4	13
+Mouse	Mouse_WT	cov>=50	1	13	1.98538e+06	6052	17237.5	13
+Mouse	Mouse_WT	cov>=100	1	13	891541	2273	8152.85	13
+Human	HeLa_WT	cov>=5	3	13	7.60676e+06	33323.3	16098.7	13
+Human	HeLa_WT	pooled>=10	3	13	4.67963e+06	20466.3	15893.4	13
+Human	HeLa_WT	cov>=20	3	13	2.53071e+06	10688.7	15281.5	13
+Human	HeLa_WT	cov>=50	3	13	904891	3402.33	8947.13	13
+Human	HeLa_WT	cov>=100	3	13	367513	1179.33	4287.92	13

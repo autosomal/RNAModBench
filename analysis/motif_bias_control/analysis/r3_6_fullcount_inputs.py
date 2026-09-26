@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-"""Derive figure-input tables from the full-count sites_clean analysis
-(r3_6_sites_clean_kl.py outputs), in the same schemas as the legacy
+"""Derive figure-input tables from the full-count callsets analysis
+(r3_6_callsets_kl.py outputs), in the same schemas as the legacy
 Top-5-based inputs, so r3_6_figures.py can render either dataset.
 
 Outputs: fullcount_kl_pooled.tsv, fullcount_top5.tsv, fullcount_ggac.tsv
@@ -27,7 +27,7 @@ from collections import defaultdict
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CLEAN = str(_RB / "data/sites_clean/RNA002")
+CLEAN = str(_RB / "data/callsets/RNA002")
 SP = {"Arabidopsis": "Arabidopsis", "Mouse": "Mouse", "Human (HeLa)": "Human"}
 COMP = str.maketrans("ACUG", "UGAC")
 

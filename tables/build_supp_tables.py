@@ -57,9 +57,19 @@ DASH_FIX = (
 )
 
 
+#: 2026-09-27: the tool is Yanocomp, and two of the upstream tables (TableS2, TableS3) carry
+#: it lower-cased.  The printed table is normalised; the evidence files stay as they are.
+CASE_FIX = (("yanocomp", "Yanocomp"),)
+
+
 def plain(text: str) -> str:
-    """Strip the curated em dashes from a cell, a title or a note."""
+    """Strip the curated em dashes from a cell, a title or a note.
+
+    Also fixes the casing of the tool name Yanocomp, which a few source tables lower-case.
+    """
     for old, new in DASH_FIX:
+        text = text.replace(old, new)
+    for old, new in CASE_FIX:
         text = text.replace(old, new)
     return text
 
@@ -83,6 +93,7 @@ def write_table(name: str, title: str, columns: list[str], rows: list[list[objec
         for r in rows:
             line = plain("\t".join(str(c) for c in r))
             assert "—" not in line, f"{name}: em dash in a rendered cell: {line[:90]}"
+            assert "yanocomp" not in line, f"{name}: lower-cased tool name: {line[:90]}"
             fh.write(line + "\n")
         if note:
             assert "—" not in note, f"{name}: em dash in the note: {note[:90]}"
@@ -233,7 +244,7 @@ write_table(
 )
 
 # ---------------------------------------------- S6 per-tool implementation table
-na4 = pd.read_csv((_RB / "analysis/revision_output/tables/NA4_per_tool_implementation.csv"))
+na4 = pd.read_csv((_RB / "analysis/supp_table_inputs/per_tool_implementation.csv"))
 rows = []
 for r in na4.itertuples():
     rows.append([
@@ -295,11 +306,11 @@ def _s7_class(status: str, reason: str, used_002: bool) -> tuple[str, str]:
 
 
 #: The compatibility matrix establishes "run on a chemistry" from the call-directory name;
-#: EpiNano's RNA002 export lives in `02_raw_results/result/EpiNano_DiffErr`, so the automatic
+#: EpiNano's RNA002 export lives in `$RNAMODBENCH_LOCAL/raw/result/EpiNano_DiffErr`, so the automatic
 #: check missed it (2026-09-26).  EpiNano is one of the 15 benchmarked tools (Table S1).
 RNA002_OVERRIDE = {"EpiNano_Error": True}
 
-na5 = pd.read_csv((_RB / "analysis/revision_output/tables/NA5_compatibility_matrix.csv"))
+na5 = pd.read_csv((_RB / "analysis/supp_table_inputs/chemistry_compatibility.csv"))
 rows = []
 for r in na5.itertuples():
     ran_002 = (str(r.ran_on_RNA002).lower() == "true"
@@ -395,11 +406,11 @@ write_table(
 index = [
     ["S1", "Tools benchmarked (classification, algorithms, targets)", "curated + Table S6"],
     ["S2", "HeLa per-unit m6A calls, mean/SD/CV", "figure1b_replicates/tables/tool_counts_group_summary.tsv"],
-    ["S3", "Wild-type vs deficient calls on the shared testable universe", "fig2_revision/tables/fig2a_testable_ratio.tsv"],
-    ["S4", "Top-5 5-mer motifs per tool and species", "figS2_revision/analysis/figS2_top5_full.tsv"],
-    ["S5", "Non-m6A calls and IVT/WT ratios", "figS6_revision/tables/s6_counts_summary.tsv + s6_ratio_ci.tsv"],
-    ["S6", "Per-tool implementation details (E4 / R1-5)", "revision_output/tables/NA4_per_tool_implementation.csv"],
-    ["S7", "Chemistry applicability and inclusion matrix (R3-10 / R1-6)", "revision_output/tables/NA5_compatibility_matrix.csv"],
+    ["S3", "Wild-type vs deficient calls on the shared testable universe", "figures/figure2/tables/fig2a_testable_ratio.tsv"],
+    ["S4", "Top-5 5-mer motifs per tool and species", "figures/figureS2/analysis/figS2_top5_full.tsv"],
+    ["S5", "Non-m6A calls and IVT/WT ratios", "figures/figureS7/tables/s6_counts_summary.tsv + s6_ratio_ci.tsv"],
+    ["S6", "Per-tool implementation details (E4 / R1-5)", "analysis/supp_table_inputs/per_tool_implementation.csv"],
+    ["S7", "Chemistry applicability and inclusion matrix (R3-10 / R1-6)", "analysis/supp_table_inputs/chemistry_compatibility.csv"],
     ["S8", "GLORI reference vs matched nanopore dataset (E1 / R1-1)", "curated from the cited accessions"],
     ["S9", "Evaluation boundary per modification type (R2-2 / R3-9)", "curated from the delivered figure scope"],
 ]

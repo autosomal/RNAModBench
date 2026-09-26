@@ -1,0 +1,6 @@
+check	scope	n_total	n_pass	max_abs_diff	status	note
+anchor_cov10_vs_r21_pooled	all units x tools	202	202	0	pass	r21_strata_metrics_per_unit.tsv[stratum=pooled>=10]; rows missing from the sweep: 0
+fine_bins_partition_pooled	10-14 + 15-19 + 20-29 + 30-49 + 50-99 + >=100	606	606	0	pass	universe / n_glori / calls additive over the six bins inside cov >= 10
+call_totals_stratum_independent	all units x tools	202	202	0	pass	a coverage split cannot change the number of calls a tool made
+threshold_universes_nested	cov>=5 > pooled>=10 > cov>=20 > cov>=50 > cov>=100	404	404	0	pass	universe / n_glori non-increasing as the minimum depth rises
+contingency_integrity	every row	2424	2424	0	pass	tp+fp == calls; tn == U-tp-fp-fn; fn <= n_glori; tp <= calls

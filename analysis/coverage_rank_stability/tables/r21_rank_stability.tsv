@@ -1,0 +1,49 @@
+family	species	dataset_group	metric	stratum	stratum_kind	n_units	n_tools	spearman_rho	kendall_tau	p_value	rho_ci_lo	rho_ci_hi	rho_per_unit_mean	rho_per_unit_min	max_abs_rank_shift	mean_abs_rank_shift	top1_tool_pooled	top1_tool_stratum	top1_same	top3_overlap	p_value_fdr_bh
+drawn_units	Arabidopsis	Arabidopsis_WT	precision	5-9	sensitivity	3	10	0.419455	0.359573	0.227552	-0.353553	0.533783	0.161452	-0.353553	8	3.96667	DRUMMER	m6Anet	False	0	0.303402
+drawn_units	Arabidopsis	Arabidopsis_WT	precision	10-19	primary	3	11	0.85389	0.685303	0.000822341	0.753803	0.870162	0.784141	0.761513	4.66667	2.31818	DRUMMER	Nanocompore	False	0.333333	0.00171619
+drawn_units	Arabidopsis	Arabidopsis_WT	precision	20-49	primary	3	13	0.863825	0.735499	0.000140909	0.4	0.927099	0.746886	0.4	5	1.61538	DRUMMER	Nanocompore	False	0.666667	0.000355979
+drawn_units	Arabidopsis	Arabidopsis_WT	precision	>=50	primary	3	13	0.954609	0.864534	4.00431e-07	0.938103	0.967033	0.959707	0.956044	2.33333	0.615385	DRUMMER	NanoSPA_m6A	False	0.666667	2.74581e-06
+drawn_units	Arabidopsis	Arabidopsis_WT	recall	5-9	sensitivity	3	13	0.74554	0.61341	0.00344018	0.46291	0.83162	0.662472	0.46291	7.66667	2.89744	ELIGOS2_solo	ELIGOS2_solo	True	1	0.00611588
+drawn_units	Arabidopsis	Arabidopsis_WT	recall	10-19	primary	3	13	0.606063	0.467572	0.028119	0.447902	0.698763	0.606316	0.447902	5	2.41026	ELIGOS2_solo	ELIGOS2_solo	True	0.666667	0.0421785
+drawn_units	Arabidopsis	Arabidopsis_WT	recall	20-49	primary	3	13	0.856753	0.75331	0.000183525	0.796703	0.885833	0.838569	0.796703	4	1.25641	ELIGOS2_solo	ELIGOS2_solo	True	1	0.000440461
+drawn_units	Arabidopsis	Arabidopsis_WT	recall	>=50	primary	3	13	0.943605	0.81292	1.29342e-06	0.846154	0.968364	0.923077	0.846154	2.66667	0.923077	ELIGOS2_solo	ELIGOS2_solo	True	0.666667	6.89826e-06
+drawn_units	Arabidopsis	Arabidopsis_WT	f1	5-9	sensitivity	3	7	0.774806	0.58554	0.0407695	0.771429	0.828862	0.771429	0.771429	4.66667	1.95238	ELIGOS2_solo	ELIGOS2_solo	True	0.666667	0.059301
+drawn_units	Arabidopsis	Arabidopsis_WT	f1	10-19	primary	3	11	0.601368	0.477084	0.0503382	0.498483	0.642857	0.624387	0.612121	5	2.42424	ELIGOS2_solo	ELIGOS2_solo	True	1	0.0710656
+drawn_units	Arabidopsis	Arabidopsis_WT	f1	20-49	primary	3	13	0.818681	0.692308	0.000620988	0.773041	0.833563	0.792119	0.78022	5	1.48718	ELIGOS2_solo	ELIGOS2_solo	True	1	0.00135488
+drawn_units	Arabidopsis	Arabidopsis_WT	f1	>=50	primary	3	13	0.938103	0.81292	2.13524e-06	0.906593	0.972527	0.943223	0.906593	1.66667	1.02564	ELIGOS2_solo	m6Anet	False	1	9.31741e-06
+drawn_units	Arabidopsis	Arabidopsis_WT	mcc	5-9	sensitivity	3	10	0.835366	0.659091	0.00262164	0.672727	0.890909	0.786726	0.672727	4.66667	1.9	m6Anet	DENA	False	0.666667	0.00483996
+drawn_units	Arabidopsis	Arabidopsis_WT	mcc	10-19	primary	3	11	0.879273	0.697277	0.000362006	0.8	0.90303	0.834343	0.8	5	1.68182	m6Anet	DENA	False	1	0.000827443
+drawn_units	Arabidopsis	Arabidopsis_WT	mcc	20-49	primary	3	13	0.80138	0.666681	0.000989344	0.741758	0.909091	0.821345	0.741758	5.5	1.47436	m6Anet	m6Anet	True	1	0.00197869
+drawn_units	Arabidopsis	Arabidopsis_WT	mcc	>=50	primary	3	13	0.875863	0.797403	8.67628e-05	0.82069	0.945055	0.893773	0.846154	4	1.12821	m6Anet	m6Anet	True	1	0.000254598
+drawn_units	Mouse	Mouse_WT	precision	5-9	sensitivity	1	10	0.375534	0.272166	0.284896			0.375534	0.375534	9	3.7	DRUMMER	NanoSPA_m6A	False	0.666667	0.359869
+drawn_units	Mouse	Mouse_WT	precision	10-19	primary	1	12	0.756569	0.595437	0.00439849			0.756569	0.756569	5	2.25	DRUMMER	Nanocompore	False	0.666667	0.00728026
+drawn_units	Mouse	Mouse_WT	precision	20-49	primary	1	13	0.785714	0.666667	0.00145419			0.785714	0.785714	7	1.84615	DRUMMER	Nanocompore	False	0.666667	0.00279204
+drawn_units	Mouse	Mouse_WT	precision	>=50	primary	1	13	0.989011	0.948718	1.75073e-10			0.989011	0.989011	1	0.307692	DRUMMER	DRUMMER	True	1	4.20175e-09
+drawn_units	Mouse	Mouse_WT	recall	5-9	sensitivity	1	13	0.0469767	0.0698857	0.878877			0.0469767	0.0469767	8	4.15385	m6Anet	ELIGOS2_solo	False	0	0.878877
+drawn_units	Mouse	Mouse_WT	recall	10-19	primary	1	13	0.323659	0.263249	0.280693			0.323659	0.323659	7	3.69231	m6Anet	DENA	False	0.333333	0.359869
+drawn_units	Mouse	Mouse_WT	recall	20-49	primary	1	13	0.93956	0.820513	1.87825e-06			0.93956	0.93956	3	0.923077	m6Anet	m6Anet	True	1	9.01559e-06
+drawn_units	Mouse	Mouse_WT	recall	>=50	primary	1	13	0.873626	0.74359	9.5289e-05			0.873626	0.873626	3	1.53846	m6Anet	m6Anet	True	0.666667	0.000254598
+drawn_units	Mouse	Mouse_WT	f1	5-9	sensitivity	1	4	0.4	0.333333	0.6			0.4	0.4	10	5.5	m6Anet	ELIGOS2_solo	False	0	0.669767
+drawn_units	Mouse	Mouse_WT	f1	10-19	primary	1	10	0.224242	0.2	0.533401			0.224242	0.224242	8	3.4	m6Anet	DENA	False	0.333333	0.624469
+drawn_units	Mouse	Mouse_WT	f1	20-49	primary	1	12	0.895105	0.757576	8.36659e-05			0.895105	0.895105	4	1.41667	m6Anet	m6Anet	True	0.666667	0.000254598
+drawn_units	Mouse	Mouse_WT	f1	>=50	primary	1	13	0.71978	0.564103	0.00553612			0.71978	0.71978	6	2.30769	m6Anet	m6Anet	True	0.333333	0.00885779
+drawn_units	Mouse	Mouse_WT	mcc	5-9	sensitivity	1	10	0.267478	0.224733	0.454986			0.267478	0.267478	8	3.8	m6Anet	NanoSPA_m6A	False	0.333333	0.559983
+drawn_units	Mouse	Mouse_WT	mcc	10-19	primary	1	12	0.699301	0.515152	0.0113742			0.699301	0.699301	5	2.33333	m6Anet	DENA	False	0.666667	0.0176117
+drawn_units	Mouse	Mouse_WT	mcc	20-49	primary	1	13	0.873626	0.692308	9.5289e-05			0.873626	0.873626	4	1.53846	m6Anet	m6Anet	True	0.666667	0.000254598
+drawn_units	Mouse	Mouse_WT	mcc	>=50	primary	1	13	0.917582	0.794872	9.90623e-06			0.917582	0.917582	4	1.07692	m6Anet	m6Anet	True	0.666667	3.96249e-05
+drawn_units	Human	HeLa_WT	precision	5-9	sensitivity	3	9	0.161739	0.117851	0.677607	0.111148	0.974679	0.626851	0.394665	8.66667	4.77778	NanoSPA_m6A	ELIGOS2_diff	False	0.666667	0.722781
+drawn_units	Human	HeLa_WT	precision	10-19	primary	3	11	0.911164	0.770675	9.54742e-05	0.874718	0.92695	0.88732	0.874718	4.33333	2	NanoSPA_m6A	DRUMMER	False	0.666667	0.000254598
+drawn_units	Human	HeLa_WT	precision	20-49	primary	3	13	0.914601	0.805195	1.19744e-05	0.812415	0.923077	0.8663	0.818681	4.66667	1.23077	NanoSPA_m6A	NanoSPA_m6A	True	0.666667	4.42132e-05
+drawn_units	Human	HeLa_WT	precision	>=50	primary	3	13	0.998625	0.993569	1.93123e-15	0.982094	1	0.994505	0.989011	0.666667	0.153846	NanoSPA_m6A	NanoSPA_m6A	True	1	9.26992e-14
+drawn_units	Human	HeLa_WT	recall	5-9	sensitivity	3	13	0.0471715	0.0534522	0.878378	0.0471715	0.147641	0.0938002	0.0557332	8	4.20513	MINES	ELIGOS2_solo	False	0	0.878877
+drawn_units	Human	HeLa_WT	recall	10-19	primary	3	13	0.21914	0.16	0.471941	0.133342	0.291358	0.217211	0.133342	8.33333	3.58974	MINES	DENA	False	0	0.566329
+drawn_units	Human	HeLa_WT	recall	20-49	primary	3	13	0.947517	0.855337	8.77596e-07	0.918622	0.950549	0.943223	0.934066	3	0.871795	MINES	MINES	True	1	5.26558e-06
+drawn_units	Human	HeLa_WT	recall	>=50	primary	3	13	0.965374	0.88	9.22453e-08	0.93956	0.967033	0.957875	0.93956	2.33333	0.666667	MINES	MINES	True	1	7.37962e-07
+drawn_units	Human	HeLa_WT	f1	5-9	sensitivity	3	4	0.4	0.333333	0.6	-0.4	1	0.633333	0.4	5.33333	3.75	m6Anet	ELIGOS2_solo	False	0	0.669767
+drawn_units	Human	HeLa_WT	f1	10-19	primary	3	10	0.175758	0.2	0.627188	-0.0714286	0.212121	0.0191997	-0.0714286	6	3.43333	m6Anet	DENA	False	0	0.684205
+drawn_units	Human	HeLa_WT	f1	20-49	primary	3	12	0.986014	0.939394	4.1169e-09	0.979021	0.993007	0.988345	0.986014	1	0.527778	m6Anet	Nanom6A	False	1	4.94028e-08
+drawn_units	Human	HeLa_WT	f1	>=50	primary	3	13	0.737277	0.580657	0.00403028	0.642857	0.835165	0.765568	0.692308	4.66667	1.89744	m6Anet	m6Anet	True	0.666667	0.00690904
+drawn_units	Human	HeLa_WT	mcc	5-9	sensitivity	3	9	0.119159	0.117698	0.760106	0.119159	0.8	0.529879	0.394665	8	4.87037	m6Anet	ELIGOS2_diff	False	0	0.793154
+drawn_units	Human	HeLa_WT	mcc	10-19	primary	3	11	0.441915	0.366988	0.173559	0.35991	0.583589	0.455323	0.35991	5.33333	3.24242	m6Anet	ELIGOS2_diff	False	0	0.238024
+drawn_units	Human	HeLa_WT	mcc	20-49	primary	3	13	0.968277	0.888908	5.73106e-08	0.933794	0.978022	0.965201	0.945055	1.66667	0.666667	m6Anet	Nanom6A	False	1	5.50181e-07
+drawn_units	Human	HeLa_WT	mcc	>=50	primary	3	13	0.984807	0.947368	1.03169e-09	0.934066	0.987621	0.967033	0.934066	1	0.564103	m6Anet	m6Anet	True	1	1.65071e-08

@@ -105,7 +105,7 @@ HOW_TO_OBTAIN: dict[str, str] = {
     "default_vs_optimised":
         " optimised/changed",
     "coordinate_harmonisation":
-        "code_user/*_postprocessing transcript→genomic ",
+        "tool_scripts/*_postprocessing transcript→genomic ",
     "notes":
         " ",
 }

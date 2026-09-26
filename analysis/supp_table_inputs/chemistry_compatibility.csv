@@ -1,0 +1,23 @@
+tool,tool_display,result_dir,input_class,ran_on_RNA002,ran_on_RNA004,RNA004_evidence,RNA002_evidence,status_RNA004,reason_if_excluded,generated_at
+CHEUI_m6A / CHEUI_m5C,CHEUI_m6A,CHEUI,raw-signal (nanopolish eventalign),True,False,-,CHEUI,not run - no nanopolish/f5c signal model for RNA004; pore/chemistry change invalidates the trained signal model,no nanopolish/f5c signal model for RNA004; pore/chemistry change invalidates the trained signal model,2026-09-19 05:17:55
+CHEUI-diff,CHEUI-diff,CHEUI-diff,not determined,False,False,-,,not run - see input_class,,2026-09-19 05:17:55
+DENA,DENA,DENA,raw-signal (nanopolish eventalign),True,False,-,DENA,not run - same as above,same as above,2026-09-19 05:17:55
+differr,differr,differr,basecalled (BAM),False,False,-,,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+DRUMMER,DRUMMER,DRUMMER,raw-signal (Tombo resquiggle),True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/DRUMMER,DRUMMER,included,,2026-09-19 05:17:55
+ELIGOS2_diff,ELIGOS2_diff,ELIGOS2_diff,raw-signal (Tombo resquiggle),True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ELIGOS2_diff,ELIGOS2_diff,included,,2026-09-19 05:17:55
+ELIGOS2_solo,ELIGOS2_solo,ELIGOS2_solo,raw-signal (Tombo resquiggle),True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ELIGOS2_solo,ELIGOS2_solo,included,,2026-09-19 05:17:55
+EpiNano_Error,EpiNano_Error,Epinano_DiffErr,basecalled (BAM/FASTQ),False,False,-,,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+Epinano_SVM,Epinano_SVM,Epinano_SVM,basecalled (BAM/FASTQ),False,False,-,,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+m6Anet,m6Anet,m6Anet,raw-signal (eventalign) / RNA004 BAM model,True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/m6Anet,m6Anet,included,,2026-09-19 05:17:55
+mAFiA,mAFiA,mAFiA,basecalled (BAM),False,False,-,,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+MINES,MINES,MINES,raw-signal (Tombo resquiggle),True,False,-,MINES,not run - Tombo resquiggle not available for RNA004,Tombo resquiggle not available for RNA004,2026-09-19 05:17:55
+Nanocompore,Nanocompore,Nanocompore,raw-signal (eventalign),True,False,-,Nanocompore,not run - no RNA004 signal model,no RNA004 signal model,2026-09-19 05:17:55
+Nanom6A,Nanom6A,Nanom6A,basecalled (BAM),True,False,-,Nanom6A,not run - BAM-based but model trained on RNA002 features,BAM-based but model trained on RNA002 features,2026-09-19 05:17:55
+NanoMUD,NanoMUD,NanoMUD,basecalled (BAM),True,False,-,NanoMUD,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+NanoNm,NanoNm,NanoNm,basecalled (BAM),True,False,-,NanoNm,"not run - BAM-based, applicable","BAM-based, applicable",2026-09-19 05:17:55
+NanoPsu,NanoPsu,NanoPsu,basecalled (FASTQ/BAM),True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoPsu,NanoPsu,included,,2026-09-19 05:17:55
+NanoSPA,NanoSPA,NanoSPA,basecalled (FASTQ/BAM),True,True,$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/NanoSPA,NanoSPA,included,,2026-09-19 05:17:55
+Tombo,Tombo,Tombo,raw-signal (FAST5),False,False,-,,not run - resquiggle unsupported for RNA004,resquiggle unsupported for RNA004,2026-09-19 05:17:55
+Tombo (comparative),Tombo (comparative),Tombo_com,not determined,False,False,-,,not run - see input_class,,2026-09-19 05:17:55
+xPore,xPore,xPore,raw-signal (eventalign),True,False,-,xPore,not run - no RNA004 signal model,no RNA004 signal model,2026-09-19 05:17:55
+Yanocomp,Yanocomp,yanocomp,raw-signal (Tombo resquiggle),True,False,-,yanocomp,not run - Tombo resquiggle not available for RNA004,Tombo resquiggle not available for RNA004,2026-09-19 05:17:55

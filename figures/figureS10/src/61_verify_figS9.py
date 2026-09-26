@@ -12,7 +12,7 @@ Checks
    block), and the bottom-left half on the purple/green version pair (no grey);
 4. the figure inputs (``figS9_panel_inputs.tsv``, written by the R script: one
    row per drawn curve, block A + grid slot) match
-   the source layer: BED line counts equal the de-duplicated ``sites_clean``
+   the source layer: BED line counts equal the de-duplicated ``callsets``
    call counts, and those equal the frozen 2026-09-20 anchors;
 5. the numbers in ``figS9_region_shares.tsv`` are internally consistent
    (shares sum to 1, body counts add up) and the assigned-site counts equal the
@@ -25,7 +25,7 @@ Checks
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output \
-    python $RNAMODBENCH_ROOT/figures/figureS10/scripts/61_verify_figS9.py
+    python $RNAMODBENCH_ROOT/figures/figureS10/src/61_verify_figS9.py
 """
 
 from __future__ import annotations
@@ -55,9 +55,9 @@ import pandas as pd
 
 PROJECT = Path(str(_RB))
 OUT = (_RB / "figures/figureS10")
-TABLES, FIGS, SCRIPTS, LOGS = (_RB / "figures/figureS10/tables"), (_RB / "figures/figureS10/figures"), (_RB / "figures/figureS10/scripts"), (_RB / "figures/figureS10/logs")
-CLEAN = (_RB / "data/sites_clean")
-R_SCRIPT = (_RB / "src/sites_v2/scripts/23e_figS9_guitar.R")
+TABLES, FIGS, SCRIPTS, LOGS = (_RB / "figures/figureS10/tables"), (_RB / "figures/figureS10/figures"), (_RB / "figures/figureS10/src"), (_RB / "figures/figureS10/logs")
+CLEAN = (_RB / "data/callsets")
+R_SCRIPT = (_RB / "src/harmonisation/scripts/23e_figS9_guitar.R")
 PDF = FIGS / "FigureS9_rev.pdf"
 PAGE = (1152.0, 864.0)                      # = the replaced sup9.pdf
 EXPECTED_ASSIGNED = {                       # frozen 2026-09-20 (pre-figure)
@@ -127,7 +127,7 @@ def word_boxes(pdf: Path) -> list[tuple[float, float, float, float, str]]:
 def clean_rows(tool: str, condition: str) -> int:
     group, sample = SAMPLES[condition]
     mod = "Psi" if "pseU" in tool else "m5C"
-    path = (_RB / "data/sites_clean/RNA004/Human") / group / mod / tool / f"{sample}.tsv"
+    path = (_RB / "data/callsets/RNA004/Human") / group / mod / tool / f"{sample}.tsv"
     d = pd.read_csv(path, sep="\t", usecols=["chrom", "start"], low_memory=False)
     return int(d.drop_duplicates(["chrom", "start"]).shape[0])
 
@@ -165,8 +165,8 @@ def main() -> None:
     check("R script: white list = the six drawn models, no inosine panel",
           all(m in src for m in MODELS) and "inosine" in src
           and "EXCLUDED <- c(" in src)
-    check("R script: sites_clean source, Ensembl annotation, >=90 % point stated",
-          "sites_clean" in src and "Ensembl" in src and ">= 90 %" in src
+    check("R script: callsets source, Ensembl annotation, >=90 % point stated",
+          "callsets" in src and "Ensembl" in src and ">= 90 %" in src
           and "gencode" not in src.lower())
 
     # 4 ------------------------------------------------------------------- #
@@ -187,7 +187,7 @@ def main() -> None:
     check("panel inputs: BED line counts equal the recorded n_sites", ok_bed)
     ok_src = all(int(r["n_sites"]) == clean_rows(r["model"], r["condition"])
                  for _, r in plan.iterrows())
-    check("panel inputs: BED counts equal de-duplicated sites_clean counts", ok_src)
+    check("panel inputs: BED counts equal de-duplicated callsets counts", ok_src)
 
     # 5 ------------------------------------------------------------------- #
     shares = pd.read_csv(TABLES / "figS9_region_shares.tsv", sep="\t")
@@ -326,7 +326,7 @@ def main() -> None:
     check("reported values: every FPR equals the frozen evaluation table", rel_ok)
     check("reported values: denominators frozen candidate sets / mappable length",
           denom_ok)
-    check("reported values: IVT call counts equal de-duplicated sites_clean counts",
+    check("reported values: IVT call counts equal de-duplicated callsets counts",
           all(int(r["n_calls"]) == clean_rows(r["model"], "IVT")
               for _, r in fpr.iterrows()))
 
@@ -359,9 +359,9 @@ def main() -> None:
     mod60 = importlib.util.module_from_spec(spec60)
     spec60.loader.exec_module(mod60)
     probe_model, probe_mod = "Dorado_sup@v5.1.0_all_m5C", "m5C"
-    probe_path = (_RB / "data/sites_clean/RNA004"
-                  / f"Curlcake/RNA004_Curlcake_IVT/{probe_mod}/{probe_model}/"
-                  / "Curlcake_RNA004_IVT.tsv")
+    probe_path = (PROJECT / "data/callsets/RNA004/"
+                  f"Curlcake/RNA004_Curlcake_IVT/{probe_mod}/{probe_model}/"
+                  "Curlcake_RNA004_IVT.tsv")
     s = pd.read_csv(probe_path, sep="\t", usecols=["score"]).iloc[:, 0].to_numpy(float) * 100
     sub = scan[scan["model"] == probe_model].sort_values("threshold_pct")
     rec_ok = all(int(r["n_calls"]) == int((s >= r["threshold_pct"]).sum())

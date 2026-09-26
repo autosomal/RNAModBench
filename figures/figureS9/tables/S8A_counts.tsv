@@ -1,22 +1,22 @@
 block	tool	tool_label	WT	IVT	source
-ORCA	ORCA_Nm	ORCA Nm	2979	1286	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/Nm/HeLa_WTdata_Nm.txt
-ORCA	ORCA_inosine	ORCA inosine	132	17	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/inosine/HeLa_WTdata_inosine.txt
-ORCA	ORCA_m1A	ORCA m1A	80	189	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m1A/HeLa_WTdata_m1A.txt
-ORCA	ORCA_m5C	ORCA m5C	10960	15750	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m5C/HeLa_WTdata_m5C.txt
-ORCA	ORCA_m6A	ORCA m6A	2895	2427	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m6A/HeLa_WTdata_m6A.txt
-ORCA	ORCA_m6Am	ORCA m6Am	0	2	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m6Am/HeLa_WTdata_m6Am.txt
-ORCA	ORCA_m7G	ORCA m7G	7	0	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m7G/HeLa_WTdata_m7G.txt
-ORCA	ORCA_pseU	ORCA pseU	273	294	02_raw_results/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/pseU/HeLa_WTdata_pseU.txt
-m6A	DRUMMER	DRUMMER	296	0	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/DRUMMER/HeLa_RNA004_WT.tsv
-m6A	Dorado_hac@v5.0.0_m6A@v1	hac v5.0.0 m6A	9603	13028	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A@v1/HeLa_RNA004_WT.tsv
-m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	hac v5.0.0 m6A DRACH	4423	9	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
-m6A	Dorado_hac@v5.1.0_inosine_m6A	hac v5.1.0 inosine→m6A	3886	87	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_inosine_m6A/HeLa_RNA004_WT.tsv
-m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	hac v5.1.0 m6A DRACH	4103	10	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
-m6A	Dorado_sup@v5.0.0_m6A@v1	sup v5.0.0 m6A	10818	46963	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A@v1/HeLa_RNA004_WT.tsv
-m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	sup v5.0.0 m6A DRACH	5001	2	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
-m6A	Dorado_sup@v5.1.0_inosine_m6A	sup v5.1.0 inosine→m6A	3909	101	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.1.0_inosine_m6A/HeLa_RNA004_WT.tsv
-m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	sup v5.1.0 m6A DRACH	4324	2	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.1.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
-m6A	ELIGOS2_diff	ELIGOS2 diff	780	0	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/ELIGOS2_diff/HeLa_RNA004_WT.tsv
-m6A	ELIGOS2_solo	ELIGOS2 solo	9389	2582	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/ELIGOS2_solo/HeLa_RNA004_WT.tsv
-m6A	NanoSPA_m6A	NanoSPA m6A	323	295	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/NanoSPA_m6A/HeLa_RNA004_WT.tsv
-m6A	m6Anet	m6Anet	30327	18758	04_revision_analysis/sites_v2/sites_clean/RNA004/Human/RNA004_HeLa_WT/m6A/m6Anet/HeLa_RNA004_WT.tsv
+ORCA	ORCA_Nm	ORCA Nm	2979	1286	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/Nm/HeLa_WTdata_Nm.txt
+ORCA	ORCA_inosine	ORCA inosine	132	17	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/inosine/HeLa_WTdata_inosine.txt
+ORCA	ORCA_m1A	ORCA m1A	80	189	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m1A/HeLa_WTdata_m1A.txt
+ORCA	ORCA_m5C	ORCA m5C	10960	15750	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m5C/HeLa_WTdata_m5C.txt
+ORCA	ORCA_m6A	ORCA m6A	2895	2427	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m6A/HeLa_WTdata_m6A.txt
+ORCA	ORCA_m6Am	ORCA m6Am	0	2	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m6Am/HeLa_WTdata_m6Am.txt
+ORCA	ORCA_m7G	ORCA m7G	7	0	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/m7G/HeLa_WTdata_m7G.txt
+ORCA	ORCA_pseU	ORCA pseU	273	294	$RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered/pseU/HeLa_WTdata_pseU.txt
+m6A	DRUMMER	DRUMMER	296	0	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/DRUMMER/HeLa_RNA004_WT.tsv
+m6A	Dorado_hac@v5.0.0_m6A@v1	hac v5.0.0 m6A	9603	13028	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A@v1/HeLa_RNA004_WT.tsv
+m6A	Dorado_hac@v5.0.0_m6A_DRACH@v1	hac v5.0.0 m6A DRACH	4423	9	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.0.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
+m6A	Dorado_hac@v5.1.0_inosine_m6A	hac v5.1.0 inosine→m6A	3886	87	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_inosine_m6A/HeLa_RNA004_WT.tsv
+m6A	Dorado_hac@v5.1.0_m6A_DRACH@v1	hac v5.1.0 m6A DRACH	4103	10	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_hac@v5.1.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
+m6A	Dorado_sup@v5.0.0_m6A@v1	sup v5.0.0 m6A	10818	46963	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A@v1/HeLa_RNA004_WT.tsv
+m6A	Dorado_sup@v5.0.0_m6A_DRACH@v1	sup v5.0.0 m6A DRACH	5001	2	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.0.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
+m6A	Dorado_sup@v5.1.0_inosine_m6A	sup v5.1.0 inosine→m6A	3909	101	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.1.0_inosine_m6A/HeLa_RNA004_WT.tsv
+m6A	Dorado_sup@v5.1.0_m6A_DRACH@v1	sup v5.1.0 m6A DRACH	4324	2	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/Dorado_sup@v5.1.0_m6A_DRACH@v1/HeLa_RNA004_WT.tsv
+m6A	ELIGOS2_diff	ELIGOS2 diff	780	0	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/ELIGOS2_diff/HeLa_RNA004_WT.tsv
+m6A	ELIGOS2_solo	ELIGOS2 solo	9389	2582	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/ELIGOS2_solo/HeLa_RNA004_WT.tsv
+m6A	NanoSPA_m6A	NanoSPA m6A	323	295	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/NanoSPA_m6A/HeLa_RNA004_WT.tsv
+m6A	m6Anet	m6Anet	30327	18758	data/callsets/RNA004/Human/RNA004_HeLa_WT/m6A/m6Anet/HeLa_RNA004_WT.tsv

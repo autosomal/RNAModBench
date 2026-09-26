@@ -16,7 +16,7 @@ D  wild-type x control agreement and the explicit control-side false-positive
 E  replicate consistency per tool: mean pairwise Jaccard vs the pooled
    ("global") Jaccard |intersection| / |union| over the same independent units
 
-House rules enforced here (see 01_code/code/sites_v2/common/figstyle.py):
+House rules enforced here (see src/harmonisation/common/figstyle.py):
 real embedded Arial, no gridlines, NO annotation text or numbers inside a
 panel, English only, vector PDF + 300 dpi PNG drawn at the printed size
 (6.66 x 7.4 in = 0.95 x \textwidth of the Wiley USG layout).
@@ -57,7 +57,7 @@ from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
 
 HERE = Path(__file__).resolve()
 REV = HERE.parents[1]
-sys.path.insert(0, str(_RB / "src/sites_v2"))
+sys.path.insert(0, str(_RB / "src/harmonisation"))
 from common import figstyle  # noqa: E402
 
 #: published species palette (kept so the revision reads as the same figure)

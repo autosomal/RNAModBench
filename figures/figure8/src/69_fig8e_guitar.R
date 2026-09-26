@@ -21,7 +21,7 @@ if (is.null(.RB)) {
 # Figure 8 panel E -- Guitar metagene band of the three Dorado m6A models.
 #
 # Built exactly like block A of the rebuilt Supplementary Figure S9
-# (01_code/code/sites_v2/scripts/23e_figS9_guitar.R): the density kernel of the
+# (src/harmonisation/scripts/23e_figS9_guitar.R): the density kernel of the
 # Bioconductor *Guitar* package (samplePoints -> normalize ->
 # .generateDensity_CI) on the majority-consensus call set across the technical
 # replicates (guitar_metagene_replicates/bed/RNA004/majority/...), one panel per
@@ -52,7 +52,7 @@ suppressPackageStartupMessages({
   library(showtext)
 })
 this_file <- sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE)[1])
-source(file.path(dirname(normalizePath(this_file)), "../../../01_code/code/sites_v2/scripts/guitar_lib.R"))
+source(file.path(dirname(normalizePath(this_file)), "../../../src/harmonisation/scripts/guitar_lib.R"))
 arial_setup()
 
 OUTD <- file.path(.RB, "figures/figure8")

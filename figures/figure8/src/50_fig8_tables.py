@@ -2,12 +2,12 @@
 """50 -- Figure 8 / Figure S8 revision tables (reviewer R3-8, editor E8).
 
 Everything the revised Figure 8 (main) and Figure S8 (supplementary) plot is
-recomputed here from the clean callset layer (``sites_v2/sites_clean``), the
-frozen evaluation tables (``sites_v2/evaluation/tables``), the per-sample
-candidate universes (``sites_v2/universe``) and the raw RNA004 ORCA output.
+recomputed here from the clean callset layer (``harmonisation/callsets``), the
+frozen evaluation tables (``harmonisation/evaluation/tables``), the per-sample
+candidate universes (``harmonisation/universe``) and the raw RNA004 ORCA output.
 
 Site-level semantics follow the 06 confusion tables: one row per
-``(chrom, start)`` position, keeping the row with the highest score (sites_clean
+``(chrom, start)`` position, keeping the row with the highest score (callsets
 keeps overlapping-transcript duplicates of the same physical position).
 
 FPR definitions (they are repeated verbatim in the figure legends)
@@ -23,7 +23,7 @@ FPR definitions (they are repeated verbatim in the figure legends)
                               type) -- the same universe the paper's TP/FP
                               definitions use.
 
-Outputs -> ``04_revision_analysis/fig8_revision/tables``
+Outputs -> ``figures/figure8/tables``
 --------------------------------------------------------
 * fig8_counts.tsv                 detected sites per sample x tool (WT / IVT)
 * fig8_fpr_curlcake_scan.tsv      Dorado threshold sweep, unmodified Curlcake
@@ -35,12 +35,12 @@ Outputs -> ``04_revision_analysis/fig8_revision/tables``
 * figS8_orca_counts.tsv          ORCA + tool counts per modification type
 * figS8_modratio_agreement.tsv   modification ratio vs GLORI association
 * fig8_candidate_denominators.tsv candidate-site denominators actually used
-* fig8_response_letter_anchors.tsv  numbers quoted in the reply, with sources
+* fig8_quoted_numbers.tsv  numbers quoted in the reply, with sources
 
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output \
-    python $RNAMODBENCH_ROOT/figures/figure8/scripts/50_fig8_tables.py
+    python $RNAMODBENCH_ROOT/figures/figure8/src/50_fig8_tables.py
 """
 
 from __future__ import annotations
@@ -72,12 +72,12 @@ import pandas as pd
 
 PROJECT = Path(str(_RB))
 SITES = (_RB / "data")
-sys.path.insert(0, str((_RB / "src/sites_v2")))
+sys.path.insert(0, str((_RB / "src/harmonisation")))
 
 from common.match import fix_chromosome  # noqa: E402  (project chromosome normaliser)
-CLEAN = (_RB / "data/sites_clean")
+CLEAN = (_RB / "data/callsets")
 EVAL = (_RB / "data/evaluation/tables")
-UNIVERSE = (_XB / "sites_v2/universe")
+UNIVERSE = (_XB / "harmonisation/universe")
 GLORI_HELA = (_XB / "third_party/NGS/GLORI/Hela_GLORI.bed")
 ORCA_DIR = (_XB / "raw/result_RNA004/HeLa/raw_calls/RNA004_result/ORCA_filtered")
 ORCA_COUNTS = (_XB / "raw/result_RNA004/HeLa/figures/barplot/tool_counts_orca.csv")
@@ -210,7 +210,7 @@ def hela_universe(sample: str, cache: Path) -> dict:
         if not row.empty:
             return {k: float(row.iloc[0][k]) for k in
                     ("at_cov10", "cg_cov10", "n_all_cov10")}
-    gz = (_XB / "sites_v2/universe/RNA004/Human") / f"{sample}__universe.tsv.gz"
+    gz = (_XB / "harmonisation/universe/RNA004/Human") / f"{sample}__universe.tsv.gz"
     cmd = (f"zcat {gz} | awk -F'\\t' 'NR>1 && $4>=10 "
            "{b=$3; if(b==\"A\"||b==\"T\") at++; else if(b==\"C\"||b==\"G\") cg++; "
            "tot++} END{print at+0, cg+0, tot+0}'")
@@ -262,7 +262,7 @@ def counts_table() -> pd.DataFrame:
 # --------------------------------------------------------------------------- #
 def fpr_curlcake_scan(region_bp: float) -> pd.DataFrame:
     sample = "Curlcake_RNA004_IVT"
-    den = curlcake_universe((_XB / "sites_v2/universe/RNA004/Curlcake/Curlcake_RNA004_IVT__universe.tsv"))
+    den = curlcake_universe((_XB / "harmonisation/universe/RNA004/Curlcake/Curlcake_RNA004_IVT__universe.tsv"))
     den["mappable_bp"] = region_bp
     rows = []
     for mod_type, tool, path in list_callsets(sample):
@@ -512,7 +512,7 @@ def anchors(ppv: pd.DataFrame, cc: pd.DataFrame, hela: pd.DataFrame) -> pd.DataF
             round(r["fp_per_10kb"], 5), "per 10 kb", "fig8_fpr_hela_ivt.tsv",
             f"n_fp={int(r['n_fp'])}, min_score_pct={r['min_score_pct']:.0f}")
     out = pd.DataFrame(rows)
-    write_tsv(out, (_RB / "figures/figure8/tables/fig8_response_letter_anchors.tsv"))
+    write_tsv(out, (_RB / "figures/figure8/tables/fig8_quoted_numbers.tsv"))
     return out
 
 

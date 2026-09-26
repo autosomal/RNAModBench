@@ -1,13 +1,13 @@
 block	slot	label	model	mod	condition	cond_label	n_sites	note	path
-A	R1C1	hac@v5.0.0_pseU	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	WT	WT	279		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_hac@v5.0.0_pseU@v1_otherMod.bed
-A	R1C1	hac@v5.0.0_pseU	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	138		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_hac@v5.0.0_pseU@v1_otherMod.bed
-A	R1C2	hac@v5.1.0_pseU	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	WT	WT	235		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_hac@v5.1.0_pseU@v1_otherMod.bed
-A	R1C2	hac@v5.1.0_pseU	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	70		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_hac@v5.1.0_pseU@v1_otherMod.bed
-A	R1C3	sup@v5.0.0_pseU	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	WT	WT	549		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_sup@v5.0.0_pseU@v1_otherMod.bed
-A	R1C3	sup@v5.0.0_pseU	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	953		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_sup@v5.0.0_pseU@v1_otherMod.bed
-A	R2C1	sup@v5.1.0_pseU	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	WT	WT	610		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_sup@v5.1.0_pseU@v1_otherMod.bed
-A	R2C1	sup@v5.1.0_pseU	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	233		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_sup@v5.1.0_pseU@v1_otherMod.bed
-A	R2C2	hac@v5.1.0_m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	WT	WT	725		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m5C/Dorado_hac@v5.1.0_m5C@v1_otherMod.bed
-A	R2C2	hac@v5.1.0_m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	IVT	unmodified IVT	261		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m5C/Dorado_hac@v5.1.0_m5C@v1_otherMod.bed
-A	R2C3	sup@v5.1.0_m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	WT	WT	218		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m5C/Dorado_sup@v5.1.0_m5C@v1_otherMod.bed
-A	R2C3	sup@v5.1.0_m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	IVT	unmodified IVT	97		$RNAMODBENCH_LOCAL/sites_v2/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m5C/Dorado_sup@v5.1.0_m5C@v1_otherMod.bed
+A	R1C1	hac@v5.0.0_pseU	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	WT	WT	279		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_hac@v5.0.0_pseU@v1_otherMod.bed
+A	R1C1	hac@v5.0.0_pseU	Dorado_hac@v5.0.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	138		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_hac@v5.0.0_pseU@v1_otherMod.bed
+A	R1C2	hac@v5.1.0_pseU	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	WT	WT	235		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_hac@v5.1.0_pseU@v1_otherMod.bed
+A	R1C2	hac@v5.1.0_pseU	Dorado_hac@v5.1.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	70		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_hac@v5.1.0_pseU@v1_otherMod.bed
+A	R1C3	sup@v5.0.0_pseU	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	WT	WT	549		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_sup@v5.0.0_pseU@v1_otherMod.bed
+A	R1C3	sup@v5.0.0_pseU	Dorado_sup@v5.0.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	953		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_sup@v5.0.0_pseU@v1_otherMod.bed
+A	R2C1	sup@v5.1.0_pseU	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	WT	WT	610		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/Psi/Dorado_sup@v5.1.0_pseU@v1_otherMod.bed
+A	R2C1	sup@v5.1.0_pseU	Dorado_sup@v5.1.0_pseU@v1_otherMod	Psi	IVT	unmodified IVT	233		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/Psi/Dorado_sup@v5.1.0_pseU@v1_otherMod.bed
+A	R2C2	hac@v5.1.0_m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	WT	WT	725		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m5C/Dorado_hac@v5.1.0_m5C@v1_otherMod.bed
+A	R2C2	hac@v5.1.0_m5C	Dorado_hac@v5.1.0_m5C@v1_otherMod	m5C	IVT	unmodified IVT	261		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m5C/Dorado_hac@v5.1.0_m5C@v1_otherMod.bed
+A	R2C3	sup@v5.1.0_m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	WT	WT	218		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_WT/m5C/Dorado_sup@v5.1.0_m5C@v1_otherMod.bed
+A	R2C3	sup@v5.1.0_m5C	Dorado_sup@v5.1.0_m5C@v1_otherMod	m5C	IVT	unmodified IVT	97		$RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/bed/RNA004/majority/RNA004_HeLa_IVT/m5C/Dorado_sup@v5.1.0_m5C@v1_otherMod.bed

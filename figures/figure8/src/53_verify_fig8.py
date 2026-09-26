@@ -23,7 +23,7 @@ Checks
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output \
-    python $RNAMODBENCH_ROOT/figures/figure8/scripts/53_verify_fig8.py
+    python $RNAMODBENCH_ROOT/figures/figure8/src/53_verify_fig8.py
 """
 
 from __future__ import annotations
@@ -55,9 +55,9 @@ OUT = (_RB / "figures/figure8")
 TABLES = (_RB / "figures/figure8/tables")
 FIGS = (_RB / "figures/figure8/figures")
 PANELS = (_RB / "figures/figure8/figures/panels")
-SCRIPTS = (_RB / "figures/figure8/scripts")
+SCRIPTS = (_RB / "figures/figure8/src")
 sys.path.insert(0, str(SCRIPTS))
-sys.path.insert(0, str((_RB / "src/sites_v2/common")))
+sys.path.insert(0, str((_RB / "src/harmonisation/common")))
 
 PAGE_PT = (500.4, 586.8)
 #: count call-outs of the retired draft -- none of these may be drawn any more.
@@ -169,7 +169,7 @@ def main() -> None:
     check("panel E: three model names kept",
           all(t in txt_e for t in E_MODELS),
           f"missing={[t for t in E_MODELS if t not in txt_e]}")
-    src_e = ((_RB / "figures/figure8/scripts/69_fig8e_guitar.R")).read_text()
+    src_e = ((_RB / "figures/figure8/src/69_fig8e_guitar.R")).read_text()
     check("panel E: model name drawn as plain text, not a plot title",
           'E_TITLE_FACE <- "plain"' in src_e and "fontface = E_TITLE_FACE" in src_e
           and "title = m$label" not in src_e)
@@ -219,8 +219,8 @@ def main() -> None:
     ## 3 -- house rules on the live pieces -------------------------------------- #
     import pagelayout
     captured: dict = {}
-    mod_a = load_piece("fig8a", (_RB / "figures/figure8/scripts/57_fig8a_counts.py"), captured)
-    mod_b = load_piece("fig8b", (_RB / "figures/figure8/scripts/59_fig8b_fpr.py"), captured)
+    mod_a = load_piece("fig8a", (_RB / "figures/figure8/src/57_fig8a_counts.py"), captured)
+    mod_b = load_piece("fig8b", (_RB / "figures/figure8/src/59_fig8b_fpr.py"), captured)
     mod_a.main()
     mod_b.main()
     for name in ("fig8A_counts", "fig8B_fpr"):
@@ -313,7 +313,7 @@ def main() -> None:
           str(pdf_fonts((_RB / "figures/figure8/figures/panels/fig8E_guitar.pdf"))))
 
     ## 6 -- reply-letter anchor table still populated --------------------------- #
-    anchors = pd.read_csv((_RB / "figures/figure8/tables/fig8_response_letter_anchors.tsv"), sep="\t")
+    anchors = pd.read_csv((_RB / "figures/figure8/tables/fig8_quoted_numbers.tsv"), sep="\t")
     check("reply-letter anchor table populated", len(anchors) >= 20,
           f"{len(anchors)} rows")
 

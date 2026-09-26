@@ -4,18 +4,18 @@
 
 Source of record
 ----------------
-``sites_v2/evaluation/tables/m6a_glori_confusion.tsv`` -- the revision's
+``harmonisation/evaluation/tables/m6a_glori_confusion.tsv`` -- the revision's
 per-unit confusion table (explicit universe = exonic, reference-base
 compatible positions with coverage >= 10; nearest GLORI within the window;
 ``precision`` = TP/(TP+FP) = PPV).  This is the very table that
 ``export_figure_ready.py`` / Fig. 5A read, so the panel is by construction in
 the same as the revised Figure 5 -- and therefore sits on the
-``sites_clean`` layer, not on the retired legacy ``output/`` tree.
+``callsets`` layer, not on the retired legacy ``output/`` tree.
 
 On top of that, ``cross_check()`` recomputes PPV at 2 bp straight from
-``sites_clean/<...>/<tool>/<unit>.tsv`` + the per-unit ``__universe.tsv.gz``
+``callsets/<...>/<tool>/<unit>.tsv`` + the per-unit ``__universe.tsv.gz``
 + the GLORI beds for a few unit/tool pairs and reports the delta, proving the
-panel really is the sites_clean layer's numbers.
+panel really is the callsets layer's numbers.
 
 Units: Arabidopsis_WT_rep1-3, HeLa_WT1-3 and the TWO independent mouse WT mESC
 samples ``mESCs_Mettl3_WT`` (SRP166020, drawn as **study A**) and ``mES_WT``
@@ -26,7 +26,7 @@ sample ids and the accessions stay in ``tables/S3B_ppv_by_unit.tsv`` and in this
 docstring.
 
 Metric label: ``PPV vs. GLORI (2 bp)`` -- the published label "GLORI hit
-rate" / "Hit Rate" is retired (fig5_revision/README.md).
+rate" / "Hit Rate" is retired (figures/figure5/README.md).
 """
 
 from __future__ import annotations
@@ -51,8 +51,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-#: the project's chromosome normaliser lives in the sites_v2 package
-sys.path.insert(0, str(Path(str(_RB / "src/sites_v2"))))
+#: the project's chromosome normaliser lives in the harmonisation package
+sys.path.insert(0, str(Path(str(_RB / "src/harmonisation"))))
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -84,7 +84,7 @@ def load_confusion() -> pd.DataFrame:
 
 
 # --------------------------------------------------------------------------- #
-# sites_clean cross-check
+# callsets cross-check
 # --------------------------------------------------------------------------- #
 def _glori_positions(bed: Path) -> dict[str, np.ndarray]:
     """chrom (normalised) -> sorted start array of the GLORI reference."""
@@ -146,7 +146,7 @@ def _within(match_positions: np.ndarray, ref: np.ndarray, w: int) -> np.ndarray:
 
 
 def cross_check(table: pd.DataFrame, check_species: dict[str, list[str]]) -> pd.DataFrame:
-    """Recompute PPV@2bp from sites_clean + universe + GLORI for sample pairs."""
+    """Recompute PPV@2bp from callsets + universe + GLORI for sample pairs."""
     out = []
     for species, (group, units) in sc.UNITS_BY_SPECIES.items():
         picks = check_species.get(species)
@@ -194,15 +194,15 @@ def cross_check(table: pd.DataFrame, check_species: dict[str, list[str]]) -> pd.
                 row = table[(table["sample"] == unit) & (table["tool"] == tool)].iloc[0]
                 out.append({
                     "species": species, "unit": unit, "tool": tool,
-                    "n_rows_sites_clean": rows_total,
-                    "n_unique_positions_sites_clean": n_calls_total,
-                    "n_in_universe_sites_clean": n_in,
+                    "n_rows_callsets": rows_total,
+                    "n_unique_positions_callsets": n_calls_total,
+                    "n_in_universe_callsets": n_in,
                     "n_in_universe_table": int(row["n_calls_in_universe"]),
-                    "ppv_sites_clean": round(float(ppv), 6),
+                    "ppv_callsets": round(float(ppv), 6),
                     "ppv_table": round(float(row["ppv_w2"]), 6),
                     "d_ppv": round(float(ppv) - float(row["ppv_w2"]), 6),
                 })
-                print(f"   {species}/{unit}/{tool}: sites_clean PPV={ppv:.6f} vs "
+                print(f"   {species}/{unit}/{tool}: callsets PPV={ppv:.6f} vs "
                       f"table {row['ppv_w2']:.6f} (in-universe {n_in} vs "
                       f"{int(row['n_calls_in_universe'])})")
     return pd.DataFrame(out)
@@ -336,7 +336,7 @@ def write_tables(table: pd.DataFrame, check: pd.DataFrame) -> list[Path]:
     written.append(path)
 
     if not check.empty:
-        path = sc.TABLE_DIR / "S3B_ppv_sites_clean_crosscheck.tsv"
+        path = sc.TABLE_DIR / "S3B_ppv_callsets_crosscheck.tsv"
         check.to_csv(path, sep="\t", index=False)
         written.append(path)
     return written
@@ -362,7 +362,7 @@ def main() -> int:
         if not check.empty:
             worst = check["d_ppv"].abs().max()
             print(f"[cross-check] max |delta PPV| = {worst:.2e} "
-                  f"(sites_clean recomputation vs the evaluation table)")
+                  f"(callsets recomputation vs the evaluation table)")
 
     sc.PANEL_DIR.mkdir(parents=True, exist_ok=True)
     y_top, y_bottom = 200.0, 445.0

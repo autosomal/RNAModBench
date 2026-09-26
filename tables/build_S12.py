@@ -2,13 +2,13 @@
 """Write Table S12 (sensitivity of the site-level tool ranking to coverage).
 
 Source (frozen, read-only): the 2026-09-25 coverage analysis
-`04_revision_analysis/R2-1_coverage_rank_stability/tables/`
+`analysis/coverage_rank_stability/tables/`
 
   * `r21b_threshold_stability.tsv` -- ranking recomputed with a different coverage
     floor (cov >= 5/20/50/100 reads) against the primary floor (cov >= 10);
   * `r21_rank_stability.tsv`       -- ranking recomputed *inside* a coverage
     stratum (5-9, 10-19, 20-49, >= 50 reads per site) against the pooled ranking;
-  * `R2-1_reference_and_transcript_strata/tables/r21c_stoich_rank_stability.tsv`
+  * `reference_transcript_strata/tables/r21c_stoich_rank_stability.tsv`
     -- ranking recomputed inside a reference modification-ratio stratum
     (0.1-0.3, 0.3-0.6, > 0.6) against the full high-confidence reference.
 
@@ -41,7 +41,7 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 RA = Path(str(_RB / "analysis"))
-SRC = (_RB / "analysis/R2-1_coverage_rank_stability/tables")
+SRC = (_RB / "analysis/coverage_rank_stability/tables")
 OUT = HERE / "tables" / "TableS12_coverage_rank_stability.tsv"
 
 ORDER = ["Arabidopsis", "Mouse", "Human"]
@@ -75,9 +75,9 @@ def fmt_fdr(v: float) -> str:
 
 
 def main() -> None:
-    thr = pd.read_csv((_RB / "analysis/R2-1_coverage_rank_stability/tables/r21b_threshold_stability.tsv"), sep="\t")
-    strat = pd.read_csv((_RB / "analysis/R2-1_coverage_rank_stability/tables/r21_rank_stability.tsv"), sep="\t")
-    ref = pd.read_csv((_RB / "analysis/R2-1_reference_and_transcript_strata/tables/r21c_stoich_rank_stability.tsv"), sep="\t")
+    thr = pd.read_csv((_RB / "analysis/coverage_rank_stability/tables/r21b_threshold_stability.tsv"), sep="\t")
+    strat = pd.read_csv((_RB / "analysis/coverage_rank_stability/tables/r21_rank_stability.tsv"), sep="\t")
+    ref = pd.read_csv((_RB / "analysis/reference_transcript_strata/tables/r21c_stoich_rank_stability.tsv"), sep="\t")
     thr = thr[thr["metric"] == "mcc"].set_index(["species", "stratum"])
     strat = strat[strat["metric"] == "mcc"].set_index(["species", "stratum"])
     ref = ref[ref["metric"] == "mcc"].set_index(["species", "stratum"])
