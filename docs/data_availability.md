@@ -53,7 +53,7 @@ actually run against it.
 | `tools/inventory/tables/software_versions.csv` | 4,272 version records: tool binaries, conda environments and package pins, with the method each version was probed by |
 | `tools/inventory/tables/model_checkpoints.csv` | 99 model/checkpoint files used, with the tool and dataset they served |
 | `tools/inventory/tables/coverage_report.md` | field-by-field, tool-by-tool completeness of the implementation ledger |
-| `tools/configs/` | the configuration files tools were actually driven from (22 xPore YAMLs, CHEUI-diff/curlcake YAMLs). Only these two tools used file-based configuration; every other tool was driven by command-line flags, which is why they appear in `command_lines.csv` and not here |
+| `tools/configs/` | the configuration files tools were actually driven from (28 xPore YAMLs and 3 CHEUI-diff/curlcake YAMLs). Only these two tools used file-based configuration; every other tool was driven by command-line flags, which is why they appear in `command_lines.csv` and not here |
 | `../envs/` | `envs/*.yaml` are the per-tool environments the Snakemake pipeline creates; `envs/as_run/*.yaml` are the 11 specifications the reported runs actually used (cited by `software_versions.csv`); `envs/analysis/env-*.yml` lock the five environments the benchmark code itself runs in |
 
 How these tables were assembled - and where their evidence is weakest - is in
