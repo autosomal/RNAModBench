@@ -1,18 +1,15 @@
-# Figure S9 (revised) — legend, provenance and audit
+# Figure S10 (revised) — legend, provenance and audit
 
-File: `figures/FigureS9_rev.pdf` (+ 300 dpi `FigureS9_rev.png`), page
+File: `figures/FigureS10_rev.pdf` (+ 300 dpi `FigureS10_rev.png`), page
 **1152 x 864 pt** (identical to the page of the file it replaces), Arial
 embedded (cairo_pdf, `pdffonts`-verifiable), no gridlines, minimum drawn font
 12 pt (axis text 12.5-15 pt, panel titles 19 pt, three bold block letters 24 pt,
-no figure number). This is the replacement for `$RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/sup/sup9.pdf`;
-every replacement kept a `.bak_<timestamp>` copy of the previous file
-(`.bak_20260921_0157` = original Illustrator version, `.bak_20260921_0215` =
-six-panel interim version, `.bak_20260921_0445_preABC` = the single **S9**
-figure-number version that preceded the three block letters).
+no figure number). It replaces the interim version drawn earlier for this revision: six panels
+under one figure number, recast as the three block letters A-C.
 
 ## Legend (paste-ready)
 
-> **Figure S9. mRNA region distribution and false-positive behaviour of the
+> **Figure S10. mRNA region distribution and false-positive behaviour of the
 > Dorado other-modification models on the RNA004 HeLa libraries.** Metagene
 > density of the calls reported by six Dorado built-in modification models —
 > four pseudouridine models (hac@v5.0.0_pseU, hac@v5.1.0_pseU,
@@ -48,7 +45,7 @@ figure-number version that preceded the three block letters).
 > (*n* = 1)**; no biological replication exists for this library pair, so no
 > replicate spread is shown. The two inosine models of the same family are not
 > drawn here because they report too few calls (15 and 32 in WT, 0 and 6 in
-> IVT); their counts are reported in Figure S8A.
+> IVT); their counts are reported in Figure S9A.
 >
 > **Blocks B (bottom left) and C (bottom right).** Two complementary
 > characterisations of the same six models, side by

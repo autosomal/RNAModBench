@@ -17,13 +17,13 @@ panel B Mouse units	['mESCs_Mettl3_WT', 'mES_WT']	PASS
 panel B Human units	['HeLa_WT1', 'HeLa_WT2', 'HeLa_WT3']	PASS
 panel B tool scope == 13 m6A tools	13 tools	PASS
 panel B y-label == 'PPV vs. GLORI (2 bp)'	retired 'Hit Rate' label absent	PASS
-panel B: the two mouse studies labelled	study numbers in the legend; no sample id / accession (user 2026-09-21)	PASS
+panel B: the two mouse studies labelled	study numbers in the legend; no sample id / accession (author decision 2026-09-21)	PASS
 panel C provenance file	$RNAMODBENCH_ROOT/figures/figureS3/tables/S3C_provenance.tsv	PASS
-panel C credits the sibling script	script + cached tables recorded with md5	PASS
-panel C legend carries r/CCC	sibling session's stats format	PASS
-panel C: no in-figure study note (house rule)	removed per user 2026-09-20 (legend/caption carries it)	PASS
+panel C credits the companion script	script + cached tables recorded with md5	PASS
+panel C legend carries r/CCC	the companion analysis's stats format	PASS
+panel C: no in-figure study note (house rule)	removed per author decision 2026-09-20 (legend/caption carries it)	PASS
 FigureS3_rev page size == sup3	Page size:       595.276 x 633.598 pts	PASS
 no Type-3 fonts (editable vector text)	Arial embedded	PASS
-no study accession printed on the page	page prints the study numbers only (user 2026-09-21)	PASS
+no study accession printed on the page	page prints the study numbers only (author decision 2026-09-21)	PASS
 submitted sup3.pdf untouched	736344 bytes	PASS
 no grid anywhere (rcParam)	axes.grid=False, font=['Arial']	PASS

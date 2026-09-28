@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""63 -- acceptance gate for the revised Figure S5 (A-E, three columns).
+"""63 -- acceptance gate for the revised Figure S6 (A-E, three columns).
 
 The figure is *complementary by construction*: everything the rebuilt main
 Figure 6 shows is out of scope here.  The gate therefore checks, in order:
 
-1. the frozen evidence tables still carry the numbers the S5 legend quotes --
+1. the frozen evidence tables still carry the numbers the Figure S6 legend quotes --
    the criterion facts (2,379 enumerated combinations per group, five selected
    optima, PPV >= p0 on every one of them, greedy path == exhaustive optima),
    the panel A anchors (intersection recall at k = 5 and its collapse to zero,
@@ -61,10 +61,9 @@ PROJECT = _RB
 OUT = (_RB / "figures/figureS6")
 FROZEN = (_RB / "figures/figure6")
 TAB, FIG, LOG = (_RB / "figures/figure6/tables"), (_RB / "figures/figureS6/figures"), (_RB / "figures/figureS6/logs")
-PDF = FIG / "FigureS5_rev.pdf"
-PNG = FIG / "FigureS5_rev.png"
-LEGEND_MD = FIG / "FigS6_legends.md"                       # canonical
-LEGEND_MIRROR = (_RB / "figures/figure6/figures/FigS6_legends.md")    # kept identical
+PDF = FIG / "FigureS6_rev.pdf"
+PNG = FIG / "FigureS6_rev.png"
+LEGEND_MD = FIG / "FigS6_legends.md"
 
 GROUPS = [("Arabidopsis", "Arabidopsis_WT"), ("Mouse", "studyA"),
           ("Mouse", "studyB"), ("Human", "HeLa_WT")]
@@ -140,12 +139,12 @@ def collection_colours(ax) -> set[tuple[float, float, float]]:
 
 
 def main() -> None:
-    space = pd.read_csv(TAB / "figS5_search_space.tsv", sep="\t")
+    space = pd.read_csv(TAB / "figS6_search_space.tsv", sep="\t")
     sel = pd.read_csv(TAB / "fig6_combination_selected.tsv", sep="\t")
-    greedy = pd.read_csv(TAB / "figS5_greedy_1to13.tsv", sep="\t")
-    toolq = pd.read_csv(TAB / "figS5_tool_quality.tsv", sep="\t")
+    greedy = pd.read_csv(TAB / "figS6_greedy_1to13.tsv", sep="\t")
+    toolq = pd.read_csv(TAB / "figS6_tool_quality.tsv", sep="\t")
     ctltool = pd.read_csv(TAB / "fig6_negative_control_fp_bytool.tsv", sep="\t")
-    qual = pd.read_csv(TAB / "figS5_site_quality.tsv", sep="\t")
+    qual = pd.read_csv(TAB / "figS6_site_quality.tsv", sep="\t")
 
     # ---- 1a. criterion facts the legend states ------------------------------ #
     check("search space enumerates C(13,1..5)=2379 combinations per group",
@@ -159,7 +158,7 @@ def main() -> None:
                 == (space.union_precision_mean >= space.p0_chance_precision)).all()))
     check("p0 is a formal guardrail: every enumerated combination is feasible",
           bool(space.feasible.all()),
-          "the S5 legend may only state this while the table says so")
+          "the Figure S6 legend may only state this while the table says so")
     for sp, g in GROUPS:
         row = space[(space.species == sp) & (space.group == g)]
         check(f"chance level p0 {sp}/{g} = {P0[g]:.2f}%",
@@ -278,7 +277,7 @@ def main() -> None:
               f"{q5.frac_glori.mean():.6f}")
 
     # ---- 2. figure geometry (rebuild in memory) ---------------------------- #
-    spec = importlib.util.spec_from_file_location("figS5",
+    spec = importlib.util.spec_from_file_location("figS6",
                                                   HERE.parent / "62_figS6_figure.py")
     f62 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(f62)
@@ -329,7 +328,7 @@ def main() -> None:
           [a.get_title() for a in row_a] == ["Arabidopsis", "Mouse", "HeLa"],
           f"{[a.get_title() for a in row_a]}")
 
-    # user decision 2026-09-21: exactly one kind of text is slanted -- the block
+    # author decision 2026-09-21: exactly one kind of text is slanted -- the block
     # of 13 tool names under row D at 45 deg (parallel to one another).  Any
     # other rotated label is a regression; the k values of row A and the set
     # names of row E must stay horizontal.
@@ -403,7 +402,7 @@ def main() -> None:
 
     # ---- 3. no main-figure content leaks back in --------------------------- #
     n_pts = sum(len(c.get_offsets()) for ax in fig.axes for c in ax.collections)
-    check("no dense combination cloud (the search space is Fig. 6D, not S5)",
+    check("no dense combination cloud (the search space is Fig. 6D, not Figure S6)",
           n_pts < 1000, f"{n_pts} scatter points")
     check("the site-quality dots are actually drawn", n_pts > 200,
           f"{n_pts} scatter points")
@@ -484,7 +483,7 @@ def main() -> None:
                   is not None,
                   f"panel {letter}")
         check("legend points the criterion at the main figure and the table",
-              "Fig. 6D" in body and "figS5_search_space.tsv" in body)
+              "Fig. 6D" in body and "figS6_search_space.tsv" in body)
         check("legend states that p0 was satisfied by every combination",
               re.search(r"(every|all).{0,60}combinat", body, re.I) is not None
               and re.search(r"p0|p₀|chance", body, re.I) is not None)
@@ -498,13 +497,6 @@ def main() -> None:
               "never averaged" in body)
         check("legend quotes the chance level p0 values",
               "1.5" in body and "0.7" in body and "0.85" in body)
-        if LEGEND_MIRROR.exists():
-            check("Fig. 6 directory mirror is byte-identical",
-                  LEGEND_MIRROR.read_bytes() == LEGEND_MD.read_bytes(),
-                  str(LEGEND_MIRROR.relative_to(PROJECT)))
-        else:
-            check("Fig. 6 directory mirror exists", False,
-                  str(LEGEND_MIRROR.relative_to(PROJECT)))
     else:
         check("legend file written", False, str(LEGEND_MD.name))
     check("no retired naming / wording residue", not residue, f"{residue}")

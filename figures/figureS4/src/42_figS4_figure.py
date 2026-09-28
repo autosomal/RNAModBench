@@ -15,7 +15,7 @@ Panel identity is the one the manuscript cites (S4A counts, S4B window-sweep
 PPV, S4C exact-nucleotide fraction, S4D precision); the three panels the
 reviewers asked for on top of the original figure (R3-7: GLORI overlap, DRACH
 fraction, stoichiometry of the three site groups) are the separate
-Supplementary Figure S10 (``48_figS5_validation.py``).
+Supplementary Figure S5 (``48_figS5_validation.py``).
 
 The PR-AUC row of the submitted page (PR-AUC vs. the matching window) was
 0.017--0.106, i.e. it repeats the window dependence of PPV that the window sweep
@@ -307,7 +307,7 @@ TOOL_KEY: list[tuple[str, dict]] = [
     (DISPLAY.get(t, t), dict(color=TOOL_COLOR[t], lw=2.4)) for t in TOOL_ORDER
 ]
 
-#: font sizes -- "one notch up" scale (2026-09-21).  Figure S10 uses a *larger*
+#: font sizes -- "one notch up" scale (2026-09-21).  Figure S5 uses a *larger*
 #: scale of its own (its panels are taller, so the same point size reads
 #: smaller); this dict is the S4 scale only.
 #: 2026-09-23: tick_small / legend 8.0 -> 9.0 (at the SI scale of 0.82 the old
@@ -502,13 +502,13 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
     """Counts / purified counts / purified-WT ratio, three species columns.
 
     Dots are the individual independent pairs and the black tick is their mean
-    (the bar version was rejected by the user).  The mouse column gets no
+    (the bar version was rejected by the author).  The mouse column gets no
     combined mean: the two cross-study datasets are drawn as two dots joined by
     a thin line, so nothing is ever averaged.
 
     The sub-rows are separated by dedicated title bands: a band carries the
     title of the sub-row *below* it and has to stay clear of the lowest y tick
-    label of the sub-row *above* it, which is the overlap the user saw.
+    label of the sub-row *above* it, which is the overlap the author saw.
     """
     fig = panelpage.new_panel(PANEL_W_IN, A_H_IN)
     y = 0.0
@@ -601,7 +601,7 @@ def render_panels_bc(df_curve: pd.DataFrame, *, stem: str = "FigureS4_BC",
     """Two stacked facets against the matching window -- **panels B and C**.
 
     The submitted panel B overlaid two different quantities on one 0--1 axis
-    (13 tools x three line families), which the user judged too crowded
+    (13 tools x three line families), which the author judged too crowded
  ("B panel is too dense split into two facets "). Every species column now holds two
     facets that share the x axis, and *each facet carries a panel letter of its
  own* (2026-09-21, " each cell keeps its own letter "):

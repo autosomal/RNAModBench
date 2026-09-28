@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""61 -- Figure S5 panel E evidence: the quality of the sites behind the trade-off.
+"""61 -- Figure S6 panel E evidence: the quality of the sites behind the trade-off.
 
 Reviewer R3-4 asks what the *practical advantage* of the proposed tool
 combinations is while the absolute recall stays low, and reviewer R3-m2 asks how
@@ -26,16 +26,16 @@ separately -- native scores are *not* comparable across tools and are therefore
 never pooled.
 
 Outputs -> ``figures/figure6/tables/``
-    figS5_site_quality.tsv         per unit x set metrics
-    figS5_site_quality_scores.tsv  per unit x set x tool native-score stats
-    figS5_coverage_hist.tsv        per unit x set log2 coverage counts (CDF panel)
-    figS5_tool_quality.tsv         per unit x **tool** (all 13 configurations):
+    figS6_site_quality.tsv         per unit x set metrics
+    figS6_site_quality_scores.tsv  per unit x set x tool native-score stats
+    figS6_coverage_hist.tsv        per unit x set log2 coverage counts (CDF panel)
+    figS6_tool_quality.tsv         per unit x **tool** (all 13 configurations):
                                    n, GLORI-anchored fraction, recall inside the
                                    universe, coverage quartiles, DRACH fraction and
                                    the tool's own native-score stats -- the
                                    single-tool background against which the
                                    combinations are read (2026-09-21: both the
-                                   rebuilt main Figure 6 and S5 need the per-tool
+                                   rebuilt main Figure 6 and Figure S6 need the per-tool
                                    plane, so every tool is loaded now, not only the
                                    members of the selected combinations)
 
@@ -103,7 +103,7 @@ HIST_COLUMNS = ["species", "group", "unit", "set", "bin_lo", "bin_hi", "n_sites"
 
 def _load_fig6():
     """Import ``40_fig6_combination`` so both scripts share one scoring rule."""
-    path = Path(__file__).resolve().parent / "40_fig6_combination.py"
+    path = _RB / "figures/figure6/src/40_fig6_combination.py"
     spec = importlib.util.spec_from_file_location("fig6_combination", path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -403,17 +403,17 @@ def main() -> None:
     scores = pd.DataFrame(score_rows)[SCORE_COLUMNS]
     hist = pd.DataFrame(hist_rows)[HIST_COLUMNS]
     toolq = pd.DataFrame(tool_rows)[TOOL_TABLE_COLUMNS]
-    write_table(quality, TAB / "figS5_site_quality.tsv")
-    write_table(scores, TAB / "figS5_site_quality_scores.tsv")
-    write_table(hist, TAB / "figS5_coverage_hist.tsv")
-    write_table(toolq, TAB / "figS5_tool_quality.tsv")
+    write_table(quality, TAB / "figS6_site_quality.tsv")
+    write_table(scores, TAB / "figS6_site_quality_scores.tsv")
+    write_table(hist, TAB / "figS6_coverage_hist.tsv")
+    write_table(toolq, TAB / "figS6_tool_quality.tsv")
     inv.flush()
     logger.info("tables -> %s (%d rows) / %s (%d rows) / %s (%d rows) / "
                 "%s (%d rows)",
-                TAB / "figS5_site_quality.tsv", len(quality),
-                TAB / "figS5_site_quality_scores.tsv", len(scores),
-                TAB / "figS5_coverage_hist.tsv", len(hist),
-                TAB / "figS5_tool_quality.tsv", len(toolq))
+                TAB / "figS6_site_quality.tsv", len(quality),
+                TAB / "figS6_site_quality_scores.tsv", len(scores),
+                TAB / "figS6_coverage_hist.tsv", len(hist),
+                TAB / "figS6_tool_quality.tsv", len(toolq))
 
 
 if __name__ == "__main__":

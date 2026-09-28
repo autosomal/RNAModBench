@@ -35,7 +35,7 @@ def main() -> None:
         if sub.empty:
             continue
         # No error bar: every tool was run once on this library (one sequencing
-        # unit), so no interval is drawn anywhere in Fig. 8 (user decision).
+        # unit), so no interval is drawn anywhere in Fig. 8 (author decision).
         ax.scatter(sub["fp_per_10kb"], sub["ppv_glori_w2"], s=62,
                    facecolor=FAM_COLOR[fam], edgecolor="black", linewidth=0.8,
                    zorder=3)

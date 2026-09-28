@@ -51,13 +51,13 @@ GLORI_DIR = (_XB / "third_party/NGS/GLORI")
 M6ASEQ_DIR = (_XB / "third_party/NGS/m6A-Seq")
 LEGACY = (_XB / "archive/output_legacy_20260916")
 
-#: moved by the user on 2026-09-19 (was $RNAMODBENCH_LOCAL/figures_original/NGS_visualization/S3_revision);
+#: moved by the author on 2026-09-19 (was $RNAMODBENCH_LOCAL/figures_original/NGS_visualization/S3_revision);
 #: renamed S3_revision -> figures/figureS3 on 2026-09-21 (fig*_revision house style)
 OUT_DIR = (_RB / "figures/figureS3")
 PANEL_DIR = (_RB / "figures/figureS3/panels")
 TABLE_DIR = (_RB / "figures/figureS3/tables")
 
-#: panel-A replicate labels: unified "species + repN" style (user 2026-09-19)
+#: panel-A replicate labels: unified "species + repN" style (author decision 2026-09-19)
 REPLICATE_LABELS = {
     "Arabidopsis": ("Arabidopsis-rep1", "Arabidopsis-rep2"),
     "Mouse": ("Mouse-rep1", "Mouse-rep2"),
@@ -97,10 +97,10 @@ UNITS_BY_SPECIES = {
     "Human": ("HeLa_WT", ["HeLa_WT1", "HeLa_WT2", "HeLa_WT3"]),
 }
 
-#: mouse study provenance (never averaged together -- user rule)
+#: mouse study provenance (never averaged together -- house rule)
 MOUSE_STUDY = {"mES_WT": "SRP357195", "mESCs_Mettl3_WT": "SRP166020"}
 
-#: in-figure names of the two independent mouse WT mESC samples (user 2026-09-21:
+#: in-figure names of the two independent mouse WT mESC samples (author decision 2026-09-21:
 #: the raw sample ids invited "different cell line / mutant" doubts -- both are WT).
 #: study A = mESCs_Mettl3_WT (SRP166020); study B = mES_WT (SRP357195) -- never swap.
 MOUSE_STUDY_LABEL = {"mESCs_Mettl3_WT": "mouse study A", "mES_WT": "mouse study B"}
@@ -266,7 +266,7 @@ def _parse_hela_fdr(path: Path) -> dict[tuple[str, int], float]:
 def compute_overlap() -> dict[str, dict[str, float]]:
     """Replicate overlap per species under the unified criterion.
 
-    Criterion (user decision 2026-09-19, applied to all three species):
+    Criterion (author decision 2026-09-19, applied to all three species):
     a replicate's site set = positions with modification ratio > 0.1 in that
     replicate; the reference intersection = positions present in both.
     """

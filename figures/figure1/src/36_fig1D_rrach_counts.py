@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Figure 1D, replicate-aware rebuild (user request 2026-09-20).
+"""Figure 1D, replicate-aware rebuild (revision request 2026-09-20).
 
 Published panel: grouped horizontal bars of the number of detected Curlcake
 sites that fall inside the canonical RRACH motif, one bar pair per tool,

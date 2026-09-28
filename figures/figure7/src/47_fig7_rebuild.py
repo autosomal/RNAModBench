@@ -79,9 +79,9 @@ COND_COLOR = {"WT": C_WT, "IVT": C_IVT}
 #: sizes are chosen for a 180 mm canvas that LaTeX scales to 0.95 \textwidth
 #: (169 mm, x0.85), so the printed minimum stays above 7 pt.
 ##: The six y axis variables of rows A-C, in panel order.  2026-09-23 the
-##: vertical y titles were removed from Figure 7 (the user's "no vertical type"
+##: vertical y titles were removed from Figure 7 (the author's "no vertical type"
 ##: rule names the guitar panels) and the variables moved into the caption;
-##: 2026-09-29 the user asked for the titles back, so the switch is on again --
+##: 2026-09-29 the author asked for the titles back, so the switch is on again --
 ##: the 90-degree gate in layout_report() allows exactly these axis labels.
 Y_TITLES = True
 
@@ -396,7 +396,7 @@ def panel_c1(ax, summ: pd.DataFrame, jpairs: pd.DataFrame) -> None:
     2026-09-29 (union drop): the pooled (global) series was withdrawn from the
     text and the caption, so the panel plots the per-unit mean pairwise Jaccard
     of the two conditions against each other, one circle per tool, against the
-    WT = IVT guide.  2026-09-29 (user): the mean alone hides the replicates, so
+    WT = IVT guide.  2026-09-29 (author decision): the mean alone hides the replicates, so
     each circle carries whiskers spanning that condition's three within-unit
     pairs (min-max of the frozen ``s7_jaccard_pairs.tsv``).
     """
@@ -812,7 +812,7 @@ def layout_report(fig) -> dict:
                     overlaps.append({"kind": "tick", "a": a.get_text()[:16],
                                      "b": b.get_text()[:16], "ax": f"axes{i}"})
     
-    # user restored the six y titles of rows A-C, so the gate now allows the
+    # the author restored the six y titles of rows A-C, so the gate now allows the
     # axis labels themselves and still fails the build on any other 90-degree
     # text (a tick, an annotation, a stray ylabel).
     rot_ok = {ax.yaxis.get_label() for ax in axes}

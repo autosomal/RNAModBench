@@ -75,7 +75,7 @@ def _cell_pt(text: str, font: str, size: float) -> float:
 def col_widths(header: list[str], rows: list[list[str]]) -> list[float]:
     """Widths that never split a word, then share the rest by content.
 
-    2026-09-27 (user): with every cell printed in full the old
+    2026-09-27 (author decision): with every cell printed in full the old
     proportional-to-length rule squeezed the narrow columns -- a tool name like
     ``CHEUI_m6A`` broke in two, and the header of the last column came out as
     "Coordina te harmo nisation".  Each column now first gets the width of its

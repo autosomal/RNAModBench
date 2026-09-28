@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Shared style helpers for the per-panel Figure 8 / Figure S8 construction.
+"""Shared style helpers for the per-panel Figure 8 / Figure S9 construction.
 
 Every panel is drawn on its own canvas at its final print size and exported as a
 standalone piece (``figures/panels/<name>.pdf`` + ``.png``); ``60_assemble_fig8.py``
-and ``62_assemble_figS8.py`` then place the pieces on the page with pypdf.  Sizes
+and ``62_assemble_figS9.py`` then place the pieces on the page with pypdf.  Sizes
 here are therefore *printed* point sizes -- no scaling happens at assembly time.
 """
 

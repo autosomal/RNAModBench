@@ -30,7 +30,7 @@ def main() -> None:
     # No error bar: every tool was run once on the RNA004 HeLa WT library (single
     # sequencing unit), so a replicate interval cannot be drawn.  The site-level
     # bootstrap interval is reported in tables/fig8_ppv_glori.tsv, never in the
-    # figure (user decision, 2026-09-21).
+    # figure (author decision, 2026-09-21).
     sizes = 18 + 62 * (df["n_calls_total"] / df["n_calls_total"].max())
     ax.scatter(df["ppv_glori_w2"], y, s=sizes, c=cols, edgecolor="black",
                linewidth=0.8, zorder=3)

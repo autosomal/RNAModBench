@@ -543,7 +543,7 @@ SPECIES_AWARE: set[str] = {"Nanocompore", "NanoSPA_m6A", "EpiNano_Error"}
 #:
 #: Curlcake has no transcriptome reference -- every tool ran directly on
 #: ``cc.fasta``, so each tool's raw output is already in construct coordinates
-#: and ``build_<tool>`` reproduces the user's notebook convention verbatim
+#: and ``build_<tool>`` reproduces the author's notebook convention verbatim
 #: (e.g. CHEUI keeps the unconditional ``Start = position + 4`` of the HeLa
 #: notebook; m6Anet/DENA/MINES converted files exist for all five runs).
 NO_LIFTOVER: set[tuple[str, str]] = {
@@ -596,7 +596,7 @@ EXPLICIT_DIR_SAMPLE: dict[str, dict[str, str]] = {
 }
 
 #: Explicit **comparison-pair** directories (``<A>_vs_<B>``) and the sample each
-#: tool's output is filed under (user decision 2026-09-16: rename only, ownership
+#: tool's output is filed under (author decision 2026-09-16: rename only, ownership
 #: unchanged, so every evaluation number stays identical).
 #:
 #: ``registry.canonical_from_dir`` deliberately refuses to attribute a ``_vs_``

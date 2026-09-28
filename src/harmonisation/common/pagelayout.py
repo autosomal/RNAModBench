@@ -1,4 +1,4 @@
-"""Shared page layout for the Supporting-Information figure pages (S4, S10).
+"""Shared page layout for the Supporting-Information figure pages (Figure S4 and Figure S5).
 
 Why this module exists
 ----------------------
@@ -71,7 +71,7 @@ A4_PORTRAIT_IN: tuple[float, float] = (8.27, 11.70)
 #: x position of every panel letter, in page fractions.  The strip from the
 #: page edge to the axes' left spine is reserved for the letter, the y axis
 #: label and the y tick labels, in that order -- the letter has to stay clear
-#: of the rotated y axis label (0.29 in wide on the S4/S10 pages), so it sits
+#: of the rotated y axis label (0.29 in wide on the Figure S4 and Figure S5 pages), so it sits
 #: 0.105 in from the page edge.
 LETTER_X: float = 0.009
 #: how far above a row's top edge the letter starts (inches)
@@ -413,7 +413,7 @@ def assert_page_clean(fig: plt.Figure, *, ignore_axes: Sequence[plt.Axes] = (),
        title running into the next row's panel title);
     2. no text enters the drawing area of a panel it does not belong to;
     3. no text sits on -- or *hugs* -- a spine or tick mark of another panel
- (``check_spines``): the defect the user called " font/box/line overlap ". A text
+ (``check_spines``): the defect the author called " font/box/line overlap ". A text
        that merely touches a frame line is invisible to an overlap test but is
        exactly what a reader sees, so the clearance has to be at least
        ``near_pt`` points (0.04 in at the default); the "next column's tick

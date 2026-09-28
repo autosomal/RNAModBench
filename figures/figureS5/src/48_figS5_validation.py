@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""48 -- Supplementary Figure S10: independent validation of purified sites.
+"""48 -- Supplementary Figure S5: independent validation of purified sites.
 
 Reviewer 3 (R3-7) asked how the ``purified`` sites -- called in WT but absent
 from the matched modification-deficient (KD/KO/IVT) call set -- behave when
@@ -16,7 +16,7 @@ layout of the submitted ``sup4.pdf``):
 The three site groups are ``def-only`` (called in the deficient sample only),
 ``shared`` (called in both) and ``purified`` (called in WT only), always inside
 the pair's common testable universe.  The panel letters restart at A because
-this is a new figure number (S10, appended after the existing S1--S9).
+this is a new figure, added for the revision.
 
 Layout (2026-09-21, third rework -- one panel at a time, then assemble)
 ----------------------------------------------------------------------
@@ -50,9 +50,9 @@ by ``41_figS4_tables.py``; nothing is recomputed here.
 
 Outputs
 -------
-``figures/figureS5/figures/panels/FigureS10_{A,B,C}.pdf``
-``figures/figureS5/figures/FigureS10_rev.{pdf,png}``
-``figures/figureS5/logs/48_figS10_anchors.tsv``
+``figures/figureS5/figures/panels/FigureS5_{A,B,C}.pdf``
+``figures/figureS5/figures/FigureS5_rev.{pdf,png}``
+``figures/figureS5/logs/48_figS5_anchors.tsv``
 
 Usage
 -----
@@ -268,7 +268,7 @@ def group_axis(ax: plt.Axes, df: pd.DataFrame, value_col: str, key: str,
 # --------------------------------------------------------------------------- #
 # panels
 # --------------------------------------------------------------------------- #
-def render_panel_glori(dfv: pd.DataFrame, *, stem: str = "FigureS10_A",
+def render_panel_glori(dfv: pd.DataFrame, *, stem: str = "FigureS5_A",
                        gate: bool = True) -> panelpage.Panel:
     """(A) GLORI (2 bp) overlap of the three site groups per species."""
     y_max = float(dfv["glori_hit_rate_w2"].max()) * 1.15
@@ -301,7 +301,7 @@ def render_panel_glori(dfv: pd.DataFrame, *, stem: str = "FigureS10_A",
 
 
 def render_panel_drach(dfv: pd.DataFrame, df_bg: pd.DataFrame, *,
-                       stem: str = "FigureS10_B",
+                       stem: str = "FigureS5_B",
                        gate: bool = True) -> panelpage.Panel:
     """(B) DRACH fraction of the three site groups + universe background."""
     y_max = float(dfv["drach_rate"].max()) * 1.15
@@ -338,7 +338,7 @@ def render_panel_drach(dfv: pd.DataFrame, df_bg: pd.DataFrame, *,
     return panelpage.save_panel(fig, PANEL_DIR / f"{stem}.pdf", gate=gate)
 
 
-def render_panel_score(dfv: pd.DataFrame, *, stem: str = "FigureS10_C",
+def render_panel_score(dfv: pd.DataFrame, *, stem: str = "FigureS5_C",
                        gate: bool = True) -> panelpage.Panel:
     """(C) Stoichiometry-semantic score of purified vs. shared sites.
 
@@ -462,7 +462,7 @@ def write_anchors(dfv: pd.DataFrame, df_bg: pd.DataFrame) -> pd.DataFrame:
                 "definition": "mean over pairs of the per-pair score median"})
     out = pd.DataFrame(rows)
     LOG.mkdir(parents=True, exist_ok=True)
-    out.to_csv(LOG / "48_figS10_anchors.tsv", sep="\t", index=False)
+    out.to_csv(LOG / "48_figS5_anchors.tsv", sep="\t", index=False)
     return out
 
 
@@ -486,13 +486,13 @@ def main() -> None:
         "B": render_panel_drach(dfv, df_bg),
         "C": render_panel_score(dfv),
     }
-    out_pdf = FIG / "FigureS10_rev.pdf"
+    out_pdf = FIG / "FigureS5_rev.pdf"
     page = panelpage.compose_page(PAGE_IN, page_placements(panels), out_pdf)
-    panelpage.pdf_to_png(page, FIG / "FigureS10_rev.png")
+    panelpage.pdf_to_png(page, FIG / "FigureS5_rev.png")
 
-    print(f"saved -> {page} + {FIG / 'FigureS10_rev.png'} "
+    print(f"saved -> {page} + {FIG / 'FigureS5_rev.png'} "
           f"({time.time() - t0:.1f} s)")
-    print(f"anchors -> {LOG / '48_figS10_anchors.tsv'} "
+    print(f"anchors -> {LOG / '48_figS5_anchors.tsv'} "
           f"({datetime.now():%Y-%m-%d %H:%M})")
     with pd.option_context("display.width", 120, "display.max_rows", 80):
         print(anchors.to_string(index=False))

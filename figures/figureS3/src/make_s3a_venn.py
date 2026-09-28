@@ -4,7 +4,7 @@
 
 Recomputes the GLORI replicate overlap for Arabidopsis, Mouse (mESC) and
 Human (HeLa) under the project-unified criterion "modification ratio > 0.1 in
-each of the two replicates" (user decision 2026-09-19), verifies the counts
+each of the two replicates" (author decision 2026-09-19), verifies the counts
 against independently recomputed values, draws the panel in the submitted
 sup3A style and writes a traceability table with all three historical
 criteria per species.

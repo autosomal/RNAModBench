@@ -1,4 +1,4 @@
-tool	display	mod_type	t5_ivt_union	t5_wt_union	t5_ratio	s6_wt_union_raw	s6_ivt_union_raw	s6_ratio_raw	wt_delta	ivt_delta	ratio_delta	status	note
+tool	display	mod_type	t5_ivt_union	t5_wt_union	t5_ratio	s7_wt_union_raw	s7_ivt_union_raw	s7_ratio_raw	wt_delta	ivt_delta	ratio_delta	status	note
 CHEUI_m5C	CHEUI-m5C	m5C	51171	48627	1.05232	47747	51171	1.07171	-880	0	0.0193958	changed (coordinate fix + centre-base filter)	published value predates the 2026-09-18 CHEUI coordinate fix; quote the current callset in the revised text
 NanoMUD_psi	NanoMUD-Ψ	Psi	14794	13711	1.07898	13711	14794	1.07899	0	0	5.76048e-06	same	Table S5 numbers reproduce the current raw unions
 NanoMUD_m1psi	NanoMUD-m1Ψ	m1Psi	43063	40656	1.0592	40656	43063	1.0592	0	0	1.45618e-06	same	Table S5 numbers reproduce the current raw unions

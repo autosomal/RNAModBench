@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-"""S8 data layer -- frozen tables shaped into the panels of the rebuilt S8.
+"""Figure S9 data layer -- the frozen tables shaped into its panels.
 
 Nothing is recomputed here except the bootstrap interval of panel E and the
 least-squares fits of panel F, which run on frozen matched-pair tables.  Every
 other number is read from ``tables/source/`` (see ``SOURCE.md`` there for
 provenance).
 
-The page is **RNA004 only** (user decision, 2026-09-21): the RNA002 Curlcake
+The page is **RNA004 only** (author decision, 2026-09-21): the RNA002 Curlcake
 runs of the original benchmark are not drawn anywhere on this figure.  The
 unmodified Curlcake control therefore carries the RNA004 entries only -- the
 eight Dorado m6A models at the 50 % operating point plus the two m6A tools that
@@ -95,7 +95,7 @@ NON_RATIO_TOOLS = {"ELIGOS2_solo", "NanoSPA_m6A"}
 #: run's output for one modification.  The code name never reaches the page: the
 #: m6A channel is printed as the DRACH-equivalent model of that release (the same
 #: reading as ``CURLAKE_FAMILY`` above), the other channels under their own
-#: modification.  This is the single label authority for every S8 panel.
+#: modification.  This is the single label authority for every panel of this page.
 ALL_RUN = {"all": "m6A DRACH", "all_Psi": "\u03a8", "all_m5C": "m5C"}
 
 
@@ -106,7 +106,7 @@ def _read(name: str) -> pd.DataFrame:
 def pretty_tool_short(tool: str) -> str:
     """Printed label without the Dorado version token.
 
-    2026-09-28 (user): the lollipop panels F and G are the only place where the
+    2026-09-28 (author decision): the lollipop panels F and G are the only place where the
     full label ("hac v5.1.0 m6A DRACH") is too wide for the shared 1.638 in label
     column -- the layout gate caught it hugging the axes frame once the box grew.
     F and G therefore print "hac m6A DRACH"; the version stays in Table S6 and in
@@ -333,9 +333,9 @@ def panel_effect() -> pd.DataFrame:
     
     #: panel G carries Lin's concordance correlation coefficient next to the
     #: calibration slope.  CCC and its interval come from the frozen delivered
-    #: table `tables/S8F_glori_agreement.tsv` (the same numbers the reply letter
+    #: table `tables/S9F_glori_agreement.tsv` (the same numbers the reply letter
     #: and the manuscript quote), never recomputed here.
-    ccc = pd.read_csv(TABLES / "S8F_glori_agreement.tsv", sep="\t").set_index("tool")
+    ccc = pd.read_csv(TABLES / "S9F_glori_agreement.tsv", sep="\t").set_index("tool")
     pairs = pd.read_csv(SRC_TABLES / "figS9F_pairs.tsv", sep="\t")
     rng = np.random.default_rng(BOOT_SEED)
     rows: list[dict] = []
@@ -350,7 +350,7 @@ def panel_effect() -> pd.DataFrame:
         if not np.isfinite(sl):
             continue
         if tool not in ccc.index:
-            raise SystemExit(f"no Lin's CCC for ratio tool {tool} in S8F_glori_agreement.tsv")
+            raise SystemExit(f"no Lin's CCC for ratio tool {tool} in S9F_glori_agreement.tsv")
         c = ccc.loc[tool]
         rows.append({
             
@@ -419,7 +419,7 @@ def panel_stability(cell: str) -> pd.DataFrame:
 
 
 # --------------------------------------------------------------------------- #
-# anchors written to tables/S8_anchors.tsv (acceptance + reply-letter numbers)
+# anchors written to tables/S9_anchors.tsv (acceptance + reply-letter numbers)
 # --------------------------------------------------------------------------- #
 def _span(loc: pd.DataFrame, tool: str, col: str) -> str:
     """``first -> last`` value of one curve across the window sweep."""
@@ -428,7 +428,7 @@ def _span(loc: pd.DataFrame, tool: str, col: str) -> str:
 
 
 def anchors() -> list[tuple[str, str, str]]:
-    """(panel, quantity, value) rows for ``tables/S8_anchors.tsv``."""
+    """(panel, quantity, value) rows for ``tables/S9_anchors.tsv``."""
     a = panel_a()
     a_idx = a.set_index("label")
     b = panel_orca()

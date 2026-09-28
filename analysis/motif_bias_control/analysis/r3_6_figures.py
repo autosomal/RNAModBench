@@ -3,7 +3,7 @@
 
 Visual evidence that motif profiles are dominated by the tool rather than by the
 species.  The plotted content is unchanged w.r.t. the first version; only the
-presentation follows the house rules confirmed by the user on 2026-09-19:
+presentation follows the house rules confirmed by the author on 2026-09-19:
 
 * no figure title and no sentence panel titles -- the only headings inside the
   figure are the bold panel letters A-F; every statistic that used to sit in a

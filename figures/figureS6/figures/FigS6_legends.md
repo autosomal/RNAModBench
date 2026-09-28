@@ -1,6 +1,6 @@
-# Figure S5 (rebuilt 2026-09-21) — legend, paste-ready
+# Figure S6 (rebuilt 2026-09-21) — legend, paste-ready
 
-Figure file: `FigureS5_rev.pdf` (**240 × 175 mm**, drawn 1:1 at
+Figure file: `FigureS6_rev.pdf` (**240 × 175 mm**, drawn 1:1 at
 the printed size so the text stays large relative to the figure; Arial embedded,
 no gridlines, no in-panel annotation text, **the 13 tool names slanted 45° as
 the only rotated text**, bold panel letters A–E printed once per row).
@@ -8,7 +8,7 @@ Produced by `figures/figureS6/src/62_figS6_figure.py` from the frozen
 tables of `40_fig6_combination.py` and `61_figS6_sitequality.py` (nothing is
 recomputed in the figure script) and verified by `63_verify_figS6.py`
 (ALL CHECKS PASSED).  Tables live in
-`figures/figure6/tables/` (`figS5_*`, `fig6_*`).
+`figures/figure6/tables/` (`figS6_*`, `fig6_*`).
 
 Layout: row A keeps **three species columns** — Arabidopsis (three biological
 replicates) | Mouse | HeLa (three replicates) — because it plots curves against
@@ -40,13 +40,13 @@ figure carries the selection criterion (Fig. 6D), the selected trade-off over
 *k* = 1–5 (Fig. 6A), its per-unit trajectories (Fig. 6B), the configurations'
 own recall/PPV and their main effect at fixed *k* (Fig. 6C), the coverage CDF of
 the site sets (Fig. 6E) and the control burden of the selected sets (Fig. 6F);
-none of those panels or quantities is repeated here.  Figure S5 shows what the
+none of those panels or quantities is repeated here.  Figure S6 shows what the
 main figure cannot hold: the greedy path beyond five tools, the site quality of
 every single configuration, and the DRACH composition of the site sets.
 
 ---
 
-**Figure S5. Beyond the five selected tools: the full greedy path, the
+**Figure S6. Beyond the five selected tools: the full greedy path, the
 per-configuration site quality and the DRACH composition of the site sets.**
 Tool combinations were scored on the shared measurable universe of each group
 (annotated exons, reference-base compatible, coverage ≥ 10× in every independent
@@ -57,7 +57,7 @@ selected subject to a mean PPV above the chance level *p*₀ = |GLORI ∩ univer
 criterion itself — every enumerated combination in the mean-recall versus
 mean-PPV plane, *p*₀ and the selected optimum of each *k* — is the subject of
 main-text Fig. 6D, and its numbers are the frozen table
-`figS5_search_space.tsv`: **all 2,379 enumerated combinations of every group, at
+`figS6_search_space.tsv`: **all 2,379 enumerated combinations of every group, at
 every *k*, satisfy PPV ≥ *p*₀**, so *p*₀ acts as a formal guardrail and the
 criterion reduces to the highest mean recall at each *k*; the greedy forward
 selection drawn in panel A reproduces all five exhaustive optima (compared as
@@ -119,16 +119,16 @@ in the main text.
 
 | quantity | Arabidopsis | mouse A | mouse B | HeLa | table |
 |---|---|---|---|---|---|
-| union recall, *k* = 5 → max(*k* = 6–13) | 46.7 → 52.4 % | 80.1 → 84.6 % | 74.0 → 81.7 % | 56.8 → 62.2 % | `figS5_greedy_1to13.tsv` |
+| union recall, *k* = 5 → max(*k* = 6–13) | 46.7 → 52.4 % | 80.1 → 84.6 % | 74.0 → 81.7 % | 56.8 → 62.2 % | `figS6_greedy_1to13.tsv` |
 | union PPV, *k* = 5 → 13 | 14.1 → 12.6 % | 6.8 → 6.0 % | 6.3 → 5.8 % | 7.5 → 5.5 % | same |
 | intersection recall, *k* = 5 → 13 | 0.12 → 0 % | 2.24 → 0 % | 1.74 → 0 % | 1.58 → 0 % | same |
 | intersection PPV undefined from *k* = | 8 | 13 | never empty | 12 | same |
-| per-tool coverage median, min–max | 38–515 | 58–428 | 44–174 | 35–863 | `figS5_tool_quality.tsv` |
+| per-tool coverage median, min–max | 38–515 | 58–428 | 44–174 | 35–863 | `figS6_tool_quality.tsv` |
 | per-tool DRACH, min–max | 6.0–99.9 % | 8.2–99.9 % | 7.8–99.9 % | 7.1–99.9 % | same |
 | FP/10 kb on the controls, median | Curlcake 14.3 / HeLa IVT 0.7 (all groups; controls are not species-specific) | | | | `fig6_negative_control_fp_bytool.tsv` |
-| site-set DRACH, single / marginal / isect *k* = 2 / isect *k* = 5 / GLORI | 9.5 / 67.3 / 100 / 100 / 38.8 % | 99.9 / 37.2 / 99.97 / 100 / 90.6 % | 99.9 / 33.4 / 100 / 100 / 90.6 % | 99.8 / 14.5 / 100 / 100 / 89.2 % | `figS5_site_quality.tsv` |
+| site-set DRACH, single / marginal / isect *k* = 2 / isect *k* = 5 / GLORI | 9.5 / 67.3 / 100 / 100 / 38.8 % | 99.9 / 37.2 / 99.97 / 100 / 90.6 % | 99.9 / 33.4 / 100 / 100 / 90.6 % | 99.8 / 14.5 / 100 / 100 / 89.2 % | `figS6_site_quality.tsv` |
 | set size, marginal / isect *k* = 5 (sites) | 264,822 / 142 | 131,515 / 438 | 131,771 / 294 | 168,287 / 593 | same |
-| chance level *p*₀ | 1.5 % | 0.7 % | 0.7 % | 0.85 % | `figS5_search_space.tsv` |
+| chance level *p*₀ | 1.5 % | 0.7 % | 0.7 % | 0.85 % | `figS6_search_space.tsv` |
 
 Installed as `$RNAMODBENCH_LOCAL/manuscript/sup/sup5.pdf`; the published copy under
 `$RNAMODBENCH_LOCAL/submission/` is replaced only on request.

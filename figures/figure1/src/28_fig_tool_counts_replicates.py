@@ -3,7 +3,7 @@
 
 The published panel counted the sites of every tool per dataset group from the legacy
 ``output/<group>/Tools.txt`` aggregates.  Those aggregates came from a chain that
-collapsed the replicate number out of the directory name (``harmonisation/README.md`` 4b),
+collapsed the replicate number out of the directory name (``docs/pipeline.md``),
 so the published dots are *one* replicate in some groups (Arabidopsis used rep3 only)
 and an undocumented pile-up of replicates in others (HeLa) -- the panel carried no
 biological-replicate information at all.
@@ -18,7 +18,7 @@ own file, and plots **one marker per condition**:
   title        carries the counts (n) of both conditions
 
 The per-replicate counts stay in the tables, not on the panel: after trying a dot cloud
-and an error bar, the user asked for the plain published layout with replicate-aware
+and an error bar, the author asked for the plain published layout with replicate-aware
 values (2026-09-17).  Mouse is the exception -- two independent studies have no
 admissible mean, so both study points are drawn (never pooled).
 
@@ -377,7 +377,7 @@ def _panel_title(panel: Panel) -> str:
     title.  The wording of the old note is kept, minus "never pooled" (the
     legend says "two studies" already) and minus the zero-marker hint.
     """
-    # species name only (user request 2026-09-19): neither the old grey note
+    # species name only (revision request 2026-09-19): neither the old grey note
     # nor bracketed counts belong in a panel title; the per-condition n lives
     # in the legend ("mean of 3" / "two studies") and in the tables
     return panel.species

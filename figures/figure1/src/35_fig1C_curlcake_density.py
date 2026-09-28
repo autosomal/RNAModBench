@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Figure 1C, replicate-aware rebuild (user request 2026-09-20).
+"""Figure 1C, replicate-aware rebuild (revision request 2026-09-20).
 
 The published panel plotted one line per tool: the total number of Curlcake
 calls per dataset (Curlcake_m6A, Curlcake_IVT), computed from replicate-union

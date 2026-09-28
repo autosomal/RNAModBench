@@ -96,7 +96,7 @@ RNA002_SOURCE_ROOTS: tuple[Path, ...] = (CONVERTED_CALLSETS, RESULT_RNA002)
 #: enrichment (2.19 % vs 15-26 % for the other tools on the same sample) and the WT
 #: callsets are a ~26 % subsample of the tool's real output.  The converted files
 #: stay untouched (archival copy, read-only) -- the re-derived callsets come from
-#: ``result/EpiNano_DiffErr/`` (see ``code/epinano_refix/README.md``).
+#: ``result/EpiNano_DiffErr/`` (the refit note of the EpiNano re-run).
 RAW_OVER_CONVERTED: frozenset[tuple[str, str]] = frozenset(
     {(s, "EpiNano_Error") for s in (
         "Arabidopsis_WT_rep1", "Arabidopsis_WT_rep2", "Arabidopsis_WT_rep3",
@@ -154,7 +154,7 @@ def canonical_mod_type(label: str) -> str:
 
 #: (platform, species, dataset_group) combinations whose **non-m6A** callsets are
 #: part of the manuscript (Fig. 7 + R2-2: the non-m6A tools were only ever run on
-#: HeLa and the Curlcake constructs; RNA004 Psi is part of Fig. S8A, which plots
+#: HeLa and the Curlcake constructs; RNA004 Psi is part of Fig. S9A, which plots
 #: NanoPsu / NanoSPA_psU next to the Dorado models).  Everything else is archived
 #: under ``callsets_extended/`` by ``11_scope_split.py`` and is NOT filled per
 #: replicate, because it belongs to no figure and has no reference.
@@ -162,7 +162,7 @@ IN_SCOPE_NONM6A: set[tuple[str, str, str]] = {
     ("RNA002", "Human", "HeLa_WT"),
     ("RNA002", "Human", "HeLa_IVT"),
     ("RNA002", "Curlcake", "Curlcake_IVT"),
-    # RNA004 Psi (Fig. S8A): NanoPsu + NanoSPA_psU on HeLa WT/IVT and Curlcake
+    # RNA004 Psi (Fig. S9A): NanoPsu + NanoSPA_psU on HeLa WT/IVT and Curlcake
     ("RNA004", "Human", "RNA004_HeLa_WT"),
     ("RNA004", "Human", "RNA004_HeLa_IVT"),
     ("RNA004", "Curlcake", "RNA004_Curlcake_IVT"),
@@ -172,9 +172,9 @@ IN_SCOPE_NONM6A: set[tuple[str, str, str]] = {
 #: ``11_scope_split.py``.  The non-m6A tools were only ever meant for the HeLa
 #: cell line and the Curlcake constructs (Fig. 7 + R2-2); any m5C/Psi/m1Psi/Nm
 #: callset produced for these three species belongs to no figure, has no
-#: reference, and the user asked for them to be removed outright (empty folders
+#: reference, and the author asked for them to be removed outright (empty folders
 #: included).  Every other non-m6A combination is kept **in ``callsets/``** --
-#: the RNA002 Fig. 7 groups and, since Fig. S8A, the three RNA004 groups listed
+#: the RNA002 Fig. 7 groups and, since Fig. S9A, the three RNA004 groups listed
 #: in ``IN_SCOPE_NONM6A`` above.  Nothing is archived any more, so
 #: ``callsets_extended/`` is expected to be empty.
 DELETE_NONM6A_SPECIES: set[str] = {"Arabidopsis", "Mouse", "E.coli"}
@@ -210,7 +210,7 @@ def in_scope(platform: str, species: str, dataset_group: str, mod_type: str) -> 
 #: re-extracted by ``01``/``01b`` (see ``tool_in_scope``).
 #:
 #: Evidence (locked, do not re-derive):
-#: * ``superseded_output/tables/NA5_compatibility_matrix.md`` ->
+#: * ``$RNAMODBENCH_LOCAL/superseded_output/tables/NA5_compatibility_matrix.md`` ->
 #:   "Per-sample presence of callsets (``output/<sample>/``)" -- the assembled
 #:   tree that produced every figure;
 #: * the per-sample tool directories of ``output/`` itself;
@@ -233,7 +233,7 @@ ARTICLE_NONM6A_TOOLS: frozenset[str] = frozenset({
 
 #: RNA004 tool label prefix of the Dorado built-in model families
 #: (``Dorado_<hac|sup>@<version>_<model>``); the exact model list is documented
-#: in ``result_RNA004/documents/IMPORTANT_INFO.md`` and shown in Fig. S8A.
+#: in ``result_RNA004/documents/IMPORTANT_INFO.md`` and shown in Fig. S9A.
 DORADO_TOOL_PREFIX = "Dorado_"
 
 #: E. coli: DENA / MINES were **never run** (no ``result/<tool>/E_*`` directory at
@@ -268,7 +268,7 @@ _CC_IVT_NONM6A: dict[str, frozenset[str]] = {
 }
 
 #: RNA004: Dorado built-in model families + the BAM-based tools that could be
-#: re-run on the new chemistry (Fig. 8, Fig. S8).
+#: re-run on the new chemistry (Fig. 8, Fig. S9).
 _RNA004_M6A_HELA = frozenset({"m6Anet", "NanoSPA_m6A", "ELIGOS2_solo",
                               "ELIGOS2_diff", "DRUMMER"})
 _RNA004_M6A_CURLCAKE = frozenset({"m6Anet", "NanoSPA_m6A"})
@@ -303,7 +303,7 @@ ARTICLE_TOOL_SCOPE: dict[tuple[str, str, str], frozenset[str]] = {
     **{("RNA002", "HeLa_WT", m): t for m, t in _HELA_NONM6A.items()},
     **{("RNA002", "HeLa_IVT", m): t for m, t in _HELA_NONM6A.items()},
     **{("RNA002", "Curlcake_IVT", m): t for m, t in _CC_IVT_NONM6A.items()},
-    # ---------------------------- RNA004 (Fig. 8, Fig. S8) ------------------
+    # ---------------------------- RNA004 (Fig. 8, Fig. S9) ------------------
     ("RNA004", "RNA004_HeLa_WT", "m6A"): _RNA004_M6A_HELA,
     ("RNA004", "RNA004_HeLa_IVT", "m6A"): _RNA004_M6A_HELA,
     ("RNA004", "RNA004_Curlcake_IVT", "m6A"): _RNA004_M6A_CURLCAKE,
@@ -361,7 +361,7 @@ def tool_in_scope(platform: str, species: str, dataset_group: str,
 #: subset of the SRR8767348 run (site-set containment in the full run = 1.00;
 #: 49,538 of 646,251 eventalign reads, matched to ``Curlcake_IVT_rep1``'s 50,218);
 #: ``E_IVT_neg1``/``E_IVT_neg2`` are the two halves of ONE IVT sample
-#: (SRR27228854, user-confirmed 2026-09-16; local halves 882,018 / 506,384 reads)
+#: (SRR27228854, author-confirmed 2026-09-16; local halves 882,018 / 506,384 reads)
 #: -- SRP478171 contains exactly one IVT_neg MinION run.
 NON_INDEPENDENT_SAMPLE_OF: dict[str, str] = {
     "Curlcake_IVT_rep2_partial": "Curlcake_IVT_rep3",
@@ -462,7 +462,7 @@ GENOMES: dict[str, Path] = {
 TRANSCRIPTS: dict[str, Path] = {
     "Arabidopsis": (_XB / "reference/arabidopsis/Arabidopsis_thaliana.TAIR10.61.cdna.all.fa"),
     "Mouse": (_XB / "reference/GRCm39/ensembl/GRCm39.transcripts.fa"),
-    #: Ensembl 112 (user rule 2026-09-18: GENCODE is banned project-wide)
+    #: Ensembl 112 (house rule 2026-09-18: GENCODE is banned project-wide)
     "Human": (_XB / "reference/GRCh38p14/ensembl112/GRCh38.transcripts.fa"),
     "E.coli": (_XB / "reference/K_12/Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61.cdna.all.fa"),
     "Curlcake": (_XB / "reference/curlcakes/cc.fasta"),
@@ -475,7 +475,7 @@ TRANSCRIPTS: dict[str, Path] = {
 GTF_EXON: dict[str, Path] = {
     "Arabidopsis": (_XB / "reference/arabidopsis/Arabidopsis_thaliana.TAIR10.61.ensembl.gtf.exon"),
     "Mouse": (_XB / "reference/GRCm39/ensembl/Mus_musculus.GRCm39.114.gtf.exon"),
-    #: Ensembl 112 (user rule 2026-09-18: GENCODE is banned project-wide)
+    #: Ensembl 112 (house rule 2026-09-18: GENCODE is banned project-wide)
     "Human": (_XB / "reference/GRCh38p14/ensembl112/Homo_sapiens.GRCh38.112.chr.gtf.exon"),
     "E.coli": (_XB / "reference/K_12/Escherichia_coli_str_k_12_substr_mg1655_gca_000005845.ASM584v2.61.gtf.exon"),
     "Curlcake": (_XB / "reference/curlcakes/Curlcake.gtf.exon"),
@@ -609,7 +609,7 @@ SAMPLES: list[Sample] = [
     Sample("E_IVT_neg2", PLATFORM_RNA002, _EC, "E.coli_IVT", "IVT", "IVT control",
            "SRP478171", "negative control", "run2", _aliases("E_IVT_neg2", "E_IVT_neg2_result")),
     # ---------------- Curlcake (RNA002 synthetic constructs) ----------------
-    # Semantic library names (user-confirmed 2026-09-15), identical to the
+    # Semantic library names (author-confirmed 2026-09-15), identical to the
     # directory names in $RNAMODBENCH_LOCAL/raw/result/<tool>/ and
     # $RNAMODBENCH_LOCAL/raw/converted_callsets/<tool>/.  The SRA library accessions are kept
     # as aliases: they are what the legacy conversion notebooks named their

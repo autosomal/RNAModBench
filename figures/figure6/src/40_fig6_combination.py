@@ -12,7 +12,7 @@ Drawn by ``the original submission's figure code/Figure6/NGS_tool_combinations.i
 * panel B intersection precision ``|I n GLORI| / |I|`` -- again no universe, so
   FP/TN had no boundary and calls outside the measurable set counted nowhere;
 * panel C -- 78 naive two-tool precisions;
-* the same notebook produced supplementary S5 ("GLORI Coverage vs Tool Count").
+* the same notebook produced supplementary Figure S6 ("GLORI Coverage vs Tool Count").
 
 What this script does instead
 -----------------------------
@@ -38,9 +38,9 @@ never averaged.
 Figures
 -------
 The revision **Figure 6** is produced by ``65_fig6_combination_page.py`` and
-**S5** by ``62_figS6_figure.py``; both read the frozen tables below and print at
+**Figure S6** by ``62_figS6_figure.py``; both read the frozen tables below and print at
 their final size (1:1, no scaling).  The superseded 4-row main layout
-(``fig_main``) and the superseded 3-row S5 layout (``fig_supp``) remain
+(``fig_main``) and the superseded 3-row Figure S6 layout (``fig_supp``) remain
 reproducible with ``--fig6-legacy`` / ``--s5-legacy`` but are **off by default**:
 they were drawn on a 380 x 367 mm canvas whose 8-14 pt text printed at 3.7-6.2 pt
 at the 0.95\textwidth placement of the manuscript, which is why they were
@@ -54,14 +54,14 @@ Evidence tables -> ``figures/figure6/tables/``
     fig6_single_tool_metrics.tsv         every single tool (k = 1) in the plane
     fig6_negative_control_fp.tsv         FP/10 kb of the selected k = 1 / 2 / 5
     fig6_negative_control_fp_bytool.tsv  FP/10 kb of every single tool (controls)
-    figS5_search_space.tsv               **every** enumerated k = 1..5 combination
+    figS6_search_space.tsv               **every** enumerated k = 1..5 combination
                                          with its mean recall/precision and the
                                          ``feasible`` flag (mean union PPV >=
                                          chance level ``p0``) that *is* the
                                          selection criterion, plus the per-k
                                          ``selected`` optimum
-    figS5_greedy_1to13.tsv               greedy forward path, 1 -> 13 tools
-    figS5_two_tool_pairs.tsv             every C(13,2) pair
+    figS6_greedy_1to13.tsv               greedy forward path, 1 -> 13 tools
+    figS6_two_tool_pairs.tsv             every C(13,2) pair
 
 Outputs -> ``figures/figure6/{tables,figures,logs}``
 
@@ -120,7 +120,7 @@ TOOLS = ["CHEUI_m6A", "DENA", "DRUMMER", "ELIGOS2_diff", "ELIGOS2_solo",
 
 #: species -> (dataset group, how the units are drawn)
 #: "replicates" = mean +- SD over independent units; "studies" = one curve per
-#: cross-study unit, never averaged (harmonisation/README.md section 5).
+#: cross-study unit, never averaged (docs/pipeline.md).
 GROUPS: dict[str, tuple[str, str]] = {
     "Arabidopsis": ("Arabidopsis_WT", "replicates"),
     "Mouse": ("Mouse_WT", "studies"),
@@ -131,7 +131,7 @@ UNION_C, ISECT_C = "#1f5c8b", "#e08a2e"
 #: unmodified controls for panel C1: label -> (species, dataset group)
 CONTROLS = {"Curlcake IVT": ("Curlcake", "Curlcake_IVT"),
             "HeLa IVT": ("Human", "HeLa_IVT")}
-#: column order of ``figS5_search_space.tsv`` (every k = 1..5 combination)
+#: column order of ``figS6_search_space.tsv`` (every k = 1..5 combination)
 SEARCH_COLUMNS = ["species", "group", "k", "combination", "feasible", "selected",
                   "union_recall_mean", "union_recall_sd",
                   "union_precision_mean", "union_precision_sd",
@@ -603,9 +603,9 @@ def fig_supp(greedy13: dict[str, pd.DataFrame],
                   tier["one line = one unit"]],
                loc="upper center", ncol=4, frameon=False,
                bbox_to_anchor=(0.5, -0.02))
-    # superseded 3-row S5 layout (off by default): written under an explicitly
-    # legacy name so that the canonical ``FigureS5_rev`` has one producer only
-    save(fig, str(FIG / "FigS5_legacy_3row"))
+    # superseded 3-row Figure S6 layout (off by default): written under an explicitly
+    # legacy name so that the canonical ``FigureS6_rev`` has one producer only
+    save(fig, str(FIG / "FigS6_legacy_3row"))
 
 
 # --------------------------------------------------------------------------- #
@@ -621,7 +621,7 @@ def main() -> None:
                          "the revision Figure 6 is produced by "
                          "65_fig6_combination_page.py")
     ap.add_argument("--s5-legacy", action="store_true",
-                    help="also draw the superseded three-row S5 layout; the "
+                    help="also draw the superseded three-row Figure S6 layout; the "
                          "revision figure is produced by 62_figS6_figure.py")
     args = ap.parse_args()
     if args.species:
@@ -677,7 +677,7 @@ def main() -> None:
             sel_frames.append(best)
             # every enumerated combination of this group, with the feasibility
             # flag that defines the criterion (mean union PPV >= chance level
-            # p0) and the per-k selected optimum -> figS5_search_space.tsv
+            # p0) and the per-k selected optimum -> figS6_search_space.tsv
             space = df.copy()
             space["feasible"] = space.union_precision_mean >= p0
             space["selected"] = space.combination.isin(set(best.combination))
@@ -696,7 +696,7 @@ def main() -> None:
             logger.info("[%s/%s] k<=%d exhaustive done; selected: %s", sp, gname,
                         KMAX, "; ".join(f"k={r.k}:{r.combination}"
                                         for r in best.itertuples()))
-            # ---- frozen evidence added 2026-09-21 (Figure 6 / S5 rebuild) ---- #
+            # ---- frozen evidence added 2026-09-21 (Figure 6 and Figure S6 rebuild) ---- #
             # membership matrix: which of the 13 tools each selected k uses
             member_frames.append(pd.DataFrame(
                 [{"species": sp, "group": gname, "k": int(r.k), "tool": t,
@@ -708,12 +708,12 @@ def main() -> None:
             ak = per_unit_selected(units_per, combos_all, ref_n, gname, ref_n_all)
             ak.insert(0, "species", sp)
             units_allk.append(ak[ALLK_COLUMNS])
-            # full greedy path to 13 tools (S5 row 1/2)
+            # full greedy path to 13 tools (Figure S6 row 1/2)
             g13 = pd.DataFrame(greedy_sequence(units_per, ref_n, KMAX_SUPP))
             g13["species"], g13["group"] = sp, gname
             # pad to a metric-compatible frame
             greedy13.setdefault(sp, []).append(g13)
-            # two-tool pairs (S5 row 3)
+            # two-tool pairs (Figure S6 row 3)
             pr = pd.DataFrame([score_combination(units_per, c, ref_n, ref_n_all)
                                for c in itertools.combinations(TOOLS, 2)])
             pr["species"], pr["group"] = sp, gname
@@ -758,14 +758,14 @@ def main() -> None:
     write_table(pd.concat(member_frames, ignore_index=True),
                 TAB / "fig6_selected_members.tsv")
     write_table(pd.concat(greedy13.values(), ignore_index=True),
-                TAB / "figS5_greedy_1to13.tsv")
+                TAB / "figS6_greedy_1to13.tsv")
     write_table(pd.concat(pairs.values(), ignore_index=True),
-                TAB / "figS5_two_tool_pairs.tsv")
+                TAB / "figS6_two_tool_pairs.tsv")
     search = pd.concat(space_frames, ignore_index=True)[SEARCH_COLUMNS]
     n_sel = int(search.selected.sum())
-    write_table(search, TAB / "figS5_search_space.tsv")
+    write_table(search, TAB / "figS6_search_space.tsv")
     # single-tool plane (k = 1, all 13 configurations) and the per-tool control
-    # burden -- both added 2026-09-21 for the rebuilt Figure 6 / S5
+    # burden -- both added 2026-09-21 for the rebuilt Figure 6 and Figure S6
     single = (search[search.k == 1].rename(columns={"combination": "tool"})
               .loc[:, SINGLE_COLUMNS].reset_index(drop=True))
     write_table(single, TAB / "fig6_single_tool_metrics.tsv")
@@ -777,7 +777,7 @@ def main() -> None:
     logger.info("tool effects: %d rows (%d tools x %d k x %d groups)",
                 len(effects), effects.tool.nunique(), effects.k.nunique(),
                 effects.group.nunique())
-    logger.info("search space: %d combinations (%d selected) -> figS5_search_space.tsv",
+    logger.info("search space: %d combinations (%d selected) -> figS6_search_space.tsv",
                 len(search), n_sel)
     logger.info("single-tool plane: %d configurations; per-tool control FP: %d rows",
                 len(single), len(ctl_tool))
@@ -785,11 +785,11 @@ def main() -> None:
     if not args.no_figures:
         if args.fig6_legacy:
             fig_main(sel_by_species, units_sel, ctl_df, pairs, n_text)
-        if args.s5_legacy:
+        if args.s6_legacy:
             fig_supp(greedy13, units_sel, n_text)
-        if not (args.fig6_legacy or args.s5_legacy):
+        if not (args.fig6_legacy or args.s6_legacy):
             logger.info("legacy figures off: Figure 6 -> "
-                        "65_fig6_combination_page.py, S5 -> 62_figS6_figure.py")
+                        "65_fig6_combination_page.py, Figure S6 -> 62_figS6_figure.py")
     inv.flush()
     logger.info("figures -> %s", FIG)
 

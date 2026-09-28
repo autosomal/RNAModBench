@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""72 -- acceptance checks for the rebuilt Figure S8 (run after 70/71).
+"""72 -- acceptance checks for the rebuilt Figure S9 (run after 70/71).
 
 Contract of the 2026-09-25 page: A4 **landscape** 842.4 x 595.44 pt, three rows
 -- A | B | C, then the full-width window sweep D (its key on the right), then
@@ -21,7 +21,7 @@ import s9_data as D  # noqa: E402
 import s9_panels as P  # noqa: E402
 import s9_style as S  # noqa: E402
 
-PDF = S.FIGS / "FigureS8_rev.pdf"
+PDF = S.FIGS / "FigureS9_rev.pdf"
 PAGE_PT = (842.4, 595.44)                       # A4 landscape (restored layout)
 KEYS = list("ABCDEFGHI")                        # 2026-09-27: three-by-three grid
                                                 # (sweep D|E, effect F|G, the two
@@ -60,7 +60,7 @@ def main() -> None:
     page = text_of(PDF)
     got_letters = []
     for key in KEYS:
-        piece = text_of(S.PANELS / f"figS8{key}.pdf")
+        piece = text_of(S.PANELS / f"figS9{key}.pdf")
         found = [t for t in piece.split() if len(t) == 1 and t.isupper()]
         got_letters.append(found[0] if found else "?")
     check("panel letters A-I once each", got_letters == KEYS, str(got_letters))
@@ -127,7 +127,7 @@ def main() -> None:
           "DRACH" in page and "inosine" in page and "non-DRACH" in page)
 
     # ---- drawing-code house rules -----------------------------------------
-    src = "\n".join(p.read_text() for p in sorted(HERE.glob("s8_*.py")))
+    src = "\n".join(p.read_text() for p in sorted(HERE.glob("s9_*.py")))
     check("no grid in the drawing code",
           ".grid(" not in src and "axes.grid': True" not in src)
     check("no RNA002 branch left in the data layer",

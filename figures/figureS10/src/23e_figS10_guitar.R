@@ -18,7 +18,7 @@ if (is.null(.RB)) {
 # --------------------------------------------------------------------------- #
 
 #!/usr/bin/env Rscript
-# Supplementary Figure S9, redrawn for the revision (reviewer R2-2/E1, R3-9,
+# Supplementary Figure S10, redrawn for the revision (reviewer R2-2/E1, R3-9,
 # R3-8/E8; replicate-structure statement R3-2/E6).
 #
 # Why this exists.  The published sup9.pdf ("Dorado Other Modifications -
@@ -55,7 +55,7 @@ if (is.null(.RB)) {
 #   ... --merge majority --rt 20 --recompute --page 16x12
 #
 # Outputs (own tree, never inside $RNAMODBENCH_LOCAL/submission/)
-#   figures/figureS10/figures/FigureS9_rev.{pdf,png}
+#   figures/figureS10/figures/FigureS10_rev.{pdf,png}
 #   figures/figureS10/tables/figS10_density.rds
 #   figures/figureS10/tables/figS10_panel_inputs.tsv
 #   figures/figureS10/logs/23e_figS10_guitar.log (caller)
@@ -109,8 +109,8 @@ stopifnot(min(unlist(FS)) >= 7)             # SI floor, house rule
 NCOL   <- 3
 PANEL_W <- 5.0; PANEL_H <- 4.9
 
-#: Three block letters on the page (user decision 2026-09-21, replacing the
-#: single S9 figure number): A = the six Guitar density panels as ONE block,
+#: Three block letters on the page (author decision 2026-09-21, replacing the
+#: single Figure S10 page number): A = the six Guitar density panels as ONE block,
 #: B = the Curlcake threshold scan (bottom left), C = the HeLa score validity
 #: (bottom right).  patchwork letters one page element per tag, so each block
 #: is wrapped into a single element below - a nested composition would be
@@ -148,7 +148,7 @@ MODELS$slot  <- sprintf("R%dC%d",
                         (seq_len(nrow(MODELS)) - 1L) %/% NCOL + 1L,
                         (seq_len(nrow(MODELS)) - 1L) %%  NCOL + 1L)
 #: never drawn: too few calls for a density curve (exclusion reason in legend,
-#: reviewer R1-6); the inosine+m6A models are counted in Fig. S8A/C
+#: reviewer R1-6); the inosine+m6A models are counted in Fig. S9A/C
 EXCLUDED <- c("Dorado_hac@v5.1.0_inosine_m6A_otherMod",
               "Dorado_sup@v5.1.0_inosine_m6A_otherMod")
 stopifnot(!any(MODELS$tool %in% EXCLUDED))
@@ -184,7 +184,7 @@ if (any(plan$n_sites < 30))
 ## ---- Guitar density (cached) -------------------------------------------------
 # Guitar's samplePoints dies on the first malformed group; isolate per group so
 # one bad curve cannot take the page down (pattern of 23d_figS1_guitar.R).
-s9_sites <- function(beds, txtype, gt) {
+s10_sites <- function(beds, txtype, gt) {
   sitesGroup <- Guitar:::.getStGroup(stBedFiles = unname(beds),
                                      stGroupName = names(beds))
   relative <- list(); weight <- list(); errs <- character(0)
@@ -220,7 +220,7 @@ if (file.exists(cache) && !recompute) {
   message(sprintf("computing %d curves over %d models (human mrna Guitar)",
                   length(beds), nrow(MODELS)))
   t0 <- Sys.time()
-  s  <- s9_sites(beds, "mrna", gt)
+  s  <- s10_sites(beds, "mrna", gt)
   message(sprintf("site sampling %.1f s",
                   as.numeric(difftime(Sys.time(), t0, units = "secs"))))
   if (length(s$errors)) {
@@ -249,7 +249,7 @@ write.table(plan[, c("block", "slot", "label", "model", "mod", "condition",
             quote = FALSE, row.names = FALSE)
 
 ## ---- transcript schematic under every panel (same as 23d/S1) -----------------
-s9_pos <- function(peak) {
+s10_pos <- function(peak) {
   pos <- Guitar:::.generate_pos_para(peak)
   pos$fig_bottom    <- -0.12 * peak
   pos$rna_comp_text <- -0.060 * peak
@@ -297,7 +297,7 @@ draw_panel <- function(i) {
   d$condition <- factor(d$cond_label, levels = unname(COND_LABEL))
   cols <- setNames(c(WT_COLOR, CMP_COLOR), unname(COND_LABEL))
   peak <- max(d$density, na.rm = TRUE)
-  pos  <- s9_pos(peak)
+  pos  <- s10_pos(peak)
 
   p <- ggplot(d, aes(x = x, colour = condition, fill = condition)) +
     geom_ribbon(aes(ymin = 0, ymax = density, group = group), alpha = 0.20,
@@ -445,7 +445,7 @@ page <- wrap_plots(list(blk_a, blk_b, blk_c), design = PAGE_DESIGN) +
   theme(plot.tag = element_text(family = "Arial", face = "bold", size = FS$tag),
         plot.tag.position = c(0.010, 0.985))
 
-save_pair_cairo(page, file.path(FIGD, "FigureS9_rev.pdf"), width = PG_W,
+save_pair_cairo(page, file.path(FIGD, "FigureS10_rev.pdf"), width = PG_W,
                 height = PG_H)
 message("page: ", PG_W, " x ", PG_H, " in (", PG_W * 72, " x ", PG_H * 72,
         " pt), block letters ", paste(BLOCK_LETTERS, collapse = "/"),

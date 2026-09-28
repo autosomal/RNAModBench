@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""S8 panel drawing -- every panel on its own print-size canvas.
+"""Figure S9 panel drawing -- every panel on its own print-size canvas.
 
 Six panels, no panel titles (the figure legend carries the sample names, the
 Figure 8 convention), every key next to the panel it belongs to, and every entry
@@ -124,7 +124,7 @@ def _top_key(fig: plt.Figure, handles: list, ncol: int, *, x: float = 0.5,
              y: float = 0.995) -> None:
     """Key in the free strip above the axes, right of the panel letter.
 
-    2026-09-27 (user): the canvases are 2.5967 in squares now, so the top key
+    2026-09-27 (author decision): the canvases are 2.5967 in squares now, so the top key
     prints at the small-legend size -- at 10.5 pt the key of C ran past the right
     edge of its cell.
     """
@@ -144,7 +144,7 @@ def letter_near(fig: plt.Figure, key: str, left_in: float,
                 box_h_in: float, pad_in: float = 0.34) -> None:
     """Panel letter immediately left of this panel's own topmost label.
 
- 2026-09-28 (user): " " -- the letter used to sit
+ 2026-09-28 (author decision): " " -- the letter used to sit
     at the left edge of the cell, which for a panel with short row labels (or with
     none at all) left it a whole label column away from the ink.  It is now placed
     0.30 in left of the top row's own label, so every letter reads as part of its
@@ -173,7 +173,7 @@ def _rows(df: pd.DataFrame, columns: list[str],
           ) -> tuple[list[str], list[int], np.ndarray]:
     """(labels, header indices, values) of a bar panel.
 
- 2026-09-28 (user): "Dorado m6A modelABC ORCA (one tool)" -- with
+ 2026-09-28 (author decision): "Dorado m6A modelABC ORCA (one tool)" -- with
     the family bands gone the header rows only repeated a grouping the reader
     already gets from the caption and from the model names, and an empty row
     ("ORCA (one tool)") looked like a stray label.  The headers are no longer
@@ -459,7 +459,7 @@ def draw_window_exact(fig: plt.Figure, loc: pd.DataFrame,
                       left_in: float) -> None:
     """E -- exact-nucleotide fraction (right facet of the sweep).
 
-    2026-09-27 (user): the box fills its cell like D's; the thirteen-entry key of
+    2026-09-27 (author decision): the box fills its cell like D's; the thirteen-entry key of
     the sweep prints under the pair (E draws its second half).
     """
     _window_axes(fig, S.cell_rect(fig, left_in, height_in=S.BOX_H_LOW_IN), loc,
@@ -488,7 +488,7 @@ SPECIES_DISPLAY = {"Arabidopsis": "Arabidopsis", "mouse": "mouse", "HeLa": "Huma
 def species_key(fig: plt.Figure, printed: list[str], *, centre_x: float) -> None:
     """One row naming the three species markers, **under the panel that draws them**.
 
-    2026-09-27 (user): a key belongs under its own panel -- the three markers are
+    2026-09-27 (author decision): a key belongs under its own panel -- the three markers are
     drawn in both stability cells, so each of them prints this line under its own
     box (``centre_x`` is the centre of that box, in figure fractions), never in a
     neighbour's free space and never above the axes.
@@ -543,7 +543,7 @@ def draw_stability_coverage(fig: plt.Figure, rows: pd.DataFrame,
                             left_in: float) -> None:
     """H -- ranking stability against transcript coverage (a square cell).
 
-    2026-09-27 (user): the cells are squares, so the thirteen-entry key of the
+    2026-09-27 (author decision): the cells are squares, so the thirteen-entry key of the
     window sweep left this cell; the species key it needs prints **under its own
     box** (the same line I also carries under I), not in any other cell.
     """
@@ -584,7 +584,7 @@ def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
                    rows: int = 3) -> None:
     """The thirteen-entry key of the window sweep, **under the pair that draws it**.
 
-    2026-09-27 (user): a key prints under its own panel, and the sweep is the pair
+    2026-09-27 (author decision): a key prints under its own panel, and the sweep is the pair
     D | E -- but thirteen entries do not fit in one cell's strip (their labels
     need ~5 in of width and three 7 pt rows).  Each facet's canvas therefore
     prints one half of the key in the strip under its own box, centred; the two
@@ -593,7 +593,7 @@ def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
     """
     items = window_key(loc)
 
-    #: shrink from 0.72 in to 0.42 in (the S8-like packing the user asked for).
+    #: shrink from 0.72 in to 0.42 in (the tighter packing the revision asked for).
 
     #: shave a row off the block, but seven entries at 7 pt need 5.06 in and a cell
     #: is 3.79 in wide, so the block left the canvas (the layout gate caught it).
@@ -623,7 +623,7 @@ def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
 def effect_labels(rows: pd.DataFrame) -> list[str]:
     """Row labels of the two lollipop panels -- the **full** model names.
 
- 2026-09-28 (user): "FG" -- F and G print "hac v5.1.0 m6A DRACH"
+ 2026-09-28 (author decision): "FG" -- F and G print "hac v5.1.0 m6A DRACH"
     again, not "hac m6A DRACH".  The shared label column holds them at the unified
     8 pt scale (the layout gate verifies the fit), and G borrows the column from F.
     """
@@ -701,7 +701,7 @@ def _effect_key(fig: plt.Figure, *, centre_x: float,
                 series2_label: str | None = None) -> None:
     """Key of the two lollipop facets, in one row **under the box of its panel**.
 
-    2026-09-27 (user): a key prints under the panel it belongs to.  The two
+    2026-09-27 (author decision): a key prints under the panel it belongs to.  The two
     handles describe marks that F and G draw alike and the pair shares one row,
     so the key sits under the right-hand facet of that row -- the same place the
     thirteen-entry key of the sweep takes in its own row.
@@ -743,10 +743,10 @@ def draw_effect_slope(fig: plt.Figure, rows: pd.DataFrame,
                       left_in: float) -> None:
     """G -- calibration slope and Lin's CCC of the tool ratio.
 
-    2026-09-26 (user): the facet carries two estimates per tool -- the
+    2026-09-26 (author decision): the facet carries two estimates per tool -- the
     least-squares calibration slope (filled dot) and the Lin's concordance
     correlation coefficient (open dot) -- so that association, agreement and
-    calibration are all reported for the RNA004 library.  2026-09-27 (user): the
+    calibration are all reported for the RNA004 library.  2026-09-27 (author decision): the
     facet is exactly as wide as F's (one grid column) and the key prints under
     this facet's own box.
     """

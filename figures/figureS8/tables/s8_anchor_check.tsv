@@ -1,4 +1,4 @@
-quantity	s7_value	r39_value	rel_diff	status	note
+quantity	s8_value	r39_value	rel_diff	status	note
 universe_n/Nm/HeLa_WT1	7.88956e+06	7.88956e+06	0	OK	coverage>=10 + modification-compatible base
 universe_n/Nm/HeLa_WT2	1.31793e+07	1.31793e+07	0	OK	coverage>=10 + modification-compatible base
 universe_n/Nm/HeLa_WT3	6.10973e+06	6.10973e+06	0	OK	coverage>=10 + modification-compatible base

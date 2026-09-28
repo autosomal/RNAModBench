@@ -173,7 +173,7 @@ def main() -> None:
     mem = pd.read_csv(TAB / "fig6_selected_members.tsv", sep="\t")
     allk = pd.read_csv(TAB / "fig6_per_unit_allk.tsv", sep="\t")
     eff_t = pd.read_csv(TAB / "fig6_tool_effects.tsv", sep="\t")
-    hist = pd.read_csv(TAB / "figS5_coverage_hist.tsv", sep="\t")
+    hist = pd.read_csv(TAB / "figS6_coverage_hist.tsv", sep="\t")
     ctl = pd.read_csv(TAB / "fig6_negative_control_fp.tsv", sep="\t")
     want_k5 = {"Arabidopsis_WT": (46.7, 14.1), "studyA": (80.1, 6.8),
                "studyB": (74.0, 6.3), "HeLa_WT": (56.8, 7.5)}

@@ -17,7 +17,7 @@ coverage floor = ``min(C_MIN_SCAN)`` = 5, the most permissive stored threshold).
 (``<sample>__<mod>.tsv``); the producer of the generic name was removed in the
 2026-09-15 generation, so those readers have silently kept using files built on
 2026-09-14 -- for Human that is the in-house **GENCODE** annotation, which the
-user banned project-wide on 2026-09-18.  This script rebuilds the generic file
+the author banned project-wide on 2026-09-18.  This script rebuilds the generic file
 from exactly the same primitives as ``04`` (same exon index, same ``samtools
 depth`` pass, same threshold, same ``in_glori`` flag) so that both file families
 stay consistent for every species.

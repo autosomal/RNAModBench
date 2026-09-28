@@ -24,8 +24,8 @@ original ``Guitar_*.r`` scripts did.  Chromosome labels are rewritten to the
 spelling of the GTF handed to Guitar.
 
 Scope follows the manuscript: m6A on the three real transcriptomes, the
-non-m6A chemistries of HeLa / Curlcake (Fig. 7D, Fig. S7), and RNA004
-(Fig. 8D, Fig. S9).
+non-m6A chemistries of HeLa / Curlcake (Fig. 7D, Fig. S8), and RNA004
+(Fig. 8D, Fig. S10).
 """
 from __future__ import annotations
 
@@ -79,10 +79,10 @@ TARGETS = [
     ("RNA002", "Mouse", "Mouse_KO", "m6A"),
     ("RNA002", "Human", "HeLa_WT", "m6A"),
     ("RNA002", "Human", "HeLa_IVT", "m6A"),
-    # Fig. 7D / Fig. S7: non-m6A chemistries, HeLa WT vs IVT
+    # Fig. 7D / Fig. S8: non-m6A chemistries, HeLa WT vs IVT
     *[("RNA002", "Human", g, m) for g in ("HeLa_WT", "HeLa_IVT")
       for m in ("Psi", "m1Psi", "m5C", "Nm")],
-    # Fig. 8D / Fig. S9: RNA004, HeLa WT vs IVT (+ Curlcake IVT null)
+    # Fig. 8D / Fig. S10: RNA004, HeLa WT vs IVT (+ Curlcake IVT null)
     *[("RNA004", "Human", g, m) for g in ("RNA004_HeLa_WT", "RNA004_HeLa_IVT")
       for m in ("m6A", "Psi", "m5C", "inosine")],
     ("RNA004", "Curlcake", "RNA004_Curlcake_IVT", "m6A"),

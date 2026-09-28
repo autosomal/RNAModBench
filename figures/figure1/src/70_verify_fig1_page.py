@@ -60,7 +60,7 @@ OUT = (_RB / "figures/figure1")
 TAB, FIG, LOG = (_RB / "figures/figure1/tables"), (_RB / "figures/figure1/figures"), (_RB / "figures/figure1/logs")
 PDF, PNG = FIG / "Figure1_rev.pdf", FIG / "Figure1_rev.png"
 BODY, BODY_PNG = FIG / "Figure1_rev_body.pdf", FIG / "Figure1_rev_body.png"
-#: 2026-09-23: the delivered panel A is the user's Illustrator RGB export of the
+#: 2026-09-23: the delivered panel A is the author's Illustrator RGB export of the
 #: original artwork, prepared by 72; Figure1_A_redrawn.pdf is the fallback that
 #: meets the 7 pt floor
 A_PDF = FIG / "panels" / "Figure1_A_artwork.pdf"
@@ -182,12 +182,12 @@ def main() -> None:
     # the same floor.  Measure the strip itself: a set difference against the
     # body sizes is empty whenever both share 7.5/8.5 pt, which "passes" without
     # checking anything (the published crop bottomed out at 2.5 pt).
-    # 2026-09-23 (user decision): panel A is the original artwork again, so its
+    # 2026-09-23 (author decision): panel A is the original artwork again, so its
     # own type sizes are exempt from the floor -- measured and reported, while
     # B/C/D above stay strict
     a_sizes = tf_sizes(A_PDF)
     check(bool(a_sizes), "panel A carries text runs")
-    logger.info("panel A fonts, exempt from the %.1f pt floor (user decision): "
+    logger.info("panel A fonts, exempt from the %.1f pt floor (author decision): "
                 "%s pt", MIN_PT, sorted(round(s * scale, 2) for s in a_sizes))
     body_fonts = fonts_of(BODY)
     check(all("Arial" in f for f in body_fonts),
@@ -294,7 +294,7 @@ def main() -> None:
     check(ink > 0.06, f"panel A strip is inked ({100 * ink:.1f}% of its pixels)")
 
     # ------------------------------------------------- vector / text audit --- #
-    # user 2026-09-23: panel A had to stay vector -- no raster fallback anywhere
+    # author decision 2026-09-23: panel A had to stay vector -- no raster fallback anywhere
     for label, path in (("composed page", PDF), ("panel A strip", A_PDF),
                         ("body page", BODY)):
         listed = subprocess.run(["pdfimages", "-list", str(path)],
@@ -319,7 +319,7 @@ def main() -> None:
                            f"(missing: {body_no_uni})")
     if no_uni:
         logger.info("panel A keeps the artwork's own encoding: %s without a "
-                    "ToUnicode map (user decision -- a few words extract "
+                    "ToUnicode map (author decision -- a few words extract "
                     "fragmented)", no_uni)
     check(not not_emb, f"every font is embedded (missing: {not_emb})")
 
@@ -348,17 +348,17 @@ def main() -> None:
              and min(wb[i][3], wb[j][3]) - max(wb[i][1], wb[j][1]) > 1.0]
     # panel A is the original artwork: its two WinAnsi fonts extract as
     # fragments whose boxes overlap ("E." over "co"), which is the artwork's own
-    # encoding (user decision) -- reported, while our panels stay strict
+    # encoding (author decision) -- reported, while our panels stay strict
     artwork = [p for p in pairs if in_panel_a(p[0]) or in_panel_a(p[1])]
     ours = [p for p in pairs if not (in_panel_a(p[0]) or in_panel_a(p[1]))]
     check(not ours, f"no overlapping word boxes outside panel A "
                     f"({[(p[0][4], p[1][4]) for p in ours[:4]]})")
     if artwork:
         logger.info("panel A: %d overlapping word boxes (%s), the artwork's own "
-                    "fragmented extraction (user decision)", len(artwork),
+                    "fragmented extraction (author decision)", len(artwork),
                     [(p[0][4], p[1][4]) for p in artwork[:4]])
     # printed type, split by region: our panels must clear the floor, panel A is
-    # the user's original artwork and is exempt (its own sizes are reported).
+    # the author's original artwork and is exempt (its own sizes are reported).
     # Box heights are font metric boxes: / 1.117 turns them into em (Arial).
     def printed_pt(v: tuple) -> float:
         return (v[3] - v[1]) / BOX_PER_PT
@@ -372,7 +372,7 @@ def main() -> None:
           f"smallest printed word outside panel A {worst_rest[4]!r} "
           f"{printed_pt(worst_rest):.2f} pt >= {MIN_PT} pt")
     a_min = min(a_words, key=printed_pt)
-    logger.info("panel A printed type, exempt (user decision): min %.2f pt (%r), "
+    logger.info("panel A printed type, exempt (author decision): min %.2f pt (%r), "
                 "median %.2f pt, max %.2f pt", printed_pt(a_min), a_min[4],
                 float(np.median([printed_pt(v) for v in a_words])),
                 max(printed_pt(v) for v in a_words))

@@ -8,7 +8,7 @@ the project's own annotation files and cached under
 * Arabidopsis -- ``Arabidopsis_thaliana.TAIR10.61.gtf.exon`` (CSV, 1-based)
 * Mouse       -- ``Mus_musculus.GRCm39.114.gtf.exon`` (CSV, 1-based)
 * Human       -- ``Homo_sapiens.GRCh38.112.chr.gtf.exon`` (CSV, 1-based;
-*               **Ensembl only -- the user banned GENCODE on 2026-09-18**)
+*               **Ensembl only -- the author banned GENCODE on 2026-09-18**)
 * E. coli     -- whole chromosome (4.6 Mb)
 * Curlcake    -- whole constructs (10.1 kb)
 """
@@ -26,7 +26,7 @@ REFS_DIR = UNIVERSE_ROOT / "_refs"
 EXON_CSV = {
     "Arabidopsis": REF_ROOT / "arabidopsis" / "Arabidopsis_thaliana.TAIR10.61.gtf.exon",
     "Mouse": REF_ROOT / "GRCm39" / "ensembl" / "Mus_musculus.GRCm39.114.gtf.exon",
-    #: Ensembl 112 (user rule 2026-09-18: GENCODE is banned project-wide)
+    #: Ensembl 112 (house rule 2026-09-18: GENCODE is banned project-wide)
     "Human": REF_ROOT / "GRCh38p14" / "ensembl112" / "Homo_sapiens.GRCh38.112.chr.gtf.exon",
 }
 

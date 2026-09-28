@@ -63,10 +63,10 @@ PAGE_PT = (500.4, 586.8)
 #: count call-outs of the retired draft -- none of these may be drawn any more.
 #: 2026-09-23: "0 calls" was removed from this list -- since the 15:13 legend edit
 #: it is a deliberate key label ("the open circle is a measured zero", the same
-#: wording as panels A/C and Figure S8), not a count call-out; the retired tokens
+#: wording as panels A/C and Figure S9), not a count call-out; the retired tokens
 #: are the numbers of the draft (13,028 / 46,963) and the two ranges.
 RETIRED_CALLOUTS = ("13,028", "46,963", "87\u2013101", "2\u201310", "87-101", "2-10")
-#: panel E keeps the model names (user decision) but as plain text, never a title
+#: panel E keeps the model names (author decision) but as plain text, never a title
 E_MODELS = ("hac@v5.0.0_m6A", "hac@v5.1.0_inosine+m6A", "sup@v5.0.0_m6A")
 #: signed coordinates: the rotated shared title of panel B sticks out of the piece
 BBOX_WORD = re.compile(r'<word xMin="(-?[\d.]+)" yMin="(-?[\d.]+)" '

@@ -6,9 +6,9 @@ metric is recomputed here, so the assembled figure cannot drift from the
 per-panel figures:
 
   A  mean rank (per independent sequencing unit) of MCC / F1 / Precision /
-     Recall (column order 2026-09-20, user rev.2: MCC then F1 first), 13 m6A tools
+     Recall (column order 2026-09-20, author rev.2: MCC then F1 first), 13 m6A tools
      x 3 species;      each species panel is ordered by the mean **MCC** rank,
-     best first (user decision 2026-09-20, rev.2; rev.1 was mean F1 rank;
+     best first (author decision 2026-09-20, rev.2; rev.1 was mean F1 rank;
      originally mean Precision (PPV) rank per 2026-09-19).  Mouse = the
      single study ``mES_WT``;
   B  tool-reported modification ratio (10 bins) vs ``PPV vs. GLORI (2 bp)``,
@@ -81,7 +81,7 @@ ROW_TITLE = 0.13           # space reserved above each row of axes for its title
 #: A = four metric names rotated 45 deg (0.37 in + pad), B = ten bin labels
 #: rotated 45 deg (0.30 in) plus the axis label, C/D = short window ticks plus
 #: the axis label.  Nothing is ever shared with the next row's title band.
-#: 2026-09-20: widened by ~0.10 in per gap (user request) so the four panel
+#: 2026-09-20: widened by ~0.10 in per gap (revision request) so the four panel
 #: rows read as clearly separated facets; canvas total 8.14 -> 8.45 in,
 #: still below the 8.50 in full-page cap.
 
@@ -107,13 +107,13 @@ SPECIES = ["Arabidopsis", "Mouse", "Human"]
 #: study, human n = 3) and the HeLa provenance belong to the caption
 TITLE = {"Arabidopsis": "Arabidopsis", "Mouse": "Mouse", "Human": "Human"}
 
-#: column order of the 5A heatmap; 2026-09-20 (user, rev.2): MCC / F1 first
+#: column order of the 5A heatmap; 2026-09-20 (author decision, rev.2): MCC / F1 first
 METRICS = ["mcc", "f1", "precision", "recall"]
 METRIC_LABEL = {"precision": "Precision", "recall": "Recall",
                 "f1": "F1", "mcc": "MCC"}
-#: row-ordering key of the 5A heatmap; 2026-09-20 (user, rev.2): MCC rank, best
+#: row-ordering key of the 5A heatmap; 2026-09-20 (author decision, rev.2): MCC rank, best
 #: first (rev.1 was the mean F1 rank; originally the mean Precision (PPV)
-#: rank per user decision 2026-09-19) -- MCC row order matches the
+#: rank per author decision 2026-09-19) -- MCC row order matches the
 #: "m6Anet highest MCC across species" narrative
 SORT_METRIC = "mcc"
 
@@ -257,7 +257,7 @@ def draw_row_b(fig, rects, bins, fig_w, fig_h):
         ax.set_xlim(-0.4, len(BINS) - 0.6)
         ax.set_title(TITLE[sp], fontsize=FS["title"], fontweight="bold", pad=3)
         ax.tick_params(labelsize=FS["tick"], length=2, pad=1.5)
-        # every species panel carries the x axis title (user 2026-09-19), like
+        # every species panel carries the x axis title (author decision 2026-09-19), like
         # the C and D rows do
         ax.set_xlabel("Tool-reported modification ratio", fontsize=FS["label"])
     axes[0].set_ylabel(f"PPV vs. GLORI ({C.PRIMARY_WINDOW} bp)",
@@ -324,7 +324,7 @@ def assert_label_fit(fig, a_axes, b_axes, cd_axes, logger) -> None:
     * the widest A-row tool name (plus tick pad) must fit inside the reserved
       label gap and inside the left margin -- the failure that made the first
       version overlap the neighbouring heatmap;
-    * every B / C / D panel must carry its own x axis title (user 2026-09-19);
+    * every B / C / D panel must carry its own x axis title (author decision 2026-09-19);
     * the 45 deg bin labels of the B row must stay separable: the perpendicular
       distance between neighbouring labels has to exceed the text height.
     """

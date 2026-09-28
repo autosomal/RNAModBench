@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""S8 style tokens -- page geometry, type scale, palette.
+"""Figure S9 style tokens -- page geometry, type scale, palette.
 
-Since 2026-09-25 (user) the page is an **A4 portrait sheet with three rows**:
+Since 2026-09-25 (author decision) the page is an **A4 portrait sheet with three rows**:
 row 1 carries the three bar panels A | B | C side by side, row 2 the full-width
 window sweep D (its 13-entry key on the right), row 3 the merged effect-size
 panel E (Pearson r and slope sharing one label column).
@@ -187,7 +187,7 @@ def apply() -> None:
 def bare(ax: plt.Axes) -> None:
     """House axis furniture: a closed box frame, ticks out, no minor ticks.
 
- 2026-09-27 (user): every panel is a **boxed square** (""),
+ 2026-09-27 (author decision): every panel is a **boxed square** (""),
     so the top and right spines stay visible -- the earlier landscape layout kept
     them off.
     """
@@ -203,7 +203,7 @@ def bare(ax: plt.Axes) -> None:
 
 #: all sit on this bottom offset, so a row of panels reads as one horizontal line.
 #: The six cells of rows 2 and 3 draw the same square and leave the same strip
-#: under it, because **a key prints under the panel it belongs to** (user rule):
+#: under it, because **a key prints under the panel it belongs to** (house rule):
 #: H and I carry the species key, G the effect key, each one line under its own
 #: box, inside its own canvas -- never above the box and never in a neighbour's
 #: free space.  The strip has room for ticks + rotated-nothing axis title + one

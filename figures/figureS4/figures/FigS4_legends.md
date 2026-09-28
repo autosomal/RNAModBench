@@ -114,7 +114,7 @@ the purified comparison to **D**, and the manuscript, this legend and the
 response letter were updated together. The *independent*
 validation of the purified sites requested by R3-7 (GLORI overlap, DRACH
 context, stoichiometry-semantic scores of the three site groups) is **not** part
-of this figure any more — it is the separate **Figure S10**
+of this figure any more — it is the separate **Figure S5**
 (`figures/figureS5/`).
 
 ## Caveats (also stated in the manuscript)

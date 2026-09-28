@@ -8,7 +8,7 @@ whatever space was left after the page budget, which is how the page ended up
 with letterbox-shaped panels (3.22 x 0.85 in) and with sub-row titles sharing a
 band with the tick labels of the row above.
 
-This module inverts the workflow, as the user asked (" draw panels individually then compose --
+This module inverts the workflow, as the author asked (" draw panels individually then compose --
 draw each panel first, then assemble them"): every panel is drawn on its **own
 canvas at its final print size**, keeps its own page margin (panel letter,
 y axis label, tick labels) and passes the layout gate on its own.  The page is

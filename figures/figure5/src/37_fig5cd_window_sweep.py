@@ -183,7 +183,7 @@ def _draw(ax, summary: pd.DataFrame, species: str, metric: str,
 def figures(summary: pd.DataFrame) -> None:
     apply_style()
     for metric, ylab, stem_name in (
-            # naming (user decision 2026-09-19): precision against the reference,
+            # naming (author decision 2026-09-19): precision against the reference,
             # i.e. PPV -- the old "GLORI hit rate" label is retired
             ("hit_rate", f"PPV vs. GLORI ({C.PRIMARY_WINDOW} bp)",
              "Fig5C_window_hitrate"),

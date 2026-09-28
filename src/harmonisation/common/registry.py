@@ -1,7 +1,7 @@
 """Sample / tool registry: resolve every (sample, tool) onto a source file.
 
 The resolution rules were derived from a full inventory of ``result/`` and
-``result_RNA004/`` (see the per-tool table in harmonisation/README.md):
+``result_RNA004/`` (see the per-tool table in docs/pipeline.md):
 
 * a tool's sample directories are matched to canonical samples through the
   alias lists in :mod:`config` (directory names vary per tool:

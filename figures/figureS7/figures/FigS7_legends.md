@@ -1,14 +1,14 @@
-# Figure S6 -- legend (rebuilt 2026-09-21, R3-9-centred contract)
+# Figure S7 -- legend (rebuilt 2026-09-21, R3-9-centred contract)
 
-> Paste-ready replacement for the Figure S6 entry of the SI legend compilation
-> (`$RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/Supplementary_Figures.pdf`). That compilation
+> Paste-ready replacement for the Figure S7 entry of the SI legend compilation
+> (`$RNAMODBENCH_LOCAL/submission/Supplementary_Figures.pdf`). That compilation
 > and `Supplementary_Table.pdf` have no editable source inside the repository, so
-> both need an external re-layout pass (the S4 legend and the missing S10 entry
+> both need an external re-layout pass (the S4 legend and the missing Figure S5 entry
 > are outstanding there as well). The figure page itself is
-> `figures/FigureS6_rev.pdf`; `$RNAMODBENCH_LOCAL/manuscript/sup/sup6.pdf` is the
+> `figures/FigureS7_rev.pdf`; `$RNAMODBENCH_LOCAL/manuscript/sup/sup6.pdf` is the
 > staged copy for the submission tree.
 
-**Figure S6. Non-m6A modification detection against unmodified controls.** Every
+**Figure S7. Non-m6A modification detection against unmodified controls.** Every
 quantity is computed per independent sequencing unit (HeLa WT rep1-3, *n* = 3;
 HeLa unmodified IVT rep1-3, *n* = 3) inside each sample's candidate-site
 universe, and **no m6A-centred reference is used anywhere in this figure** (R2-2):
@@ -137,7 +137,7 @@ condition and are therefore indicative, not precise.
   `s7_counts_summary.tsv`, `s7_ratio_ci.tsv`, `s7_anchor_check.tsv`
   (552/552 values reconciled with the frozen R3-9 tables at 1e-5),
   `TableS5_reconciliation.tsv`.
-* the earlier pooled density table (`s6_score_density.tsv`) was retired on
+* the earlier pooled density table (`s7_score_density.tsv`) was retired on
   2026-09-21: pooling the replicates of a condition into one curve contradicts
   the per-unit rule of this study. It is kept as
   `s7_score_density_RETIRED_pooled.tsv` for provenance only.

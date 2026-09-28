@@ -1,6 +1,6 @@
-# Figure S10 (new, revision) — legends
+# Figure S5 (new, revision) — legends
 
-**Figure S10.** Independent characterisation of the purified-site definition
+**Figure S5.** Independent characterisation of the purified-site definition
 (R3-7). Every WT/deficient pair is split into three site groups inside the
 pair's common testable universe: **def-only** (called only in the deficient
 sample), **shared** (called in both samples) and **purified** (called in WT
@@ -14,7 +14,7 @@ SRP166020, open = study B SRP357195, **never averaged**) and the black tick is
 their mean; error bars are the SD across pairs for A and B (the mean IQR of the
 per-pair score distributions for C). The y ticks are labelled on every column.
 Fonts use the **enlarged scale of this figure** (tick 12 pt, axis 14 pt, species
-title 17 pt, panel letter 24 pt, key 10.5 pt at the final print size): S10 is
+title 17 pt, panel letter 24 pt, key 10.5 pt at the final print size): Figure S5 is
 printed on the same A4 page as Figure S4, but its panels are taller, so a scale
 of its own keeps the type proportional to the drawing (Figure S4 keeps its own,
 smaller scale). The page uses the same layout system as Figure S4: **A4 portrait**
@@ -55,7 +55,7 @@ first draft of the revised Figure S4. They answer a different reviewer point
 (R3-7, circularity of the purified definition) from the panels of Figure S4
 (counts after purification, window sweep, PPV before/after purification), and
 Figure S4 has to keep the row layout of the submitted figure, so they were split
-into this separate, appended figure (S10). Panel letters restart at A.
+into this separate, appended figure (Figure S5). Panel letters restart at A.
 
 ## Caveats (also stated in the manuscript)
 

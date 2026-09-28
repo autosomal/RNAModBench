@@ -25,7 +25,7 @@ PROJECT = Path(str(_RB))
 OUT = (_RB / "figures/figureS8")
 TAB = (_RB / "figures/figureS8/tables")
 FIG = (_RB / "figures/figureS8/figures")
-PDF = (_RB / "figures/figureS8/figures/FigureS7_rev.pdf")
+PDF = (_RB / "figures/figureS8/figures/FigureS8_rev.pdf")
 checks = []
 
 
@@ -52,7 +52,7 @@ def verify_anchors():
 def verify_engines():
     import importlib.util
     spec = importlib.util.spec_from_file_location(
-        "s7_tables", Path(__file__).with_name("61_figS8_tables.py"))
+        "s8_tables", Path(__file__).with_name("61_figS8_tables.py"))
     s7 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(s7)
     geo = pd.read_csv((_RB / "figures/figureS8/tables/figS8_guitar_geometry.tsv"), sep="\t")

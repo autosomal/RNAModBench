@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""70 -- render the nine Figure S8 panels (A-I), one file at a time, at print size.
+"""70 -- render the nine Figure S9 panels (A-I), one file at a time, at print size.
 
 Each panel is drawn on its own canvas of exactly the size it occupies on the
 assembled page and has to pass the layout gate (``pagelayout.assert_page_clean``:
@@ -9,7 +9,7 @@ font below 7 pt) before its PDF is written.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/70_figs9_panels.py [A B ...]
+    $RNAMODBENCH_ROOT/analysis/figS9_rebuild/scripts/70_figs9_panels.py [A B ...]
 """
 from __future__ import annotations
 
@@ -121,7 +121,7 @@ def render(key: str, left_in: float) -> None:
             except SystemExit as exc:
                 log(f"panel {key}: {exc}")
     assert_on_canvas(fig, key)
-    out = S.PANELS / f"figS8{key}.pdf"
+    out = S.PANELS / f"figS9{key}.pdf"
     save_panel(fig, out, ignore_axes=list(ignore))
     log(f"panel {key}: {w:.3f} x {h:.3f} in -> {out.relative_to(S.PROJECT)}")
 
@@ -135,7 +135,7 @@ def main() -> None:
     log("label columns: " + ", ".join(f"{k} {v:.3f} in" for k, v in cols.items()))
     for key in keys:
         render(key, cols[key])
-    (S.TABLES / "S8_anchors.tsv").write_text(
+    (S.TABLES / "S9_anchors.tsv").write_text(
         "panel\tquantity\tvalue\n"
         + "\n".join("\t".join(r) for r in D.anchors()) + "\n")
     log(f"dots drawn in total: {P.DOTS_DRAWN}")

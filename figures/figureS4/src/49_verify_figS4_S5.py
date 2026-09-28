@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""49 -- acceptance checks for the rebuilt Figure S4 and the new Figure S10.
+"""49 -- acceptance checks for the rebuilt Figure S4 and the new Figure S5.
 
 Runs the four checks the revision workflow asks for before a figure is allowed
 anywhere near the submission folder:
@@ -18,22 +18,22 @@ anywhere near the submission folder:
    ``pagelayout.assert_page_clean``) with panel letters in the page margin
    (``pagelayout.margin_letter``) instead of at an axes-relative offset.  The
    gate must also reject text that *hugs* a foreign frame line
- (``near_pt`` >= 3 pt) -- the defect the user reported twice as " font/box/line overlap ";
+ (``near_pt`` >= 3 pt) -- the defect the author reported twice as " font/box/line overlap ";
    Figure S4 must keep its 13-tool key in the centred stripe after panel A,
  must *not* carry the PR-AUC row any more (dropped 2026-09-21, " values are all too low ")
    while its frozen PR-AUC tables stay anchored, must draw the window sweep as
    **two lettered facets** (B = PPV, C = exact-nucleotide fraction) with the
-   purified comparison as panel D, and Figure S10 must keep the enlarged type
+   purified comparison as panel D, and Figure S5 must keep the enlarged type
    scale of its own;
 4. **cross-references** -- the S4 legends no longer advertise panels E--G and
-   the S4/S10 legends point at the right figure number.
+   the S4/S5 legends point at the right figure number.
 
 Exit code 0 = all checks passed; 2 = at least one failure (printed).
 
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/figures/figureS4/src/49_verify_figS4_S10.py
+    $RNAMODBENCH_ROOT/figures/figureS4/src/49_verify_figS4_S5.py
 """
 from __future__ import annotations
 
@@ -61,7 +61,7 @@ import pandas as pd
 PROJECT = Path(str(_RB))
 SITES = (_RB / "data")
 S4 = (_RB / "figures/figureS4")
-S10 = (_RB / "figures/figureS5")
+S5 = (_RB / "figures/figureS5")
 SCRIPTS = (_RB / "src/harmonisation/scripts")
 
 TOOLS = ["CHEUI_m6A", "DENA", "DRUMMER", "ELIGOS2_diff", "ELIGOS2_solo",
@@ -102,7 +102,7 @@ def anchors(path: Path) -> dict[str, float]:
 # --------------------------------------------------------------------------- #
 def verify_numbers() -> None:
     a4 = anchors((_RB / "figures/figureS4/logs/42_figS4_anchors.tsv"))
-    a10 = anchors((_RB / "figures/figureS5/logs/48_figS10_anchors.tsv"))
+    a10 = anchors((_RB / "figures/figureS5/logs/48_figS5_anchors.tsv"))
 
     conf = pd.read_csv((_RB / "data/evaluation/tables/m6a_glori_confusion.tsv"), sep="\t")
     conf = conf[(conf["platform"] == "RNA002") & (conf["window"] == 2)
@@ -178,7 +178,7 @@ def verify_numbers() -> None:
                   close(want, a10[f"score_{group}_{tool}"]),
                   f"{want:.6f} vs {a10[f'score_{group}_{tool}']:.6f}")
 
-    check("S10 direction is reported as mixed (no systematic stoichiometry gain)",
+    check("S5 direction is reported as mixed (no systematic stoichiometry gain)",
           (a10["score_purified_m6Anet"] < a10["score_shared_m6Anet"])
           and (a10["score_purified_Nanom6A"] > a10["score_shared_Nanom6A"]))
 
@@ -193,14 +193,14 @@ def verify_pdfs() -> None:
              ["FigureS4_A", "FigureS4_legend_tools", "FigureS4_BC",
               "FigureS4_D"]),
             ((_RB / "figures/figureS5/figures/panels"),
-             ["FigureS10_A", "FigureS10_B", "FigureS10_C"])):
+             ["FigureS5_A", "FigureS5_B", "FigureS5_C"])):
         for name in names:
             panel = folder / f"{name}.pdf"
             check(f"panel {name}.pdf exists", panel.is_file(),
                   "" if panel.is_file() else str(panel))
 
     for stem in ((_RB / "figures/figureS4/figures/FigureS4_rev.pdf"),
-                 (_RB / "figures/figureS5/figures/FigureS10_rev.pdf")):
+                 (_RB / "figures/figureS5/figures/FigureS5_rev.pdf")):
         info = subprocess.run(["pdfinfo", str(stem)], capture_output=True,
                               text=True).stdout
         pages = re.search(r"^Pages:\s+(\d+)", info, re.M)
@@ -209,7 +209,7 @@ def verify_pdfs() -> None:
               bool(pages) and pages.group(1) == "1")
         if size:
             w, h = float(size.group(1)), float(size.group(2))
-            #: S4 is the 12.16 in tall SI page; the S10 page is A4 portrait
+            #: S4 is the 12.16 in tall SI page; the S5 page is A4 portrait
             want = ((595.44, 875.52) if stem.name.startswith("FigureS4")
                     else (595.44, 842.4))
             check(f"{stem.name}: page {want[0]:.0f} x {want[1]:.0f} pt",
@@ -428,18 +428,18 @@ def verify_style() -> None:
           "KEY_ENTRIES: list" in s10 and s10.count("ax.legend(") == 3
           and "fig.legend(" not in s10)
 
-    fs10 = {m.group(1): float(m.group(2)) for m in re.finditer(
+    fs5 = {m.group(1): float(m.group(2)) for m in re.finditer(
         r'"(\w+)":\s*([0-9.]+)', s10)}
     fs4 = {m.group(1): float(m.group(2)) for m in re.finditer(
         r'"(\w+)":\s*([0-9.]+)', s4)}
-    check("48_figS5_validation.py: S10 uses an enlarged scale of its own",
-          fs10.get("tick", 0.0) >= 12.0 and fs10.get("axis", 0.0) >= 14.0
-          and fs10.get("column", 0.0) >= 17.0,
-          f"tick={fs10.get('tick')}, axis={fs10.get('axis')}, "
-          f"column={fs10.get('column')}")
+    check("48_figS5_validation.py: S5 uses an enlarged scale of its own",
+          fs5.get("tick", 0.0) >= 12.0 and fs5.get("axis", 0.0) >= 14.0
+          and fs5.get("column", 0.0) >= 17.0,
+          f"tick={fs5.get('tick')}, axis={fs5.get('axis')}, "
+          f"column={fs5.get('column')}")
     check("42_figS4_figure.py: S4 keeps its own (smaller) scale",
-          fs4.get("tick", 99.0) < fs10.get("tick", 0.0),
-          f"S4 tick={fs4.get('tick')} < S10 tick={fs10.get('tick')}")
+          fs4.get("tick", 99.0) < fs5.get("tick", 0.0),
+          f"S4 tick={fs4.get('tick')} < S5 tick={fs5.get('tick')}")
     layout_src = (SCRIPTS.parent / "common" / "pagelayout.py").read_text()
     check("pagelayout.py provides the legend/data clearance gate",
           "def assert_legend_clear(" in layout_src
@@ -459,8 +459,7 @@ def verify_references() -> None:
     # whitespace-normalised view: the legend is hard-wrapped, so a phrase can be
     # split across two lines (the S6 lesson: normalise before matching)
     s4_flat = re.sub(r"\s+", " ", s4_legend)
-    s4_readme = ((_RB / "figures/figureS4/README.md")).read_text()
-    s10_legend = ((_RB / "figures/figureS5/figures/FigS5_legends.md")).read_text()
+    s5_legend = ((_RB / "figures/figureS5/figures/FigS5_legends.md")).read_text()
     check("S4 legend no longer advertises panels E-G",
           "(E–G)" not in s4_legend and "**(E)" not in s4_legend
           and "**(G)" not in s4_legend)
@@ -476,20 +475,14 @@ def verify_references() -> None:
           "individual sequencing units" in s4_flat
           and "group mean" in s4_flat
           and "two layers" in s4_flat)
-    check("S4 README records the two-facet rework",
-          " " in s4_readme or "two stacked facets" in s4_readme)
-    check("S4 README records the B/C/D re-lettering",
-          "" in s4_readme or "lettered" in s4_readme)
     check("S4 legend no longer describes the dropped PR-AUC row",
           "PR-AUC" not in s4_legend and "AUPRC" not in s4_legend
           and "four-row" not in s4_legend)
-    check("S4 legend points to Figure S10",
-          "Figure S10" in s4_legend)
-    check("S4 README points to Figure S10",
-          "Figure S10" in s4_readme or "figures/figureS5" in s4_readme)
-    check("S10 legend is self-contained (panels A-C)",
-          "**(A)**" in s10_legend and "**(B)**" in s10_legend
-          and "**(C)**" in s10_legend)
+    check("S4 legend points to Figure S5",
+          "Figure S5" in s4_legend)
+    check("S5 legend is self-contained (panels A-C)",
+          "**(A)**" in s5_legend and "**(B)**" in s5_legend
+          and "**(C)**" in s5_legend)
 
 
 def main() -> int:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""61 -- Figure S7 evidence tables (replicate-aware non-m6A ncRNA metagene).
+"""61 -- Figure S8 evidence tables (replicate-aware non-m6A ncRNA metagene).
 
-Figure S7 (``$RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/sup/sup7.pdf``) shows the ncRNA
+Figure S8 (``$RNAMODBENCH_LOCAL/submission/sup/sup7.pdf``) shows the ncRNA
 metagene of the six non-m6A tools in HeLa WT versus the unmodified IVT negative
 control.  The published version pooled the three replicates (the legacy Guitar
 inputs were an undocumented union) and carried no quantitative statement, which
@@ -21,7 +21,7 @@ rebuilt figure:
   model, with the same per-chromosome counts as the observed majority call set,
   R = 1000, seed = 20260919 (the R3-9 seed, so the analyses stay comparable).
 
-Conventions (identical to R3-9 / Figure S6)
+Conventions (identical to R3-9 / Figure S7)
 -------------------------------------------
 * analysis layer = ``harmonisation/callsets`` (0-based BED, coordinate fixes);
 * candidate universe = ``harmonisation/universe/<platform>/<species>/<canonical>__universe.tsv.gz``
@@ -105,7 +105,7 @@ OUT = (_RB / "figures/figureS8")
 TAB = (_RB / "figures/figureS8/tables")
 LOG = (_RB / "figures/figureS8/logs")
 
-#: single implementation of the universe / geometry helpers (no drift, see S6)
+#: single implementation of the universe / geometry helpers (no drift, see Figure S7)
 _spec = importlib.util.spec_from_file_location(
     "r39_build_evidence", (_RB / "analysis/nonm6a_false_positives/analysis/r39_build_evidence.py"))
 r39 = importlib.util.module_from_spec(_spec)
@@ -169,7 +169,7 @@ def record(quantity: str, value: float, ref: float, *, rtol: float = 1e-5,
     """Anchor one computed value against its frozen R3-9 counterpart."""
     ok = bool(np.isfinite(value) and np.isfinite(ref)
               and np.isclose(value, ref, rtol=rtol, atol=1e-12))
-    anchors.append({"quantity": quantity, "s7_value": value, "r39_value": ref,
+    anchors.append({"quantity": quantity, "s8_value": value, "r39_value": ref,
                     "rel_diff": (abs(value - ref) / abs(ref)) if ref else np.nan,
                     "status": "OK" if ok else "MISMATCH", "note": note})
 
@@ -336,7 +336,7 @@ def lookup(data: dict, chrom: str, pos: np.ndarray, codes: list[int]
     """(in_universe, kind, nz) of ``pos`` in one library's universe.
 
     ``in_universe`` marks positions present with a base that can carry the
-    modification (the R3-9 / Figure S6 definition); ``kind`` is -1 outside the
+    modification (the R3-9 / Figure S7 definition); ``kind`` is -1 outside the
     ncRNA model (or outside the universe altogether).
     """
     n = pos.size
@@ -492,7 +492,7 @@ def main() -> None:
     if len(models) != 1:
         raise SystemExit("expected exactly one Ensembl human ncRNA model, "
                          f"found {[p.name for p in models]}")
-    log.info("Figure S7 ncRNA evidence | model=%s | seed=%d R=%d",
+    log.info("Figure S8 ncRNA evidence | model=%s | seed=%d R=%d",
              models[0].name, SEED, N_DRAW)
     model = RegionIndex.load(models[0])
 
@@ -751,7 +751,7 @@ def main() -> None:
     log.info("     %d/%d anchors OK", len(adf) - len(bad), len(adf))
     for r in bad.itertuples():
         log.warning("     MISMATCH %s: s7=%.10g r39=%.10g", r.quantity,
-                    r.s7_value, r.r39_value)
+                    r.s8_value, r.r39_value)
 
     log.info("[6/6] done in %.1f s; tables -> %s", time.time() - t0, TAB)
     inv.flush()

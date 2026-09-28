@@ -60,7 +60,7 @@ from common.manifest import setup_logger  # noqa: E402
 OUT = (_RB / "figures/figure1")
 FIG, TAB, LOG = (_RB / "figures/figure1/figures"), (_RB / "figures/figure1/tables"), (_RB / "figures/figure1/logs")
 BODY = FIG / "Figure1_rev_body.pdf"
-#: 2026-09-23: the delivered panel A is the user's Illustrator RGB export of the
+#: 2026-09-23: the delivered panel A is the author's Illustrator RGB export of the
 #: original artwork, turned into this strip by 72 (letter "A" deleted in the
 #: content stream, trimmed to the ink, scaled and centred with the transform
 #: baked into the page box).  Point this back at Figure1_A_redrawn.pdf to fall

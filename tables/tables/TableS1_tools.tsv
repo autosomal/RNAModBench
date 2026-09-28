@@ -15,4 +15,4 @@ NanoSPA	Signal (current)	Machine learning	Feedforward neural network	m6A, Psi	Na
 NanoMUD	Signal (current)	Machine learning + deep learning	Bidirectional LSTM, regression and motif-specific models	Psi, m1Psi	NanoMUD_Psi, NanoMUD_m1Psi
 NanoPsu	Basecalling errors	Machine learning + statistical test	U-to-C mismatch error analysis, EXT	Psi	de novo
 NanoNm	Signal (current)	Machine learning	XGBoost	Nm	de novo
-# note: RNA002 datasets for all tools; Dorado built-in modification models (RNA004) and the RNA004-optimised m6Anet model are reported separately in Fig. 8 / Fig. S8. Tool names follow the standardized nomenclature of the manuscript; versions and command lines are in Table S6.
+# note: RNA002 datasets for all tools; Dorado built-in modification models (RNA004) and the RNA004-optimised m6Anet model are reported separately in Fig. 8 / Fig. S9. Tool names follow the standardized nomenclature of the manuscript; versions and command lines are in Table S6.

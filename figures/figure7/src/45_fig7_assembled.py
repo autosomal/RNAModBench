@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """45 -- the composer of the delivered Figure 7 (A-F block + G block).
 
-2026-09-28 (user): this script composed a page that *looked* like an old
+2026-09-28 (author decision): this script composed a page that *looked* like an old
 version because it silently accepted stale block files; the wrong page was
 delivered by mistake and had to be rolled back.  It stays because it is the
 only composer of Figure 7, but it MUST be run only after both blocks are

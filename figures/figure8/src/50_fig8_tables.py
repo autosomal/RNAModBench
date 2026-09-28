@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""50 -- Figure 8 / Figure S8 revision tables (reviewer R3-8, editor E8).
+"""50 -- Figure 8 / Figure S9 revision tables (reviewer R3-8, editor E8).
 
-Everything the revised Figure 8 (main) and Figure S8 (supplementary) plot is
+Everything the revised Figure 8 (main) and Figure S9 (supplementary) plot is
 recomputed here from the clean callset layer (``harmonisation/callsets``), the
 frozen evaluation tables (``harmonisation/evaluation/tables``), the per-sample
 candidate universes (``harmonisation/universe``) and the raw RNA004 ORCA output.
@@ -30,7 +30,7 @@ Outputs -> ``figures/figure8/tables``
 * fig8_fpr_hela_ivt.tsv          HeLa IVT control per tool (delivered cutoff)
 * fig8_ppv_glori.tsv             PPV vs. GLORI (2 bp), RNA004 HeLa WT
 * fig8_tradeoff.tsv              PPV vs. FP-per-10 kb operating points
-* fig8_jaccard_wt.tsv / _ivt.tsv Dorado m6A concordance (moves to Fig. S8)
+* fig8_jaccard_wt.tsv / _ivt.tsv Dorado m6A concordance (moves to Fig. S9)
 * figS9_chem_compare.tsv         Curlcake FPR, RNA002 vs RNA004, per unit
 * figS9_orca_counts.tsv          ORCA + tool counts per modification type
 * figS9_modratio_agreement.tsv   modification ratio vs GLORI association

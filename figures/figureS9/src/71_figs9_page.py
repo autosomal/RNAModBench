@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""71 -- compose the nine panels onto the A4 landscape (842.4 x 595.44 pt) S8 page.
+"""71 -- compose the nine panels onto the A4 landscape (842.4 x 595.44 pt) Figure S9 page.
 
 The panels were drawn at their final print size on a 3 x 3 grid, so pypdf only
 translates them (no scaling): the point sizes in the panel PDFs are the printed
@@ -9,7 +9,7 @@ that no two panels overlap.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/71_figs9_page.py
+    $RNAMODBENCH_ROOT/analysis/figS9_rebuild/scripts/71_figs9_page.py
 """
 from __future__ import annotations
 
@@ -23,15 +23,15 @@ sys.path.insert(0, str(HERE))
 import s9_style as S  # noqa: E402  (also puts src/harmonisation on sys.path)
 from common.panelpage import Panel, compose_page, pdf_to_png  # noqa: E402
 
-PAGE = S.FIGS / "FigureS8_rev.pdf"
-PNG = S.FIGS / "FigureS8_rev.png"
+PAGE = S.FIGS / "FigureS9_rev.pdf"
+PNG = S.FIGS / "FigureS9_rev.png"
 
 
 def main() -> None:
     placements = []
     for key in S.PIECE:
         w, h = S.PIECE[key]
-        path = S.PANELS / f"figS8{key}.pdf"
+        path = S.PANELS / f"figS9{key}.pdf"
         if not path.exists():
             raise SystemExit(f"missing panel {path} -- run 70_figs9_panels.py")
         x, y = S.PLACE[key]

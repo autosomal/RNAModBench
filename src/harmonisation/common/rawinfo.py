@@ -4,7 +4,7 @@ The working callsets were extracted from the ``converted_callsets`` layer,
 whose files carry only 7 columns (Chr/Start/End/Status/Prob/Strand/mod_ratio).
 The *raw* tool outputs under ``$RNAMODBENCH_LOCAL/raw/result/<tool>/<sample>/`` hold
 much more per-site information -- coverage, stoichiometry, probability,
-k-mer/motif, p-values, odds ratios, read counts (the user's "5th column and
+k-mer/motif, p-values, odds ratios, read counts (the author's "5th column and
 beyond").
 
 Two join paths

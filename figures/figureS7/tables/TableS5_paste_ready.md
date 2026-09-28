@@ -1,6 +1,6 @@
 # Table S5 — suggested replacement values (paste-ready)
 
-The submitted `$RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/Supplementary_Table.pdf` has **no
+The submitted `$RNAMODBENCH_LOCAL/submission/Supplementary_Table.pdf` has **no
 editable source inside the repository** (verified 2026-09-20 by a repository-wide
 search), so this file gives the values to paste into the external layout.
 

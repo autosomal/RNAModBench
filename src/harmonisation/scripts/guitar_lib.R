@@ -193,7 +193,7 @@ REGION_LADDER <- data.frame(size = c(8.5, 8.0, 7.5, 7.5, 7.0),
 
 
 ## They are a deliberate exception to the 7 pt floor -- that one row has to fit a
-## 95.76 pt panel cell (five labels are 93.3 pt wide at 8.5 pt), and the user
+## 95.76 pt panel cell (five labels are 93.3 pt wide at 8.5 pt), and the author
 ## chose smaller type over moving the labels off their segments.  Pinning the
 ## tier keeps a rerun from silently stepping back up; REGION_LADDER stays for
 ## other rows that may appear later.
@@ -253,7 +253,7 @@ fit_region_size <- function(labels, allow_w_pt, ladder = REGION_LADDER,
 ## y        : the single baseline, in y data units
 ## anchor_y : leader start, in y data units (segment bar underside); NULL = none
 ## leader_drop: how far below the baseline a leader should stop (y data units)
-## mode = "segments" (Figure 8E look, user 2026-09-23): every label sits on its
+## mode = "segments" (Figure 8E look, author decision 2026-09-23): every label sits on its
 ## own segment anchor, the labels named in `rotate` are drawn vertically so their
 ## horizontal footprint becomes the text height instead of the text width, and no
 ## leader is drawn.  Only a micro-nudge of at most `nudge_pt` keeps neighbours

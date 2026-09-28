@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""62 -- Figure S5 (revised): the detail the main Figure 6 does not carry.
+"""62 -- Figure S6 (revised): the detail the main Figure 6 does not carry.
 
 The rebuilt main Figure 6 (``65_fig6_combination_page.py``) already shows the
 selection criterion, the selected trade-off, the per-unit trajectories, the
@@ -32,13 +32,13 @@ A | mouse study B | HeLa) -- dots per unit plus the mean within the group, never
 a mean across groups and never a mean across the two mouse studies.
 
 The selection criterion itself is deliberately *not* re-drawn: it is the
-subject of main-text Fig. 6D and of the frozen table ``figS5_search_space.tsv``.
+subject of main-text Fig. 6D and of the frozen table ``figS6_search_space.tsv``.
 The paste-ready legend states the two facts a reader needs there -- PPV >= p0
 held for every enumerated combination of every k (p0 is a formal guardrail, so
 the criterion is "maximum mean recall at each k"), and the greedy forward
 selection reproduces every exhaustive optimum.
 
-Layout (2026-09-21, user decisions): a compact **240 x 175 mm page** (1:1, no
+Layout (2026-09-21, author decisions): a compact **240 x 175 mm page** (1:1, no
 rescaling) so the text reads large relative to the figure; row A keeps three
 species columns (Arabidopsis | Mouse, both studies in one axes, solid study A /
 dashed study B | HeLa) because it plots curves against k, while rows B-E are
@@ -51,7 +51,7 @@ House rules: drawn at the final printed size, >= 9 pt printed everywhere,
 Arial, no gridlines, no in-panel annotation text, bold panel letters, vector PDF
 + 300 dpi PNG.
 
-Outputs -> figures/figureS6/figures/FigureS5_rev
+Outputs -> figures/figureS6/figures/FigureS6_rev
 (the frozen evidence tables stay in ``figures/figure6/tables``)
 
 Usage
@@ -97,7 +97,7 @@ from common.manifest import setup_logger             # noqa: E402
 from common.pagelayout import (quad_gap, quads_intersect,  # noqa: E402
                                rect_quad, text_quad)
 
-#: S5 lives next to the other supplementary revisions; its evidence tables stay
+#: Figure S6 lives next to the other supplementary revisions; its evidence tables stay
 #: in the Fig. 6 family directory because ``40_fig6_combination.py`` and
 #: ``61_figS6_sitequality.py`` produce them and the rebuilt main Figure 6 reads
 #: the same frozen tables.
@@ -203,11 +203,11 @@ def apply_style() -> None:
 # ------------------------------------------------------------------- data ---- #
 def load() -> dict[str, pd.DataFrame]:
     return {
-        "space": pd.read_csv(TAB / "figS5_search_space.tsv", sep="\t"),
-        "greedy": pd.read_csv(TAB / "figS5_greedy_1to13.tsv", sep="\t"),
+        "space": pd.read_csv(TAB / "figS6_search_space.tsv", sep="\t"),
+        "greedy": pd.read_csv(TAB / "figS6_greedy_1to13.tsv", sep="\t"),
         "members": pd.read_csv(TAB / "fig6_selected_members.tsv", sep="\t"),
-        "qual": pd.read_csv(TAB / "figS5_site_quality.tsv", sep="\t"),
-        "toolq": pd.read_csv(TAB / "figS5_tool_quality.tsv", sep="\t"),
+        "qual": pd.read_csv(TAB / "figS6_site_quality.tsv", sep="\t"),
+        "toolq": pd.read_csv(TAB / "figS6_tool_quality.tsv", sep="\t"),
         "ctltool": pd.read_csv(TAB / "fig6_negative_control_fp_bytool.tsv",
                                sep="\t"),
     }
@@ -451,11 +451,11 @@ def panel_e(ax, qual: pd.DataFrame) -> None:
 #: with the column titles on top of row A fits five entries in one line
 KEY_A = ["union recall", "union PPV", "intersection recall", "intersection PPV",
          "best single tool"]
-#: 2026-09-28 (user, same rule as the main Figure 6): the row key no longer says
+#: 2026-09-28 (author decision, same rule as the main Figure 6): the row key no longer says
 #: "one dot = one unit".  What the rows draw is keyed by colour instead -- the
 #: union/intersection pair sits in row A's own key, the four groups and their mean
 #: in this strip -- and that a dot is one independent sequencing unit is stated by
-#: the caption (Fig. S6, panels B and C: "one dot per unit").
+#: the caption (Fig. S7, panels B and C: "one dot per unit").
 KEY_REST = ["group mean", "Arabidopsis", "mouse study A",
             "mouse study B", "HeLa", "Curlcake IVT", "HeLa IVT"]
 
@@ -727,7 +727,7 @@ def main() -> None:
                 [[round(float(v), 1) for v in (b.x0, b.x1)] for b in legs])
 
     FIG.mkdir(parents=True, exist_ok=True)
-    stem = FIG / "FigureS5_rev"
+    stem = FIG / "FigureS6_rev"
     # exact A4 landscape page (no tight bbox): the print size must equal the canvas
     fig.savefig(stem.with_suffix(".pdf"), bbox_inches=None, pad_inches=0)
     fig.savefig(stem.with_suffix(".png"), dpi=300, bbox_inches=None,

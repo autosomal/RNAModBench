@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""50 -- Figure S6 evidence tables (non-m6A tools; callsets, per replicate).
+"""50 -- Figure S7 evidence tables (non-m6A tools; callsets, per replicate).
 
-The rebuilt Figure S6 is the *detail* companion of the revised Figure 7: every
+The rebuilt Figure S7 is the *detail* companion of the revised Figure 7: every
 quantity is computed per independent sequencing unit and each number is
 reconciled against the frozen R3-9 evidence tables before it reaches a panel.
 
@@ -41,7 +41,7 @@ s7_curlcake_per_construct.tsv unmodified-control FP detail per construct
 s7_anchor_check.tsv           every value above vs the frozen R3-9 tables
 TableS5_reconciliation.tsv    current callset vs the published Table S5 numbers
 
-Retired (2026-09-21): ``s6_score_density.tsv`` pooled the three replicates of a
+Retired (2026-09-21): ``s7_score_density.tsv`` pooled the three replicates of a
 condition into one density curve.  That violates the per-unit rule of this
 project, so it is no longer written; the per-sample table above carries the
 same information and the pooled file was kept only as
@@ -165,7 +165,7 @@ def record(quantity: str, value: float, ref: float, *, rtol: float = 1e-5,
     """Anchor one computed value against its frozen R3-9 counterpart."""
     ok = bool(np.isfinite(value) and np.isfinite(ref)
               and np.isclose(value, ref, rtol=rtol, atol=1e-12))
-    anchors.append({"quantity": quantity, "s6_value": value, "r39_value": ref,
+    anchors.append({"quantity": quantity, "s7_value": value, "r39_value": ref,
                     "rel_diff": (abs(value - ref) / abs(ref)) if ref else np.nan,
                     "status": "OK" if ok else "MISMATCH", "note": note})
 
@@ -760,7 +760,7 @@ def build_table_s5(summary: pd.DataFrame) -> pd.DataFrame:
         rows.append(dict(
             tool=tool, display=DISPLAY[tool], mod_type=MOD_OF[tool],
             t5_ivt_union=t5["ivt"], t5_wt_union=t5["wt"], t5_ratio=t5["ratio"],
-            s6_wt_union_raw=wt, s6_ivt_union_raw=ivt, s6_ratio_raw=ratio,
+            s7_wt_union_raw=wt, s7_ivt_union_raw=ivt, s7_ratio_raw=ratio,
             wt_delta=wt - t5["wt"], ivt_delta=ivt - t5["ivt"],
             ratio_delta=ratio - t5["ratio"],
             status=("same" if (wt == t5["wt"] and ivt == t5["ivt"])
@@ -781,10 +781,10 @@ def main() -> None:
     log = setup_logger("53_figS7_tables", log_dir=LOG)
     _LOGGER = log
     # historical inventory key: this script was renumbered 50 -> 53 after the
-    # Figure S8 revision took the 50-52 slots (same six tables, same names)
-    inv = Inventory("50_figS6_tables")
+    # Figure S9 revision took the 50-52 slots (same six tables, same names)
+    inv = Inventory("50_figS7_tables")
     t0 = time.time()
-    log.info("Figure S6 evidence tables | min_cov=%d seed=%d B=%d", 10, SEED, B)
+    log.info("Figure S7 evidence tables | min_cov=%d seed=%d B=%d", 10, SEED, B)
 
     res = r39.Resources(min_cov=10)
     regions = r39.region_bp_from_tables(log)
@@ -832,7 +832,7 @@ def main() -> None:
                 float_format="%.6g")
     inv.record((_RB / "figures/figureS7/tables/s7_score_density_per_unit.tsv"), n_rows=len(scor))
     log.info("     -> %d rows", len(scor))
-    pooled = (_RB / "figures/figureS7/tables/s6_score_density.tsv")          # 2026-09-20 pooled build
+    pooled = (_RB / "figures/figureS7/tables/s7_score_density.tsv")          # 2026-09-20 pooled build
     if pooled.exists():
         retired = (_RB / "figures/figureS7/tables/s7_score_density_RETIRED_pooled.tsv")
         if not retired.exists():
@@ -877,7 +877,7 @@ def main() -> None:
     log.info("     %d/%d anchors OK", len(adf) - len(bad), len(adf))
     for r in bad.itertuples():
         log.warning("     MISMATCH %s: s6=%.10g r39=%.10g", r.quantity,
-                    r.s6_value, r.r39_value)
+                    r.s7_value, r.r39_value)
     inv.flush()
     log.info("done in %.1f s; tables -> %s", time.time() - t0, TAB)
     log.info("log: %s", log.log_path)

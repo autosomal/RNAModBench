@@ -193,7 +193,7 @@ def main() -> None:
                      linewidth=0.55, label=FAM_SHORT[SLOTS[2]]),
                Line2D([], [], color="0.1", ls="none", marker="o", ms=4.0,
                       mfc="white", label="0 calls")]   # the same "measured
-                      # zero" wording as panels A/C and Figure S8: the open
+                      # zero" wording as panels A/C and Figure S9: the open
                       # circle is a zero, never a missing measurement
     # matplotlib fills a legend column by column, so the interleaved order above
     # puts the three model families on the first row and the keys on the second.

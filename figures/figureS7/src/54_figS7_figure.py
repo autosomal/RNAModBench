@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""54 -- Figure S6 (rebuilt 2026-09-21): non-m6A tools against unmodified controls.
+"""54 -- Figure S7 (rebuilt 2026-09-21): non-m6A tools against unmodified controls.
 
 Panel contract (approved 2026-09-21).  The questions of R3-9 come first and the
 HeLa call numbers are compressed into one panel:
@@ -33,7 +33,7 @@ D may be slanted / compress the canvas "):
 * **full-width rows**: B, C and D share the six-column tool grid, so their
   columns line up top to bottom; A has its own five-column axis because it
   covers only the five tools that were run on the synthetic constructs (the
-  user asked for the CHEUI-m5C column to disappear from A on 2026-09-21, and
+  the author asked for the CHEUI-m5C column to disappear from A on 2026-09-21, and
   accepted that A's columns therefore no longer sit under B's).  Every row
   carries the tool names at 45 degrees;
 * **no titles anywhere** (house rule of 2026-09-19): panels are identified by
@@ -564,7 +564,7 @@ def legend_data_audit(fig) -> list[dict]:
     """Data points inside a legend box, tested in data coordinates.
 
     Bbox intersection is *not* usable here (a long dashed union line or a
-    density curve would produce false positives); the user's rule of
+    density curve would produce false positives); the author's rule of
     2026-09-21 is that the marks themselves must be clear of the legend.
     """
     fig.canvas.draw()
@@ -653,11 +653,11 @@ def main() -> None:
     for hit in _LEGEND_OUT:
         print(f"[legend] legend overflows its panel: {hit}", flush=True)
 
-    fig.savefig((_RB / "figures/figureS7/figures/FigureS6_rev.pdf"))
-    fig.savefig((_RB / "figures/figureS7/figures/FigureS6_rev.png"), dpi=300)
-    fig.savefig((_RB / "figures/figureS7/figures/FigureS6_rev_600dpi.pdf"), dpi=600)
-    fig.savefig((_RB / "figures/figureS7/figures/FigureS6_rev_600dpi.png"), dpi=600)
-    print_preview((_RB / "figures/figureS7/figures/FigureS6_rev.png"), (_RB / "figures/figureS7/figures/FigureS6_print_preview.png"))
+    fig.savefig((_RB / "figures/figureS7/figures/FigureS7_rev.pdf"))
+    fig.savefig((_RB / "figures/figureS7/figures/FigureS7_rev.png"), dpi=300)
+    fig.savefig((_RB / "figures/figureS7/figures/FigureS7_rev_600dpi.pdf"), dpi=600)
+    fig.savefig((_RB / "figures/figureS7/figures/FigureS7_rev_600dpi.png"), dpi=600)
+    print_preview((_RB / "figures/figureS7/figures/FigureS7_rev.png"), (_RB / "figures/figureS7/figures/FigureS7_print_preview.png"))
 
     texts = pl._text_artists(fig)
     n_titles = sum(1 for ax in fig.axes if ax.get_title().strip())
@@ -676,7 +676,7 @@ def main() -> None:
               "min_font_pt": round(min(t.get_fontsize() for _o, _a, t in texts), 2)}
     ((_RB / "figures/figureS7/logs/54_layout.json")).write_text(json.dumps(report, indent=2))
     plt.close(fig)
-    print(f"[done] FigureS6_rev.pdf/png in {time.time() - t0:.1f} s", flush=True)
+    print(f"[done] FigureS7_rev.pdf/png in {time.time() - t0:.1f} s", flush=True)
     print(f"[log] {LOG / '54_layout.json'}", flush=True)
     if _LEGEND_HITS:
         raise SystemExit("a legend covers data -- move it before shipping")

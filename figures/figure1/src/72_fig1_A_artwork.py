@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""72 -- panel A from the Illustrator RGB artwork (user supplied 2026-09-23).
+"""72 -- panel A from the Illustrator RGB artwork (author supplied 2026-09-23).
 
 Why this script exists
 ----------------------
 67/69 reserve a 486.4591 x 121.0 pt strip for panel A and place it 1:1 (the
 only scaling in the chain happens at drawing time).  The redraw (71) satisfied
-the 7 pt floor but not the published look, so the user re-exported the original
+the 7 pt floor but not the published look, so the author re-exported the original
 panel from Illustrator with RGB process colours (``$RNAMODBENCH_LOCAL/figures_original/Fig1a.pdf``,
 read-only).  This script turns that artwork into the strip, in vectors only:
 
@@ -18,7 +18,7 @@ read-only).  This script turns that artwork into the strip, in vectors only:
   and that transform is **baked into the strip's page box** (486.4591 x 121.0
   pt) so 69 keeps its 1:1 invariant and 70's page-box assertion still holds.
 
-Accepted consequences (user, 2026-09-23)
+Accepted consequences (author decision, 2026-09-23)
 ----------------------------------------
 * panel A is exempt from the 7 pt floor: the artwork's own sizes print as-is
   (body labels ~6.6 pt, small print ~2.5-4.5 pt) -- the printed table below is
@@ -79,7 +79,7 @@ FIG, TAB, LOG = (_RB / "figures/figure1/figures"), (_RB / "figures/figure1/table
 PANEL = FIG / "panels"
 STRIP = PANEL / "Figure1_A_artwork.pdf"
 PREVIEW = PANEL / "Figure1_A_artwork.png"
-SRC = (_XB / "figures_original/Fig1a.pdf")          # user artwork, read-only
+SRC = (_XB / "figures_original/Fig1a.pdf")          # author artwork, read-only
 SCRATCH = ((_RB / "analysis/_figfix_20260923/_audit_tmp/fig1a_noletter.pdf"))
 
 #: the strip 67 reserves -- the canonical copy is its A_RECT, so read it
@@ -184,7 +184,7 @@ def main() -> None:
     strip_w, strip_h = strip_size()
     logger.info("target strip %.4f x %.2f pt (from 67.A_RECT)", strip_w, strip_h)
     if not SRC.exists():
-        raise SystemExit(f"missing user artwork: {SRC}")
+        raise SystemExit(f"missing author artwork: {SRC}")
 
     # ---- 1) letter A out, in vectors -------------------------------------- #
     writer = PdfWriter(clone_from=str(SRC))
@@ -241,7 +241,7 @@ def main() -> None:
     sizes = sorted(round((d - b) / BOX_PER_PT, 2) for _, b, _, d, _ in words)
     logger.info("printed type of panel A: min %.2f pt | median %.2f pt | "
                 "max %.2f pt (%d words) -- the artwork's own sizes, panel A is "
-                "exempt from the 7 pt floor by the user's decision",
+                "exempt from the 7 pt floor by the author's decision",
                 sizes[0], float(np.median(sizes)), sizes[-1], len(sizes))
 
     subprocess.run(["/usr/bin/pdftoppm", "-png", "-r", "300", "-singlefile",

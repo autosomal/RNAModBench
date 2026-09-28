@@ -51,20 +51,11 @@ album).
 
 ## Naming note
 
-The supplement was renumbered when it was assembled for publication: the six
-figures the analysis first numbered S5 to S10 were delivered one place later, the
-last of them wrapping around to S5. Everything in this repository - directories,
-scripts, tables and gates - carries the **delivered** number, so no working number
-appears anywhere. The table is here only for a reader comparing an earlier draft.
-
-| delivered | numbered in the analysis |
-|---|---|
-| Figure S5 | the tenth |
-| Figure S6 | the fifth |
-| Figure S7 | the sixth |
-| Figure S8 | the seventh |
-| Figure S9 | the eighth |
-| Figure S10 | the ninth |
+The order of the ten supplementary figures is fixed by the album assembler,
+`tables/merge_supplementary_figures.py`, which writes the pages in the order the
+manuscript cites them. Every name in this repository - directory, script, table,
+page file and gate - carries that delivered number, so a figure has one number here
+and it is the one printed in the paper.
 
 ## Two panels are not code-generated
 

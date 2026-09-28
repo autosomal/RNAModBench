@@ -8,8 +8,8 @@
 #   fig3d  Fig. 3D  : one panel per species, the three tools the paper showed
 #                     (DENA, m6Anet, Nanom6A), WT vs perturbed
 #   sup1   Fig. S1  : per-tool metagene grid, three species rows
-#   sup7   Fig. S7  : non-m6A chemistries in HeLa, ncRNA metagene per tool
-#   sup9   Fig. S9  : RNA004 Dorado other-modification mRNA metagene, WT vs IVT
+#   sup7   Fig. S8  : non-m6A chemistries in HeLa, ncRNA metagene per tool
+#   sup9   Fig. S10  : RNA004 Dorado other-modification mRNA metagene, WT vs IVT
 #
 # Inputs are the BEDs of 21b_export_guitar_bed.py; the merge rule is chosen with
 # --merge (majority = strictly more than half of the group's independent units).
@@ -119,7 +119,7 @@ if (layout == "fig3c") {
            sprintf("GuitarR_sup1_%s_%s_mrna.pdf", species, merge)), 3.3)
   }
 } else if (layout == "sup7") {
-  # Fig. S7: non-m6A chemistries in HeLa, ncRNA metagene, WT vs IVT
+  # Fig. S8: non-m6A chemistries in HeLa, ncRNA metagene, WT vs IVT
   plots <- list()
   for (mod in c("Psi", "m1Psi", "m5C", "Nm")) {
     tools <- sub("\\.bed$", "", sort(list.files(
@@ -138,7 +138,7 @@ if (layout == "fig3c") {
   }
   fig_from(plots, 3, file.path(FIGDIR, sprintf("GuitarR_sup7_%s_ncrna.pdf", merge)), 3.4)
 } else if (layout == "sup9") {
-  # Fig. S9: RNA004 Dorado other-modification mRNA metagene, WT vs IVT
+  # Fig. S10: RNA004 Dorado other-modification mRNA metagene, WT vs IVT
   plots <- list()
   for (mod in c("Psi", "m5C", "inosine")) {
     tools <- sub("\\.bed$", "", sort(list.files(

@@ -129,7 +129,7 @@ COLS = [{"sp": "Arabidopsis", "groups": ("Arabidopsis_WT",), "colour": "#1E888B"
 UNION_C, ISECT_C = "#1f5c8b", "#e08a2e"
 COV_C = "#4a7d3f"
 K_COLOURS = ["#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"]
-#: the selected optimum of every k (row D here, panel A of S5): an accent colour
+#: the selected optimum of every k (row D here, panel A of Figure S6): an accent colour
 #: no other artist uses, a thick ring and a white halo, so the five points still
 #: read on top of the dense k-coloured search cloud (2026-09-21)
 HILITE = "#b02418"
@@ -175,10 +175,10 @@ def load() -> dict[str, pd.DataFrame]:
         "sel": pd.read_csv(TAB / "fig6_combination_selected.tsv", sep="\t"),
         "allk": pd.read_csv(TAB / "fig6_per_unit_allk.tsv", sep="\t"),
         "members": pd.read_csv(TAB / "fig6_selected_members.tsv", sep="\t"),
-        "space": pd.read_csv(TAB / "figS5_search_space.tsv", sep="\t"),
-        "qual": pd.read_csv(TAB / "figS5_site_quality.tsv", sep="\t"),
-        "hist": pd.read_csv(TAB / "figS5_coverage_hist.tsv", sep="\t"),
-        "toolq": pd.read_csv(TAB / "figS5_tool_quality.tsv", sep="\t"),
+        "space": pd.read_csv(TAB / "figS6_search_space.tsv", sep="\t"),
+        "qual": pd.read_csv(TAB / "figS6_site_quality.tsv", sep="\t"),
+        "hist": pd.read_csv(TAB / "figS6_coverage_hist.tsv", sep="\t"),
+        "toolq": pd.read_csv(TAB / "figS6_tool_quality.tsv", sep="\t"),
         "single": pd.read_csv(TAB / "fig6_single_tool_metrics.tsv", sep="\t"),
         "effects": pd.read_csv(TAB / "fig6_tool_effects.tsv", sep="\t"),
         "ctl": pd.read_csv(TAB / "fig6_negative_control_fp.tsv", sep="\t"),

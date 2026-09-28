@@ -36,7 +36,7 @@ export RNAMODBENCH_ROOT RB XB
 #                   (registry.peek_modkit_codes), a file with several codes yields
 #                   one callset per code, and the m6A channel keeps its historical
 #                   tool label while the other channels get _Psi/_m5C/_inosine
-#                   suffixes (see harmonisation/README.md §4a)
+#                   suffixes (see docs/pipeline.md)
 #   11 scope     -> DELETE everything outside the manuscript's tool scope (non-m6A
 #                   on Arabidopsis/Mouse/E.coli AND tools the paper never used:
 #                   differr / EpiNano_SVM / Tombo_com / CHEUI-diff / mAFiA /
@@ -65,7 +65,7 @@ export RNAMODBENCH_ROOT RB XB
 #                   report-only check that every callset sits on a
 #                   modification-compatible base; flags sources whose coordinates
 #                   are off-axis (added 2026-09-18 after the f5c +7-bp anchor bug,
-#                   see code/f5c_mode/README.md).  Never filters anything.
+#                   see the stage's own docstring).  Never filters anything.
 #   30 pileup    -> evaluation/tables/pileup_call_filter_audit.tsv: report every
 #                   declared Dorado pileup source (rows / no-call rows / rows below
 #                   the declared coverage floor / retained share) and assert that no

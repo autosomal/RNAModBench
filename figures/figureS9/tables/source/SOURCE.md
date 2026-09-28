@@ -1,6 +1,6 @@
-# Frozen inputs of Figure S8
+# Frozen inputs of Figure S9
 
-Every number drawn in `../../figures/FigureS8_rev.pdf` is read from this directory by
+Every number drawn in `../../figures/FigureS9_rev.pdf` is read from this directory by
 `../../scripts/s9_data.py`.  The files are **copies** of the frozen evidence tables; the
 originals stay where their generating pipeline keeps them (they are shared with the main
 Figure 8 workflow and must not be renamed there).
@@ -15,9 +15,9 @@ Figure 8 workflow and must not be renamed there).
 | `figS9_chem_compare.tsv` | (same name) | same |
 | `figS9_orca_counts.tsv` | (same name) | same |
 | `figS9_modratio_agreement.tsv` | (same name) | same |
-| `figS9F_pairs.tsv` | (same name) | `65_figs8_origstyle.build_pairs` |
+| `figS9F_pairs.tsv` | (same name) | `65_figs9_origstyle.build_pairs` |
 
-Only the five `fig8_*` copies were renamed to `s8in_*` on 2026-09-21 so that this
+Only the five `fig8_*` copies were renamed to `s9in_*` on 2026-09-21 so that this
 directory contains no file named after the main Figure 8; the bytes are unchanged
 (md5 recorded in `../../logs/baseline_md5_20260921.txt`).
 

@@ -193,9 +193,12 @@ SI_NAME = re.compile(r"(?<![A-Za-z0-9])([Ff]ig[Ss]?|s)(\d+)(?![0-9])")
 def check_figure_numbering() -> None:
     """No file may be named with the pre-publication number of its own figure.
 
-    figures/figureS8/ used to hold 61_figS8_tables.py. A name referring to a
-    *different* figure - figures/figure6/tables/figS5_site_quality.tsv, say, which
-    Figure S5 really does read - is not what this looks for.
+    One number per figure is the rule the deposit is built on (docs/figure_index.md
+    names the assembler that fixes it). figures/figureS8/ used to hold
+    61_figS8_tables.py, drawn for the page delivered as Figure S9. A name referring
+    to a *different* figure - figures/figure6/tables/figS6_site_quality.tsv, say,
+    which Figure S6 really does read from its main figure's folder - is not what
+    this looks for.
     """
     bad = []
     for d in sorted(ROOT.glob("figures/figureS*")):
@@ -213,6 +216,79 @@ def check_figure_numbering() -> None:
          + ("" if not bad else f"; {len(bad)}: {bad[:6]}"))
 
 
+CAPTION_BLOCK = re.compile(r"^\*\*Figure S(\d+)\.\*\*", re.M)
+LEGEND_TITLE = re.compile(r"^#\s*Figure S(\d+)\b")
+
+
+def check_si_labels() -> None:
+    """A supplementary figure is named by one number everywhere it is written down.
+
+    The legend of Figure S6 titles itself Figure S6, and the caption sheet - the one
+    generated file the build does not renumber, because it was written after the
+    supplement had been ordered - lists its ten blocks from S1 upward.  Either of the
+    two drifting is the mistake this catches.
+    """
+    bad = []
+    for d in sorted(ROOT.glob("figures/figureS*")):
+        own = d.name.removeprefix("figureS")
+        for md in sorted(d.glob("figures/Fig*S*_legends*.md")):
+            first = md.read_text(encoding="utf-8", errors="ignore").splitlines()[0]
+            m = LEGEND_TITLE.match(first)
+            if not m or m.group(1) != own:
+                bad.append(md.relative_to(ROOT).as_posix())
+    note(not bad, "every legend titles itself with its figure's number"
+         + ("" if not bad else f"; {bad[:6]}"))
+    caps = ROOT / "tables/sup_figure_captions.md"
+    if caps.is_file():
+        nums = [int(n) for n in CAPTION_BLOCK.findall(caps.read_text(encoding="utf-8"))]
+        note(nums == list(range(1, 11)),
+             f"the caption sheet numbers its ten figures in order ({nums})")
+    else:
+        note(False, "tables/sup_figure_captions.md is missing")
+
+
+DOC_POINTER = re.compile(r"(?:^|[\s(`\"'/=])((?:[\w-]+/)*[\w][A-Za-z0-9_./+-]*\.md)")
+#: a ledger's evidence column names the note or the source line a fact came from,
+#: and those notes are the working tree's; docs/tool_inventory_notes.md says so
+PROVENANCE_LINE = re.compile(r"evidence:|research:")
+
+
+def _resolvable(rel: str, here: Path) -> bool:
+    """A document may be cited from the page it sits on or from the repository root."""
+    if rel == "README.md":
+        return (here.parent / "README.md").is_file() or (ROOT / "README.md").is_file()
+    for cand in (ROOT / rel, here / rel, *ROOT.glob("**/" + rel)):
+        if cand.is_file():
+            return True
+    return False
+
+
+def check_doc_pointers() -> None:
+    """Every document the written documentation points to is in the repository.
+
+    A reader follows a `see docs/x.md` out of the prose and expects to land on a
+    file; code-side path strings are not checked here because the render sweep
+    (``scripts/run_figures.sh``) already executes them.
+    """
+    dead = {}
+    for p in sorted(ROOT.rglob("*")):
+        if not p.is_file() or "_local" in p.parts or ".git" in p.parts:
+            continue
+        if p.suffix.lower() not in (".md", ".tex"):
+            continue
+        for line in p.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if PROVENANCE_LINE.search(line):
+                continue
+            for m in DOC_POINTER.finditer(line):
+                if not _resolvable(m.group(1), p):
+                    dead.setdefault(m.group(1), []).append(
+                        p.relative_to(ROOT).as_posix())
+    worst = sorted(dead.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+    note(not dead, "every document the documentation cites exists"
+         + ("" if not dead else f"; {len(dead)} dead: "
+            + ", ".join(f"{k} ({len(v)})" for k, v in worst[:8])))
+
+
 def main() -> int:
     print(f"verifying {ROOT}")
     check_paths()
@@ -222,6 +298,8 @@ def main() -> int:
     check_callsets()
     check_figure_index()
     check_figure_numbering()
+    check_si_labels()
+    check_doc_pointers()
     write_hashes()
     print(f"\n{'FAILED: ' + str(len(FAIL)) if FAIL else 'all checks passed'}")
     return 1 if FAIL else 0

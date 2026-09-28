@@ -1,12 +1,12 @@
-# Figure S8 (rebuilt) - legend, provenance and audit
+# Figure S9 (rebuilt) - legend, provenance and audit
 
-**Delivered as Figure S9.**  This directory is the analysis-numbered Figure S8
+**Delivered as Figure S10.**  This directory is the analysis-numbered Figure S9
 workflow; the manuscript and the delivered Supplementary Figures number this page
-**Figure S9** (md5 of `$RNAMODBENCH_LOCAL/submission/new_submission/sup/FigureS9_rev.pdf` equals
-`figures/FigureS8_rev.pdf`).  The caption printed in the SI is the `Figure S9.`
+**Figure S10** (md5 of `$RNAMODBENCH_LOCAL/submission/new_submission/sup/FigureS10_rev.pdf` equals
+`figures/FigureS9_rev.pdf`).  The caption printed in the SI is the `Figure S10.`
 block of `tables/sup_figure_captions.md`.
 
-**Figure S9. Detection counts, explicit false-positive control, window-resolved
+**Figure S10. Detection counts, explicit false-positive control, window-resolved
 accuracy and calibration of the RNA004 calling.**
 The figure uses the RNA004 chemistry only.  Every call made on an unmodified
 control is a false positive by construction, so the control panels report the
@@ -14,7 +14,7 @@ false-positive rate with its denominator and the matching specificity, and the
 statistical panels report association, agreement, effect size and rank stability
 rather than claims of quantitative accuracy.
 
-**Layout (2026-09-27, user).**  Nine cells on one A4 **landscape** sheet
+**Layout (2026-09-27, author decision).**  Nine cells on one A4 **landscape** sheet
 (842.4 x 595.44 pt): three columns of 3.740 in and three rows of 3.400 / 2.195 /
 2.195 in (margins 0.10 in, gutters 0.14 in), so A | B | C sit on the first row,
 D | E | H on the second and F | G | I on the third.  Every panel draws its data in
@@ -134,16 +134,16 @@ reported against the full high-confidence reference.
 
 **Sources.** Frozen tables in `../tables/source/` (`s9in_counts.tsv`,
 `figS9_orca_counts.tsv`, `s9in_fpr_curlcake_scan.tsv`, `figS9_modratio_agreement.tsv`,
-`figS9F_pairs.tsv`) plus `../tables/S8F_glori_agreement.tsv` for the Lin's CCC
+`figS9F_pairs.tsv`) plus `../tables/S9F_glori_agreement.tsv` for the Lin's CCC
 series (the same values quoted in the manuscript and the reply letter),
 `data/evaluation/tables/m6a_localization_curve.tsv` for
 the window sweep, and `tables/tables/
 TableS12_coverage_rank_stability.tsv` for the two stability cells (read, never
 recomputed); rendered by `70_figs9_panels.py`, composed 1:1 by
 `71_figs9_page.py`, accepted by `72_verify_figs9.py`; anchors in
-`../tables/S8_anchors.tsv`.
+`../tables/S9_anchors.tsv`.
 
-**Differences to the originally submitted S8.** The figure is RNA004 only: the
+**Differences to the originally submitted page.** The figure is RNA004 only: the
 Curlcake block of RNA002-only tools, the grey RNA002 control points, the
 depth-matched nested subset, the per-unit means, the chemistry-comparison arrows
 and the 13-tool colour stripe are gone.  The Jaccard matrices (R3-8 asked for

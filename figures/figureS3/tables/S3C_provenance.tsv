@@ -1,4 +1,4 @@
-# panel C analysis (per-replicate fits + CCC) is the sibling session's; this page re-renders its recipe at page geometry
+# panel C analysis (per-replicate fits + CCC) is a companion analysis; this page re-renders its recipe at page geometry
 artifact	path	md5	mtime
 16_mod_ratio_regression.py	$RNAMODBENCH_ROOT/src/harmonisation/scripts/16_mod_ratio_regression.py	148950995f23	2026-09-18T17:32:59.700751305
 mod_ratio_matched_sites.tsv	$RNAMODBENCH_ROOT/analysis/mod_ratio_replicates/tables/mod_ratio_matched_sites.tsv	ab68581b7719	2026-09-19T00:37:43.788137436

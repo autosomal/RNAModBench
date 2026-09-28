@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""55 -- Figure S6 verification (rebuilt 2026-09-21, R3-9-centred contract).
+"""55 -- Figure S7 verification (rebuilt 2026-09-21, R3-9-centred contract).
 
-Every quantity in the rebuilt Figure S6 must be traceable to
+Every quantity in the rebuilt Figure S7 must be traceable to
 ``figures/figureS7/tables/`` and reconcile with the frozen
 R3-9 evidence; the page must obey the house rules.  The checks encode the
-defects the user rejected on 2026-09-21, so they cannot come back:
+defects the author rejected on 2026-09-21, so they cannot come back:
 
 1. tables: the six-tool / two-condition evidence set, the per-pair Jaccard table
    (90 pairs), the k-of-n table, the per-unit score table (1,800 rows) and the
@@ -65,7 +65,7 @@ TAB = (_RB / "figures/figureS7/tables")
 FIG = (_RB / "figures/figureS7/figures")
 LOG = (_RB / "figures/figureS7/logs")
 EV = (_RB / "analysis/nonm6a_false_positives/evidence")
-PDF = (_RB / "figures/figureS7/figures/FigureS6_rev.pdf")
+PDF = (_RB / "figures/figureS7/figures/FigureS7_rev.pdf")
 SCRIPT = HERE.parent / "54_figS7_figure.py"
 
 TOOLS = ["CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoPsu",
@@ -121,15 +121,15 @@ def main() -> None:
         df = pd.read_csv(path, sep="\t")
         check(f"table {name} has {rows} rows", len(df) == rows, f"{len(df)} rows")
     check("pooled score table retired (not regenerated)",
-          not ((_RB / "figures/figureS7/tables/s6_score_density.tsv")).exists()
+          not ((_RB / "figures/figureS7/tables/s7_score_density.tsv")).exists()
           and ((_RB / "figures/figureS7/tables/s7_score_density_RETIRED_pooled.tsv")).exists(),
-          "s6_score_density.tsv must not be rewritten")
+          "s7_score_density.tsv must not be rewritten")
     src = SCRIPT.read_text(encoding="utf-8")
-    check("figure reads the anchored S6 tables (location, not densities)",
+    check("figure reads the anchored S7 tables (location, not densities)",
           all(n in src for n in ("s7_score_location_per_unit.tsv",
                                  "s7_jaccard_pairs.tsv",
                                  "s7_curlcake_per_construct.tsv"))
-          and "s6_score_density.tsv" not in src,
+          and "s7_score_density.tsv" not in src,
           "panel C must read the per-unit location table, never a density table")
     check("figure keeps the page gate and margin letters",
           "assert_page_clean" in src and "margin_letter" in src)
@@ -393,7 +393,7 @@ def main() -> None:
     check("figure text names both conditions",
           "Within WT" in txt and "Within IVT" in txt)
 
-    png = (_RB / "figures/figureS7/figures/FigureS6_rev.png")
+    png = (_RB / "figures/figureS7/figures/FigureS7_rev.png")
     if png.exists():
         from PIL import Image
         with Image.open(png) as im:
@@ -404,7 +404,7 @@ def main() -> None:
               f"{px[0]} px, dpi={dpi}")
     else:
         check("PNG written", False, png.name)
-    prev = (_RB / "figures/figureS7/figures/FigureS6_print_preview.png")
+    prev = (_RB / "figures/figureS7/figures/FigureS7_print_preview.png")
     if prev.exists():
         from PIL import Image
         with Image.open(prev) as im:

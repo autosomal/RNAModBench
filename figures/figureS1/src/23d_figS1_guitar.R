@@ -20,7 +20,7 @@ if (is.null(.RB)) {
 #!/usr/bin/env Rscript
 # Supplementary Figure S1, redrawn replicate-aware.
 #
-# Why this exists.  The published sup1.pdf ($RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/sup/)
+# Why this exists.  The published sup1.pdf ($RNAMODBENCH_LOCAL/submission/sup/)
 # is a 3 species x 10 tools metagene grid, but its inputs carried no replicate
 # structure: per $RNAMODBENCH_LOCAL/REPLICATE_AWARE_FIGURES.md the Arabidopsis
 # panels were rep3 only, the Mouse panels the mES_WT study only, and the HeLa
@@ -427,7 +427,7 @@ draw_panel <- function(res, tool, show_x, legend = TRUE) {
       d    <- d[d$group %in% plan$group, , drop = FALSE]
     }
   }
-  # consensus gating (user 2026-09-20): a majority consensus built from fewer
+  # consensus gating (author decision 2026-09-20): a majority consensus built from fewer
   # than `gate` sites is NOT drawn as a thick filled curve — the per-unit thin
   # lines still are.  Keeps e.g. ELIGOS2_diff HeLa_IVT (24 sites) honest.
   gate_keep <- plan$cond_group[plan$kind == "consensus" & plan$n_sites >= gate]

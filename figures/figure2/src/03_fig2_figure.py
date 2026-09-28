@@ -126,7 +126,7 @@ _LETTERS: list = []
 def letter(ax, ch: str, dx=0.0, dy=0.007) -> None:
     """Queue a panel letter; it is drawn at the panel's own top-left corner.
 
-    2026-09-27 (user): the letter used to sit at the top-left of the *axes*
+    2026-09-27 (author decision): the letter used to sit at the top-left of the *axes*
     bounding box, i.e. directly over the y axis, so it read as part of the axis
     rather than of the panel (and E's letter collided with C's x tick labels
     one row above).  It must sit at the top-left of the whole panel, left of the
@@ -260,12 +260,12 @@ def panel_d_gobp(fig, rects, tab: Path) -> None:
         ax.barh(np.arange(len(d)), d["FoldEnrichment"], height=0.55,
                 color=COLOR[sp], edgecolor="none", zorder=3)
         ax.set_yticks(np.arange(len(d)))
-        #: 2026-09-24 (user, "text overlap"): with the 34-char wrap the labels
+        #: 2026-09-24 (author decision, "text overlap"): with the 34-char wrap the labels
         #: are at most two lines, and the line spacing went 1.05 -> 1.15 so the
         #: two lines of one label no longer read as overprinted type
         ax.set_yticklabels(names, fontsize=FS_TICK, linespacing=1.15)
         ax.set_xlim(0, max(2.0, float(d["FoldEnrichment"].max()) * 1.25))
-        #: 2026-09-24 (user, "is D's x axis pressing into the text?"): the three
+        #: 2026-09-24 (author decision, "is D's x axis pressing into the text?"): the three
         #: blocks share one x scale, so only the bottom one prints numbers.  The
         #: upper ones used to put "0" 4.4 pt to the right of the first row label
         #: of the block below, with 2.1 pt of vertical overlap, so the tick read
@@ -508,7 +508,7 @@ def main() -> None:
     #: letters A-G run down the left column (A, B, D) and the right (C, E, F, G)
     ax_a = [L, 0.845, Wl, 0.130]
     ax_b = [L, 0.601, Wl, 0.190]
-    #: 2026-09-27 (user, fourth pass): the four right-column panels are spaced
+    #: 2026-09-27 (author decision, fourth pass): the four right-column panels are spaced
     #: evenly now.  The first attempt (0.845 / 0.622 / 0.363) left C's x label and
     #: E's bold letter in the same band (~0 pt clear), the second (0.850 / 0.530)
     #: opened 43 pt, which read as too airy; this spacing leaves ~20 pt between

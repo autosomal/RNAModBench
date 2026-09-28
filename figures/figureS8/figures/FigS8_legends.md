@@ -1,6 +1,6 @@
-# Figure S7 legend (paste-ready for the Supporting Information layout)
+# Figure S8 legend (paste-ready for the Supporting Information layout)
 
-**Figure S7. Replicate-resolved ncRNA metagene of the non-m6A detection tools in
+**Figure S8. Replicate-resolved ncRNA metagene of the non-m6A detection tools in
 HeLa wild type and unmodified in vitro transcribed RNA.** All profiles are
 computed per independent sequencing unit (HeLa WT1–3 and unmodified HeLa
 IVT rep1–3) on the Ensembl GRCh38.112 non-coding transcript model

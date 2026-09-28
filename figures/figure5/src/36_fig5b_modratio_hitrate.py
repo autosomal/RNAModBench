@@ -199,7 +199,7 @@ def figure(summary: pd.DataFrame) -> None:
         ax.set_xlabel("Modification ratio reported by the tool")
         ax.set_ylim(0, 1)
         ax.set_xlim(-0.4, len(BIN_LABELS) - 0.6)
-    # naming (user decision 2026-09-19): the quantity is precision/PPV against the
+    # naming (author decision 2026-09-19): the quantity is precision/PPV against the
     # GLORI reference, so the axis says PPV rather than the old "GLORI hit rate"
     axes[0].set_ylabel(f"PPV vs. GLORI ({WINDOW} bp)")
     axes[0].legend(frameon=False, fontsize=10, loc="upper left")

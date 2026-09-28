@@ -3,7 +3,7 @@
 File: `figures/FigureS1_rev.pdf` (+ 300 dpi `FigureS1_rev.png`), page A4
 (595.276 x 841.89 pt), Arial embedded (cairo_pdf, `pdffonts`-verifiable), no
 gridlines, minimum font 7 pt. This file replaces the published
-`$RNAMODBENCH_LOCAL/submission/02_AS_working_copy_and_revisions/sup/sup1.pdf` **as a new file; the original is
+`$RNAMODBENCH_LOCAL/submission/sup/sup1.pdf` **as a new file; the original is
 untouched.**
 
 ## Suggested caption (English)
@@ -114,7 +114,7 @@ does not recompute sampling.
    the code stitches the 30 panels by the fixed pattern — one bold
    species-title row (top, horizontally centred) + a 2 x 5 tool grid per
    species, three species blocks — into a single page at the sum of the panel
-   sizes (**~17.6 x 17.2 in; the user waived the A4 constraint for this
+   sizes (**~17.6 x 17.2 in; the author waived the A4 constraint for this
    supplement figure**). Because the panels are placed 1:1 (no scaling),
    curves cannot be stretched; the legend (thick solid = majority consensus,
    thin dashed = individual replicate/study; blue = WT, orange = fip37 KD /

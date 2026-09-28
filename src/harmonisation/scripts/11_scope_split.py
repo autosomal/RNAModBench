@@ -12,7 +12,7 @@ Curlcake controls and poor reproducibility") are all anchored on those samples.
 
 The tools were nevertheless run on other species too (CHEUI_m5C on Arabidopsis
 / mouse / E. coli, NanoMUD/NanoSPA/NanoPsu on Arabidopsis, ...).  Those callsets
-are *not* part of any figure and have no reference, so on user request
+are *not* part of any figure and have no reference, so on revision request
 (2026-09-15) they are **physically deleted** (``shutil.rmtree``) and only
 *recorded* in the deletion manifests.  Nothing is lost: every deleted callset is
 reproducible from ``$RNAMODBENCH_LOCAL/raw/result/`` + the recipes in
@@ -39,13 +39,13 @@ Scope rule
 * non-m6A on ``HeLa_WT`` / ``HeLa_IVT`` /
   ``Curlcake_IVT`` (RNA002)                -> in scope (Fig. 7 panel)
 * non-m6A on the three RNA004 groups in
-  ``config.IN_SCOPE_NONM6A``               -> in scope (Fig. S8A)
+  ``config.IN_SCOPE_NONM6A``               -> in scope (Fig. S9A)
 * every other non-m6A combination          -> deleted (Arabidopsis/Mouse/E.coli)
 * any tool outside the 15-tool set         -> deleted (whatever its mod_type)
 
 Dorado is one of the 15 tools and its RNA004 pileups carry **four** modifications
 (m6A / m5C / Psi / inosine, read from the modkit ``name`` code -- see
-``harmonisation/README.md`` §4a), so ``config._DORADO_GROUPS`` lists all four per
+``docs/pipeline.md``), so ``config._DORADO_GROUPS`` lists all four per
 sample.  Listing only m6A there made this script delete the correctly mod-typed
 callsets that ``01`` had just written (2026-09-17).
 
@@ -113,12 +113,12 @@ REASON_NONM6A_OUT = ("non-m6A tool run outside the manuscript scope: no figure, 
                      "no reference; archived for traceability (R1-10)")
 REASON_NONM6A_DELETE = ("non-m6A on Arabidopsis/Mouse/E.coli: out of the manuscript "
                         "scope (Fig. 7 is HeLa + Curlcake only), no reference; "
-                        "DELETED on user request (2026-09-14), listed in "
+                        "DELETED on revision request (2026-09-14), listed in "
                         "manifest/nonm6a_deleted.csv for traceability")
 REASON_TOOL_OUT = ("tool outside the manuscript's tool set: the paper evaluates 15 "
                    "dRNA-seq tools (manuscript.tex, Experimental Section) and this "
                    "tool is not among them (differr / EpiNano_SVM / Tombo_com / "
-                   "CHEUI-diff / mAFiA / CHEUI on Curlcake); DELETED on user request "
+                   "CHEUI-diff / mAFiA / CHEUI on Curlcake); DELETED on revision request "
                    "(2026-09-15), listed in manifest/out_of_scope_tools_deleted.csv")
 
 

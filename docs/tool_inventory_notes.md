@@ -5,6 +5,12 @@ what exactly was run, with what version, model, thresholds and coordinate
 handling. Three evidence layers were combined, and the tables record which layer
 each value came from.
 
+An evidence pointer quotes where the value was read: a file and line
+(`DESCRIPTION:4`, `23b_guitar_metagene.R:52-55`) or, for the per-tool reading, the
+question paper it was noted on (`research:groupE_missing_detection_tools.md`). The
+second form names the analysis's own working notes, which are not redistributed -
+the file and line citations are the ones a reader can follow here.
+
 ## Layers
 
 1. **Automatic collection** (`tools/inventory/scripts/`, re-runnable):
@@ -26,7 +32,7 @@ each value came from.
 
 ## What the recorded command lines are, and are not
 
-The `method` column of `command_lines.csv` is `static_script` for all 3,045
+The `method` column of `command_lines.csv` is `static_script` for all 3,608
 rows: the command lines were **extracted from the scripts that ran them**, not
 captured from a process log. That has three consequences worth stating:
 

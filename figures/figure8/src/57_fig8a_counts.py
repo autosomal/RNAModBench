@@ -162,7 +162,7 @@ def main() -> None:
                bbox_to_anchor=(0.5, 0.000), labelspacing=0.18, columnspacing=0.9,
                handletextpad=0.35, borderaxespad=0.0, fontsize=8.3)
 
-    # no panel title (user decision: letters only; the caption carries the text)
+    # no panel title (author decision: letters only; the caption carries the text)
     letter(fig, "A")
 
     save_piece(fig, "fig8A_counts", *PIECE["A"], fit=("left",), keep_right=0.985)

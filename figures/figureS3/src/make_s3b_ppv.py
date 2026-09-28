@@ -20,13 +20,13 @@ panel really is the callsets layer's numbers.
 Units: Arabidopsis_WT_rep1-3, HeLa_WT1-3 and the TWO independent mouse WT mESC
 samples ``mESCs_Mettl3_WT`` (SRP166020, drawn as **study A**) and ``mES_WT``
 (SRP357195, **study B**) -- the two studies are drawn as separate series and are
-NEVER averaged (user rule).  The in-figure legend prints only ``mouse study A``
-/ ``mouse study B`` (same wording as Fig. S4/S5/S10, user 2026-09-21); the
+NEVER averaged (a rule of the revision).  The in-figure legend prints only ``mouse study A``
+/ ``mouse study B`` (the same wording as in Figures S4, S5 and S6); the
 sample ids and the accessions stay in ``tables/S3B_ppv_by_unit.tsv`` and in this
 docstring.
 
 Metric label: ``PPV vs. GLORI (2 bp)`` -- the published label "GLORI hit
-rate" / "Hit Rate" is retired (figures/figure5/README.md).
+rate" / "Hit Rate" is retired.
 """
 
 from __future__ import annotations
@@ -243,7 +243,7 @@ def draw_row_b(fig: plt.Figure, table: pd.DataFrame, y_top: float, row_h: float,
 
         if species == "Mouse":
             # two independent studies -- separate series, never averaged;
-            # study A listed first so the legend reads A over B (as Fig. S4/S5)
+            # study A listed first so the legend reads A over B (as Figures S4 and S6)
             series = [("mESCs_Mettl3_WT", "s", "#C98A2E", 0.0),
                       ("mES_WT", "o", color, 1.0)]
         else:
@@ -257,7 +257,7 @@ def draw_row_b(fig: plt.Figure, table: pd.DataFrame, y_top: float, row_h: float,
                         markerfacecolor=(col if face else "white"),
                         markeredgewidth=0.9,
                         #: legend carries the study numbers only -- sample ids and
-                        #: accessions stay in the tables/provenance (user 2026-09-21)
+                        #: accessions stay in the tables/provenance (author decision 2026-09-21)
                         label=sc.MOUSE_STUDY_LABEL[unit])
         else:
             unit_vals = [vals[u].to_numpy() for u in vals]
@@ -268,7 +268,7 @@ def draw_row_b(fig: plt.Figure, table: pd.DataFrame, y_top: float, row_h: float,
                         markersize=2.3, markerfacecolor="white",
                         markeredgecolor=color, markeredgewidth=0.6,
                         alpha=0.85, zorder=2)
-            # mean ± SD across the independent units (user request 2026-09-20)
+            # mean ± SD across the independent units (revision request 2026-09-20)
             ax.errorbar(x, ymean, yerr=ysd, color=color, capsize=2,
                         elinewidth=0.7, linestyle="none", alpha=0.9, zorder=2)
             ax.plot(x, ymean, color=color, marker="o", markersize=3.4,

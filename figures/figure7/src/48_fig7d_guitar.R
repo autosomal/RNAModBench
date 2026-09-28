@@ -141,7 +141,7 @@ PANEL_W <- 2.10; PANEL_H <- 1.60; KEY_H <- 0.30
 NCOL <- 3; NROW <- 2
 ##: relative height of the white spacer between the two panel rows (0.10 of a
 ##: row: ~9 pt at the fixed 4.00 in device, enough to keep the lower row's tick
-##: labels out of the upper row's schematic boxes; user 2026-09-23)
+##: labels out of the upper row's schematic boxes; author decision 2026-09-23)
 ROW_GAP <- 0.40
 
 n_lines <- function(p) if (file.exists(p)) length(readLines(p, warn = FALSE)) else NA_integer_
@@ -314,7 +314,7 @@ structure_layers <- function(comp_width, pos, axes_w_pt = F7_AXES_W_PT,
   # rotates, and returns an empty leader list as a literal (guitar_lib.R:277),
   # so no line can be drawn even by accident.  The packed branch is the one
   # that pushed the outer "1kb" off its own component and then needed a leader
-  # to point back at it -- that is what the user rejected.
+  # to point back at it -- that is what the author rejected.
   # Every component is wider than the label that sits in it (1kb 27 pt,
   # 5'UTR 31 pt, CDS 80 pt, 3'UTR 55 pt vs 13.7 / 24.1 / 17.7 / 24.1 pt ink at
   # 8.5 pt), so the row fits without moving anything.
@@ -331,15 +331,15 @@ structure_layers <- function(comp_width, pos, axes_w_pt = F7_AXES_W_PT,
                       size = fit$size, gap = fit$gap,
                       mode = "segments", rotate = character(0),
                       nudge_pt = 4.0)
-  stopifnot(rl$n_leaders == 0L)        # the user forbade leaders (2026-09-23)
+  stopifnot(rl$n_leaders == 0L)        # the author forbade leaders (2026-09-23)
   # The library's own `fits` flag additionally demands that its three pushing
   # passes reached the exact gap budget; on this row they land a few hundredths
   # of a point short of it, which is invisible on the page.  The gates that
-  # matter are the ones the user asked for: every label stays on its own
+  # matter are the ones the author asked for: every label stays on its own
   # component (moved <= the 4 pt nudge), nothing leaves the label band, and
   # there are no leaders.  The printed gaps are asserted on the PDF itself by
   # check_text_collisions.py.
-  stopifnot(rl$n_leaders == 0L)                 # user 2026-09-23: no leaders
+  stopifnot(rl$n_leaders == 0L)                 # author decision 2026-09-23: no leaders
   stopifnot(max(rl$placed$moved_pt) <= 4.0)     # label still on its component
   wd <- rl$placed$ink_pt / axes_w_pt
   if (any(rl$placed$x - wd / 2 < allow_data[1] - 1e-9) ||

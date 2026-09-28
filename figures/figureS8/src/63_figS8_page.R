@@ -18,7 +18,7 @@ if (is.null(.RB)) {
 # --------------------------------------------------------------------------- #
 
 #!/usr/bin/env Rscript
-# 63 -- Figure S7, full page: metagene rows A-F (62) + quantitative row G-I (61).
+# 63 -- Figure S8, full page: metagene rows A-F (62) + quantitative row G-I (61).
 #
 # Reviewer R3-9 asks *why* the non-m6A tools over-call on unmodified RNA; the
 # answer has to be quantitative, not an eyeball comparison of two density curves.
@@ -50,9 +50,9 @@ if (is.null(.RB)) {
 #   figures/figureS8/tables/figS8_panels.rds        (62)
 #   .../tables/s8_profile_distance.tsv, s8_null_summary.tsv            (61)
 # Outputs
-#   figures/FigureS7_rev.{pdf,png}                the page, panels A-I
-#   figures/FigureS7_rev_quant.{pdf,png}          QC block of rows G-I
-#   figures/FigureS7_print_preview.png            169 mm 300 dpi print check
+#   figures/FigureS8_rev.{pdf,png}                the page, panels A-I
+#   figures/FigureS8_rev_quant.{pdf,png}          QC block of rows G-I
+#   figures/FigureS8_print_preview.png            169 mm 300 dpi print check
 #   tables/figS8_page_geometry.tsv                page size + font self-check
 
 suppressPackageStartupMessages({
@@ -84,7 +84,7 @@ META_H <- 4.00            # the 2 x 3 metagene block (62)
 QUANT_H <- 2.70           # the quantitative row (rotated tool labels need room)
 #: explicit decimal breaks, so no axis ever shows a 10^k or 1e-03 style tick.
 #: three breaks only: five of them sat 7-8 pt apart on the short log axis and the
-#: labels visually merged (user report 2026-09-21)
+#: labels visually merged (author note 2026-09-21)
 JSD_BREAKS <- c(0.003, 0.03, 0.3)
 JSD_LABELS <- function(v) formatC(v, format = "g", digits = 2)
 
@@ -273,7 +273,7 @@ main <- function() {
   stopifnot(length(panels) >= 1)
   g <- panel_g(); h <- panel_h(); i <- panel_i()
   # panel letters: ONE A for the whole 2 x 3 metagene block, then B/C/D for the
-  # quantitative row (user decision 2026-09-21).  Tagged per plot on purpose --
+  # quantitative row (author decision 2026-09-21).  Tagged per plot on purpose --
   # patchwork's tag_levels would letter all six metagene panels A-F.
   tag_theme <- theme(plot.tag = element_text(family = "Arial", face = "bold",
                                              size = TAG_PT),
@@ -286,12 +286,12 @@ main <- function() {
   heights <- c(rep(META_H / 2, ceiling(length(panels) / 3)), QUANT_H)
   page <- patchwork::wrap_plots(plots, ncol = 3, heights = heights)
   dir.create(FIGD, showWarnings = FALSE, recursive = TRUE)
-  save_pair_cairo(page, file.path(FIGD, "FigureS7_rev.pdf"), ROW_W,
+  save_pair_cairo(page, file.path(FIGD, "FigureS8_rev.pdf"), ROW_W,
                   META_H + QUANT_H)
   save_pair_cairo(patchwork::wrap_plots(list(g, h, i), ncol = 3),
-                  file.path(FIGD, "FigureS7_rev_quant.pdf"), ROW_W, QUANT_H)
+                  file.path(FIGD, "FigureS8_rev_quant.pdf"), ROW_W, QUANT_H)
   showtext::showtext_auto(TRUE)
-  ggsave(file.path(FIGD, "FigureS7_print_preview.png"), plot = page,
+  ggsave(file.path(FIGD, "FigureS8_print_preview.png"), plot = page,
          width = 169 / 25.4, height = (META_H + QUANT_H) * 169 / (ROW_W * 25.4),
          units = "in", dpi = 300)
   showtext::showtext_auto(FALSE)

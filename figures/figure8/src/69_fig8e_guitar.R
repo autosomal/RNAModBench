@@ -20,7 +20,7 @@ if (is.null(.RB)) {
 #!/usr/bin/env Rscript
 # Figure 8 panel E -- Guitar metagene band of the three Dorado m6A models.
 #
-# Built exactly like block A of the rebuilt Supplementary Figure S9
+# Built exactly like block A of the rebuilt Supplementary Figure S10
 # (figures/figureS10/src/23e_figS10_guitar.R): the density kernel of the
 # Bioconductor *Guitar* package (samplePoints -> normalize ->
 # .generateDensity_CI) on the majority-consensus call set across the technical
@@ -29,7 +29,7 @@ if (is.null(.RB)) {
 # and Guitar's native transcript schematic (1 kb - 5'UTR - CDS - 3'UTR - 1 kb
 # grey bars with dotted component separators).
 #
-# Differences from the S9 script: one row of three panels printed at the final
+# Differences from the Figure S10 script: one row of three panels printed at the final
 # Figure 8 size (2.28 x 2.05 in each), the block letter E, model names at the
 # house rule weight (plain, not the heavy black facet title of the retired
 # draft), and the numbers stay outside the figure (n sites -> legend/table).
@@ -62,11 +62,11 @@ dir.create(TABD, showWarnings = FALSE, recursive = TRUE)
 dir.create(FIGD, showWarnings = FALSE, recursive = TRUE)
 recompute <- "--recompute" %in% commandArgs(TRUE)
 
-MERGE <- "majority"                       # same source as Figure S9 block A
+MERGE <- "majority"                       # same source as Figure S10 block A
 
 ## ---- house style (fonts >= 7 pt; only these constants set the type) ----------
 FS <- list(axis = 8.5, ytitle = 9.0, title = 9.0, legend = 8.0, struct = 7.5)
-E_TITLE_FACE <- "plain"                   # user decision: no heavy black titles
+E_TITLE_FACE <- "plain"                   # author decision: no heavy black titles
 E_TITLE_PT   <- 8.5                       # model name size (regular weight)
 stopifnot(min(unlist(FS)) >= 7)
 PANEL_W <- 2.28; PANEL_H <- 2.05          # inches per panel / for the whole band
@@ -161,7 +161,7 @@ write.table(plan[, c("label", "model", "mod", "condition", "cond_label",
             file.path(TABD, "fig8e_guitar_panel_inputs.tsv"), sep = "\t",
             quote = FALSE, row.names = FALSE)
 
-## ---- transcript schematic under every panel (as in S9 / S1) ------------------
+## ---- transcript schematic under every panel (as in Figure S10 / S1) ------------------
 e_pos <- function(peak) {
   pos <- Guitar:::.generate_pos_para(peak)
   pos$fig_bottom    <- -0.12 * peak
@@ -184,7 +184,7 @@ add_structure <- function(p, comp_width, pos) {
   pk  <- pos$fig_top / 1.05
   h   <- unname(height_map[nm]) * pk
   # All five components carry their label (1 kb - 5'UTR - CDS - 3'UTR - 1 kb, as
-  # in Fig. S9).  The average component widths are 0.218/0.066/0.241/0.257/0.218,
+  # in Fig. S10).  The average component widths are 0.218/0.066/0.241/0.257/0.218,
   # so the midpoints are 0.109/0.252/0.405/0.653/0.891: at 7.5 pt the five labels
   # stay clear of each other in a 2.28 in panel (checked on the rendered PDF).
   xlab <- pmin(pmax(mid, 0.045), 0.955)
@@ -252,7 +252,7 @@ draw_panel <- function(i) {
           plot.margin = margin(5, 6, 3, 5, "pt"),
           text = element_text(family = "Arial"))
   # The model name is a plain text layer, never the plot title (ggplot would draw
-  # the title in its own heavy style, which the user rejected).
+  # the title in its own heavy style, which the author rejected).
   p <- add_structure(p, res$componentWidth, pos)
   p + annotate("text", x = 0.5, y = pos$fig_top * 1.10, label = m$label,
                family = "Arial", fontface = E_TITLE_FACE,

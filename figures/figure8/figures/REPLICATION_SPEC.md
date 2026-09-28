@@ -1,8 +1,8 @@
-# REPLICATION_SPEC — Figure 8 / Figure S8 restyled to the published figure language
+# REPLICATION_SPEC — Figure 8 / Figure S9 restyled to the published figure language
 
 Single construction reference for `scripts/51_fig8_figure.py` and
-`scripts/52_figS8_figure.py`.  Extracted 2026-09-21 from the published panel
-sources and the approved revision implementations (file:line noted); the user
+`scripts/52_figS9_figure.py`.  Extracted 2026-09-21 from the published panel
+sources and the approved revision implementations (file:line noted); the author
 rejected the 2026-09-20 draft as "too ugly / not the published look", so every
 value below is taken from the published code, not invented.
 
@@ -15,9 +15,9 @@ value below is taken from the published code, not invented.
 | C dot plot + % callouts | `the original submission's figure code/Figure8/rna004_m6a_ngs_analysis.py:346-407` (dot version) and `:239-279` (bar version) |
 | D guitar (published) | `the original submission's figure code/Figure8/dorado_m6a_guitar_wt_ivt.R:58-278` |
 | D metagene (approved revision) | `figures/figure7/src/47_fig7_rebuild.py:353-404` (`metagene_frame`, `panel_d`) + `common/figstyle.py:53-87` |
-| S8 mod-ratio scatter (published) | `the original submission's figure code/Figure8/rna004_m6a_ngs_analysis.py` (mod-ratio vs GLORI section) |
-| value-callout permissions | user decision 2026-09-21 (key numbers, >= 12 pt) |
-| house rules | `common/figstyle.py`, `figure_text_audit/README.md`, user rules 2026-09-18/19 |
+| the original submission's S8 mod-ratio scatter | `the original submission's figure code/Figure8/rna004_m6a_ngs_analysis.py` (mod-ratio vs GLORI section) |
+| value-callout permissions | author decision 2026-09-21 (key numbers, >= 12 pt) |
+| house rules | `src/harmonisation/common/figstyle.py` and the printed-type gate `figures/figure8/src/53_verify_fig8.py`, house rules 2026-09-18/19 |
 
 ## Global constants
 
@@ -25,9 +25,9 @@ value below is taken from the published code, not invented.
   `mathtext.fontset="custom"` + Arial (never DejaVu).
 * Size scale on the final page (this is what makes the figure look "printed"):
   ticks 8.5, row labels 8.8 (A, C), axis labels 10.0, panel letters 15.0 bold,
-  legends 8.5, **key value callouts 12.0 bold** (user decision).
+  legends 8.5, **key value callouts 12.0 bold** (author decision).
 * Page sizes (must equal the replaced files): Figure 8 = 595.276 x 740.0 pt;
-  Figure S8 = 595.276 x 770.419 pt.  Save without `bbox_inches="tight"` so the
+  Figure S9 = 595.276 x 770.419 pt.  Save without `bbox_inches="tight"` so the
   pt sizes above are the printed sizes.
 * Axis furniture: `top`/`right` spines off, left/bottom lw 1.1, ticks out,
   `FixedLocator` + `NullLocator` on log axes (no minors), no `1e+06` style
@@ -117,10 +117,10 @@ panel, so this is specified from scratch in the same visual language.
   (published `48_fig7d_guitar.R:182-213` / `47_fig7_rebuild.py:353-373`).
 * y = `Density` (middle axis only), per-axis autoscale; shared 2-entry legend
   (WT / IVT patches) under the bottom axis.
-* Data: `tables/figS8G_metagene_density.tsv` (Ensembl GRCh38p14 release 112
+* Data: `tables/figS9G_metagene_density.tsv` (Ensembl GRCh38p14 release 112
   mRNA region model; never GENCODE).
 
-### Figure S8 panels (same language)
+### Figure S9 panels (same language)
 
 | panel | spec |
 |---|---|
@@ -139,7 +139,7 @@ panel, so this is specified from scratch in the same visual language.
    whole revision series; kept house semantics (WT blue / IVT orange) so the
    figure is internally consistent.
 2. **No grids anywhere** — the published A panel had a faint dashed x grid;
-   user rule 2026-09-18 forbids any grid.
+   house rule 2026-09-18 forbids any grid.
 3. **Site-level counts** — published counts were raw call rows; the revision
    counts distinct genomic positions (same semantics as the confusion tables).
    The published A-panel ordering therefore can differ slightly.
@@ -160,5 +160,5 @@ panel, so this is specified from scratch in the same visual language.
 * no `grid` call in the plotting scripts;
 * minimum explicit font >= 7 pt, **value callouts >= 12 pt**;
 * every plotted number reproduces the frozen tables at 1e-5 relative tolerance;
-* panel letters A–D (main) / A–G (S8) match the legends file, no retired wording
+* panel letters A–D (main) / A–G (Figure S9) match the legends file, no retired wording
   (`hit rate`, `near-perfect`).

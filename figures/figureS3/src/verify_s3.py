@@ -90,7 +90,7 @@ def main() -> int:
     check("panel B: the two mouse studies labelled",
           "mouse study A" in btxt and "mouse study B" in btxt
           and not any(s in btxt for s in ("SRP", "mES_WT", "mESCs_Mettl3_WT")),
-          "study numbers in the legend; no sample id / accession (user 2026-09-21)")
+          "study numbers in the legend; no sample id / accession (author decision 2026-09-21)")
 
     # 5. panel C (the companion analysis analysis) ----------------------------------
     prov = sc.TABLE_DIR / "S3C_provenance.tsv"
@@ -107,7 +107,7 @@ def main() -> int:
     check("panel C legend carries r/CCC",
           "CCC=" in ctxt and "r=" in ctxt, "the companion analysis stats format")
     check("panel C: no in-figure study note (house rule)",
-          "studies:" not in ctxt, "removed per user 2026-09-20 (legend/caption carries it)")
+          "studies:" not in ctxt, "removed per the author 2026-09-20 (legend/caption carries it)")
 
     # 6. page geometry + fonts --------------------------------------------------
     pdf = sc.OUT_DIR / "FigureS3_rev.pdf"
@@ -123,7 +123,7 @@ def main() -> int:
                           capture_output=True, text=True).stdout
     check("no study accession printed on the page",
           not any(s in ptxt for s in ("SRP", "mES_WT", "mESCs_Mettl3_WT")),
-          "page prints the study numbers only (user 2026-09-21)")
+          "page prints the study numbers only (author decision 2026-09-21)")
 
     # 7. submitted original untouched -------------------------------------------
     sup = sc.SUP3_PDF

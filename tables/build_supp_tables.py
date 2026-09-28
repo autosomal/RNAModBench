@@ -46,7 +46,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 MAXCELL = 150  # characters kept per cell in the printed per-tool table
 
 
-#: 2026-09-26 (user, de-AI pass): two curated cells of the deposited evidence CSV carry an
+#: 2026-09-26 (author decision, de-AI pass): two curated cells of the deposited evidence CSV carry an
 #: em dash.  The printed table uses plain punctuation instead, so the delivered SI carries
 #: none; the evidence CSV is deliberately left byte-identical, because it is deposited with
 #: the source code.  The assertion in `write_table` fails if any other dash ever appears.
@@ -82,14 +82,14 @@ CASE_FIX = (("yanocomp", "Yanocomp"),)
 #: printed in S6 and S7; they are filtered out here, and the asserts after each
 #: table fail if one ever comes back.
 PAPER_TOOLS = frozenset({
-    # 13 m6A configurations (Fig. 1-6, Fig. 8, Fig. S8)
+    # 13 m6A configurations (Fig. 1-6, Fig. 8, Fig. S9)
     "CHEUI_m6A", "DENA", "DRUMMER", "ELIGOS2_diff", "ELIGOS2_solo",
     "EpiNano_Error", "m6Anet", "MINES", "Nanocompore", "Nanom6A",
     "NanoSPA_m6A", "xPore", "Yanocomp",
     # non-m6A tools of Fig. 7
     "CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoPsu",
     "NanoSPA_psU",
-    # RNA004 built-in modification models (Fig. 8, Fig. S8)
+    # RNA004 built-in modification models (Fig. 8, Fig. S9)
     "Dorado",
 })
 
@@ -137,7 +137,7 @@ MODE_FIX = (
 def cell(text: object) -> str:
     """A printed cell, **complete**.
 
-    2026-09-27 (user): the per-tool table clipped every long cell with an
+    2026-09-27 (author decision): the per-tool table clipped every long cell with an
     ellipsis (34 of them), which hid exactly the details the table exists for --
     the dependency list, the model checkpoints, the thresholds that were run.
     Cells are now printed in full: whitespace is collapsed, the curated cell
@@ -213,7 +213,7 @@ write_table(
      "Targeted modification", "Modes evaluated in this study"],
     TOOL_ROWS,
     "RNA002 datasets for all tools; Dorado built-in modification models (RNA004) and the "
-    "RNA004-optimised m6Anet model are reported separately in Fig. 8 / Fig. S8. Tool names "
+    "RNA004-optimised m6Anet model are reported separately in Fig. 8 / Fig. S9. Tool names "
     "follow the standardized nomenclature of the manuscript; versions and command lines are "
     "in Table S6.",
 )
@@ -417,7 +417,7 @@ OUT_OF_SCOPE_CLASS = "outside the scope of this study: output generated but not 
 def _s7_class(status: str, reason: str, used_002: bool) -> tuple[str, str]:
     """(status, failure/exclusion class) for one compatibility-matrix row.
 
-    2026-09-28 (user): the ``used_002`` fallback used to answer "basecalling
+    2026-09-28 (author decision): the ``used_002`` fallback used to answer "basecalling
     model" whenever none of the patterns matched, so MINES and Yanocomp -- whose
     recorded reason is "Tombo resquiggle not available for RNA004" -- came out as
     model-limited while their own Input class column says raw signal, and while

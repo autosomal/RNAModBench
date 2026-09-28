@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """34 -- export a CLEAN site collection from ``harmonisation/callsets``.
 
-Why (2026-09-18, user request)
+Why (2026-09-18, revision request)
 ------------------------------
 One tidy table per callset that keeps **every informative callset column**
 with a clear per-tool meaning, dropping only true redundancy:
@@ -90,7 +90,7 @@ def main() -> None:
             base_cols.append("drach")
         if df.empty:
             # empty callset -> header-only placeholder so the export mirrors
-            # callsets one-to-one (user request 2026-09-18)
+            # callsets one-to-one (revision request 2026-09-18)
             dest = OUT_DIR / f.relative_to(CALLSET_ROOT)
             dest.parent.mkdir(parents=True, exist_ok=True)
             pd.DataFrame(columns=base_cols).to_csv(dest, sep="\t", index=False)

@@ -18,9 +18,9 @@ if (is.null(.RB)) {
 # --------------------------------------------------------------------------- #
 
 #!/usr/bin/env Rscript
-# Figure S7, metagene rows (A-F): replicate-aware non-m6A ncRNA panels.
+# Figure S8, metagene rows (A-F): replicate-aware non-m6A ncRNA panels.
 #
-# The published Fig. S7 is a 2 x 3 grid of Guitar density profiles, one panel per
+# The published Fig. S8 is a 2 x 3 grid of Guitar density profiles, one panel per
 # non-m6A tool, WT versus the unmodified IVT negative control, on the ncRNA axis
 # "1kb | ncRNA | 1kb".  Its inputs carried no replicate structure (the legacy
 # Guitar BEDs were an undocumented union of the three HeLa replicates) and the
@@ -44,7 +44,7 @@ if (is.null(.RB)) {
 #   ... --rt 20         CI resampling (switched off, kept for provenance)
 #
 # Outputs (figures/figureS8/)
-#   figures/FigureS7_rev_metagene.{pdf,png}   rows A-F (QC block, no tags)
+#   figures/FigureS8_rev_metagene.{pdf,png}   rows A-F (QC block, no tags)
 #   tables/figS8_density.rds                  cached Guitar density + plan
 #   tables/figS8_panels.rds                   ggplot objects for 63_figS8_page.R
 #   tables/figS8_panel_inputs.tsv             one row per drawn BED (n_sites)
@@ -337,7 +337,7 @@ main <- function() {
   saveRDS(panels, file.path(TABD, "figS8_panels.rds"))
   row <- patchwork::wrap_plots(panels, ncol = NCOL)
   width <- ROW_W; height <- ROW_H
-  save_pair_cairo(row, file.path(FIGD, "FigureS7_rev_metagene.pdf"), width, height)
+  save_pair_cairo(row, file.path(FIGD, "FigureS8_rev_metagene.pdf"), width, height)
   geom <- data.frame(
     item = c("panels", "ncol", "width_in", "height_in", "font_min_pt",
              "component_width_promoter", "component_width_ncrna",

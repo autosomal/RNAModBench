@@ -15,11 +15,11 @@ species; mouse = one study).
 
 This script recomputes the very same four metrics from the harmonisation evaluation
 layer, where every quantity has an explicit definition
-(``harmonisation/README.md`` section 3): an explicit candidate universe
+(``docs/pipeline.md``): an explicit candidate universe
 U(sample, c = 10) and TP/FP/FN/TN inside it, at the primary window w = 2 bp,
 one row per **independent sequencing unit**.
 
-Ranking rule (user decision 2026-09-19): ranks are computed *within each
+Ranking rule (author decision 2026-09-19): ranks are computed *within each
 independent unit* (``method="min"``, high value = rank 1, NaN never ranks) and
 the panel shows the mean rank across the units of that species; the rank range,
 n and k_of_n live in the tables.
@@ -87,7 +87,7 @@ TAB, FIG = OUT / "tables", OUT / "figures"
 METRICS = ["precision", "recall", "f1", "mcc"]
 METRIC_LABEL = {"precision": "Precision", "recall": "Recall",
                 "f1": "F1", "mcc": "MCC"}
-#: row ordering key of every species panel (user decision 2026-09-19: PPV, like
+#: row ordering key of every species panel (author decision 2026-09-19: PPV, like
 #: the published panel which sorted by Precision; F1 is then not monotonic).
 SORT_METRIC = "precision"
 
@@ -209,7 +209,7 @@ def mouse_cross_study_check(ranked: pd.DataFrame) -> pd.DataFrame:
 def _rank_matrix(mean_rank: pd.DataFrame, species: str) -> pd.DataFrame:
     """tools x metrics matrix of mean ranks, rows ordered by mean **PPV** rank.
 
-    Sort key (user decision 2026-09-19): each species panel is ordered by the
+    Sort key (author decision 2026-09-19): each species panel is ordered by the
     mean rank of ``precision`` (= PPV against the GLORI reference) ascending —
     the same key the published panel used (it sorted by Precision descending).
     Consequence: the F1 column is *not* monotonic down the rows, which is

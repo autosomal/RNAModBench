@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""61 -- acceptance checks for the revised Supplementary Figure S9.
+"""61 -- acceptance checks for the revised Supplementary Figure S10.
 
 Checks
 ------
@@ -58,7 +58,7 @@ OUT = (_RB / "figures/figureS10")
 TABLES, FIGS, SCRIPTS, LOGS = (_RB / "figures/figureS10/tables"), (_RB / "figures/figureS10/figures"), (_RB / "figures/figureS10/src"), (_RB / "figures/figureS10/logs")
 CLEAN = (_RB / "data/callsets")
 R_SCRIPT = (_RB / "figures/figureS10/src/23e_figS10_guitar.R")
-PDF = FIGS / "FigureS9_rev.pdf"
+PDF = FIGS / "FigureS10_rev.pdf"
 PAGE = (1152.0, 864.0)                      # = the replaced sup9.pdf
 EXPECTED_ASSIGNED = {                       # frozen 2026-09-20 (pre-figure)
     ("Dorado_hac@v5.0.0_pseU@v1_otherMod", "WT"): 94,
@@ -230,7 +230,7 @@ def main() -> None:
     # independent recomputation of the very first drawn curve, same seed: the
     # interval must reproduce bit-for-bit (deterministic bootstrap contract)
     spec = importlib.util.spec_from_file_location(
-        "figs9_tables", SCRIPTS / "60_figS10_tables.py")
+        "figs10_tables", SCRIPTS / "60_figS10_tables.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     mp = [p for p in sorted(((_XB / "reference/regionmodels")).glob("Human.*.mrna.regionmodel.pkl"))
@@ -355,7 +355,7 @@ def main() -> None:
     check("block B: the frozen 5/50/90 % call anchors hold", anchors_ok)
     # independent recomputation straight from the call-set layer
     spec60 = importlib.util.spec_from_file_location(
-        "figs9_tables_b", SCRIPTS / "60_figS10_tables.py")
+        "figs10_tables_b", SCRIPTS / "60_figS10_tables.py")
     mod60 = importlib.util.module_from_spec(spec60)
     spec60.loader.exec_module(mod60)
     probe_model, probe_mod = "Dorado_sup@v5.1.0_all_m5C", "m5C"
@@ -449,12 +449,12 @@ def main() -> None:
           all(s in txt for s in ["Density", "WT", "unmodified IVT", "5'UTR",
                                  "CDS", "3'UTR", "1kb"]))
     check("PDF text: no excluded (inosine) panel is drawn", "inosine" not in txt)
-    boxes_l = [b for b in word_boxes(FIGS / "FigureS9_rev.pdf")
+    boxes_l = [b for b in word_boxes(FIGS / "FigureS10_rev.pdf")
                if len(b[4]) == 1 and b[4] in "ABCDEFGHIJ"]
     check("PDF text: the three block letters A, B, C exactly once each",
           sorted(b[4] for b in boxes_l) == ["A", "B", "C"],
           f"letters: {[b[4] for b in boxes_l]}")
-    check("PDF text: no figure number is drawn on the page", "S9" not in txt)
+    check("PDF text: no figure number is drawn on the page", "S10" not in txt)
     lb = {b[4]: b for b in boxes_l}
     check("PDF text: A/B/C sit at the top-left of their own block",
           lb["A"][0] < PAGE[0] * 0.1 and lb["A"][1] < PAGE[1] * 0.1        # page top-left
@@ -465,7 +465,7 @@ def main() -> None:
               lb["A"][0], lb["A"][1], lb["B"][0], lb["B"][1],
               lb["C"][0], lb["C"][1]))
 
-    boxes = word_boxes(FIGS / "FigureS9_rev.pdf")
+    boxes = word_boxes(FIGS / "FigureS10_rev.pdf")
     overlaps = near = 0
     for i in range(len(boxes)):
         for j in range(i + 1, len(boxes)):
