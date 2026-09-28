@@ -9,7 +9,7 @@ font below 7 pt) before its PDF is written.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/70_figs8_panels.py [A B ...]
+    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/70_figs9_panels.py [A B ...]
 """
 from __future__ import annotations
 
@@ -23,9 +23,9 @@ matplotlib.use("Agg")
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-import s8_data as D           # noqa: E402
-import s8_panels as P         # noqa: E402
-import s8_style as S          # noqa: E402
+import s9_data as D           # noqa: E402
+import s9_panels as P         # noqa: E402
+import s9_style as S          # noqa: E402
 from common import pagelayout  # noqa: E402
 from common.panelpage import new_panel, save_panel  # noqa: E402
 

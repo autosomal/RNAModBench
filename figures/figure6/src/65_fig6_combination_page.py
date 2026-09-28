@@ -44,7 +44,7 @@ studies stay separate series in every row and are never combined):
      unit, line = mean) -- reviewer R3-4's sensitivity-precision trade-off.
 
 Every number is read from the frozen tables of ``40_fig6_combination.py`` and
-``61_figS5_sitequality.py`` -- nothing is recomputed here.  House rules: printed
+``61_figS6_sitequality.py`` -- nothing is recomputed here.  House rules: printed
 size 1:1, >= 7 pt everywhere, Arial, no gridlines, no in-panel annotation text,
 bold panel letters, vector PDF + 300 dpi PNG.
 

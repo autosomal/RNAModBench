@@ -32,11 +32,11 @@ calls and the 0.77 / 0.78 ratios are these values.
 ## Optional additions
 
 * the **unit-level bootstrap 95 % CI** of the mean-of-counts ratio and the spread
-  of the nine WT × IVT replicate pairs — `s6_ratio_ci.tsv` (columns
+  of the nine WT × IVT replicate pairs — `s7_ratio_ci.tsv` (columns
   `ratio_mean_counts`, `ci_lo`, `ci_hi`, `ratio_pair_min`, `ratio_pair_max`);
 * a note that the unmodified IVT libraries are **negative controls, not a
   treatment arm** (the retired "T/WT" label should not reappear).
 
-Source of every number: `tables/s6_counts_summary.tsv`, `tables/s6_ratio_ci.tsv`,
+Source of every number: `tables/s7_counts_summary.tsv`, `tables/s7_ratio_ci.tsv`,
 `tables/TableS5_reconciliation.tsv` (all reconciled with the frozen R3-9 evidence
-tables; `tables/s6_anchor_check.tsv`, 120/120 OK).
+tables; `tables/s7_anchor_check.tsv`, 120/120 OK).

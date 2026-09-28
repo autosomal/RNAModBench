@@ -29,7 +29,7 @@ row (2.620 in on row 1, 1.400 in on rows 2 and 3) and their bottom offsets are
 carries the x title and the panel's key).  A cell-filling box is a wide rectangle:
 a square box in a 3.740 x 2.195 cell would leave ~2.4 in of white on its right.
 The
-sheet is composed 1:1 by `71_figs8_page.py`
+sheet is composed 1:1 by `71_figs9_page.py`
 (`common.panelpage.compose_page` asserts that every piece stays inside the page
 and that no two pieces overlap), so the point sizes in the panel PDFs are the
 printed sizes.  Arial only, no grid, no panel titles (the sample names live in
@@ -132,15 +132,15 @@ top-ranked tool is no longer always m6Anet -- it differs from the primary one in
 6 of the 9 species-by-stratum cells -- which is why the primary metrics are
 reported against the full high-confidence reference.
 
-**Sources.** Frozen tables in `../tables/source/` (`s8in_counts.tsv`,
-`figS8_orca_counts.tsv`, `s8in_fpr_curlcake_scan.tsv`, `figS8_modratio_agreement.tsv`,
-`figS8F_pairs.tsv`) plus `../tables/S8F_glori_agreement.tsv` for the Lin's CCC
+**Sources.** Frozen tables in `../tables/source/` (`s9in_counts.tsv`,
+`figS9_orca_counts.tsv`, `s9in_fpr_curlcake_scan.tsv`, `figS9_modratio_agreement.tsv`,
+`figS9F_pairs.tsv`) plus `../tables/S8F_glori_agreement.tsv` for the Lin's CCC
 series (the same values quoted in the manuscript and the reply letter),
 `data/evaluation/tables/m6a_localization_curve.tsv` for
 the window sweep, and `tables/tables/
 TableS12_coverage_rank_stability.tsv` for the two stability cells (read, never
-recomputed); rendered by `70_figs8_panels.py`, composed 1:1 by
-`71_figs8_page.py`, accepted by `72_verify_figs8.py`; anchors in
+recomputed); rendered by `70_figs9_panels.py`, composed 1:1 by
+`71_figs9_page.py`, accepted by `72_verify_figs9.py`; anchors in
 `../tables/S8_anchors.tsv`.
 
 **Differences to the originally submitted S8.** The figure is RNA004 only: the

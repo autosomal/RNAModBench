@@ -42,8 +42,8 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator
 
-import s8_style as S
-from s8_style import FS, FAM, IVT, WT, DOT_COLOR, GUIDE
+import s9_style as S
+from s9_style import FS, FAM, IVT, WT, DOT_COLOR, GUIDE
 
 matplotlib.use("Agg")
 

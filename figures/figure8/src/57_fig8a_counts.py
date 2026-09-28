@@ -47,7 +47,7 @@ def family_of(row: pd.Series) -> str:
 
 #: the v5.1.0 run that loads the whole model set is called "..._all" in the
 #: tables; its m6A channel is the DRACH-equivalent model of that release (the
-#: same reading as CURLAKE_FAMILY / s8_data.ALL_RUN).  No row of this figure
+#: same reading as CURLAKE_FAMILY / s9_data.ALL_RUN).  No row of this figure
 #: carries that name today; the mapping keeps the code name off the page if one
 #: ever does.
 ALL_RUN = {"all": "m6A DRACH", "all_Psi": "\u03a8", "all_m5C": "m5C"}

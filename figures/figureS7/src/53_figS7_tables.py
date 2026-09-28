@@ -21,31 +21,31 @@ cannot drift apart):
 
 Outputs (``figures/figureS7/tables/``)
 --------------------------------------------------------
-s6_counts_per_replicate.tsv   calls per HeLa replicate (raw + in-universe)
-s6_counts_summary.tsv         per tool x condition: units, mean, SD, unions
-s6_ratio_ci.tsv               unmodified-IVT / WT call ratios (union + bootstrap CI)
-s6_jaccard_within_cross.tsv   replicate consistency + WT x IVT cross overlap
-s6_jaccard_pairs.tsv          per-pair Jaccard (3 WT + 3 IVT + 9 cross, per tool)
-s6_replicate_support.tsv      k-of-n replicate support of the in-universe calls
-s6_score_density_per_unit.tsv per-unit score densities (one block per sample)
-s6_score_separation.tsv       per tool: pooled AUC + the nine unit-pair AUCs
+s7_counts_per_replicate.tsv   calls per HeLa replicate (raw + in-universe)
+s7_counts_summary.tsv         per tool x condition: units, mean, SD, unions
+s7_ratio_ci.tsv               unmodified-IVT / WT call ratios (union + bootstrap CI)
+s7_jaccard_within_cross.tsv   replicate consistency + WT x IVT cross overlap
+s7_jaccard_pairs.tsv          per-pair Jaccard (3 WT + 3 IVT + 9 cross, per tool)
+s7_replicate_support.tsv      k-of-n replicate support of the in-universe calls
+s7_score_density_per_unit.tsv per-unit score densities (one block per sample)
+s7_score_separation.tsv       per tool: pooled AUC + the nine unit-pair AUCs
                               (mean / min / max) and the KS test, one row per
                               tool (evidence table; the pooled value itself is
                               the quantity plotted in Fig. 7F)
-s6_score_location_per_unit.tsv per tool x independent unit: where the calls sit
+s7_score_location_per_unit.tsv per tool x independent unit: where the calls sit
                               inside the tool's own 0-1 score (median, q25, q75,
                               q05, q95, frac_ge_0p9).  Panel C draws the median
                               as a point and the interquartile range as the
                               whisker since the fifth version
-s6_curlcake_per_construct.tsv unmodified-control FP detail per construct
-s6_anchor_check.tsv           every value above vs the frozen R3-9 tables
+s7_curlcake_per_construct.tsv unmodified-control FP detail per construct
+s7_anchor_check.tsv           every value above vs the frozen R3-9 tables
 TableS5_reconciliation.tsv    current callset vs the published Table S5 numbers
 
 Retired (2026-09-21): ``s6_score_density.tsv`` pooled the three replicates of a
 condition into one density curve.  That violates the per-unit rule of this
 project, so it is no longer written; the per-sample table above carries the
 same information and the pooled file was kept only as
-``s6_score_density_RETIRED_pooled.tsv`` for provenance.
+``s7_score_density_RETIRED_pooled.tsv`` for provenance.
 
 Panel C (2026-09-21 fifth version) no longer plots the densities: the six facets
 mixed three different score kinds (CHEUI-m5C's modification ratio, the NanoMUD
@@ -60,12 +60,12 @@ the four signal-level reasons directly: the NanoMUD pair pinned at 1.000 with a
 zero-width interquartile range, NanoPsu/NanoSPA-Psi in a 0.955-0.980 band in both
 conditions, NanoNm low and overlapping, and CHEUI-m5C scoring the *unmodified*
 library at or above the wild type.  The AUC evidence stays in
-``s6_score_separation.tsv`` (per unit pair) and in Fig. 7F (pooled).
+``s7_score_separation.tsv`` (per unit pair) and in Fig. 7F (pooled).
 
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS7/src/53_figS6_tables.py
+    figures/figureS7/src/53_figS7_tables.py
 """
 
 from __future__ import annotations
@@ -432,7 +432,7 @@ def build_jaccard_pairs(res, jac: pd.DataFrame) -> pd.DataFrame:
     ``build_jaccard``); a cross-condition pair is compared on the *shared*
     candidate universe of that pair, so the deeper replicate cannot inflate the
     overlap.  The per-pair values aggregate exactly to the means frozen in
-    ``s6_jaccard_within_cross.tsv`` (anchored below).
+    ``s7_jaccard_within_cross.tsv`` (anchored below).
     """
     rows = []
     for tool in TOOL_ORDER:
@@ -778,7 +778,7 @@ def main() -> None:
     global _LOGGER
     for d in (TAB, LOG):
         d.mkdir(parents=True, exist_ok=True)
-    log = setup_logger("53_figS6_tables", log_dir=LOG)
+    log = setup_logger("53_figS7_tables", log_dir=LOG)
     _LOGGER = log
     # historical inventory key: this script was renumbered 50 -> 53 after the
     # Figure S8 revision took the 50-52 slots (same six tables, same names)
@@ -791,75 +791,75 @@ def main() -> None:
 
     log.info("[1/11] counts per replicate")
     per_rep, summary = build_counts(res)
-    per_rep.to_csv((_RB / "figures/figureS7/tables/s6_counts_per_replicate.tsv"), sep="\t", index=False,
+    per_rep.to_csv((_RB / "figures/figureS7/tables/s7_counts_per_replicate.tsv"), sep="\t", index=False,
                    float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_counts_per_replicate.tsv"), n_rows=len(per_rep))
+    inv.record((_RB / "figures/figureS7/tables/s7_counts_per_replicate.tsv"), n_rows=len(per_rep))
     log.info("     -> %d rows", len(per_rep))
-    summary.to_csv((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"), sep="\t", index=False,
+    summary.to_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t", index=False,
                    float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"))
+    inv.record((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"))
 
     log.info("[2/11] IVT/WT ratios + bootstrap CI")
     ratio = build_ratio(per_rep, summary)
-    ratio.to_csv((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"), sep="\t", index=False, float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"))
+    ratio.to_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t", index=False, float_format="%.6g")
+    inv.record((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"))
     log.info("     -> %d rows", len(ratio))
 
     log.info("[3/11] Jaccard within / cross condition")
     jac = build_jaccard(res)
-    jac.to_csv((_RB / "figures/figureS7/tables/s6_jaccard_within_cross.tsv"), sep="\t", index=False,
+    jac.to_csv((_RB / "figures/figureS7/tables/s7_jaccard_within_cross.tsv"), sep="\t", index=False,
                float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_jaccard_within_cross.tsv"))
+    inv.record((_RB / "figures/figureS7/tables/s7_jaccard_within_cross.tsv"))
     log.info("     -> %d rows", len(jac))
 
     log.info("[4/11] per-pair Jaccard (3 WT + 3 IVT + 9 cross per tool)")
     pairs = build_jaccard_pairs(res, jac)
-    pairs.to_csv((_RB / "figures/figureS7/tables/s6_jaccard_pairs.tsv"), sep="\t", index=False,
+    pairs.to_csv((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"), sep="\t", index=False,
                  float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_jaccard_pairs.tsv"), n_rows=len(pairs))
+    inv.record((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"), n_rows=len(pairs))
     log.info("     -> %d rows", len(pairs))
 
     log.info("[5/11] k-of-n replicate support")
     support = build_replicate_support(res)
-    support.to_csv((_RB / "figures/figureS7/tables/s6_replicate_support.tsv"), sep="\t", index=False,
+    support.to_csv((_RB / "figures/figureS7/tables/s7_replicate_support.tsv"), sep="\t", index=False,
                    float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_replicate_support.tsv"), n_rows=len(support))
+    inv.record((_RB / "figures/figureS7/tables/s7_replicate_support.tsv"), n_rows=len(support))
     log.info("     -> %d rows", len(support))
 
     log.info("[6/11] per-unit score densities (never pooled)")
     scor = build_scores_per_unit()
-    scor.to_csv((_RB / "figures/figureS7/tables/s6_score_density_per_unit.tsv"), sep="\t", index=False,
+    scor.to_csv((_RB / "figures/figureS7/tables/s7_score_density_per_unit.tsv"), sep="\t", index=False,
                 float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_score_density_per_unit.tsv"), n_rows=len(scor))
+    inv.record((_RB / "figures/figureS7/tables/s7_score_density_per_unit.tsv"), n_rows=len(scor))
     log.info("     -> %d rows", len(scor))
     pooled = (_RB / "figures/figureS7/tables/s6_score_density.tsv")          # 2026-09-20 pooled build
     if pooled.exists():
-        retired = (_RB / "figures/figureS7/tables/s6_score_density_RETIRED_pooled.tsv")
+        retired = (_RB / "figures/figureS7/tables/s7_score_density_RETIRED_pooled.tsv")
         if not retired.exists():
             pooled.rename(retired)
         log.info("     retired the pooled density table -> %s", retired.name)
 
     log.info("[7/11] score separation per tool (evidence for Fig. 7F)")
     sep = build_separation()
-    sep.to_csv((_RB / "figures/figureS7/tables/s6_score_separation.tsv"), sep="\t", index=False,
+    sep.to_csv((_RB / "figures/figureS7/tables/s7_score_separation.tsv"), sep="\t", index=False,
                float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_score_separation.tsv"), n_rows=len(sep))
+    inv.record((_RB / "figures/figureS7/tables/s7_score_separation.tsv"), n_rows=len(sep))
     log.info("     -> %d rows (pooled AUC + nine unit-pair AUCs per tool)",
              len(sep))
 
     log.info("[8/11] per-unit score location (panel C)")
     loc = build_score_location()
-    loc.to_csv((_RB / "figures/figureS7/tables/s6_score_location_per_unit.tsv"), sep="\t", index=False,
+    loc.to_csv((_RB / "figures/figureS7/tables/s7_score_location_per_unit.tsv"), sep="\t", index=False,
                float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_score_location_per_unit.tsv"), n_rows=len(loc))
+    inv.record((_RB / "figures/figureS7/tables/s7_score_location_per_unit.tsv"), n_rows=len(loc))
     log.info("     -> %d rows (median + q25-q75 per unit, both conditions)",
              len(loc))
 
     log.info("[9/11] unmodified Curlcake controls")
     cc = build_curlcake(res, regions["Curlcake"])
-    cc.to_csv((_RB / "figures/figureS7/tables/s6_curlcake_per_construct.tsv"), sep="\t", index=False,
+    cc.to_csv((_RB / "figures/figureS7/tables/s7_curlcake_per_construct.tsv"), sep="\t", index=False,
               float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_curlcake_per_construct.tsv"))
+    inv.record((_RB / "figures/figureS7/tables/s7_curlcake_per_construct.tsv"))
     log.info("     -> %d rows", len(cc))
 
     log.info("[10/11] Table S5 reconciliation")
@@ -870,9 +870,9 @@ def main() -> None:
 
     log.info("[11/11] anchor check")
     adf = pd.DataFrame(anchors)
-    adf.to_csv((_RB / "figures/figureS7/tables/s6_anchor_check.tsv"), sep="\t", index=False,
+    adf.to_csv((_RB / "figures/figureS7/tables/s7_anchor_check.tsv"), sep="\t", index=False,
                float_format="%.6g")
-    inv.record((_RB / "figures/figureS7/tables/s6_anchor_check.tsv"))
+    inv.record((_RB / "figures/figureS7/tables/s7_anchor_check.tsv"))
     bad = adf[adf.status != "OK"]
     log.info("     %d/%d anchors OK", len(adf) - len(bad), len(adf))
     for r in bad.itertuples():
@@ -882,7 +882,7 @@ def main() -> None:
     log.info("done in %.1f s; tables -> %s", time.time() - t0, TAB)
     log.info("log: %s", log.log_path)
     if len(bad):
-        raise SystemExit(f"{len(bad)} anchor mismatches; see {TAB/'s6_anchor_check.tsv'}")
+        raise SystemExit(f"{len(bad)} anchor mismatches; see {TAB/'s7_anchor_check.tsv'}")
 
 
 if __name__ == "__main__":

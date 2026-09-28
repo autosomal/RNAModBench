@@ -38,7 +38,7 @@ never averaged.
 Figures
 -------
 The revision **Figure 6** is produced by ``65_fig6_combination_page.py`` and
-**S5** by ``62_figS5_figure.py``; both read the frozen tables below and print at
+**S5** by ``62_figS6_figure.py``; both read the frozen tables below and print at
 their final size (1:1, no scaling).  The superseded 4-row main layout
 (``fig_main``) and the superseded 3-row S5 layout (``fig_supp``) remain
 reproducible with ``--fig6-legacy`` / ``--s5-legacy`` but are **off by default**:
@@ -622,7 +622,7 @@ def main() -> None:
                          "65_fig6_combination_page.py")
     ap.add_argument("--s5-legacy", action="store_true",
                     help="also draw the superseded three-row S5 layout; the "
-                         "revision figure is produced by 62_figS5_figure.py")
+                         "revision figure is produced by 62_figS6_figure.py")
     args = ap.parse_args()
     if args.species:
         unknown = [s for s in args.species if s not in GROUPS]
@@ -789,7 +789,7 @@ def main() -> None:
             fig_supp(greedy13, units_sel, n_text)
         if not (args.fig6_legacy or args.s5_legacy):
             logger.info("legacy figures off: Figure 6 -> "
-                        "65_fig6_combination_page.py, S5 -> 62_figS5_figure.py")
+                        "65_fig6_combination_page.py, S5 -> 62_figS6_figure.py")
     inv.flush()
     logger.info("figures -> %s", FIG)
 

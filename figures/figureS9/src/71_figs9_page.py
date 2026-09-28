@@ -9,7 +9,7 @@ that no two panels overlap.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/71_figs8_page.py
+    $RNAMODBENCH_ROOT/analysis/figS8_rebuild/scripts/71_figs9_page.py
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-import s8_style as S  # noqa: E402  (also puts src/harmonisation on sys.path)
+import s9_style as S  # noqa: E402  (also puts src/harmonisation on sys.path)
 from common.panelpage import Panel, compose_page, pdf_to_png  # noqa: E402
 
 PAGE = S.FIGS / "FigureS8_rev.pdf"
@@ -33,7 +33,7 @@ def main() -> None:
         w, h = S.PIECE[key]
         path = S.PANELS / f"figS8{key}.pdf"
         if not path.exists():
-            raise SystemExit(f"missing panel {path} -- run 70_figs8_panels.py")
+            raise SystemExit(f"missing panel {path} -- run 70_figs9_panels.py")
         x, y = S.PLACE[key]
         placements.append((Panel(name=key, path=path, width_in=w, height_in=h),
                            x, y))

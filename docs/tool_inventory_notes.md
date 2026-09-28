@@ -8,20 +8,21 @@ each value came from.
 ## Layers
 
 1. **Automatic collection** (`tools/inventory/scripts/`, re-runnable):
-   * `collect_commands.py` scans every shell driver that was used for a run and
+   * `tools/inventory/scripts/collect_commands.py` scans every shell driver that was used for a run and
      extracts the command lines with their file and line number → `command_lines.csv`.
-   * `collect_params.py` parses the YAML/environment specifications, run logs and
+   * `tools/inventory/scripts/collect_params.py` parses the YAML/environment specifications, run logs and
      notes for parameters and model references.
-   * `collect_versions.py` probes versions three ways - `conda list` per
+   * `tools/inventory/scripts/collect_versions.py` probes versions three ways - `conda list` per
      environment, each binary's `--version`, and the source checkout - → `software_versions.csv`, `model_checkpoints.csv`.
 2. **Manual curation** - `tools/inventory/curated/tool_inventory_curated.csv` is the
    only file that was edited by hand; the tables are generated from it
-   (`scripts/build_tables.py`).
+   (`tools/inventory/scripts/build_tables.py`).
 3. **Per-tool reading** - where a value was not present in a log or a YAML it was
    read from the tool's own argparse/click defaults, README or model file, and the
    reading was recorded with its evidence pointer
-   (`scripts/parse_research.py` → `apply_research.py`, promoted to `CONFIRMED` by
-   `promote_status.py` after human review).
+   (`tools/inventory/scripts/parse_research.py` →
+   `tools/inventory/scripts/apply_research.py`, promoted to `CONFIRMED` by
+   `tools/inventory/scripts/promote_status.py` after human review).
 
 ## What the recorded command lines are, and are not
 

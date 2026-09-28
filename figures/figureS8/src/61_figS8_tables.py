@@ -44,20 +44,20 @@ Conventions (identical to R3-9 / Figure S6)
 
 Outputs (``figures/figureS8/tables/``)
 ---------------------------------------------------------
-s7_units.tsv               calls / in-universe / ncRNA-assigned counts per unit + majority
-s7_density_profiles.tsv    200-bin density per tool x condition x profile x segment
-s7_segment_shares.tsv      share of calls in each of the three metagene segments
-s7_profile_distance.tsv    WT-IVT pairs (9 unit pairs + majority): JSD / L1 / shape JSD
-s7_background_profiles.tsv candidate-universe profile of each tool x condition
-s7_null_distribution.tsv   R = 1000 permutation draws per tool and statistic
-s7_null_summary.tsv        observed vs null quantiles + empirical p
-s7_anchor_check.tsv        every value vs the frozen R3-9 evidence tables
-s7_geometry.tsv            run metadata (model, grids, pool sizes, timings)
+s8_units.tsv               calls / in-universe / ncRNA-assigned counts per unit + majority
+s8_density_profiles.tsv    200-bin density per tool x condition x profile x segment
+s8_segment_shares.tsv      share of calls in each of the three metagene segments
+s8_profile_distance.tsv    WT-IVT pairs (9 unit pairs + majority): JSD / L1 / shape JSD
+s8_background_profiles.tsv candidate-universe profile of each tool x condition
+s8_null_distribution.tsv   R = 1000 permutation draws per tool and statistic
+s8_null_summary.tsv        observed vs null quantiles + empirical p
+s8_anchor_check.tsv        every value vs the frozen R3-9 evidence tables
+s8_geometry.tsv            run metadata (model, grids, pool sizes, timings)
 
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS8/src/61_figS7_tables.py
+    figures/figureS8/src/61_figS8_tables.py
 """
 
 from __future__ import annotations
@@ -481,10 +481,10 @@ def majority_sites(per_chrom: dict[str, list[np.ndarray]], samples: dict,
 def main() -> None:
     for d in (TAB, LOG):
         d.mkdir(parents=True, exist_ok=True)
-    log = setup_logger("61_figS7_tables", log_dir=LOG)
+    log = setup_logger("61_figS8_tables", log_dir=LOG)
     global _LOGGER
     _LOGGER = log
-    inv = Inventory("61_figS7_tables")
+    inv = Inventory("61_figS8_tables")
     t0 = time.time()
 
     models = sorted(p for p in MODEL_DIR.glob(f"{SPECIES}.*.ncrna.regionmodel.pkl")
@@ -730,23 +730,23 @@ def main() -> None:
 
     log.info("[4/6] writing tables")
     for df, name in (
-            (pd.DataFrame(unit_rows), "s7_units.tsv"),
-            (pd.DataFrame(dens_rows), "s7_density_profiles.tsv"),
-            (pd.DataFrame(share_rows), "s7_segment_shares.tsv"),
-            (pd.DataFrame(dist_rows), "s7_profile_distance.tsv"),
-            (pd.DataFrame(bg_rows), "s7_background_profiles.tsv"),
-            (pd.DataFrame(null_rows), "s7_null_distribution.tsv"),
-            (pd.DataFrame(null_summary), "s7_null_summary.tsv"),
-            (pd.DataFrame(geometry), "s7_geometry.tsv")):
+            (pd.DataFrame(unit_rows), "s8_units.tsv"),
+            (pd.DataFrame(dens_rows), "s8_density_profiles.tsv"),
+            (pd.DataFrame(share_rows), "s8_segment_shares.tsv"),
+            (pd.DataFrame(dist_rows), "s8_profile_distance.tsv"),
+            (pd.DataFrame(bg_rows), "s8_background_profiles.tsv"),
+            (pd.DataFrame(null_rows), "s8_null_distribution.tsv"),
+            (pd.DataFrame(null_summary), "s8_null_summary.tsv"),
+            (pd.DataFrame(geometry), "s8_geometry.tsv")):
         df.to_csv(TAB / name, sep="\t", index=False, float_format="%.6g")
         inv.record(TAB / name, n_rows=len(df))
         log.info("     %-30s %8d rows", name, len(df))
 
     log.info("[5/6] anchor check")
     adf = pd.DataFrame(anchors)
-    adf.to_csv((_RB / "figures/figureS8/tables/s7_anchor_check.tsv"), sep="\t", index=False,
+    adf.to_csv((_RB / "figures/figureS8/tables/s8_anchor_check.tsv"), sep="\t", index=False,
                float_format="%.6g")
-    inv.record((_RB / "figures/figureS8/tables/s7_anchor_check.tsv"))
+    inv.record((_RB / "figures/figureS8/tables/s8_anchor_check.tsv"))
     bad = adf[adf.status != "OK"]
     log.info("     %d/%d anchors OK", len(adf) - len(bad), len(adf))
     for r in bad.itertuples():
@@ -757,7 +757,7 @@ def main() -> None:
     inv.flush()
     if len(bad):
         raise SystemExit(f"{len(bad)} anchor mismatches; see "
-                         f"{TAB / 's7_anchor_check.tsv'}")
+                         f"{TAB / 's8_anchor_check.tsv'}")
 
 
 if __name__ == "__main__":

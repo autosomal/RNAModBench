@@ -79,8 +79,8 @@ from scipy import stats
 HERE = os.path.dirname(os.path.abspath(__file__))
 TABLES = os.path.join(os.path.dirname(HERE), "tables")
 ROOT = str(_RB)
-CLEAN = f"{ROOT}/data/callsets/RNA002"
-UNIVERSE = f"{ROOT}/data/universe/RNA002"
+CLEAN = f"{_RB}/data/callsets/RNA002"
+UNIVERSE = f"{_XB}/harmonisation/universe/RNA002"
 R36_KL = f"{ROOT}/analysis/motif_bias_control/analysis/fullcount_kl.tsv"
 
 # locked analysis constants (harmonisation/common/config.py)

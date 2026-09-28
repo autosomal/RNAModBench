@@ -42,7 +42,7 @@ Outputs -> ``figures/figure6/tables/``
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS6/src/61_figS5_sitequality.py
+    figures/figureS6/src/61_figS6_sitequality.py
 """
 from __future__ import annotations
 
@@ -279,8 +279,8 @@ def score_stats(values: list[float]) -> dict:
 
 # --------------------------------------------------------------------------- #
 def main() -> None:
-    logger = setup_logger("61_figS5_sitequality", log_dir=LOG)
-    inv = Inventory("61_figS5_sitequality")
+    logger = setup_logger("61_figS6_sitequality", log_dir=LOG)
+    inv = Inventory("61_figS6_sitequality")
     sel = pd.read_csv(TAB / "fig6_combination_selected.tsv", sep="\t")
     rows: list[dict] = []
     score_rows: list[dict] = []

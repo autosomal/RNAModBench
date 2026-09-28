@@ -74,7 +74,7 @@ the SI assembly live in `tables/`.
 
 The callset pipeline itself - the stages that turn raw tool output into
 `data/callsets/` and the metrics in `data/evaluation/tables/` - is
-`src/harmonisation/` (`scripts/run_all.sh`, stages `00`→`34`), and the shared library
+`src/harmonisation/` (`src/harmonisation/scripts/run_all.sh`, stages `00`→`34`), and the shared library
 the figures import (`config`, `figstyle`, `pagelayout`, `panelpage`, `match`,
 `evaluation`, …) is `src/harmonisation/common/`.
 

@@ -10,7 +10,7 @@ defects the user rejected on 2026-09-21, so they cannot come back:
    (90 pairs), the k-of-n table, the per-unit score table (1,800 rows) and the
    Curlcake table (five tools, 20 rows); the pooled score table must be *gone*
    (retired) because pooling replicates is not allowed;
-2. anchors: ``s6_anchor_check.tsv`` has no MISMATCH, and the counts / ratios /
+2. anchors: ``s7_anchor_check.tsv`` has no MISMATCH, and the counts / ratios /
    Curlcake densities are re-checked here directly against the frozen R3-9
    evidence at 1e-5 relative tolerance;
 3. the numbers the manuscript quotes (883 / 888 WT unions, 0.77 / 0.78 union
@@ -25,12 +25,12 @@ defects the user rejected on 2026-09-21, so they cannot come back:
 6. residue scan: no legacy tool names, no "T/WT", no "treatment", no retired
    figure title, **no panel/facet title and no class-header label** (the house
    rule of 2026-09-19 deletes every title; the classes live in the caption) --
-   in the figure text objects and in ``FigS6_legends.md``;
+   in the figure text objects and in ``FigS7_legends.md``;
 7. the legend file declares the no-m6A-reference basis, the unmodified-IVT
    negative-control role and the CHEUI-m5C synthetic-control gap.
 
 Usage: conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS7/src/55_verify_figS6.py
+    figures/figureS7/src/55_verify_figS7.py
 """
 
 from __future__ import annotations
@@ -66,7 +66,7 @@ FIG = (_RB / "figures/figureS7/figures")
 LOG = (_RB / "figures/figureS7/logs")
 EV = (_RB / "analysis/nonm6a_false_positives/evidence")
 PDF = (_RB / "figures/figureS7/figures/FigureS6_rev.pdf")
-SCRIPT = HERE.parent / "54_figS6_figure.py"
+SCRIPT = HERE.parent / "54_figS7_figure.py"
 
 TOOLS = ["CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoPsu",
          "NanoSPA_psU"]
@@ -101,16 +101,16 @@ def main() -> None:
 
     # ---- 1. evidence tables ------------------------------------------------- #
     need = {
-        "s6_counts_per_replicate.tsv": 36,
-        "s6_counts_summary.tsv": 12,
-        "s6_ratio_ci.tsv": 6,
-        "s6_jaccard_within_cross.tsv": 6,
-        "s6_jaccard_pairs.tsv": 90,
-        "s6_replicate_support.tsv": 36,
-        "s6_score_density_per_unit.tsv": 1800,
-        "s6_score_separation.tsv": 6,
-        "s6_score_location_per_unit.tsv": 36,
-        "s6_curlcake_per_construct.tsv": 20,
+        "s7_counts_per_replicate.tsv": 36,
+        "s7_counts_summary.tsv": 12,
+        "s7_ratio_ci.tsv": 6,
+        "s7_jaccard_within_cross.tsv": 6,
+        "s7_jaccard_pairs.tsv": 90,
+        "s7_replicate_support.tsv": 36,
+        "s7_score_density_per_unit.tsv": 1800,
+        "s7_score_separation.tsv": 6,
+        "s7_score_location_per_unit.tsv": 36,
+        "s7_curlcake_per_construct.tsv": 20,
         "TableS5_reconciliation.tsv": 6,
     }
     for name, rows in need.items():
@@ -122,13 +122,13 @@ def main() -> None:
         check(f"table {name} has {rows} rows", len(df) == rows, f"{len(df)} rows")
     check("pooled score table retired (not regenerated)",
           not ((_RB / "figures/figureS7/tables/s6_score_density.tsv")).exists()
-          and ((_RB / "figures/figureS7/tables/s6_score_density_RETIRED_pooled.tsv")).exists(),
+          and ((_RB / "figures/figureS7/tables/s7_score_density_RETIRED_pooled.tsv")).exists(),
           "s6_score_density.tsv must not be rewritten")
     src = SCRIPT.read_text(encoding="utf-8")
     check("figure reads the anchored S6 tables (location, not densities)",
-          all(n in src for n in ("s6_score_location_per_unit.tsv",
-                                 "s6_jaccard_pairs.tsv",
-                                 "s6_curlcake_per_construct.tsv"))
+          all(n in src for n in ("s7_score_location_per_unit.tsv",
+                                 "s7_jaccard_pairs.tsv",
+                                 "s7_curlcake_per_construct.tsv"))
           and "s6_score_density.tsv" not in src,
           "panel C must read the per-unit location table, never a density table")
     check("figure keeps the page gate and margin letters",
@@ -139,7 +139,7 @@ def main() -> None:
           not any(('"0"' in ln and "10$^{" in ln)
                   for ln in src.splitlines() if "set_yticklabels" in ln))
 
-    anchors = pd.read_csv((_RB / "figures/figureS7/tables/s6_anchor_check.tsv"), sep="\t")
+    anchors = pd.read_csv((_RB / "figures/figureS7/tables/s7_anchor_check.tsv"), sep="\t")
     bad = anchors[anchors.status != "OK"]
     check("anchor check has no mismatch", len(bad) == 0,
           f"{len(anchors) - len(bad)}/{len(anchors)} OK"
@@ -147,14 +147,14 @@ def main() -> None:
 
     # ---- 2. anchors re-checked against the frozen R3-9 evidence ------------- #
     frozen = pd.read_csv((_RB / "analysis/nonm6a_false_positives/evidence/hela_wt_ivt_summary.tsv"), sep="\t").set_index("tool")
-    counts = pd.read_csv((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"), sep="\t")
-    ratios = pd.read_csv((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"), sep="\t")
-    pairs = pd.read_csv((_RB / "figures/figureS7/tables/s6_jaccard_pairs.tsv"), sep="\t")
-    support = pd.read_csv((_RB / "figures/figureS7/tables/s6_replicate_support.tsv"), sep="\t")
-    scor = pd.read_csv((_RB / "figures/figureS7/tables/s6_score_density_per_unit.tsv"), sep="\t")
-    sep = pd.read_csv((_RB / "figures/figureS7/tables/s6_score_separation.tsv"), sep="\t")
-    loc = pd.read_csv((_RB / "figures/figureS7/tables/s6_score_location_per_unit.tsv"), sep="\t")
-    cc = pd.read_csv((_RB / "figures/figureS7/tables/s6_curlcake_per_construct.tsv"), sep="\t")
+    counts = pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t")
+    ratios = pd.read_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t")
+    pairs = pd.read_csv((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"), sep="\t")
+    support = pd.read_csv((_RB / "figures/figureS7/tables/s7_replicate_support.tsv"), sep="\t")
+    scor = pd.read_csv((_RB / "figures/figureS7/tables/s7_score_density_per_unit.tsv"), sep="\t")
+    sep = pd.read_csv((_RB / "figures/figureS7/tables/s7_score_separation.tsv"), sep="\t")
+    loc = pd.read_csv((_RB / "figures/figureS7/tables/s7_score_location_per_unit.tsv"), sep="\t")
+    cc = pd.read_csv((_RB / "figures/figureS7/tables/s7_curlcake_per_construct.tsv"), sep="\t")
     disc = pd.read_csv((_RB / "analysis/nonm6a_false_positives/evidence/score_distributions.tsv"), sep="\t")
     disc = disc[disc["sample"] == "__discrimination__"].set_index("tool")
     frozen_cc = pd.read_csv((_RB / "analysis/nonm6a_false_positives/evidence/curlcake_ivt_fp_per_construct.tsv"), sep="\t")
@@ -426,7 +426,7 @@ def main() -> None:
     for label, pat in banned.items():
         if pat.search(txt):
             residues.append(f"figure: {label}")
-    legend_md = (_RB / "figures/figureS7/figures/FigS6_legends.md")
+    legend_md = (_RB / "figures/figureS7/figures/FigS7_legends.md")
     body = legend_md.read_text(encoding="utf-8") if legend_md.exists() else ""
     for label, pat in banned.items():
         if pat.search(body):

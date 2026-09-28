@@ -31,9 +31,9 @@ Outputs -> ``figures/figure8/tables``
 * fig8_ppv_glori.tsv             PPV vs. GLORI (2 bp), RNA004 HeLa WT
 * fig8_tradeoff.tsv              PPV vs. FP-per-10 kb operating points
 * fig8_jaccard_wt.tsv / _ivt.tsv Dorado m6A concordance (moves to Fig. S8)
-* figS8_chem_compare.tsv         Curlcake FPR, RNA002 vs RNA004, per unit
-* figS8_orca_counts.tsv          ORCA + tool counts per modification type
-* figS8_modratio_agreement.tsv   modification ratio vs GLORI association
+* figS9_chem_compare.tsv         Curlcake FPR, RNA002 vs RNA004, per unit
+* figS9_orca_counts.tsv          ORCA + tool counts per modification type
+* figS9_modratio_agreement.tsv   modification ratio vs GLORI association
 * fig8_candidate_denominators.tsv candidate-site denominators actually used
 * fig8_quoted_numbers.tsv  numbers quoted in the reply, with sources
 
@@ -404,7 +404,7 @@ def chem_compare(region: dict) -> pd.DataFrame:
                 "fp_per_10kb": 1e4 * n_fp / region_bp,
             })
     out = pd.DataFrame(rows)
-    write_tsv(out, (_RB / "figures/figure8/tables/figS8_chem_compare.tsv"))
+    write_tsv(out, (_RB / "figures/figure8/tables/figS9_chem_compare.tsv"))
     return out
 
 
@@ -436,7 +436,7 @@ def orca_counts() -> pd.DataFrame:
             if c not in out.columns:
                 out[c] = 0
         out = out[["source", "mod_type", "tool", "WT", "IVT"]]
-    write_tsv(out, (_RB / "figures/figure8/tables/figS8_orca_counts.tsv"))
+    write_tsv(out, (_RB / "figures/figure8/tables/figS9_orca_counts.tsv"))
     return out
 
 
@@ -478,7 +478,7 @@ def modratio_agreement() -> pd.DataFrame:
     out = pd.DataFrame(rows)
     if not out.empty:
         out = out.sort_values("pearson_r", ascending=False)
-    write_tsv(out, (_RB / "figures/figure8/tables/figS8_modratio_agreement.tsv"))
+    write_tsv(out, (_RB / "figures/figure8/tables/figS9_modratio_agreement.tsv"))
     return out
 
 

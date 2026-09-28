@@ -4,7 +4,7 @@ anchor count >= 84	OK	84
 body-density peak within 0.20 of the body	OK	max shift 0.155 over 12 majority groups
 INFO: sign of the body-share change agrees	INFO	
 body-density Spearman rho >= 0.50	OK	min rho = 0.547, median = 0.815
-segment shares within 0.40 (gross-error guard)	OK	max |delta| = 0.3750 (ambiguity rule), see s7_density_crosscheck.tsv
+segment shares within 0.40 (gross-error guard)	OK	max |delta| = 0.3750 (ambiguity rule), see s8_density_crosscheck.tsv
 no legacy names / banned wording	OK	
 standardized tool names present	OK	[]
 panel letters A-D present	OK	['A', 'B', 'C', 'D', 'E', 'H']

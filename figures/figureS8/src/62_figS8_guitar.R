@@ -39,18 +39,18 @@ if (is.null(.RB)) {
 # per-tool facets or distinguish consensus from replicate curves.
 #
 # Usage
-#   conda run -n guitar_asm --no-capture-output Rscript 62_figS7_guitar.R
+#   conda run -n guitar_asm --no-capture-output Rscript 62_figS8_guitar.R
 #   ... --recompute     ignore the cached RDS
 #   ... --rt 20         CI resampling (switched off, kept for provenance)
 #
 # Outputs (figures/figureS8/)
 #   figures/FigureS7_rev_metagene.{pdf,png}   rows A-F (QC block, no tags)
-#   tables/figS7_density.rds                  cached Guitar density + plan
-#   tables/figS7_panels.rds                   ggplot objects for 63_figS7_page.R
-#   tables/figS7_panel_inputs.tsv             one row per drawn BED (n_sites)
-#   tables/figS7_guitar_sites.tsv             Guitar's per-site relative coordinate
+#   tables/figS8_density.rds                  cached Guitar density + plan
+#   tables/figS8_panels.rds                   ggplot objects for 63_figS8_page.R
+#   tables/figS8_panel_inputs.tsv             one row per drawn BED (n_sites)
+#   tables/figS8_guitar_sites.tsv             Guitar's per-site relative coordinate
 #                                             + weight (cross-check vs 61)
-#   tables/figS7_guitar_geometry.tsv          component widths, panel size, fonts
+#   tables/figS8_guitar_geometry.tsv          component widths, panel size, fonts
 #
 # Fonts: PDF via grDevices::cairo_pdf with showtext OFF (real Arial embedded);
 # showtext is switched on only for the 300 dpi PNG preview.  Nothing below 7 pt.
@@ -174,7 +174,7 @@ group_sites <- function(beds, txtype, gt) {
 
 compute_or_load <- function() {
   dir.create(TABD, showWarnings = FALSE, recursive = TRUE)
-  cache <- file.path(TABD, "figS7_density.rds")
+  cache <- file.path(TABD, "figS8_density.rds")
   if (file.exists(cache) && !recompute) {
     message("using cached density: ", basename(cache)); return(readRDS(cache))
   }
@@ -195,13 +195,13 @@ compute_or_load <- function() {
               componentWidth = gt[[TXTYPE]]$componentWidthAverage_pct,
               merge = merge, rt = rt, errors = s$errors)
   saveRDS(res, cache)
-  write.table(plan, file.path(TABD, "figS7_panel_inputs.tsv"), sep = "\t",
+  write.table(plan, file.path(TABD, "figS8_panel_inputs.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   # Guitar's own per-site coordinates, for the cross-check against 61 (Python)
   site_rows <- do.call(rbind, lapply(names(s$relative), function(g) data.frame(
     group = g, relative = as.numeric(s$relative[[g]]),
     weight = as.numeric(s$weight[[g]]), stringsAsFactors = FALSE)))
-  write.table(site_rows, file.path(TABD, "figS7_guitar_sites.tsv"), sep = "\t",
+  write.table(site_rows, file.path(TABD, "figS8_guitar_sites.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   message("cached -> ", cache)
   res
@@ -334,7 +334,7 @@ main <- function() {
   if (any(!keep)) message("panels drawn: ", sum(keep), " of ", length(TOOLS),
                           " (missing: ", paste(TOOLS[!keep], collapse = ", "), ")")
   panels <- panels[keep]
-  saveRDS(panels, file.path(TABD, "figS7_panels.rds"))
+  saveRDS(panels, file.path(TABD, "figS8_panels.rds"))
   row <- patchwork::wrap_plots(panels, ncol = NCOL)
   width <- ROW_W; height <- ROW_H
   save_pair_cairo(row, file.path(FIGD, "FigureS7_rev_metagene.pdf"), width, height)
@@ -347,7 +347,7 @@ main <- function() {
               as.numeric(res$componentWidth["ncrna"]),
               as.numeric(res$componentWidth["tail"]), res$merge, res$rt,
               length(res$errors)))
-  write.table(geom, file.path(TABD, "figS7_guitar_geometry.tsv"), sep = "\t",
+  write.table(geom, file.path(TABD, "figS8_guitar_geometry.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   message("done")
 }

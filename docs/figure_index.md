@@ -35,12 +35,12 @@ Environments: `py` = `envs/analysis/env-benchmark-revision.yml`,
 | **Figure S2** | A–E motif composition, bias control | `figures/figureS2/src/01_figS2_motif_inputs.py` → `figures/figureS2/src/08_figS2v4_stats.py` → `figures/figureS2/src/09_figS2v4_panels.py` → `figures/figureS2/src/10_figS2v4_assemble.py` | motif | `figures/figureS2/analysis/figS2_kl_full.tsv`, `figS2_pwm_per_rep.npz`, `analysis/motif_bias_control/` |
 | **Figure S3** | A overlap, B PPV vs GLORI, C ratio agreement | `figures/figureS3/src/make_s3a_venn.py` → `figures/figureS3/src/make_s3b_ppv.py` → `figures/figureS3/src/make_s3c_reuse_other.py` → `figures/figureS3/src/make_figs3_page.py`; gate `figures/figureS3/src/verify_s3.py` | py | `figures/figureS3/tables/`, `analysis/mod_ratio_replicates/tables/` |
 | **Figure S4** | A counts, B–C window sweeps, D purified vs WT | `figures/figureS4/src/41_figS4_tables.py` → `figures/figureS4/src/42_figS4_figure.py`; gate `figures/figureS4/src/49_verify_figS4_S10.py` | py | `figures/figureS4/tables/`, `data/evaluation/tables/` |
-| **Figure S5** | A–C purified-site definition | `figures/figureS5/src/48_figS10_validation.py`; gate `figures/figureS4/src/49_verify_figS4_S10.py` | py | `figures/figureS4/tables/figS4_validation_groups.tsv` |
-| **Figure S6** | A–E combination enumerations beyond the five selected tools | `figures/figureS6/src/61_figS5_sitequality.py` → `figures/figureS6/src/62_figS5_figure.py`; gate `figures/figureS6/src/63_verify_figS5.py` | py | `figures/figure6/tables/` (shared with Figure 6) |
-| **Figure S7** | A–D non-m6A per independent unit | `figures/figureS7/src/53_figS6_tables.py` → `figures/figureS7/src/54_figS6_figure.py`; gate `figures/figureS7/src/55_verify_figS6.py` | py | `figures/figureS7/tables/`, `analysis/nonm6a_false_positives/` |
-| **Figure S8** | A–F ncRNA metagene and background | `figures/figureS8/src/61_figS7_tables.py` → `figures/figureS8/src/62_figS7_guitar.R` → `figures/figureS8/src/63_figS7_page.R`; gate `figures/figureS8/src/64_verify_figS7.py` | py, guitar | `figures/figureS8/tables/`, `analysis/nonm6a_false_positives/` |
-| **Figure S9** | A–F RNA004 model calling | `figures/figureS9/src/70_figs8_panels.py` → `figures/figureS9/src/71_figs8_page.py`; gate `figures/figureS9/src/72_verify_figs8.py` | py | `figures/figureS9/tables/source/` (mapping in its `SOURCE.md`) |
-| **Figure S10** | Dorado other-modification models | `figures/figureS10/src/60_figS9_tables.py` → `figures/figureS10/src/23e_figS9_guitar.R`; gate `figures/figureS10/src/61_verify_figS9.py` | py, guitar | `data/callsets/RNA004/`, Ensembl annotation |
+| **Figure S5** | A–C purified-site definition | `figures/figureS5/src/48_figS5_validation.py`; gate `figures/figureS4/src/49_verify_figS4_S10.py` | py | `figures/figureS4/tables/figS4_validation_groups.tsv` |
+| **Figure S6** | A–E combination enumerations beyond the five selected tools | `figures/figureS6/src/61_figS6_sitequality.py` → `figures/figureS6/src/62_figS6_figure.py`; gate `figures/figureS6/src/63_verify_figS6.py` | py | `figures/figure6/tables/` (shared with Figure 6) |
+| **Figure S7** | A–D non-m6A per independent unit | `figures/figureS7/src/53_figS7_tables.py` → `figures/figureS7/src/54_figS7_figure.py`; gate `figures/figureS7/src/55_verify_figS7.py` | py | `figures/figureS7/tables/`, `analysis/nonm6a_false_positives/` |
+| **Figure S8** | A–F ncRNA metagene and background | `figures/figureS8/src/61_figS8_tables.py` → `figures/figureS8/src/62_figS8_guitar.R` → `figures/figureS8/src/63_figS8_page.R`; gate `figures/figureS8/src/64_verify_figS8.py` | py, guitar | `figures/figureS8/tables/`, `analysis/nonm6a_false_positives/` |
+| **Figure S9** | A–F RNA004 model calling | `figures/figureS9/src/70_figs9_panels.py` → `figures/figureS9/src/71_figs9_page.py`; gate `figures/figureS9/src/72_verify_figs9.py` | py | `figures/figureS9/tables/source/` (mapping in its `SOURCE.md`) |
+| **Figure S10** | Dorado other-modification models | `figures/figureS10/src/60_figS10_tables.py` → `figures/figureS10/src/23e_figS10_guitar.R`; gate `figures/figureS10/src/61_verify_figS10.py` | py, guitar | `data/callsets/RNA004/`, Ensembl annotation |
 
 The page assembly of the combined `Supplementary_Figures.pdf` and of
 `Supplementary_Tables.pdf` is in `tables/`: `tables/build_supp_tables.py` (S1-S9),
@@ -51,19 +51,20 @@ album).
 
 ## Naming note
 
-Folders are named by the **published** figure number. Internal working folders
-`figS5`–`figS10` were renumbered when the supplementary material was ordered for
-publication, so inside a few file names and comments the older numbers still
-appear. The mapping is:
+The supplement was renumbered when it was assembled for publication: the six
+figures the analysis first numbered S5 to S10 were delivered one place later, the
+last of them wrapping around to S5. Everything in this repository - directories,
+scripts, tables and gates - carries the **delivered** number, so no working number
+appears anywhere. The table is here only for a reader comparing an earlier draft.
 
-| published | was internally |
+| delivered | numbered in the analysis |
 |---|---|
-| Figure S5 | `figures/figureS5` |
-| Figure S6 | `figures/figureS6` |
-| Figure S7 | `figures/figureS7` |
-| Figure S8 | `figures/figureS8` |
-| Figure S9 | `figures/figureS9` |
-| Figure S10 | `figures/figureS10` |
+| Figure S5 | the tenth |
+| Figure S6 | the fifth |
+| Figure S7 | the sixth |
+| Figure S8 | the seventh |
+| Figure S9 | the eighth |
+| Figure S10 | the ninth |
 
 ## Two panels are not code-generated
 

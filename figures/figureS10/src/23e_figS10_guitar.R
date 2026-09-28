@@ -45,20 +45,20 @@ if (is.null(.RB)) {
 #  * inosine models are deliberately NOT drawn (too few calls; see legend);
 #  * the bottom row carries two blocks: B (left) the threshold-resolved
 #    false-positive density of the same six models on the unmodified Curlcake
-#    control (tables/figS9_curlcake_scan.tsv) and C (right) the score-validity
-#    check on the HeLa libraries (tables/figS9_score_validity.tsv) - the
+#    control (tables/figS10_curlcake_scan.tsv) and C (right) the score-validity
+#    check on the HeLa libraries (tables/figS10_score_validity.tsv) - the
 #    "clearly defined FPR metric" reviewer R3-8/E8 asked for.  Numbers stay in
 #    the legend and source tables, never inside the figure.
 #
 # Usage
-#   conda run -n guitar_asm --no-capture-output Rscript 23e_figS9_guitar.R
+#   conda run -n guitar_asm --no-capture-output Rscript 23e_figS10_guitar.R
 #   ... --merge majority --rt 20 --recompute --page 16x12
 #
 # Outputs (own tree, never inside $RNAMODBENCH_LOCAL/submission/)
 #   figures/figureS10/figures/FigureS9_rev.{pdf,png}
-#   figures/figureS10/tables/figS9_density.rds
-#   figures/figureS10/tables/figS9_panel_inputs.tsv
-#   figures/figureS10/logs/23e_figS9_guitar.log (caller)
+#   figures/figureS10/tables/figS10_density.rds
+#   figures/figureS10/tables/figS10_panel_inputs.tsv
+#   figures/figureS10/logs/23e_figS10_guitar.log (caller)
 
 suppressPackageStartupMessages({
   library(Guitar)
@@ -206,7 +206,7 @@ s9_sites <- function(beds, txtype, gt) {
   list(relative = relative, weight = weight, errors = errs)
 }
 
-cache <- file.path(TABD, "figS9_density.rds")
+cache <- file.path(TABD, "figS10_density.rds")
 if (file.exists(cache) && !recompute) {
   message("using cached density: ", basename(cache))
   res <- readRDS(cache)
@@ -245,7 +245,7 @@ if (file.exists(cache) && !recompute) {
 
 write.table(plan[, c("block", "slot", "label", "model", "mod", "condition",
                      "cond_label", "n_sites", "note", "path")],
-            file.path(TABD, "figS9_panel_inputs.tsv"), sep = "\t",
+            file.path(TABD, "figS10_panel_inputs.tsv"), sep = "\t",
             quote = FALSE, row.names = FALSE)
 
 ## ---- transcript schematic under every panel (same as 23d/S1) -----------------
@@ -335,14 +335,14 @@ draw_panel <- function(i) {
 
 ## ---- block B (bottom left): false-positive density vs modified-read ---------
 # Threshold scan on the unmodified Curlcake control; the numbers come from
-# tables/figS9_curlcake_scan.tsv (written by 60_figS9_tables.py out of the
+# tables/figS10_curlcake_scan.tsv (written by 60_figS10_tables.py out of the
 # analysis-ready call-set layer, never recomputed here).  One facet per
 # modification type, because the candidate-universe normalisation differs
 # between the Psi and the m5C models (4,928 vs 3,963 candidates), so a shared
 # axis would mislead.
 draw_block_b <- function() {
-  f <- file.path(TABD, "figS9_curlcake_scan.tsv")
-  if (!file.exists(f)) stop("missing ", f, " -- run 60_figS9_tables.py first")
+  f <- file.path(TABD, "figS10_curlcake_scan.tsv")
+  if (!file.exists(f)) stop("missing ", f, " -- run 60_figS10_tables.py first")
   d <- read.delim(f, stringsAsFactors = FALSE)
   stopifnot(all(d$label %in% MODELS$label), length(unique(d$threshold_pct)) >= 5)
   d$mod        <- factor(d$mod, levels = c("Psi", "m5C"))
@@ -393,8 +393,8 @@ draw_block_b <- function() {
 #' orange), one facet per model; the Mann-Whitney AUC lives in the legend /
 #' source table.
 draw_block_c <- function() {
-  f <- file.path(TABD, "figS9_score_validity.tsv")
-  if (!file.exists(f)) stop("missing ", f, " -- run 60_figS9_tables.py first")
+  f <- file.path(TABD, "figS10_score_validity.tsv")
+  if (!file.exists(f)) stop("missing ", f, " -- run 60_figS10_tables.py first")
   d <- read.delim(f, stringsAsFactors = FALSE)
   d$label     <- factor(d$label, levels = MODELS$label)   # drawn order
   d$condition <- factor(d$condition, levels = c("WT", "IVT"))

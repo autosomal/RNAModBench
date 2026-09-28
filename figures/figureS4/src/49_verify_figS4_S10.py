@@ -5,7 +5,7 @@ Runs the four checks the revision workflow asks for before a figure is allowed
 anywhere near the submission folder:
 
 1. **numbers** -- every anchor written by ``42_figS4_figure.py`` /
-   ``48_figS10_validation.py`` is recomputed from the frozen ``harmonisation`` tables
+   ``48_figS5_validation.py`` is recomputed from the frozen ``harmonisation`` tables
    (``m6a_glori_confusion.tsv``, ``m6a_localization_curve.tsv`` and the
    ``figS4_*`` tables) and must agree to 1e-6 relative;
 2. **page/vector contract** -- one page, A4 **portrait** (the page of the
@@ -264,7 +264,7 @@ def verify_style() -> None:
     check("pagelayout.py handles both rotation modes",
           'get_rotation_mode() == "anchor"' in layout and "rot_w" in layout)
 
-    for script in ((_RB / "figures/figureS4/src/42_figS4_figure.py"), (_RB / "figures/figureS5/src/48_figS10_validation.py")):
+    for script in ((_RB / "figures/figureS4/src/42_figS4_figure.py"), (_RB / "figures/figureS5/src/48_figS5_validation.py")):
         text = script.read_text()
         body = "\n".join(line for line in text.splitlines()
                          if not line.strip().startswith("#"))
@@ -418,13 +418,13 @@ def verify_style() -> None:
     check("42_figS4_figure.py: no key is drawn over a data axes",
           "arab_ax.legend(" not in s4 and s4.count("ax.legend(") == 1
           and "ignore_axes=[ax]" in s4)
-    s10 = ((_RB / "figures/figureS5/src/48_figS10_validation.py")).read_text()
-    check("48_figS10_validation.py: no page-level legend stripe",
+    s10 = ((_RB / "figures/figureS5/src/48_figS5_validation.py")).read_text()
+    check("48_figS5_validation.py: no page-level legend stripe",
           "def render_legend(" not in s10 and "LEG_IN" not in s10)
 
     #: the keys are axes legends now (three in A, three in B, two in C) and no
     #: figure-level legend is left; the intent ("no page-foot stripe") holds
-    check("48_figS10_validation.py: the keys sit inside the panels",
+    check("48_figS5_validation.py: the keys sit inside the panels",
           "KEY_ENTRIES: list" in s10 and s10.count("ax.legend(") == 3
           and "fig.legend(" not in s10)
 
@@ -432,7 +432,7 @@ def verify_style() -> None:
         r'"(\w+)":\s*([0-9.]+)', s10)}
     fs4 = {m.group(1): float(m.group(2)) for m in re.finditer(
         r'"(\w+)":\s*([0-9.]+)', s4)}
-    check("48_figS10_validation.py: S10 uses an enlarged scale of its own",
+    check("48_figS5_validation.py: S10 uses an enlarged scale of its own",
           fs10.get("tick", 0.0) >= 12.0 and fs10.get("axis", 0.0) >= 14.0
           and fs10.get("column", 0.0) >= 17.0,
           f"tick={fs10.get('tick')}, axis={fs10.get('axis')}, "
@@ -460,7 +460,7 @@ def verify_references() -> None:
     # split across two lines (the S6 lesson: normalise before matching)
     s4_flat = re.sub(r"\s+", " ", s4_legend)
     s4_readme = ((_RB / "figures/figureS4/README.md")).read_text()
-    s10_legend = ((_RB / "figures/figureS5/figures/FigS10_legends.md")).read_text()
+    s10_legend = ((_RB / "figures/figureS5/figures/FigS5_legends.md")).read_text()
     check("S4 legend no longer advertises panels E-G",
           "(E–G)" not in s4_legend and "**(E)" not in s4_legend
           and "**(G)" not in s4_legend)

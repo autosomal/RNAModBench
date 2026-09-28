@@ -21,7 +21,7 @@ if (is.null(.RB)) {
 # Figure 8 panel E -- Guitar metagene band of the three Dorado m6A models.
 #
 # Built exactly like block A of the rebuilt Supplementary Figure S9
-# (figures/figureS10/src/23e_figS9_guitar.R): the density kernel of the
+# (figures/figureS10/src/23e_figS10_guitar.R): the density kernel of the
 # Bioconductor *Guitar* package (samplePoints -> normalize ->
 # .generateDensity_CI) on the majority-consensus call set across the technical
 # replicates (guitar_metagene_replicates/bed/RNA004/majority/...), one panel per
@@ -109,7 +109,7 @@ if (any(plan$n_sites < 30))
 
 ## ---- Guitar density (cached) -------------------------------------------------
 # Guitar's samplePoints dies on the first malformed group: isolate per group so
-# one bad curve cannot take the band down (pattern of 23e_figS9_guitar.R).
+# one bad curve cannot take the band down (pattern of 23e_figS10_guitar.R).
 e_sites <- function(beds, txtype, gt) {
   sitesGroup <- Guitar:::.getStGroup(stBedFiles = unname(beds),
                                      stGroupName = names(beds))

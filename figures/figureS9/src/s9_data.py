@@ -50,7 +50,7 @@ import re
 import numpy as np
 import pandas as pd
 
-from s8_style import PROJECT, SRC_TABLES, TABLES
+from s9_style import PROJECT, SRC_TABLES, TABLES
 
 #: frozen window-sweep table of the harmonisation evaluation (read-only)
 LOCALIZATION = ((_RB / "data/evaluation/tables/m6a_localization_curve.tsv"))
@@ -165,7 +165,7 @@ def panel_a() -> pd.DataFrame:
     inside each block by WT count, so the label column is printed once and the
     blocks are separated by a blank line.
     """
-    counts = _read("s8in_counts.tsv")
+    counts = _read("s9in_counts.tsv")
     he = counts[counts["sample"].isin(HELA_UNITS)]
     rows: list[dict] = []
     for tool, g in he.groupby("tool", sort=False):
@@ -209,7 +209,7 @@ def panel_orca() -> pd.DataFrame:
     ORCA reports several modification types from one run, so its eight channels
     are a facet of their own instead of rows of the m6A count matrix.
     """
-    df = _read("figS8_orca_counts.tsv").copy()
+    df = _read("figS9_orca_counts.tsv").copy()
     df["tool"] = df["tool"].astype(str)
     df["label"] = [pretty_tool(t) for t in df["tool"]]
     df["family"] = "tool"
@@ -234,7 +234,7 @@ def panel_curlcake() -> pd.DataFrame:
     models are read at ``DORADO_CURLAKE_PCT``; the two m6A tools were run once
     on this library and carry no threshold.
     """
-    scan = _read("s8in_fpr_curlcake_scan.tsv")
+    scan = _read("s9in_fpr_curlcake_scan.tsv")
     r4 = scan[(scan["sample"] == CURLAKE_RNA004_UNIT) & (scan["mod_type"] == "m6A")]
     r4 = r4[(r4["threshold_pct"].isna())
             | (r4["threshold_pct"] == DORADO_CURLAKE_PCT)]
@@ -329,14 +329,14 @@ def panel_effect() -> pd.DataFrame:
     CI computed here), the slope from the frozen matched-pair table.  Tools
     whose score is not a modification ratio (ELIGOS2, NanoSPA) have no row.
     """
-    agree = _read("figS8_modratio_agreement.tsv").set_index("tool")
+    agree = _read("figS9_modratio_agreement.tsv").set_index("tool")
     
     #: panel G carries Lin's concordance correlation coefficient next to the
     #: calibration slope.  CCC and its interval come from the frozen delivered
     #: table `tables/S8F_glori_agreement.tsv` (the same numbers the reply letter
     #: and the manuscript quote), never recomputed here.
     ccc = pd.read_csv(TABLES / "S8F_glori_agreement.tsv", sep="\t").set_index("tool")
-    pairs = pd.read_csv(SRC_TABLES / "figS8F_pairs.tsv", sep="\t")
+    pairs = pd.read_csv(SRC_TABLES / "figS9F_pairs.tsv", sep="\t")
     rng = np.random.default_rng(BOOT_SEED)
     rows: list[dict] = []
     for tool, a in agree.iterrows():

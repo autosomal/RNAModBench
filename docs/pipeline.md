@@ -45,11 +45,11 @@ figures and therefore live with them - `figures/<figure>/src/`, listed per figur
 
 | module | role |
 |---|---|
-| `config.py` | all roots and the locked conventions (window, coverage floor, modification vocabulary, Dorado groups) |
-| `registry.py`, `rawinfo.py` | sample/tool registry and resolution of each tool's source files |
+| `src/harmonisation/common/config.py` | all roots and the locked conventions (window, coverage floor, modification vocabulary, Dorado groups) |
+| `src/harmonisation/common/registry.py`, `src/harmonisation/common/rawinfo.py` | sample/tool registry and resolution of each tool's source files |
 | `parsers/` | one parser per tool output format |
-| `extract`/`annotate.py`, `center.py`, `strand.py`, `liftover.py` | schema harmonisation, centre-base logic, strand inference, lift-over |
-| `match.py`, `evaluation.py`, `metrics.py`, `consensus*.py` | window matching, TP/FP/FN/TN definitions, metric computation, replicate-aware consensus |
-| `regionmodel.py`, `refs.py` | transcript region models (UTR/metagene) and reference handling |
-| `manifest.py`, `io_utils.py` | provenance ledger writing and table I/O |
-| `figstyle.py`, `pagelayout.py`, `panelpage.py` | typography, page budget and collision gates, panel composition |
+| `extract`/`src/harmonisation/common/annotate.py`, `src/harmonisation/common/center.py`, `src/harmonisation/common/strand.py`, `src/harmonisation/common/liftover.py` | schema harmonisation, centre-base logic, strand inference, lift-over |
+| `src/harmonisation/common/match.py`, `src/harmonisation/common/evaluation.py`, `src/harmonisation/common/metrics.py`, `consensus*.py` | window matching, TP/FP/FN/TN definitions, metric computation, replicate-aware consensus |
+| `src/harmonisation/common/regionmodel.py`, `src/harmonisation/common/refs.py` | transcript region models (UTR/metagene) and reference handling |
+| `src/harmonisation/common/manifest.py`, `src/harmonisation/common/io_utils.py` | provenance ledger writing and table I/O |
+| `src/harmonisation/common/figstyle.py`, `src/harmonisation/common/pagelayout.py`, `src/harmonisation/common/panelpage.py` | typography, page budget and collision gates, panel composition |

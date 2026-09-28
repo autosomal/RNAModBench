@@ -15,7 +15,7 @@ Panel identity is the one the manuscript cites (S4A counts, S4B window-sweep
 PPV, S4C exact-nucleotide fraction, S4D precision); the three panels the
 reviewers asked for on top of the original figure (R3-7: GLORI overlap, DRACH
 fraction, stoichiometry of the three site groups) are the separate
-Supplementary Figure S10 (``48_figS10_validation.py``).
+Supplementary Figure S10 (``48_figS5_validation.py``).
 
 The PR-AUC row of the submitted page (PR-AUC vs. the matching window) was
 0.017--0.106, i.e. it repeats the window dependence of PPV that the window sweep

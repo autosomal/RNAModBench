@@ -184,6 +184,35 @@ def write_hashes() -> None:
     note(True, f"wrote metadata/deposited_files.sha256 ({len(out)} entries)")
 
 
+#: the supplement was renumbered for publication; these are the working numbers the
+#: delivered figures used before that (S5 was the tenth, S6 was the fifth, ...)
+SI_STALE = {"6": "5", "7": "6", "8": "7", "9": "8", "10": "9", "5": "10"}
+SI_NAME = re.compile(r"(?<![A-Za-z0-9])([Ff]ig[Ss]?|s)(\d+)(?![0-9])")
+
+
+def check_figure_numbering() -> None:
+    """No file may be named with the pre-publication number of its own figure.
+
+    figures/figureS8/ used to hold 61_figS8_tables.py. A name referring to a
+    *different* figure - figures/figure6/tables/figS5_site_quality.tsv, say, which
+    Figure S5 really does read - is not what this looks for.
+    """
+    bad = []
+    for d in sorted(ROOT.glob("figures/figureS*")):
+        own = d.name.removeprefix("figureS")
+        stale = SI_STALE.get(own)
+        if not stale:
+            continue
+        for p in sorted(d.rglob("*")):
+            if not p.is_file():
+                continue
+            rel = p.relative_to(d).as_posix()
+            if any(m.group(2) == stale for m in SI_NAME.finditer(rel)):
+                bad.append(rel)
+    note(not bad, "no file is named with the pre-publication number of its own figure"
+         + ("" if not bad else f"; {len(bad)}: {bad[:6]}"))
+
+
 def main() -> int:
     print(f"verifying {ROOT}")
     check_paths()
@@ -192,6 +221,7 @@ def main() -> int:
     check_parses()
     check_callsets()
     check_figure_index()
+    check_figure_numbering()
     write_hashes()
     print(f"\n{'FAILED: ' + str(len(FAIL)) if FAIL else 'all checks passed'}")
     return 1 if FAIL else 0

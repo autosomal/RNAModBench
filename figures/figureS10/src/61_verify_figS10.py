@@ -10,22 +10,22 @@ Checks
    six-model white list, the inosine models never drawn, THREE bold block
    letters A/B/C and no figure number (A = the six Guitar density panels as one
    block), and the bottom-left half on the purple/green version pair (no grey);
-4. the figure inputs (``figS9_panel_inputs.tsv``, written by the R script: one
+4. the figure inputs (``figS10_panel_inputs.tsv``, written by the R script: one
    row per drawn curve, block A + grid slot) match
    the source layer: BED line counts equal the de-duplicated ``callsets``
    call counts, and those equal the frozen 2026-09-20 anchors;
-5. the numbers in ``figS9_region_shares.tsv`` are internally consistent
+5. the numbers in ``figS10_region_shares.tsv`` are internally consistent
    (shares sum to 1, body counts add up) and the assigned-site counts equal the
    anchors that were frozen before the figure was drawn;
-6. ``figS9_wt_ivt_contrast.tsv`` follows the stated +/-5 pp verdict rule and its
-   numbers are reproduced verbatim in ``figS9_key_numbers.md``;
+6. ``figS10_wt_ivt_contrast.tsv`` follows the stated +/-5 pp verdict rule and its
+   numbers are reproduced verbatim in ``figS10_key_numbers.md``;
 7. the drawn text actually present in the PDF: six model titles, the key labels,
    the region labels -- and no excluded model.
 
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output \
-    python $RNAMODBENCH_ROOT/figures/figureS10/src/61_verify_figS9.py
+    python $RNAMODBENCH_ROOT/figures/figureS10/src/61_verify_figS10.py
 """
 
 from __future__ import annotations
@@ -57,7 +57,7 @@ PROJECT = Path(str(_RB))
 OUT = (_RB / "figures/figureS10")
 TABLES, FIGS, SCRIPTS, LOGS = (_RB / "figures/figureS10/tables"), (_RB / "figures/figureS10/figures"), (_RB / "figures/figureS10/src"), (_RB / "figures/figureS10/logs")
 CLEAN = (_RB / "data/callsets")
-R_SCRIPT = (_RB / "figures/figureS10/src/23e_figS9_guitar.R")
+R_SCRIPT = (_RB / "figures/figureS10/src/23e_figS10_guitar.R")
 PDF = FIGS / "FigureS9_rev.pdf"
 PAGE = (1152.0, 864.0)                      # = the replaced sup9.pdf
 EXPECTED_ASSIGNED = {                       # frozen 2026-09-20 (pre-figure)
@@ -170,7 +170,7 @@ def main() -> None:
           and "gencode" not in src.lower())
 
     # 4 ------------------------------------------------------------------- #
-    plan = pd.read_csv(TABLES / "figS9_panel_inputs.tsv", sep="\t")
+    plan = pd.read_csv(TABLES / "figS10_panel_inputs.tsv", sep="\t")
     check("panel inputs: 6 models x 2 conditions = 12 curves",
           len(plan) == 12 and plan["model"].nunique() == 6
           and set(plan["condition"]) == {"WT", "IVT"}, f"{len(plan)} rows")
@@ -190,7 +190,7 @@ def main() -> None:
     check("panel inputs: BED counts equal de-duplicated callsets counts", ok_src)
 
     # 5 ------------------------------------------------------------------- #
-    shares = pd.read_csv(TABLES / "figS9_region_shares.tsv", sep="\t")
+    shares = pd.read_csv(TABLES / "figS10_region_shares.tsv", sep="\t")
     segs = ["five_prime_UTR", "CDS", "three_prime_UTR"]
     share_sum = shares[[f"share_{s}" for s in segs]].sum(axis=1)
     check("region shares: 5'UTR + CDS + 3'UTR = 1 for every row",
@@ -230,7 +230,7 @@ def main() -> None:
     # independent recomputation of the very first drawn curve, same seed: the
     # interval must reproduce bit-for-bit (deterministic bootstrap contract)
     spec = importlib.util.spec_from_file_location(
-        "figs9_tables", SCRIPTS / "60_figS9_tables.py")
+        "figs9_tables", SCRIPTS / "60_figS10_tables.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     mp = [p for p in sorted(((_XB / "reference/regionmodels")).glob("Human.*.mrna.regionmodel.pkl"))
@@ -250,7 +250,7 @@ def main() -> None:
           rec <= 1e-12, f"{tool0}/{cond0} max |diff| = {rec:.2e}")
 
     # 6 ------------------------------------------------------------------- #
-    con = pd.read_csv(TABLES / "figS9_wt_ivt_contrast.tsv", sep="\t")
+    con = pd.read_csv(TABLES / "figS10_wt_ivt_contrast.tsv", sep="\t")
     rule_ok = all(
         (abs(r.three_prime_UTR_delta_pp) <= 5.0) ==
         (r.verdict == "reproduced on unmodified IVT")
@@ -261,7 +261,7 @@ def main() -> None:
               100 * (r.share_three_prime_UTR_WT - r.share_three_prime_UTR_IVT), 1e-6)
         for _, r in con.iterrows())
     check("contrast: deltas equal the share differences", delta_ok)
-    kn = (TABLES / "figS9_key_numbers.md").read_text()
+    kn = (TABLES / "figS10_key_numbers.md").read_text()
     quoted = all(f"{100*r.share_three_prime_UTR_WT:.1f}%" in kn
                  and f"{100*r.share_three_prime_UTR_IVT:.1f}%" in kn
                  and f"{r.three_prime_UTR_delta_pp:+.1f}" in kn
@@ -293,7 +293,7 @@ def main() -> None:
     check("contrast: the difference interval covers zero in all six models",
           cover_zero == 6, f"{cover_zero}/6")
 
-    legend = (FIGS / "FigS9_legends.md").read_text()
+    legend = (FIGS / "FigS10_legends.md").read_text()
     quoted_ci = all(f"[{100*r.share_three_prime_UTR_ci_lo:.1f}, "
                     f"{100*r.share_three_prime_UTR_ci_hi:.1f}]" in legend
                     for _, r in shares.iterrows())
@@ -303,7 +303,7 @@ def main() -> None:
           "12 marginal + 6 difference intervals")
 
     # 6c -- reported values table: strict FPR at the delivered HeLa point -- #
-    fpr = pd.read_csv(TABLES / "figS9_ivt_fpr.tsv", sep="\t")
+    fpr = pd.read_csv(TABLES / "figS10_ivt_fpr.tsv", sep="\t")
     src = pd.read_csv((_RB / "data/evaluation/tables/controls_ivt_fpr.tsv"), sep="\t")
     src = src[src["sample"] == "HeLa_RNA004_IVT"]
     rel_ok, denom_ok = True, True
@@ -331,7 +331,7 @@ def main() -> None:
               for _, r in fpr.iterrows()))
 
     # 6d -- block B (bottom left): Curlcake threshold scan (R3-8 / E8) ------- #
-    scan = pd.read_csv(TABLES / "figS9_curlcake_scan.tsv", sep="\t")
+    scan = pd.read_csv(TABLES / "figS10_curlcake_scan.tsv", sep="\t")
     frac = len(scan) / scan["label"].nunique()
     check("block B: six models x ten thresholds",
           scan["label"].nunique() == 6 and abs(frac - 10) < 1e-9, f"{len(scan)} rows")
@@ -355,7 +355,7 @@ def main() -> None:
     check("block B: the frozen 5/50/90 % call anchors hold", anchors_ok)
     # independent recomputation straight from the call-set layer
     spec60 = importlib.util.spec_from_file_location(
-        "figs9_tables_b", SCRIPTS / "60_figS9_tables.py")
+        "figs9_tables_b", SCRIPTS / "60_figS10_tables.py")
     mod60 = importlib.util.module_from_spec(spec60)
     spec60.loader.exec_module(mod60)
     probe_model, probe_mod = "Dorado_sup@v5.1.0_all_m5C", "m5C"
@@ -370,8 +370,8 @@ def main() -> None:
           f"{probe_model}")
 
     # 6e -- block C (bottom right): score validity in HeLa (R3-9) ----------- #
-    validity = pd.read_csv(TABLES / "figS9_score_validity.tsv", sep="\t")
-    vsum = pd.read_csv(TABLES / "figS9_score_validity_summary.tsv", sep="\t")
+    validity = pd.read_csv(TABLES / "figS10_score_validity.tsv", sep="\t")
+    vsum = pd.read_csv(TABLES / "figS10_score_validity_summary.tsv", sep="\t")
     check("block C: long table covers both conditions of all six models",
           validity["label"].nunique() == 6 and set(validity["condition"]) == {"WT", "IVT"}
           and len(validity) > 3000, f"{len(validity)} calls")
@@ -412,7 +412,7 @@ def main() -> None:
     # 6f -- drawing script and the text actually on the page ----------------- #
     src_r = R_SCRIPT.read_text()
     check("blocks B/C: the bottom row reads the two tables, no in-figure numbers",
-          "figS9_curlcake_scan.tsv" in src_r and "figS9_score_validity.tsv" in src_r
+          "figS10_curlcake_scan.tsv" in src_r and "figS10_score_validity.tsv" in src_r
           and "stat_ecdf" in src_r and "facet_wrap" in src_r
           and "scale_y_log10" in src_r and "geom_text" not in src_r)
     check("blocks A/B/C: design AA/AA/BC, each block wrapped as one element",

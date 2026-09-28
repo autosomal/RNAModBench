@@ -10,7 +10,7 @@ Figure 6 shows is out of scope here.  The gate therefore checks, in order:
    the panel A anchors (intersection recall at k = 5 and its collapse to zero,
    the recall gain of the eight extra tools) and the panel B-E evidence
    (per-tool coverage / DRACH / control burden, site-set DRACH);
-2. the figure rebuilds with the layout contract of ``62_figS5_figure.py`` --
+2. the figure rebuilds with the layout contract of ``62_figS6_figure.py`` --
    a compact **240 x 175 mm** page, five panel rows (A-E): row A in three
    species columns (Arabidopsis | Mouse with both studies in one axes | HeLa),
    rows B-E as single full-width panels (row D has no group dimension, the
@@ -28,7 +28,7 @@ Figure 6 shows is out of scope here.  The gate therefore checks, in order:
    A-E consistently with the byte-identical mirror in the Fig. 6 directory.
 
 Usage: conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS6/src/63_verify_figS5.py
+    figures/figureS6/src/63_verify_figS6.py
 """
 from __future__ import annotations
 
@@ -63,8 +63,8 @@ FROZEN = (_RB / "figures/figure6")
 TAB, FIG, LOG = (_RB / "figures/figure6/tables"), (_RB / "figures/figureS6/figures"), (_RB / "figures/figureS6/logs")
 PDF = FIG / "FigureS5_rev.pdf"
 PNG = FIG / "FigureS5_rev.png"
-LEGEND_MD = FIG / "FigS5_legends.md"                       # canonical
-LEGEND_MIRROR = (_RB / "figures/figure6/figures/FigS5_legends.md")    # kept identical
+LEGEND_MD = FIG / "FigS6_legends.md"                       # canonical
+LEGEND_MIRROR = (_RB / "figures/figure6/figures/FigS6_legends.md")    # kept identical
 
 GROUPS = [("Arabidopsis", "Arabidopsis_WT"), ("Mouse", "studyA"),
           ("Mouse", "studyB"), ("Human", "HeLa_WT")]
@@ -279,12 +279,12 @@ def main() -> None:
 
     # ---- 2. figure geometry (rebuild in memory) ---------------------------- #
     spec = importlib.util.spec_from_file_location("figS5",
-                                                  HERE.parent / "62_figS5_figure.py")
+                                                  HERE.parent / "62_figS6_figure.py")
     f62 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(f62)
     tables = f62.load()
     tools = f62.tool_order(tables["members"], tables["space"])
-    f62.check_tables(tables, tools, logging.getLogger("63_verify_figS5"))
+    f62.check_tables(tables, tools, logging.getLogger("63_verify_figS6"))
     fig, meta = f62.build_figure(tables, tools)
     rep = f62.layout_report(fig)
 
@@ -512,7 +512,7 @@ def main() -> None:
     LOG.mkdir(parents=True, exist_ok=True)
     print(f"\n{'ALL CHECKS PASSED' if not FAILURES else 'FAILURES: ' + str(FAILURES)}",
           flush=True)
-    (LOG / "63_verify_figS5.log").write_text(
+    (LOG / "63_verify_figS6.log").write_text(
         "failures: " + (", ".join(FAILURES) if FAILURES else "none") + "\n")
     sys.exit(1 if FAILURES else 0)
 

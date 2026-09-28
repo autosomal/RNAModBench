@@ -286,8 +286,8 @@ write_table(
 # unions of the three replicates stay as labelled reference columns, and the
 # coverage-matched ratio (calls compared inside matched coverage strata) is read
 # from the depth-diagnosis evidence of the R3-9b package.
-cnt = pd.read_csv((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"), sep="\t")
-ci = pd.read_csv((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"), sep="\t")
+cnt = pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t")
+ci = pd.read_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t")
 mat = pd.read_csv((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"),
                   sep="\t")
 order = ["CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoSPA_psU", "NanoPsu"]

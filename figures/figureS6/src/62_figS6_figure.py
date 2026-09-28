@@ -57,7 +57,7 @@ Outputs -> figures/figureS6/figures/FigureS5_rev
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    figures/figureS6/src/62_figS5_figure.py
+    figures/figureS6/src/62_figS6_figure.py
 """
 from __future__ import annotations
 
@@ -99,7 +99,7 @@ from common.pagelayout import (quad_gap, quads_intersect,  # noqa: E402
 
 #: S5 lives next to the other supplementary revisions; its evidence tables stay
 #: in the Fig. 6 family directory because ``40_fig6_combination.py`` and
-#: ``61_figS5_sitequality.py`` produce them and the rebuilt main Figure 6 reads
+#: ``61_figS6_sitequality.py`` produce them and the rebuilt main Figure 6 reads
 #: the same frozen tables.
 OUT = (_RB / "figures/figureS6")
 FROZEN = (_RB / "figures/figure6")
@@ -678,7 +678,7 @@ def build_figure(t: dict[str, pd.DataFrame],
 
 
 def main() -> None:
-    logger = setup_logger("62_figS5_figure", log_dir=LOG)
+    logger = setup_logger("62_figS6_figure", log_dir=LOG)
     apply_style()
     t = load()
     tools = tool_order(t["members"], t["space"])

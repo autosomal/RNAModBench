@@ -54,15 +54,15 @@ D may be slanted / compress the canvas "):
   of the fourth version (thin -- the pooled per-tool AUC is Fig. 7F -- and it
   read as "the benchmark cannot separate the conditions" instead of as the
   mechanism the reviewer asks about).  The densities stay in
-  ``tables/s6_score_density_per_unit.tsv``, the AUC evidence in
-  ``tables/s6_score_separation.tsv`` and ``tables/s6_score_location_per_unit.tsv``
+  ``tables/s7_score_density_per_unit.tsv``, the AUC evidence in
+  ``tables/s7_score_separation.tsv`` and ``tables/s7_score_location_per_unit.tsv``
   carries exactly the seven numbers this panel draws;
 * log axes carry named ticks only -- no tick is ever labelled "0";
 * the finished page goes through ``pagelayout.assert_page_clean``.
 
 Usage:
     conda run -n benchmark-revision --no-capture-output python \
-        figures/figureS7/src/54_figS6_figure.py
+        figures/figureS7/src/54_figS7_figure.py
 """
 
 from __future__ import annotations
@@ -506,12 +506,12 @@ def panel_d(fig, top_in: float, counts_h: float, strip_gap: float,
 # --------------------------------------------------------------------------- #
 def load() -> dict[str, pd.DataFrame]:
     return {
-        "cc": pd.read_csv((_RB / "figures/figureS7/tables/s6_curlcake_per_construct.tsv"), sep="\t"),
-        "pairs": pd.read_csv((_RB / "figures/figureS7/tables/s6_jaccard_pairs.tsv"), sep="\t"),
-        "loc": pd.read_csv((_RB / "figures/figureS7/tables/s6_score_location_per_unit.tsv"), sep="\t"),
-        "rep": pd.read_csv((_RB / "figures/figureS7/tables/s6_counts_per_replicate.tsv"), sep="\t"),
-        "summ": pd.read_csv((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"), sep="\t"),
-        "ratio": pd.read_csv((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"), sep="\t"),
+        "cc": pd.read_csv((_RB / "figures/figureS7/tables/s7_curlcake_per_construct.tsv"), sep="\t"),
+        "pairs": pd.read_csv((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"), sep="\t"),
+        "loc": pd.read_csv((_RB / "figures/figureS7/tables/s7_score_location_per_unit.tsv"), sep="\t"),
+        "rep": pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_per_replicate.tsv"), sep="\t"),
+        "summ": pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t"),
+        "ratio": pd.read_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t"),
     }
 
 

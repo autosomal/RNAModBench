@@ -40,7 +40,7 @@ DENS = (_RB / "figures/figure7/tables/fig7_metagene_density.tsv")
 #: per-pair Jaccard of the three within-condition replicate pairs (frozen table
 #: of the S7 build, reconciled against the R3-9 evidence) -- the whiskers of
 #: panel E span these three values
-JPAIRS = ((_RB / "figures/figureS7/tables/s6_jaccard_pairs.tsv"))
+JPAIRS = ((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"))
 
 #: restrained palette (paper-like): one blue WT, one orange unmodified control,
 #: one neutral guide, one accent for the synthetic-control row.
@@ -398,7 +398,7 @@ def panel_c1(ax, summ: pd.DataFrame, jpairs: pd.DataFrame) -> None:
     of the two conditions against each other, one circle per tool, against the
     WT = IVT guide.  2026-09-29 (user): the mean alone hides the replicates, so
     each circle carries whiskers spanning that condition's three within-unit
-    pairs (min-max of the frozen ``s6_jaccard_pairs.tsv``).
+    pairs (min-max of the frozen ``s7_jaccard_pairs.tsv``).
     """
     tools = [t for t in A_TOOLS if t in set(summ["tool"])]
     ax.plot([3e-4, 0.6], [3e-4, 0.6], color="0.8", linewidth=0.8,

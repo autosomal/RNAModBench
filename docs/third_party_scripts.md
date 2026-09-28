@@ -23,8 +23,8 @@ rule expects.
 Two of these names differ from the upstream file name (DENA and MINES); the table
 gives the mapping that was actually used in the reported runs.
 
-The scripts that *are* in `scripts/` - `postprocess_*.py`, `extract_5mer.py`,
-`r2d_liftover.py`, `Epinano_DiffErr.R`, the report and plotting helpers - are part
+The scripts that *are* in `scripts/` - `postprocess_*.py`, `scripts/extract_5mer.py`,
+`scripts/r2d_liftover.py`, `Epinano_DiffErr.R`, the report and plotting helpers - are part
 of this benchmark, written to normalise each tool's output into the common
 BED-like format.
 

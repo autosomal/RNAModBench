@@ -4,9 +4,9 @@ Figure file: `FigureS5_rev.pdf` (**240 × 175 mm**, drawn 1:1 at
 the printed size so the text stays large relative to the figure; Arial embedded,
 no gridlines, no in-panel annotation text, **the 13 tool names slanted 45° as
 the only rotated text**, bold panel letters A–E printed once per row).
-Produced by `figures/figureS6/src/62_figS5_figure.py` from the frozen
-tables of `40_fig6_combination.py` and `61_figS5_sitequality.py` (nothing is
-recomputed in the figure script) and verified by `63_verify_figS5.py`
+Produced by `figures/figureS6/src/62_figS6_figure.py` from the frozen
+tables of `40_fig6_combination.py` and `61_figS6_sitequality.py` (nothing is
+recomputed in the figure script) and verified by `63_verify_figS6.py`
 (ALL CHECKS PASSED).  Tables live in
 `figures/figure6/tables/` (`figS5_*`, `fig6_*`).
 

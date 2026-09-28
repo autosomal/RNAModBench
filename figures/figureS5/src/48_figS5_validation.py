@@ -57,7 +57,7 @@ Outputs
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/figures/figureS5/src/48_figS10_validation.py
+    $RNAMODBENCH_ROOT/figures/figureS5/src/48_figS5_validation.py
 """
 from __future__ import annotations
 

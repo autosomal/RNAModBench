@@ -41,7 +41,7 @@ def shell(cmd):
 
 # --- 1. anchors -------------------------------------------------------------
 def verify_anchors():
-    a = pd.read_csv((_RB / "figures/figureS8/tables/s7_anchor_check.tsv"), sep="\t")
+    a = pd.read_csv((_RB / "figures/figureS8/tables/s8_anchor_check.tsv"), sep="\t")
     bad = a[a.status != "OK"]
     check("anchors all OK", len(bad) == 0,
           f"{len(a) - len(bad)}/{len(a)}")
@@ -52,10 +52,10 @@ def verify_anchors():
 def verify_engines():
     import importlib.util
     spec = importlib.util.spec_from_file_location(
-        "s7_tables", Path(__file__).with_name("61_figS7_tables.py"))
+        "s7_tables", Path(__file__).with_name("61_figS8_tables.py"))
     s7 = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(s7)
-    geo = pd.read_csv((_RB / "figures/figureS8/tables/figS7_guitar_geometry.tsv"), sep="\t")
+    geo = pd.read_csv((_RB / "figures/figureS8/tables/figS8_guitar_geometry.tsv"), sep="\t")
     g = {}
     for r in geo.itertuples():
         try:
@@ -65,8 +65,8 @@ def verify_engines():
     bw = np.cumsum([g["component_width_promoter"],
                     g["component_width_ncrna"],
                     g["component_width_tail"]])[:2]
-    sites = pd.read_csv((_RB / "figures/figureS8/tables/figS7_guitar_sites.tsv"), sep="\t")
-    plan = pd.read_csv((_RB / "figures/figureS8/tables/figS7_panel_inputs.tsv"), sep="\t")
+    sites = pd.read_csv((_RB / "figures/figureS8/tables/figS8_guitar_sites.tsv"), sep="\t")
+    plan = pd.read_csv((_RB / "figures/figureS8/tables/figS8_panel_inputs.tsv"), sep="\t")
     plan = plan[plan.kind == "consensus"]
     model = s7.RegionIndex.load(sorted(
         p for p in s7.MODEL_DIR.glob("Human.*.ncrna.regionmodel.pkl")
@@ -117,7 +117,7 @@ def verify_engines():
                          d_body=float(gsh[1] - psh[1]),
                          d_tail=float(gsh[2] - psh[2])))
     cc = pd.DataFrame(rows)
-    cc.to_csv((_RB / "figures/figureS8/tables/s7_density_crosscheck.tsv"), sep="\t", index=False,
+    cc.to_csv((_RB / "figures/figureS8/tables/s8_density_crosscheck.tsv"), sep="\t", index=False,
               float_format="%.6g")
     # the two engines are not expected to be identical: Guitar counts a site once
     # per overlapping transcript (and drops ambiguous ones), the Python region
@@ -144,7 +144,7 @@ def verify_engines():
     # gross axis error
     worst = float(np.abs(cc[["d_promoter", "d_body", "d_tail"]].to_numpy()).max())
     check("segment shares within 0.40 (gross-error guard)", worst <= 0.40,
-          f"max |delta| = {worst:.4f} (ambiguity rule), see s7_density_crosscheck.tsv")
+          f"max |delta| = {worst:.4f} (ambiguity rule), see s8_density_crosscheck.tsv")
 
 
 BANNED = re.compile(
@@ -178,7 +178,7 @@ def verify_pdf():
     bad_font = [l.split()[0] for l in fnt
                 if "Arial" not in l.split()[0] or l.split()[-4] != "yes"]
     check("fonts: Arial only, all embedded", not bad_font, str(bad_font))
-    geo = pd.read_csv((_RB / "figures/figureS8/tables/figS7_page_geometry.tsv"), sep="\t")
+    geo = pd.read_csv((_RB / "figures/figureS8/tables/figS8_page_geometry.tsv"), sep="\t")
     gm = {r.item: float(r.value) for r in geo.itertuples()
           if str(r.value).replace(".", "").isdigit()}
     check("declared minimum font >= 7 pt", gm.get("font_min_pt", 0) >= 7,
@@ -206,11 +206,11 @@ def verify_pdf():
 
 
 def main():
-    for f in ((_RB / "figures/figureS8/tables/s7_anchor_check.tsv"), PDF,
-              (_RB / "figures/figureS8/tables/figS7_guitar_geometry.tsv"),
-              (_RB / "figures/figureS8/tables/figS7_page_geometry.tsv"),
-              (_RB / "figures/figureS8/tables/figS7_panel_inputs.tsv"),
-              (_RB / "figures/figureS8/tables/figS7_guitar_sites.tsv")):
+    for f in ((_RB / "figures/figureS8/tables/s8_anchor_check.tsv"), PDF,
+              (_RB / "figures/figureS8/tables/figS8_guitar_geometry.tsv"),
+              (_RB / "figures/figureS8/tables/figS8_page_geometry.tsv"),
+              (_RB / "figures/figureS8/tables/figS8_panel_inputs.tsv"),
+              (_RB / "figures/figureS8/tables/figS8_guitar_sites.tsv")):
         if not f.exists():
             print(f"FAIL missing input {f}")
             return 1
@@ -218,11 +218,11 @@ def main():
     verify_engines()
     verify_pdf()
     df = pd.DataFrame(checks)
-    df.to_csv((_RB / "figures/figureS8/tables/s7_verify_report.tsv"), sep="\t", index=False)
+    df.to_csv((_RB / "figures/figureS8/tables/s8_verify_report.tsv"), sep="\t", index=False)
     bad = df[df.status == "FAIL"]
     n_info = int((df.status == "INFO").sum())
     print(f"\n{len(df) - len(bad) - n_info}/{len(df) - n_info} checks passed"
-          f" ({n_info} informational) -> {TAB / 's7_verify_report.tsv'}")
+          f" ({n_info} informational) -> {TAB / 's8_verify_report.tsv'}")
     print("ALL CHECKS PASSED" if not len(bad) else f"{len(bad)} FAILED")
     return 1 if len(bad) else 0
 

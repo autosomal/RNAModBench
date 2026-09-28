@@ -58,7 +58,7 @@ whereas the two Ψ tools remain clearly below their own replicate overlap
 (NanoPsu and NanoSPA-Ψ: 0.063-0.088 between conditions versus 0.125-0.283 within
 replicates). The set-level global Jaccard quoted in the main text (CHEUI-m5C
 5.2 × 10⁻⁴ in WT, 6.8 × 10⁻⁴ in IVT) is tabulated
-(`s6_jaccard_within_cross.tsv`, `s6_jaccard_pairs.tsv`).
+(`s7_jaccard_within_cross.tsv`, `s7_jaccard_pairs.tsv`).
 
 **(C)** Where each tool places its calls inside its own 0-1 score range -- the
 mechanism behind the failures R3-9 asks about. Every mark is one independent
@@ -87,11 +87,11 @@ tool.
 The reproducibility half of the same critique is quantitative as well: 97.2 % of
 the 46,198 in-universe sites of the pooled CHEUI-m5C WT set are supported by a
 single unit (unmodified IVT 97.6 %; the other five tools 56-88 %,
-`../tables/s6_replicate_support.tsv`; the pooled set serves to describe this
+`../tables/s7_replicate_support.tsv`; the pooled set serves to describe this
 structure only and is not a replicate-level quantity). Numbers behind this panel: medians and
-quartiles in `s6_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
-and KS statistics in `s6_score_separation.tsv`, per-unit score densities
-(not plotted) in `s6_score_density_per_unit.tsv`.
+quartiles in `s7_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
+and KS statistics in `s7_score_separation.tsv`, per-unit score densities
+(not plotted) in `s7_score_density_per_unit.tsv`.
 
 **(D)** HeLa calls per independent unit (dots, log axis: blue filled = WT, orange
 open = unmodified IVT) with the union of the three units of each condition
@@ -130,17 +130,17 @@ condition and are therefore indicative, not precise.
 * candidate universe: `harmonisation/universe/RNA002/...` filtered to coverage >= 10
   and to reference bases that can carry the modification (Nm = A/C/G/T,
   Ψ/m1Ψ = T/A, m5C = C/G).
-* tables: `s6_curlcake_per_construct.tsv`, `s6_jaccard_pairs.tsv`,
-  `s6_jaccard_within_cross.tsv`, `s6_replicate_support.tsv`,
-  `s6_score_location_per_unit.tsv` (panel C), `s6_score_separation.tsv`,
-  `s6_score_density_per_unit.tsv`, `s6_counts_per_replicate.tsv`,
-  `s6_counts_summary.tsv`, `s6_ratio_ci.tsv`, `s6_anchor_check.tsv`
+* tables: `s7_curlcake_per_construct.tsv`, `s7_jaccard_pairs.tsv`,
+  `s7_jaccard_within_cross.tsv`, `s7_replicate_support.tsv`,
+  `s7_score_location_per_unit.tsv` (panel C), `s7_score_separation.tsv`,
+  `s7_score_density_per_unit.tsv`, `s7_counts_per_replicate.tsv`,
+  `s7_counts_summary.tsv`, `s7_ratio_ci.tsv`, `s7_anchor_check.tsv`
   (552/552 values reconciled with the frozen R3-9 tables at 1e-5),
   `TableS5_reconciliation.tsv`.
 * the earlier pooled density table (`s6_score_density.tsv`) was retired on
   2026-09-21: pooling the replicates of a condition into one curve contradicts
   the per-unit rule of this study. It is kept as
-  `s6_score_density_RETIRED_pooled.tsv` for provenance only.
+  `s7_score_density_RETIRED_pooled.tsv` for provenance only.
 
 ## Caveats to keep with the numbers
 

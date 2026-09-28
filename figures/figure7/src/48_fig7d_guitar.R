@@ -278,7 +278,7 @@ F7_LABEL_AIR_PT <- 1.5     # clearance the two guide segments keep from the row
 f7_pos <- function(peak) {
   
   ## the geometry of Figure 8E / Supplementary S9 (69_fig8e_guitar.R:148-149 and
-  ## 23e_figS9_guitar.R): Guitar's own compact band, i.e. a shallow floor and the
+  ## 23e_figS10_guitar.R): Guitar's own compact band, i.e. a shallow floor and the
   ## native label row, which is what gives the bars a visible thickness and lets
   ## the dotted component separators run from the plot top down to the bars.
   ## The deep floor (-0.42 * peak) that earlier rounds introduced was what made

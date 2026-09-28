@@ -3,7 +3,8 @@
 **Figure 7. Performance of non-m6A modification detection tools,**
 rebuilt at per-replicate resolution from the cleaned site layer
 (`harmonisation/callsets`). All metrics are computed per independent
-sequencing unit (Human WT n = 3, Human IVT n = 3; independent Curlcake
+sequencing unit (Human WT n = 3 and unmodified IVT n = 3 units, from two
+different studies with the three IVT units sharing one BioSample; independent Curlcake
 IVT constructs n = 2 plus one depth-matched subset) inside the candidate-
 site universe (coverage >= 10, reference-base compatible). No m6A
 reference (GLORI) enters any conclusion in this figure (R2-2).
@@ -35,7 +36,10 @@ candidate sites on the unmodified Curlcake constructs (dots, individual
 constructs; open dot, the depth-matched subset of rep3, excluded
 from the means; bar, mean of independent constructs). NanoMUD-m1Psi
 18,100/18,899, NanoNm 3,903/3,598, NanoMUD-Psi 0/610 and NanoPsu /
-NanoSPA-Psi 0/203 per 10^6 candidates. CHEUI-m5C made no calls on the Curlcake constructs and is therefore not
+NanoSPA-Psi 0/203 per 10^6 candidates. These constructs are covered far more
+deeply than the HeLa libraries (median candidate-site coverage 44,755 versus
+23), so the panel reads each tool's coverage-dependent detection floor rather
+than a uniquely stringent control. CHEUI-m5C made no calls on the Curlcake constructs and is therefore not
 shown in this panel.
 
 **(D) Third-party corroboration.** CHEUI probabilities of the

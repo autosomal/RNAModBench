@@ -24,7 +24,7 @@ if (is.null(.RB)) {
 # answer has to be quantitative, not an eyeball comparison of two density curves.
 # The bottom row carries that evidence, with every statistic tested against a
 # chromosome-stratified permutation null computed at the same sample size (see
-# 61_figS7_tables.py):
+# 61_figS8_tables.py):
 #
 #   G  WT-versus-unmodified-IVT profile divergence per tool.  Points = the nine
 #      independent unit pairs (3 WT x 3 IVT), the filled diamond = their mean,
@@ -44,16 +44,16 @@ if (is.null(.RB)) {
 # printed size (180 mm wide, <= 247 mm tall).
 #
 # Usage
-#   conda run -n guitar_asm --no-capture-output Rscript 63_figS7_page.R
+#   conda run -n guitar_asm --no-capture-output Rscript 63_figS8_page.R
 #
 # Inputs (read-only)
-#   figures/figureS8/tables/figS7_panels.rds        (62)
-#   .../tables/s7_profile_distance.tsv, s7_null_summary.tsv            (61)
+#   figures/figureS8/tables/figS8_panels.rds        (62)
+#   .../tables/s8_profile_distance.tsv, s8_null_summary.tsv            (61)
 # Outputs
 #   figures/FigureS7_rev.{pdf,png}                the page, panels A-I
 #   figures/FigureS7_rev_quant.{pdf,png}          QC block of rows G-I
 #   figures/FigureS7_print_preview.png            169 mm 300 dpi print check
-#   tables/figS7_page_geometry.tsv                page size + font self-check
+#   tables/figS8_page_geometry.tsv                page size + font self-check
 
 suppressPackageStartupMessages({
   library(ggplot2)
@@ -102,8 +102,8 @@ save_pair_cairo <- function(p, out, width, height, dpi = 300) {
 
 read_tsv <- function(f) read.delim(file.path(TABD, f), sep = "\t",
                                    check.names = FALSE, stringsAsFactors = FALSE)
-dist <- read_tsv("s7_profile_distance.tsv")
-nulls <- read_tsv("s7_null_summary.tsv")
+dist <- read_tsv("s8_profile_distance.tsv")
+nulls <- read_tsv("s8_null_summary.tsv")
 dist$idx <- match(dist$tool, TOOL_ORDER)
 nulls$idx <- match(nulls$tool, TOOL_ORDER)
 stopifnot(!any(is.na(dist$idx)), !any(is.na(nulls$idx)))
@@ -269,7 +269,7 @@ panel_i <- function() {
 
 ## ---- assemble the page -------------------------------------------------------
 main <- function() {
-  panels <- readRDS(file.path(TABD, "figS7_panels.rds"))
+  panels <- readRDS(file.path(TABD, "figS8_panels.rds"))
   stopifnot(length(panels) >= 1)
   g <- panel_g(); h <- panel_h(); i <- panel_i()
   # panel letters: ONE A for the whole 2 x 3 metagene block, then B/C/D for the
@@ -301,7 +301,7 @@ main <- function() {
     value = c(length(plots), 3, ROW_W, META_H + QUANT_H, ROW_W * 25.4,
               (META_H + QUANT_H) * 25.4, min(unlist(FS)),
               paste(LETTERS[seq_along(plots)], collapse = "")))
-  write.table(geom, file.path(TABD, "figS7_page_geometry.tsv"), sep = "\t",
+  write.table(geom, file.path(TABD, "figS8_page_geometry.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   message("done: ", length(plots), " panels, ",
           sprintf("%.1f x %.1f mm", ROW_W * 25.4, (META_H + QUANT_H) * 25.4))

@@ -230,24 +230,24 @@ run "figure S3"     figures/figureS3/src/make_figs3_page.py
 run "figure S3 gate" figures/figureS3/src/verify_s3.py
 run "figure S4"     figures/figureS4/src/41_figS4_tables.py
 run "figure S4"     figures/figureS4/src/42_figS4_figure.py
-run "figure S5"     figures/figureS5/src/48_figS10_validation.py
+run "figure S5"     figures/figureS5/src/48_figS5_validation.py
 run "figure S5/S4 gate" figures/figureS4/src/49_verify_figS4_S10.py
-run "figure S6"     figures/figureS6/src/61_figS5_sitequality.py
-run "figure S6"     figures/figureS6/src/62_figS5_figure.py
-run "figure S6 gate" figures/figureS6/src/63_verify_figS5.py
-run "figure S7"     figures/figureS7/src/53_figS6_tables.py
-run "figure S7"     figures/figureS7/src/54_figS6_figure.py
-run "figure S7 gate" figures/figureS7/src/55_verify_figS6.py
-run "figure S8"     figures/figureS8/src/61_figS7_tables.py
-runr "figure S8"    figures/figureS8/src/62_figS7_guitar.R
-runr "figure S8"    figures/figureS8/src/63_figS7_page.R
-run "figure S8 gate" figures/figureS8/src/64_verify_figS7.py
-run "figure S9"     figures/figureS9/src/70_figs8_panels.py
-run "figure S9"     figures/figureS9/src/71_figs8_page.py
-run "figure S9 gate" figures/figureS9/src/72_verify_figs8.py
-run "figure S10"    figures/figureS10/src/60_figS9_tables.py
-runr "figure S10"   figures/figureS10/src/23e_figS9_guitar.R
-run "figure S10 gate" figures/figureS10/src/61_verify_figS9.py
+run "figure S6"     figures/figureS6/src/61_figS6_sitequality.py
+run "figure S6"     figures/figureS6/src/62_figS6_figure.py
+run "figure S6 gate" figures/figureS6/src/63_verify_figS6.py
+run "figure S7"     figures/figureS7/src/53_figS7_tables.py
+run "figure S7"     figures/figureS7/src/54_figS7_figure.py
+run "figure S7 gate" figures/figureS7/src/55_verify_figS7.py
+run "figure S8"     figures/figureS8/src/61_figS8_tables.py
+runr "figure S8"    figures/figureS8/src/62_figS8_guitar.R
+runr "figure S8"    figures/figureS8/src/63_figS8_page.R
+run "figure S8 gate" figures/figureS8/src/64_verify_figS8.py
+run "figure S9"     figures/figureS9/src/70_figs9_panels.py
+run "figure S9"     figures/figureS9/src/71_figs9_page.py
+run "figure S9 gate" figures/figureS9/src/72_verify_figs9.py
+run "figure S10"    figures/figureS10/src/60_figS10_tables.py
+runr "figure S10"   figures/figureS10/src/23e_figS10_guitar.R
+run "figure S10 gate" figures/figureS10/src/61_verify_figS10.py
 
 echo
 if [ ${#failed[@]} -gt 0 ]; then

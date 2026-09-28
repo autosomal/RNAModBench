@@ -17,9 +17,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import s8_data as D  # noqa: E402
-import s8_panels as P  # noqa: E402
-import s8_style as S  # noqa: E402
+import s9_data as D  # noqa: E402
+import s9_panels as P  # noqa: E402
+import s9_style as S  # noqa: E402
 
 PDF = S.FIGS / "FigureS8_rev.pdf"
 PAGE_PT = (842.4, 595.44)                       # A4 landscape (restored layout)

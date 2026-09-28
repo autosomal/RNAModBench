@@ -90,10 +90,10 @@ python src/harmonisation/scripts/34_export_callsets.py # writes data/callsets/
 bash src/harmonisation/scripts/run_replicate_aware.sh RNA002   # replicate-aware revision analyses
 ```
 
-Stage order matters and is documented in the header of `run_all.sh`: extraction
+Stage order matters and is documented in the header of `src/harmonisation/scripts/run_all.sh`: extraction
 (`00`–`03`) → scope split (`11`) → centre-base filter (`33`) → audits (`05`) →
 evaluation (`06`–`09`, `12`) → completeness and reconciliation (`13`, `14`,
-`29`–`31`, `10`) → figure-ready export. `04_build_universe.py` is skipped by
+`29`–`31`, `10`) → figure-ready export. `src/harmonisation/scripts/04_build_universe.py` is skipped by
 default because the candidate universes only change when the coverage BAMs change.
 
 Stages `20`/`21` (region model, Guitar BED) and therefore the Guitar panels need
