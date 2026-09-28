@@ -231,7 +231,7 @@ run "figure S3 gate" figures/figureS3/src/verify_s3.py
 run "figure S4"     figures/figureS4/src/41_figS4_tables.py
 run "figure S4"     figures/figureS4/src/42_figS4_figure.py
 run "figure S5"     figures/figureS5/src/48_figS5_validation.py
-run "figure S5/S4 gate" figures/figureS4/src/49_verify_figS4_S10.py
+run "figure S5/S4 gate" figures/figureS4/src/49_verify_figS4_S5.py
 run "figure S6"     figures/figureS6/src/61_figS6_sitequality.py
 run "figure S6"     figures/figureS6/src/62_figS6_figure.py
 run "figure S6 gate" figures/figureS6/src/63_verify_figS6.py
