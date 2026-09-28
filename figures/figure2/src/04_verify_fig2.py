@@ -49,8 +49,14 @@ m = E[E.metric == "mean_pairwise"].merge(W[["species", "tool", "mean_pairwise_ja
 if len(m):
     d = np.abs(m.value - m.mean_pairwise_jaccard)
     if d.max() > 1e-5:
-        print("note: panel F is on raw call sets; the eval table uses the shared universe")
-# 4 report ----------------------------------------------------------------
+        print("note: panel G is on raw call sets; the eval table uses the shared universe")
+# 4 the pooled (global) series is retired (2026-09-28, union drop) --------
+txt = subprocess.run(["pdftotext", str(F) + ".pdf", "-"],
+                     capture_output=True, text=True).stdout.lower()
+for token in ("pooled", "global"):
+    if token in txt:
+        bad.append(f"the retired pooled series is still printed in figure 2: {token!r}")
+# 5 report ----------------------------------------------------------------
 if bad:
     print("FAIL")
     [print(" -", b) for b in bad]

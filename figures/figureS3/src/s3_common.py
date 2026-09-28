@@ -61,7 +61,7 @@ TABLE_DIR = (_RB / "figures/figureS3/tables")
 REPLICATE_LABELS = {
     "Arabidopsis": ("Arabidopsis-rep1", "Arabidopsis-rep2"),
     "Mouse": ("Mouse-rep1", "Mouse-rep2"),
-    "Human": ("HeLa-rep1", "HeLa-rep2"),
+    "Human": ("Human-rep1", "Human-rep2"),
 }
 
 #: retired "GLORI hit rate" / "Hit Rate" -> house label (figures/figure5 README)

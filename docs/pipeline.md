@@ -6,6 +6,13 @@ Stages that turn each tool's own output format into the harmonised callsets unde
 what it is (scope pruning must happen before the audits and the evaluations, so no
 table can retain a callset that is later removed).
 
+This directory holds no figure code. Everything that computes, assembles or gates a
+published figure lives in that figure's own `figures/<figure>/src/` - see
+[`figure_index.md`](figure_index.md). The stages below are here because their output
+is a callset or an evaluation table rather than a panel; the two working analyses
+whose output a figure re-uses are listed with their tables in
+[`data_availability.md`](data_availability.md).
+
 | stage | what it does | main output |
 |---|---|---|
 | `00_build_registry.py` | sample/tool registry, replicate and independence assignment | `metadata/sample_registry.csv` |
@@ -21,16 +28,18 @@ table can retain a callset that is later removed).
 | `07_eval_controls.py` | IVT negative-control false-positive rates, Curlcake synthetic truth, purified-site and knock-down metrics | `controls_ivt_fpr.tsv`, `curlcake_truth.tsv`, `purified_sites.tsv`, `ko_kd_metrics.tsv` |
 | `08_eval_nonm6a.py` | m5C / Ψ / m1Ψ / Nm / inosine panels | `hela_nonm6a.tsv`, `nonm6a_*.tsv` |
 | `09_eval_rna004.py` | RNA004 chemistry evaluations and Dorado model scans | `rna004_*.tsv` |
-| `12_nonm6a_fig7.py` | known-site comparison for the non-m6A tools (Figure 7) | `nonm6a_fig7_summary.tsv` |
+| `12_nonm6a_summary.py` | known-site comparison for the non-m6A tools (Figure 7) | `nonm6a_fig7_summary.tsv` |
 | `13_completeness_audit.py`, `14_legacy_coverage_audit.py` | grid completeness and comparison against the earlier assembly | `metadata/completeness_audit.csv` |
 | `29_anchor_audit.py`, `30_pileup_call_filter_audit.py`, `31_persite_reference_audit.py` | anchor/offset correctness, no-call leakage, per-site reference check | `anchor_audit.tsv`, `pileup_call_filter_audit.tsv`, `persite_reference_audit.tsv` |
 | `10_qc_reconcile.py` | reconciliation and the QC narrative | `data/evaluation/qc_report.md` |
 | `export_figure_ready.py` | per-replicate, figure-grade metrics | `figure_ready_replicates.tsv` |
 | `34_export_callsets.py` | the deposited layer: deduplicate overlapping-transcript coordinates, keep the strongest call, drop bookkeeping columns | `data/callsets/` |
 
-`20`–`28` and `35`–`72` are the analysis/figure stages built on top of it; see
-[`figure_index.md`](figure_index.md) for which of them
-draws which figure.
+`20`–`27` are the replicate-aware analysis stages built on top of the callsets: they
+write the region models, the Guitar BED inputs and the working figures of the
+supporting analyses in `analysis/`. The numbered stages from `28` on draw published
+figures and therefore live with them - `figures/<figure>/src/`, listed per figure in
+[`figure_index.md`](figure_index.md).
 
 ## Shared library (`common/`)
 

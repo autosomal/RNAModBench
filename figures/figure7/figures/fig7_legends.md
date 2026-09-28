@@ -3,20 +3,22 @@
 **Figure 7. Performance of non-m6A modification detection tools,**
 rebuilt at per-replicate resolution from the cleaned site layer
 (`harmonisation/callsets`). All metrics are computed per independent
-sequencing unit (HeLa WT n = 3, HeLa IVT n = 3; independent Curlcake
+sequencing unit (Human WT n = 3, Human IVT n = 3; independent Curlcake
 IVT constructs n = 2 plus one depth-matched subset) inside the candidate-
 site universe (coverage >= 10, reference-base compatible). No m6A
 reference (GLORI) enters any conclusion in this figure (R2-2).
 
-**(A) Calls per replicate in HeLa WT versus HeLa IVT.**
+**(A) Calls per replicate in Human WT versus Human IVT.**
 
 anchored enrichment over chance (right).** Left: in-universe calls of each
-replicate (filled, WT; open, HeLa IVT; short bar, condition mean),
+replicate (filled, WT; open, Human IVT; short bar, condition mean),
 grouped by the three classes the analysis resolves (FP-dominated,
-intermediate, specific but sparse). CHEUI-m5C reports 47,747 WT sites
-(47,716 in universe) versus 51,171 on the HeLa IVT libraries
-(51,154 in universe; unions of three replicates) — as many calls on
-unmodified RNA as on wild type.
+intermediate, specific but sparse). CHEUI-m5C reports 15,845 ± 3,827 calls
+per unit in Human WT versus 17,129 ± 7,910 on the Human IVT libraries (mean ± SD
+of three units); the raw unions of the three replicates, 47,747 and 51,171,
+are kept for reference only. Once the coverage composition of the two libraries
+is matched the IVT/WT ratio is 0.79 (95% CI 0.49-1.14), so the union excess
+does not survive depth matching.
 
 **(B) Enrichment over chance.** Overlap with external references
 (circles, RMBase + DirectRMDB compilation; squares, orthogonal NGS gold standards;
@@ -25,7 +27,7 @@ expectation; dashed line, 1 = indistinguishable from random candidate
 sites. NanoPsu and NanoSPA-Psi are strongly enriched in WT (mean 84x and
 90x; empirical p <= 0.001) with zero or one IVT overlap, whereas CHEUI-m5C
 (3.3x vs 2.9x) and NanoMUD-Psi (2.6x vs 2.0x) are equally enriched in WT
-and HeLa IVT. NanoMUD-m1Psi has no external reference (RMBase + DirectRMDB covers
+and Human IVT. NanoMUD-m1Psi has no external reference (RMBase + DirectRMDB covers
 pseudoU, m5C and Nm only) and is therefore absent from this sub-panel.
 
 **(C) False positives on unmodified controls (Curlcake).** Calls per 10^6
@@ -42,14 +44,18 @@ models, E. coli WT versus E. coli IVT (solid, m5C; dashed, m6A); the
 high-confidence calls persist on unmodified RNA, i.e. they are a property
 of the CHEUI model rather than of our pipeline.
 
-**(E) Replicate consistency.** Within-condition replicate overlap, global versus mean pairwise
-Jaccard (filled, WT; open, HeLa IVT; log-log; dotted line, y = x).
-CHEUI-m5C falls two orders of magnitude below every other tool (global
-Jaccard 5.2x10^-4 in WT and 6.8x10^-4 in IVT versus 0.03-0.26).
+**(E) Replicate consistency.** Within-condition replicate overlap: mean pairwise
+Jaccard between the three units of each condition, Human WT (x axis) against the
+unmodified IVT libraries (y axis), one circle per tool with whiskers spanning
+that condition's three within-unit pairs (log-log; dotted line, WT = IVT).
+CHEUI-m5C falls an order of
+magnitude below every other tool (mean pairwise Jaccard 0.015 in WT and 0.013 in
+IVT versus 0.09-0.41).
 
 **(F) Score validity.**
 Mann-Whitney AUC of each tool's own reported score between WT and
-HeLa IVT (dotted line, 0.5 = no discrimination). CHEUI-m5C is the
+Human IVT, with whiskers spanning the nine unit pairs (dotted line,
+0.5 = no discrimination). CHEUI-m5C is the
 only tool that separates the conditions, and does so in the wrong
 direction (AUC 0.21); the Psi and Nm tools stay at 0.50-0.56.
 
@@ -58,7 +64,7 @@ direction (AUC 0.21); the Psi and Nm tools stay at 0.50-0.56.
 strand-aware; drawn with the Bioconductor Guitar package on the
 replicate-level call sets, as in the original figure). Thick line,
 majority consensus (sites present in >= 2 of 3 replicates); thin dashed
-lines, individual replicates; blue, HeLa WT; orange, HeLa IVT; dotted
+lines, individual replicates; blue, Human WT; orange, Human IVT; dotted
 verticals, segment boundaries; each panel carries its own
 `<tool>-WT` / `<tool>-IVT` key below the axis. Majority site
 counts (WT/IVT): CHEUI-m5C 909/776, NanoMUD-Psi 2,566/3,145,

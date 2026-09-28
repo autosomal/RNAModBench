@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""71 -- compose the six panels onto the A4 (595.44 x 842.4 pt) S8 page.
+"""71 -- compose the nine panels onto the A4 landscape (842.4 x 595.44 pt) S8 page.
 
-The panels were drawn at their final print size on a 2 x 3 grid, so pypdf only
+The panels were drawn at their final print size on a 3 x 3 grid, so pypdf only
 translates them (no scaling): the point sizes in the panel PDFs are the printed
 sizes.  ``compose_page`` asserts that every placement stays inside the page and
 that no two panels overlap.

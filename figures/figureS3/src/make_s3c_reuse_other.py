@@ -6,7 +6,7 @@ The ANALYSIS behind this panel belongs to the a companion analysis and is NOT
 re-run here:
   * ``harmonisation/scripts/15_mod_ratio_replicate_agreement.py`` -> cached tables in
     ``analysis/mod_ratio_replicates/tables`` (read-only for us);
-  * ``harmonisation/scripts/16_mod_ratio_regression_fig.py`` -> their standalone
+  * ``harmonisation/scripts/16_mod_ratio_regression.py`` -> their standalone
     figure ``mod_ratio_replicates/figures/mod_ratio_regression_S3C_style.pdf``.
 
 This module re-renders *their recipe* (per-replicate thin fit lines + bold
@@ -51,7 +51,7 @@ import pandas as pd
 import s3_common as sc
 
 OTHER_SCRIPT = (Path(str(_RB / "src/harmonisation/scripts"))
-                / "16_mod_ratio_regression_fig.py")
+                / "16_mod_ratio_regression.py")
 OTHER_DIR = Path(str(_RB / "analysis/mod_ratio_replicates"))
 MATCHED = (_RB / "analysis/mod_ratio_replicates/tables/mod_ratio_matched_sites.tsv")
 SUMMARY = (_RB / "analysis/mod_ratio_replicates/tables/mod_ratio_summary_by_group.tsv")

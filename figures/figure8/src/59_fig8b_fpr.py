@@ -175,7 +175,7 @@ def main() -> None:
     # three family names in 1.47 in: upright they collided, so they are slanted
     ax2.set_xticklabels([B2_XLAB[s] for s in SLOTS], fontsize=STYLE["tick"],
                         rotation=30, ha="right", rotation_mode="anchor")
-    ax2.set_title("HeLa IVT (\u2265 90 %)", fontsize=STYLE["label"],
+    ax2.set_title("Human IVT (\u2265 90 %)", fontsize=STYLE["label"],
                   fontweight="normal", loc="left", pad=4)
 
     # (the shared y title itself is created above, before B1 is positioned; its

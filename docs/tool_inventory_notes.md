@@ -25,7 +25,7 @@ each value came from.
 
 ## What the recorded command lines are, and are not
 
-The `method` column of `command_lines.csv` is `static_script` for all 3,608
+The `method` column of `command_lines.csv` is `static_script` for all 3,045
 rows: the command lines were **extracted from the scripts that ran them**, not
 captured from a process log. That has three consequences worth stating:
 
@@ -57,7 +57,7 @@ where the running environment could not be established from the script.
 configuration, each with an evidence pointer, and `coverage_report.md` is the
 completeness matrix. Two limits are inherent rather than fixable here:
 
-* **Configuration files exist for only two tools.** xPore and CHEUI-diff were
+* **Configuration files exist for one tool only.** xPore was
   driven from YAML files, and those files are deposited under `tools/configs/`
   with their paths rewritten the same way. Everything else was driven by
   command-line flags, which is what `command_lines.csv` records.

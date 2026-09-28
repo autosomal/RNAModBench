@@ -19,3 +19,6 @@ G	m6Anet Lin's CCC (95 % CI)	0.645 (0.634-0.655)
 G	ratio tools, Lin's CCC range	9 (0.151-0.645)
 E	ratio tools on the r / slope blocks	9
 F	ratio tools with an effect size (slope, bootstrap CI)	9 (slopes 0.149-0.612)
+H	coverage levels drawn, rho range	0.801-1.000 over 4 levels x 3 species
+I	reference-ratio strata drawn, rho range	0.478-0.904 over 3 strata x 3 species
+I	strata whose top-ranked tool differs from the primary one	6 of 9

@@ -69,16 +69,19 @@ DORADO_CURLAKE_PCT = 50
 BLOCKS_A = ["Dorado m6A models", "other m6A tools", "other modification models"]
 
 #: the single block of panel B and the blocks of panel C, in print order
-BLOCK_ORCA = "ORCA channels"
-BLOCKS_C = ["m6A DRACH", "m6A (non-DRACH)", "inosine + m6A", "other m6A tools"]
+
+#: reports several modification types from one run, so the row group is named
+#: for the tool and the caption states the eight output channels explicitly.
+BLOCK_ORCA = "ORCA (one tool)"
+BLOCKS_C = ["DRACH", "non-DRACH", "inosine + m6A", "other tools"]
 
 #: Dorado family of the Curlcake run -> (printed block, colour family).  The run
 #: names the two v5.1.0 families differently: "all" is that caller's DRACH
 #: equivalent (the same key the old HeLa link map used).
 CURLAKE_FAMILY = {
-    "m6A_DRACH": ("m6A DRACH", "m6A_DRACH"),
-    "all": ("m6A DRACH", "m6A_DRACH"),
-    "pseU_m6A": ("m6A (non-DRACH)", "m6A"),
+    "m6A_DRACH": ("DRACH", "m6A_DRACH"),
+    "all": ("DRACH", "m6A_DRACH"),
+    "pseU_m6A": ("non-DRACH", "m6A"),
     "inosine_m6A": ("inosine + m6A", "inosine_m6A"),
 }
 
@@ -98,6 +101,18 @@ ALL_RUN = {"all": "m6A DRACH", "all_Psi": "\u03a8", "all_m5C": "m5C"}
 
 def _read(name: str) -> pd.DataFrame:
     return pd.read_csv(SRC_TABLES / name, sep="\t")
+
+
+def pretty_tool_short(tool: str) -> str:
+    """Printed label without the Dorado version token.
+
+    2026-09-28 (user): the lollipop panels F and G are the only place where the
+    full label ("hac v5.1.0 m6A DRACH") is too wide for the shared 1.638 in label
+    column -- the layout gate caught it hugging the axes frame once the box grew.
+    F and G therefore print "hac m6A DRACH"; the version stays in Table S6 and in
+    panel A, and the rows stay unique (hac vs sup, and the channel).
+    """
+    return re.sub(r"\s+v\d+(?:\.\d+)*", " ", pretty_tool(tool)).strip()
 
 
 def pretty_tool(tool: str) -> str:
@@ -226,7 +241,7 @@ def panel_curlcake() -> pd.DataFrame:
     rows: list[dict] = []
     for _, r in r4.iterrows():
         fam = str(r["family"])
-        block, colour = CURLAKE_FAMILY.get(fam, ("other m6A tools", "tool"))
+        block, colour = CURLAKE_FAMILY.get(fam, ("other tools", "tool"))
         per1e6 = float(r["fp_per_1e6_candidates"])
         rows.append({
             "tool": str(r["tool"]), "label": pretty_tool(str(r["tool"])),
@@ -338,6 +353,8 @@ def panel_effect() -> pd.DataFrame:
             raise SystemExit(f"no Lin's CCC for ratio tool {tool} in S8F_glori_agreement.tsv")
         c = ccc.loc[tool]
         rows.append({
+            
+            #: the full label again ("hac v5.1.0 m6A DRACH").
             "tool": tool, "label": pretty_tool(tool),
             "family": family_of(tool, "m6A"),
             "r": rr, "r_lo": lo, "r_hi": hi,
@@ -349,6 +366,56 @@ def panel_effect() -> pd.DataFrame:
     df = pd.DataFrame(rows)
     return df.sort_values("r", ascending=False,
                           na_position="last").reset_index(drop=True)
+
+
+# --------------------------------------------------------------------------- #
+# H / I -- rank stability of the tool ordering (2026-09-27)
+# --------------------------------------------------------------------------- #
+#: the delivered SI table of the ranking-stability analysis (read-only).  The two
+#: new cells and the manuscript's sentence quote the same numbers, so the figure
+#: reads the table instead of recomputing anything.
+S12 = ((_RB / "tables/tables/TableS12_coverage_rank_stability.tsv"))
+
+#: species of the stability cells, in stack order: (table value, printed name)
+SPECIES = [("Arabidopsis", "Arabidopsis"), ("Mouse", "mouse"), ("Human", "HeLa")]
+
+#: the levels drawn in each stability cell -- (Table S12 level text, printed row)
+STABILITY_LEVELS: dict[str, list[tuple[str, str]]] = {
+    "H": [("coverage floor >= 5 reads", "floor \u2265 5"),
+          ("coverage floor >= 20 reads", "floor \u2265 20"),
+          ("stratum 20-49 reads", "stratum 20-49"),
+          ("stratum >= 50 reads", "stratum \u2265 50")],
+    "I": [("reference ratio 0.1-0.3", "ratio 0.1-0.3"),
+          ("reference ratio 0.3-0.6", "ratio 0.3-0.6"),
+          ("reference ratio > 0.6", "ratio > 0.6")],
+}
+
+
+def panel_stability(cell: str) -> pd.DataFrame:
+    """One row per drawn level and species: rho against the primary ranking.
+
+    ``cell`` is ``"H"`` (transcript coverage) or ``"I"`` (the reference's own
+    modification ratio).  ``top1_same`` records whether the top-ranked tool of
+    that level is still the primary one -- the reading the manuscript quotes.
+    """
+    t = pd.read_csv(S12, sep="\t", comment="#")
+    rows: list[dict] = []
+    for level, label in STABILITY_LEVELS[cell]:
+        g = t[t["Level"] == level]
+        if len(g) != len(SPECIES):
+            raise SystemExit(f"cell {cell}: level {level!r} has {len(g)} rows "
+                             f"in {S12.name}")
+        for species, printed in SPECIES:
+            r = g[g["Species"] == species]
+            if len(r) != 1:
+                raise SystemExit(f"cell {cell}: {species} missing at {level!r}")
+            rows.append({
+                "level": label, "species": species, "printed": printed,
+                "rho": float(r["Spearman rho vs primary"].iloc[0]),
+                "top1_same": str(r["Top-ranked tool identical"].iloc[0]) == "yes",
+                "top1_tool": str(r["Top-ranked tool"].iloc[0]),
+            })
+    return pd.DataFrame(rows)
 
 
 # --------------------------------------------------------------------------- #
@@ -369,10 +436,13 @@ def anchors() -> list[tuple[str, str, str]]:
     e = panel_effect()
     e_idx = e.set_index("label")
     loc = panel_window()
+    #: 2026-09-27: the two stability cells quote Table S12 unchanged
+    sh = panel_stability("H")
+    si = panel_stability("I")
 
     dr = a[a["label"].str.contains("DRACH")]
-    cur_dr = c[c["block"] == "m6A DRACH"]
-    cur_nd = c[c["block"] == "m6A (non-DRACH)"]
+    cur_dr = c[c["block"] == "DRACH"]
+    cur_nd = c[c["block"] == "non-DRACH"]
     c_idx = c.set_index("label")
     othermod = int((a["block"] == "other modification models").sum())
     return [
@@ -426,4 +496,13 @@ def anchors() -> list[tuple[str, str, str]]:
          f"{int(e['r'].notna().sum())}"),
         ("F", "ratio tools with an effect size (slope, bootstrap CI)",
          f"{len(e)} (slopes {e['slope'].min():.3f}-{e['slope'].max():.3f})"),
+        #: 2026-09-27: the two stability cells quote the delivered Table S12
+        ("H", "coverage levels drawn, rho range",
+         f"{sh['rho'].min():.3f}-{sh['rho'].max():.3f} over "
+         f"{sh['level'].nunique()} levels x {sh['species'].nunique()} species"),
+        ("I", "reference-ratio strata drawn, rho range",
+         f"{si['rho'].min():.3f}-{si['rho'].max():.3f} over "
+         f"{si['level'].nunique()} strata x {si['species'].nunique()} species"),
+        ("I", "strata whose top-ranked tool differs from the primary one",
+         f"{int((~si['top1_same']).sum())} of {len(si)}"),
     ]

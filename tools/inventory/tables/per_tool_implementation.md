@@ -4,24 +4,24 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 
 ## CHEUI-diff (detection / m6A/m5C / comparative)
 
-- **software_or_version**: Same vendored CHEUI commit c1c9ab6d37ff85d2dff36647b4e7d3037bce2e63; entry point $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py
+- **software_or_version**: Same CHEUI commit c1c9ab6d37ff85d2dff36647b4e7d3037bce2e63; entry point CHEUI_diffenrentialRNAMod.py
 - **model_checkpoint**: None - CHEUI-diff performs no inference; it consumes read-level probability triplets from model1 and runs a statistical test
 - **required_input**: Single required flag -c/--config_file pointing to a YAML with keys: input (sorted combined read-level file), sample_labels.condition1/condition2 (rep -> model1 label), upper_cutoff, lower_cutoff, out | Two conditions are MANDATORY - it is a comparative tool only
 - **min_read_coverage**: Hardcoded, not configurable: a site is tested only if BOTH conditions have more than 20 reads
 - **filtering_parameters**: Reads whose model1 probability falls between the two cutoffs are excluded from stoichiometry but ARE included in the rank-sum test
-- **calling_threshold**: All 16 of our run configs used the shipped defaults upper 0.7 / lower 0.3 (no delta/p-value cutoff given to the tool itself) | Defaults shipped in $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/config.yml: upper_cutoff 0.7 (methylated read), lower_cutoff 0.3 (unmethylated read)
-- **multiple_testing_correction**: NONE. Test is scipy.stats.ranksums (Mann-Whitney U) and the only reported statistic columns are `statistic` and `pval_U` - no adjusted p / q / FDR column is produced
+- **calling_threshold**: All 16 run configurations used the shipped defaults upper 0.7 / lower 0.3 (no delta/p-value cutoff given to the tool itself) | Defaults shipped in config.yml: upper_cutoff 0.7 (methylated read), lower_cutoff 0.3 (unmethylated read)
+- **multiple_testing_correction**: NONE. Test is SciPy.stats.ranksums (Mann-Whitney U) and the only reported statistic columns are `statistic` and `pval_U` - no adjusted p / q / FDR column is produced
 - **default_vs_optimised**: Exactly the tool's own defaults were used (only -c config supplied; cutoffs 0.7/0.3 and the >20 read floor are upstream values). No optimisation applied
 - **coordinate_harmonisation**: Site key = transcript_id_transcriptposition_kmer (the trailing _readID is stripped when grouping: `ID = '_'.join(line_p[0].split('_')[:-1'])`) - transcriptomic only, no genomic output
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/.git_disabled/HEAD research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:1-40 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:31-33; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:54-55 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:81 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:83-99 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/converted_callsets/_not_in_manuscript/CHEUI-diff/HeLa_IVT_rep1/CHEUI-diff_m5C_HeLa_IVT_result1.yml; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/config.yml:12 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:11 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/CHEUI-diff.sh:14 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_diffenrentialRNAMod.py:127 research:groupA_detection_a.md (1 facts)
+ - evidence: HEAD research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:1-40 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:31-33; CHEUI_diffenrentialRNAMod.py:54-55 research:groupA_detection_a.md (2 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:81 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:83-99 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI-diff_m5C_HeLa_IVT_result1.yml; config.yml:12 research:groupA_detection_a.md (2 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:11 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI-diff.sh:14 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_diffenrentialRNAMod.py:127 research:groupA_detection_a.md (1 facts)
 - **status**: complete
 
 ## CHEUI_m5C (detection / m5C / de novo)
@@ -35,42 +35,42 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: none - model1/model2 emit read- and site-level probabilities only; no p-value/q-value column exists in site_level_m5C_predictions.txt
 - **default_vs_optimised**: default
 - **coordinate_harmonisation**: transcript -> genomic via BED12/gtf2bed12 transcript alignment
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/.git_disabled/HEAD research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/CHEUI_trained_models research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/CHEUI.sh:11 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2.py:44-47 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m5C.py; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m5C.py:104; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m5C.py:127 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:13 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/CHEUI/HeLa_WT3/site_level_m5C_predictions.txt:1 research:groupA_detection_a.md (1 facts)
-  - evidence: tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2) [curated_check]
-  - evidence: post-processing scripts in tool_scripts/*postprocessing [curated_check]
+ - evidence: HEAD research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_trained_models research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI.sh:11 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_predict_model2.py:44-47 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_preprocess_m5C.py; CHEUI_preprocess_m5C.py:104; CHEUI_preprocess_m5C.py:127 research:groupA_detection_a.md (2 facts)
+ - evidence: legacy_liftover.py:13 research:groupA_detection_a.md (1 facts)
+ - evidence: site_level_m5C_predictions.txt:1 research:groupA_detection_a.md (1 facts)
+ - evidence: tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2) [curated_check]
+ - evidence: post-processing scripts in tool_scripts/*postprocessing [curated_check]
 - **status**: complete
 
 ## CHEUI_m6A (detection / m6A / de novo)
 
-- **software_or_version**: Env `cheui`: python 3.7.12, tensorflow-gpu 2.4.1 (tensorflow-base 2.4.1), keras-preprocessing 1.1.2, numpy 1.21.6, pandas 1.3.4, cudatoolkit 10.1.243 | LOCAL MODS on top of c1c9ab6: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model1_modified.py and $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2_modified.py are untracked (git status '??'), i.e. authored by us, plus the built C++ preprocessor | Upstream git commit c1c9ab6d37ff85d2dff36647b4e7d3037bce2e63 (short c1c9ab6), branch master, dated Thu May 18 10:51:36 2023 +1000 "Update combine_binary_file.py"
-- **model_checkpoint**: Architecture is the Jasper convolutional net (Conv1D/MaxPooling/BatchNorm/Dropout) built by build_Jasper in DL_models.py | Bundled Keras weights used: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/CHEUI_trained_models/CHEUI_m6A_model1.h5 and CHEUI_m6A_model2.h5 (m5C: CHEUI_m5C_model1.h5 / CHEUI_m5C_model2.h5) | Per-kmer expected-signal normalisation table $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/kmer_models/model_kmer.csv (1025 rows: model_kmer, model_mean, model_stdv)
-- **required_input**: Model1: -i ID+signal pickle, -m DL model1 .h5, -l sample label, -o out (all required); -r resume (default False) | Model2: -i sorted read-level file, -m model2 .h5, -o out (required) + -c/-d/-n | Preprocess: -i nanopolish eventalign.txt (required), -m model_kmer.csv (required), -o out_dir (required); optional -s suffix, -n cpu (default 1) | Reference is a TRANSCRIPTOME fasta; alignment must keep only primary + template alignments | ...
+- **software_or_version**: Python 3.7.12, TensorFlow 2.4.1 (TensorFlow-base 2.4.1), Keras-Preprocessing 1.1.2, NumPy 1.21.6, pandas 1.3.4, cudatoolkit 10.1.243 | benchmark-specific modifications on top of c1c9ab6: CHEUI_predict_model1_modified.py and CHEUI_predict_model2_modified.py are benchmark-specific additions, plus the built C++ preprocessor | Upstream git commit c1c9ab6d37ff85d2dff36647b4e7d3037bce2e63 (short c1c9ab6), branch master, dated Thu May 18 10:51:36 2023 +1000 "Update combine_binary_file.py"
+- **model_checkpoint**: Architecture is the Jasper convolutional net (Conv1D/MaxPooling/BatchNorm/Dropout) built by build_Jasper in DL_models.py | Bundled Keras weights used: CHEUI_m6A_model1.h5 and CHEUI_m6A_model2.h5 (m5C: CHEUI_m5C_model1.h5 / CHEUI_m5C_model2.h5) | Per-kmer expected-signal normalisation table model_kmer.csv (1025 rows: model_kmer, model_mean, model_stdv)
+- **required_input**: Model1: -i ID+signal pickle, -m DL model1.h5, -l sample label, -o out (all required); -r resume (default False) | Model2: -i sorted read-level file, -m model2.h5, -o out (required) + -c/-d/-n | Preprocess: -i nanopolish eventalign.txt (required), -m model_kmer.csv (required), -o out_dir (required); optional -s suffix, -n cpu (default 1) | Reference is a TRANSCRIPTOME fasta; alignment must keep only primary + template alignments |...
 - **min_read_coverage**: CHEUI_predict_model2 default -n/--min_reads = 20 reads per site | Preprocessing step has NO coverage floor; the only `-n` there is thread count (default 1)
 - **filtering_parameters**: Model2 print filter -c/--cutoff default '0' (all tested sites are printed); stoichiometry double-cutoff -d default '0.3,0.7' (reads between are ignored) | Preprocess drops an event if reference_kmer != model_kmer, if model_kmer is NNNNN, or if the 5-mer centre contains no A (m6A) / no C (m5C)
 - **calling_threshold**: No probability threshold by default (-c 0) - model2 reports site probability and stoichiometry; calling cut was applied later by us (probability > 0.999 and stoichiometry > 0.1)
 - **multiple_testing_correction**: None for CHEUI-solo (model1/model2 emit probability only, no p-value). For CHEUI-diff see below.
-- **default_vs_optimised**: Model2 runs used stock defaults for -c, -d, -n; only -i/-m/-o given. However some replicates were run through OUR rewrite CHEUI_predict_model2_modified.py (same CLI defaults, adds random.seed(42)/np.random.seed(42), TF GPU memory growth, ThreadPoolExecutor)
+- **default_vs_optimised**: Model2 runs used stock defaults for -c, -d, -n; only -i/-m/-o given. However some replicates were run through the rewrite CHEUI_predict_model2_modified.py (same CLI defaults, adds random.seed(42)/np.random.seed(42), TF GPU memory growth, ThreadPoolExecutor)
 - **coordinate_harmonisation**: Site IDs are transcript_id + 0-based transcript position + kmer + read_id in column 1 (e.g. ENST00000000233.10_1003_TTGTAGATG_<uuid>); site-level file columns are contig, position, site, coverage, stoichiometry, probability | We converted transcript -> genome with R2Dtool `r2d liftover -H -g <GTF>`; for CHEUI the legacy convention was Start = transcript position + 4, End = position + 5 (centre base of the reported 9-mer), strand set to '*'
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/.git_disabled; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/.git_disabled/HEAD research:groupA_detection_a.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/DL_models.py:24; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/CHEUI_trained_models; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/kmer_models/model_kmer.csv:1 research:groupA_detection_a.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model1.py:23-45; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2.py:22-53; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m6A.py:30-60 research:groupA_detection_a.md (5 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2.py:44-47; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m6A.py:57-60 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2.py:32-41; $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_preprocess_m6A.py:99-107 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:12 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/scripts/CHEUI_predict_model2.py research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/WT/CHEUI.sh:48 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/CHEUI/README.md:318-341; $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:65-83 research:groupA_detection_a.md (2 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv; HEAD research:groupA_detection_a.md (3 facts)
+ - evidence: DL_models.py:24; CHEUI_trained_models; model_kmer.csv:1 research:groupA_detection_a.md (3 facts)
+ - evidence: CHEUI_predict_model1.py:23-45; CHEUI_predict_model2.py:22-53; CHEUI_preprocess_m6A.py:30-60 research:groupA_detection_a.md (5 facts)
+ - evidence: CHEUI_predict_model2.py:44-47; CHEUI_preprocess_m6A.py:57-60 research:groupA_detection_a.md (2 facts)
+ - evidence: CHEUI_predict_model2.py:32-41; CHEUI_preprocess_m6A.py:99-107 research:groupA_detection_a.md (2 facts)
+ - evidence: legacy_liftover.py:12 research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI_predict_model2.py research:groupA_detection_a.md (1 facts)
+ - evidence: CHEUI.sh:48 research:groupA_detection_a.md (1 facts)
+ - evidence: README.md:318-341; legacy_liftover.py:65-83 research:groupA_detection_a.md (2 facts)
 - **status**: complete
 
 ## DENA (detection / m6A / comparative)
 
-- **software_or_version**: DENA_3.3 | ran in conda env `dena` = python3.7 + ont-tombo 1.5.1 | DENA-public (curlcake runs) no longer on disk
+- **software_or_version**: DENA_3.3 | ran = python3.7 + ont-tombo 1.5.1 | DENA-public (curlcake runs)
 - **model_checkpoint**: 12 per-5-mer bidirectional-LSTM weights DENA_LSTM_Model/{AAACA,AAACC,AAACT,AGACA,AGACC,AGACT,GAACA,GAACC,GAACT,GGACA,GGACC,GGACT}/model_best.pth | architecture LSTMModel(in=5, hidden=256, layers=3, classes=2), bidirectional=True
 - **required_input**: motif site list built from reference FASTA via get_pos | signal features taken from tombo slot ['length','norm_mean','norm_stdev'] | tombo-resquiggled FAST5 dir + BAM + candidate-site file (NO control/WT input in CLI)
 - **min_read_coverage**: benchmark filter applied post-hoc: coverage (col3+col4) > 20 | tool provides none (no coverage option)
@@ -79,42 +79,42 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: none — output has no p-value/q-value column
 - **default_vs_optimised**: CLI: only -d (per-read output) and --windows 2 2 are our explicit choices; --processes left at 8 in some runs, 40 in others | motif deviated from tool default for one dataset
 - **coordinate_harmonisation**: downstream genomic-window filter to primary chromosomes | harmonised to genomic with R2Dtool liftover (BED12 + GTF), not gtf2bed | native output = transcriptomic (transcript id + transcript position)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_predict.py:27; $RNAMODBENCH_LOCAL/miniconda3/envs/dena/lib/python3.7/site-packages/ont_tombo-1.5.1.dist-info/METADATA:3; $RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/DENA.sh:20 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/DENA_LSTM_Model; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_predict.py:82 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_extract.py:284-289; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_extract.py:144; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_extract.py:292-309 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/DENA.ipynb:29; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_extract.py:292-309 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_predict.py:74 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/DENA.ipynb:21; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_predict.py:109 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/step4_predict/LSTM_predict.py:109-113 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/DENA.sh:21; $RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/m6A/DENA.sh:10 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/DENA.ipynb:89; $RNAMODBENCH_LOCAL/tool_scripts/R2Dtool.sh:145; $RNAMODBENCH_LOCAL/source_code/benchmark/DENA/README.md:57 research:groupB_detection_b.md (3 facts)
+ - evidence: LSTM_predict.py:27; METADATA:3; DENA.sh:20 research:groupB_detection_b.md (3 facts)
+ - evidence: DENA_LSTM_Model; LSTM_predict.py:82 research:groupB_detection_b.md (2 facts)
+ - evidence: LSTM_extract.py:284-289; LSTM_extract.py:144; LSTM_extract.py:292-309 research:groupB_detection_b.md (3 facts)
+ - evidence: DENA.ipynb:29; LSTM_extract.py:292-309 research:groupB_detection_b.md (2 facts)
+ - evidence: LSTM_predict.py:74 research:groupB_detection_b.md (1 facts)
+ - evidence: DENA.ipynb:21; LSTM_predict.py:109 research:groupB_detection_b.md (2 facts)
+ - evidence: LSTM_predict.py:109-113 research:groupB_detection_b.md (1 facts)
+ - evidence: DENA.sh:21; DENA.sh:10 research:groupB_detection_b.md (2 facts)
+ - evidence: DENA.ipynb:89; R2Dtool.sh:145; README.md:57 research:groupB_detection_b.md (3 facts)
 - **status**: complete
 
 ## DRUMMER (detection / m6A / comparative)
 
-- **software_or_version**: Env `DRUMMER`: python 3.11.9, scipy 1.14.0, pandas 2.2.2, numpy 1.26.0, biopython 1.83, statsmodels 0.14.2, bedtools 2.26.0 | Upstream git commit 6683822c6210083e4ab0eecb4b6327e3c55f4c46 (short 6683822), master, Fri Jul 8 10:38:41 2022 +0200 "Update README.md"; DRUMMER v1.0
-- **model_checkpoint**: Counting engine is a bundled binary: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/bam-readcount (per-position A/C/G/T/N pileups) | None - DRUMMER is model-free; it uses basecall error profiles (no pretrained weights, no .h5/.pt files)
-- **required_input**: Input BAMs must be coordinate-sorted, indexed, primary-alignments-only, and aligned to the SAME reference passed with -r | Isoform mode also needs -l transcript list matching the FASTA headers - either 1-column or the 7-column BED12-derived format | Required: -r reference genome (exome) or transcriptome (isoform) FASTA; -t treatment bams (one or more, nargs='*'); -c control bams (nargs='*'); -o output dir; -a analysis_mode {isoform , exome} | Two conditions are MANDATORY: -t (modification-absent, e.g. METTL3-KO) and -c (modification-present, e.g. WT). It is a comparative basecall-error caller
-- **min_read_coverage**: No minimum-depth CLI option; the only depth floor in the pipeline is depth != 0 after merging | OUR depth floor was applied downstream: depth_ctrl > 20 (control/mod-condition pileup), see the harmonisation recipe
+- **software_or_version**: Python 3.11.9, SciPy 1.14.0, pandas 2.2.2, NumPy 1.26.0, Biopython 1.83, statsmodels 0.14.2, bedtools 2.26.0 | Upstream git commit 6683822c6210083e4ab0eecb4b6327e3c55f4c46 (short 6683822), master, Fri Jul 8 10:38:41 2022 +0200 "Update README.md"; DRUMMER v1.0
+- **model_checkpoint**: Counting engine is a bundled binary: bam-readcount (per-position A/C/G/T/N pileups) | None - DRUMMER is model-free; it uses basecall error profiles (no pretrained weights, no.h5/.pt files)
+- **required_input**: Input BAMs must be coordinate-sorted, indexed, primary-alignments-only, and aligned to the SAME reference passed with -r | Isoform mode also needs -l transcript list matching the FASTA headers - either 1-column or the 7-column BED12-derived format | Required: -r reference genome (exome) or transcriptome (isoform) FASTA; -t treatment bams (one or more, nargs='*'); -c control bams (nargs='*'); -o output dir; -a analysis_mode {isoform, exome} | Two conditions are MANDATORY: -t (modification-absent, e.g. METTL3-KO) and -c (modification-present, e.g. WT). It is a comparative basecall-error caller
+- **min_read_coverage**: No minimum-depth CLI option; the only depth floor in the pipeline is depth != 0 after merging | the depth floor was applied downstream: depth_ctrl > 20 (control/mod-condition pileup), see the harmonisation recipe
 - **filtering_parameters**: Candidate logic: depletion = odds_ratio > 1.5 AND G_padj < 0.05 AND (ref_fraction_treat - ref_fraction_ctrl) > 0.01 AND OR_padj < 0.05; accumulation = odds_ratio < 1/1.5 AND same p cutoffs AND diff < 0.01 | Clustering mask: candidate sites within 5 bp of each other are collapsed - only the highest G_test stays 'candidate', the rest become '[accumulation_masked]'/'[depletion_masked]' | Defaults: -z odds 1.5 (odds-ratio cutoff +/-1.5), -p padj 0.05 (applied to BOTH G-test and Fisher OR), -f fraction_diff 0.01, -m m6A mode default false, -v visualization default false, -i indel filter | SNP mask: any position with ref_fraction < 0.6 in either group is flagged is_SNP
 - **calling_threshold**: No probability threshold - thresholds are odds ratio (+/-1.5), fraction difference (0.01) and adjusted p (0.05)
 - **multiple_testing_correction**: Bonferroni-style: padj = p_val * n_rows and p_values_OR_adj = p_values_OR * n_rows, each capped at 1; applied per transcript within each comparison | Output columns carrying it: OR_padj and G_padj (renamed from p_values_OR_adj / padj); in multi-replicate output max-G_padj / max_odds_padj plus a `support` column = number of biological replicates in which the site appears
 - **default_vs_optimised**: We used the tool's own defaults for every statistical cutoff (-z, -p, -f): only -r, -l, -t, -c, -o, -a isoform and -m True were passed | `-m True` = m6A mode; argparse -m has no type/nargs so the literal string 'True' is converted by modules.support.handle_booleans -> True
 - **coordinate_harmonisation**: A GTF-free BED12 conversion step IS required to build -l: minimap2 -ax splice -k14 -uf --secondary=no genome transcripts.fasta -> samtools view -F 2304 -> bamToBed -bed12 -> `cut -f1,4,6,7,10,11,12` | Isoform mode reports BOTH: transcript_id + pos_mod (transcript) and genomic_position (col 18), computed internally from the 7-column -l file | Our downstream conversion still liftover-ed DRUMMER's TRANSCRIPT coordinate (Start = transcript_pos - 1, End = transcript_pos) with R2Dtool, and set Mod/Unmod from OR_padj < 0.05
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/.git_disabled/HEAD research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/core/drummer-core-isoform.sh:104; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/README.md:196-201; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py:15; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py:14-26 research:groupA_detection_a.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/merge.py:93; $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:22 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/candidates.py:11-12; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/candidates.py:44; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py:20-28 research:groupA_detection_a.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py:20-23 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/Gtest.py:24; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/modules/summary.py:50 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/DRUMMER.sh:5-11; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/DRUMMER.py:22 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/README.md:233; $RNAMODBENCH_LOCAL/source_code/benchmark/DRUMMER/README.md:141; $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:23 research:groupA_detection_a.md (3 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv; HEAD research:groupA_detection_a.md (2 facts)
+ - evidence: drummer-core-isoform.sh:104; DRUMMER.py research:groupA_detection_a.md (2 facts)
+ - evidence: README.md:196-201; DRUMMER.py:15; DRUMMER.py:14-26 research:groupA_detection_a.md (4 facts)
+ - evidence: merge.py:93; legacy_liftover.py:22 research:groupA_detection_a.md (2 facts)
+ - evidence: candidates.py:11-12; candidates.py:44; DRUMMER.py:20-28 research:groupA_detection_a.md (4 facts)
+ - evidence: DRUMMER.py:20-23 research:groupA_detection_a.md (1 facts)
+ - evidence: Gtest.py:24; summary.py:50 research:groupA_detection_a.md (2 facts)
+ - evidence: DRUMMER.sh:5-11; DRUMMER.py:22 research:groupA_detection_a.md (2 facts)
+ - evidence: README.md:233; README.md:141; legacy_liftover.py:23 research:groupA_detection_a.md (3 facts)
 - **status**: complete
 
 ## Dorado (detection / m6A/pseU/m5C/inosine / de novo)
 
-- **software_or_version**: 0.9.1 (banner from $RNAMODBENCH_LOCAL/tool/dorado-0.9.1-linux-x64/bin/dorado --version)
+- **software_or_version**: 0.9.1 (banner from dorado --version)
 - **model_checkpoint**: RNA002 platform: rna002_70bps_hac@v3 (15 occurrences), no --modified-bases-models anywhere in RNA002 scripts | RNA004 basecalling: rna004_130bps_hac@v5.0.0 and @v5.1.0 | RNA004 modification models: rna004_130bps_hac@v5.1.0_{pseU@v1, m6A_DRACH@v1, m5C@v1}; @v5.0.0_{pseU@v1, m6A@v1}; @v5.1.0_inosine_m6A@v1
 - **required_input**: POD5 -> basecalling with --modified-bases-models
 - **min_read_coverage**: 20 (valid_coverage, Curlcake sources, applied by us); 10 for the NA-9 FPR analysis
@@ -123,43 +123,43 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: not applicable (model probability, no per-site test)
 - **default_vs_optimised**: default model checkpoints; the modification models are explicitly selected per run
 - **coordinate_harmonisation**: genomic (modkit pileup on GRCh38); no liftover step
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv (entity Dorado) research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CU/basecalling/Arabidopsis/fip37/dorado.sh:9; CU/basecalling/Hela/WT/dorado.sh:29,34,39; $RNAMODBENCH_LOCAL/nanopore/documents/IMPORTANT_INFO.md:38,51; $RNAMODBENCH_LOCAL/nanopore/documents/IMPORTANT_INFO.md:11-17 research:groupD_upstream_and_harmonisation.md (3 facts)
-  - evidence: result_RNA004/documents/IMPORTANT_INFO.md [curated_confirmed]
-  - evidence: CO/harmonisation/common/config.py:800; CO/revision/common/config.py:DORADO_MIN_COVERAGE research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/nanopore/documents/IMPORTANT_INFO.md:39-44 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/revision/common/config.py:DORADO_PCT_THRESHOLDS research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: tool documentation [curated_check]
-  - evidence: result_RNA004/documents/IMPORTANT_INFO.md [curated_confirmed]
-  - evidence: CO/harmonisation/common/legacy_liftover.py:499-510; parsers/__init__.py:312 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv (entity Dorado) research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CU/basecalling/Arabidopsis/fip37/dorado.sh:9; CU/basecalling/Hela/WT/dorado.sh:29,34,39; IMPORTANT_INFO.md:38,51; IMPORTANT_INFO.md:11-17 research:groupD_upstream_and_harmonisation.md (3 facts)
+ - evidence: result_RNA004/documents/IMPORTANT_INFO.md [curated_confirmed]
+ - evidence: CO/harmonisation/common/config.py:800; CO/revision/common/config.py:DORADO_MIN_COVERAGE research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: IMPORTANT_INFO.md:39-44 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/revision/common/config.py:DORADO_PCT_THRESHOLDS research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool documentation [curated_check]
+ - evidence: result_RNA004/documents/IMPORTANT_INFO.md [curated_confirmed]
+ - evidence: CO/harmonisation/common/legacy_liftover.py:499-510; parsers/__init__.py:312 research:groupD_upstream_and_harmonisation.md (1 facts)
 - **status**: complete
 
 ## ELIGOS2_diff (detection / m6A (any) / comparative)
 
-- **software_or_version**: Same as ELIGOS2_solo: ELIGOS v2.1.0, subcommand pair_diff_mod (container $RNAMODBENCH_LOCAL/apptainer/eligos2.sif)
+- **software_or_version**: Same as ELIGOS2_solo: ELIGOS v2.1.0, subcommand pair_diff_mod (container eligos2.sif)
 - **model_checkpoint**: Loads the bundled IVT error model too (loadModel(None) -> models/eligos_dRNA_ivt_model.v1.0.json) even though the real control is the -cbam sample
 - **required_input**: Refuses to run if either BAM, -reg or -ref is missing (message names -i, -reg, -ref) | `eligos2 pair_diff_mod -tbam <test bam> -cbam <control bam> -reg <BED> -ref <FASTA> [-p prefix] [-o outdir] [--sub_bam_dir DIR] [--max_depth N] [--min_depth N] [-t N]`
 - **min_read_coverage**: Default --min_depth 20; we used --min_depth 5
-- **filtering_parameters**: Defaults --esb 0.2, --oddR 2.5, --pval 0.05, --adjPval 1, --max_depth 10000 (we set 2000000); applied jointly at $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:610 and per-position pre-gate at :526
+- **filtering_parameters**: Defaults --esb 0.2, --oddR 2.5, --pval 0.05, --adjPval 1, --max_depth 10000 (this benchmark used 2000000); applied jointly at _eligos_func.py:610 and per-position pre-gate at :526
 - **calling_threshold**: Fisher p <= 0.05 AND oddR >= 2.5 AND ESB(test) >= 0.2, with adjPval threshold left at 1 (BH computed but not used to call)
-- **multiple_testing_correction**: BH via R `p.adjust(method='BH')` giving the adjPval column, computed per baseExt and per region batch on the pre-gated candidates; not applied as a cutoff in our runs
+- **multiple_testing_correction**: BH via R `p.adjust(method='BH')` giving the adjPval column, computed per baseExt and per region batch on the pre-gated candidates; not applied as a cutoff in the runs
 - **default_vs_optimised**: Deviations: --min_depth 5 (vs 20), --max_depth 2000000 (vs 10000), -t 12/20 (vs 3), explicit --sub_bam_dir; statistical cutoffs untouched
 - **coordinate_harmonisation**: Genomic coordinates with gene name from the -reg BED (chrom, start_loc, end_loc, strand, name); no transcript coordinates emitted, so no GTF/BED12 liftover is needed by the tool itself
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_version.py:1 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_pair_diff_mod.py:68 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_pair_diff_mod.py:56-59; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:318-345 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:88-89 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:90-99 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:94-99 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:641-643 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/ELIGOS_diff.sh:13 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:448-449 research:groupA_detection_a.md (1 facts)
+ - evidence: _version.py:1 research:groupA_detection_a.md (1 facts)
+ - evidence: _pair_diff_mod.py:68 research:groupA_detection_a.md (1 facts)
+ - evidence: _pair_diff_mod.py:56-59; _option_parsers.py:318-345 research:groupA_detection_a.md (2 facts)
+ - evidence: _option_parsers.py:88-89 research:groupA_detection_a.md (1 facts)
+ - evidence: _option_parsers.py:90-99 research:groupA_detection_a.md (1 facts)
+ - evidence: _option_parsers.py:94-99 research:groupA_detection_a.md (1 facts)
+ - evidence: _eligos_func.py:641-643 research:groupA_detection_a.md (1 facts)
+ - evidence: ELIGOS_diff.sh:13 research:groupA_detection_a.md (1 facts)
+ - evidence: _eligos_func.py:448-449 research:groupA_detection_a.md (1 facts)
 - **status**: complete
 
 ## ELIGOS2_solo (detection / m6A (any) / de novo)
 
-- **software_or_version**: Upstream source https://gitlab.com/piroonj/eligos2 ; container recipe $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/DockerFiles | ELIGOS_VERSION = 'v2.1.0' (vendored repo); printed by `eligos2 -v` as "ELIGOS version: v2.1.0"
-- **model_checkpoint**: Default control = bundled IVT background-error model $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/models/eligos_dRNA_ivt_model.v1.0.json, loaded whenever -m/--model is omitted (default None) | Model is a 5-mer/7-mer k-mer error table (keys k5/k7 with nerr/ncor/ntotal per baseExt 0,1,2)
+- **software_or_version**: Upstream source https://gitlab.com/piroonj/eligos2; container recipe DockerFiles | ELIGOS_VERSION = 'v2.1.0' (repo); printed by `eligos2 -v` as "ELIGOS version: v2.1.0"
+- **model_checkpoint**: Default control = bundled IVT background-error model eligos_dRNA_ivt_model.v1.0.json, loaded whenever -m/--model is omitted (default None) | Model is a 5-mer/7-mer k-mer error table (keys k5/k7 with nerr/ncor/ntotal per baseExt 0,1,2)
 - **required_input**: BAM and reference must be pre-indexed (samtools index / samtools faidx) | Optional amplification-free cDNA control: -bcf/--cdna_bcf (one BCF per BAM); if omitted the k-mer error model is used as control | `eligos2 rna_mod -i <sorted dRNA bam> -reg <BED6/BED12 gene or region file> -ref <genome FASTA>` (all effectively required), plus -p prefix, -o outdir, --sub_bam_dir, -t threads
 - **min_read_coverage**: Default --min_depth 20 ("Minimum number of reads") | We used --min_depth 5 (relaxed 4x) and --max_depth 2000000 on every run
 - **filtering_parameters**: Alignment-level filters exist ONLY in the separate `map_preprocess` subcommand (--mapQ 1, --percent_identity 0, --query_coverage 0, --aln_length 200, --supplementary) - we did not run it, so no MAPQ/identity filtering was applied | Defaults: --esb 0.2 (min error-at-specific-base ratio), --oddR 2.5 (min odds ratio), --pval 0.05, --adjPval 1 (i.e. FDR cutoff effectively OFF), --max_depth 10000, --min_depth 20 | Filter chain actually applied to each output block: test_err_1>0 AND total_reads>=min_reads AND ESB_test>=esb AND oddR>=oddR AND adjPval<=--adjPval AND pval<=--pval | Pre-test gate: position enters testing only if test_matchNsub >= min_reads AND ctrl_matchNsub >= min_reads AND test error ratio >= --esb AND test_nerr > 0 (baseExt 0 only)
@@ -167,15 +167,15 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: BH (Benjamini-Hochberg) via R's `p.adjust(..., method='BH')` inside embedded R (rpy2) - applied to the p-values that survive the pre-test gate, per baseExt(0/1/2) and per sub-region batch, NOT globally | Output columns therefore include oddR, pval, adjPval; combine table takes the single best oddR per position and re-applies pval/adjPval cutoffs
 - **default_vs_optimised**: Deviations from upstream defaults: --min_depth 5 (vs 20), --max_depth 2000000 (vs 10000), -t 12/20/32/40 (vs 3), --sub_bam_dir set explicitly (vs 'tmp'). Model, --esb, --oddR, --pval, --adjPval left at defaults
 - **coordinate_harmonisation**: GENOMIC coordinates only: output columns chrom, start_loc, end_loc, strand, name, ref, homo_seq, kmer5, majorAllel, majorAllelFreq, kmer7 plus read/matches/err counts per base | Input BED must be BED6 or BED12 (>=6 fields with a strand column) or it exits; BED3 input is rejected/auto-filled, overlapping genes are sort+merged | Our pipeline treated ELIGOS2 output as already genomic (no transcript->genome liftover)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/README.md:49; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_version.py:1 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:238-246; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:500-515 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/README.md:143-150; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:50-52; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:206-232 research:groupA_detection_a.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:88-89; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/ELIGOS.sh:13 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:80-85; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:90-99; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:610 research:groupA_detection_a.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_option_parsers.py:90-99 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:641-643; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:622-624 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/ELIGOS.sh:11 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_eligos_func.py:448-449; $RNAMODBENCH_LOCAL/source_code/benchmark/eligos2-v2.1.0/_misc.py:52-70; $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:436-438 research:groupA_detection_a.md (3 facts)
+ - evidence: README.md:49; _version.py:1 research:groupA_detection_a.md (2 facts)
+ - evidence: _eligos_func.py:238-246; _eligos_func.py:500-515 research:groupA_detection_a.md (2 facts)
+ - evidence: README.md:143-150; _option_parsers.py:50-52; _option_parsers.py:206-232 research:groupA_detection_a.md (3 facts)
+ - evidence: _option_parsers.py:88-89; ELIGOS.sh:13 research:groupA_detection_a.md (2 facts)
+ - evidence: _option_parsers.py:80-85; _option_parsers.py:90-99; _eligos_func.py:610 research:groupA_detection_a.md (4 facts)
+ - evidence: _option_parsers.py:90-99 research:groupA_detection_a.md (1 facts)
+ - evidence: _eligos_func.py:641-643; _eligos_func.py:622-624 research:groupA_detection_a.md (2 facts)
+ - evidence: ELIGOS.sh:11 research:groupA_detection_a.md (1 facts)
+ - evidence: _eligos_func.py:448-449; _misc.py:52-70; legacy_liftover.py:436-438 research:groupA_detection_a.md (3 facts)
 - **status**: complete
 
 ## EpiNano_Error (detection / m6A / comparative)
@@ -185,19 +185,19 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **required_input**: per.site.csv produced by Epinano_Variants.py from BAM + faidx reference | two per.site.csv files: -k knockout/unmodified, -w wildtype/modified, -f feature
 - **min_read_coverage**: tool default -c/--coverage = 30 (strictly greater-than) | upstream extra filter (SVM/Curlcake path): cov >= 20 via awk
 - **filtering_parameters**: hard-coded read-start trim: positions <= 20 discarded | merge key requires both strands/samples to agree on the reference base string | pileup quality settings: flag_filter=3844, min_mapping_quality=0, min_base_quality=0
-- **calling_threshold**: our Curlcake runs set deviance to 0 (threshold effectively disabled) | z-score of , delta feature , > -t (default 3) AND delta > -d (default 0.1)
+- **calling_threshold**: our Curlcake runs set deviance to 0 (threshold effectively disabled) | z-score of, delta feature, > -t (default 3) AND delta > -d (default 0.1)
 - **multiple_testing_correction**: Bonferroni (via car::outlierTest) on the lm-residual path only
 - **default_vs_optimised**: we used tool defaults for -c (30), -t (3); overrode -d only on Curlcake (-d 0); -f sum_err always
 - **coordinate_harmonisation**: genomic coordinates; strand from BAM flag split (-F16 / -f16) | our conversion to BED-like 1-col output takes Ref/pos/base/strand out of chr_pos
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:111; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoError.sh:5; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/CHANGE_LOG.md:3 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:139-161 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Variants.py:126-128; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:16-21 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:10; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoSVM.sh:10 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:108; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:110-126; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Variants.py:75 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv (EpiNano_Error/Curlcake); $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:144 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_DiffErr.R:152 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoError.sh:5 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Variants.py:62-63; $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/epinanoErr.r:3-9 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_DiffErr.R:111; epinanoError.sh:5; CHANGE_LOG.md:3 research:groupB_detection_b.md (3 facts)
+ - evidence: Epinano_DiffErr.R:139-161 research:groupB_detection_b.md (1 facts)
+ - evidence: Epinano_Variants.py:126-128; Epinano_DiffErr.R:16-21 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_DiffErr.R:10; epinanoSVM.sh:10 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_DiffErr.R:108; Epinano_DiffErr.R:110-126; Epinano_Variants.py:75 research:groupB_detection_b.md (3 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv (EpiNano_Error/Curlcake); Epinano_DiffErr.R:144 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_DiffErr.R:152 research:groupB_detection_b.md (1 facts)
+ - evidence: epinanoError.sh:5 research:groupB_detection_b.md (1 facts)
+ - evidence: Epinano_Variants.py:62-63; epinanoErr.r:3-9 research:groupB_detection_b.md (2 facts)
 - **status**: complete
 
 ## EpiNano_SVM (detection / m6A / de novo)
@@ -211,147 +211,147 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: none (SVM gives probabilities, not p-values)
 - **default_vs_optimised**: we deviated by adding an external cov>=20 awk filter; everything else at defaults
 - **coordinate_harmonisation**: genomic coordinates; 5-mer window start shifted +2 to the central A
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoSVM.sh:7 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/models/README.md:4; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.0/models/rrach.deltaQ3.deltaMis3.deltaDel3.linear.dump research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/misc/Slide_Variants_modified5.py:233; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Variants.py:126-128 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Predict.py:20-31 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoSVM.sh:10; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoSVM.sh:19 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/epinanoSvm.r:1; $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Predict.py:143 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Epinano1.2.4/Epinano_Predict.py:141-149 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/epinanoSVM.sh:10 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/epinanoSvm.r:13 research:groupB_detection_b.md (1 facts)
+ - evidence: epinanoSVM.sh:7 research:groupB_detection_b.md (1 facts)
+ - evidence: README.md:4; rrach.deltaQ3.deltaMis3.deltaDel3.linear.dump research:groupB_detection_b.md (2 facts)
+ - evidence: Slide_Variants_modified5.py:233; Epinano_Variants.py:126-128 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_Predict.py:20-31 research:groupB_detection_b.md (1 facts)
+ - evidence: epinanoSVM.sh:10; epinanoSVM.sh:19 research:groupB_detection_b.md (2 facts)
+ - evidence: epinanoSvm.r:1; Epinano_Predict.py:143 research:groupB_detection_b.md (2 facts)
+ - evidence: Epinano_Predict.py:141-149 research:groupB_detection_b.md (1 facts)
+ - evidence: epinanoSVM.sh:10 research:groupB_detection_b.md (1 facts)
+ - evidence: epinanoSvm.r:13 research:groupB_detection_b.md (1 facts)
 - **status**: complete
 
 ## Guitar (annotation / n/a / upstream)
 
-- **software_or_version**: Bioconductor Guitar 2.18.0 (Date 2019-04-26), installed in conda env guitar_asm; upstream git branch RELEASE_3_18, last commit 836574b (2023-10-24) | GAP in our own inventory: env guitar_asm is absent from versions_raw.csv (zero rows), so R1-5's version claim for Guitar was never backed by a conda-list record | Guitar 2.18.0 (Bioconductor) in conda env guitar_asm - the version used for the replicate-aware redraw; 2.26.0 is installed in env xpore; the package version behind the PUBLISHED panels is not recorded | Runtime: R 4.3.3 with GenomicFeatures 1.54.1 and rtracklayer 1.62.0
+- **software_or_version**: Bioconductor Guitar 2.18.0 (Date 2019-04-26), upstream git branch RELEASE_3_18, last commit 836574b (2023-10-24) | GAP is absent from versions_raw.csv (zero rows), so R1-5's version claim for Guitar was never backed by a conda-list record | Guitar 2.18.0 (Bioconductor) the version used for the replicate-aware redraw; the package version behind the published panels is not recorded | Runtime: R 4.3.3 with GenomicFeatures 1.54.1 and rtracklayer 1.62.0
 - **model_checkpoint**: n/a - Guitar fits no model; it builds a transcript MODEL (TxDb) from a GTF with GenomicFeatures::makeTxDbFromGFF plus Guitar::makeGuitarTxdb, and no weights/checkpoints exist
-- **required_input**: Annotation GTFs used: human GRCh38 Ensembl 112 .chr GTF, mouse GRCm39.114, Arabidopsis TAIR10.61 | BED must be BED6-ish with a numeric score: our prep truncates every tool callset to columns 1-6, relabels them chr/start/end/name/score/strand and sets score to 0 | Two inputs, both via one function call: a TxDb transcript annotation (makeTxDbFromGFF on a GTF) and a list of BED files, one per tool/condition group | one genomic BED (>=6 cols: chrom, start, end, name, score, strand) per curve/group + a GTF-derived TxDb; the RNA004 rerun reads the exported call-set BEDs, never reads/alignments
+- **required_input**: Annotation GTFs used: human GRCh38 Ensembl 112.chr GTF, mouse GRCm39.114, Arabidopsis TAIR10.61 | BED must be BED6-ish with a numeric score: our prep truncates every tool callset to columns 1-6, relabels them chr/start/end/name/score/strand and sets score to 0 | Two inputs, both via one function call: a TxDb transcript annotation (makeTxDbFromGFF on a GTF) and a list of BED files, one per tool/condition group | one genomic BED (>=6 cols: chrom, start, end, name, score, strand) per curve/group + a GTF-derived TxDb; the RNA004 rerun reads the exported call-set BEDs, never reads/alignments
 - **min_read_coverage**: n/a - Guitar is a metagene/visualisation package; it has no coverage concept and no coverage argument exists in its API | n/a - Guitar never sees reads, signal or alignments; its only input is a finished per-tool/per-library site BED, so no coverage floor can exist in the tool
-- **filtering_parameters**: Documented defaults for those arguments (verified by evaluating the installed function): headOrtail = TRUE, enableCI = TRUE, pltTxType = c("tx","mrna","ncrna"), stSampleNum = 10, stAmblguity = 5, mapFilterTranscript = TRUE, adjust = 1, CI_ResamplingTime = 1000, CI_interval = c(0.025, 0.975), overlapIndex = 1, siteLengthIndex = 1 | Parameters we passed, identical across every invocation: txTxdb, stBedFiles, headOrtail = TRUE, enableCI = FALSE, pltTxType = c("mrna") or c("ncrna"), stSampleNum = 3, stGroupName | Transcript-model filtering is Guitar's own, inside makeGuitarTxdb: ambiguity filter then component-length filter, then mRNA/ncRNA split | Two of our values are deliberate deviations: enableCI = FALSE (default TRUE) and stSampleNum = 3 (default 10); headOrtail = TRUE matched the default but pltTxType was narrowed from all three classes to mrna or ncrna per panel | ...
+- **filtering_parameters**: Documented defaults for those arguments (verified by evaluating the installed function): headOrtail = TRUE, enableCI = TRUE, pltTxType = c("tx","mrna","ncrna"), stSampleNum = 10, stAmblguity = 5, mapFilterTranscript = TRUE, adjust = 1, CI_ResamplingTime = 1000, CI_interval = c(0.025, 0.975), overlapIndex = 1, siteLengthIndex = 1 | Parameters this benchmark used, identical across every invocation: txTxdb, stBedFiles, headOrtail = TRUE, enableCI = FALSE, pltTxType = c("mrna") or c("ncrna"), stSampleNum = 3, stGroupName | Transcript-model filtering is Guitar's own, inside makeGuitarTxdb: ambiguity filter then component-length filter, then mRNA/ncRNA split | Two of our values are deliberate deviations: enableCI = FALSE (default TRUE) and stSampleNum = 3 (default 10); headOrtail = TRUE matched the default but pltTxType was narrowed from all three classes to mrna or ncrna per panel |...
 - **calling_threshold**: n/a - Guitar returns a metagene density curve, not calls: no p-value, no score cut-off. stSampleNum = 3 is the number of equidistant resampling points spread inside each site interval, not a threshold | n/a - GuitarPlot computes and plots density profiles; it returns a ggplot object, not calls, and emits no score, probability or p-value column
 - **multiple_testing_correction**: n/a - no hypothesis test is performed, therefore nothing to correct; the bootstrap CI machinery exists but was switched off (enableCI = FALSE) | n/a - the package performs no hypothesis test anywhere, so there is no adjusted p-value to report
 - **default_vs_optimised**: No CLI flags and no tuning: the only optimisable quantities are the GuitarPlot arguments; deviations from defaults are enableCI FALSE, stSampleNum 3, pltTxType narrowed - all display choices, none analytical | Transcript model = 100 percent Guitar defaults (every makeGuitarTxdb value we pass equals the package formal default). Deliberate deviations: enableCI FALSE (Guitar default TRUE) and stSampleNum 3 (Guitar default 10); pltTxType restricted to one transcript class
-- **coordinate_harmonisation**: Contig spelling is rewritten to the GTF convention before plotting (bare numbers for TAIR10/GRCm39, chr-prefixed for the human Ensembl .chr GTF) so Guitar's chromosome-validity check does not silently drop rows | Direction is the REVERSE of Tombo_com: Guitar takes genomic BED and projects it onto standardised transcript landmarks (TSS, 5UTR, CDS, 3UTR, polyA site, gene end) built from the GTF | Input BEDs are GENOMIC (GRCh38/TAIR10/GRCm39 chromosomes, 1 bp sites lifted out of the per-tool call sets); Guitar then maps them to transcript-relative % component positions via samplePoints + normalize on the GTF TxDb; our export additionally rewrites chromosome labels to the GTF spelling and pads +/-1 bp | Input geometry we impose: each 1-bp site is widened by 1 bp on both sides (start-1, end+1), reproduced exactly in the revision exporter (start = pos - PAD, end = pos + 1 + PAD, PAD = 1) | ...
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/guitar_asm/lib/R/library/Guitar/DESCRIPTION:4; $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv; $RNAMODBENCH_LOCAL/miniconda3/envs/guitar_asm/lib/R/library/Guitar/DESCRIPTION:4 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (4 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/scripts/23b_guitar_metagene.R:168 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/scripts/23b_guitar_metagene.R:52-55; CU/Guitar/Hela.r:15-19,36; CU/Guitar/Hela.r:3,40-45 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/guitar_asm/lib/R/library/Guitar/NAMESPACE:3-5; $RNAMODBENCH_ROOT/src/harmonisation/scripts/21b_export_guitar_bed.py:61 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/guitar_asm/lib/R/library/Guitar/R/Guitar.rdb; CU/Guitar/Hela.r:40-45; $RNAMODBENCH_LOCAL/harmonisation/guitar_metagene/logs/guitar_R_Human.log:6-12 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (6 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/scripts/23b_guitar_metagene.R:180; $RNAMODBENCH_ROOT/src/harmonisation/scripts/23b_guitar_metagene.R:204-209 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/Guitar/Hela.r:43; $RNAMODBENCH_LOCAL/miniconda3/pkgs/bioconductor-guitar-2.18.0-r43hdfd78af_0/lib/R/library/Guitar/INDEX:1-6 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
-  - evidence: CU/detection/Hela/Hela_other.r:15-19; $RNAMODBENCH_ROOT/src/harmonisation/scripts/23b_guitar_metagene.R:169 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/scripts/21b_export_guitar_bed.py:19-20,91-94; $RNAMODBENCH_LOCAL/miniconda3/envs/guitar_asm/lib/R/library/Guitar/DESCRIPTION:8-10; $RNAMODBENCH_ROOT/src/harmonisation/scripts/21b_export_guitar_bed.py:19 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (5 facts)
+- **coordinate_harmonisation**: Contig spelling is rewritten to the GTF convention before plotting (bare numbers for TAIR10/GRCm39, chr-prefixed for the human Ensembl.chr GTF) so Guitar's chromosome-validity check does not silently drop rows | Direction is the REVERSE of Tombo_com: Guitar takes genomic BED and projects it onto standardised transcript landmarks (TSS, 5UTR, CDS, 3UTR, polyA site, gene end) built from the GTF | Input BEDs are GENOMIC (GRCh38/TAIR10/GRCm39 chromosomes, 1 bp sites lifted out of the per-tool call sets); Guitar then maps them to transcript-relative % component positions via samplePoints + normalize on the GTF TxDb; our export additionally rewrites chromosome labels to the GTF spelling and pads +/-1 bp | Input geometry we impose: each 1-bp site is widened by 1 bp on both sides (start-1, end+1), reproduced exactly in the revision exporter (start = pos - PAD, end = pos + 1 + PAD, PAD = 1) |...
+ - evidence: DESCRIPTION:4; tool_inventorytool_inventoryversions_raw.csv; DESCRIPTION:4 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (4 facts)
+ - evidence: 23b_guitar_metagene.R:168 research:groupF_infrastructure.md (1 facts)
+ - evidence: 23b_guitar_metagene.R:52-55; CU/Guitar/Hela.r:15-19,36; CU/Guitar/Hela.r:3,40-45 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (4 facts)
+ - evidence: NAMESPACE:3-5; 21b_export_guitar_bed.py:61 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
+ - evidence: Guitar.rdb; CU/Guitar/Hela.r:40-45; guitar_R_Human.log:6-12 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (6 facts)
+ - evidence: 23b_guitar_metagene.R:180; 23b_guitar_metagene.R:204-209 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
+ - evidence: Hela.r:43; INDEX:1-6 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
+ - evidence: CU/detection/Hela/Hela_other.r:15-19; 23b_guitar_metagene.R:169 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (2 facts)
+ - evidence: 21b_export_guitar_bed.py:19-20,91-94; DESCRIPTION:8-10; 21b_export_guitar_bed.py:19 research:groupE_missing_detection_tools.md; groupF_infrastructure.md (5 facts)
 - **status**: complete
 
 ## MINES (detection / m6A / de novo)
 
-- **software_or_version**: MINES: no version string in repo; run as source script cDNA_MINES1.py from $RNAMODBENCH_LOCAL/source_code/benchmark/MINES; no .git dir, so commit NOT recorded | conda env "mines": python=3.7.6, scikit-learn=0.19.2, pandas=0.23.4, pybedtools=0.8.0, numpy=1.16.4, bedtools=2.29.2, ont-tombo=1.5.1 | script executed is cDNA_MINES1.py, which differs from companion cDNA_MINES.py (local derivation; mtimes Nov-19/Nov-21 2024 vs Jul-4 2024 for all upstream files)
-- **model_checkpoint**: 12 per-5-mer scikit-learn RandomForest pickles, one per DRACH 5-mer, listed in Final_Models/names.txt (18 listed; only the 12 A-centred kmers are reachable) | default pipeline used --kmer_models $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/Final_Models/names.txt
+- **software_or_version**: MINES: no version string in repo; run as source script cDNA_MINES1.py from MINES; no git metadata, so commit not recorded | Python=3.7.6, scikit-learn=0.19.2, pandas=0.23.4, pybedtools=0.8.0, NumPy=1.16.4, bedtools=2.29.2, ont-tombo=1.5.1 | script executed is cDNA_MINES1.py, which differs from companion cDNA_MINES.py
+- **model_checkpoint**: 12 per-5-mer scikit-learn RandomForest pickles, one per DRACH 5-mer, listed in Final_Models/names.txt (18 listed; only the 12 A-centred kmers are reachable) | default pipeline used --kmer_models names.txt
 - **required_input**: --ref FASTA (transcript), --coverage Tombo coverage *.plus.bedgraph, --fraction_modified Tombo *.plus.wig converted with wig2bed, --output, --kmer_models (all 5 required except --output semantics) | upstream Tombo chain: resquiggle + `tombo detect_modifications de_novo` + `tombo text_output browser_files --file-types coverage fraction`
-- **min_read_coverage**: OUR effective cutoff = coverage >= 20 (post-processing, not the tool) | hard-coded, no CLI flag: coverage>4 on the bedgraph then coverage>=5 on the intersected windows
+- **min_read_coverage**: the effective cutoff = coverage >= 20 (post-processing, not the tool) | hard-coded, no CLI flag: coverage>4 on the bedgraph then coverage>=5 on the intersected windows
 - **filtering_parameters**: 12 A-centred DRACH 5-mers (AAACA/AAACC/AAACT/AGACA/AGACC/AGACT/GAACA/GAACC/GAACT/GGACA/GGACC/GGACT); +/-15-nt window around the A; edge columns -15..-11 and 11..14 dropped; dropna on the 21-position profile; final row filter pos==0 & coverage>=5
-- **calling_threshold**: NO cutoff inside the tool: emits RandomForest class probability `predict_proba(...)[:,1]` as 9th output column and keeps every DRACH site | OUR callset filter used the Tombo fraction (mod_ratio>0.1) on the A base, NOT the MINES RF probability column (col 9 `pred` unused)
+- **calling_threshold**: NO cutoff inside the tool: emits RandomForest class probability `predict_proba(...)[:,1]` as 9th output column and keeps every DRACH site | the callset filter used the Tombo fraction (mod_ratio>0.1) on the A base, NOT the MINES RF probability column (col 9 `pred` unused)
 - **multiple_testing_correction**: none: output has no p-value/q-value column anywhere
 - **default_vs_optimised**: only the 5 required arguments were passed -> all tool defaults (coverage>=5, +/-15 window, 12-mers) in force
 - **coordinate_harmonisation**: transcript coordinates (Tombo resquiggle against TAIR10.transcripts.fa); strand hard-coded '+' inside the script | transcript->genomic via R2Dtool `r2d liftover -H -g Arabidopsis_thaliana.TAIR10.61.gtf`
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/README.md:1; $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/environment.yml:83; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/MINES.sh:9 research:groupC_detection_c.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:153; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/MINES.sh:14 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:18; $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/README.md:14 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/MINES.ipynb:61; $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:36 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:33 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:155; $RNAMODBENCH_ROOT/src/harmonisation/common/legacy_liftover.py:112 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:184 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/MINES.sh:9 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/MINES/cDNA_MINES1.py:38; $RNAMODBENCH_LOCAL/legacy/next_postprocessing/Arabidopsis/R2Dtool.sh:72 research:groupC_detection_c.md (2 facts)
+ - evidence: README.md:1; environment.yml:83; MINES.sh:9 research:groupC_detection_c.md (3 facts)
+ - evidence: cDNA_MINES1.py:153; MINES.sh:14 research:groupC_detection_c.md (2 facts)
+ - evidence: cDNA_MINES1.py:18; README.md:14 research:groupC_detection_c.md (2 facts)
+ - evidence: MINES.ipynb:61; cDNA_MINES1.py:36 research:groupC_detection_c.md (2 facts)
+ - evidence: cDNA_MINES1.py:33 research:groupC_detection_c.md (1 facts)
+ - evidence: cDNA_MINES1.py:155; legacy_liftover.py:112 research:groupC_detection_c.md (2 facts)
+ - evidence: cDNA_MINES1.py:184 research:groupC_detection_c.md (1 facts)
+ - evidence: MINES.sh:9 research:groupC_detection_c.md (1 facts)
+ - evidence: cDNA_MINES1.py:38; R2Dtool.sh:72 research:groupC_detection_c.md (2 facts)
 - **status**: complete
 
 ## NanoMUD (detection / Psi/m1Psi / de novo)
 
-- **software_or_version**: git HEAD (vendored tree, .git_disabled) = d906c5221b09854a70603d5e3b92e80fd65c772d ("Update README.md", 2024-04-15), remote https://github.com/ABOMSBI/NanoMUD.git; no version string | two LOCALLY ADDED scripts (not tracked in that commit): code/predict_mod_probs_modified.py, code/mod_rate_calibration_modified.py (mtimes 2025-02-23 / 2025-04-09)
-- **model_checkpoint**: OUR runs: psi biLSTM+scaler for psi_probs.csv, m1psi biLSTM+scaler for m1psi_probs.csv, and the m1psi regression_model for BOTH calibrations | per-5-mer biLSTM weights + per-5-mer StandardScaler: models/<psi , m1psi>/biLSTM_model/<MOTIF>.ckpt and models/<psi , m1psi>/scaler/<MOTIF>.joblib (255 contexts)
+- **software_or_version**: git HEAD = d906c5221b09854a70603d5e3b92e80fd65c772d ("Update README.md", 2024-04-15), remote https://github.com/ABOMSBI/NanoMUD.git; no version string | two benchmark-specific scripts added on top of that commit: code/predict_mod_probs_modified.py, code/mod_rate_calibration_modified.py
+- **model_checkpoint**: the runs: psi biLSTM+scaler for psi_probs.csv, m1psi biLSTM+scaler for m1psi_probs.csv, and the m1psi regression_model for BOTH calibrations | per-5-mer biLSTM weights + per-5-mer StandardScaler: models/<psi, m1psi>/biLSTM_model/<MOTIF>.ckpt and models/<psi, m1psi>/scaler/<MOTIF>.joblib (255 contexts)
 - **required_input**: Tombo-resquiggled SINGLE-read FAST5 with event stdev (`--include-event-stdev`), group RawGenomeCorrected_000; then the tmp feature dir + --device/--model/--scaler
-- **min_read_coverage**: OUR cutoff: coverage > 20 plus Status mod | tool has NO coverage cutoff; it reports per-site read count as column "coverage"
+- **min_read_coverage**: the cutoff: coverage > 20 plus Status mod | tool has NO coverage cutoff; it reports per-site read count as column "coverage"
 - **filtering_parameters**: feature extraction keeps only 5-mers matching [ACTG][ACTG]T[ACTG][ACTG] (central U); our calibration wrapper additionally skips malformed rows, keeps 5-letter alpha motifs and probabilities in [0,1], reads CSV in 100000-row chunks
-- **calling_threshold**: OUR effective site cutoff = calibrated_rate > 0.99 | read probability > 0.5 defines a modified read; site predicted_rate = fraction of reads above 0.5; then a per-context regression converts it to calibrated_rate (no fixed cutoff in the tool)
+- **calling_threshold**: the effective site cutoff = calibrated_rate > 0.99 | read probability > 0.5 defines a modified read; site predicted_rate = fraction of reads above 0.5; then a per-context regression converts it to calibrated_rate (no fixed cutoff in the tool)
 - **multiple_testing_correction**: none (no p-value; regression/calibration scores only)
-- **default_vs_optimised**: deviations: -t 30/20 instead of default 1 process; ran our own *_modified.py calibration script; ran under `python -m sklearnex` and `--device cuda:0/1`; kept --group default RawGenomeCorrected_000
+- **default_vs_optimised**: deviations: -t 30/20 instead of default 1 process; ran our own *_modified.py calibration script; ran under `Python -m sklearnex` and `--device cuda:0/1`; kept --group default RawGenomeCorrected_000
 - **coordinate_harmonisation**: transcript coordinates inherited from the Tombo alignment (mapped_chrom / mapped_start+event index) | we lifted over with R2Dtool and then dropped non-nuclear chromosomes
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/.git_disabled/packed-refs:2; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/mod_rate_calibration_modified.py:1 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoMUD.sh:26; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/predict_mod_probs.py:136 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/README.md:27 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Mouse/NanoMUD_psi.ipynb:26; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/mod_rate_calibration.py:124 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/feature_extraction.py:58 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Mouse/NanoMUD_psi.ipynb:21; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/mod_rate_calibration.py:100 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoMUD.sh:6 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoMUD/code/feature_extraction.py:49; $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Mouse/NanoMUD_psi.ipynb:211 research:groupC_detection_c.md (2 facts)
+ - evidence: packed-refs:2; mod_rate_calibration_modified.py:1 research:groupC_detection_c.md (2 facts)
+ - evidence: NanoMUD.sh:26; predict_mod_probs.py:136 research:groupC_detection_c.md (2 facts)
+ - evidence: README.md:27 research:groupC_detection_c.md (1 facts)
+ - evidence: NanoMUD_psi.ipynb:26; mod_rate_calibration.py:124 research:groupC_detection_c.md (2 facts)
+ - evidence: feature_extraction.py:58 research:groupC_detection_c.md (1 facts)
+ - evidence: NanoMUD_psi.ipynb:21; mod_rate_calibration.py:100 research:groupC_detection_c.md (2 facts)
+ - evidence: code research:groupC_detection_c.md (1 facts)
+ - evidence: NanoMUD.sh:6 research:groupC_detection_c.md (1 facts)
+ - evidence: feature_extraction.py:49; NanoMUD_psi.ipynb:211 research:groupC_detection_c.md (2 facts)
 - **status**: complete
 
 ## NanoNm (detection / Nm / de novo)
 
-- **software_or_version**: NanoNm 1.0.0 (README title) derived from Nanom6A (Gao et al. 2021); vendored copies NanoNm-1.0.0 and NanoNm-main differ only by formatting of the k-mer list
-- **model_checkpoint**: 100 per-5-mer joblib classifiers model/<5mer>.m (XGBClassifier imported), one per context in kmer.txt | our runs passed --model $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/model (shipped weights, unmodified)
-- **required_input**: genome must be indexed twice (samtools .fai + picard .dict) and samtools/bedtools/minimap2/sam2tsv must be on PATH | step 1: text file listing one resquiggled FAST5 per line (--fl), --clip; step 2: feature .tsv/.fa (-i), --model, -r transcript FASTA, -g genome FASTA, -b gene->transcript map
-- **min_read_coverage**: --support default 20 = minimum number of MODIFIED reads per site; we passed --support 20 (= default)
+- **software_or_version**: NanoNm 1.0.0 (README title) derived from Nanom6A (Gao et al. 2021); the two source copies NanoNm-1.0.0 and NanoNm-main differ only by formatting of the k-mer list
+- **model_checkpoint**: 100 per-5-mer joblib classifiers model/<5mer>.m (XGBClassifier imported), one per context in kmer.txt | the runs passed --model model (shipped weights, unmodified)
+- **required_input**: genome must be indexed twice (samtools.fai + picard.dict) and samtools/bedtools/minimap2/sam2tsv must be on PATH | step 1: text file listing one resquiggled FAST5 per line (--fl), --clip; step 2: feature.tsv/.fa (-i), --model, -r transcript FASTA, -g genome FASTA, -b gene->transcript map
+- **min_read_coverage**: --support default 20 = minimum number of MODIFIED reads per site; this benchmark used --support 20 (= default)
 - **filtering_parameters**: only the 100 hard-coded Nm contexts (grep per 5-mer); first/last N bases clipped (--clip, default 10, ours 5); reads must contain the AUCG-style 5-mer regex [ATCG]{5}
 - **calling_threshold**: read-level hard-coded p>0.8 to be counted as modified, then site-level --proba default 0.5
 - **multiple_testing_correction**: none (probability + mod-ratio only; ratio.0.5.tsv columns are pos, nummod, numtotal, freq)
 - **default_vs_optimised**: defaults kept: --support 20, --proba 0.5 (never passed), --basecall_group; deviations: --clip 5 (default 10), --cpu 20/30/40 (default 1/8), `-m sklearnex` wrapper
-- **coordinate_harmonisation**: does the transcript->genome conversion itself: re-aligns extracted reads to genome with minimap2 --secondary=no -ax splice -uf -k14 and to the transcript reference, then bedtools bamtobed -bed12 -split and the gene->transcript map to relabel | -b must be a "gene <TAB> transcript1 transcript2 ..." map; we supplied Arabidopsis_thaliana.TAIR10.61.bed, so the gene label degenerates to the chromosome name in our outputs
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/README.md:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:19; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoNm.sh:13 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:535; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/extract_raw_and_feature_fast_AUCG.py:154 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:560 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:466 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:50 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/NanoNm/Arabidopsis_WT_rep3/ratio.0.5.tsv:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoNm.sh:7 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:477; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoNm-1.0.0/predict_sites_Nm.final.py:439 research:groupC_detection_c.md (2 facts)
+- **coordinate_harmonisation**: does the transcript->genome conversion itself: re-aligns extracted reads to genome with minimap2 --secondary=no -ax splice -uf -k14 and to the transcript reference, then bedtools bamtobed -bed12 -split and the gene->transcript map to relabel | -b must be a "gene <TAB> transcript1 transcript2..." map; we supplied Arabidopsis_thaliana.TAIR10.61.bed, so the gene label degenerates to the chromosome name in our outputs
+ - evidence: README.md:1 research:groupC_detection_c.md (1 facts)
+ - evidence: predict_sites_Nm.final.py:19; NanoNm.sh:13 research:groupC_detection_c.md (2 facts)
+ - evidence: predict_sites_Nm.final.py:535; extract_raw_and_feature_fast_AUCG.py:154 research:groupC_detection_c.md (2 facts)
+ - evidence: predict_sites_Nm.final.py:560 research:groupC_detection_c.md (1 facts)
+ - evidence: predict_sites_Nm.final.py:466 research:groupC_detection_c.md (1 facts)
+ - evidence: predict_sites_Nm.final.py:50 research:groupC_detection_c.md (1 facts)
+ - evidence: ratio.0.5.tsv:1 research:groupC_detection_c.md (1 facts)
+ - evidence: NanoNm.sh:7 research:groupC_detection_c.md (1 facts)
+ - evidence: predict_sites_Nm.final.py:477; predict_sites_Nm.final.py:439 research:groupC_detection_c.md (2 facts)
 - **status**: complete
 
 ## NanoPsu (detection / Psi / de novo)
 
-- **software_or_version**: NanoPsu 1.0 (setup.py version="1.0", bin/nanopsu __version__="1.0"); conda env `nanopsu` | Upstream git commit 01f2ce11d77af22bb4dcbf7b5bf33b9b1af5562f (short 01f2ce1, "update", Wed Dec 8 15:48:29 2021 -0600); repo kept as .git_disabled, remote https://github.com/sihaohuanguc/Nanopore_psU.git
-- **model_checkpoint**: ExtraTreesClassifier pickle nanopsu_prediction/data/model/model_3_0.pkl (python3 path) / model_3_0_p2.pkl (python2 path), selected by sys.version[0]
-- **required_input**: `nanopsu alignment -i <fastq dir> -r <reference FASTA>`; the three later modes (remove_intron / extract_features / prediction) take NO arguments and re-read ./alignment | input is basecalled FASTQ (README protocol: guppy 3.2.2, SQK-RNA002, --qscore_filtering) aligned with minimap2 -ax splice -uf -k14
+- **software_or_version**: NanoPsu 1.0 (setup.py version="1.0", bin/nanopsu __version__="1.0"); | Upstream git commit 01f2ce11d77af22bb4dcbf7b5bf33b9b1af5562f (short 01f2ce1, "update", Wed Dec 8 15:48:29 2021 -0600); remote https://github.com/sihaohuanguc/Nanopore_psU.git
+- **model_checkpoint**: ExtraTreesClassifier pickle nanopsu_predictionmodel_3_0.pkl (python3 path) / model_3_0_p2.pkl (python2 path), selected by sys.version[0]
+- **required_input**: `nanopsu alignment -i <fastq dir> -r <reference FASTA>`; the three later modes (remove_intron / extract_features / prediction) take NO arguments and re-read./alignment | input is basecalled FASTQ (README protocol: guppy 3.2.2, SQK-RNA002, --qscore_filtering) aligned with minimap2 -ax splice -uf -k14
 - **min_read_coverage**: README: no minimum input-read requirement, but >1M raw reads recommended for a human transcriptome | hard-coded coverage > 20 per site, no CLI flag; only T (U-in-RNA) positions are tested
 - **filtering_parameters**: feature table = 13 mismatch/indel/quality columns (ins, ins_len, del, del_len, fuzzy, mis, misA, misC, misG, base_qual_mean, base_qual_STD, base_qual_count_0); the 4 identity columns are dropped before prediction | intron/gap bases ('>'/'<') removed and subtracted from coverage; pileup via `samtools mpileup -Q 0` (no base-quality filter); per-5mer split alignments re-aligned with minimap2 then sorted
-- **calling_threshold**: OUR cutoff for psU was probability > 0.95 (both the RNA004 processing script and the Curlcake notebook); the harmonisation re-parser defaults to 0.5 | none in the tool: writes prob_unmodified / prob_modified (ExtraTrees predict_proba) for every candidate site
+- **calling_threshold**: the cutoff for psU was probability > 0.95 (both the RNA004 processing script and the Curlcake notebook); the harmonisation re-parser defaults to 0.5 | none in the tool: writes prob_unmodified / prob_modified (ExtraTrees predict_proba) for every candidate site
 - **multiple_testing_correction**: none - no p-value/q-value column exists anywhere in the package
 - **default_vs_optimised**: CLI exposes only Mode/-i/-r, and our commands pass nothing else -> 100% tool defaults (coverage>20, shipped ExtraTrees model, mpileup -Q 0)
-- **coordinate_harmonisation**: alignment is against the GENOME (our runs: Arabidopsis_thaliana.TAIR10.dna.toplevel.fa, GRCh38 primary assembly, cc.fasta), so output positions are genomic with intron-aware offset correction done by remove_intron; no liftover step needed
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/setup.py:4; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/.git_disabled research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/prediction.py:29 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/bin/nanopsu:21; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/README.md:60 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/README.md:3; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/extract_features.py:32 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/prediction.py:46; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/remove_intron.py:55 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/extracted/$RNAMODBENCH_LOCAL/raw/result_RNA004/scripts/processing/process_nanospa_nanopsu_final.py:42; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/prediction.py:52 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoPsu/nanopsu_prediction/prediction.py:57 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoPsu.sh:3 research:groupC_detection_c.md (1 facts)
+- **coordinate_harmonisation**: alignment is against the GENOME (the runs: Arabidopsis_thaliana.TAIR10.dna.toplevel.fa, GRCh38 primary assembly, cc.fasta), so output positions are genomic with intron-aware offset correction done by remove_intron; no liftover step needed
+ - evidence: setup.py:4 research:groupC_detection_c.md (2 facts)
+ - evidence: prediction.py:29 research:groupC_detection_c.md (1 facts)
+ - evidence: nanopsu:21; README.md:60 research:groupC_detection_c.md (2 facts)
+ - evidence: README.md:3; extract_features.py:32 research:groupC_detection_c.md (2 facts)
+ - evidence: prediction.py:46; remove_intron.py:55 research:groupC_detection_c.md (2 facts)
+ - evidence: process_nanospa_nanopsu_final.py:42; prediction.py:52 research:groupC_detection_c.md (2 facts)
+ - evidence: prediction.py:57 research:groupC_detection_c.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupC_detection_c.md (1 facts)
+ - evidence: NanoPsu.sh:3 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## NanoSPA (detection / m6A/Psi / de novo)
 
-- **software_or_version**: NanoSPA 1.0 (setup.py + PKG-INFO + bin/nanospa __version__="1.0"); conda `nanospa=1.0` in env NanoSPA (python 3.10.2, tensorflow 2.11.1, scikit-learn 1.2.2); no .git -> commit NOT recorded
-- **model_checkpoint**: psU: ExtraTreesClassifier pickle nanospa/data/model/psU_model_3_1.pkl; m6A: 8 Keras checkpoints m6A_model_2_0_<MOTIF>/cp.ckpt, one per motif, loaded by name
-- **required_input**: directory of basecalled FASTQ + genome reference FASTA (`nanospa alignment -i <fastq dir> -r reference.fa`); downstream steps are flagless and re-read ./alignment | our reference was genomic DNA (TAIR10.dna.toplevel.fa / GRCh38.primary_assembly / cc.fasta), not a transcriptome; no bigwig/control input exists
+- **software_or_version**: NanoSPA 1.0 (setup.py + PKG-INFO + bin/nanospa __version__="1.0"); (Python 3.10.2, TensorFlow 2.11.1, scikit-learn 1.2.2); no.git -> commit not recorded
+- **model_checkpoint**: psU: ExtraTreesClassifier pickle nanospapsU_model_3_1.pkl; m6A: 8 Keras checkpoints m6A_model_2_0_<MOTIF>/cp.ckpt, one per motif, loaded by name
+- **required_input**: directory of basecalled FASTQ + genome reference FASTA (`nanospa alignment -i <fastq dir> -r reference.fa`); downstream steps are flagless and re-read./alignment | our reference was genomic DNA (TAIR10.dna.toplevel.fa / GRCh38.primary_assembly / cc.fasta), not a transcriptome; no bigwig/control input exists
 - **min_read_coverage**: hard-coded coverage > 20 reads per site, no CLI flag
 - **filtering_parameters**: psU: only U sites (base_type=="T"); m6A: 8 motifs only (GGACT,AGACT,GGACA,TGACT,GGACC,AGACA,AGACC,GGACG) and per-motif 5-mer flank must be contiguous; overall mismatch columns mis_1..mis_5 dropped; mpileup run with --max-depth 1000000 -Q 0; intron/gap bases ('>'/'<') removed and subtracted from coverage
-- **calling_threshold**: OUR cutoffs: RNA002/RNA004 processing used coverage>20 & prob>0.5 for m6A, prob>0.95 for psU; the harmonisation re-parser defaults to prob>=0.5 for both | none in the tool: writes the class-1 probability ("modi") for every candidate site
+- **calling_threshold**: the cutoffs: RNA002/RNA004 processing used coverage>20 & prob>0.5 for m6A, prob>0.95 for psU; the harmonisation re-parser defaults to prob>=0.5 for both | none in the tool: writes the class-1 probability ("modi") for every candidate site
 - **multiple_testing_correction**: none (no p-value column in prediction_m6A.csv / prediction_psU.csv)
-- **default_vs_optimised**: CLI-only flags are -i/-o/-r; we passed nothing beyond them -> 100% tool defaults (coverage>20, 8 motifs, ExtraTrees/Keras weights as shipped)
+- **default_vs_optimised**: CLI-only flags are -i/-o/-r; this benchmark used nothing beyond them -> 100% tool defaults (coverage>20, 8 motifs, ExtraTrees/Keras weights as shipped)
 - **coordinate_harmonisation**: genomic coordinates directly (minimap2 -ax splice -uf -k14 vs genome; strand encoded by appending _F/_R to the reference name, introns skipped via mpileup gap count); no liftover step needed | post-hoc strand-aware 5-mer centre check after genomic extraction (m6A centre A on '+' / T on '-'; psU centre T / A)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/setup.py:4 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/nanospa/prediction_psU.py:41 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/bin/nanospa:20; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoSPA.sh:3 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/nanospa/extract_features.py:39 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/nanospa/prediction_psU.py:49 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/extracted/$RNAMODBENCH_LOCAL/raw/result_RNA004/scripts/processing/process_nanospa_nanopsu_final.py:25; $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/nanospa/prediction_m6A.py:69 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/NanoSPA/Arabidopsis_WT_rep3/prediction_m6A.csv:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/NanoSPA.sh:3 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/NanoSPA/nanospa/alignment.py:120; $RNAMODBENCH_LOCAL/code/extracted/$RNAMODBENCH_LOCAL/raw/result_RNA004/scripts/processing/process_nanospa_nanopsu_final.py:145 research:groupC_detection_c.md (2 facts)
+ - evidence: setup.py:4 research:groupC_detection_c.md (1 facts)
+ - evidence: prediction_psU.py:41 research:groupC_detection_c.md (1 facts)
+ - evidence: nanospa:20; NanoSPA.sh:3 research:groupC_detection_c.md (2 facts)
+ - evidence: extract_features.py:39 research:groupC_detection_c.md (1 facts)
+ - evidence: prediction_psU.py:49 research:groupC_detection_c.md (1 facts)
+ - evidence: process_nanospa_nanopsu_final.py:25; prediction_m6A.py:69 research:groupC_detection_c.md (2 facts)
+ - evidence: prediction_m6A.csv:1 research:groupC_detection_c.md (1 facts)
+ - evidence: NanoSPA.sh:3 research:groupC_detection_c.md (1 facts)
+ - evidence: alignment.py:120; process_nanospa_nanopsu_final.py:145 research:groupC_detection_c.md (2 facts)
 - **status**: complete
 
 ## Nanocompore (detection / any / comparative)
@@ -365,42 +365,42 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: BH exists only in the unused SampCompDB path | NONE in the sampcomp output
 - **default_vs_optimised**: two deviations (min_coverage 30->5, min_ref_length 100->10) plus --allow_warnings and --overwrite
 - **coordinate_harmonisation**: bam preprocessing expected to strip reverse-strand reads | our harmonisation: pos+3 centre-of-5mer then r2d liftover on transcript GTF | transcriptomic eventalign against a transcriptome; BED (Ensembl transcript bed) supplies genomicPos/chr
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/pyproject.toml:3 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/SampComp.py:47 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/docs/usage.md:7; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/docs/data_preparation.md:41; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:51 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Nanocompore.sh:66; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:67 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:86; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:74; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:71 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/__main__.py:80; $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/Nanocompore.ipynb:76 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/nanocompore/SampCompDB.py:171; $RNAMODBENCH_LOCAL/raw/result/Nanocompore/Arabidopsis_WT_rep1/outnanocompore_results.tsv:1 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Nanocompore.sh:58 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/docs/data_preparation.md:27; $RNAMODBENCH_LOCAL/tool_scripts/R2Dtool.sh:176; $RNAMODBENCH_LOCAL/source_code/benchmark/nanocompore-1.0.4/nanocompore-1.0.4/docs/data_preparation.md:25 research:groupB_detection_b.md (3 facts)
+ - evidence: pyproject.toml:3 research:groupB_detection_b.md (1 facts)
+ - evidence: SampComp.py:47 research:groupB_detection_b.md (1 facts)
+ - evidence: usage.md:7; data_preparation.md:41; __main__.py:51 research:groupB_detection_b.md (3 facts)
+ - evidence: Nanocompore.sh:66; __main__.py:67 research:groupB_detection_b.md (2 facts)
+ - evidence: __main__.py:86; __main__.py:74; __main__.py:71 research:groupB_detection_b.md (3 facts)
+ - evidence: __main__.py:80; Nanocompore.ipynb:76 research:groupB_detection_b.md (2 facts)
+ - evidence: SampCompDB.py:171; outnanocompore_results.tsv:1 research:groupB_detection_b.md (2 facts)
+ - evidence: Nanocompore.sh:58 research:groupB_detection_b.md (1 facts)
+ - evidence: data_preparation.md:27; R2Dtool.sh:176; data_preparation.md:25 research:groupB_detection_b.md (3 facts)
 - **status**: complete
 
 ## Nanom6A (detection / m6A / de novo)
 
-- **software_or_version**: Nanom6A release "nanom6A_2022_12_23" (vendored copy dir named nanom6A_2022_12_22); no .git dir, no version string in code, `--version` not supported by binaries | Runtime conda env `nanom6A`: python 3.7.12, xgboost 0.80, scikit-learn 0.22, samtools 1.20, bedtools 2.31.1, minimap2 2.28, jvarkit-sam2tsv 1.0
-- **model_checkpoint**: 12 per-kmer XGBoost models, dir $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/bin/model: AAACA AAACC AAACT AGACA AGACC AGACT GAACA GAACC GAACT GGACA GGACC GGACT (.m files, 58-140 MB each) | Nanom6A default models valid only for R9.4.1 flowcells
-- **required_input**: External binaries must be on PATH: samtools, bedtools, minimap2, sam2tsv | Step2 predict_sites required flags: -i features, -o out, -g genome FASTA, -r reference transcript FASTA, -b gene-to-transcript table, --model dir | Two-step CLI. Step1 extract_raw_and_feature_fast: --fl (file listing single-read .fast5 paths, required), -o, --cpu, --clip, --basecall_group RawGenomeCorrected_000, --basecall_subgroup BaseCalled_template | Upstream prep per README: guppy 3.6.1 rna_r9.4.1_70bps_hac.cfg with --fast5_out, multi_to_single_fast5, then tombo resquiggle against the reference TRANSCRIPT fasta
-- **min_read_coverage**: Effective cutoff = int(total_reads * support / 1,000,000) modified reads at the site | Our runs: --support 20 (Arabidopsis, E. coli, Mouse, HeLa) and --support 5 (Curlcake IVT) | Tool default --support 10 (per-million scaling units, not raw read count)
+- **software_or_version**: Nanom6A release "nanom6A_2022_12_23" (release directory named nanom6A_2022_12_22); no.git dir, no version string in code, `--version` not supported by binaries | Python 3.7.12, XGBoost 0.80, scikit-learn 0.22, samtools 1.20, bedtools 2.31.1, minimap2 2.28, jvarkit-sam2tsv 1.0
+- **model_checkpoint**: 12 per-kmer XGBoost models, dir model: AAACA AAACC AAACT AGACA AGACC AGACT GAACA GAACC GAACT GGACA GGACC GGACT (.m files, 58-140 MB each) | Nanom6A default models valid only for R9.4.1 flowcells
+- **required_input**: External binaries must be on PATH: samtools, bedtools, minimap2, sam2tsv | Step2 predict_sites required flags: -i features, -o out, -g genome FASTA, -r reference transcript FASTA, -b gene-to-transcript table, --model dir | Two-step CLI. Step1 extract_raw_and_feature_fast: --fl (file listing single-read.fast5 paths, required), -o, --cpu, --clip, --basecall_group RawGenomeCorrected_000, --basecall_subgroup BaseCalled_template | Upstream prep per README: guppy 3.6.1 rna_r9.4.1_70bps_hac.cfg with --fast5_out, multi_to_single_fast5, then tombo resquiggle against the reference TRANSCRIPT fasta
+- **min_read_coverage**: Effective cutoff = int(total_reads * support / 1,000,000) modified reads at the site | The runs: --support 20 (Arabidopsis, E. coli, Mouse, HeLa) and --support 5 (Curlcake IVT) | Tool default --support 10 (per-million scaling units, not raw read count)
 - **filtering_parameters**: --clip 10 (drops first/last 10 bases of signal per read); per-kmer model selection by grepping the 12 RRACH-like kmers from the feature table | Only A positions inside the 12 trained kmers are ever tested - untrained RRACH kmers cannot be called
 - **calling_threshold**: Default --proba 0.5 (XGBoost predict_proba cutoff); we did not override it
 - **multiple_testing_correction**: None - no p-value, q-value or FDR anywhere in the code
 - **default_vs_optimised**: Deviations from tool defaults: --support 20 (or 5) vs default 10; --cpu 20/40 vs default 8. --proba, --clip, --model left at defaults
-- **coordinate_harmonisation**: -b must be a 2-column gene->transcript table and is validated: every FASTA header in -r must appear in -b or the program exits | Reports GENOMIC coordinates. predict_sites internally re-aligns read positions twice with `minimap2 --secondary=no -ax splice -uf -k14`: to the genome (-g) and to the transcriptome (-r), then `bedtools bamtobed -bed12 -split` | OUR RUN RISK: we passed `-b $RNAMODBENCH_LOCAL/reference/arabidopsis/Arabidopsis_thaliana.TAIR10.61.bed` (an Ensembl BED), not a gene->transcript table; the -r/-b consistency check at :530 therefore matched on BED columns rather than gene symbols
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/nanom6A-main/README.md:19; $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/bin/model; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/nanom6A-main/README.md:5 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:543-551; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:563-571; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/extract_raw_and_feature_fast.py:152-162 research:groupA_detection_a.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:558; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Nanom6A.sh:17; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:569 research:groupA_detection_a.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/extract_raw_and_feature_fast.py:161; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:466 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:570 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Nanom6A.sh:17 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:518-533; $RNAMODBENCH_LOCAL/source_code/benchmark/nanom6A_2022_12_22/predict_sites.py:477; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Nanom6A.sh:16 research:groupA_detection_a.md (3 facts)
+- **coordinate_harmonisation**: -b must be a 2-column gene->transcript table and is validated: every FASTA header in -r must appear in -b or the program exits | Reports GENOMIC coordinates. predict_sites internally re-aligns read positions twice with `minimap2 --secondary=no -ax splice -uf -k14`: to the genome (-g) and to the transcriptome (-r), then `bedtools bamtobed -bed12 -split` | the RUN RISK: this benchmark used `-b Arabidopsis_thaliana.TAIR10.61.bed` (an Ensembl BED), not a gene->transcript table; the -r/-b consistency check at :530 therefore matched on BED columns rather than gene symbols
+ - evidence: README.md:19; tool_inventorytool_inventoryversions_raw.csv research:groupA_detection_a.md (2 facts)
+ - evidence: model; README.md:5 research:groupA_detection_a.md (2 facts)
+ - evidence: predict_sites.py:543-551; predict_sites.py:563-571; extract_raw_and_feature_fast.py:152-162 research:groupA_detection_a.md (4 facts)
+ - evidence: predict_sites.py:558; Nanom6A.sh:17; predict_sites.py:569 research:groupA_detection_a.md (3 facts)
+ - evidence: extract_raw_and_feature_fast.py:161; predict_sites.py:466 research:groupA_detection_a.md (2 facts)
+ - evidence: predict_sites.py:570 research:groupA_detection_a.md (1 facts)
+ - evidence: predict_sites.py research:groupA_detection_a.md (1 facts)
+ - evidence: Nanom6A.sh:17 research:groupA_detection_a.md (1 facts)
+ - evidence: predict_sites.py:518-533; predict_sites.py:477; Nanom6A.sh:16 research:groupA_detection_a.md (3 facts)
 - **status**: complete
 
 ## R2Dtool (annotation / n/a / upstream)
 
-- **software_or_version**: 1.0.0 (Cargo.toml package version); release binary at $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/target/release/r2d
+- **software_or_version**: 1.0.0 (Cargo.toml package version); release binary at r2d
 - **model_checkpoint**: n/a - r2d liftover is a pure coordinate converter (GTF exon arithmetic); it loads no model and no signal. Its entire option surface is -g/-i/-H/-t/-o
 - **required_input**: -H (header) + -g <GTF> + -i <transcript-coordinate table>; input columns 2-3 read as coordinates, column 6 as strand
 - **min_read_coverage**: n/a - liftover takes one text row at a time and never reads a BAM/signal file, so no coverage floor exists (and none was ever needed)
@@ -409,43 +409,43 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: n/a - output is a coordinate-rewritten copy of the input table (columns preserved); no statistics are computed, so no adjustment step exists anywhere in the liftover path
 - **default_vs_optimised**: defaults throughout - no numeric knob exists for liftover. Census of 105 commands: -H in 105/105; -t (retain transcript version in col 1) in 15/105, Arabidopsis/TAIR10.61 chain only; -o never used (stdout redirect instead)
 - **coordinate_harmonisation**: THIS is the tool that converted transcript -> genomic coords for CHEUI, DENA, MINES, m6Anet, DRUMMER, Nanocompore, xPore, Tombo_com, NanoMUD
-  - evidence: $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/Cargo.toml:3 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/src/main.rs:58 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/detection/Arabidopsis/R2Dtool.sh:3-6; CO/harmonisation/common/legacy_liftover.py:28 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/src/main.rs:73 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/detection/Arabidopsis/R2Dtool.sh:3-6 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/src/main.rs:168 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/src/main.rs:78 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/R2Dtool.sh:3 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/harmonisation/common/legacy_liftover.py:3-6 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: Cargo.toml:3 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: main.rs:58 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/detection/Arabidopsis/R2Dtool.sh:3-6; CO/harmonisation/common/legacy_liftover.py:28 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: main.rs:73 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/detection/Arabidopsis/R2Dtool.sh:3-6 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: main.rs:168 research:groupF_infrastructure.md (1 facts)
+ - evidence: main.rs:78 research:groupF_infrastructure.md (1 facts)
+ - evidence: R2Dtool.sh:3 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/harmonisation/common/legacy_liftover.py:3-6 research:groupD_upstream_and_harmonisation.md (1 facts)
 - **status**: complete
 
 ## SingleMod (detection / m6A / de novo)
 
-- **software_or_version**: "SingleMod-v1-main" (GitHub main-branch snapshot); no version string, no .git -> commit NOT recorded; README lists nanopolish 0.13.2 and f5c for RNA004
-- **model_checkpoint**: 36 per-motif RNA004 weights models/RNA004/model_<MOTIF>.pth.tar (39 for RNA002 mammal/non-mammal) | OUR prediction step used a LOCALLY TRAINED weight, not a shipped checkpoint: $RNAMODBENCH_LOCAL/m6Am/SingleMod/train/model_200.pth.tar (motif AAACA)
+- **software_or_version**: "SingleMod-v1-main" (GitHub main-branch snapshot); no version string, no.git -> commit not recorded; README lists nanopolish 0.13.2 and f5c for RNA004
+- **model_checkpoint**: 36 per-motif RNA004 weights models/RNA004/model_<MOTIF>.pth.tar (39 for RNA002 mammal/non-mammal) | the prediction step used a weight trained for this benchmark, not a shipped checkpoint: model_200.pth.tar (motif AAACA)
 - **required_input**: f5c (RNA004) or nanopolish (RNA002) eventalign with --scale-events --samples --signal-index, plus a bedtools bamtobed BED per Picard shard | prediction needs -d npy feature dir, -k motif, -m model; training additionally needs methylation-rate labels (-d, "m6A bed file by GLORI")
 - **min_read_coverage**: training-only flag `-c/--coverage` default 20 ("minimum coverage required to train model, default is 20"); prediction step has NO coverage parameter
 - **filtering_parameters**: motif restriction is mandatory (-k, single motif per run; README supports 36/39 motifs); memmap size -s default 500000; merge processes -p default 4; batch -b default 30000; GPU -g default -1 (CPU)
 - **calling_threshold**: probability > 0.5 per molecule (documented and hard-coded)
-- **multiple_testing_correction**: none: no p-value/q-value/FDR anywhere in SingleMod/ (grep for fdr , p.adjust , multipletests , bonferroni , qvalue empty)
+- **multiple_testing_correction**: none: no p-value/q-value/FDR anywhere in SingleMod/ (grep for fdr, p.adjust, multipletests, bonferroni, qvalue empty)
 - **default_vs_optimised**: deviations from tool defaults: self-trained AAACA model instead of pretrained; -g 0 (GPU) instead of CPU default; -p 20 instead of 4; single motif instead of the 36-motif sweep; f5c -t 4 vs README -t 15
-- **coordinate_harmonisation**: emits whatever coordinate the eventalign reference used (chr , location , strand in prediction.txt); README recommends genome.fa over transcript.fa
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/README.md:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/models/RNA004; $RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/SingleMod.sh:234 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/README.md:138; $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/SingleMod/SingleMod_m6A_prediction.py:316 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/SingleMod/SingleMod_train.py:596 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/SingleMod/merge_motif_npy.py:73 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/README.md:213 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/SingleMod research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Hela/IVT/SingleMod.sh:230 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/SingleMod-v1-main/README.md:11 research:groupC_detection_c.md (1 facts)
+- **coordinate_harmonisation**: emits whatever coordinate the eventalign reference used (chr, location, strand in prediction.txt); README recommends genome.fa over transcript.fa
+ - evidence: README.md:1 research:groupC_detection_c.md (1 facts)
+ - evidence: RNA004; SingleMod.sh:234 research:groupC_detection_c.md (2 facts)
+ - evidence: README.md:138; SingleMod_m6A_prediction.py:316 research:groupC_detection_c.md (2 facts)
+ - evidence: SingleMod_train.py:596 research:groupC_detection_c.md (1 facts)
+ - evidence: merge_motif_npy.py:73 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:213 research:groupC_detection_c.md (1 facts)
+ - evidence: SingleMod research:groupC_detection_c.md (1 facts)
+ - evidence: SingleMod.sh:230 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:11 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## TandemMod (detection / m6A/m5C/... / de novo)
 
-- **software_or_version**: v1.1.0 (README badge); no setup.py/__version__ and no .git -> commit NOT recorded
-- **model_checkpoint**: 8 shipped pickles in models/; OUR runs used models/m6A_train_on_rice_cDNA.pkl | other available: m5C/m6A/m1A trained on rice cDNA + transferred A_I, G_I, hm5C, m7G, psU classifiers
+- **software_or_version**: v1.1.0 (README badge); no setup.py/__version__ and no.git -> commit not recorded
+- **model_checkpoint**: 8 shipped pickles in models/; the runs used models/m6A_train_on_rice_cDNA.pkl | other available: m5C/m6A/m1A trained on rice cDNA + transferred A_I, G_I, hm5C, m7G, psU classifiers
 - **required_input**: Tombo-resquiggled single-read FAST5 dir + minimap2 SAM + reference transcript FASTA; then signal TSV + motif; then feature TSV + pretrained model
 - **min_read_coverage**: none: no coverage/support parameter in any of the three steps; output is read-level only
 - **filtering_parameters**: --clip default 10 bases at both ends (extraction and feature steps); --motif mandatory (k-mer restriction); --basecall_subgroup default BaseCalled_template; -p processes default 1
@@ -453,15 +453,15 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: none; statsmodels is imported only for the robust MAD scaler
 - **default_vs_optimised**: all defaults kept except -p 40 (default 1); the deliberate change is the motif: NNANN (all A-centred 5-mers) instead of README's DRACH
 - **coordinate_harmonisation**: outputs transcript coordinates (transcript_id + position on the resquiggled transcript); conversion to genome is a separate provided script requiring a GFF exon table
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/README.md:3 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Curlcake/IVT/TandemMod.sh:22; $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/models research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/extract_signal_from_fast5.py:255 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/TandemMod.py:168 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/extract_feature_from_signal.py:247 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/TandemMod.py:157 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/extract_feature_from_signal.py:9 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Curlcake/IVT/TandemMod.sh:18 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/TandemMod-1.1.0/scripts/transcriptome_location_to_genome_location.py:113 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:3 research:groupC_detection_c.md (1 facts)
+ - evidence: TandemMod.sh:22; models research:groupC_detection_c.md (2 facts)
+ - evidence: extract_signal_from_fast5.py:255 research:groupC_detection_c.md (1 facts)
+ - evidence: TandemMod.py:168 research:groupC_detection_c.md (1 facts)
+ - evidence: extract_feature_from_signal.py:247 research:groupC_detection_c.md (1 facts)
+ - evidence: TandemMod.py:157 research:groupC_detection_c.md (1 facts)
+ - evidence: extract_feature_from_signal.py:9 research:groupC_detection_c.md (1 facts)
+ - evidence: TandemMod.sh:18 research:groupC_detection_c.md (1 facts)
+ - evidence: transcriptome_location_to_genome_location.py:113 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## Tombo (detection / any / de novo)
@@ -475,15 +475,15 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: NOT applied: the BH function exists but is never called
 - **default_vs_optimised**: de_novo: 100% tool defaults except --processes; compare: --minimum-test-reads 20 (< default 50) + --store-p-value | reporting step: text_output browser_files with motif annotation
 - **coordinate_harmonisation**: harmonisation = r2d liftover with a GTF, strand forced to '*' | output is transcriptomic (wig track named chrom=<transcript id>)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/dena/lib/python3.7/site-packages/ont_tombo-1.5.1.dist-info/direct_url.json; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/ont_tombo-1.5.1.dist-info/METADATA:3 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_default_parameters.py:13 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1015; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1095; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Tombo.sh:5 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1030; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1108 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:594; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_default_parameters.py:115; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_default_parameters.py:149 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/tombo.r:3; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:661; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/tombo_stats.py:4250 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/tombo_stats.py:2214 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/m6A/Tombo_com.sh:9; $RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/m6A/Tombo_com.sh:19 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/R2Dtool.sh:83; $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/tombo.r:14 research:groupB_detection_b.md (2 facts)
+ - evidence: direct_url.json; METADATA:3 research:groupB_detection_b.md (2 facts)
+ - evidence: _default_parameters.py:13 research:groupB_detection_b.md (1 facts)
+ - evidence: _option_parsers.py:1015; _option_parsers.py:1095; Tombo.sh:5 research:groupB_detection_b.md (3 facts)
+ - evidence: _option_parsers.py:1030; _option_parsers.py:1108 research:groupB_detection_b.md (2 facts)
+ - evidence: _option_parsers.py:594; _default_parameters.py:115; _default_parameters.py:149 research:groupB_detection_b.md (3 facts)
+ - evidence: tombo.r:3; _option_parsers.py:661; tombo_stats.py:4250 research:groupB_detection_b.md (3 facts)
+ - evidence: tombo_stats.py:2214 research:groupB_detection_b.md (1 facts)
+ - evidence: Tombo_com.sh:9; Tombo_com.sh:19 research:groupB_detection_b.md (2 facts)
+ - evidence: R2Dtool.sh:83; tombo.r:14 research:groupB_detection_b.md (2 facts)
 - **status**: complete
 
 ## Tombo_com (detection / any / comparative)
@@ -491,21 +491,21 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **software_or_version**: Subcommand actually used: "tombo detect_modifications level_sample_compare" -> wired to get_group_comp_test_signif_parser, NOT to the samp_comp parser | ont-tombo 1.5.1 (TOMBO_VERSION = '1.5.1'), env tombo; no git metadata, no tagged commit
 - **model_checkpoint**: n/a - level_sample_compare is model-free: it is a non-parametric two-sample test of the sample vs control signal distributions, and its code path never loads a canonical-model prior
 - **required_input**: Our FAST5 workspaces were re-squiggled in place against the TRANSCRIPTOME GRCh38.transcripts.fa with --rna --corrected-group RawGenomeCorrected_000 --basecall-group Basecall_1D_000 --fit-global-scale --include-event-stdev | Second command in every run: tombo text_output browser_files --statistics-filename X.tombo.stats --browser-file-basename X --file-types statistic | Two directories of FAST5 that have already been re-squiggled against a reference: --fast5-basedirs (sample) and --alternate-fast5-basedirs (control) plus --statistics-file-basename, all three required=True
-- **min_read_coverage**: No coverage filter at all on the HeLa harmonisation path - only the p-value test below | Our runs: --minimum-test-reads 20 in 10/10 invocations (we LOWERED the floor by 30 reads) | Tool default --minimum-test-reads 50 for this subcommand
-- **filtering_parameters**: --store-p-value is a deviation (default False): we stored the p-value itself rather than the D statistic, which is what makes the wig column interpretable as -log10(p) | A second, curlcake-only branch also exists: strip blanks, BEDOPS wig2bed --multisplit tombo, two bedtools intersect -wao joins with the sample and control coverage bedgraphs, keep rows with column 9 >= 5, then extract the 5-mer with bedtools getfasta | IMPORTANT: with the default Fisher context of 1 the stored p-value is Fisher-combined over a 3-position window (site plus 1 base each side), so a Tombo_com "site" is not strictly per-base | Kept at defaults: --statistic-type ks (Kolmogorov-Smirnov two-sample), --fishers-method-context 1, --num-most-significant-stored 100000, --control/corrected-group unset | ...
+- **min_read_coverage**: No coverage filter at all on the HeLa harmonisation path - only the p-value test below | The runs: --minimum-test-reads 20 in 10/10 invocations (we LOWERED the floor by 30 reads) | Tool default --minimum-test-reads 50 for this subcommand
+- **filtering_parameters**: --store-p-value is a deviation (default False): we stored the p-value itself rather than the D statistic, which is what makes the wig column interpretable as -log10(p) | A second, curlcake-only branch also exists: strip blanks, BEDOPS wig2bed --multisplit tombo, two bedtools intersect -wao joins with the sample and control coverage bedgraphs, keep rows with column 9 >= 5, then extract the 5-mer with bedtools getfasta | IMPORTANT: with the default Fisher context of 1 the stored p-value is Fisher-combined over a 3-position window (site plus 1 base each side), so a Tombo_com "site" is not strictly per-base | Kept at defaults: --statistic-type ks (Kolmogorov-Smirnov two-sample), --fishers-method-context 1, --num-most-significant-stored 100000, --control/corrected-group unset |...
 - **calling_threshold**: Observed p range in our stored output goes to ~1e-113, i.e. far below any float floor | Tombo itself applies no threshold - it stores statistics. The calling threshold is OURS: p = 10 to the minus(wig value), call Mod if p < 0.05
 - **multiple_testing_correction**: NONE, and this must be said out loud: tombo defines a Benjamini-Hochberg helper but never calls it, and our harmonisation compares raw p against 0.05
 - **default_vs_optimised**: Curlcake-only deviations: --genome-fasta cc.fasta and --motif-descriptions RRACH:3:m6A were added to browser_files (both default None) so the statistic wig is motif-filtered (files named statistic.m6A.plus.wig) | Deviations from documented defaults: --minimum-test-reads 20 (default 50); --store-p-value on (default off); --processes 40 (default 1); --file-types statistic (default coverage) | Everything else, including the statistical test itself, is upstream default; no optimisation was performed for this benchmark
-- **coordinate_harmonisation**: Curlcake needs NO conversion: the alignment reference is the synthetic cc.fasta itself, so calls stay on contigs Curlcake1.. and no r2d or whitelist step was run (no *_liftover.txt exists for those four units) | Flag semantics: -H means only "input file has a header in line 1"; -g is the GTF path; r2d reads columns 2-3 as coordinates and column 6 as strand | KNOWN INCONSISTENCY to disclose: the legacy R variant wrote Start=End=1-based wig position without the -1 shift, i.e. 1 bp to the right of the python route | STEP 1 (ours): parse the plus wig into Chr/Start/End/Status/Pvalue/Strand with End=Start=wig position, then Start -= 1 (0-based half-open 1-bp), Strand forced to "*" | ...
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/__main__.py:64-67; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_version.py:3 research:groupE_missing_detection_tools.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/tombo_stats.py:4947-4970 research:groupE_missing_detection_tools.md (1 facts)
-  - evidence: CU/detection/Hela/IVT/Tombo.sh:5-7; CU/detection/Hela/IVT/Tombo_com.sh:13-16; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1101-1104 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/HeLa/Tombo_com.ipynb:17-58; CU/detection/Hela/IVT/Tombo_com.sh:8; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:1108 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:480-485; CU/shell_postprocess/Tombo_com.sh:7-13; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/tombo_stats.py:2250-2262 research:groupE_missing_detection_tools.md (6 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/converted_callsets/_not_in_manuscript/Tombo_com/Curlcake_m6A_rep1_vs_IVT_rep1/Curlcake_m6A_result2_Tombo_com.txt:2; $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/HeLa/Tombo_com.ipynb:12 research:groupE_missing_detection_tools.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/tombo_stats.py:2214-2234 research:groupE_missing_detection_tools.md (1 facts)
-  - evidence: CU/detection/curlcake/IVT/Tombo_com.sh:16-17; $RNAMODBENCH_LOCAL/miniconda3/envs/tombo/lib/python3.7/site-packages/tombo/_option_parsers.py:653-660; CU/detection/Hela/WT/Tombo_com.sh:5-11 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/converted_callsets/_not_in_manuscript/Tombo_com/Curlcake_IVT_rep2_partial_vs_IVT_rep1/Curlcake_IVT_result1_Tombo_com.txt:1; $RNAMODBENCH_LOCAL/source_code/nanopore/R2Dtool/src/main.rs:77-81; CU/R_postprocessing/IVT/tombo.r:22-23 research:groupE_missing_detection_tools.md (8 facts)
+- **coordinate_harmonisation**: Curlcake needs NO conversion: the alignment reference is the synthetic cc.fasta itself, so calls stay on contigs Curlcake1.. and no r2d or whitelist step was run (no *_liftover.txt exists for those four units) | Flag semantics: -H means only "input file has a header in line 1"; -g is the GTF path; r2d reads columns 2-3 as coordinates and column 6 as strand | KNOWN INCONSISTENCY to disclose: the legacy R variant wrote Start=End=1-based wig position without the -1 shift, i.e. 1 bp to the right of the Python route | STEP 1 (ours): parse the plus wig into Chr/Start/End/Status/Pvalue/Strand with End=Start=wig position, then Start -= 1 (0-based half-open 1-bp), Strand forced to "*" |...
+ - evidence: __main__.py:64-67; _version.py:3 research:groupE_missing_detection_tools.md (2 facts)
+ - evidence: tombo_stats.py:4947-4970 research:groupE_missing_detection_tools.md (1 facts)
+ - evidence: CU/detection/Hela/IVT/Tombo.sh:5-7; CU/detection/Hela/IVT/Tombo_com.sh:13-16; _option_parsers.py:1101-1104 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: Tombo_com.ipynb:17-58; CU/detection/Hela/IVT/Tombo_com.sh:8; _option_parsers.py:1108 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: _option_parsers.py:480-485; CU/shell_postprocess/Tombo_com.sh:7-13; tombo_stats.py:2250-2262 research:groupE_missing_detection_tools.md (6 facts)
+ - evidence: Curlcake_m6A_result2_Tombo_com.txt:2; Tombo_com.ipynb:12 research:groupE_missing_detection_tools.md (2 facts)
+ - evidence: tombo_stats.py:2214-2234 research:groupE_missing_detection_tools.md (1 facts)
+ - evidence: CU/detection/curlcake/IVT/Tombo_com.sh:16-17; _option_parsers.py:653-660; CU/detection/Hela/WT/Tombo_com.sh:5-11 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: Curlcake_IVT_result1_Tombo_com.txt:1; main.rs:77-81; CU/R_postprocessing/IVT/tombo.r:22-23 research:groupE_missing_detection_tools.md (8 facts)
 - **status**: complete
 
 ## Yanocomp (detection / any / comparative)
@@ -518,16 +518,16 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **calling_threshold**: -f/--fdr-threshold default 0.05 (also the KS gate); we used 0.05 = default
 - **multiple_testing_correction**: Benjamini-Hochberg (statsmodels) applied inside gmmtest | fdr is written to the output BED (col 9) alongside pval and -log10(FDR) score
 - **default_vs_optimised**: only -n (50) and -p deviate; thresholds all at tool defaults
-- **coordinate_harmonisation**: output interval is the 5-mer window (pos-2 .. pos+3), gene-level by default | transcriptomic eventalign converted to genomic by the GTF at prep time
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/setup.py:6 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/io.py:348 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/prep.py:162 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/yanocomp.sh:27; $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/gmmtest.py:248 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/gmmtest.py:304 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/gmmtest.py:308 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/gmmtest.py:350; $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/io.py:392 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/yanocomp.sh:23 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/yanocomp/io.py:389; $RNAMODBENCH_LOCAL/source_code/benchmark/yanocomp/README.md:7 research:groupB_detection_b.md (2 facts)
+- **coordinate_harmonisation**: output interval is the 5-mer window (pos-2.. pos+3), gene-level by default | transcriptomic eventalign converted to genomic by the GTF at prep time
+ - evidence: setup.py:6 research:groupB_detection_b.md (1 facts)
+ - evidence: io.py:348 research:groupB_detection_b.md (1 facts)
+ - evidence: prep.py:162 research:groupB_detection_b.md (1 facts)
+ - evidence: yanocomp.sh:27; gmmtest.py:248 research:groupB_detection_b.md (2 facts)
+ - evidence: gmmtest.py:304 research:groupB_detection_b.md (1 facts)
+ - evidence: gmmtest.py:308 research:groupB_detection_b.md (1 facts)
+ - evidence: gmmtest.py:350; io.py:392 research:groupB_detection_b.md (2 facts)
+ - evidence: yanocomp.sh:23 research:groupB_detection_b.md (1 facts)
+ - evidence: io.py:389; README.md:7 research:groupB_detection_b.md (2 facts)
 - **status**: complete
 
 ## bedtools (file-handling / n/a / upstream)
@@ -541,20 +541,20 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: n/a - bedtools emits no statistics at all (counts of overlap bases via -wao are appended verbatim from B), so there is no multiplicity to correct
 - **default_vs_optimised**: Defaults except three output-shape flags: -wao (intersect), -name (getfasta), -bed12 -split (bamtobed). No overlap-fraction, strandedness (-s) or -sorted override was ever passed; the awk step, not bedtools, upper-cases the extracted 5-mers
 - **coordinate_harmonisation**: NOT used for transcript<->genomic conversion anywhere in the benchmark chain
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:2756,2164,20 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/m6Anet.sh:9 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/predict_sites_patched.py:485 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/Tombo.sh:9 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/f5c_mode/predict_sites_patched.py:485,490; CU/shell_postprocess/Tombo_com.sh:12; CU/shell_postprocess/m6Anet.sh:9; CU/shell_postprocess/Tombo.sh:9; CU/shell_postprocess/Tombo_com.sh:9 research:groupD_upstream_and_harmonisation.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/Tombo_com.sh:9 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/Tombo_com.sh:9 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/shell_postprocess/m6Anet.sh:9 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/harmonisation/common/liftover.py:5 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv:2756,2164,20 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: m6Anet.sh:9 research:groupF_infrastructure.md (1 facts)
+ - evidence: predict_sites_patched.py:485 research:groupF_infrastructure.md (1 facts)
+ - evidence: Tombo.sh:9 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/f5c_mode/predict_sites_patched.py:485,490; CU/shell_postprocess/Tombo_com.sh:12; CU/shell_postprocess/m6Anet.sh:9; CU/shell_postprocess/Tombo.sh:9; CU/shell_postprocess/Tombo_com.sh:9 research:groupD_upstream_and_harmonisation.md (3 facts)
+ - evidence: Tombo_com.sh:9 research:groupF_infrastructure.md (1 facts)
+ - evidence: Tombo_com.sh:9 research:groupF_infrastructure.md (1 facts)
+ - evidence: m6Anet.sh:9 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/harmonisation/common/liftover.py:5 research:groupD_upstream_and_harmonisation.md (1 facts)
 - **status**: complete
 
 ## differr (detection / m6A / comparative)
 
-- **software_or_version**: 0.2 (setup.py) — editable install of the vendored tree
+- **software_or_version**: 0.2 (setup.py) — installed from its source tree
 - **model_checkpoint**: none — statistical tool (no model file, no --model option)
 - **required_input**: -a BAM(s) of the LOW-modification sample, -b BAM(s) of wild-type/complemented, -r FASTA, -o BED | optional raw-counts HDF5 dump (-c) — not used by us
 - **min_read_coverage**: --median-expr-threshold default 10 | --min-expr-threshold default 1 (all replicates, all conditions, after CPM normalisation)
@@ -563,42 +563,42 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: Benjamini-Hochberg (statsmodels) on the pooled-comparison G-test p-values | output BED carries -log10(FDR) in cols 5 and 10
 - **default_vs_optimised**: only -p/--processes deviates (we used 40; tool default 1)
 - **coordinate_harmonisation**: genomic natively (pysam pileup positions, strand from is_reverse) | our only conversion = 0-based -> 1-based start
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/setup.py:6 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:125-158 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:126-137; $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:138 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:151; $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:155 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:30 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:139 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:112; $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/output.py:61 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/main.py:140 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/differr0.2/differr/pileups.py:101; $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/IVT/differr.r:4 research:groupB_detection_b.md (2 facts)
+ - evidence: setup.py:6 research:groupB_detection_b.md (1 facts)
+ - evidence: main.py:125-158 research:groupB_detection_b.md (1 facts)
+ - evidence: main.py:126-137; main.py:138 research:groupB_detection_b.md (2 facts)
+ - evidence: main.py:151; main.py:155 research:groupB_detection_b.md (2 facts)
+ - evidence: main.py:30 research:groupB_detection_b.md (1 facts)
+ - evidence: main.py:139 research:groupB_detection_b.md (1 facts)
+ - evidence: main.py:112; output.py:61 research:groupB_detection_b.md (2 facts)
+ - evidence: main.py:140 research:groupB_detection_b.md (1 facts)
+ - evidence: pileups.py:101; differr.r:4 research:groupB_detection_b.md (2 facts)
 - **status**: complete
 
 ## f5c (signal / n/a / upstream)
 
-- **software_or_version**: 1.6 [env codon], 1.6 [env f5c_env]
+- **software_or_version**: 1.6, 1.6
 - **model_checkpoint**: resquiggle model dir $NANOM6A_BIN/model (default), overridden by $MODEL env var
 - **required_input**: -r FASTQ -b BAM -g reference FASTA --slow5 BLOW5
 - **min_read_coverage**: f5c itself: none. The Nanom6A consumer of f5c resquiggling uses --support 20 (default in-script, overridable)
-- **filtering_parameters**: SingleMod chain used an explicit pore model: --pore rna004 --rna --scale-events --samples --signal-index --summary ... --print-read-names -t 4 | eventalign: --rna --samples --signal-index --scale-events --print-read-names -t <n> --summary <f> | resquiggle: f5c resquiggle --rna -t 40 -K 512 -o <out.tsv> <fastq> <blow5>
+- **filtering_parameters**: SingleMod chain used an explicit pore model: --pore rna004 --rna --scale-events --samples --signal-index --summary... --print-read-names -t 4 | eventalign: --rna --samples --signal-index --scale-events --print-read-names -t <n> --summary <f> | resquiggle: f5c resquiggle --rna -t 40 -K 512 -o <out.tsv> <fastq> <blow5>
 - **calling_threshold**: n/a - the f5c subcommands we ran (index, eventalign, resquiggle) output per-event descriptive columns only; no test statistic, no posterior, no call. f5c call-methylation / meth-freq, which are the calling subcommands, were never run
 - **multiple_testing_correction**: n/a - no p-values are produced by eventalign/resquiggle, hence no BH/Bonferroni step inside f5c; significance is introduced by the consuming tools (Nanom6A, xPore, Nanocompore) downstream
 - **default_vs_optimised**: --rna (RNA chemistry) is mandatory, everything else default; a patched feature-conversion step (--legacy-binary --clip 10) was inserted between resquiggle and Nanom6A
 - **coordinate_harmonisation**: Transcriptomic. -g is always a TRANSCRIPT FASTA paired with the *_T.bam of the same transcriptome, so the eventalign "chrom" column is a transcript id (versioned for mouse); conversion to genomic is done by our own liftover module, not by f5c
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:910,1715 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/f5c_mode/run_one_sample.sh:18 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/rerun/step1_eventalign.sh:62 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/f5c_mode/run_one_sample.sh:19,94-96 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CU/detection/Hela/IVT/SingleMod.sh:48-50; CO/rerun/step1_eventalign.sh:63-64; CO/f5c_mode/run_one_sample.sh:66 research:groupD_upstream_and_harmonisation.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/rerun/step1_eventalign.sh:62 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/run_one_sample.sh:66 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/f5c_mode/run_one_sample.sh:78-81 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/rerun/step1_eventalign.sh:11 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv:910,1715 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/f5c_mode/run_one_sample.sh:18 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/rerun/step1_eventalign.sh:62 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/f5c_mode/run_one_sample.sh:19,94-96 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CU/detection/Hela/IVT/SingleMod.sh:48-50; CO/rerun/step1_eventalign.sh:63-64; CO/f5c_mode/run_one_sample.sh:66 research:groupD_upstream_and_harmonisation.md (3 facts)
+ - evidence: step1_eventalign.sh:62 research:groupF_infrastructure.md (1 facts)
+ - evidence: run_one_sample.sh:66 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/f5c_mode/run_one_sample.sh:78-81 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: step1_eventalign.sh:11 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## gffread (annotation / n/a / upstream)
 
-- **software_or_version**: 0.12.9 [env codon]
+- **software_or_version**: 0.12.9
 - **model_checkpoint**: n/a - and, more importantly, gffread is not part of the benchmark chain at all: 0 command lines and 0 invocations in any script. RECOMMENDATION: drop gffread from the R1-5 table
 - **required_input**: (would be) a GFF/GTF plus an optional -g genome FASTA for -w/-x/-y sequence extraction - but never supplied by us; no annotation build in the benchmark depends on gffread
 - **min_read_coverage**: n/a - annotation format converter; no coverage concept (and no invocation exists)
@@ -607,15 +607,15 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: n/a - no invocation; gffread computes no statistics
 - **default_vs_optimised**: not applicable - installed (0.12.9, env codon, also in conda-meta) but never called; it is a transitive dependency of that environment, not a pipeline step. RECOMMENDATION: drop gffread from the R1-5 table
 - **coordinate_harmonisation**: NOT used for it. The versioned mouse annotation actually used was produced by our own parser (gtf_to_bed12.py) and the transcript/genomic mapping is our liftover.py / the legacy r2d liftover; gffread contributed nothing
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:926 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:926 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Mouse/gtf_to_bed12.py:2 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:926 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/liftover.py:1 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv:926 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv:926 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: gtf_to_bed12.py:2 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv:926 research:groupF_infrastructure.md (1 facts)
+ - evidence: liftover.py:1 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## guppy (basecalling / n/a / upstream)
@@ -628,21 +628,21 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **calling_threshold**: n/a - guppy emits base calls plus per-base qualities; it performs no modification test in any of our 31 basecaller commands. Its threshold-named options are signal-processing internals (--trim_threshold, --dmean_threshold, --jump_threshold, --bam_methylation_threshold), none of them passed
 - **multiple_testing_correction**: n/a - no p-values or call sets leave the basecaller; correction belongs to the detection tools
 - **default_vs_optimised**: default ONT config, no caller tuning
-- **coordinate_harmonisation**: n/a - guppy's product is FASTQ (plus --fast5_out signal); it is reference-free in our runs, so it neither creates nor transforms coordinates. Alignment coordinates begin at minimap2
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:3888 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CU/detection/curlcake/IVT/m6ABasecaller.sh:1; CU/basecalling/Hela/WT/guppy.sh:23 research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: CU/basecalling/Hela/WT/guppy.sh:4-7 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/guppy.sh:19 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/detection/curlcake/IVT/IL-AD.sh:6-9; CU/basecalling/Hela/WT/guppy.sh:19-26 research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/guppy.sh:26 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/guppy.sh:23 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
+- **coordinate_harmonisation**: n/a - guppy's product is FASTQ (plus --fast5_out signal); it is reference-free in the runs, so it neither creates nor transforms coordinates. Alignment coordinates begin at minimap2
+ - evidence: tool_inventoryversions_raw.csv:3888 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CU/detection/curlcake/IVT/m6ABasecaller.sh:1; CU/basecalling/Hela/WT/guppy.sh:23 research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: CU/basecalling/Hela/WT/guppy.sh:4-7 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: guppy.sh:19 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/detection/curlcake/IVT/IL-AD.sh:6-9; CU/basecalling/Hela/WT/guppy.sh:19-26 research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: guppy.sh:26 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/guppy.sh:23 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## m1a-prediction (detection / m1A / de novo)
 
-- **software_or_version**: no version string and no .git in $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction -> commit NOT recorded; pinned deps: python 3.7.3, xgboost 0.80, scikit-learn 0.22, statsmodels 0.10.0, joblib 0.16.0, bedtools 2.29.2, minimap2 2.17-r941
+- **software_or_version**: no version string and no git metadata in m1a-prediction -> commit not recorded; pinned deps: Python 3.7.3, XGBoost 0.80, scikit-learn 0.22, statsmodels 0.10.0, joblib 0.16.0, bedtools 2.29.2, minimap2 2.17-r941
 - **model_checkpoint**: 256 XGBoost boosters models/<5MER>.model, loaded by name match to the per-motif CSV
 - **required_input**: Tombo-resquiggled FAST5 directory (-i, --group default RawGenomeCorrected_000), output dir, thread count; prediction needs the motif-split CSV dir + model folder
 - **min_read_coverage**: none: no coverage/support/depth parameter anywhere in the pipeline
@@ -651,59 +651,59 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: NONE applied: raw P_Value < alpha filter, no BH/Bonferroni (grep for multipletests/p.adjust/fdr empty)
 - **default_vs_optimised**: all defaults used (-t 40 threads only deviation; --group default); CRITICAL: the binomial step in our scripts is a copied README placeholder with literal /path/to/... arguments, so no p-value/alpha filter was actually executed
 - **coordinate_harmonisation**: transcriptomic coordinates from the Tombo alignment record (mapped_chrom, mapped_start+event index, mapped_strand)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/README.md:38 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/predict.py:23 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/feature_extraction.py:100 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/filter_and_combine.py:22 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/feature_extraction.py:58 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/predict.py:30; $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/binomial.py:16 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/binomial.py:18 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Curlcake/IVT/m1a-prediction.sh:27 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m1a-prediction/feature_extraction.py:49 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:38 research:groupC_detection_c.md (1 facts)
+ - evidence: predict.py:23 research:groupC_detection_c.md (1 facts)
+ - evidence: feature_extraction.py:100 research:groupC_detection_c.md (1 facts)
+ - evidence: filter_and_combine.py:22 research:groupC_detection_c.md (1 facts)
+ - evidence: feature_extraction.py:58 research:groupC_detection_c.md (1 facts)
+ - evidence: predict.py:30; binomial.py:16 research:groupC_detection_c.md (2 facts)
+ - evidence: binomial.py:18 research:groupC_detection_c.md (1 facts)
+ - evidence: m1a-prediction.sh:27 research:groupC_detection_c.md (1 facts)
+ - evidence: feature_extraction.py:49 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## m6Anet (detection / m6A / de novo)
 
-- **software_or_version**: Env: python 3.7/3.8 pinned by setup.py, torch==1.6.0 | m6Anet 2.1.0 (__version__ = "2.1.0"); repo has no .git (source release copy)
+- **software_or_version**: Env: Python 3.7/3.8 pinned by setup.py, torch==1.6.0 | m6Anet 2.1.0 (__version__ = "2.1.0"); repo has no.git (source release copy)
 - **model_checkpoint**: DEFAULT pretrained model is HCT116_RNA002 (rna002_hct116.pt) - our commands never passed --pretrained_model, so the human HCT116 RNA002 checkpoint was used for ALL species incl. Arabidopsis, mouse, E. coli | Three bundled checkpoints: m6anet/model/model_states/rna002_hct116.pt, rna002_arabidopsis_virc.pt, rna004_hek293t.pt (+ norm_factors rna002_hct116.joblib, rna002_arabidopsis_virc.joblib)
-- **required_input**: Input must be nanopolish eventalign from a TRANSCRIPTOME-aligned bam: "nanopolish eventalign --reads reads.fastq --bam reads.sorted.bam --genome transcript.fa --scale-events --signal-index --summary ... --threads N" | `m6anet dataprep --eventalign <nanopolish eventalign.txt> --out_dir ...`; also --n_processes (1), --chunk_size (1000000), --readcount_min (1), --readcount_max (1000), --min_segment_count (20), --skip_index, --n_neighbors (1), --compress | `m6anet inference --input_dir <dataprep dir> --out_dir ...` - no control sample, no modification motif file, no GTF
+- **required_input**: Input must be nanopolish eventalign from a TRANSCRIPTOME-aligned bam: "nanopolish eventalign --reads reads.fastq --bam reads.sorted.bam --genome transcript.fa --scale-events --signal-index --summary... --threads N" | `m6anet dataprep --eventalign <nanopolish eventalign.txt> --out_dir...`; also --n_processes (1), --chunk_size (1000000), --readcount_min (1), --readcount_max (1000), --min_segment_count (20), --skip_index, --n_neighbors (1), --compress | `m6anet inference --input_dir <dataprep dir> --out_dir...` - no control sample, no modification motif file, no GTF
 - **min_read_coverage**: dataprep: --readcount_min default 1, --min_segment_count default 20 (min read counts per candidate segment) | inference: hardcoded DEFAULT_MIN_READS = 20 transcripts-reads floor passed to NanopolishDS
 - **filtering_parameters**: We raised the per-gene read cap: --readcount_max 2000000 vs default 1000 (i.e. high-coverage genes were NOT truncated) | dataprep only keeps DRACH 5-mers: filter_by_kmer masks centre kmer against M6A_KMERS built from CENTER_MOTIFS [[A,G,T],[G,A],[A],[C],[A,C,T]]
 - **calling_threshold**: Read-level probability threshold, default DEFAULT_READ_THRESHOLD = 0.033379376 (HCT116); arabidopsis model ships 0.0032978046219796; overridable by --read_proba_threshold but auto-set whenever --pretrained_model is used | mod_ratio = mean(read probabilities >= read_proba_threshold); site probability = noisy-OR over 1000 bootstrap resamples (num_iterations default 1000, seed default 0)
 - **multiple_testing_correction**: None - the tool emits no p-value/adj-p column; headers are literally `transcript_id,transcript_position,n_reads,probability_modified,kmer,mod_ratio` and `transcript_id,transcript_position,read_index,probability_modified`
 - **default_vs_optimised**: Deviations: --readcount_max 2000000 (default 1000); --n_processes 8/12/20/40 (default 1 for dataprep, 25 for inference); --device cuda:0 / cuda:1 for E. coli and Mouse inference (default 'cpu')
 - **coordinate_harmonisation**: Output is TRANSCRIPTOMIC: transcript_id + transcript_position (nanopolish/0-based), and the 5-mer is in the `kmer` column
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/setup.py:32; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/__init__.py:8 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/utils/constants.py:10; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/setup.py:29 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/README.md:38-46; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/scripts/dataprep.py:17-50; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/scripts/inference.py:26-30 research:groupA_detection_a.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/scripts/dataprep.py:33-41; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/utils/constants.py:14 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/m6Anet.sh:7; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/utils/dataprep_utils.py:19-48 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/utils/constants.py:15; $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/utils/inference_utils.py:53-54 research:groupA_detection_a.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/scripts/inference.py:94-97 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/E coli/WT/m6Anet.sh:14 research:groupA_detection_a.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/m6anet-v-2.1.0/m6anet/scripts/inference.py:95 research:groupA_detection_a.md (1 facts)
+ - evidence: setup.py:32; __init__.py:8 research:groupA_detection_a.md (2 facts)
+ - evidence: constants.py:10; setup.py:29 research:groupA_detection_a.md (2 facts)
+ - evidence: README.md:38-46; dataprep.py:17-50; inference.py:26-30 research:groupA_detection_a.md (3 facts)
+ - evidence: dataprep.py:33-41; constants.py:14 research:groupA_detection_a.md (2 facts)
+ - evidence: m6Anet.sh:7; dataprep_utils.py:19-48 research:groupA_detection_a.md (2 facts)
+ - evidence: constants.py:15; inference_utils.py:53-54 research:groupA_detection_a.md (2 facts)
+ - evidence: inference.py:94-97 research:groupA_detection_a.md (1 facts)
+ - evidence: E. coli/WT/m6Anet.sh:14 research:groupA_detection_a.md (1 facts)
+ - evidence: inference.py:95 research:groupA_detection_a.md (1 facts)
 - **status**: complete
 
 ## mAFiA (detection / m6A / de novo)
 
-- **software_or_version**: Env mafia runtime: python 3.9.19, torch 1.13.1, scikit-learn 1.2.0, pysam 0.20.0, biopython 1.80, numpy 1.23.5 | The installed package in env mafia IS that repo: editable pip install, not a separate copy | Vendored repo DOES exist: $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0 (mAFiA/ package + RODAN/ + models/); no .git directory (only .gitignore) so no commit hash is recoverable
-- **model_checkpoint**: Backbone (RODAN basecaller + feature extractor) = $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/models/backbone.torch, 43,042,019 bytes, md5 adad00f94f4ccaf0f9b91a38cb97edeb | CORRECTION: the psi-co-mAFiA and DRACH_v1 pickle sets exist in the repo but were never referenced on any command line | Classifiers used = $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/models/classifiers, exactly 6 pickled logistic-regression pipelines: AGACT, GAACT, GGACA, GGACC, GGACT, TGACT
-- **required_input**: --mod_file is read with pandas read_csv(sep=tab) so it MUST carry a header row (chrom chromStart chromEnd name score strand) | Only query sites whose reference 5-mer has a matching pickle are ever tested; every other row is silently skipped | Stage 1 RODAN/basecall.py: --fast5dir (multi-read FAST5 dir) --model backbone.torch --batchsize --outdir; optional --list_filenames, -a arch, -r reverse, --decoder viterbi, --extraction_layer, --feature_width, -B beamsize, --dump_features | Stage 2 alignment: minimap2 --secondary=no -ax splice -uf -k14 -t 36 --cs to the GENOME, piped to samtools view -bST <fasta> -q50 then samtools sort + index -> genome-coordinate BAM | ...
-- **min_read_coverage**: Our runs: --min_coverage 50 in all 11 invocations (10 in the $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv snapshot, 3 HeLa IVT on disk) | Second, independent coverage-related knob: --max_num_reads caps reads per site (default -1 = unlimited); we passed 1000 everywhere | Semantics: pileup coverage must be strictly greater than the threshold while collecting reads, and the site is written only if the collected count is >= min_coverage | Tool default --min_coverage 0 (i.e. no coverage floor)
+- **software_or_version**: Python 3.9.19, torch 1.13.1, scikit-learn 1.2.0, pysam 0.20.0, Biopython 1.80, NumPy 1.23.5 | The installed package IS that repo: installed from its source tree | Source tree present: mAFiA-0.1.0 (mAFiA/ package + RODAN/ + models/); no git metadata (only.gitignore), so no commit hash is recoverable
+- **model_checkpoint**: Backbone (RODAN basecaller + feature extractor) = backbone.torch, 43,042,019 bytes, md5 adad00f94f4ccaf0f9b91a38cb97edeb | CORRECTION: the psi-co-mAFiA and DRACH_v1 pickle sets exist in the repo but were never referenced on any command line | Classifiers used = classifiers, exactly 6 pickled logistic-regression pipelines: AGACT, GAACT, GGACA, GGACC, GGACT, TGACT
+- **required_input**: --mod_file is read with pandas read_csv(sep=tab) so it MUST carry a header row (chrom chromStart chromEnd name score strand) | Only query sites whose reference 5-mer has a matching pickle are ever tested; every other row is silently skipped | Stage 1 RODAN/basecall.py: --fast5dir (multi-read FAST5 dir) --model backbone.torch --batchsize --outdir; optional --list_filenames, -a arch, -r reverse, --decoder viterbi, --extraction_layer, --feature_width, -B beamsize, --dump_features | Stage 2 alignment: minimap2 --secondary=no -ax splice -uf -k14 -t 36 --cs to the GENOME, piped to samtools view -bST <fasta> -q50 then samtools sort + index -> genome-coordinate BAM |...
+- **min_read_coverage**: The runs: --min_coverage 50 in all 11 invocations (counted in the deposited command-line inventory; 3 HeLa IVT runs on disk) | Second, independent coverage-related knob: --max_num_reads caps reads per site (default -1 = unlimited); this benchmark used 1000 everywhere | Semantics: pileup coverage must be strictly greater than the threshold while collecting reads, and the site is written only if the collected count is >= min_coverage | Tool default --min_coverage 0 (i.e. no coverage floor)
 - **filtering_parameters**: --extraction_layer (default convlayers.conv21), --feature_width (default 0) and --classifier_type (default logistic_regression) were never passed on any command line | MAPQ floor 50 (-q50) plus --secondary=no and -uf -k14 splice mode from our own stage-2 command line (identical to upstream) | Read-level filters hard-coded in the tool: keep only reads whose flag matches the site strand (0 for +, 16 for -), drop reads with query_position None, optionally drop reads whose own 5-mer differs from the reference 5-mer
 - **calling_threshold**: HAZARD worth stating to the reviewer: the --mod_prob_thresh 0.5 we pass is a DEAD flag - declared but never read by the program | No p-value anywhere. Per-read modified probability = LogisticRegression.predict_proba[:,1]; a read counts as modified if prob > 0.5; site value modRatio = round(100 * mean(calls))
 - **multiple_testing_correction**: n/a - mAFiA performs no hypothesis test and emits no p-value/q-value column, so there is nothing to correct
 - **default_vs_optimised**: Deviations from argparse defaults: --min_coverage 50 vs 0; --max_num_reads 1000 vs -1; --batchsize 4096 vs 2048 (test) / 4096 vs 200 (RODAN) | Nothing was tuned for this benchmark: every value we used (4096, 50, 1000, 0.5) is copied from the upstream walkthrough
 - **coordinate_harmonisation**: Correction to the inventory: the string "transcript -> genomic via BED12/gtf2bed12 transcript alignment" does not apply to mAFiA | Genomic coordinates end to end: query BED, reference FASTA and BAM are all genome-space (GRCh38 primary assembly or cc.fasta), and output intervals are the input BED rows unchanged | HeLa IVT query set = GRCh38_0base.bed, 2,185,810 genomic sites, chrom names without chr prefix | HeLa WT1 query set was itself built by us from DENA output that had ALREADY been lifted with r2d: DENA GRCh38_predict_liftover_remove_chr.txt re-emitted as a 6-col mAFiA BED
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:2134; $RNAMODBENCH_LOCAL/miniconda3/envs/mafia/lib/python3.9/site-packages/mAFiA-0.0.1.dist-info/direct_url.json:1; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/pyproject.toml:7 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/models/backbone.torch; $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv; CU/detection/Hela/IVT/mAFiA.sh:28 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/_not_in_manuscript/mAFiA/site/GRCh38_0base.bed:1; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/test_mAFiA.py:45-46; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/RODAN/basecall.py:323-337 research:groupE_missing_detection_tools.md (5 facts)
-  - evidence: CU/detection/Hela/IVT/mAFiA.sh:24; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/arg_parsers.py:8; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/test_mAFiA.py:64 research:groupE_missing_detection_tools.md (4 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/arg_parsers.py:12-14; CU/detection/Hela/IVT/mAFiA.sh:11,14; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/data_containers.py:234-248 research:groupE_missing_detection_tools.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/arg_parsers.py:49; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/feature_classifiers.py:67-71 research:groupE_missing_detection_tools.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/_not_in_manuscript/mAFiA/HeLa_IVT_rep1/out_dir/mAFiA.sites.bed:1 research:groupE_missing_detection_tools.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/arg_parsers.py:32; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/README.md:48-79 research:groupE_missing_detection_tools.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv; $RNAMODBENCH_LOCAL/source_code/benchmark/mAFiA-0.1.0/mAFiA/output_writers.py:45-52; $RNAMODBENCH_LOCAL/raw/result/_not_in_manuscript/mAFiA/site/GRCh38_0base.bed:1 research:groupE_missing_detection_tools.md (4 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv:2134; direct_url.json:1; pyproject.toml:7 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: backbone.torch; tool_inventorytool_inventorycommands_raw.csv; CU/detection/Hela/IVT/mAFiA.sh:28 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: GRCh38_0base.bed:1; test_mAFiA.py:45-46; basecall.py:323-337 research:groupE_missing_detection_tools.md (5 facts)
+ - evidence: CU/detection/Hela/IVT/mAFiA.sh:24; arg_parsers.py:8; test_mAFiA.py:64 research:groupE_missing_detection_tools.md (4 facts)
+ - evidence: arg_parsers.py:12-14; CU/detection/Hela/IVT/mAFiA.sh:11,14; data_containers.py:234-248 research:groupE_missing_detection_tools.md (3 facts)
+ - evidence: arg_parsers.py:49; feature_classifiers.py:67-71 research:groupE_missing_detection_tools.md (2 facts)
+ - evidence: mAFiA.sites.bed:1 research:groupE_missing_detection_tools.md (1 facts)
+ - evidence: arg_parsers.py:32; README.md:48-79 research:groupE_missing_detection_tools.md (2 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv; output_writers.py:45-52; GRCh38_0base.bed:1 research:groupE_missing_detection_tools.md (4 facts)
 - **status**: complete
 
 ## minimap2 (alignment / n/a / upstream)
@@ -712,64 +712,64 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **model_checkpoint**: n/a - minimap2 loads no trained model: the reference FASTA is its only input asset. Its single model-named option (-J splice model: 0 original minimap2 model, 1 miniprot model) was never passed, so the shipped default applies alongside -x presets
 - **required_input**: FASTQ + reference FASTA, run twice: transcriptome then genome
 - **min_read_coverage**: n/a - minimap2 is a per-read aligner; it never piles up and exposes no depth floor. Secondary-alignment retention defaults (-N 5, -p 0.8) were left untouched except --secondary=no
-- **filtering_parameters**: secondary/supplementary/unmapped reads removed downstream, not by minimap2 | transcriptome: -ax map-ont --MD ; genome: -ax splice -k14
-- **calling_threshold**: n/a - minimap2 assigns MAPQ but applies no threshold of its own, and our chain never filters on MAPQ either: a full-text search for mapq/MAPQ over $RNAMODBENCH_LOCAL/code/code and tool_scripts returns 0 hits; read selection is by samtools -F flag bits only
+- **filtering_parameters**: secondary/supplementary/unmapped reads removed downstream, not by minimap2 | transcriptome: -ax map-ont --MD; genome: -ax splice -k14
+- **calling_threshold**: n/a - minimap2 assigns MAPQ but applies no threshold of its own, and the pipeline never filters on MAPQ either: a full-text search for mapq/MAPQ over code and tool_scripts returns 0 hits; read selection is by samtools -F flag bits only
 - **multiple_testing_correction**: n/a - alignment scoring is deterministic seed chaining; no statistics, no multiplicity
 - **default_vs_optimised**: preset (-x) selected per reference type; -k14 on the genomic run
 - **coordinate_harmonisation**: minimap2 is what CREATES the two coordinate spaces of the benchmark: -ax map-ont --MD against a transcript FASTA gives transcriptomic BAMs (header @SQ = transcript ids, 25 commands), -ax splice -k14 against the primary assembly gives genomic BAMs (20 commands); --secondary=no -uf -k14 for the m6Anet/NanoSPA-style and f5c-mode chains (13 commands)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:1018,262,435,1221,2116,1528 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/minimap2.sh:4,14 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/predict_sites_patched.py:479 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/minimap2.sh:8,18-20; CU/basecalling/Hela/WT/minimap2.sh:4,14 research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:8 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:14 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/minimap2.sh:14 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv:1018,262,435,1221,2116,1528 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/minimap2.sh:4,14 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: predict_sites_patched.py:479 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/minimap2.sh:8,18-20; CU/basecalling/Hela/WT/minimap2.sh:4,14 research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: minimap2.sh:8 research:groupF_infrastructure.md (1 facts)
+ - evidence: minimap2.sh:14 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/minimap2.sh:14 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: minimap2.sh:4 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## modkit (file-handling / n/a / upstream)
 
-- **software_or_version**: 0.6.1 (vendored source dir $RNAMODBENCH_LOCAL/source_code/benchmark/modkit_v0.6.1); conda ont-modkit 0.6.4 [env codon]
+- **software_or_version**: 0.6.1 (source dir modkit_v0.6.1); conda ont-modkit 0.6.4
 - **model_checkpoint**: n/a for modkit pileup itself - it only tabulates calls already made in the input modBAM by Dorado. The Dorado checkpoints are named in the artefact filenames (rna004_130bps_hac@v5.0.0 / @v5.1.0, sup variants, pseU@v1, m5C@v1, m6A#inosine@v1, DRACH@v1)
 - **required_input**: modified-base BAM from Dorado; output = pileup BED with modkit `name` code column
 - **min_read_coverage**: 20 (valid_coverage >= 20)
 - **filtering_parameters**: audit asserts 0 no-call rows and 0 valid_coverage<20 rows per Dorado callset | we enforce valid_coverage >= 20 and percent_modified > 0 on the Curlcake Dorado sources ourselves
 - **calling_threshold**: not recoverable from an invocation (0 modkit command lines; all *_pileup.bed are pre-generated artefacts). modkit's documented default is a data-estimated probability cut-off: --filter-percentile 0.1, overridable by --filter-threshold/--mod-threshold; no per-site p-value exists
-- **multiple_testing_correction**: n/a - pileup output columns are counts and fractions only (valid_coverage, percent_modified, count_modified ... count_nocall); no p-value column, therefore no BH/Bonferroni step inside modkit
+- **multiple_testing_correction**: n/a - pileup output columns are counts and fractions only (valid_coverage, percent_modified, count_modified... count_nocall); no p-value column, therefore no BH/Bonferroni step inside modkit
 - **default_vs_optimised**: not recoverable - no modkit command line, log or wrapper survives; the artefacts carry modkit's 18-column schema PLUS a header row, which does not by itself identify the flags. What IS ours and declared: the downstream call filter valid_coverage >= 20 and percent_modified > 0
 - **coordinate_harmonisation**: Genomic. modkit pileup "tabulates base modification calls across genomic positions" and the artefacts are bedMethyl on bare-number GRCh38 chromosomes (0-based half-open), i.e. already in the harmonised genomic space; no liftover is applied to them
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/source_raw.csv:96; $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:1028 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result_RNA004/HeLa/raw_calls/RNA004_result/dorado_model_split/other_modification/HeLa_WT_rna004_130bps_hac@v5.0.0_pseU@v1_pileup.bed:1 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/harmonisation/common/registry.py:531 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/harmonisation/common/config.py:800 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CO/harmonisation/scripts/30_pileup_call_filter_audit.py; $RNAMODBENCH_ROOT/data/README.md#4f; CO/harmonisation/common/config.py:800 research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/modkit_v0.6.1/README.md:113 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/modkit_v0.6.1/README.md:119 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/config.py:800 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/revision/NA4_per_tool_table.py:262 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorysource_raw.csv:96; tool_inventoryversions_raw.csv:1028 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: HeLa_WT_rna004_130bps_hac@v5.0.0_pseU@v1_pileup.bed:1 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/harmonisation/common/registry.py:531 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/harmonisation/common/config.py:800 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CO/harmonisation/scripts/30_pileup_call_filter_audit.py; README.md#4f; CO/harmonisation/common/config.py:800 research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: README.md:113 research:groupF_infrastructure.md (1 facts)
+ - evidence: README.md:119 research:groupF_infrastructure.md (1 facts)
+ - evidence: config.py:800 research:groupF_infrastructure.md (1 facts)
+ - evidence: NA4_per_tool_table.py:262 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## nanoRMS (detection / any / comparative)
 
-- **software_or_version**: nanoRMS 1.0 (vendored dir nanoRMS-1.0); no version file/setup.py and no .git -> commit NOT recorded; uses a modified EpiNano v1.2 ("EpiNano-RMS")
+- **software_or_version**: nanoRMS 1.0 ( dir nanoRMS-1.0); no version file/setup.py and no.git -> commit not recorded; uses a modified EpiNano v1.2 ("EpiNano-RMS")
 - **model_checkpoint**: no ML model: rule/threshold based on mismatch spectra; the required external reference is a known-modification position table, default positions/RNA_Mod_Positions_rRNAYeast.tsv (yeast rRNA truth set)
-- **required_input**: BAM + faidx-indexed reference + picard CreateSequenceDictionary .dict + sam2tsv.jar, then the per-site baseFreq CSV consumed by the R scripts; paired mode requires a second (control/other-condition) CSV
+- **required_input**: BAM + faidx-indexed reference + picard CreateSequenceDictionary.dict + sam2tsv.jar, then the per-site baseFreq CSV consumed by the R scripts; paired mode requires a second (control/other-condition) CSV
 - **min_read_coverage**: hard-coded Coverage > 30 (no CLI flag)
 - **filtering_parameters**: U positions only (Base=="T"); first/last 30 nt of each reference trimmed; only positions annotated Unm and not adjacent to a known modification are eligible (de novo mode); samtools pre-filters -F 3860 (forward) / -f 16 -F 3844 (reverse)
-- **calling_threshold**: Mis > misfreq (default 0.137) AND C_freq > Cfreq (default 0.578); paired mode additionally abs(Mis.difference) > diff (default 0.1) | OUR runs set -m 0 -c 0 (single-condition) and -c 0 -m 0 -d 0 (paired), i.e. the entire mismatch-frequency evidence criterion was disabled
+- **calling_threshold**: Mis > misfreq (default 0.137) AND C_freq > Cfreq (default 0.578); paired mode additionally abs(Mis.difference) > diff (default 0.1) | the runs set -m 0 -c 0 (single-condition) and -c 0 -m 0 -d 0 (paired), i.e. the entire mismatch-frequency evidence criterion was disabled
 - **multiple_testing_correction**: none: no p-value/q-value anywhere in the R or Python code (grep for fdr/p.adjust/binom/chi2 empty in this repo)
 - **default_vs_optimised**: deviations: -n 40 (default 4) CPUs; all three mismatch/difference cutoffs forced to 0; -p left at the yeast default even though the samples are Curlcake (E. coli) RNA
 - **coordinate_harmonisation**: genomic coordinates: mpileup-free per-site table keyed by (Chr, Pos, Strand) merged onto the GFF-derived CDS annotation; paired mode writes its own BED (Chr, Pos-1, Pos, '.', 1, Strand)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/README.md:37 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod/Pseudou_prediction_singlecondition.R:19 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/epinano_RMS/epinano_rms.py:252 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod/Pseudou_prediction_singlecondition.R:50 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod/Pseudou_prediction_singlecondition.R:78 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod/Pseudou_prediction_singlecondition.R:21; $RNAMODBENCH_LOCAL/tool_scripts/detection/Curlcake/IVT/nanoRMS.sh:12 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/Curlcake/IVT/nanoRMS.sh:8 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoRMS-1.0/predict_rna_mod/Pseudou_prediction_pairedcondition_genome.R:95 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:37 research:groupC_detection_c.md (1 facts)
+ - evidence: Pseudou_prediction_singlecondition.R:19 research:groupC_detection_c.md (1 facts)
+ - evidence: epinano_rms.py:252 research:groupC_detection_c.md (1 facts)
+ - evidence: Pseudou_prediction_singlecondition.R:50 research:groupC_detection_c.md (1 facts)
+ - evidence: Pseudou_prediction_singlecondition.R:78 research:groupC_detection_c.md (1 facts)
+ - evidence: Pseudou_prediction_singlecondition.R:21; nanoRMS.sh:12 research:groupC_detection_c.md (2 facts)
+ - evidence: predict_rna_mod research:groupC_detection_c.md (1 facts)
+ - evidence: nanoRMS.sh:8 research:groupC_detection_c.md (1 facts)
+ - evidence: Pseudou_prediction_pairedcondition_genome.R:95 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## nanodoc2 (detection / any / comparative)
@@ -781,22 +781,22 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **filtering_parameters**: reads below average base Q-value 5 are dropped during resquiggling; mappy alignment options default (12,10,30,20); 25-nt edge trimming around the requested start
 - **calling_threshold**: per-position score = -log10(chi-square p)/75, floored/capped to [0,1], taken as the max over clusters (k=3, or k=2 when <120 vectors), faiss KMeans niter=20
 - **multiple_testing_correction**: no correction: the chi-square p-value is transformed into a score; no BH/FDR column in the 5-column output
-- **default_vs_optimised**: not run in this benchmark (0 command lines in commands_raw.csv; only a conda env spec exists)
+- **default_vs_optimised**: not run in this benchmark (0 command lines in commands_raw.csv; only an environment specification exists)
 - **coordinate_harmonisation**: plus-strand only, reference must be a transcript sequence; output positions are on that reference (per-transcript, 1-based offset applied inside modCall)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/.git_disabled/packed-refs:2 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/README.md:44 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc.py:14 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc2_1/analysis/comparisonAnalysisKmean.py:264; $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc.py:38 research:groupC_detection_c.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc.py:19 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc2_1/analysis/comparisonAnalysisKmean.py:205 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/nanoDoc2_1/analysis/comparisonAnalysisKmean.py:298 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/envs/as_run/nanodoc2.yaml:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/nanoDoc2/README.md:222 research:groupC_detection_c.md (1 facts)
+ - evidence: packed-refs:2 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:44 research:groupC_detection_c.md (1 facts)
+ - evidence: nanoDoc.py:14 research:groupC_detection_c.md (1 facts)
+ - evidence: comparisonAnalysisKmean.py:264; nanoDoc.py:38 research:groupC_detection_c.md (2 facts)
+ - evidence: nanoDoc.py:19 research:groupC_detection_c.md (1 facts)
+ - evidence: comparisonAnalysisKmean.py:205 research:groupC_detection_c.md (1 facts)
+ - evidence: comparisonAnalysisKmean.py:298 research:groupC_detection_c.md (1 facts)
+ - evidence: nanodoc2.yaml:1 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:222 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## nanopolish (signal / n/a / upstream)
 
-- **software_or_version**: 0.14.0 [env nanocompore], 0.12.5 [env epinano], "0.4.0" [env xpore] | OPEN PROVENANCE ISSUE: 7 of 9 basecalling/*/eventalign.sh scripts begin "conda activate xpore", whose only nanopolish is bioconda nanopolish-0.4.0-0 (binary now fails on libhdf5.so.10), while --signal-index/--scale-events are not 0.4.0-era options; only Hela/WT/eventalign.sh activates nanocompore (nanopolish 0.14.0)
+- **software_or_version**: 0.14.0, 0.12.5, "0.4.0" | OPEN PROVENANCE ISSUE: 7 of 9 basecalling/*/eventalign.sh scripts begin "conda activate xpore", whose only nanopolish is bioconda nanopolish-0.4.0-0 (binary now fails on libhdf5.so.10), while --signal-index/--scale-events are not 0.4.0-era options; only Hela/WT/eventalign.sh activates nanocompore (nanopolish 0.14.0)
 - **model_checkpoint**: Built-in default k-mer model only: the alternative-model option --models-fofn is present in eventalign but appears in 0 of the 28 recorded eventalign commands, and no methyltrain/model-store artefact is referenced
 - **required_input**: --reads FASTQ --bam BAM --genome <reference FASTA> --summary sequencing_summary.txt + a prior "nanopolish index -d <fast5 dir>"
 - **min_read_coverage**: n/a inside nanopolish: eventalign has no coverage/depth option at all, and the only read gate (-q/--min-mapping-quality, default 0) was never passed. Read-level losses are logged and reported (see note) - they are the Methods read-yield numbers
@@ -805,42 +805,42 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: n/a - the eventalign TSV contains no p-value column, hence no correction step in nanopolish; every tool that consumes these files does its own statistics
 - **default_vs_optimised**: defaults except explicit thread count
 - **coordinate_harmonisation**: TRANSCRIPTOMIC output: --genome is the transcriptome FASTA
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:2722,1533,3695; $RNAMODBENCH_LOCAL/miniconda3/envs/xpore/conda-meta/nanopolish-0.4.0-0.json:1 research:groupD_upstream_and_harmonisation.md; groupF_infrastructure.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/eventalign.sh:8 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/eventalign.sh:4-14 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/eventalign.sh:15 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/eventalign.sh:11-14; CO/harmonisation/common/legacy_liftover.py research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/eventalign.sh:14 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/eventalign.sh:14 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/eventalign.sh:10 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool_inventoryversions_raw.csv:2722,1533,3695; nanopolish-0.4.0-0.json:1 research:groupD_upstream_and_harmonisation.md; groupF_infrastructure.md (2 facts)
+ - evidence: eventalign.sh:8 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/eventalign.sh:4-14 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: eventalign.sh:15 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/eventalign.sh:11-14; CO/harmonisation/common/legacy_liftover.py research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: eventalign.sh:14 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/eventalign.sh:14 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/eventalign.sh:10 research:groupD_upstream_and_harmonisation.md (1 facts)
 - **status**: complete
 
 ## penguin (detection / Psi / de novo)
 
-- **software_or_version**: no version string and no .git in $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin -> commit NOT recorded; deps README:7-23 (python 3.6.10, sklearn 0.22.2.post1, tensorflow 2.0.0, keras 2.3.1, nanopolish, minimap2, samtools)
-- **model_checkpoint**: no shipped weights: the SVM is fitted at run time (SVC(gamma='scale', C=1, probability=True)) on MinMaxScaler-normalised eventalign features, 80/20 split, seeds numpy 4 / tensorflow 1234
-- **required_input**: reference genome FASTA (-r) + reads FASTQ (-f) + a ./fast5_files/ directory + a BED of KNOWN modification coordinates whose name is typed interactively
+- **software_or_version**: no version string and no git metadata in Penguin -> commit not recorded; deps README:7-23 (Python 3.6.10, scikit-learn 0.22.2.post1, TensorFlow 2.0.0, Keras 2.3.1, nanopolish, minimap2, samtools)
+- **model_checkpoint**: no shipped weights: the SVM is fitted at run time (SVC(gamma='scale', C=1, probability=True)) on MinMaxScaler-normalised eventalign features, 80/20 split, seeds NumPy 4 / TensorFlow 1234
+- **required_input**: reference genome FASTA (-r) + reads FASTQ (-f) + a./fast5_files/ directory + a BED of KNOWN modification coordinates whose name is typed interactively
 - **min_read_coverage**: none: no coverage/depth parameter anywhere
 - **filtering_parameters**: only 5-mer/9-mer entries whose central base is T (U positions) are used; only BED rows with strand '+' are parsed
 - **calling_threshold**: none published/hard-coded: it reports decision-function labels and calibrated probability of class 1 on the held-out split (accuracy/AUC/confusion matrix printed)
 - **multiple_testing_correction**: none (no p-value, no FDR; grep empty)
 - **default_vs_optimised**: not run in this benchmark (0 command lines; only an env spec exists)
 - **coordinate_harmonisation**: genomic BED input required; CIGAR-walk maps each genomic modification position back to the read/sequence coordinate (genomic -> read space, the inverse of a liftover)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/README.md:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/SVM.py:12 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/main.py:13 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/SVM.py:58 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/SVM.py:41 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/SVM.py:120 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/envs/as_run/penguin.yaml:1 research:groupC_detection_c.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/Penguin/gen_coors.py:100 research:groupC_detection_c.md (1 facts)
+ - evidence: README.md:1 research:groupC_detection_c.md (1 facts)
+ - evidence: SVM.py:12 research:groupC_detection_c.md (1 facts)
+ - evidence: main.py:13 research:groupC_detection_c.md (1 facts)
+ - evidence: SVM.py:58 research:groupC_detection_c.md (1 facts)
+ - evidence: SVM.py:41 research:groupC_detection_c.md (1 facts)
+ - evidence: SVM.py:120 research:groupC_detection_c.md (1 facts)
+ - evidence: Penguin research:groupC_detection_c.md (1 facts)
+ - evidence: penguin.yaml:1 research:groupC_detection_c.md (1 facts)
+ - evidence: gen_coors.py:100 research:groupC_detection_c.md (1 facts)
 - **status**: complete
 
 ## samtools (file-handling / n/a / upstream)
 
-- **software_or_version**: CORRECTION to the inventory caution: "samtools 0.1.19" in env epinano IS a real CLI (not the PyPI binding) - conda-meta lists bin/samtools and the binary prints "Version: 0.1.19-44428cd". The valid caution is narrower: never quote it as the samtools behind the benchmark-wide -F filtering (that is codon 1.23.1 / DRUMMER-TandemMod-mAFiA 1.21 / nanom6A-nanopsu 1.20 / dena 1.18 / pum6a 1.13 / NanoSPA 1.11) | per-env: 1.23.1 (codon), 1.21 (DRUMMER/TandemMod/mafia), 1.20 (nanom6A/nanopsu), 1.18 (dena), 1.13 (pum6a), 1.11 (NanoSPA)
+- **software_or_version**: CORRECTION to the inventory caution: "samtools 0.1.19" IS a real CLI (not the PyPI binding) - conda-meta lists bin/samtools and the binary prints "Version: 0.1.19-44428cd". The valid caution is narrower: never quote it as the samtools behind the benchmark-wide -F filtering (that is codon 1.23.1 / DRUMMER-TandemMod-mAFiA 1.21 / nanom6A-nanopsu 1.20 / dena 1.18 / pum6a 1.13 / NanoSPA 1.11) | per-env: 1.23.1 (codon), 1.21 (DRUMMER/TandemMod/mafia), 1.20 (nanom6A/nanopsu), 1.18 (dena), 1.13 (pum6a), 1.11 (NanoSPA)
 - **model_checkpoint**: n/a - samtools is a SAM/BAM I/O, filtering, indexing and depth toolkit; no subcommand in the chain (view, sort, index, depth, faidx, dict) takes a model
 - **required_input**: SAM/BAM
 - **min_read_coverage**: samtools itself sets no floor: the coverage engine runs "samtools depth -a -q 0 -Q 0 -d 0" (every aligned read, no depth cap). The floors are ours, applied to samtools' output: candidate universe C_MIN_SCAN 5/10/20 with default 10
@@ -848,21 +848,21 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **calling_threshold**: n/a - samtools filters reads by SAM flag bits, not by any significance; no -q MAPQ threshold appears in any command line, so the only thresholds in the benchmark are the tools' own plus our per-site coverage/modification gates
 - **multiple_testing_correction**: n/a - samtools computes counts and depths only
 - **default_vs_optimised**: Non-default in exactly one respect - the read filter: -F 2324 on the 25 transcriptome BAM builds, -F 2308 on the 20 genomic builds, -F 3844 once (RedNano); plus -@ 40 / -@ 16 threading and -t <fasta>.fai for the genomic re-view. Everything else is stock default behaviour
-- **coordinate_harmonisation**: n/a - samtools never changes a coordinate or a contig name; it inherits whatever minimap2 wrote into the BAM header, and its only coordinate-adjacent roles are -t region selection from the reference .fai and dict/faidx sidecars
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/epinano/conda-meta/samtools-0.1.19-hf89b575_7.json:1; $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:1074,163,299,1362 research:groupD_upstream_and_harmonisation.md; groupF_infrastructure.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/prepare_refs.sh:7 research:groupF_infrastructure.md (1 facts)
-  - evidence: tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2) [curated_check]
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/bamcov.py:98 research:groupF_infrastructure.md (1 facts)
-  - evidence: CU/basecalling/Hela/WT/minimap2.sh:8,20; CU/detection/curlcake/IVT/RedNano.sh:7; CO/harmonisation/common/bamcov.py:98 research:groupD_upstream_and_harmonisation.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:20 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/bamcov.py:7 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/detection/curlcake/IVT/RedNano.sh:7 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:19 research:groupF_infrastructure.md (1 facts)
+- **coordinate_harmonisation**: n/a - samtools never changes a coordinate or a contig name; it inherits whatever minimap2 wrote into the BAM header, and its only coordinate-adjacent roles are -t region selection from the reference.fai and dict/faidx sidecars
+ - evidence: samtools-0.1.19-hf89b575_7.json:1; tool_inventoryversions_raw.csv:1074,163,299,1362 research:groupD_upstream_and_harmonisation.md; groupF_infrastructure.md (2 facts)
+ - evidence: prepare_refs.sh:7 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_scripts/detection/<species>/<sample>/<tool>.sh (see TI2) [curated_check]
+ - evidence: bamcov.py:98 research:groupF_infrastructure.md (1 facts)
+ - evidence: CU/basecalling/Hela/WT/minimap2.sh:8,20; CU/detection/curlcake/IVT/RedNano.sh:7; CO/harmonisation/common/bamcov.py:98 research:groupD_upstream_and_harmonisation.md (2 facts)
+ - evidence: minimap2.sh:20 research:groupF_infrastructure.md (1 facts)
+ - evidence: bamcov.py:7 research:groupF_infrastructure.md (1 facts)
+ - evidence: RedNano.sh:7 research:groupF_infrastructure.md (1 facts)
+ - evidence: minimap2.sh:19 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## seqkit (file-handling / n/a / upstream)
 
-- **software_or_version**: seqkit 2.6.1 (bioconda build h9ee0642_0) installed in env py2 - but never invoked by the benchmark. The inventory recorded "not recorded" only because the binary is off PATH
+- **software_or_version**: seqkit 2.6.1 (bioconda build h9ee0642_0) installed - but never invoked by the benchmark. The inventory recorded "not recorded" only because the binary is off PATH
 - **model_checkpoint**: n/a - sequence/FASTA-BED-FASTQ utility with no model; and no invocation exists. RECOMMENDATION: drop seqkit from the R1-5 table
 - **required_input**: (would be) FASTA/FASTQ on stdin or as argument - never supplied in the analysis chain; the single trace is one index file created once outside the pipeline
 - **min_read_coverage**: n/a - file-format tool, no coverage concept, no invocation
@@ -871,20 +871,20 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **multiple_testing_correction**: n/a - no statistics, no invocation
 - **default_vs_optimised**: nothing was tuned - seqkit was run at most once, to build a FASTA index; every analysis input it could have produced is equally covered by samtools faidx. RECOMMENDATION: drop seqkit from the R1-5 table (answering it invites "so which run used it?")
 - **coordinate_harmonisation**: n/a - seqkit edits sequence records, never coordinates; the harmonisation chain is r2d liftover (legacy) plus our liftover.py (rebuild)
-  - evidence: $RNAMODBENCH_LOCAL/miniconda3/envs/py2/conda-meta/seqkit-2.6.1-h9ee0642_0.json:1 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/reference/GRCh38p14/ensembl112/Homo_sapiens.GRCh38.dna.primary_assembly.fa.seqkit.fai:1 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/basecalling/Hela/WT/minimap2.sh:8 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/commands_raw.csv research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/reference/GRCh38p14/ensembl112/Homo_sapiens.GRCh38.dna.primary_assembly.fa.seqkit.fai:1 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/src/harmonisation/common/liftover.py:5 research:groupF_infrastructure.md (1 facts)
+ - evidence: seqkit-2.6.1-h9ee0642_0.json:1 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: Homo_sapiens.GRCh38.dna.primary_assembly.fa.seqkit.fai:1 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: minimap2.sh:8 research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: tool_inventorytool_inventorycommands_raw.csv research:groupF_infrastructure.md (1 facts)
+ - evidence: Homo_sapiens.GRCh38.dna.primary_assembly.fa.seqkit.fai:1 research:groupF_infrastructure.md (1 facts)
+ - evidence: liftover.py:5 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## slow5tools (file-handling / n/a / upstream)
 
-- **software_or_version**: 1.4.0 [env f5c_env]
+- **software_or_version**: 1.4.0
 - **model_checkpoint**: n/a - SLOW5/BLOW5 format converter/indexer; no subcommand loads a model. Installed version reports "slow5tools 1.4.0"
 - **required_input**: BLOW5 signal files
 - **min_read_coverage**: n/a - it manipulates signal records per read id; there is no depth, coverage or pileup notion in any of the commands we ran (view, index, quickcheck)
@@ -892,37 +892,37 @@ Generated 2026-09-18 04:55:29. Values carry provenance in the CSV's *{field}_evi
 - **calling_threshold**: n/a - and provably absent: index --help lists exactly one option (-h) and quickcheck --help only -h; view --help only -o, -c, -s, -t, -K, --from, --to. No threshold, no filtering flag exists
 - **multiple_testing_correction**: n/a - produces no statistics whatsoever (format conversion, indexing, integrity check)
 - **default_vs_optimised**: Defaults throughout - the only non-default values are -t 16 (threads; package default 8) and the format pair --from slow5 / -o (ASCII round-trip to BLOW5). Group normalisation was done by our awk step between the two view calls, not by slow5tools
-- **coordinate_harmonisation**: n/a - slow5tools has no coordinate system at all: records are keyed by read id and signal index. f5c consumes the .idx it writes to look up signal for an alignment made elsewhere
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:1769 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_ROOT/tools/inventory/raw/versions_raw.csv:1769 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/f5c_mode/run_one_sample.sh:54 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/rerun/logs/blow5_fix_mettl3.log:4 research:groupF_infrastructure.md (1 facts)
-  - evidence: CO/f5c_mode/run_one_sample.sh:54 research:groupD_upstream_and_harmonisation.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/run_one_sample.sh:54 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/rerun/logs/blow5_fix_mettl3.log:15 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/rerun/logs/blow5_fix_mettl3.log:8 research:groupF_infrastructure.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/code/code/f5c_mode/convert_resquiggle_to_feature.py:12 research:groupF_infrastructure.md (1 facts)
+- **coordinate_harmonisation**: n/a - slow5tools has no coordinate system at all: records are keyed by read id and signal index. f5c consumes the.idx it writes to look up signal for an alignment made elsewhere
+ - evidence: tool_inventoryversions_raw.csv:1769 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: tool_inventorytool_inventoryversions_raw.csv:1769 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/f5c_mode/run_one_sample.sh:54 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: blow5_fix_mettl3.log:4 research:groupF_infrastructure.md (1 facts)
+ - evidence: CO/f5c_mode/run_one_sample.sh:54 research:groupD_upstream_and_harmonisation.md (1 facts)
+ - evidence: run_one_sample.sh:54 research:groupF_infrastructure.md (1 facts)
+ - evidence: blow5_fix_mettl3.log:15 research:groupF_infrastructure.md (1 facts)
+ - evidence: blow5_fix_mettl3.log:8 research:groupF_infrastructure.md (1 facts)
+ - evidence: convert_resquiggle_to_feature.py:12 research:groupF_infrastructure.md (1 facts)
 - **status**: complete
 
 ## xPore (detection / m6A / comparative)
 
 - **software_or_version**: setup.py version 'v2.1' vs package __version__ "2.0" | installed from bioconda build dir
 - **model_checkpoint**: bundled 5-mer unmodified-signal prior xpore/diffmod/model_kmer.csv (1025 kmers) | per-gene GMM models are fitted de novo, not pretrained
-- **required_input**: dataprep: nanopolish eventalign .txt + out_dir; diffmod: YAML with exactly two conditions | optional gene-mode inputs (--gtf_or_gff, --transcript_fasta) only needed with --genome
+- **required_input**: dataprep: nanopolish eventalign.txt + out_dir; diffmod: YAML with exactly two conditions | optional gene-mode inputs (--gtf_or_gff, --transcript_fasta) only needed with --genome
 - **min_read_coverage**: benchmark value: readcount_min 20 (all 18 comparative configs); 5 in the four curlcake configs | dataprep CLI defaults: --readcount_min 1, --readcount_max 1000 | diffmod criteria fallback defaults: readcount_min 15, readcount_max 1000
 - **filtering_parameters**: GMM method defaults in force: name gmm, max_iters 500, stopping_criteria 1e-5, compute_elbo True, pooling False, prefiltering False | we overrode dataprep --readcount_max to 2000000 (tool default 1000)
 - **calling_threshold**: our cutoff = BH-FDR < 0.05 (+ abs(diff_mod_rate) > 0.1 in the Python path) | tool applies no cutoff; per-position two-tailed z-test on the modification rate
 - **multiple_testing_correction**: NONE inside xPore 2.1 — correction was added by us
 - **default_vs_optimised**: deviates from tool defaults on readcount_max (1000 -> 2000000) and readcount_min (15 -> 20); all GMM/prior/method settings left default
 - **coordinate_harmonisation**: our harmonisation: kmer-centre shift +2, strand+chr from gene BED, then r2d liftover | transcriptomic by default ("Without this argument, the program will run on transcriptomic coordinates")
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/setup.py:17; $RNAMODBENCH_LOCAL/miniconda3/envs/xpore/lib/python3.14/site-packages/xpore-2.1.dist-info/direct_url.json research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/diffmod/configurator.py:22; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/diffmod/configurator.py:26 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/scripts/xpore.py:23; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/scripts/dataprep.py:732 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/raw/result/_aux/xPore/config/Arabidopsis_WT_result1.yml:8; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/scripts/xpore.py:34; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/diffmod/configurator.py:41 research:groupB_detection_b.md (3 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/diffmod/configurator.py:52; $RNAMODBENCH_LOCAL/tool_scripts/detection/Arabidopsis/WT/Xpore.sh:7 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/xPore.ipynb:33; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/utils/stats.py:15 research:groupB_detection_b.md (2 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/python_postprocessing/Arabidopsis/xPore.ipynb:28 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/diffmod/configurator.py:41 research:groupB_detection_b.md (1 facts)
-  - evidence: $RNAMODBENCH_LOCAL/tool_scripts/R_postprocessing/m6A/xpore.r:4; $RNAMODBENCH_LOCAL/source_code/benchmark/xpore-2.1/xpore/scripts/xpore.py:31 research:groupB_detection_b.md (2 facts)
+ - evidence: setup.py:17; direct_url.json research:groupB_detection_b.md (2 facts)
+ - evidence: configurator.py:22; configurator.py:26 research:groupB_detection_b.md (2 facts)
+ - evidence: xpore.py:23; dataprep.py:732 research:groupB_detection_b.md (2 facts)
+ - evidence: Arabidopsis_WT_result1.yml:8; xpore.py:34; configurator.py:41 research:groupB_detection_b.md (3 facts)
+ - evidence: configurator.py:52; Xpore.sh:7 research:groupB_detection_b.md (2 facts)
+ - evidence: xPore.ipynb:33; stats.py:15 research:groupB_detection_b.md (2 facts)
+ - evidence: xPore.ipynb:28 research:groupB_detection_b.md (1 facts)
+ - evidence: configurator.py:41 research:groupB_detection_b.md (1 facts)
+ - evidence: xpore.r:4; xpore.py:31 research:groupB_detection_b.md (2 facts)
 - **status**: complete
 

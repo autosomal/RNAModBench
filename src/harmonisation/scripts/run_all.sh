@@ -116,7 +116,7 @@ run 06_eval_m6a_glori.py
 run 07_eval_controls.py
 run 08_eval_nonm6a.py
 run 09_eval_rna004.py
-run 12_nonm6a_fig7.py
+run 12_nonm6a_summary.py
 run 13_completeness_audit.py
 run 14_legacy_coverage_audit.py
 run 29_anchor_audit.py --fail-on-bad

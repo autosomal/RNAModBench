@@ -130,7 +130,9 @@ def main() -> None:
     fam = list(piv["family"])
     for i in range(len(fam) - 1):
         if fam[i] != fam[i + 1]:
-            ax.axhline(i + 0.5, color="0.84", lw=0.7, zorder=1)
+            
+            #: the three model families is no longer drawn.
+            pass
 
     ax.set_xscale("log")
     ax.set_xlim(FLOOR * 0.90, max(wt.max(), ivt.max()) * 1.35)

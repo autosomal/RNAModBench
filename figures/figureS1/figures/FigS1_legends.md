@@ -97,7 +97,7 @@ untouched.**
 
 ```bash
 conda run -n guitar_asm --no-capture-output Rscript \
-  src/harmonisation/scripts/23d_figS1_guitar.R          # all species
+  figures/figureS1/src/23d_figS1_guitar.R          # all species
 # flags: --species Mouse   --recompute   --merge majority   --min-sites 10   --rt 20
 #        --mode panels|assemble|all        --only-panel Mouse_Nanocompore
 ```

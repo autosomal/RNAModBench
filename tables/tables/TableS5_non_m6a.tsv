@@ -1,9 +1,9 @@
 # Table S5: Non-m6A calls in HeLa and the unmodified-IVT-to-WT ratio.
-Tool	Modification	WT union	Unmodified IVT union	IVT/WT ratio (unions)	Mean-of-counts ratio	95% CI low	95% CI high
-CHEUI-m5C	m5C	47747	51171	1.0717	1.081	0.635	1.638
-NanoMUD-Psi	Psi	13711	14794	1.079	1.155	0.725	1.87
-NanoMUD-m1Psi	m1Psi	40656	43063	1.0592	1.164	0.688	2.031
-NanoNm	Nm	4181	6399	1.5305	1.714	0.849	2.993
-NanoSPA-Psi	Psi	888	694	0.7815	0.842	0.514	1.329
-NanoPsu	Psi	883	678	0.7678	0.834	0.513	1.363
-# note: Unions over the three independent HeLa replicates of each condition; WT = wild type, unmodified IVT = negative control (not a treatment arm). The 95% CI is the unit-level percentile bootstrap (B = 1000, seeds 20260920/20260921) of the mean-of-counts ratio. CHEUI-m5C uses the corrected call set (coordinate fix and reference-base filter, 2026-09-18): the union of 48,627 WT calls quoted in the original submission predates that correction; its IVT/WT union ratio is 1.0717 and its mean-of-counts ratio 1.081. Values for the other tools are unchanged with respect to the published table. The per-unit counts and ratio intervals are deposited in the machine-readable tables that accompany the source code, reconciled row by row against the frozen evidence set behind this table.
+Tool	Modification	WT calls per unit, mean (SD)	Unmodified IVT calls per unit, mean (SD)	Mean-of-counts ratio (95% CI)	Coverage-matched IVT/WT ratio (95% CI)	WT union, reference only	Unmodified IVT union, reference only
+CHEUI-m5C	m5C	15845 (3827)	17129 (7910)	1.081 (0.635-1.638)	0.785 (0.485-1.144)	47747	51171
+NanoMUD-Psi	Psi	6292 (2375)	7265 (2378)	1.155 (0.725-1.870)	0.905 (0.786-1.046)	13711	14794
+NanoMUD-m1Psi	m1Psi	19996 (9052)	23281 (8335)	1.164 (0.688-2.031)	0.923 (0.874-0.973)	40656	43063
+NanoNm	Nm	2237 (1036)	3834 (1729)	1.714 (0.849-2.993)	0.962 (0.776-1.244)	4181	6399
+NanoSPA-Psi	Psi	204 (81)	172 (61)	0.842 (0.514-1.329)	0.719 (0.641-0.790)	888	694
+NanoPsu	Psi	201 (77)	168 (60)	0.834 (0.513-1.363)	0.710 (0.637-0.787)	883	678
+# note: Counts are means (SD) over the three independent HeLa sequencing units of each condition, inside the candidate-site set, and are the primary measure. The mean-of-counts ratio is the unmodified-IVT-to-WT ratio of those unit means with its unit-level percentile bootstrap 95% CI (B = 1000, seeds 20260920/20260921). The coverage-matched ratio compares calls from candidate sites within matched coverage strata, which removes the difference in coverage composition between the two libraries. The raw unions of the three replicates are listed for reference only and must not be read as replicate-level quantities. WT = wild type, unmodified IVT = negative control (not a treatment arm). CHEUI-m5C uses the corrected call set (coordinate fix and reference-base filter, 2026-09-18): the union of 48,627 WT calls quoted in the original submission predates that correction. Values for the other tools are unchanged with respect to the published table. The per-unit counts and ratio intervals are deposited in the machine-readable tables that accompany the source code, reconciled row by row against the frozen evidence set behind this table.

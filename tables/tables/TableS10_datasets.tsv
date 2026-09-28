@@ -1,18 +1,18 @@
 # Table S10: Datasets used in this benchmark and their replicate structure.
 Species	Dataset	Chemistry	Study	Samples	n	Role
-Human	HeLa, WT	RNA002	SRP393373	HeLa_WT1, HeLa_WT2, HeLa_WT3	3	WT reference
-Human	HeLa, IVT	RNA002	SRP428418	HeLa_IVT_rep1, HeLa_IVT_rep2, HeLa_IVT_rep3	3	negative control
 Arabidopsis	WT (Col-0)	RNA002	SRP329449	Arabidopsis_WT_rep1, Arabidopsis_WT_rep2, Arabidopsis_WT_rep3	3	WT reference
 Arabidopsis	FIP37 KD	RNA002	SRP363914	Arabidopsis_fip37_rep1, Arabidopsis_fip37_rep2, Arabidopsis_fip37_rep3	3	partial negative
 Mouse	WT (mESC)	RNA002	SRP166020	mESCs_Mettl3_WT	1	WT reference
 Mouse	WT (mESC)	RNA002	SRP357195	mES_WT	1	WT reference
 Mouse	Mettl3 KO (mESC)	RNA002	SRP166020	mESCs_Mettl3_KO	1	partial negative
 Mouse	Mettl3 KO (mESC)	RNA002	SRP357195	mES_KO	1	partial negative
+Human	HeLa, WT	RNA002	SRP393373	HeLa_WT1, HeLa_WT2, HeLa_WT3	3	WT reference
+Human	HeLa, IVT	RNA002	SRP428418	HeLa_IVT_rep1, HeLa_IVT_rep2, HeLa_IVT_rep3	3	negative control
+Human	HeLa, WT	RNA004	ERP164259	HeLa_RNA004_WT	1	WT reference
+Human	HeLa, IVT	RNA004	ERP164259	HeLa_RNA004_IVT	1	negative control
 E.coli	WT (K-12)	RNA002	SRP478171	E_ss_rd_RNA1, E_ss_rd_RNA2	2	WT reference (null vs null)
 E.coli	IVT	RNA002	SRP478171	E_IVT_neg1, E_IVT_neg2	1	negative control (null vs null)
 Curlcake	IVT (unmodified)	RNA002	SRP174366	Curlcake_IVT_rep1, Curlcake_IVT_rep2_partial, Curlcake_IVT_rep3	2	negative control
 Curlcake	fully m6A-modified	RNA002	SRP174366	Curlcake_m6A_rep1, Curlcake_m6A_rep2	2	positive control
-Human	HeLa, WT	RNA004	ERP164259	HeLa_RNA004_WT	1	WT reference
-Human	HeLa, IVT	RNA004	ERP164259	HeLa_RNA004_IVT	1	negative control
 Curlcake	IVT (unmodified)	RNA004	ERP162788	Curlcake_RNA004_IVT	1	negative control
 # note: Each row is one dataset (species x condition x chemistry). The two mouse studies are independent studies, not replicates, and are never pooled; the last column gives the number of independent sequencing units used in the site-level evaluation (biological replicates for HeLa, Arabidopsis and Curlcake; single units for mouse, E. coli IVT and the RNA004 datasets). Curlcake_IVT_rep2_partial is a depth-matched subset of the full run and is not counted as a replicate; the machine-readable sample registry deposited with the source code carries the per-sample provenance and accession of every row.

@@ -43,7 +43,7 @@ need:
 ```bash
 # one page renderer, straight from the deposited tables
 conda run -n benchmark-revision --no-capture-output \
-    python src/harmonisation/scripts/39_fig5_assembled.py
+    python figures/figure5/src/39_fig5_assembled.py
 # every figure, in dependency order
 bash scripts/run_figures.sh
 ```
@@ -60,9 +60,10 @@ manuscript or the peer-review correspondence.
 What this actually yields on a checkout with no `$RNAMODBENCH_LOCAL`, measured by
 running the driver on one: the page renderers of Figures 1, 2, 4, 5 and 6 and of
 Figures S2, S4, S5, S6, S7 and S9 each produced their PDF from the committed tables,
-with Figure 1 composing panel A from the code-only redraw. What does not build is
-everything downstream of a step that needs the private layer: the Guitar metagene
-panels and with them the pages of Figures 3, 7, 8, S1, S8 and S10, Figure S3's GLORI
+with Figure 1 composing panel A from the code-only redraw; Figure 7 assembled its
+A-C rows and stopped before the metagene row. What does not build is everything
+downstream of a step that needs the private layer: the Guitar metagene panels and
+with them the pages of Figures 3, 7 (row D), 8, S1, S8 and S10, Figure S3's GLORI
 overlap panels, the producers, and the `verify_*` gates that also re-read the
 manuscript. Those are the same steps the table above attributes to
 `$RNAMODBENCH_LOCAL`; `GUITAR=1` runs the R panels once the reference layer is there.

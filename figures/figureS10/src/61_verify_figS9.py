@@ -57,7 +57,7 @@ PROJECT = Path(str(_RB))
 OUT = (_RB / "figures/figureS10")
 TABLES, FIGS, SCRIPTS, LOGS = (_RB / "figures/figureS10/tables"), (_RB / "figures/figureS10/figures"), (_RB / "figures/figureS10/src"), (_RB / "figures/figureS10/logs")
 CLEAN = (_RB / "data/callsets")
-R_SCRIPT = (_RB / "src/harmonisation/scripts/23e_figS9_guitar.R")
+R_SCRIPT = (_RB / "figures/figureS10/src/23e_figS9_guitar.R")
 PDF = FIGS / "FigureS9_rev.pdf"
 PAGE = (1152.0, 864.0)                      # = the replaced sup9.pdf
 EXPECTED_ASSIGNED = {                       # frozen 2026-09-20 (pre-figure)

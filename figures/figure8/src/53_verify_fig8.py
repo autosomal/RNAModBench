@@ -157,6 +157,11 @@ def main() -> None:
         check(f"no retired count call-out {token!r} in panel B", token not in txt_b)
     check("no retired count call-out anywhere on the page",
           not any(t in txt_page for t in RETIRED_CALLOUTS))
+    #: 2026-09-29: the HeLa sample label was renamed Human on 2026-09-28 (the
+    #: Figure 7/8 rounds); panel B and the assembled page must carry the new
+    #: name only.
+    for txt, where in ((txt_b, "panel B"), (txt_page, "the page")):
+        check(f"no HeLa label in {where}", "HeLa" not in txt)
 
     ## 2b -- v7: E schematic labels, C without value labels --------------------- #
     txt_e = page_text((_RB / "figures/figure8/figures/panels/fig8E_guitar.pdf"))

@@ -48,13 +48,13 @@ actually run against it.
 
 | file | content |
 |---|---|
-| `tools/inventory/tables/per_tool_implementation.csv` / `.md` | for each of 42 tool configurations: software/version, model/checkpoint, required input, minimum read coverage, filtering parameters, probability/p-value threshold, multiple-testing correction, default-vs-optimised, and how coordinates were converted and harmonised - each field with its evidence pointer |
-| `tools/inventory/tables/command_lines.csv` | 3,608 exact command lines, keyed by tool, dataset, conda environment and the script+line number they were taken from |
-| `tools/inventory/tables/software_versions.csv` | 4,272 version records: tool binaries, conda environments and package pins, with the method each version was probed by |
-| `tools/inventory/tables/model_checkpoints.csv` | 99 model/checkpoint files used, with the tool and dataset they served |
+| `tools/inventory/tables/per_tool_implementation.csv` / `.md` | for each of the 30 tools and configurations this study used: software/version, model/checkpoint, required input, minimum read coverage, filtering parameters, probability/p-value threshold, multiple-testing correction, default-vs-optimised, and how coordinates were converted and harmonised - each field with its evidence pointer |
+| `tools/inventory/tables/command_lines.csv` | 3,045 exact command lines, keyed by tool, dataset, conda environment and the script+line number they were taken from |
+| `tools/inventory/tables/software_versions.csv` | 3,479 version records: tool binaries, conda environments and package pins, with the method each version was probed by |
+| `tools/inventory/tables/model_checkpoints.csv` | 66 model/checkpoint files used, with the tool and dataset they served |
 | `tools/inventory/tables/coverage_report.md` | field-by-field, tool-by-tool completeness of the implementation ledger |
-| `tools/configs/` | the configuration files tools were actually driven from (28 xPore YAMLs and 3 CHEUI-diff/curlcake YAMLs). Only these two tools used file-based configuration; every other tool was driven by command-line flags, which is why they appear in `command_lines.csv` and not here |
-| `../envs/` | `envs/*.yaml` are the per-tool environments the Snakemake pipeline creates; `envs/as_run/*.yaml` are the 11 specifications the reported runs actually used (cited by `software_versions.csv`); `envs/analysis/env-*.yml` lock the five environments the benchmark code itself runs in |
+| `tools/configs/` | the configuration files tools were actually driven from (28 xPore YAMLs). xPore is the only tool of this study driven from a file-based configuration; every other tool was driven by command-line flags, which is why they appear in `command_lines.csv` and not here |
+| `../envs/` | `envs/*.yaml` are the per-tool environments the Snakemake pipeline creates; `envs/as_run/*.yaml` are the 6 specifications the reported runs actually used (cited by `software_versions.csv`); `envs/analysis/env-*.yml` lock the five environments the benchmark code itself runs in |
 
 How these tables were assembled - and where their evidence is weakest - is in
 [`tool_inventory_notes.md`](tool_inventory_notes.md).
@@ -62,18 +62,21 @@ How these tables were assembled - and where their evidence is weakest - is in
 ## 3. Figure and table code - `figures/`, `tables/`, `src/`
 
 Every main figure (1-8) and supplementary figure (S1-S10) has a directory under
-`figures/` holding its renderer code (`src/`) and the frozen tables it reads
-(`tables/`, plus `analysis/` for the inputs shared with other figures). The panel
-and page PDFs are what that code produces, so they are not deposited here:
+`figures/` holding **all** of its code - the stage that computes its inputs, the panel
+scripts, the page assembly and the layout gate - in `src/`, next to the frozen tables it
+reads (`tables/`, plus `analysis/` for inputs shared between figures). One figure, one
+directory: nothing that draws a published figure lives anywhere else. The panel and page
+PDFs are what that code produces, so they are not deposited here:
 `bash scripts/run_figures.sh` writes them into `figures/<figure>/figures/`.
 `docs/figure_index.md` maps figure - scripts - inputs - outputs, including which
 script version is the current one. Supplementary-table builders (Table S1-S12) and
 the SI assembly live in `tables/`.
 
 The callset pipeline itself - the stages that turn raw tool output into
-`data/callsets/` - is `src/harmonisation/` (`scripts/run_all.sh`, stages
-`00`→`34`), and the shared library the figures import (`config`, `figstyle`,
-`pagelayout`, `panelpage`, `match`, `evaluation`, …) is `src/harmonisation/common/`.
+`data/callsets/` and the metrics in `data/evaluation/tables/` - is
+`src/harmonisation/` (`scripts/run_all.sh`, stages `00`→`34`), and the shared library
+the figures import (`config`, `figstyle`, `pagelayout`, `panelpage`, `match`,
+`evaluation`, …) is `src/harmonisation/common/`.
 
 ## 4. Sample, dataset and run metadata - `metadata/`
 

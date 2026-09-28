@@ -22,6 +22,7 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.platypus import (BaseDocTemplate, Frame, PageTemplate, Paragraph,
                                 Spacer, Table, TableStyle)
 
@@ -61,18 +62,50 @@ def read_table(path: Path) -> tuple[str, list[str], list[list[str]], str]:
     return title, header, rows, note
 
 
+def _word_pt(text: str, font: str, size: float) -> float:
+    """Width of the widest unbreakable word of a cell, in points."""
+    return max((stringWidth(w, font, size) for w in text.split()), default=0.0)
+
+
+def _cell_pt(text: str, font: str, size: float) -> float:
+    """Width of a cell rendered on one line, in points."""
+    return stringWidth(text, font, size)
+
+
 def col_widths(header: list[str], rows: list[list[str]]) -> list[float]:
-    """Weight columns by their longest cell, capped so no column dominates."""
+    """Widths that never split a word, then share the rest by content.
+
+    2026-09-27 (user): with every cell printed in full the old
+    proportional-to-length rule squeezed the narrow columns -- a tool name like
+    ``CHEUI_m6A`` broke in two, and the header of the last column came out as
+    "Coordina te harmo nisation".  Each column now first gets the width of its
+    widest *word* (plus padding), and what is left is shared in proportion to the
+    content, so a name is always readable and long prose still gets the room it
+    needs.
+    """
     n = len(header)
     if n == 1:
         return [AVAIL]
-    weights = []
+    pad = 9.0                                    #: LEFTPADDING + RIGHTPADDING + slack
+    #: A token wider than this is a path, a URL or a long identifier, not a name:
+    #: it is allowed to break, so its column does not reserve room for it.  A
+    #: *name* (a tool, a mode, a level) never breaks.
+    name_cap = 62.0
+    floor = 40.0
+    wants, musts = [], []
     for i in range(n):
-        cells = [header[i]] + [r[i] for r in rows if i < len(r)]
-        longest = max(len(c) for c in cells)
-        weights.append(min(max(longest, 6), 95))
+        cells = [r[i] for r in rows if i < len(r)]
+        head_word = _word_pt(header[i], "Helvetica-Bold", 8.0)
+        cell_word = max((_word_pt(c, "Helvetica", 7.5) for c in cells), default=0.0)
+        word = max(head_word, cell_word if cell_word + pad <= name_cap else 0.0) + pad
+        musts.append(max(word, floor))
+        widths = sorted(_cell_pt(c, "Helvetica", 7.5) for c in cells)
+        wants.append(max(widths[int(0.8 * (len(widths) - 1))] + pad,
+                         musts[-1]))
+    rest = max(AVAIL - sum(musts), 0.0)
+    weights = [max(w - m, 1.0) for w, m in zip(wants, musts)]
     total = sum(weights)
-    return [AVAIL * w / total for w in weights]
+    return [m + rest * w / total for m, w in zip(musts, weights)]
 
 
 def table_flowable(header: list[str], rows: list[list[str]]) -> Table:

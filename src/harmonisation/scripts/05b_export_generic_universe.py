@@ -4,7 +4,7 @@
 Why this script exists
 ----------------------
 The evaluation layer (``06_eval_m6a_glori``, ``07_eval_controls``,
-``08_eval_nonm6a``, ``09_eval_rna004``, ``12_nonm6a_fig7``) reads
+``08_eval_nonm6a``, ``09_eval_rna004``, ``12_nonm6a_summary``) reads
 ``universe/<platform>/<species>/<sample>__universe.tsv[.gz]`` -- a
 **strand-agnostic, all-base** candidate set::
 

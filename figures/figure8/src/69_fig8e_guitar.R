@@ -21,7 +21,7 @@ if (is.null(.RB)) {
 # Figure 8 panel E -- Guitar metagene band of the three Dorado m6A models.
 #
 # Built exactly like block A of the rebuilt Supplementary Figure S9
-# (src/harmonisation/scripts/23e_figS9_guitar.R): the density kernel of the
+# (figures/figureS10/src/23e_figS9_guitar.R): the density kernel of the
 # Bioconductor *Guitar* package (samplePoints -> normalize ->
 # .generateDensity_CI) on the majority-consensus call set across the technical
 # replicates (guitar_metagene_replicates/bed/RNA004/majority/...), one panel per

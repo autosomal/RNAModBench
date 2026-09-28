@@ -420,24 +420,20 @@ def panel_g_replicate(fig, rect, tab: Path) -> None:
     ax = fig.add_axes(rect)
     d = pd.read_csv(tab / "fig2e_replicate_consistency.tsv", sep="\t")
     mean = d[d.metric == "mean_pairwise"][["species", "tool", "value"]]
-    glob = d[d.metric == "global"][["species", "tool", "value"]]
+    #: 2026-09-28 (union drop): the pooled (global) series was withdrawn from
+    #: the text and the caption; only the per-unit-pair mean is drawn here.
     order = order_by(mean.groupby("tool")["value"].mean(), asc=False)
     n = len(order)
     for i, sp in enumerate(BLOCKS):
         m = mean[mean.species == sp].set_index("tool")["value"]
-        g = glob[glob.species == sp].set_index("tool")["value"]
-        ys, lo, hi = [], [], []
+        ys, hi = [], []
         for j, tl in enumerate(order):
             if tl not in m.index:
                 continue
             ys.append(j)
-            lo.append(g.get(tl, np.nan))
             hi.append(m[tl])
-        ax.hlines(ys, lo, hi, color=COLOR[sp], lw=1.0, alpha=0.75, zorder=3)
         ax.scatter(hi, ys, s=16, marker="o", facecolor=COLOR[sp],
                    edgecolor="white", linewidth=0.4, zorder=4)
-        ax.scatter(lo, ys, s=17, marker="v", facecolor="white",
-                   edgecolor=COLOR[sp], linewidth=0.9, zorder=4)
     ax.set_xlim(0, 0.92)
     ax.set_xticks([0, 0.25, 0.5, 0.75])
     ax.set_ylim(n - 0.5, -0.5)
@@ -448,12 +444,18 @@ def panel_g_replicate(fig, rect, tab: Path) -> None:
                   labelpad=2)
     handles = [plt.Line2D([], [], marker="o", ls="none", markersize=4.5,
                           markerfacecolor="0.45", markeredgecolor="white",
-                          label="mean pairwise"),
-               plt.Line2D([], [], marker="v", ls="none", markersize=5,
-                          markerfacecolor="white", markeredgecolor="0.45",
-                          label="pooled (global)")]
+                          label="mean pairwise")]
+    
+    #: colours every point by species (COLOR[sp]) but its key names the value
+    #: and the species
+    handles += [plt.Line2D([], [], marker=MARKER[sp], ls="none", markersize=4.5,
+                           markerfacecolor=COLOR[sp], markeredgecolor="white",
+                           label=sp) for sp in BLOCKS]
+    #: 2026-09-28 (union drop): with the pooled series gone the key has four
+    #: entries; it keeps the lower-right corner, whose rows stop below x = 0.2
+    #: (``--qa`` reports 0 data points covered by the legend box).
     ax.legend(handles=handles, frameon=False, fontsize=7.0, ncol=2,
-              loc="upper left", bbox_to_anchor=(0.12, -0.215),
+              loc="lower right", bbox_to_anchor=(0.995, 0.020),
               handlelength=0.9, handletextpad=0.35, columnspacing=0.9,
               borderpad=0.0)
     style(ax)
@@ -506,9 +508,14 @@ def main() -> None:
     #: letters A-G run down the left column (A, B, D) and the right (C, E, F, G)
     ax_a = [L, 0.845, Wl, 0.130]
     ax_b = [L, 0.601, Wl, 0.190]
-    ax_c = [R, 0.845, Wr, 0.130]
-    ax_e = [R, 0.622, Wr, 0.190]
-    ax_f = [R, 0.363, Wr, 0.190]
+    #: 2026-09-27 (user, fourth pass): the four right-column panels are spaced
+    #: evenly now.  The first attempt (0.845 / 0.622 / 0.363) left C's x label and
+    #: E's bold letter in the same band (~0 pt clear), the second (0.850 / 0.530)
+    #: opened 43 pt, which read as too airy; this spacing leaves ~20 pt between
+    #: C's x label and E's letter and ~12 pt between the other pairs.
+    ax_c = [R, 0.860, Wr, 0.115]
+    ax_e = [R, 0.584, Wr, 0.185]
+    ax_f = [R, 0.330, Wr, 0.185]
     
     #: full service band above the bottom margin
     ax_g = [R, 0.082, Wr, 0.190]

@@ -60,7 +60,7 @@ def main() -> int:
     txt = subprocess.run(["pdftotext", str(sc.PANEL_DIR / "S3A_venn.pdf"), "-"],
                          capture_output=True, text=True).stdout
     for label in ("Arabidopsis-rep1", "Arabidopsis-rep2", "Mouse-rep1",
-                  "Mouse-rep2", "HeLa-rep1", "HeLa-rep2"):
+                  "Mouse-rep2", "Human-rep1", "Human-rep2"):
         check(f"panel A label '{label}'", label in txt, "present" if label in txt
               else "MISSING")
     check("panel A: retired names gone",
@@ -98,7 +98,7 @@ def main() -> int:
     if prov.exists():
         ptxt = prov.read_text()
         check("panel C credits the companion script",
-              "16_mod_ratio_regression_fig.py" in ptxt
+              "16_mod_ratio_regression.py" in ptxt
               and "mod_ratio_matched_sites.tsv" in ptxt,
               "script + cached tables recorded with md5")
     ctxt = subprocess.run(

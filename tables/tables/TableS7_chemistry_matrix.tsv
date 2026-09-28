@@ -1,25 +1,19 @@
 # Table S7: Applicability of each tool to the RNA002 and RNA004 chemistries, with the failure or exclusion class where a tool was not applied or not included.
 Tool	Input class	Used on RNA002	Used on RNA004	Status	Failure or exclusion class
 CHEUI_m6A	raw-signal (nanopolish eventalign)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
-CHEUI-diff	not determined	no	no	not included in this benchmark	outside the scope of this study: output generated but not used
 DENA	raw-signal (nanopolish eventalign)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
-differr	basecalled (BAM)	no	no	not included in this benchmark	outside the scope of this study: output generated but not used
 DRUMMER	raw-signal (Tombo resquiggle)	yes	yes	included in the RNA004 benchmark	
 ELIGOS2_diff	raw-signal (Tombo resquiggle)	yes	yes	included in the RNA004 benchmark	
 ELIGOS2_solo	raw-signal (Tombo resquiggle)	yes	yes	included in the RNA004 benchmark	
 EpiNano_Error	basecalled (BAM/FASTQ)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
-Epinano_SVM	basecalled (BAM/FASTQ)	no	no	not included in this benchmark	outside the scope of this study: output generated but not used
 m6Anet	raw-signal (eventalign) / RNA004 BAM model	yes	yes	included in the RNA004 benchmark	
-mAFiA	basecalled (BAM)	no	no	not included in this benchmark	outside the scope of this study: output generated but not used
-MINES	raw-signal (Tombo resquiggle)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
+MINES	raw-signal (Tombo resquiggle)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
 Nanocompore	raw-signal (eventalign)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
 Nanom6A	basecalled (BAM)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
 NanoMUD	basecalled (BAM)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
 NanoNm	basecalled (BAM)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
 NanoPsu	basecalled (FASTQ/BAM)	yes	yes	included in the RNA004 benchmark	
 NanoSPA	basecalled (FASTQ/BAM)	yes	yes	included in the RNA004 benchmark	
-Tombo	raw-signal (FAST5)	no	no	not applied to RNA004	software maintenance: the resquiggle component is not maintained for the new chemistry
-Tombo (comparative)	not determined	no	no	not included in this benchmark	outside the scope of this study: output generated but not used
 xPore	raw-signal (eventalign)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
-Yanocomp	raw-signal (Tombo resquiggle)	yes	no	not applied to RNA004	basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
-# note: Presence on a chemistry is read from the file system (call directories per tool and sample), not from memory. Input classes: raw-signal (FAST5 plus a nanopolish/Tombo resquiggle) and basecalled (BAM/FASTQ) callers; RNA004 native output is POD5 and Dorado BAM with 9-mer models, so RNA002 signal models cannot be produced for it. Failure and exclusion classes: input format (raw signal not producible from RNA004 data), basecalling model (RNA002-trained model, no RNA004 checkpoint evaluated), software maintenance (resquiggle not maintained for the new chemistry), and outside the scope of this study (output generated but not used).
+Yanocomp	raw-signal (Tombo resquiggle)	yes	no	not applied to RNA004	input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+# note: One row per tool and configuration used in this study. Presence on a chemistry is read from the file system (call directories per tool and sample), not from memory. Input classes: raw-signal (FAST5 plus a nanopolish/Tombo resquiggle) and basecalled (BAM/FASTQ) callers; RNA004 native output is POD5 and Dorado BAM with 9-mer models, so RNA002 signal models cannot be produced for it. Failure and exclusion classes: input format (raw signal not producible from RNA004 data), basecalling model (RNA002-trained model, no RNA004 checkpoint evaluated), software maintenance (resquiggle not maintained for the new chemistry), and outside the scope of this study (output generated but not used).

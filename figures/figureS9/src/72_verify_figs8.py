@@ -22,9 +22,10 @@ import s8_panels as P  # noqa: E402
 import s8_style as S  # noqa: E402
 
 PDF = S.FIGS / "FigureS8_rev.pdf"
-PAGE_PT = (842.4, 595.44)                       # A4 landscape since 2026-09-25
-KEYS = list("ABCDEFG")                          # 2026-09-25: the sweep and the
-                                                # effect sizes are two facets each
+PAGE_PT = (842.4, 595.44)                       # A4 landscape (restored layout)
+KEYS = list("ABCDEFGHI")                        # 2026-09-27: three-by-three grid
+                                                # (sweep D|E, effect F|G, the two
+                                                # stability cells H|I)
 fails: list[str] = []
 
 
@@ -62,7 +63,7 @@ def main() -> None:
         piece = text_of(S.PANELS / f"figS8{key}.pdf")
         found = [t for t in piece.split() if len(t) == 1 and t.isupper()]
         got_letters.append(found[0] if found else "?")
-    check("panel letters A-G once each", got_letters == KEYS, str(got_letters))
+    check("panel letters A-I once each", got_letters == KEYS, str(got_letters))
 
     banned = ("hit rate", "near-perfect", "jaccard", "percent_modified",
               "rna002", "chemistry", "nested subset", "unit mean",
@@ -80,8 +81,30 @@ def main() -> None:
           all(t not in page for t in ("DENA", "EpiNano_Error", "MINES",
                                       "Nanocompore", "Nanom6A", "xPore",
                                       "Yanocomp", "CHEUI")))
-    check("no panel title (names live in the legend)",
-          "HeLa" not in page and "Curlcake" not in page)
+    
+    #: by name (a marker is a drawn entry, so the house rule wants it named), and
+    #: each key prints **under its own panel**, so every species name appears twice
+    #: on the page -- once under H and once under I.  What has to stay out is a
+    #: *sample* name printed inside a panel.
+    check("no panel title, species named only by the two marker keys",
+          "Curlcake" not in page
+          and all(page.count(s) == 2 for s in ("Arabidopsis", "mouse", "HeLa")),
+          f"A {page.count('Arabidopsis')} M {page.count('mouse')} "
+          f"H {page.count('HeLa')}")
+
+    sh = D.panel_stability("H")
+    si = D.panel_stability("I")
+    check("anchor coverage-stability cells",
+          len(sh) == 12 and abs(sh["rho"].min() - 0.801) < 1e-3
+          and abs(sh["rho"].max() - 1.000) < 1e-3,
+          f"{len(sh)} cells, rho {sh['rho'].min():.3f}-{sh['rho'].max():.3f}")
+    check("anchor ratio-stability cells",
+          len(si) == 9 and abs(si["rho"].min() - 0.478) < 1e-3
+          and abs(si["rho"].max() - 0.904) < 1e-3
+          and int((~si["top1_same"]).sum()) == 6,
+          f"{len(si)} cells, rho {si['rho'].min():.3f}-{si['rho'].max():.3f}, "
+          f"top-ranked tool differs in {int((~si['top1_same']).sum())} of "
+          f"{len(si)} cells")
     check("no anonymous entry group on the page",
           "other entries" not in page)
     sweep = D.panel_window()
@@ -101,8 +124,7 @@ def main() -> None:
     check("fitted-lines panel retired (F is the effect size now)",
           "GLORI ratio (%)" not in page and "Predicted ratio" not in page)
     check("family key on the page",
-          "m6A DRACH" in page and "inosine" in page
-          and "m6A (non-DRACH)" in page)
+          "DRACH" in page and "inosine" in page and "non-DRACH" in page)
 
     # ---- drawing-code house rules -----------------------------------------
     src = "\n".join(p.read_text() for p in sorted(HERE.glob("s8_*.py")))
@@ -135,8 +157,8 @@ def main() -> None:
 
     c = D.panel_curlcake()
     c_idx = c.set_index("label")
-    dr_c = c[c["block"] == "m6A DRACH"]
-    nd_c = c[c["block"] == "m6A (non-DRACH)"]
+    dr_c = c[c["block"] == "DRACH"]
+    nd_c = c[c["block"] == "non-DRACH"]
     check("anchor Curlcake entries", len(c) == 10, str(len(c)))
     check("anchor Curlcake DRACH calls",
           (int(dr_c["calls"].min()), int(dr_c["calls"].max())) == (0, 4))

@@ -1,0 +1,12 @@
+tool	n_matched	pearson_r	spearman_rho	ccc	ratio_column	glori_sites_in_bed
+m6Anet	14559	0.652575	0.638424	0.644325	mod_ratio	112451
+Dorado_sup@v5.0.0_m6A_DRACH@v1	3993	0.453795	0.522027	0.19191	score	112451
+Dorado_sup@v5.0.0_m6A@v1	3914	0.411679	0.475685	0.185054	score	112451
+Dorado_hac@v5.0.0_m6A_DRACH@v1	3517	0.396321	0.468847	0.178341	score	112451
+Dorado_hac@v5.1.0_m6A_DRACH@v1	3277	0.375344	0.443545	0.175521	score	112451
+Dorado_sup@v5.1.0_m6A_DRACH@v1	3445	0.369923	0.442707	0.17739	score	112451
+Dorado_hac@v5.0.0_m6A@v1	3198	0.332643	0.390485	0.165024	score	112451
+Dorado_hac@v5.1.0_inosine_m6A	3029	0.32358	0.379776	0.165167	score	112451
+Dorado_sup@v5.1.0_inosine_m6A	3036	0.283032	0.345932	0.151302	score	112451
+ELIGOS2_solo	31	-0.102734	0.392339	-2.82404e-06	score	112451
+NanoSPA_m6A	87	-0.12175	-0.117055	-0.0760073	score	112451

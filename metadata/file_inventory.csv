@@ -137,8 +137,8 @@ harmonisation/callsets/RNA002/Curlcake/Curlcake_IVT/m5C/CHEUI_m5C/RNA081120181pa
 harmonisation/callsets/RNA002/Curlcake/Curlcake_IVT/m5C/CHEUI_m5C/RNAAB089716.tsv	0	218	sha256=c2df3a0083a767ee61f400a4c855501bf6a9270629d2c64ec295e804353cbcb2	$RNAMODBENCH_LOCAL/raw/result/CHEUI/RNAAB089716	01b_liftover_missing	2026-09-15 06:45:05
 harmonisation/evaluation/tables/curlcake_truth.tsv	168	13448	sha256=93767d507b1f208859db935db17d290387683114ea3b31230fed080c9e73bab9		08_eval_nonm6a	2026-09-15 08:28:27
 harmonisation/evaluation/tables/hela_nonm6a.tsv	84	11705	sha256=e68a4904ad8f9912e55d181c3d9425dd7273cedf0b651a1cfe4e1e3afd85002b		08_eval_nonm6a	2026-09-15 08:46:37
-harmonisation/evaluation/tables/nonm6a_fig7_summary.tsv	7	1992	sha256=12f84591597bd0d0914580680c06ccaee30b3bf757dd2ea3247a18fbab25c6bc		12_nonm6a_fig7	2026-09-15 08:55:52
-harmonisation/evaluation/tables/nonm6a_curlcake_detail.tsv	15	823	sha256=4153bfffb2a659ecf1a4f1b2bc9a175cc1060d4dc3b765beeb990acfa7f97fb9		12_nonm6a_fig7	2026-09-15 08:55:52
+harmonisation/evaluation/tables/nonm6a_fig7_summary.tsv	7	1992	sha256=12f84591597bd0d0914580680c06ccaee30b3bf757dd2ea3247a18fbab25c6bc		12_nonm6a_summary	2026-09-15 08:55:52
+harmonisation/evaluation/tables/nonm6a_curlcake_detail.tsv	15	823	sha256=4153bfffb2a659ecf1a4f1b2bc9a175cc1060d4dc3b765beeb990acfa7f97fb9		12_nonm6a_summary	2026-09-15 08:55:52
 harmonisation/evaluation/tables/legacy_reconciliation.tsv	249	20647	sha256=008a0bb672e0b23b7605dc525b23a855eee84667650c8db0e2d6afd9b1e0d68a		10_qc_reconcile	2026-09-15 08:55:57
 harmonisation/evaluation/tables/legacy_published_check.tsv	21	1108	sha256=00f7e2982d6ce117e8f6c50e6d17f337f200efe749ba654d3f988aa93e31389f		10_qc_reconcile	2026-09-15 08:56:02
 harmonisation/manifest/completeness_audit.csv	625	90606	sha256=cd44132e6244c60f937a88ac2b08711451522dbec8781bac0b327c0b04e5590b		13_completeness_audit	2026-09-15 09:04:10
@@ -304,8 +304,8 @@ data/universe/RNA002/Human/HeLa_IVT_rep3__universe.tsv.gz	10467120	29611178	sha2
 data/universe/RNA004/Human/HeLa_RNA004_WT__universe.tsv.gz	32813998	102759946	sha256=c07c4697b862abefa488614a05a352069ae152b6d46f06c271ff4f3f22eb2ea4		05b_export_generic_universe	2026-09-19 06:50:27
 data/universe/RNA004/Human/HeLa_RNA004_IVT__universe.tsv.gz	38160225	126172422	sha256=ae1c8b4e857c74ab379da974772fba8f0c36a6a476b2b31dad7d2a666ed07d1a		05b_export_generic_universe	2026-09-19 07:00:28
 data/universe/universe_summary.csv	48	8246	sha256=42d6c0b7f17d3169396a7dc327e2c56bd97660912d1ccb78e04b1f4b70bac88f		04_build_universe	2026-09-19 07:41:11
-data/evaluation/tables/nonm6a_fig7_summary.tsv	6	1912	sha256=7f43573ea97331b13585457e6f88a7278283a9abf1daf34c7eb45d8323a8529e		12_nonm6a_fig7	2026-09-19 08:17:57
-data/evaluation/tables/nonm6a_curlcake_detail.tsv	15	933	sha256=eeb67648fa95306c66ad21edb8af8139300542a9d89a4d2f44fb19a13eb46028		12_nonm6a_fig7	2026-09-19 08:17:57
+data/evaluation/tables/nonm6a_fig7_summary.tsv	6	1912	sha256=7f43573ea97331b13585457e6f88a7278283a9abf1daf34c7eb45d8323a8529e		12_nonm6a_summary	2026-09-19 08:17:57
+data/evaluation/tables/nonm6a_curlcake_detail.tsv	15	933	sha256=eeb67648fa95306c66ad21edb8af8139300542a9d89a4d2f44fb19a13eb46028		12_nonm6a_summary	2026-09-19 08:17:57
 data/evaluation/tables/offset_audit.tsv	398	39839	sha256=ae23e347170ccf6d33f3c383441d9f38b5569d5082074c90b473dbae046c042a		05_offset_audit	2026-09-19 09:16:45
 data/evaluation/tables/offset_histogram.tsv	2007	79118	sha256=5741181b3c42f46beede8d71b94a8edd0e1f62f49d73bff600526e88eb285027		05_offset_audit	2026-09-19 09:16:45
 metadata/nonm6a_scope.csv	406	89820	sha256=77c9bba1dab71b7e074ab124410a99c1878ac2f69da0c47f29fa5ecb795a6c83		11_scope_split	2026-09-19 09:17:27

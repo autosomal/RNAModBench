@@ -40,7 +40,7 @@ def main() -> None:
                    facecolor=FAM_COLOR[fam], edgecolor="black", linewidth=0.8,
                    zorder=3)
     # two lines: the single-line label is wider than the panel and was clipped
-    ax.set_xlabel("False positives per 10 kb\n(unmodified HeLa IVT)",
+    ax.set_xlabel("False positives per 10 kb\n(unmodified Human IVT)",
                   fontsize=STYLE["label"])
     ax.set_ylabel("PPV vs. GLORI (2 bp)", fontsize=STYLE["label"])
     ax.set_ylim(-0.02, 1.0)

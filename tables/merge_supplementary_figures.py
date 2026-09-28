@@ -33,12 +33,12 @@ LEG = {
     1: (_RB / "figures/figureS1/figures/FigS1_legends.md"),
     2: (_RB / "figures/figureS2/figures/FigS2_legends.md"),
     4: (_RB / "figures/figureS4/figures/FigS4_legends.md"),
-    5: (_RB / "figures/figureS6/figures/FigS5_legends.md"),
-    6: (_RB / "figures/figureS7/figures/FigS6_legends.md"),
-    7: (_RB / "figures/figureS8/figures/FigS7_legends.md"),
-    8: (_RB / "figures/figureS9/figures/FigS8_legends.md"),
-    9: (_RB / "figures/figureS10/figures/FigS9_legends.md"),
-    10: (_RB / "figures/figureS5/figures/FigS10_legends.md"),
+    5: (_RB / "figures/figureS5/figures/FigS10_legends.md"),
+    6: (_RB / "figures/figureS6/figures/FigS5_legends.md"),
+    7: (_RB / "figures/figureS7/figures/FigS6_legends.md"),
+    8: (_RB / "figures/figureS8/figures/FigS7_legends.md"),
+    9: (_RB / "figures/figureS9/figures/FigS8_legends.md"),
+    10: (_RB / "figures/figureS10/figures/FigS9_legends.md"),
 }
 S3 = (
     "**Figure S3.** GLORI reference construction, tool performance against it and "

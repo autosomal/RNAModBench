@@ -12,8 +12,8 @@ therefore recompute every set on the same universe here:
                   (``common.consensus.quorum`` units)
     scoring       nearest GLORI site within ``window`` bp
 
-Used by ``24_fig_replicate_structure.py`` and
-``27_fig_window_combination.py``.
+Used by ``24_replicate_structure.py`` and
+``27_window_combination.py``.
 """
 
 from __future__ import annotations

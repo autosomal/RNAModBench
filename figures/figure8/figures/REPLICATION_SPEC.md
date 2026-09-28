@@ -14,7 +14,7 @@ value below is taken from the published code, not invented.
 | B Jaccard heatmaps (S8E) | `…/result_RNA004/scripts/analysis/dorado_m6a_jaccard_analysis.py:120-148` |
 | C dot plot + % callouts | `the original submission's figure code/Figure8/rna004_m6a_ngs_analysis.py:346-407` (dot version) and `:239-279` (bar version) |
 | D guitar (published) | `the original submission's figure code/Figure8/dorado_m6a_guitar_wt_ivt.R:58-278` |
-| D metagene (approved revision) | `src/harmonisation/scripts/47_fig7_rebuild.py:353-404` (`metagene_frame`, `panel_d`) + `common/figstyle.py:53-87` |
+| D metagene (approved revision) | `figures/figure7/src/47_fig7_rebuild.py:353-404` (`metagene_frame`, `panel_d`) + `common/figstyle.py:53-87` |
 | S8 mod-ratio scatter (published) | `the original submission's figure code/Figure8/rna004_m6a_ngs_analysis.py` (mod-ratio vs GLORI section) |
 | value-callout permissions | user decision 2026-09-21 (key numbers, >= 12 pt) |
 | house rules | `common/figstyle.py`, `figure_text_audit/README.md`, user rules 2026-09-18/19 |

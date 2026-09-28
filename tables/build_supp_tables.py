@@ -32,6 +32,7 @@ def _rb_find(start):
 _RB = _rb_pl.Path(_rb_os.environ.get("RNAMODBENCH_ROOT") or _rb_find(_rb_pl.Path(__file__).resolve().parent))
 _XB = _rb_pl.Path(_rb_os.environ.get("RNAMODBENCH_LOCAL") or (_RB / "_local"))
 # --------------------------------------------------------------------------- #
+import csv
 import re
 from pathlib import Path
 
@@ -54,12 +55,56 @@ DASH_FIX = (
      "none: output has no p-value/q-value column"),
     ("0.2 (setup.py) — editable install of the vendored tree",
      "0.2 (setup.py), editable install of the vendored tree"),
+    
+    #: curated cells reach the printed page; the source tables stay byte-identical
+    #: (they are deposited) and the SI prints plain punctuation.
+    ("not applicable — comparative stats path (no learned checkpoint)",
+     "not applicable: comparative stats path (no learned checkpoint)"),
+    ("none — GMM fitted per position at runtime",
+     "none: GMM fitted per position at runtime"),
+    ("none — statistical tool (no model file, no --model option)",
+     "none: statistical tool (no model file, no --model option)"),
 )
 
 
 #: 2026-09-27: the tool is Yanocomp, and two of the upstream tables (TableS2, TableS3) carry
 #: it lower-cased.  The printed table is normalised; the evidence files stay as they are.
 CASE_FIX = (("yanocomp", "Yanocomp"),)
+
+
+
+#: not everything that happens to sit in the working tree.  The manuscript
+#: benchmarks 15 dRNA-seq tools -- 13 m6A configurations, because ELIGOS2 ran in
+#: two modes -- plus the RNA004 built-in Dorado models, and
+#: `code/harmonisation/common/config.py` names the callsets that are **not part of the
+#: manuscript** and deletes them in `11_scope_split.py`: differr, EpiNano_SVM,
+#: Tombo_com, CHEUI-diff and mAFiA.  Rows for those tools had nevertheless been
+#: printed in S6 and S7; they are filtered out here, and the asserts after each
+#: table fail if one ever comes back.
+PAPER_TOOLS = frozenset({
+    # 13 m6A configurations (Fig. 1-6, Fig. 8, Fig. S8)
+    "CHEUI_m6A", "DENA", "DRUMMER", "ELIGOS2_diff", "ELIGOS2_solo",
+    "EpiNano_Error", "m6Anet", "MINES", "Nanocompore", "Nanom6A",
+    "NanoSPA_m6A", "xPore", "Yanocomp",
+    # non-m6A tools of Fig. 7
+    "CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoPsu",
+    "NanoSPA_psU",
+    # RNA004 built-in modification models (Fig. 8, Fig. S8)
+    "Dorado",
+})
+
+#: how a row of an inventory table names one of the tools above
+SCOPE_ALIAS = {
+    "CHEUI": "CHEUI_m6A", "ELIGOS2": "ELIGOS2_diff", "EpiNano": "EpiNano_Error",
+    "NanoSPA": "NanoSPA_m6A", "NanoMUD": "NanoMUD_psi", "yanocomp": "Yanocomp",
+    "Dorado (RNA004 modification models)": "Dorado",
+}
+
+
+def in_scope(name: object) -> bool:
+    """True when a row of an inventory table names a tool of this study."""
+    key = str(name).strip()
+    return SCOPE_ALIAS.get(key, key) in PAPER_TOOLS
 
 
 def plain(text: str) -> str:
@@ -74,13 +119,37 @@ def plain(text: str) -> str:
     return text
 
 
-def clip(text: object, n: int = MAXCELL) -> str:
+
+#: Two cells of the CHEUI_m6A row still described the differential mode
+#: (CHEUI-diff), which is declared out of scope by `harmonisation/common/config.py` and
+#: whose row the scope filter removes, and one of them pointed the reader to it
+#: ("For CHEUI-diff see below.") though nothing follows.  The cells now describe
+#: the single-sample mode alone.
+MODE_FIX = (
+    ("model probability (default); CHEUI-diff upper_cutoff/lower_cutoff",
+     "model probability (default)"),
+    ("None for CHEUI-solo (model1/model2 emit probability only, no p-value). "
+     "For CHEUI-diff see below.",
+     "None: model1/model2 emit probability only, no p-value"),
+)
+
+
+def cell(text: object) -> str:
+    """A printed cell, **complete**.
+
+    2026-09-27 (user): the per-tool table clipped every long cell with an
+    ellipsis (34 of them), which hid exactly the details the table exists for --
+    the dependency list, the model checkpoints, the thresholds that were run.
+    Cells are now printed in full: whitespace is collapsed, the curated cell
+    separator ``|`` that stands for a line break becomes ``/``, the em-dash and
+    casing fixes are applied, and nothing is cut.  The reader who wants the raw
+    cell plus its provenance opens the deposited machine-readable table.
+    """
     s = re.sub(r"\s+", " ", str(text)).strip()
     s = s.replace("|", "/").replace("\t", " ")
-    s = plain(s)
-    if len(s) <= n:
-        return s
-    return s[: n - 1].rstrip(" ,;.") + "\u2026"
+    for old, new in MODE_FIX:
+        s = s.replace(old, new)
+    return plain(s)
 
 
 def write_table(name: str, title: str, columns: list[str], rows: list[list[object]],
@@ -213,8 +282,14 @@ write_table(
 )
 
 # ---------------------------------------------------------- S5 non-m6A detection
+# 2026-09-28 (union drop): the per-unit means are the primary columns; the raw
+# unions of the three replicates stay as labelled reference columns, and the
+# coverage-matched ratio (calls compared inside matched coverage strata) is read
+# from the depth-diagnosis evidence of the R3-9b package.
 cnt = pd.read_csv((_RB / "figures/figureS7/tables/s6_counts_summary.tsv"), sep="\t")
 ci = pd.read_csv((_RB / "figures/figureS7/tables/s6_ratio_ci.tsv"), sep="\t")
+mat = pd.read_csv((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"),
+                  sep="\t")
 order = ["CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoSPA_psU", "NanoPsu"]
 disp = {"CHEUI_m5C": "CHEUI-m5C", "NanoMUD_psi": "NanoMUD-Psi", "NanoMUD_m1psi": "NanoMUD-m1Psi",
         "NanoNm": "NanoNm", "NanoSPA_psU": "NanoSPA-Psi", "NanoPsu": "NanoPsu"}
@@ -223,53 +298,105 @@ for tool in order:
     wt = cnt[(cnt.tool == tool) & (cnt.condition == "WT")].iloc[0]
     ivt = cnt[(cnt.tool == tool) & (cnt.condition == "IVT")].iloc[0]
     c = ci[ci.tool == tool].iloc[0]
-    rows.append([disp[tool], ivt.mod_type, int(wt.union_raw), int(ivt.union_raw),
-                 round(ivt.union_raw / wt.union_raw, 4),
-                 round(c.ratio_mean_counts, 3), round(c.ci_lo, 3), round(c.ci_hi, 3)])
+    m = mat[mat.tool == tool].iloc[0]
+    rows.append([disp[tool], ivt.mod_type,
+                 f"{wt.count_mean_in_universe:.0f} ({wt.count_sd_in_universe:.0f})",
+                 f"{ivt.count_mean_in_universe:.0f} ({ivt.count_sd_in_universe:.0f})",
+                 f"{c.ratio_mean_counts:.3f} ({c.ci_lo:.3f}-{c.ci_hi:.3f})",
+                 f"{m.band_matched_rate_ratio:.3f} ({m.boot_matched_ci_lo:.3f}-{m.boot_matched_ci_hi:.3f})",
+                 int(wt.union_raw), int(ivt.union_raw)])
 write_table(
     "TableS5_non_m6a",
     "Table S5: Non-m6A calls in HeLa and the unmodified-IVT-to-WT ratio.",
-    ["Tool", "Modification", "WT union", "Unmodified IVT union", "IVT/WT ratio (unions)",
-     "Mean-of-counts ratio", "95% CI low", "95% CI high"],
+    ["Tool", "Modification", "WT calls per unit, mean (SD)",
+     "Unmodified IVT calls per unit, mean (SD)", "Mean-of-counts ratio (95% CI)",
+     "Coverage-matched IVT/WT ratio (95% CI)", "WT union, reference only",
+     "Unmodified IVT union, reference only"],
     rows,
-    "Unions over the three independent HeLa replicates of each condition; WT = wild type, "
-    "unmodified IVT = negative control (not a treatment arm). The 95% CI is the unit-level "
-    "percentile bootstrap (B = 1000, seeds 20260920/20260921) of the mean-of-counts ratio. "
-    "CHEUI-m5C uses the corrected call set (coordinate fix and reference-base filter, "
-    "2026-09-18): the union of 48,627 WT calls quoted in the original submission predates that "
-    "correction; its IVT/WT union ratio is 1.0717 and its mean-of-counts ratio 1.081. Values "
-    "for the other tools are unchanged with respect to the published table. The per-unit counts "
-    "and ratio intervals are deposited in the machine-readable tables that accompany the source "
-    "code, reconciled row by row against the frozen evidence set behind this table.",
+    "Counts are means (SD) over the three independent HeLa sequencing units of each "
+    "condition, inside the candidate-site set, and are the primary measure. The "
+    "mean-of-counts ratio is the unmodified-IVT-to-WT ratio of those unit means with its "
+    "unit-level percentile bootstrap 95% CI (B = 1000, seeds 20260920/20260921). The "
+    "coverage-matched ratio compares calls from candidate sites within matched coverage "
+    "strata, which removes the difference in coverage composition between the two "
+    "libraries. The raw unions of the three replicates are listed for reference only and "
+    "must not be read as replicate-level quantities. WT = wild type, unmodified IVT = "
+    "negative control (not a treatment arm). CHEUI-m5C uses the corrected call set "
+    "(coordinate fix and reference-base filter, 2026-09-18): the union of 48,627 WT calls "
+    "quoted in the original submission predates that correction. Values for the other "
+    "tools are unchanged with respect to the published table. The per-unit counts and "
+    "ratio intervals are deposited in the machine-readable tables that accompany the "
+    "source code, reconciled row by row against the frozen evidence set behind this table.",
 )
 
 # ---------------------------------------------- S6 per-tool implementation table
 na4 = pd.read_csv((_RB / "analysis/supp_table_inputs/per_tool_implementation.csv"))
 rows = []
+dropped_s6: list[str] = []
 for r in na4.itertuples():
+    if not in_scope(r.tool_display or r.tool):
+        dropped_s6.append(str(r.tool_display or r.tool))
+        continue
     rows.append([
-        clip(r.tool_display or r.tool, 40),
-        clip(r.software_or_version, 130),
-        clip(r.required_input, 60),
-        clip(r.min_read_coverage, 80),
-        clip(r.calling_threshold, 80),
-        clip(r.multiple_testing_correction, 60),
-        clip(r.default_vs_optimised, 40),
-        clip(r.coordinate_harmonisation, 40),
+        cell(r.tool_display or r.tool),
+        cell(r.software_or_version),
+        
+        #: table reports the model/checkpoint and the filtering parameters of every
+        #: tool, and the reviewer asked for the exact configuration -- so the two
+        #: columns are printed, not left to the deposited table
+        cell(r.model_checkpoint),
+        cell(r.required_input),
+        cell(r.min_read_coverage),
+        cell(r.filtering_parameters),
+        cell(r.calling_threshold),
+        cell(r.multiple_testing_correction),
+        cell(r.default_vs_optimised),
+        cell(r.coordinate_harmonisation),
     ])
 write_table(
     "TableS6_per_tool_implementation",
-    "Table S6: Per-tool implementation details (software, input, coverage floor, thresholds, "
-    "multiple-testing correction, coordinate harmonisation).",
-    ["Tool", "Software / version", "Required input", "Minimum read coverage",
-     "Calling threshold", "Multiple-testing correction", "Default or optimised",
+    "Table S6: Per-tool implementation details (software, model, input, coverage floor, "
+    "filtering, thresholds, multiple-testing correction, coordinate harmonisation).",
+    ["Tool", "Software / version", "Model / checkpoint", "Required input",
+     "Minimum read coverage", "Filtering parameters", "Calling threshold",
+     "Multiple-testing correction", "Default or optimised",
      "Coordinate harmonisation"],
     rows,
-    "Generated from the artifacts of this benchmark and from the tool documentation; every curated "
-    "cell is marked in the evidence column of the machine-readable table deposited with the source "
-    "code, which carries the full text without clipping. The RNA004 Dorado models and the "
-    "RNA004-optimised m6Anet model are included.",
+    "One row per tool and configuration used in this study (13 m6A configurations, the non-m6A "
+    "tools of the modification panels, and the RNA004 built-in modification models); callsets "
+    "that exist in the working tree but are outside the study are not part of the manuscript and "
+    "are not listed. Generated from the artifacts of this benchmark and from the tool "
+    "documentation; every cell is printed in full and every curated cell is marked in the "
+    "evidence column of the machine-readable table deposited with the source code.",
 )
+
+#: gate -- the table carries the study's tools and nothing else
+_printed_s6 = [r[0] for r in rows]
+assert sorted(dropped_s6) == ["Tombo", "differr", "mAFiA"], dropped_s6
+
+#: a reader who opens the machine-readable copy meets the tools the paper never
+#: used.  The filtered rows are written as a CSV beside the printed TSV.
+with ((_RB / "tables/tables/TableS6_per_tool_implementation.csv")).open("w", encoding="utf-8",
+                                                         newline="") as _fh:
+    _w = csv.writer(_fh, quoting=csv.QUOTE_MINIMAL)
+    _w.writerow(["Tool", "Software / version", "Model / checkpoint", "Required input",
+                 "Minimum read coverage", "Filtering parameters", "Calling threshold",
+                 "Multiple-testing correction", "Default or optimised",
+                 "Coordinate harmonisation"])
+    _w.writerows(rows)
+for _name in ("CHEUI_m6A", "DENA", "DRUMMER", "ELIGOS2_diff", "ELIGOS2_solo",
+              "EpiNano_Error", "m6Anet", "MINES", "Nanocompore", "Nanom6A",
+              "NanoSPA", "xPore", "Yanocomp", "NanoMUD", "NanoNm", "NanoPsu",
+              "Dorado (RNA004 modification models)"):
+    assert _name in _printed_s6, f"S6 lost {_name}"
+assert len(_printed_s6) == 17, _printed_s6
+for _bad in ("Tombo", "differr", "mAFiA", "CHEUI-diff", "Epinano_SVM"):
+    assert _bad not in _printed_s6, f"S6 still lists {_bad}"
+
+#: and no cell may point the reader below to a row that the scope filter removed
+_blob_s6 = "\n".join(c for r in rows for c in r)
+for _gone in ("CHEUI-diff", "CHEUI-solo", "see below"):
+    assert _gone not in _blob_s6, f"S6 cell still says {_gone!r}"
 
 # --------------------------------------------- S7 chemistry / inclusion matrix
 # 2026-09-26: the "no / no" rows used to read "not run - BAM-based, applicable", which
@@ -288,7 +415,16 @@ OUT_OF_SCOPE_CLASS = "outside the scope of this study: output generated but not 
 
 
 def _s7_class(status: str, reason: str, used_002: bool) -> tuple[str, str]:
-    """(status, failure/exclusion class) for one compatibility-matrix row."""
+    """(status, failure/exclusion class) for one compatibility-matrix row.
+
+    2026-09-28 (user): the ``used_002`` fallback used to answer "basecalling
+    model" whenever none of the patterns matched, so MINES and Yanocomp -- whose
+    recorded reason is "Tombo resquiggle not available for RNA004" -- came out as
+    model-limited while their own Input class column says raw signal, and while
+    the Results section lists them among the six tools that need a resquiggle.
+    The resquiggle reason now maps to the input-format class, and the fallback
+    stays only for a genuinely unmatched reason.
+    """
     s, r = str(status).lower(), str(reason).lower()
     if s == "included":
         return "included in the RNA004 benchmark", ""
@@ -296,7 +432,7 @@ def _s7_class(status: str, reason: str, used_002: bool) -> tuple[str, str]:
         return "not applied to RNA004", TRAINED_MODEL_CLASS
     if "resquiggle unsupported" in r or "not maintained" in r:
         return "not applied to RNA004", MAINTENANCE_CLASS
-    if "signal model" in r or "same as above" in r:
+    if "resquiggle" in r or "signal model" in r or "same as above" in r:
         return "not applied to RNA004", SIGNAL_MODEL_CLASS
     if used_002:
         # benchmarked on RNA002; the BAM-based caller itself would run, but its
@@ -312,14 +448,21 @@ RNA002_OVERRIDE = {"EpiNano_Error": True}
 
 na5 = pd.read_csv((_RB / "analysis/supp_table_inputs/chemistry_compatibility.csv"))
 rows = []
+dropped_s7: list[str] = []
 for r in na5.itertuples():
+    if not in_scope(r.tool_display or r.tool):
+        dropped_s7.append(str(r.tool_display or r.tool))
+        continue
     ran_002 = (str(r.ran_on_RNA002).lower() == "true"
                or RNA002_OVERRIDE.get(str(r.tool_display), False))
     used_002 = "yes" if ran_002 else "no"
     used_004 = "yes" if str(r.ran_on_RNA004).lower() == "true" else "no"
     status, cls = _s7_class(r.status_RNA004, r.reason_if_excluded, ran_002)
-    rows.append([clip(r.tool_display or r.tool, 36), clip(r.input_class, 46),
-                 used_002, used_004, status, clip(cls, 150)])
+    rows.append([cell(r.tool_display or r.tool), cell(r.input_class),
+                 used_002, used_004, status, cell(cls)])
+
+#: study's tool be applied to the new chemistry", so a tool the study never used
+#: has no row here; the response letter promises the matrix for the 15 tools.
 write_table(
     "TableS7_chemistry_matrix",
     "Table S7: Applicability of each tool to the RNA002 and RNA004 chemistries, with the "
@@ -327,14 +470,41 @@ write_table(
     ["Tool", "Input class", "Used on RNA002", "Used on RNA004", "Status",
      "Failure or exclusion class"],
     rows,
-    "Presence on a chemistry is read from the file system (call directories per tool and sample), "
-    "not from memory. Input classes: raw-signal (FAST5 plus a nanopolish/Tombo resquiggle) and "
-    "basecalled (BAM/FASTQ) callers; RNA004 native output is POD5 and Dorado BAM with 9-mer "
-    "models, so RNA002 signal models cannot be produced for it. Failure and exclusion classes: "
-    "input format (raw signal not producible from RNA004 data), basecalling model (RNA002-trained "
-    "model, no RNA004 checkpoint evaluated), software maintenance (resquiggle not maintained for "
-    "the new chemistry), and outside the scope of this study (output generated but not used).",
+    "One row per tool and configuration used in this study. Presence on a chemistry is read from "
+    "the file system (call directories per tool and sample), not from memory. Input classes: "
+    "raw-signal (FAST5 plus a nanopolish/Tombo resquiggle) and basecalled (BAM/FASTQ) callers; "
+    "RNA004 native output is POD5 and Dorado BAM with 9-mer models, so RNA002 signal models cannot "
+    "be produced for it. Failure and exclusion classes: input format (raw signal not producible "
+    "from RNA004 data), basecalling model (RNA002-trained model, no RNA004 checkpoint evaluated), "
+    "software maintenance (resquiggle not maintained for the new chemistry), and outside the scope "
+    "of this study (output generated but not used).",
 )
+
+#: gate -- the table carries the study's tools and nothing else
+_printed_s7 = [r[0] for r in rows]
+assert sorted(dropped_s7) == ["CHEUI-diff", "Epinano_SVM", "Tombo",
+                             "Tombo (comparative)", "differr", "mAFiA"], dropped_s7
+#: the deposited input of this table, same rows as the printed one (see S6)
+with ((_RB / "tables/tables/TableS7_chemistry_matrix.csv")).open("w", encoding="utf-8",
+                                                 newline="") as _fh:
+    _w = csv.writer(_fh, quoting=csv.QUOTE_MINIMAL)
+    _w.writerow(["Tool", "Input class", "Used on RNA002", "Used on RNA004",
+                 "Status", "Failure or exclusion class"])
+    _w.writerows(rows)
+assert len(_printed_s7) == 16, _printed_s7
+for _bad in ("Tombo", "differr", "mAFiA", "CHEUI-diff", "Epinano_SVM",
+             "Tombo (comparative)"):
+    assert _bad not in _printed_s7, f"S7 still lists {_bad}"
+
+#: story -- a raw-signal tool cannot be excluded for a basecalling model, and a
+#: tool that was not applied to RNA004 must carry a class at all.
+for _tool, _inp, _u002, _u004, _status, _cls in rows:
+    if _inp.startswith("raw-signal"):
+        assert _cls != TRAINED_MODEL_CLASS, f"{_tool}: raw-signal tool with a model class"
+    else:
+        assert _cls != SIGNAL_MODEL_CLASS, f"{_tool}: basecalled tool with an input-format class"
+    if _u004 == "no":
+        assert _cls, f"{_tool}: excluded from RNA004 without a failure/exclusion class"
 
 # ------------------------------------------- S8 GLORI-to-nanopore matching table
 write_table(
@@ -404,18 +574,48 @@ write_table(
 )
 
 index = [
-    ["S1", "Tools benchmarked (classification, algorithms, targets)", "curated + Table S6"],
-    ["S2", "HeLa per-unit m6A calls, mean/SD/CV", "figure1b_replicates/tables/tool_counts_group_summary.tsv"],
-    ["S3", "Wild-type vs deficient calls on the shared testable universe", "figures/figure2/tables/fig2a_testable_ratio.tsv"],
-    ["S4", "Top-5 5-mer motifs per tool and species", "figures/figureS2/analysis/figS2_top5_full.tsv"],
-    ["S5", "Non-m6A calls and IVT/WT ratios", "figures/figureS7/tables/s6_counts_summary.tsv + s6_ratio_ci.tsv"],
-    ["S6", "Per-tool implementation details (E4 / R1-5)", "analysis/supp_table_inputs/per_tool_implementation.csv"],
-    ["S7", "Chemistry applicability and inclusion matrix (R3-10 / R1-6)", "analysis/supp_table_inputs/chemistry_compatibility.csv"],
-    ["S8", "GLORI reference vs matched nanopore dataset (E1 / R1-1)", "curated from the cited accessions"],
-    ["S9", "Evaluation boundary per modification type (R2-2 / R3-9)", "curated from the delivered figure scope"],
+    
+    #: neither the reviewer-point tags of the revision (E4 / R1-5, R3-10 / R1-6,
+    #: ...) nor the pre-deposit working paths (superseded_output/, fig*_revision/).
+    #: It also stopped at S9 while the delivered SI has twelve tables, so every
+    #: row now names the released file a reader can open.  The gate below fails
+    #: if a tag or a working path ever comes back.
+    ["S1", "Modification detection tools benchmarked in this study",
+     "tables/tables/TableS1_tools.tsv"],
+    ["S2", "HeLa m6A calls per independent sequencing unit",
+     "tables/tables/TableS2_hela_replicates.tsv"],
+    ["S3", "Wild-type vs deficient calls on the shared testable universe",
+     "tables/tables/TableS3_shared_universe_ratio.tsv"],
+    ["S4", "Five most frequent 5-mer motifs per tool and species",
+     "tables/tables/TableS4_top5_motifs.tsv"],
+    ["S5", "Non-m6A calls and IVT/WT ratios",
+     "tables/tables/TableS5_non_m6a.tsv"],
+    ["S6", "Per-tool implementation details",
+     "tables/tables/TableS6_per_tool_implementation.tsv; "
+     "analysis/supp_table_inputs/per_tool_implementation.csv"],
+    ["S7", "Chemistry applicability matrix",
+     "tables/tables/TableS7_chemistry_matrix.tsv; "
+     "analysis/supp_table_inputs/chemistry_compatibility.csv"],
+    ["S8", "GLORI reference vs matched nanopore dataset",
+     "tables/tables/TableS8_glori_matching.tsv"],
+    ["S9", "Evaluation boundary per modification type",
+     "tables/tables/TableS9_evaluation_boundary.tsv"],
+    ["S10", "Datasets and replicate structure",
+     "tables/tables/TableS10_datasets.tsv"],
+    ["S11", "Tool nomenclature used throughout the manuscript",
+     "tables/tables/TableS11_nomenclature.tsv"],
+    ["S12", "Sensitivity of the site-level ranking to coverage and to the "
+     "reference composition",
+     "tables/tables/TableS12_coverage_rank_stability.tsv; "
+     "analysis/coverage_rank_stability/"],
 ]
+_index_blob = "\n".join("\t".join(r) for r in index)
+for _tag in ("R1-", "R2-", "R3-", "E1 /", "E4 /", "superseded_output", "figures/figure2",
+             "figures/figureS2", "figures/figureS7", "figure1b_replicates", "curated"):
+    assert _tag not in _index_blob, f"internal trace in the table index: {_tag}"
+assert len(index) == 12, len(index)
 with ((_RB / "tables/tables/_index.tsv")).open("w") as fh:
-    fh.write("# Supplementary table index (2026-09-21)\n")
+    fh.write("# Supplementary table index\n")
     fh.write("table\tcontent\tsource\n")
     for r in index:
         fh.write("\t".join(r) + "\n")

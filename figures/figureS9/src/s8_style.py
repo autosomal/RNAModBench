@@ -62,71 +62,74 @@ SRC_TABLES = (_RB / "figures/figureS9/tables/source")
 # --------------------------------------------------------------------------- #
 # page geometry (inches)
 # --------------------------------------------------------------------------- #
-PAGE_IN = (842.4 / 72.0, 595.44 / 72.0)         # A4 landscape (2026-09-25 layout)
+PAGE_IN = (842.4 / 72.0, 595.44 / 72.0)         # A4 landscape (restored layout)
 
 M_LEFT = M_RIGHT = 0.100
 M_TOP = M_BOTTOM = 0.100
-GUT_H = 0.140                                   # between the two columns
-GUT_V = 0.140                                   # between the rows
+GUT_H = 0.060                                   # between the three columns
+GUT_V = 0.060                                   # between the three rows
 
-N_COL = 3                                       # row 1 carries A | B | C
+N_COL = 3
 W_FULL = PAGE_IN[0] - M_LEFT - M_RIGHT          # 11.500 (landscape)
 COL_W = (W_FULL - (N_COL - 1) * GUT_H) / N_COL  # 3.740
 ROW1_W = (COL_W, COL_W, COL_W)
 
 
-#: (D, E) on the second row and the effect sizes are two facets (F, G) on the
-#: third, each facet with its own panel letter and the key on the right.  Row 1
-#: shrank to the 23-entry count matrix it has to hold (23 rows at an 8.4 pt
-#: pitch) and the freed height went into the two lower rows, which is what makes
-#: the four facets read as panels instead of letterbox strips.
-#: 3.600 + 2.100 + 2.090 + 2 * 0.140 = 8.070 = page height minus the margins.
-ROW_H = {"r1": 3.600, "r2": 2.100, "r3": 2.090}
+#: three rows** (A | B | C, then D | E | H, then F | G | I).  The first row is
+#: taller (3.600 in) because the 23-entry count matrix of A needs the height; the
+#: two lower rows are 2.095 in.  Every panel draws its data in a **square box** of
+#: the same side (BOX_SIDE_IN) on the same bottom offset, so the eight small
+#: panels line up row by row on one horizontal plane; A keeps a rectangular box,
+#: because a square of that side cannot hold its 23 rows.
+#: 3.600 + 2.095 + 2.095 + 2 * 0.140 = 8.070 = page height minus the margins.
+ROW_H = {"r1": 3.480, "r2": 2.235, "r3": 2.235}
 
 _X_L = M_LEFT
-_X_M = M_LEFT + ROW1_W[0] + GUT_H
-_X_R = _X_M + ROW1_W[1] + GUT_H
+_X_M = M_LEFT + COL_W + GUT_H
+_X_R = _X_M + COL_W + GUT_H
 _Y_R3 = M_BOTTOM
 _Y_R2 = _Y_R3 + ROW_H["r3"] + GUT_V
 _Y_R1 = _Y_R2 + ROW_H["r2"] + GUT_V
 
-
-#: facet gets its own canvas and its own letter -- row 2 carries D | E (the
-#: window sweep: PPV, exact fraction) and row 3 carries F | G (the effect sizes:
-#: Pearson r, slope).  The right-hand canvas of each row also carries the key.
-ROW2_W = {"D": 3.95, "E": W_FULL - 3.95}
-ROW3_W = {"F": 4.90, "G": W_FULL - 4.90}
-
 #: panel -> (width, height) of its own canvas, in inches (print size)
 PIECE = {
-    "A": (ROW1_W[0], ROW_H["r1"]), "B": (ROW1_W[1], ROW_H["r1"]),
-    "C": (ROW1_W[2], ROW_H["r1"]),
-    "D": (ROW2_W["D"], ROW_H["r2"]), "E": (ROW2_W["E"], ROW_H["r2"]),
-    "F": (ROW3_W["F"], ROW_H["r3"]), "G": (ROW3_W["G"], ROW_H["r3"]),
+    "A": (COL_W, ROW_H["r1"]), "B": (COL_W, ROW_H["r1"]),
+    "C": (COL_W, ROW_H["r1"]),
+    "D": (COL_W, ROW_H["r2"]), "E": (COL_W, ROW_H["r2"]),
+    "H": (COL_W, ROW_H["r2"]),
+    "F": (COL_W, ROW_H["r3"]), "G": (COL_W, ROW_H["r3"]),
+    "I": (COL_W, ROW_H["r3"]),
 }
 
 #: panel -> lower-left corner on the composed page, in inches
 PLACE = {
     "A": (_X_L, _Y_R1), "B": (_X_M, _Y_R1), "C": (_X_R, _Y_R1),
-    "D": (M_LEFT, _Y_R2), "E": (M_LEFT + ROW2_W["D"], _Y_R2),
-    "F": (M_LEFT, _Y_R3), "G": (M_LEFT + ROW3_W["F"], _Y_R3),
+    "D": (_X_L, _Y_R2), "E": (_X_M, _Y_R2), "H": (_X_R, _Y_R2),
+    "F": (_X_L, _Y_R3), "G": (_X_M, _Y_R3), "I": (_X_R, _Y_R3),
 }
 
 # --------------------------------------------------------------------------- #
 # type scale (points, printed 1:1); hard floor 7 pt (the layout gate enforces it)
 # --------------------------------------------------------------------------- #
 FS = {
-    "tick": 10.5,       # ticks of the wide axes (window sweep, effect size)
-    "tick_sm": 9.5,     # ticks of the narrow blocks (counts, false-positive rate)
-    "tick_xs": 9.0,     # ticks of the specificity axis
-    "axis": 12.5,       # axis titles
-    "axis_sm": 11.0,    # axis titles of the narrow blocks
-    "row": 8.0,         # row labels (landscape rows are shallow: the 23-row
-    "row_a": 8.0,       # matrix of A would else collide; floor is 7 pt)
-    "legend": 10.5,
+    "tick": 9.5,
+    "tick_sm": 9.5,
+    "tick_xs": 9.0,
+    "axis": 10.5,
+    "axis_sm": 10.5,
+
+    #: longest model name sets -- so A prints its 23 names at the 7 pt floor
+    "row": 8.0,
+    "level": 8.0,      
+    "row_a": 8.0,
+    "legend": 9.0,
     "letter": 24.0,
     "title": 10.5,
     "stripe": 9.0,
+    #: 2026-09-27: the thirteen-entry sweep key has its own cell (J) and the
+    #: species key of the stability cells its own (K)
+    "key": 8.0,
+    "key_sm": 8.0,
 }
 MIN_PT = 7.0
 
@@ -182,15 +185,66 @@ def apply() -> None:
 
 
 def bare(ax: plt.Axes) -> None:
-    """House axis furniture: no top/right spine, ticks out, no minor ticks."""
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    for side in ("left", "bottom"):
+    """House axis furniture: a closed box frame, ticks out, no minor ticks.
+
+ 2026-09-27 (user): every panel is a **boxed square** (""),
+    so the top and right spines stay visible -- the earlier landscape layout kept
+    them off.
+    """
+    for side in ("top", "right", "left", "bottom"):
+        ax.spines[side].set_visible(True)
         ax.spines[side].set_linewidth(AXIS_LW)
     ax.tick_params(direction="out", length=2.4, width=0.8, pad=3.6)
     ax.set_axisbelow(True)
     ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
     ax.yaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+
+
+
+#: all sit on this bottom offset, so a row of panels reads as one horizontal line.
+#: The six cells of rows 2 and 3 draw the same square and leave the same strip
+#: under it, because **a key prints under the panel it belongs to** (user rule):
+#: H and I carry the species key, G the effect key, each one line under its own
+#: box, inside its own canvas -- never above the box and never in a neighbour's
+#: free space.  The strip has room for ticks + rotated-nothing axis title + one
+#: key line: 0.580 (bottom offset) - 0.37 (furniture) - 0.17 (key) > 0.
+
+#: is 3.740 in wide and 2.095 in (rows 2 and 3) or 3.600 in (row 1) tall; the box
+#: runs from the panel's label column to the cell's right margin and from the
+#: bottom offset up to a fixed pad under the cell top, so the nine boxes share
+#: their right edge and their row-wise top and bottom lines.  A *square* box in a
+#: 3.740 x 2.095 cell can never fill it -- it leaves ~2.4 in of white on the right,
+#: which is what the squares of the first draft looked like.  The strip under a
+#: lower box (0.520 in) carries the x tick labels, the x title and, where the
+#: panel has one, **its own key** (H and I species, G effect, E the sweep key).
+BOX_BOTTOM_IN = 0.700            
+                               # under the box drops from 0.72 in to 0.28 in, so the box fills its cell and the
+                               # white band between two rows shrinks from ~0.94 in to ~0.50 in
+BOX_TOP_PAD_IN = 0.075
+BOX_H_LOW_IN = 1.460              # the six cells of rows 2 and 3 (= 2.195 - 0.280 - 0.075)
+ROW1_BOX_BOTTOM_IN = 0.414        # row 1: the 23-row matrix of A sets the band,
+ROW1_BOX_H_IN = 2.620             # and C's second (FP-rate) axis caps it: its
+                                  # ticks and title need 0.33 in above the box
+BOX_SIDE_A_IN = 3.420
+
+#: canvas y (inches) of the lower edge of a key printed under a panel
+KEY_BOTTOM_IN = 0.020
+
+
+def cell_rect(fig: plt.Figure, left_in: float, *, height_in: float,
+              bottom_in: float = BOX_BOTTOM_IN,
+              top_pad_in: float = BOX_TOP_PAD_IN,
+              right_in: float = 0.060) -> list[float]:
+    """The plotting area of a cell-filling panel, in figure fractions.
+
+    It runs from ``left_in`` (the end of the label column) to the canvas' right
+    margin and from ``bottom_in`` to ``top_pad_in`` under the canvas top, clamped
+    to the canvas so a box can never leave it.
+    """
+    win, hin = fig.get_figwidth(), fig.get_figheight()
+    width = max(win - left_in - right_in, 0.4)
+    height = min(height_in, hin - bottom_in - top_pad_in)
+    return [left_in / win, bottom_in / hin, width / win, height / hin]
 
 
 def letter(fig: plt.Figure, key: str, x: float = 0.006) -> None:

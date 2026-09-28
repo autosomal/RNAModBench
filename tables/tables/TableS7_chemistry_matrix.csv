@@ -1,0 +1,17 @@
+Tool,Input class,Used on RNA002,Used on RNA004,Status,Failure or exclusion class
+CHEUI_m6A,raw-signal (nanopolish eventalign),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+DENA,raw-signal (nanopolish eventalign),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+DRUMMER,raw-signal (Tombo resquiggle),yes,yes,included in the RNA004 benchmark,
+ELIGOS2_diff,raw-signal (Tombo resquiggle),yes,yes,included in the RNA004 benchmark,
+ELIGOS2_solo,raw-signal (Tombo resquiggle),yes,yes,included in the RNA004 benchmark,
+EpiNano_Error,basecalled (BAM/FASTQ),yes,no,not applied to RNA004,basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
+m6Anet,raw-signal (eventalign) / RNA004 BAM model,yes,yes,included in the RNA004 benchmark,
+MINES,raw-signal (Tombo resquiggle),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+Nanocompore,raw-signal (eventalign),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+Nanom6A,basecalled (BAM),yes,no,not applied to RNA004,basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
+NanoMUD,basecalled (BAM),yes,no,not applied to RNA004,basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
+NanoNm,basecalled (BAM),yes,no,not applied to RNA004,basecalling model: released model trained on RNA002 features; no RNA004 checkpoint evaluated in this study
+NanoPsu,basecalled (FASTQ/BAM),yes,yes,included in the RNA004 benchmark,
+NanoSPA,basecalled (FASTQ/BAM),yes,yes,included in the RNA004 benchmark,
+xPore,raw-signal (eventalign),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data
+Yanocomp,raw-signal (Tombo resquiggle),yes,no,not applied to RNA004,input format: raw signal (a nanopolish/f5c eventalign or Tombo resquiggle) cannot be produced from RNA004 data

@@ -1,22 +1,22 @@
 # Table S11: Tool nomenclature used throughout the manuscript, figures and Supporting Information.
 Standardized name	Tool	Configuration evaluated	Software version / model
-xPore	xPore	comparative (WT vs control)	setup.py version 'v2.1' vs package __version__ "2.0"
-Nanom6A	Nanom6A	de novo	Nanom6A release "nanom6A_2022_12_23" (vendored copy dir named nanom6A_2
-ELIGOS2_solo	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	not recorded
-ELIGOS2_diff	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	not recorded
-DRUMMER	DRUMMER	comparative (WT vs control)	Env `DRUMMER`: python 3.11.9, scipy 1.14.0, pandas 2.2.2, numpy 1.26.0,
-Nanocompore	Nanocompore	comparative (WT vs control)	1.0.4
-EpiNano_Error	EpiNano_Error		1.2.0 vs 1.2.4 DiffErr.R differ by exactly one line | Epinan
-m6Anet	m6Anet	de novo (RNA002 and RNA004-optimised models)	Env: python 3.7/3.8 pinned by setup.py, torch==1.6.0
-MINES	MINES	de novo	MINES: no version string in repo
-DENA	DENA	de novo	DENA_3.3
-Yanocomp	Yanocomp	de novo	0.2
 CHEUI_m6A	CHEUI	CHEUI_m6A, CHEUI_m5C	not recorded
+DENA	DENA	de novo	DENA 3.3
+DRUMMER	DRUMMER	comparative (WT vs control)	DRUMMER 1.0, commit 6683822 (2022-07-08)
+ELIGOS2_diff	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	not recorded
+ELIGOS2_solo	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	not recorded
+EpiNano_Error	EpiNano_Error		Epinano 1.2.4 for every Epinano_DiffErr.R call
+m6Anet	m6Anet	de novo (RNA002 and RNA004-optimised models)	m6Anet 2.1.0
+MINES	MINES	de novo	MINES, no version string and no git metadata (commit not recorded)
+Nanocompore	Nanocompore	comparative (WT vs control)	Nanocompore 1.0.4
+Nanom6A	Nanom6A	de novo	Nanom6A release nanom6A_2022_12_23 (release directory nanom6A_2022_12_2
+NanoSPA_m6A	NanoSPA	NanoSPA_m6A, NanoSPA_Psi	NanoSPA 1.0
+xPore	xPore	comparative (WT vs control)	xPore 2.0 (the release also carries a 2.1 version string)
+Yanocomp	Yanocomp	de novo	Yanocomp 0.2
+NanoPsu	NanoPsu	de novo	NanoPsu 1.0
+NanoSPA_Psi	NanoSPA	NanoSPA_m6A, NanoSPA_Psi	NanoSPA 1.0
+NanoMUD_Psi	NanoMUD	NanoMUD_Psi, NanoMUD_m1Psi	NanoMUD, git commit d906c52 (2024-04-15)
 CHEUI_m5C	CHEUI	CHEUI_m6A, CHEUI_m5C	not recorded
-NanoSPA_m6A	NanoSPA	NanoSPA_m6A, NanoSPA_Psi	NanoSPA 1.0 (setup.py + PKG-INFO + bin/nanospa __version__="1.0")
-NanoSPA_Psi	NanoSPA	NanoSPA_m6A, NanoSPA_Psi	NanoSPA 1.0 (setup.py + PKG-INFO + bin/nanospa __version__="1.0")
-NanoMUD_Psi	NanoMUD	NanoMUD_Psi, NanoMUD_m1Psi	git HEAD (vendored tree, .git_disabled) = d906c5221b09854a70603d5e3b92e
-NanoMUD_m1Psi	NanoMUD	NanoMUD_Psi, NanoMUD_m1Psi	git HEAD (vendored tree, .git_disabled) = d906c5221b09854a70603d5e3b92e
-NanoPsu	NanoPsu	de novo	NanoPsu 1.0 (setup.py version="1.0", bin/nanopsu __version__="1.0")
-NanoNm	NanoNm	de novo	NanoNm 1.0.0 (README title) derived from Nanom6A (Gao et al. 2021)
+NanoNm	NanoNm	de novo	NanoNm 1.0.0, derived from Nanom6A (Gao et al. 2021)
+NanoMUD_m1Psi	NanoMUD	NanoMUD_Psi, NanoMUD_m1Psi	NanoMUD, git commit d906c52 (2024-04-15)
 # note: names are standardized as in the manuscript; the reference for every tool is given in the numbered reference list of the manuscript. Technical parameters and the coordinate harmonisation are in Table S6.

@@ -11,9 +11,10 @@ Verifies, without touching the network:
    recorded site count equals the file's row count;
 5. the callset layout is the documented ``<platform>/<species>/<group>/<mod>/<tool>/
    <sample>.tsv``;
-6. the figure tree is complete as documented: 8 main and 10 supplementary
-   directories, each named in ``docs/figure_index.md``, and every script path the
-   index names exists;
+6. the figure tree is laid out as documented: 8 main and 10 supplementary
+   directories, each named in ``docs/figure_index.md``, each holding its own code in
+   ``src/``, and no figure script left behind in the callset pipeline directory;
+   every script path the index names exists;
 7. writes ``metadata/deposited_files.sha256``.
 
 Exit status is non-zero when a check fails.
@@ -161,6 +162,15 @@ def check_figure_index() -> None:
                     if d.name not in text]
     note(not undocumented, "every figure directory is named in figure_index.md"
          + ("" if not undocumented else f"; missing: {undocumented[:6]}"))
+    # one home per figure: its code sits in the figure's own directory
+    no_code = [d.relative_to(ROOT).as_posix() for d in dirs
+               if not list((d / "src").glob("*"))]
+    note(not no_code, "every figure directory holds its own code in src/"
+         + ("" if not no_code else f"; empty: {no_code[:6]}"))
+    stray = sorted(p.name for p in (ROOT / "src" / "harmonisation" / "scripts").glob("*")
+                   if re.search(r"_figS?\d", p.name))
+    note(not stray, "no figure script is left in the callset pipeline directory"
+         + ("" if not stray else f"; stray: {stray[:6]}"))
 
 
 def write_hashes() -> None:

@@ -85,26 +85,32 @@ its spread across units is the widest of the six tools -- its nine unit-pair
 AUCs run from 0.00004 to 0.552 (mean 0.166) against 0.50-0.56 for every other
 tool.
 The reproducibility half of the same critique is quantitative as well: 97.2 % of
-the 46,198 in-universe sites of the CHEUI-m5C WT union are supported by a single
-unit (unmodified IVT 97.6 %; the other five tools 56-88 %,
-`../tables/s6_replicate_support.tsv`). Numbers behind this panel: medians and
+the 46,198 in-universe sites of the pooled CHEUI-m5C WT set are supported by a
+single unit (unmodified IVT 97.6 %; the other five tools 56-88 %,
+`../tables/s6_replicate_support.tsv`; the pooled set serves to describe this
+structure only and is not a replicate-level quantity). Numbers behind this panel: medians and
 quartiles in `s6_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
 and KS statistics in `s6_score_separation.tsv`, per-unit score densities
 (not plotted) in `s6_score_density_per_unit.tsv`.
 
 **(D)** HeLa calls per independent unit (dots, log axis: blue filled = WT, orange
 open = unmodified IVT) with the union of the three units of each condition
-(dashed lines, each drawn on its own condition's half of the tool slot), and,
+(dashed lines, each drawn on its own condition's half of the tool slot, shown for
+reference only), and,
 below, the ratio of calls on
 the unmodified IVT libraries to calls on WT (linear axis, reference line at one --
 one means as many calls on unmodified RNA as on WT). Circles with whiskers are
 the mean-of-counts ratio with its unit-level percentile bootstrap 95 % confidence
-interval (B = 1000, seed = 20260920); diamonds are the ratio of the condition
-unions, the quantity tabulated in Table S5. Those two marks of the ratio strip
-are defined here rather than by an in-figure key: the compressed strip leaves no
-empty corner for a legend. NanoPsu and NanoSPA-Ψ report 883 and
-888 calls in the WT union (0.77 and 0.78 of that number on the unmodified
-control), whereas CHEUI-m5C reports 47,747 and 51,171 (ratio 1.07). CHEUI-m5C's
+interval (B = 1000, seed = 20260920); the coverage-matched ratio, computed inside
+matched coverage strata, is tabulated in Table S5 and is the quantity the text
+reports. The mark of the ratio strip
+is defined here rather than by an in-figure key: the compressed strip leaves no
+empty corner for a legend. NanoPsu and NanoSPA-Ψ report 201 ± 77 and
+204 ± 81 calls per unit in WT (coverage-matched IVT/WT ratios 0.71 and 0.72,
+95 % CI 0.64-0.79 in both), whereas CHEUI-m5C reports 15,845 ± 3,827 calls per
+unit in WT and 17,129 ± 7,910 on the unmodified control (coverage-matched ratio
+0.79, 95 % CI 0.49-1.14; the raw unions of the three replicates, 47,747 and
+51,171, are listed in Table S5 for reference only). CHEUI-m5C's
 union departs from the published Table S5 value (48,627) because that value
 predates the coordinate correction and the reference-base filter of the call set;
 five of the six tools reproduce Table S5 exactly

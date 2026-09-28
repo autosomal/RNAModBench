@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""70 -- render the six Figure S8 panels, one file at a time, at print size.
+"""70 -- render the nine Figure S8 panels (A-I), one file at a time, at print size.
 
 Each panel is drawn on its own canvas of exactly the size it occupies on the
 assembled page and has to pass the layout gate (``pagelayout.assert_page_clean``:
@@ -63,26 +63,24 @@ def assert_on_canvas(fig, key: str) -> None:
 
 
 def column_left() -> dict[str, float]:
-    """Label-column width of every panel of the 2026-09-25 layout.
+    """Label-column width of every panel of the 2026-09-27 square grid.
 
-    Row 1 carries A | B | C at content-driven widths, so each of the three
-    keeps its own label column (A's 23 model names are the widest by far); rows
-    2 and 3 are two numbered facets each (D | E and F | G), so every facet has
-    its own column -- the two lollipop facets print their labels once, on F.
+    The cells are 2.5967 in squares (A spans the two top rows of the left
+    column), so the label columns of the narrow cells stay small: the two sweep
+    cells and the two stability cells carry a rotated y-axis name, the lollipop
+    row shares F's tool-name column and A keeps the column of its 23 model names
+    (measured at 8 pt -- its canvas is twice as tall as the others).
     """
-    return {
-        "A": P.label_width_in(P.bar_labels(D.panel_a()), S.FS["row_a"]) + 0.09,
-        "B": P.label_width_in(P.bar_labels(D.panel_orca()), S.FS["row"]) + 0.09,
-        "C": P.label_width_in(P.bar_labels(D.panel_curlcake(), paired=False),
-                              S.FS["row"]) + 0.09,
-        
-        #: which needs more room than the tick labels of the old stacked tiles
-        "D": 0.85,
-        "E": 0.55,
-        "F": P.label_width_in(P.effect_labels(D.panel_effect()),
-                              S.FS["row"]) + 0.09,
-        "G": 0.55,
-    }
+    
+    #: column, so every box starts and ends on the same two vertical lines and the
+    #: page reads as one grid.  Two needs set it: A's longest model name at
+    #: FS["row_a"] (+0.09 in pad) and F's longest tool name with 0.23 in of
+    #: clearance for the 24 pt panel letter, which fills a cell's top-left 0.26 in.
+    a_need = P.label_width_in(P.bar_labels(D.panel_a()), S.FS["row_a"]) + 0.09
+    f_need = P.label_width_in(P.effect_labels(D.panel_effect()),
+                              S.FS["row"]) + 0.32
+    common = max(a_need, f_need)
+    return {key: common for key in "ABCDEFGHI"}
 
 
 def render(key: str, left_in: float) -> None:
@@ -99,12 +97,20 @@ def render(key: str, left_in: float) -> None:
         P.draw_curlcake(fig, D.panel_curlcake(), left_in)
     elif key == "D":
         P.draw_window_ppv(fig, D.panel_window(), left_in)
+        
+        #: D draws the first half, E the second
+        P.draw_sweep_key(fig, D.panel_window(), half="left", left_in=left_in)
     elif key == "E":
         P.draw_window_exact(fig, D.panel_window(), left_in)
+        P.draw_sweep_key(fig, D.panel_window(), half="right", left_in=left_in)
     elif key == "F":
         P.draw_effect_r(fig, D.panel_effect(), left_in)
     elif key == "G":
         P.draw_effect_slope(fig, D.panel_effect(), left_in)
+    elif key == "H":
+        P.draw_stability_coverage(fig, D.panel_stability("H"), left_in)
+    elif key == "I":
+        P.draw_stability_ratio(fig, D.panel_stability("I"), left_in)
     else:
         raise SystemExit(f"unknown panel {key!r}")
 
@@ -121,7 +127,7 @@ def render(key: str, left_in: float) -> None:
 
 
 def main() -> None:
-    keys = [a.upper() for a in sys.argv[1:]] or list("ABCDEFG")
+    keys = [a.upper() for a in sys.argv[1:]] or list("ABCDEFGHI")
     S.PANELS.mkdir(parents=True, exist_ok=True)
     S.LOGS.mkdir(parents=True, exist_ok=True)
     S.apply()
