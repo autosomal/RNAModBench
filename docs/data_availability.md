@@ -74,6 +74,10 @@ tables `figures/figure6/src/40_fig6_combination.py` and
 `figures/figureS6/src/61_figS6_sitequality.py` write. The panel and page
 PDFs are what that code produces, so they are not deposited here:
 `bash scripts/run_figures.sh` writes them into `figures/<figure>/figures/`.
+The same holds for the `.rds` caches the Guitar panels write beside their tables -
+they serialise the density of an annotation file that is not redistributed, so they
+are rebuilt by the R step that reads them (`bash scripts/run_figures.sh` skips that
+step unless `GUITAR=1` is set and the reference layer is present).
 `docs/figure_index.md` maps figure - scripts - inputs - outputs, including which
 script version is the current one. Supplementary-table builders (Table S1-S12) and
 the SI assembly live in `tables/`.

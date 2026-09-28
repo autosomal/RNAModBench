@@ -21,11 +21,13 @@ Exit status is non-zero when a check fails.
 """
 from __future__ import annotations
 
+import gzip
 import hashlib
 import re
 import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -102,10 +104,33 @@ def check_language() -> None:
 
 
 def check_paths() -> None:
-    hits = [p.relative_to(ROOT).as_posix() for p in read_files()
-            if p.suffix not in (".pdf", ".pkl", ".npz", ".gz", ".rds")
-            and PERSONAL.search(p.read_bytes())]
-    note(not hits, f"no personal absolute path in {len(list(read_files()))} files"
+    """No machine-specific absolute path survives anywhere in the deposit.
+
+    Every file is read as bytes; a gzip stream is searched decompressed and a zip
+    archive member by member, because the reference tables and the numeric caches
+    ship compressed - and a serialised object carries the absolute path of the file
+    it was built from, which is exactly what a reader must not be able to unzip.
+    """
+    hits = []
+    for p in read_files():
+        rel = p.relative_to(ROOT).as_posix()
+        data = p.read_bytes()
+        if PERSONAL.search(data):
+            hits.append(rel)
+        elif data[:2] == b"\x1f\x8b":
+            try:
+                inner = gzip.decompress(data)
+            except (OSError, EOFError):        # a truncated stream is still a stream
+                inner = b""
+            if PERSONAL.search(inner):
+                hits.append(rel + " (gzip stream)")
+        elif zipfile.is_zipfile(p):
+            with zipfile.ZipFile(p) as zf:
+                for name in zf.namelist():
+                    if PERSONAL.search(zf.read(name)):
+                        hits.append(f"{rel} :: {name}")
+    n = len([p for p in read_files()])
+    note(not hits, f"no personal absolute path in {n} files, compressed streams included"
          + ("" if not hits else f"; found in {len(hits)}: {hits[:5]}"))
 
 
