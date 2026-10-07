@@ -56,6 +56,23 @@ txt = subprocess.run(["pdftotext", str(F) + ".pdf", "-"],
 for token in ("pooled", "global"):
     if token in txt:
         bad.append(f"the retired pooled series is still printed in figure 2: {token!r}")
+# 4b the coverage-matched diamonds were withdrawn from the panel (2026-09-30):
+# the matched ratio stays in the text and in Table S3, so the page must NOT
+# print the legend entry any more (the tables checks below still apply)
+if "coverage-matched" in txt:
+    bad.append("the withdrawn coverage-matched legend entry is back in figure 2")
+mg = pd.read_csv(T / "fig2a_matched_ratio.tsv", sep="\t")
+kr = ["species", "tool", "wt_sample", "ctrl_sample"]
+chk = mg.merge(fr[kr + ["ctrl_wt_ratio"]], on=kr, how="left")
+if chk.ctrl_wt_ratio.isna().any():
+    bad.append("fig2a_matched_ratio.tsv has pairs absent from fig2a_testable_ratio.tsv")
+else:
+    rel = np.abs(chk.count_ratio - chk.ctrl_wt_ratio) / chk.ctrl_wt_ratio
+    if rel.max() > 1e-9:
+        bad.append(f"matched-table count ratio vs published ratio rel diff {rel.max():.2e}")
+sm = pd.read_csv(T / "fig2a_matched_summary.tsv", sep="\t")
+if len(sm) != 39:
+    bad.append(f"matched summary has {len(sm)} rows, expected 39 (13 tools x 3 species)")
 # 5 report ----------------------------------------------------------------
 if bad:
     print("FAIL")

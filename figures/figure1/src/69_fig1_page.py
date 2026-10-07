@@ -152,7 +152,11 @@ def main() -> None:
     text = page_text(PAGE)
     gone = ["Tool Frequency Comparison", "RRACH Tool Counts Comparison"]
     kept = ["Datasets", "Pre-processing", "Tools comparison", "Nanocompore",
-            "m6A (mean)", "IVT (mean)"]
+            #: 2026-09-30: the two C/D legends are now a filled dot plus the
+            #: condition name (the "(mean)" wording was dropped; the caption
+            #: explains that the small dots are units and the larger one the
+            #: group mean).  pdftotext extracts U+25CF verbatim.
+            "\u25cf m6A", "\u25cf IVT"]
     still = [s for s in gone if s in text]
     missing = [s for s in kept if s not in text]
     if still or missing:

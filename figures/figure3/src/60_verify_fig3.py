@@ -44,8 +44,13 @@ SHIPPED = (_XB / "manuscript/manuscript_rev/Figure3.pdf")
 MANUSCRIPT = (_XB / "manuscript/manuscript_rev/manuscript.tex")
 PT_IN = 72.0
 MIN_FONT_PT = 7.2
-EXPECTED_IN = (6.66, 7.47)   # A row now matches Figure 4C (1.98 in)
+#: 2026-09-30: panel C prints its own key inside its row (+0.22 in), so the page
+#: is 7.72 in tall; the A row still matches Figure 4C (1.98 in)
+EXPECTED_IN = (6.66, 7.72)
 TOL_IN = 0.03
+#: height panel C adds for its own key block (58_fig3cd_guitar.R, LEGEND_H)
+C_KEY_H_IN = 0.22
+C_KEY_H_TOL_IN = 0.03
 
 
 def md5(path: Path) -> str:
@@ -83,7 +88,7 @@ def main() -> int:
     w_in = float(page.mediabox.width) / PT_IN
     h_in = float(page.mediabox.height) / PT_IN
     checks.append(("single page", len(reader.pages) == 1, f"{len(reader.pages)}"))
-    checks.append(("printed size 6.66 x 6.91 in",
+    checks.append((f"printed size {EXPECTED_IN[0]:.2f} x {EXPECTED_IN[1]:.2f} in",
                    abs(w_in - EXPECTED_IN[0]) < TOL_IN
                    and abs(h_in - EXPECTED_IN[1]) < TOL_IN,
                    f"{w_in:.2f} x {h_in:.2f} in"))
@@ -125,6 +130,32 @@ def main() -> int:
     geo_txt = ((_RB / "figures/figure3/tables/fig3_assembly_geometry.tsv")).read_text()
     checks.append(("four lettered rows + legend band",
                    all(f"row_{c}" in geo_txt for c in "ABCD") and "row_L" in geo_txt, ""))
+
+    #: 2026-09-30: panel C prints its own key inside its row (it used to borrow
+    #: the condition / line keys from the band under panel D).  Two independent
+    #: signatures: C's row is one key block taller than D's, and the merged page
+    #: text holds the key words twice -- in the C row and in the band -- with the
+    #: C copy on a single line, because C's key is one horizontal row of items.
+    def row_size(letter: str) -> tuple[float, float]:
+        line = next((l for l in geo_txt.splitlines()
+                     if l.startswith(f"row_{letter}\t")), "")
+        m = re.search(r"([0-9.]+) x ([0-9.]+) in", line)
+        return (float(m.group(1)), float(m.group(2))) if m else (float("nan"), float("nan"))
+
+    _, c_h = row_size("C")
+    _, d_h = row_size("D")
+    checks.append((f"panel C row carries its own key block (+{C_KEY_H_IN:.2f} in)",
+                   abs((c_h - d_h) - C_KEY_H_IN) < C_KEY_H_TOL_IN,
+                   f"C {c_h:.2f} in vs D {d_h:.2f} in"))
+    page_txt = subprocess.run(["pdftotext", "-layout", str(SHIPPED), "-"],
+                              capture_output=True, text=True).stdout
+    words = ("majority consensus", "individual unit")
+    checks.append(("C key words appear twice (own key + band)",
+                   all(page_txt.count(w) >= 2 for w in words),
+                   ", ".join(f"{w}: {page_txt.count(w)}" for w in words)))
+    one_line = [l for l in page_txt.splitlines() if all(w in l for w in words)]
+    checks.append(("C key printed as one horizontal row",
+                   len(one_line) == 1, f"{len(one_line)} line(s)"))
     ba = pd.read_csv((_RB / "figures/figure3/tables/fig3b_bland_altman.tsv"), sep="\t")
     checks.append(("Bland-Altman table covers 12 cells",
                    len(ba) == 12 and {"bias", "loa_lo", "loa_hi"} <= set(ba.columns),

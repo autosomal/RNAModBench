@@ -131,23 +131,18 @@ def main() -> None:
         for row in rows:
             fh.write("\t".join(row) + "\n")
         fh.write(
-            "# note: Ranking statistic MCC (the metric that orders the rows of Fig. 5A), computed "
-            "per independent sequencing unit inside each sample's own candidate-site set and "
-            "averaged across units, exactly as in the main analysis; each row restricts the "
-            "evaluation to the listed level and compares the resulting per-unit mean rank with the "
-            "primary ranking (13 m6A tool configurations, candidate-site set with coverage >= 10 "
-            "reads, full high-confidence reference). Spearman rho is that rank correlation and "
-            "BH-FDR its correction within the axis. Arabidopsis and HeLa contribute three units, "
-            "the mouse study one, so no interval is reported for mouse. The three coverage floors "
-            "that leave the evaluation set comparable (>= 5, >= 10 and >= 20 reads) give the same "
-            "ordering (rho = 0.99-1.00, top-ranked tool unchanged in every species); inside the "
-            "informative coverage strata (20-49 and >= 50 reads) the ranking is reproduced at rho "
-            "= 0.80-0.98. The sparse strata (5-9 and 10-19 reads) carry almost no information - "
-            "the mean recall of every tool is <= 0.9 % there - and are reported as sensitivity "
-            "checks only. Stratifying the reference by modification ratio changes the ordering "
-            "more strongly (rho = 0.48-0.90, with the top-ranked tool changing in seven of the "
-            "nine rows), which is why the primary metrics are reported against the full "
-            "high-confidence reference.\n")
+            
+#: "Top-ranked tool identical" column (Arabidopsis 3, Human 3, mouse 0), which
+#: is also the count the Fig. S10 caption quotes and the value in the frozen
+#: upstream table (`r21c_stoich_rank_stability.tsv`, column top1_same).  The
+#: note said "seven"; the data and every other artefact say six.
+"# note: Ranking statistic MCC (the metric that orders Fig. 5A), averaged over the independent "
+"sequencing units. Each row restricts the evaluation to the listed level and compares the "
+"per-unit mean rank with the primary ranking (coverage >= 10 reads, full high-confidence "
+"reference); Spearman rho is the rank correlation and BH-FDR its correction. Mouse "
+"contributes one unit and no interval. Sparse strata are sensitivity checks only: "
+"stratifying the reference by modification ratio reorders the tools more strongly (the "
+"top-ranked tool changes in six of the nine rows).")
 
     print(f"TableS12: {len(rows)} rows -> {OUT}")
 

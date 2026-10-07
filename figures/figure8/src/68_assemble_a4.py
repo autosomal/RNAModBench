@@ -21,9 +21,15 @@ from pypdf import PdfReader, PdfWriter, Transformation
 
 FIGS = Path(str(_RB / "figures/figure8/figures"))
 PANELS = (_RB / "figures/figure8/figures/panels")
-PAGE_PT = (6.95 * 72, 8.15 * 72)
-PLACE = {"fig8A_counts": (0.05, 5.08), "fig8B_fpr": (3.60, 5.08),
-         "fig8C_ppv": (0.05, 2.01), "fig8D_tradeoff": (3.60, 2.01),
+
+#: the reference layout is three rows of half-width tiles -- A|C (top), B|D
+#: (middle), E (bottom, full width).  The page is back to 6.95 x 8.31 in, which
+#: is 0.16 in taller than the 8.15 in of the first two-column layout because of
+#: the extra row gap; at the manuscript's 0.958 print scale the figure is
+#: 7.96 in tall, essentially the height it had before the 2026-09-29 experiment.
+PAGE_PT = (6.95 * 72, 8.31 * 72)
+PLACE = {"fig8A_counts": (0.05, 5.24), "fig8C_ppv": (3.60, 5.24),
+         "fig8B_fpr": (0.05, 2.16), "fig8D_tradeoff": (3.60, 2.16),
          "fig8E_guitar": (0.05, 0.05)}
 
 

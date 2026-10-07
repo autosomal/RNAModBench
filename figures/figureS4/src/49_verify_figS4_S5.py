@@ -209,8 +209,9 @@ def verify_pdfs() -> None:
               bool(pages) and pages.group(1) == "1")
         if size:
             w, h = float(size.group(1)), float(size.group(2))
-            #: S4 is the 12.16 in tall SI page; the S5 page is A4 portrait
-            want = ((595.44, 875.52) if stem.name.startswith("FigureS4")
+            #: S4 is the 12.70 in tall SI page (was 12.16 until the 2026-09-30
+            #: key-under-every-facet round); the S5 page is A4 portrait
+            want = ((595.44, 914.4) if stem.name.startswith("FigureS4")
                     else (595.44, 842.4))
             check(f"{stem.name}: page {want[0]:.0f} x {want[1]:.0f} pt",
                   abs(w - want[0]) < 2 and abs(h - want[1]) < 2,
@@ -271,12 +272,13 @@ def verify_style() -> None:
         check(f"{script.name}: no grid", "grid(" not in body
               and "axes.grid': True" not in body)
         sizes = _font_sizes(body)
-        # 8 pt floor for everything printed; the single exception is a
-        # ``legend_small`` entry (7.5 pt, the 13-entry tool-colour key that used
-        # to sit inside panel D of Figure S4), which is still above the 7 pt
-        # print-size house rule.  Panel A's 45-degree tool names are what sets
-        # the 8 pt floor (13 names in a 2.16 in column keep a 1.5 pt ink gap at
-        # 8 pt).
+        # 8 pt floor for everything printed, with one exception that is still
+        # above the 7 pt print-size house rule: the ``legend_small`` entry
+        # (7.5 pt, the 13-entry tool-colour key that used to sit inside panel D
+        # of Figure S4).  Figure S4's tilted tool names (TOOL_FS = 7.5 pt, a
+        # constant rather than a ``fontsize=`` argument) do not enter this scan;
+        # the render-time page gate holds them to its own 7 pt floor and to the
+        # no-overlap rule, which is what fixes their size.
         fs_floor = {m.group(1): float(m.group(2)) for m in re.finditer(
             r'"(\w+)":\s*([0-9.]+)', body)}
         small = fs_floor.get("legend_small")
@@ -302,10 +304,16 @@ def verify_style() -> None:
 
     # panel A of Figure S4 keeps the 45-degree tilt of the submitted figure
     s4 = ((_RB / "figures/figureS4/src/42_figS4_figure.py")).read_text()
-    # the 45-degree tilt collides in panel A's ratio sub-rows (three adjacent
-    # names), so the renderer defaults to the 90-degree register
-    check("42_figS4_figure.py: panel-A tool names default to 90 degrees",
-          "TICK_ROTATION = 90" in s4)
+
+    # register again.  The tilted names carry their own size (TOOL_FS): at the
+    # 11.94 pt pitch the rotated height has to stay under 11.94 x sin(45) =
+    # 8.44 pt, so 7.5 pt is the largest that clears; the 90-degree register is
+    # pitch-limited instead and can carry whatever tick_small uses.
+    tool_fs = re.search(r"TOOL_FS = 9\.5 if TICK_ROTATION == 90 else ([0-9.]+)", s4)
+    check("42_figS4_figure.py: panel-A tool names default to 45 degrees",
+          "TICK_ROTATION = 45" in s4 and tool_fs is not None
+          and float(tool_fs.group(1)) >= 7.5,
+          f"TOOL_FS={tool_fs.group(1) if tool_fs else '?'}")
     check("42_figS4_figure.py: the tilted labels get their own pad",
           "pad=5.0 if rotation == 90 else 8.0" in s4)
     # every key of Figure S4 is drawn in a band that cannot hide data
@@ -322,8 +330,10 @@ def verify_style() -> None:
     check("42_figS4_figure.py: three keys are defined",
           "A_KEY: list" in s4 and "LINE_KEY_B: list" in s4
           and "TOOL_KEY: list" in s4)
+    #: 2026-09-30: the two window-sweep keys print twice (under B and under C),
+    #: panel D's key line is gone -> five figure legends, one axes legend
     check("42_figS4_figure.py: three panel keys + the tool key on the BC canvas",
-          s4.count("fig.legend(") == 4 and s4.count("ax.legend(") == 1)
+          s4.count("fig.legend(") == 5 and s4.count("ax.legend(") == 1)
 
     # of the page (no renderer, no key headroom), while its frozen tables keep
     # being cross-checked.  Panel D is something else entirely: since the B/C
@@ -379,7 +389,7 @@ def verify_style() -> None:
           and "one line per study, never merged" in s4)
     check("42_figS4_figure.py: every key line is measured, not estimated",
           "def assert_key_fits(" in s4
-          and s4.count("assert_key_fits(fig, ") == 4
+          and s4.count("assert_key_fits(fig, ") == 5
           and 'assert_key_fits(fig, line_legend,' in s4
           and 'assert_key_fits(fig, tool_legend,' in s4)
 
@@ -396,12 +406,12 @@ def verify_style() -> None:
              + 2 * (inch("A_BAND_IN") + inch("A_SUB_IN"))
              + inch("A_HEAD_IN") + inch("A_KEY_IN"))
     b_row = (inch("B_KEY_IN") + inch("B_TITLE_IN") + 2 * inch("B_FACET_IN")
-             + inch("B_GAP_IN") + inch("B_BOTTOM_IN"))
+             + inch("B_GAP_IN") + inch("C_KEY_IN") + inch("B_BOTTOM_IN"))
     d_row = (inch("D_TITLE_IN") + inch("D_AXES_IN") + inch("D_BOTTOM_IN"))
     total = (inch("TOP_IN") + a_row + inch("GAP_IN") + b_row + inch("GAP_IN")
              + d_row + inch("BOTTOM_IN"))
     check("42_figS4_figure.py: the inch budget fills the page",
-          abs(total - 12.02) < 0.005,
+          abs(total - 12.56) < 0.005,
           f"A {a_row:.2f} + BC {b_row:.2f} + D {d_row:.2f} = "
           f"{total:.3f} in")
     col_w = (8.27 - inch("LEFT_IN") - inch("RIGHT_IN")
@@ -422,10 +432,12 @@ def verify_style() -> None:
     check("48_figS5_validation.py: no page-level legend stripe",
           "def render_legend(" not in s10 and "LEG_IN" not in s10)
 
-    #: the keys are axes legends now (three in A, three in B, two in C) and no
-    #: figure-level legend is left; the intent ("no page-foot stripe") holds
-    check("48_figS5_validation.py: the keys sit inside the panels",
-          "KEY_ENTRIES: list" in s10 and s10.count("ax.legend(") == 3
+
+    #: per-column keys of A and B are gone and panel C keeps only its
+    #: shared/purified colour pair, so a single axes legend is left and no
+    #: figure-level legend exists at all
+    check("48_figS5_validation.py: only panel C's colour key is left",
+          "KEY_ENTRIES: list" not in s10 and s10.count("ax.legend(") == 1
           and "fig.legend(" not in s10)
 
     fs5 = {m.group(1): float(m.group(2)) for m in re.finditer(

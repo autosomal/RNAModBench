@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 """72 -- acceptance checks for the rebuilt Figure S9 (run after 70/71).
 
-Contract of the 2026-09-25 page: A4 **landscape** 842.4 x 595.44 pt, three rows
--- A | B | C, then the full-width window sweep D (its key on the right), then
-the merged effect-size panel E -- **RNA004 data only** (no RNA002 run is drawn
-anywhere), every panel's numbers reproduce the frozen tables, and the drawing
-code keeps the house rules (no grid, no scatter clouds, Arial only, nothing
-below 7 pt).
+Contract of the 2026-09-30 page: **892.8 x 784.8 pt** (12.400 x 10.900 in) with
+the 3 x 3 grid A | B | C / D | E | H / F | G | I -- **RNA004 data only** (no
+RNA002 run is drawn anywhere), every panel's numbers reproduce the frozen
+tables, and the drawing code keeps the house rules (no grid, no scatter clouds,
+Arial only, nothing below 8 pt -- the sweep key; the layout gate's own default
+floor is 7 pt).
 """
 from __future__ import annotations
 
@@ -22,7 +22,9 @@ import s9_panels as P  # noqa: E402
 import s9_style as S  # noqa: E402
 
 PDF = S.FIGS / "FigureS9_rev.pdf"
-PAGE_PT = (842.4, 595.44)                       # A4 landscape (restored layout)
+
+#: 892.8 x 770.4 pt so this check can never fall out of step with the builder
+PAGE_PT = (S.PAGE_IN[0] * 72.0, S.PAGE_IN[1] * 72.0)
 KEYS = list("ABCDEFGHI")                        # 2026-09-27: three-by-three grid
                                                 # (sweep D|E, effect F|G, the two
                                                 # stability cells H|I)
@@ -86,11 +88,15 @@ def main() -> None:
     #: each key prints **under its own panel**, so every species name appears twice
     #: on the page -- once under H and once under I.  What has to stay out is a
     #: *sample* name printed inside a panel.
+    #: 2026-09-30: the marker key prints the species names of the 2026-09-28
+    
+    #: Arabidopsis / mouse / Human -- and a stray "HeLa" on the sheet is itself a
+    #: failure now (the caption keeps its own wording; this check reads the figure).
     check("no panel title, species named only by the two marker keys",
-          "Curlcake" not in page
-          and all(page.count(s) == 2 for s in ("Arabidopsis", "mouse", "HeLa")),
+          "Curlcake" not in page and "HeLa" not in page
+          and all(page.count(s) == 2 for s in ("Arabidopsis", "mouse", "Human")),
           f"A {page.count('Arabidopsis')} M {page.count('mouse')} "
-          f"H {page.count('HeLa')}")
+          f"H {page.count('Human')}")
 
     sh = D.panel_stability("H")
     si = D.panel_stability("I")
@@ -123,8 +129,13 @@ def main() -> None:
     check("effect-size panel axes", "Pearson r" in page and "Slope" in page)
     check("fitted-lines panel retired (F is the effect size now)",
           "GLORI ratio (%)" not in page and "Predicted ratio" not in page)
+    #: 2026-09-30: the "m6A (non-DRACH)" family key of the first drafts went away
+    
+    
+    #: any built sheet -- old or new.  What the page must still name is the four
+    #: modified families its rows belong to, one word each.
     check("family key on the page",
-          "DRACH" in page and "inosine" in page and "non-DRACH" in page)
+          all(w in page for w in ("m6A DRACH", "inosine", "pseU", "m5C")))
 
     # ---- drawing-code house rules -----------------------------------------
     src = "\n".join(p.read_text() for p in sorted(HERE.glob("s9_*.py")))

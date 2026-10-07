@@ -63,23 +63,31 @@ def assert_on_canvas(fig, key: str) -> None:
 
 
 def column_left() -> dict[str, float]:
-    """Label-column width of every panel of the 2026-09-27 square grid.
+    """Label-column width shared by all nine panels of the 3 x 3 grid.
 
-    The cells are 2.5967 in squares (A spans the two top rows of the left
-    column), so the label columns of the narrow cells stay small: the two sweep
-    cells and the two stability cells carry a rotated y-axis name, the lollipop
-    row shares F's tool-name column and A keeps the column of its 23 model names
-    (measured at 8 pt -- its canvas is twice as tall as the others).
+    Every cell is 4.027 x 3.480/3.550 in (2026-09-30) and the nine boxes begin on
+    one vertical line, so one column serves them all.  Two needs set its width:
+    A's 23 model names at ``FS["row_a"]`` (locked at 8 pt by their row pitch) and
+    F's longest tool name at ``FS["row"]`` plus the clearance the panel letter
+    needs.  Measured on 2026-09-30: A needs 1.856 in, F needs 1.861 in at 9.5 pt
+    -- F bound the column that day by 0.005 in, so the nine boxes lost 0.005 in
+    of width (accepted); the assertion below turns a runaway into a hard failure
+    instead of a silent squeeze.
     """
     
     #: column, so every box starts and ends on the same two vertical lines and the
-    #: page reads as one grid.  Two needs set it: A's longest model name at
-    #: FS["row_a"] (+0.09 in pad) and F's longest tool name with 0.23 in of
-    #: clearance for the 24 pt panel letter, which fills a cell's top-left 0.26 in.
+    #: page reads as one grid.  A's longest model name at FS["row_a"] (+0.09 in
+    #: pad) vs F's longest tool name at FS["row"] (+0.32 in for the panel letter,
+    #: 0.30 in of which is the 28 pt glyph itself).
     a_need = P.label_width_in(P.bar_labels(D.panel_a()), S.FS["row_a"]) + 0.09
     f_need = P.label_width_in(P.effect_labels(D.panel_effect()),
                               S.FS["row"]) + 0.32
     common = max(a_need, f_need)
+    
+    #: type change pushes it past this ceiling, the boxes would silently shrink;
+    #: fail loudly and rebalance the scale instead
+    assert common <= 1.90, (f"label column grew to {common:.4f} in "
+                            f"(a_need {a_need:.4f}, f_need {f_need:.4f})")
     return {key: common for key in "ABCDEFGHI"}
 
 

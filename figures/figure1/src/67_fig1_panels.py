@@ -540,12 +540,18 @@ def build_figure(t: dict[str, pd.DataFrame]) -> tuple[plt.Figure, dict]:
         fig.text((LETTER_X if letter in ("A", "B") else CD_LETTER_X) / PAGE_W,
                  (rect[1] + rect[3] - 1.0) / PAGE_H, letter,
                  fontsize=FS["letter"], fontweight="bold", ha="left", va="top")
-    #: the two mean codings of C and D, as page-level labels in the empty
+    #: the two condition codings of C and D, as page-level labels in the empty
     #: strips above each panel (8 pt between A and C, 14 pt between C and D);
-    #: inside the panels the 12 pt row pitch leaves no room for 7.5 pt text
+    #: inside the panels the 12 pt row pitch leaves no room for 7.5 pt text.
+    
+    #: each label now opens with the filled dot panel B's legend shows, in the
+    #: condition colour, and the redundant "(mean)" is gone -- the caption says
+    #: that the small dots are the independent units and the larger dot the
+    #: group mean.  U+25CF is present in the embedded Arial and measures 3.23 pt
+    #: at 7.5 pt, so the existing width bookkeeping still holds.
     for strip_top in (C_RECT[1] + C_RECT[3], D_RECT[1] + D_RECT[3]):
         x = CD_X + 2.0
-        for lab, colour in (("m6A (mean)", ORANGE), ("IVT (mean)", BLUE)):
+        for lab, colour in (("\u25cf m6A", ORANGE), ("\u25cf IVT", BLUE)):
             fig.text(x / PAGE_W, (strip_top + 0.3) / PAGE_H, lab,
                      fontsize=7.5, color=colour, ha="left", va="bottom")
             x += PL.text_width_in(lab, 7.5) * 72.0 + 6.0

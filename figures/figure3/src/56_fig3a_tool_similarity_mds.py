@@ -77,6 +77,7 @@ from common.consensus import quorum                                   # noqa: E4
 from common.figstyle import apply as apply_style                      # noqa: E402
 from common.io_utils import write_table                               # noqa: E402
 from common.manifest import setup_logger                              # noqa: E402
+from common.pagelayout import text_width_in                           # noqa: E402
 
 OUT = (_RB / "figures/figure3")
 TAB, FIG, LOG = OUT / "tables", OUT / "figures", OUT / "logs"
@@ -116,6 +117,24 @@ TOOL_STYLE = {t: {"color": next(_CC), "marker": next(_MC)} for t in TOOLS_ORDER}
 PANEL_W, PANEL_H = 6.66, 1.98
 FS = {"title": 9.0, "label": 8.0, "tick": 7.6, "legend": 7.2}
 MDS_COMPONENTS = 2
+
+
+#: column on the right-hand strip.  The strip is *measured*, not tuned by eye:
+#: the legend handle (2.0 em at the legend font size) + handletextpad + the
+#: widest tool name in the same Arial matplotlib embeds + a right pad.  The
+#: width the two-column layout wasted on its second column goes to the three
+#: MDS axes, which are drawn as near-square boxes that fill the row.
+LEGEND_HANDLE_IN = 2.0 * FS["legend"] / 72.0     # matplotlib handlelength 2.0
+LEGEND_TEXT_PAD_IN = 0.045                       # handletextpad 0.24 em + air
+LEGEND_RIGHT_PAD_IN = 0.045
+PANEL_LEGEND_GAP_IN = 0.02                       # air between axis 3 and the keys
+#: the row keeps its 1.98 in height (it is the Figure 4C row height); the space
+#: a panel needs for its title above and its tick labels + axis title below is
+#: taken from the inches it really occupies, not from a percentage of the row.
+AX_LEFT_IN = 0.50            # panel letter + y tick labels + y axis title
+AX_TOP_IN = 0.19             # bold species title (9 pt + pad)
+AX_BOTTOM_IN = 0.37          # x tick labels + "MDS Dimension 1" (8 pt)
+AX_WSPACE = 0.30             # gap = 0.30 x axis width (y ticks of the next map)
 
 
 # --------------------------------------------------------------------------- #
@@ -281,11 +300,17 @@ def build(logger: logging.Logger) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFr
 def figure(coords: pd.DataFrame, logger: logging.Logger) -> None:
     apply_style()
     fig = plt.figure(figsize=(PANEL_W, PANEL_H))
-    # panels are drawn inside a fixed area and the tool legend gets its own
-    # right-hand strip in figure coordinates, so the (wide) two-column legend
-    # can never spill onto the human panel or off the canvas
-    gs = fig.add_gridspec(1, 3, left=0.075, right=0.715, top=0.90, bottom=0.20,
-                          wspace=0.30)
+    # 2026-09-30: single-column tool keys on a measured right-hand strip; the
+    # three maps then fill everything left of it (see the layout constants).
+    strip_in = (LEGEND_HANDLE_IN + LEGEND_TEXT_PAD_IN
+                + max(text_width_in(t, FS["legend"]) for t in TOOLS_ORDER)
+                + LEGEND_RIGHT_PAD_IN)
+    ax_left = AX_LEFT_IN / PANEL_W
+    ax_right = (PANEL_W - strip_in - PANEL_LEGEND_GAP_IN) / PANEL_W
+    ax_bottom = AX_BOTTOM_IN / PANEL_H
+    ax_top = 1.0 - AX_TOP_IN / PANEL_H
+    gs = fig.add_gridspec(1, 3, left=ax_left, right=ax_right, top=ax_top,
+                          bottom=ax_bottom, wspace=AX_WSPACE)
     axes = [fig.add_subplot(gs[0, i]) for i in range(3)]
 
     for k, (species, (group, units, title)) in enumerate(GROUPS.items()):
@@ -318,20 +343,31 @@ def figure(coords: pd.DataFrame, logger: logging.Logger) -> None:
         logger.info("%s: %d consensus + %d unit points", species, len(cons),
                     int((sub.kind == "unit").sum()))
 
-    # tool legend column (layout v3: back beside the panels, two columns so the
-    # 13 entries fit the 1.55 in row; the figure-wide band keeps only the
-    # condition / linetype keys)
-    lax = fig.add_axes([0.720, 0.0, 0.270, 1.0])
+    # tool legend column (layout v4: one entry per line -- 13 rows at 7.2 pt
+    # with labelspacing 0.34 need ~1.74 in and the row is 1.98 in tall, so the
+    # single column fits inside the strip without touching the canvas edge; the
+    # figure-wide band keeps only the condition / linetype keys)
+    lax = fig.add_axes([ax_right + PANEL_LEGEND_GAP_IN / PANEL_W, 0.0,
+                        strip_in / PANEL_W, 1.0])
     lax.axis("off")
     handles = [Line2D([], [], linestyle="none", marker=TOOL_STYLE[t]["marker"],
                       markersize=4.2, markerfacecolor=TOOL_STYLE[t]["color"],
                       markeredgecolor=TOOL_STYLE[t]["color"], label=t)
                for t in TOOLS_ORDER]
-    lax.legend(handles=handles, loc="center left", bbox_to_anchor=(0.0, 0.5),
-               frameon=False,
-               fontsize=FS["legend"], handletextpad=0.24, labelspacing=0.34,
-               columnspacing=0.6, ncol=2, borderaxespad=0.0)
-    logger.info("panel A legend: %d tools in 2 columns", len(handles))
+    leg = lax.legend(handles=handles, loc="center left", bbox_to_anchor=(0.0, 0.5),
+                     frameon=False,
+                     fontsize=FS["legend"], handletextpad=0.24, labelspacing=0.34,
+                     ncol=1, borderaxespad=0.0)
+    logger.info("panel A legend: %d tools in 1 column, strip %.2f in wide",
+                len(handles), strip_in)
+    # the column must not run past the row it lives in (it is centred, so this
+    # catches both a clipped list and a handletextpad/labelspacing regression)
+    fig.canvas.draw()
+    leg_h_in = leg.get_window_extent(fig.canvas.get_renderer()).height / fig.dpi
+    if leg_h_in > PANEL_H - 0.04:
+        raise SystemExit(f"panel A legend is {leg_h_in:.2f} in tall, "
+                         f"the row is {PANEL_H:.2f} in")
+    logger.info("panel A legend height: %.2f in of %.2f in", leg_h_in, PANEL_H)
     # bold panel letter (house rule: letters may carry the panel identity)
     fig.text(0.004, 0.965, "A", fontsize=FS["title"], fontweight="bold",
              ha="left", va="top")

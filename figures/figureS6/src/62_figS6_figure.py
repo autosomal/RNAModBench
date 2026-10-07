@@ -16,7 +16,7 @@ A  the full greedy path 1 -> 13 tools (the main figure stops at k = 5): union
 B  per-tool site quality: coverage (log) of each configuration's own calls;
 C  per-tool site quality: DRACH fraction of the same calls;
 D  the control burden per tool: FP/10 kb of every configuration on Curlcake IVT
-   (filled) and HeLa IVT (open), one dot per sample.  The main figure shows the
+   (filled) and Human IVT (open), one dot per sample.  The main figure shows the
    controls only for the five selected *sets*; this is the per-configuration
    view, and because controls are not species-specific it carries no group
    dimension;
@@ -28,7 +28,7 @@ configurations, whose names are printed once, **slanted 45 deg** under row D
 (see ``TOOL_ROT``): neighbouring names are parallel lines 0.47 in apart, so no
 name can collide with its neighbour however long it is.  Inside every position
 the four independent groups sit as separate clusters (Arabidopsis | mouse study
-A | mouse study B | HeLa) -- dots per unit plus the mean within the group, never
+A | mouse study B | Human) -- dots per unit plus the mean within the group, never
 a mean across groups and never a mean across the two mouse studies.
 
 The selection criterion itself is deliberately *not* re-drawn: it is the
@@ -38,10 +38,11 @@ held for every enumerated combination of every k (p0 is a formal guardrail, so
 the criterion is "maximum mean recall at each k"), and the greedy forward
 selection reproduces every exhaustive optimum.
 
-Layout (2026-09-21, author decisions): a compact **240 x 175 mm page** (1:1, no
+Layout (2026-09-21 author decisions; width 2026-09-23, keys 2026-09-30): a compact
+**178 x 175 mm page** (1:1, no
 rescaling) so the text reads large relative to the figure; row A keeps three
 species columns (Arabidopsis | Mouse, both studies in one axes, solid study A /
-dashed study B | HeLa) because it plots curves against k, while rows B-E are
+dashed study B | Human) because it plots curves against k, while rows B-E are
 single full-width panels.  The only slanted text in the figure is the block of
 13 tool names under row D (45 deg, parallel to one another); the k values of row
 A and the five set names of row E stay horizontal.  Panel letters A-E are
@@ -117,9 +118,17 @@ MIN_PT = 9.0
 #: (letter, panel height, gap below the panel) in inches, top down.  Row A is
 #: the three curve columns; rows B-D share one tool axis (only D carries the
 #: names, hence its larger gap); row E carries the five set names.
-BANDS = [("A", 1.14, 0.40), ("B", 0.76, 0.15), ("C", 0.58, 0.15),
-         ("D", 0.74, 0.90), ("E", 0.74, 0.38)]
-TOP, HEADER, LEGEND_H = 0.02, 0.46, 0.42
+
+#: the two page-level key strips -- 0.46 in under the top edge for row A, 0.42 in
+#: at the foot for rows B-E -- are gone.  Each key now lives in a gap of its own
+#: row: row A's five curve entries under row A, the five shared group entries
+#: under row C (rows B and C draw the same groups) and again under row E, and
+#: row D's two control entries below its slanted tool names.  The freed 0.88 in
+#: pays for the three new strips, so the page stays 178 x 175 mm ("used" below
+#: is 6.87 in) and nothing is rescaled on the way into the SI.
+BANDS = [("A", 1.14, 0.62), ("B", 0.76, 0.15), ("C", 0.58, 0.32),
+         ("D", 0.74, 1.16), ("E", 0.74, 0.62)]
+TOP, HEADER, LEGEND_H = 0.02, 0.0, 0.0
 #: the left margin carries the panel letters *and* the rotated y-axis labels of
 #: four rows, now at 10.5 pt with 9.5 pt tick labels ("0.0001" in row D): the
 #: widest tick text decides how far left the label sits, measured 0.92 in keeps
@@ -143,7 +152,7 @@ COLS = [{"sp": "Arabidopsis", "groups": ["Arabidopsis_WT"], "colour": "#1E888B",
         {"sp": "Mouse", "groups": ["studyA", "studyB"], "colour": "#C07A16",
          "title": "Mouse"},
         {"sp": "Human", "groups": ["HeLa_WT"], "colour": "#3778A0",
-         "title": "HeLa"}]
+         "title": "Human"}]
 #: per-study drawing style: the two mouse shades plus the visual channels the
 #: panels use to keep the studies apart (line style, dot fill)
 GROUP_STYLE = {"Arabidopsis_WT": {"colour": "#1E888B", "ls": "-", "fill": True},
@@ -154,7 +163,7 @@ GROUP_STYLE = {"Arabidopsis_WT": {"colour": "#1E888B", "ls": "-", "fill": True},
 #: group drawn as its own cluster inside one x position
 GROUPS = ("Arabidopsis_WT", "studyA", "studyB", "HeLa_WT")
 GROUP_LABEL = {"Arabidopsis_WT": "Arabidopsis", "studyA": "mouse study A",
-               "studyB": "mouse study B", "HeLa_WT": "HeLa"}
+               "studyB": "mouse study B", "HeLa_WT": "Human"}
 #: cluster geometry per row type: x offsets of the four clusters inside one
 #: position, the jitter of the dots within a cluster and the half-width of the
 #: within-group mean bar (all in x data units, i.e. one tool / one set apart)
@@ -165,16 +174,19 @@ CLUSTER_SET = {"offset": (-0.22, -0.075, 0.075, 0.22), "spread": 0.045,
 UNION_C, ISECT_C = "#1f5c8b", "#e08a2e"
 CONTROLS = ("Curlcake IVT", "HeLa IVT")   # data key
 LABEL_IVT = "Human IVT"                       
-#: the five sets of panel E: the best single tool, what combining adds, the two
-#: intersections and the reference.  The five-tool union itself is deliberately
+#: the five sets of panel E: the best single tool, the two intersections, what
+#: combining adds and the reference.  The five-tool union itself is deliberately
 #: left out -- it is the *sum* of the single-tool set and the marginal set, and
 #: the trade-off is read from its two components.
-SETS = ["single (k=1)", "union marginal", "intersection (k=2)",
-        "intersection (k=5)", "GLORI reference"]
+
+#: the marginal set moves after the two intersections, so the k series reads
+#: 1 -> 2 -> 5 in a row and the reference closes the axis.
+SETS = ["single (k=1)", "intersection (k=2)", "intersection (k=5)",
+        "union marginal", "GLORI reference"]
 #: horizontal, two lines, under panel E: the wide page leaves 2.2 in per set, so
 #: the names never have to be rotated
-SET_LABELS = ["single tool\n$k$ = 1", "union\nmarginal",
-              "intersection\n$k$ = 2", "intersection\n$k$ = 5",
+SET_LABELS = ["single tool\n$k$ = 1", "intersection\n$k$ = 2",
+              "intersection\n$k$ = 5", "union\nmarginal",
               "GLORI\nreference"]
 
 
@@ -400,12 +412,12 @@ def panel_c(ax, toolq: pd.DataFrame, tools: list[str],
 
 def panel_d(ax, ctltool: pd.DataFrame, tools: list[str],
             xpos: dict[str, float]) -> None:
-    """Control burden per tool: Curlcake IVT (filled) and HeLa IVT (open).
+    """Control burden per tool: Curlcake IVT (filled) and Human IVT (open).
 
     One dot per sample; the Curlcake values exist for 10 of the 13
-    configurations (the three HeLa-only ones have no Curlcake run), which the
-    paste-ready legend states.  This row carries the horizontal tool names of
-    the whole B-D block.
+    configurations (the three Human-IVT-only ones have no Curlcake run), which
+    the paste-ready legend states.  This row carries the horizontal tool names
+    of the whole B-D block.
     """
     for i, cname in enumerate(CONTROLS):
         s = ctltool[ctltool.control == cname]
@@ -418,7 +430,10 @@ def panel_d(ax, ctltool: pd.DataFrame, tools: list[str],
                            "0.45", half=0.11, filled=i == 0, spread=0.06)
     vals = ctltool.fp_per_10kb.dropna()
     vals = vals[vals > 0]
-    lo = max(1e-5, 10 ** np.floor(np.log10(vals.min()) - 0.05))
+    
+    #: drops one further decade so the lowest Human IVT point (DRUMMER,
+    #: 5.1e-4 per 10 kb) sits clear of the axis instead of on it
+    lo = max(1e-6, 10 ** (np.floor(np.log10(vals.min()) - 0.05) - 1))
     hi = 10 ** np.ceil(np.log10(vals.max() + 1e-9) + 0.05)
     ax.set_yscale("log")
     ax.set_ylim(lo, hi)
@@ -453,11 +468,15 @@ KEY_A = ["union recall", "union PPV", "intersection recall", "intersection PPV",
          "best single tool"]
 #: 2026-09-28 (author decision, same rule as the main Figure 6): the row key no longer says
 #: "one dot = one unit".  What the rows draw is keyed by colour instead -- the
-#: union/intersection pair sits in row A's own key, the four groups and their mean
-#: in this strip -- and that a dot is one independent sequencing unit is stated by
-#: the caption (Fig. S7, panels B and C: "one dot per unit").
-KEY_REST = ["group mean", "Arabidopsis", "mouse study A",
-            "mouse study B", "HeLa", "Curlcake IVT", "HeLa IVT"]
+#: union/intersection pair sits in row A's own key, the groups and their mean in
+#: the strip under rows B/C and again under row E -- and that a dot is one
+#: independent sequencing unit is stated by the caption (Fig. S7, panels B and C:
+#: "one dot per unit").
+
+#: groups, so it gets a key of its own instead of sharing one seven-entry strip.
+KEY_BCE = ["group mean", "Arabidopsis", "mouse study A", "mouse study B",
+           "Human"]
+KEY_D = ["Curlcake IVT", "Human IVT"]
 
 
 def handles() -> list:
@@ -484,11 +503,11 @@ def handles() -> list:
                ms=3.4, ls="none", mfc="white", mew=0.8,
                label="mouse study B"),
         Line2D([], [], color=GROUP_STYLE["HeLa_WT"]["colour"], marker="o",
-               ms=3.4, ls="none", label="HeLa"),
+               ms=3.4, ls="none", label="Human"),
         Line2D([], [], color="0.45", marker="o", ms=3.4, ls="none", mfc="0.45",
                mec="0.45", label="Curlcake IVT"),
         Line2D([], [], color="0.45", marker="o", ms=3.4, ls="none", mfc="white",
-               mec="0.45", label="HeLa IVT"),
+               mec="0.45", label="Human IVT"),
     ]
 
 
@@ -661,19 +680,26 @@ def build_figure(t: dict[str, pd.DataFrame],
                  fontweight="bold", va="top", ha="left")
 
     all_h = {h.get_label(): h for h in handles()}
-    fig.legend(handles=[all_h[l] for l in KEY_A], loc="upper center",
-               bbox_to_anchor=(0.5, 1 - 0.005 / fig_h), ncol=5, frameon=False,
-               handlelength=1.4, columnspacing=1.2, handletextpad=0.4,
-               labelspacing=0.30, borderpad=0.0)          # travels with row A
+
     
-    #: table names, only the printed legend text names the species.
-    for _k, _v in (("HeLa", "Human"), ("HeLa IVT", "Human IVT")):
-        if _k in all_h:
-            all_h[_k].set_label(_v)
-    fig.legend(handles=[all_h[l] for l in KEY_REST], loc="lower center",
-               bbox_to_anchor=(0.5, 0.004), ncol=4, frameon=False,
-               handlelength=1.4, columnspacing=1.2, handletextpad=0.4,
-               labelspacing=0.30)
+    #: hanging in its own row's gap -- row A's five curve entries under row A,
+    #: the shared group entries under row C and again under row E, and row D's
+    #: two control entries below its slanted tool names (0.62 in clears the
+    #: 45-degree names, which reach ~0.57 in below the axis).  ``loc="upper
+    #: center"`` with the gap's top edge as the anchor makes every strip grow
+    #: downwards into its gap, so none of them can land back on its own panel.
+    #: The printed species name is Human everywhere (2026-09-28 rule); the data
+    #: keys stay HeLa_WT / HeLa IVT (see GROUP_LABEL and handles()).
+    def _key(entries: list, top_in: float, ncol: int) -> None:
+        fig.legend(handles=[all_h[l] for l in entries], loc="upper center",
+                   bbox_to_anchor=(0.5, top_in / fig_h), ncol=ncol,
+                   frameon=False, handlelength=1.4, columnspacing=1.2,
+                   handletextpad=0.4, labelspacing=0.30, borderpad=0.0)
+
+    _key(KEY_A, rects["A"][0] - 0.34, 5)                 # under A's k ticks
+    _key(KEY_BCE, rects["C"][0] - 0.02, 5)               # under rows B and C
+    _key(KEY_D, rects["D"][0] - 0.86, 2)                 # below D's tool names
+    _key(KEY_BCE, rects["E"][0] - 0.38, 5)               # under E's set names
     return fig, {"fig_h": fig_h, "tools": tools}
 
 

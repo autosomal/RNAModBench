@@ -39,9 +39,11 @@ if (is.null(.RB)) {
 # the manuscript's own Guitar_*.r scripts, not a re-implementation.
 #
 #   panel C  one panel per species, m6A sites pooled over the library's tools,
-#            WT vs fip37 KD / Mettl3 KO / IVT
+#            WT vs fip37 KD / Mettl3 KO / IVT; prints its own condition / line
+#            key inside the row, below the three panels (2026-09-30)
 #   panel D  one panel per species, the three tools the paper showed
-#            (DENA, m6Anet, Nanom6A), WT vs treated
+#            (DENA, m6Anet, Nanom6A), WT vs treated; its key stays in the
+#            figure-wide band under the row (61_fig3_legend_band.py)
 #
 # Consensus = sites supported by strictly more than half of the group's
 # independent units (bed/RNA002/majority*/... written by 21b; for mouse
@@ -100,8 +102,9 @@ GATE      <- as.integer(getarg("--gate", "50"))
 MM_PER_PT <- as.numeric(grid::convertUnit(grid::unit(1, "pt"), "mm", valueOnly = TRUE))
 W <- 6.66                                  # 0.95 x \textwidth (Wiley USG layout)
 # row heights chosen so the assembled A-D page matches the printed height of the
-# published Figure 3 (~7.8 in at this width); LEGEND_H covers the legend row
-PANEL_H <- 1.41; LETTER_H <- 0.13
+# published Figure 3 (~7.8 in at this width); LEGEND_H is the key block panel C
+# carries inside its own row (panel D keeps the figure-wide band instead)
+PANEL_H <- 1.41; LETTER_H <- 0.13; LEGEND_H <- 0.22
 FS <- list(axis = 7.4, ytitle = 7.4, title = 8.6, legend = 7.2, struct = 7.2)
 stopifnot(min(unlist(FS)) >= 7.2)
 
@@ -112,7 +115,8 @@ SPECIES <- list(
 TOOLS_D <- c("DENA", "m6Anet", "Nanom6A")          # the published Fig. 3D trio
 # published panel-D grammar: WT warm, treated cool, one colour per tool x condition
 # layout v2: panel D encodes condition by colour (WT / treated) and tool by
-# linetype; the tool key is carried by the figure-wide legend band
+# linetype; the tool key is carried by the figure-wide legend band, while panel C
+# (same colours, thick/thin lines) prints its own key under its panels
 TOOL_LINETYPES <- c(DENA = "solid", m6Anet = "dashed", Nanom6A = "dotted")
 WT_COLOR <- "#4b81b8"; CMP_COLOR <- "#e8a76b"      # panel C = the manuscript palette
 
@@ -325,6 +329,54 @@ draw_panel <- function(dens, plan, title, cols, col_labels, lin_lab,
   add_structure(p, dens$componentWidth[[1]], pos)
 }
 
+## ---- the key panel C carries inside its own row -----------------------------
+
+# colours and its thick/thin line coding off the figure-wide band that sits under
+# panel D.  It now prints its own key directly below its three panels, in the same
+# wording and the same glyphs as that band: one dot per condition plus the two
+# line keys of panel C's grammar (thick solid = majority consensus, thin dashed =
+# individual unit).  The keys are drawn as a legend of a dummy plot so ggplot
+# places the glyphs and the 7.2 pt text itself -- hand-placed coordinates would
+# have to be re-measured every time a label changes.
+key_c <- function() {
+  items <- c("WT", "treated", "majority consensus", "individual unit")
+  d <- data.frame(item = factor(items, levels = items),
+                  x = 0, y = seq_along(items))
+  ggplot(d, aes(x = x, y = y, colour = item, linetype = item, shape = item,
+                linewidth = item)) +
+    geom_segment(aes(xend = x + 0.1, yend = y)) +
+    geom_point(size = 1.05) +
+    scale_colour_manual(name = NULL,
+                        values = c(WT = unname(WT_COLOR),
+                                   treated = unname(CMP_COLOR),
+                                   "majority consensus" = "grey35",
+                                   "individual unit" = "grey35")) +
+    scale_linetype_manual(name = NULL,
+                          values = c(WT = "blank", treated = "blank",
+                                     "majority consensus" = "solid",
+                                     "individual unit" = "dashed")) +
+    scale_shape_manual(name = NULL,
+                       values = c(WT = 16, treated = 16,
+                                  "majority consensus" = NA,
+                                  "individual unit" = NA)) +
+    scale_linewidth_manual(name = NULL,
+                           values = c(WT = 0.25, treated = 0.25,
+                                      "majority consensus" = 0.8,
+                                      "individual unit" = 0.28)) +
+    # the block is a full figure-width slot: the dummy rows sit at x = 0 and are
+    # clipped away by the coordinate system, so only the merged legend prints.
+    # legend.position must be "bottom" (or "inside"): ggplot2 3.5 dropped the
+    # old "center" value and silently draws an empty legend for it.
+    coord_cartesian(xlim = c(10, 11), ylim = c(0.5, 4.5)) +
+    theme_void(base_family = "Arial") +
+    theme(legend.position = "bottom", legend.direction = "horizontal",
+          legend.text = element_text(size = FS$legend, family = "Arial"),
+          legend.key.width = unit(11, "pt"), legend.key.height = unit(4, "pt"),
+          legend.spacing.x = unit(8, "pt"),
+          legend.margin = margin(0, 0, 0, 0, "pt"),
+          legend.box.margin = margin(0, 0, 0, 0, "pt"))
+}
+
 ## ---- one panel row -----------------------------------------------------------
 draw_row <- function(res, letter) {
   panel <- res$panel
@@ -345,7 +397,7 @@ draw_row <- function(res, letter) {
       panels[[sp]] <- draw_panel(dens, plan, title, cols, labs, lin_lab)
     } else {
       # panel D: colour = condition, linetype = tool -- the tool key travels in
-      # the single legend band under the figure (61_fig3_legend_band.py)
+      # the legend band under the figure (61_fig3_legend_band.py), not in the row
       cols <- c(WT = unname(WT_COLOR), treated = unname(CMP_COLOR))
       labs <- c(WT = "WT", treated = "treated")
       panels[[sp]] <- draw_panel(dens, plan, title, cols, labs, lin_lab,
@@ -362,9 +414,16 @@ draw_row <- function(res, letter) {
     scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
     scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
     theme_void()
-  wrap_elements(full = letter_p) / inner +
-    plot_layout(heights = c(LETTER_H, PANEL_H))
+  row <- wrap_elements(full = letter_p) / inner
+  if (panel == "C") row <- row / key_c()
+  row + plot_layout(heights = if (panel == "C")
+                               c(LETTER_H, PANEL_H, LEGEND_H)
+                             else c(LETTER_H, PANEL_H))
 }
+
+## ---- the height of each row as it is written to disk -------------------------
+# panel C is the only row that prints its own key block inside the row
+row_height <- function(panel) LETTER_H + PANEL_H + if (panel == "C") LEGEND_H else 0
 
 ## ---- panel-C audit: is the drawn consensus what the units support? -----------
 reconcile_pooled <- function(plan) {
@@ -417,7 +476,7 @@ for (panel in panels_to_do) {
   p <- draw_row(res, row_letter)
   save_pair_cairo(p, file.path(FIGD, sprintf("Fig3%s_metagene_%s.pdf", row_letter,
                                              if (panel == "C") "species" else "tools")),
-                  width = W, height = LETTER_H + PANEL_H)
+                  width = W, height = row_height(panel))
   plan <- res$plan
   write.table(plan[, c("panel", "species", "tool", "cond_group", "role", "kind",
                        "unit_tag", "n_sites", "path")],

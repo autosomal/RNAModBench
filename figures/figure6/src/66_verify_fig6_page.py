@@ -15,6 +15,24 @@ plus the anchors the figure claims (recall/PPV/p0/membership/effects/controls) a
 the geometry rules of the house style (Arial-only embedding, no gridlines, no
 in-panel annotation text, 300 dpi PNG).
 
+2026-09-30 
+---------------------------------------------------
+Adds the key-vs-artwork checks: the row-A reference lines are read back from the
+page as dash patterns (thin dashed = recall against every GLORI site, thin dotted
+= best single tool, in *every* column), the chance level of row D must be drawn
+in all three columns *and* visible inside each panel (counted as 0.30-grey pixels
+of the rendered PNG), the retired "all GLORI (dashed)" wording must be gone, and
+the grey curve is named "share of all GLORI sites".
+
+2026-09-30 
+------------------------------------------------------------------------------------
+Adds the placement checks: the six panel bands are read back from the page's clip
+rectangles and one distinctive word of each row key must sit below its own band
+and above the next one; the row-E key must not print the k of its sets (the values
+live in the caption).  Every one of the six rows must print the three species
+titles, and the page-budget constants below are re-measured on the delivered
+manuscript's Figure 6 page instead of the older page-20 estimate.
+
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
@@ -37,6 +55,7 @@ _RB = _rb_pl.Path(_rb_os.environ.get("RNAMODBENCH_ROOT") or _rb_find(_rb_pl.Path
 _XB = _rb_pl.Path(_rb_os.environ.get("RNAMODBENCH_LOCAL") or (_RB / "_local"))
 # --------------------------------------------------------------------------- #
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -98,6 +117,48 @@ def tf_sizes(pdf: Path) -> dict[float, int]:
     return out
 
 
+def dashed_strokes(pdf: Path) -> list[tuple[float, float, str]]:
+    """``(clip x0, clip y0, dash pattern)`` of every dashed stroke on the page.
+
+    matplotlib writes a dash tuple scaled by the line width, right beside the
+    clip rectangle of the axes it belongs to, so the two grey reference lines of
+    row A -- the styles the 2026-09-30 review was about -- can be read back from
+    the PDF instead of being taken on trust from the source.
+    """
+    data = pypdf.PdfReader(str(pdf)).pages[0].get_contents().get_data()
+    pat = re.compile(r"([\d.]+) ([\d.]+) [\d.]+ [\d.]+ re W n[^\n]*?"
+                     r"\[ ([\d.]+) ([\d.]+) \] 0 d")
+    return [(float(m.group(1)), float(m.group(2)), f"{m.group(3)} {m.group(4)}")
+            for m in pat.finditer(data.decode("latin-1"))]
+
+
+def clip_rects(pdf: Path) -> list[tuple[float, float, float, float]]:
+    """``(x0, y0, x1, y1)`` of every axes clip rectangle, in PDF points.
+
+    The panel boxes are the only rectangles matplotlib clips a panel to, so the
+    row bands of the page can be read back from them (bottom-left origin, as the
+    PDF stores them).
+    """
+    data = pypdf.PdfReader(str(pdf)).pages[0].get_contents().get_data()
+    out = []
+    for m in re.finditer(r"([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+) re W n",
+                         data.decode("latin-1")):
+        x0, y0, w, h = (float(m.group(i)) for i in range(1, 5))
+        out.append((x0, y0, x0 + w, y0 + h))
+    return out
+
+
+def page_words(pdf: Path) -> list[tuple[str, float, float, float, float]]:
+    """``(word, x0, y0, x1, y1)`` of every word, in points from the page's top left."""
+    bbox = subprocess.run(["pdftotext", "-bbox", str(pdf), "-"],
+                          capture_output=True, text=True).stdout
+    return [(m.group(5), float(m.group(1)), float(m.group(2)),
+             float(m.group(3)), float(m.group(4)))
+            for m in re.finditer(
+                r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" '
+                r'yMax="([\d.]+)">([^<]*)</word>', bbox)]
+
+
 def main() -> None:
     logger = setup_logger("66_verify_fig6_page", log_dir=LOG)
     fails: list[str] = []
@@ -122,20 +183,24 @@ def main() -> None:
     check(abs(scale - 1.0) < 2e-3,
           f"placement scale {scale:.4f} == 1.000 (no down-scaling in the "
           f"manuscript: {TARGET_W / w_pt * 100:.1f} %)")
-    
-    #: binding constraint is the two-column text block, 234 mm = 9.213 in, minus the
-    #: caption the figure carries: measured on the delivered manuscript (page 20,
-    #: caption block y 634 -> 704 pt = 0.97 in of text, 1.05 in including the line
-    #: box), so the canvas may be 9.213 - 1.05 = 8.16 in.  It is 8.02 in.
-    TEXTBLOCK_IN = 234 / 25.4
-    CAPTION_IN = 1.05
+
+    #: binding constraint is the text block minus the caption the figure carries.
+    #: 2026-09-30: both numbers were re-measured on the delivered manuscript's
+    #: Figure 6 page (page 21 of 23, US Letter 792 pt, margins 16 mm -> text block
+    #: 9.74 in; `pdftotext -bbox` gives the caption block y 617.7 -> 734.8 pt =
+    #: 1.63 in, with 11.8 pt left to the bottom margin).  The old pair (234 mm /
+    #: 1.05 in, page 20) described an earlier caption and was 0.6 in optimistic.
+    #: The canvas may therefore be 9.74 - 1.63 = 8.11 in; it is 8.07 in.
+    TEXTBLOCK_IN = 9.74
+    CAPTION_IN = 1.63
     budget_in = TEXTBLOCK_IN - CAPTION_IN
     check(h_pt / 72.0 <= budget_in + 1e-6,
           f"height {h_pt / 72:.2f} in within the page budget (<= {budget_in:.2f} in: "
-          f"234 mm text block {TEXTBLOCK_IN:.2f} in minus the caption {CAPTION_IN:.2f} in)")
+          f"US Letter text block {TEXTBLOCK_IN:.2f} in minus the caption "
+          f"{CAPTION_IN:.2f} in measured on page 21)")
 
     # ------------------------------------------------------ effective font size
-    
+
     #: scale mathtext gives sub- and superscripts (``$p_0$``, ``$10^6$`` ...), so it
     #: is typography by construction rather than a small label.  Every size must be
     #: at least MIN_PT, or be that sub/superscript scale of a size that is.
@@ -233,6 +298,77 @@ def main() -> None:
     check(n_accent > 400,
           f"accent-coloured optima actually printed ({n_accent} px at 300 dpi)")
 
+    # -------------------------------- 2026-09-30: key <-> artwork, one to one --
+    # (user review) The row-A key said "all GLORI (dashed)" while that line was
+    # drawn solid in two of the three columns, its swatch was told apart from the
+    # best-single-tool swatch by dash density alone, and the row-D key named a
+    # chance level that two of the three panels had clipped below the axis.
+    #: the patterns are unique to their line on this page, so they are counted
+    #: page-wide: the rows moved down when the keys moved below their panels
+    strokes = [p for _, _, p in dashed_strokes(PDF)]
+    n_glori_dash = strokes.count("3.6 1.8")
+    check(n_glori_dash == 4,
+          f'"share of all GLORI sites" drawn as a 0.9 x (4 2) dashed line in '
+          f"every column ({n_glori_dash} strokes, expected 4: Arabidopsis, mouse "
+          f"study A, mouse study B, human)")
+    n_best_dot = strokes.count("1.44 1.44")
+    check(n_best_dot == 4,
+          f'"best single tool" drawn as a 0.9 x (1.6 1.6) dotted line in every '
+          f"column ({n_best_dot} strokes, expected 4)")
+    check("2 1.2" not in strokes,
+          "the retired grey dash of the best-single-tool line is gone (it was "
+          "the style indistinguishable from all GLORI in the key)")
+    n_p0 = strokes.count("2.7 1.8")
+    check(n_p0 == 3, f"row D draws the chance level p0 in all three columns "
+                     f"({n_p0} strokes)")
+    #: drawn is not enough -- p0 must be *visible*: the dashed line was clipped
+    #: away in Arabidopsis and mouse until 2026-09-30
+    grey = np.abs(arr - 76).max(axis=2) <= 8        # the 0.30 grey of that line
+    for name, x0 in (("Arabidopsis", 57.6), ("Mouse", 204.0), ("Human", 350.4)):
+        xa = int(round(x0 / TARGET_W * png.size[0])) + 3
+        xb = int(round((x0 + 124.8) / TARGET_W * png.size[0])) - 3
+        ya = int(round((h_pt - (192.96 + 47.52)) / h_pt * png.size[1])) + 3
+        yb = int(round((h_pt - 192.96) / h_pt * png.size[1])) - 3
+        n_px = int(grey[ya:yb, xa:xb].sum())
+        check(n_px > 150,
+              f"row D {name}: the dashed chance level is inside the panel "
+              f"({n_px} px of 0.30 grey)")
+    check("share of all GLORI sites" in body and "all GLORI (dashed)" not in body,
+          "the row-A key names the grey curve by what it measures ('share of all "
+          "GLORI sites'), not by a line style or a bare denominator")
+    check("union marginal" in body and "k = 5" not in body and "k = 2" not in body,
+          "the site-set key names the sets, not their k (the k values live in the "
+          "caption: 5 tools for the union, 2 for the intersection)")
+    n_a, n_b = body.count("mouse study A"), body.count("mouse study B")
+    check(n_a == 1 and n_b == 1,
+          f"the mouse study convention is stated once, in row B's key "
+          f"(A x{n_a}, B x{n_b})")
+
+
+    #: printed below the panels it belongs to.  Read the six panel bands back from
+    #: the page's clip rectangles and locate one distinctive word of each key.
+    bands = sorted({(round(h_pt - y1, 3), round(h_pt - y0, 3))
+                    for x0, y0, x1, y1 in clip_rects(PDF)
+                    if x1 - x0 > 40 and y1 - y0 > 21})        # a panel, not a stray
+    check(len(bands) == 6,
+          f"the page carries six rows of panels ({len(bands)} bands found)")
+    words = page_words(PDF)
+    for token, index in (("share", 0), ("study", 1), ("chance", 3),
+                         ("marginal", 4), ("Curlcake", 5)):
+        hit = [w for w in words if w[0].strip(".,") == token]
+        check(bool(hit), f"key word {token!r} is printed ({len(hit)} times)")
+        top, bottom = bands[index] if index < len(bands) else (0.0, 0.0)
+        below = bands[index + 1][0] if index + 1 < len(bands) else h_pt
+        for _, x0, y0, x1, y1 in hit:
+            check(top < y0 and y1 < below,
+                  f"{token!r} at {y0:.1f}..{y1:.1f} pt sits below its own panels "
+                  f"({top:.1f}..{bottom:.1f}) and above the next row ({below:.1f})")
+    titles = {n: len(re.findall(rf"(?<![A-Za-z]){n}(?![A-Za-z])", body))
+              for n in ("Arabidopsis", "Mouse", "Human")}
+    check(titles == {"Arabidopsis": 6, "Mouse": 6, "Human": 7},
+          f"species titles printed on all six rows: {titles} (six rows x three "
+          f"columns, plus the row-F key entry 'Human IVT')")
+
     # --------------------------------------------------------------- verdict
     tokens = set(__import__("subprocess").run(
         ["pdftotext", str(PDF), "-"], capture_output=True, text=True
@@ -245,7 +381,7 @@ def main() -> None:
         for f in fails:
             logger.error("  - %s", f)
         sys.exit(1)
-    
+
     #: mathtext sub/superscript scale (5.2 pt = 7.5 x 0.7) and read like a small
     #: label.  It now quotes the smallest *base* size and says what the smaller one
     #: is.  (The check count is derived from the checks themselves, not hard-wired.)

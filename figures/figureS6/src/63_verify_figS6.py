@@ -11,8 +11,8 @@ Figure 6 shows is out of scope here.  The gate therefore checks, in order:
    the recall gain of the eight extra tools) and the panel B-E evidence
    (per-tool coverage / DRACH / control burden, site-set DRACH);
 2. the figure rebuilds with the layout contract of ``62_figS6_figure.py`` --
-   a compact **240 x 175 mm** page, five panel rows (A-E): row A in three
-   species columns (Arabidopsis | Mouse with both studies in one axes | HeLa),
+   a compact **178 x 175 mm** page, five panel rows (A-E): row A in three
+   species columns (Arabidopsis | Mouse with both studies in one axes | Human),
    rows B-E as single full-width panels (row D has no group dimension, the
    controls are not species-specific); the 13 tool names are printed **once and
    slanted 45 deg** under row D (right-aligned, no axis title) and the 5 set
@@ -74,12 +74,14 @@ ISECT_K5 = {"Arabidopsis_WT": 0.12, "studyA": 2.24, "studyB": 1.74,
 #: first k beyond 5 where the intersection is empty (isect PPV undefined)
 ISECT_EMPTY_FROM = {"Arabidopsis_WT": 8, "studyA": 13, "studyB": None,
                     "HeLa_WT": 12}
-#: mean DRACH fraction of the five site sets (panel E anchors)
+#: mean DRACH fraction of the five site sets (panel E anchors), in the plotted
+#: order of 2026-09-30: single k=1, intersection k=2, intersection k=5, union
+#: marginal, GLORI reference (the marginal set moved after the two intersections)
 SET_DRACH = {
-    ("Arabidopsis", "Arabidopsis_WT"): (9.55, 67.25, 100.0, 100.0, 38.75),
-    ("Mouse", "studyA"): (99.90, 37.23, 100.0, 100.0, 90.61),
-    ("Mouse", "studyB"): (99.91, 33.35, 100.0, 100.0, 90.61),
-    ("Human", "HeLa_WT"): (99.79, 14.51, 100.0, 100.0, 89.22),
+    ("Arabidopsis", "Arabidopsis_WT"): (9.55, 100.0, 100.0, 67.25, 38.75),
+    ("Mouse", "studyA"): (99.90, 100.0, 100.0, 37.23, 90.61),
+    ("Mouse", "studyB"): (99.91, 100.0, 100.0, 33.35, 90.61),
+    ("Human", "HeLa_WT"): (99.79, 100.0, 100.0, 14.51, 89.22),
 }
 #: configurations with no Curlcake run
 NO_CURLCAKE = {"CHEUI_m6A", "DRUMMER", "ELIGOS2_diff"}
@@ -249,8 +251,9 @@ def main() -> None:
                "intersection (k=5)", "GLORI reference"}
               <= set(qual[(qual.species == sp) & (qual.group == g)].set)
               for sp, g in GROUPS))
-    order = ["single (k=1)", "union marginal", "intersection (k=2)",
-             "intersection (k=5)", "GLORI reference"]
+    
+    order = ["single (k=1)", "intersection (k=2)", "intersection (k=5)",
+             "union marginal", "GLORI reference"]
     for (sp, g), want in SET_DRACH.items():
         s = qual[(qual.species == sp) & (qual.group == g)]
         got = tuple(100 * float(s[s.set == name].frac_drach.mean())
@@ -324,9 +327,21 @@ def main() -> None:
           len(x0s) == 3, f"columns={len(x0s)}")
     row_a = sorted([ax for ax in fig.axes if ax not in wide],
                    key=lambda a: a.get_position().x0)
+    #: 2026-09-30: the third column prints "Human" (the 2026-09-28 naming rule).
+    #: It used to be a pypdf overlay sitting on top of a HeLa title -- unbolded,
+    #: and the HeLa glyphs stayed in the text layer -- hence the bold and
+    #: no-HeLa guards below, which are the regression fence for that defect.
     check("row A carries the three species column titles",
-          [a.get_title() for a in row_a] == ["Arabidopsis", "Mouse", "HeLa"],
+          [a.get_title() for a in row_a] == ["Arabidopsis", "Mouse", "Human"],
           f"{[a.get_title() for a in row_a]}")
+    check("the three column titles are bold",
+          all(a.title.get_fontweight() == "bold" for a in row_a),
+          f"{[a.title.get_fontweight() for a in row_a]}")
+    page_txt = subprocess.run(["pdftotext", str(PDF), "-"],
+                             capture_output=True, text=True).stdout
+    check("the page text layer carries no HeLa label (native Human, no overlay)",
+          "HeLa" not in page_txt,
+          "; ".join(l for l in page_txt.splitlines() if "HeLa" in l)[:120])
 
     # author decision 2026-09-21: exactly one kind of text is slanted -- the block
     # of 13 tool names under row D at 45 deg (parallel to one another).  Any

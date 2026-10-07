@@ -51,6 +51,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 import pandas as pd
 from matplotlib.gridspec import GridSpec, GridSpecFromSubplotSpec
@@ -141,8 +142,9 @@ def place_letters(fig) -> None:
     fig.canvas.draw()
     inv = fig.transFigure.inverted()
     for ax, ch, dx, dy in _LETTERS:
-        #: tight bbox = axes + tick labels + axis labels (legends below the axes
-        #: only push the box downwards, so the top stays the panel's top)
+        #: tight bbox = axes + tick labels + axis labels (since 2026-09-30 the
+        #: B/E/F keys sit inside their panels, so they no longer extend the box
+        #: downwards)
         bb = ax.get_tightbbox(fig.canvas.get_renderer()).transformed(inv)
         fig.text(bb.x0 + dx, bb.y1 + dy, ch, fontsize=FS_PANEL,
                  fontweight="bold", va="bottom", ha="left")
@@ -177,7 +179,11 @@ def panel_a(fig, rect, tab: Path) -> None:
 
 def panel_b_ratio(fig, rect, tab: Path) -> None:
     """B: control/WT ratio per tool, horizontal 13-row layout (2026-09-24: the
-    old A2 facet is promoted to its own letter)."""
+    old A2 facet is promoted to its own letter).  2026-09-30 (author decision): the
+    matched-coverage diamonds overlaid on 2026-09-29 are withdrawn from the
+    panel -- the matched ratio is quoted in the text and tabulated in Table S3
+    instead, because on the two perturbation pairs it moves the other way and
+    reading it off the panel invited that comparison."""
     ratio = pd.read_csv(tab / "fig2a_testable_ratio.tsv", sep="\t")
     ax = fig.add_axes(rect)
     rng = np.random.default_rng(20260914)
@@ -203,12 +209,19 @@ def panel_b_ratio(fig, rect, tab: Path) -> None:
     ax.set_yticks(range(n))
     ax.set_yticklabels([lab(t) for t in ords], fontsize=FS_TICK)
     ax.tick_params(axis="y", length=2.0, pad=2.5)
-    handles = [Patch(facecolor=COLOR[sp], edgecolor="white", linewidth=0.3,
-                     label=sp) for sp in BLOCKS]
-    ax.legend(handles=handles, frameon=False, fontsize=7.0, ncol=3,
-              handlelength=0.7, handletextpad=0.25, columnspacing=0.6,
-              borderpad=0.0, borderaxespad=0.0, labelspacing=0.15,
-              loc="upper left", bbox_to_anchor=(0.45, -0.215))
+    
+    
+    #: and G (filled circle / square / triangle in the condition colours)
+    #: instead of three identical patches, sits inside the panel and carries a
+    #: light frame so it may sit over a sparse corner without hiding data;
+    #: ``--qa`` prints how many data points each legend box covers.
+    handles = [Line2D([], [], marker=MARKER[sp], ls="none", markersize=4.5,
+                      markerfacecolor=COLOR[sp], markeredgecolor="white",
+                      markeredgewidth=0.5, label=sp) for sp in BLOCKS]
+    ax.legend(handles=handles, frameon=True, facecolor="white",
+              edgecolor="0.55", framealpha=0.88, fontsize=7.0, ncol=1,
+              handlelength=1.0, handletextpad=0.3, borderpad=0.35,
+              labelspacing=0.25, loc="lower right", borderaxespad=0.45)
     style(ax)
     letter(ax, "B")
 
@@ -363,26 +376,20 @@ def _mean_panel(fig, rect, df, col, order, ylabel, *, logy=False, ylim=None,
         ax.set_ylabel(ylabel, fontsize=FS_LABEL)
         tool_ticks(ax, order)
     if legend_ncol:
-        #: species colour-block legend (2026-09-24): patches, not mean lines;
-        #: horizontal panels put it in the empty strip above the axes (the
-        #: 13 rows of unit scatter leave no free corner inside either panel)
-        handles = [Patch(facecolor=COLOR[sp], edgecolor="white", linewidth=0.3,
-                         label=sp) for sp in BLOCKS]
-        if horizontal:
-            #: 2026-09-24: the legend lives in the 12 pt service strip below
-            #: the x label -- inside the panel it sat on the row connectors
-            #: (markers are not the only ink), above it sat on the
-            #: neighbouring panel's tick numbers
-            ax.legend(handles=handles, frameon=False, fontsize=7.0,
-                      ncol=3, handlelength=0.7, handletextpad=0.25,
-                      columnspacing=0.6, borderpad=0.0, borderaxespad=0.0,
-                      labelspacing=0.15, loc="upper left",
-                      bbox_to_anchor=(0.12, legend_dy))
-        else:
-            ax.legend(handles=handles, frameon=False, fontsize=FS_LEGEND,
-                      loc=legend_loc, ncol=legend_ncol, handlelength=1.0,
-                      handletextpad=0.35, columnspacing=0.9, borderpad=0.1,
-                      labelspacing=0.2)
+        
+        #: G (filled circle / square / triangle in the condition colours), sits
+        #: inside the panel in the corner named by ``legend_loc`` and carries a
+        #: light frame; the 2026-09-24 axis-strip placement and its
+        #: ``legend_dy`` offset are retired (``--qa`` prints the number of data
+        #: points each legend box covers, so the corner is chosen by data).
+        handles = [Line2D([], [], marker=MARKER[sp], ls="none", markersize=4.5,
+                          markerfacecolor=COLOR[sp], markeredgecolor="white",
+                          markeredgewidth=0.5, label=sp) for sp in BLOCKS]
+        ax.legend(handles=handles, frameon=True, facecolor="white",
+                  edgecolor="0.55", framealpha=0.88, fontsize=7.0,
+                  ncol=legend_ncol, handlelength=1.0, handletextpad=0.3,
+                  borderpad=0.35, labelspacing=0.25, loc=legend_loc,
+                  borderaxespad=0.45)
     style(ax)
     if letter_ch:
         letter(ax, letter_ch)
@@ -403,15 +410,14 @@ def panel_f_fp(fig, rect, tab: Path) -> None:
     fp = pd.read_csv(tab / "fig2d_ctrl_fp_by_unit.tsv", sep="\t")
     order = order_by(fp.groupby("tool")["fp_per_1e6_candidates"].mean(),
                      asc=True)
-    #: 2026-09-24: its long xlabel shares the default legend line, so this key
-    #: drops one line lower (the F/G gap has the room)
+    
+    #: the 2026-09-24 "one line lower" offset below the x label is retired
     _mean_panel(fig, rect, fp, "fp_per_1e6_candidates", order,
                 "Control-side FP per 10$^{6}$ candidates", logy=True,
-                legend_dy=-0.268,
                 ylim=(1.0, 3e4),
                 yticks=([10, 100, 1000, 10000],
                         ["10", "100", "1000", "10$^{4}$"]),
-                legend_ncol=1, legend_loc="upper right", letter_ch="F",
+                legend_ncol=1, legend_loc="lower left", letter_ch="F",
                 horizontal=True)
 
 

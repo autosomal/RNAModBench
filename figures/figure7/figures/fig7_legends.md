@@ -9,17 +9,18 @@ IVT constructs n = 2 plus one depth-matched subset) inside the candidate-
 site universe (coverage >= 10, reference-base compatible). No m6A
 reference (GLORI) enters any conclusion in this figure (R2-2).
 
-**(A) Calls per replicate in Human WT versus Human IVT.**
-
-anchored enrichment over chance (right).** Left: in-universe calls of each
-replicate (filled, WT; open, Human IVT; short bar, condition mean),
-grouped by the three classes the analysis resolves (FP-dominated,
-intermediate, specific but sparse). CHEUI-m5C reports 15,845 ± 3,827 calls
-per unit in Human WT versus 17,129 ± 7,910 on the Human IVT libraries (mean ± SD
-of three units); the raw unions of the three replicates, 47,747 and 51,171,
-are kept for reference only. Once the coverage composition of the two libraries
-is matched the IVT/WT ratio is 0.79 (95% CI 0.49-1.14), so the union excess
-does not survive depth matching.
+**(A) Coverage-matched calls in Human WT versus Human
+IVT; anchored enrichment over chance (right).** Left: the coverage-matched count of
+each unit (filled, WT; open, Human IVT; short bar, condition mean), that is the
+unit's calls recalculated on a coverage composition shared
+by the two libraries and read on that tool's wild-type candidate-site count, grouped by
+the three classes the analysis resolves
+(FP-dominated, intermediate, specific but sparse). CHEUI-m5C reports
+15,845 ± 3,827 calls per unit in Human WT versus 17,129 ± 7,910 on the Human IVT
+libraries (mean ± SD of three units), which on the raw counts would read as the
+control calling more sites than the modified sample; depth matching removes that
+difference and leaves an IVT/WT ratio of 0.79 (95% CI 0.77-0.80); the raw per-unit
+counts and unions are deposited with the call sets.
 
 **(B) Enrichment over chance.** Overlap with external references
 (circles, RMBase + DirectRMDB compilation; squares, orthogonal NGS gold standards;

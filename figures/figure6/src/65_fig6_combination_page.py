@@ -18,7 +18,7 @@ studies stay separate series in every row and are never combined):
      same recall against **every** GLORI site (thin dashed -- the absolute
      coverage reviewer R3-4 asks about), union PPV (open) and intersection PPV
      (open squares) against k; error bars, SD across units (single-unit mouse
-     studies carry none); grey line, best single tool;
+     studies carry none); thin dotted grey, best single tool;
   B  the same trade-off per independent unit over k = 1..5 -- union and
      intersection in one panel, the evidence that it is not an averaging
      artefact;
@@ -47,6 +47,27 @@ Every number is read from the frozen tables of ``40_fig6_combination.py`` and
 ``61_figS6_sitequality.py`` -- nothing is recomputed here.  House rules: printed
 size 1:1, >= 7 pt everywhere, Arial, no gridlines, no in-panel annotation text,
 bold panel letters, vector PDF + 300 dpi PNG.
+
+2026-09-30 revision 
+------------------------------------------------------
+The two grey reference lines of row A no longer borrow the study A/B line style:
+each one carries a single fixed style on the whole page -- **thin dashed** for
+the recall against every GLORI site, **thin dotted** for the best single tool
+(the same dotted line the supplementary companion, Figure S7A, uses for the same
+quantity).  As drawn before, the key said "all GLORI (dashed)" while the line was
+solid in two of the three columns and solid for mouse study A, and the two greys
+were told apart only by dash density.  The two mouse studies are now separated by
+a lighter/darker grey instead, and the row keys state the study A/B line
+convention.  Every row carries the species titles (2026-09-30), and the y range of row D always contains the chance level p0, so the
+dashed p0 line is visible in all three columns (it used to be clipped in
+Arabidopsis and mouse).
+
+Layout, 2026-09-30 (the legend moved below every facet)
+-----------------------------------------------------------------
+Each row key sits **below the panels of its own row** (``KEY_BELOW`` under the
+panel's lower edge, clear of the x ticks and the x axis label), not in the title
+band above them; the title band is ROW_TITLE high everywhere and seats the row
+letter plus the three species titles.
 
 Outputs -> ``figures/figure6/figures/Figure6_rev.{pdf,png}``
 
@@ -97,23 +118,36 @@ TAB, FIG, LOG = OUT / "tables", OUT / "figures", OUT / "logs"
 #: 0.95 * \textwidth of USG.cls (paper 210 mm, page margins 16 mm -> 178 mm);
 #: the exported PDF page width must equal this or the print size is a lie.
 CANVAS_W = 6.66
-#: the figure shares its page with the caption: 739 pt of printable height minus
-#: a 13-line caption at 7.5 pt (~215 pt) leaves ~7.3 in for the artwork
-MAX_H = 8.05
+#: The figure shares its page with the caption; the page is US Letter with 16 mm
+#: margins (text block 9.74 in) and the Figure 6 caption of the revision measures
+#: 1.63 in on page 21 (pdftotext -bbox), which leaves 8.11 in for the artwork.
+
+#: species titles now sit on all six rows, which costs 0.03 in of band on each of
+#: rows C, E and F; the canvas grew by 0.06 in (8.01 -> 8.07) after the row-C gap
+#: and the bottom margin gave back 0.03 in, so the figure still shares page 21
+#: with its caption.
+MAX_H = 8.10
 MIN_PT = 7.0
 #: (row letter, [(panel height, gap below the panel) ...]) in inches
-ROWS = [("A", [(0.66, 0.34)]),      # trade-off across k
-        ("B", [(0.66, 0.30)]),      # trade-off per independent unit
-        ("C", [(1.16, 0.34)]),      # 13 tools: own performance | effect + members
-        ("D", [(0.66, 0.34)]),      # selection criterion (search space)
-        ("E", [(0.52, 0.36), (0.52, 0.36)])]   # E site quality, F control cost
-#: 2026-09-23: the single ten-entry legend at the bottom of the page is split
-#: into one short legend per row, sitting in that row's title band (ROW_TITLE /
-#: SUB_TITLE grew by 0.10 / 0.06 in to host a 7.2 pt legend line, and the
-#: bottom band shrank to the room panel F's axis label needs)
+ROWS = [("A", [(0.66, 0.48)]),      # trade-off across k
+        ("B", [(0.66, 0.48)]),      # trade-off per independent unit
+        ("C", [(1.16, 0.32)]),      # 13 tools: own performance | effect + members
+        ("D", [(0.66, 0.48)]),      # selection criterion (search space)
+        ("E", [(0.52, 0.48), (0.52, 0.52)])]   # E site sets, F control cost
 
-#: that the figure plus its caption fits the 234 mm text block
-TOP, ROW_TITLE, SUB_TITLE, LEGEND_H = 0.02, 0.30, 0.16, 0.12
+#: every row key moved out of the title band into the space *below* the panels it
+#: belongs to; the gaps seat one 7.2 pt key line under the x ticks and the x axis
+#: label, and the last row's gap seats the last key too (nothing is left below it
+#: but the page margin).
+#: Earlier rounds: 2026-09-23 split the single ten-entry foot strip into one key
+#: per row (so the reader would not have to travel to the foot of the page for
+#: every panel) and brought the page down from 8.46 in so that the figure plus
+#: its caption fits the text block.
+TOP, ROW_TITLE, SUB_TITLE, LEGEND_H = 0.02, 0.18, 0.18, 0.03
+#: Distance from a panel's bottom edge to the top edge of its row key: the x tick
+#: labels and the x axis label reach 0.32 in below a panel, and ``layout_report``
+#: asserts that no legend text touches either of them.
+KEY_BELOW = 0.35
 #: left margin: the membership matrix carries the 13 tool names as y tick labels
 #: ("NanoSPA_m6A" = 0.69 in at 7.2 pt Arial), plus the tick pad
 L_LEFT, L_GAP, L_RIGHT = 0.80, 0.30, 0.06
@@ -140,9 +174,31 @@ CONTROLS = ("Curlcake IVT", "HeLa IVT")
 #: adds; the intersections are the precision cores read off the same layer)
 QUAL_SETS = ["single (k=1)", "union marginal", "union (k=5)",
              "intersection (k=2)", "GLORI reference"]
-QUAL_LABELS = ["single\ntool", "union\nmarginal", "union\n$k$ = 5",
-               "intersection\n$k$ = 2", "GLORI\nreference"]
+
+#: the k of the two composite sets left the key and now lives in the caption, so
+#: the printed names are the bare set names -- ``union marginal`` stays distinct
+#: from ``union`` because it is the set the union *adds* to the best single tool
+QUAL_LABELS = ["single\ntool", "union\nmarginal", "union", "intersection",
+               "GLORI\nreference"]
 QUAL_COLOURS = ["#8c8c8c", "#1f5c8b", "#6baed6", "#e08a2e", "0.15"]
+
+#: 2026-09-30: the two grey reference lines of row A, each with ONE fixed style
+#: page-wide (see the module docstring).  ``GLORI_LS`` also keys the mouse study
+#: B series of rows A and B; ``BEST_LS`` is the dotted line of Figure S7A.
+GLORI_LS = (0, (4, 2))
+BEST_LS = (0, (1.6, 1.6))
+
+#: union recall with the denominator changed from the measurable universe to
+#: *every* GLORI site of the group, so the key names it as the share of that pool
+GLORI_LABEL = "share of all GLORI sites"
+#: grey level of those two lines; a single-study column keeps the mid grey, the
+#: mouse column's two independent studies take the lighter/darker pair the rest
+#: of the page uses for study A and study B
+GREY_SINGLE = (0.35, 0.55)
+GREY_STUDY_A = (0.55, 0.72)
+GREY_STUDY_B = (0.18, 0.42)
+#: the neutral swatch of the "mouse study A / B" style keys
+STUDY_KEY_GREY = 0.30
 
 
 def apply_style() -> None:
@@ -237,10 +293,15 @@ def _decades(lo: float, hi: float, max_n: int = 4) -> list[float]:
 
 # ----------------------------------------------------------------- layout ---- #
 def build_stack() -> tuple[float, dict[str, list[list[float]]], dict[str, float]]:
-    """Canvas height, per-row list of ``[y0, y1]`` panel rectangles, letters."""
-    n_panels = sum(len(panels) for _, panels in ROWS)
-    fig_h = (TOP + len(ROWS) * ROW_TITLE + (n_panels - len(ROWS)) * SUB_TITLE
-             + LEGEND_H + sum(h + g for _, panels in ROWS for h, g in panels))
+    """Canvas height, per-row list of ``[y0, y1]`` panel rectangles, letters.
+
+    Every row now carries the species titles, so every band is ROW_TITLE high;
+    the second panel of a row (row F) takes SUB_TITLE, which is the same value.
+    """
+    fig_h = (TOP + LEGEND_H
+             + sum((ROW_TITLE if i == 0 else SUB_TITLE) + h + g
+                   for _, panels in ROWS
+                   for i, (h, g) in enumerate(panels)))
     rects: dict[str, list[list[float]]] = {}
     letters: dict[str, float] = {}
     pool, idx = "ABCDEFGH", 0
@@ -276,48 +337,88 @@ def panel_axes(fig, rects, row, index, fig_w, fig_h) -> list:
 
 
 # ----------------------------------------------------------------- panels ---- #
-def panel_a(ax, col: dict, sel: pd.DataFrame) -> None:
-    """Mean trade-off with the SD across units (mouse: one line per study)."""
+def _ref_greys(col: dict, gi: int) -> tuple[float, float]:
+    """Grey level of the two reference lines, ``(all GLORI, best single tool)``.
+
+    A single-study column (Arabidopsis, human) keeps the mid greys; in the mouse
+    column the two independent studies take the lighter/darker pair, which is how
+    the page tells study A from study B wherever a line style is not available.
+    """
+    if len(col["groups"]) == 1:
+        return GREY_SINGLE
+    return GREY_STUDY_A if gi == 0 else GREY_STUDY_B
+
+
+def panel_a(ax, col: dict, sel: pd.DataFrame) -> dict:
+    """Mean trade-off with the SD across units (mouse: one line per study).
+
+    Returns the two grey reference series so ``build_figure`` can check that the
+    key's swatches are the styles actually drawn (2026-09-30).
+    """
     d = _col_sel(sel, col).sort_values(["group", "k"])
+    refs: dict[str, list] = {"all_glori": [], "best_single": [], "series": []}
     for gi, (_, sub) in enumerate(d.groupby("group", sort=True)):
-        ls = "-" if gi == 0 else (0, (4, 2))
+        ls = "-" if gi == 0 else GLORI_LS
+        grey_all, grey_best = _ref_greys(col, gi)
         for column, colour, mk, mfc, lw, ms in (
                 ("union_recall", UNION_C, "o", None, 1.3, 3.0),
-                ("union_recall_all", "0.35", "", None, 0.8, 0.0),
                 ("union_precision", UNION_C, "o", "white", 1.2, 3.0),
                 ("isect_precision", ISECT_C, "s", "white", 1.1, 2.8)):
-            ax.errorbar(sub.k, 100 * sub[f"{column}_mean"],
-                        yerr=100 * sub[f"{column}_sd"].fillna(0.0).to_numpy(),
-                        color=colour, marker=mk, ms=ms, mfc=mfc or colour,
-                        mew=0.9 if mfc else 0.0, lw=lw, ls=ls, capsize=1.3,
-                        elinewidth=0.6, zorder=4 if column != "union_precision" else 3)
-        ax.axhline(100 * float(sub[sub.k == 1].union_recall_mean.iloc[0]),
-                   color="0.55", lw=0.8, ls=(0, (2.5, 1.5)), zorder=1)
+            series = ax.errorbar(sub.k, 100 * sub[f"{column}_mean"],
+                                 yerr=100 * sub[f"{column}_sd"].fillna(0.0).to_numpy(),
+                                 color=colour, marker=mk, ms=ms, mfc=mfc or colour,
+                                 mew=0.9 if mfc else 0.0, lw=lw, ls=ls, capsize=1.3,
+                                 elinewidth=0.6,
+                                 zorder=4 if column != "union_precision" else 3)
+            refs["series"].append((gi, series.lines[0]))
+        # recall against **every** GLORI site: one fixed style in every column
+        # (it used to inherit the study A/B style, which made the key entry
+        # "all GLORI (dashed)" false in two of the three columns)
+        cont = ax.errorbar(sub.k, 100 * sub.union_recall_all_mean,
+                           yerr=100 * sub.union_recall_all_sd.fillna(0.0).to_numpy(),
+                           color=(grey_all, grey_all, grey_all), marker="",
+                           lw=0.9, ls=GLORI_LS, capsize=1.3, elinewidth=0.6,
+                           zorder=2)
+        refs["all_glori"].append(cont.lines[0])
+        # best single tool: fixed thin dotted, one level per study
+        ref = 100 * float(sub[sub.k == 1].union_recall_mean.iloc[0])
+        refs["best_single"].append(
+            ax.axhline(ref, color=(grey_best, grey_best, grey_best), lw=0.9,
+                       ls=BEST_LS, zorder=1))
     ax.set_xticks(range(1, 6))
     ax.set_ylim(0, 105)
     ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_xlabel("tools combined ($k$)", fontsize=FS["label"])
     ax.set_ylabel("recall / PPV (%)", fontsize=FS["label"])
-    ax.set_title(col["title"], fontsize=FS["title"], fontweight="bold", pad=3)
+    return refs
 
 
-def panel_b(ax, col: dict, allk: pd.DataFrame) -> None:
-    """Per-unit trajectories of the same trade-off over k = 1..5."""
+def panel_b(ax, col: dict, allk: pd.DataFrame) -> dict:
+    """Per-unit trajectories of the same trade-off over k = 1..5.
+
+    Returns the drawn series as ``(study index, artist)`` pairs: the row key
+    names the solid (study A) and dashed (study B) line styles, and
+    ``build_figure`` checks that those swatches are what the panel draws.
+    """
     d = _col_sel(allk, col)
+    series: list[tuple[int, object]] = []
     for gi, (_, units) in enumerate(d.groupby("group", sort=True)):
-        ls = "-" if gi == 0 else (0, (4, 2))
+        ls = "-" if gi == 0 else GLORI_LS
         tags = sorted(units.unit.unique())
         for tag, off in zip(tags, _offsets(len(tags), 0.13)):
             u = units[units.unit == tag].sort_values("k")
-            ax.plot(u.k + off, 100 * u.union_recall, color=UNION_C, ls=ls,
-                    lw=1.1, marker="o", ms=2.6, zorder=3)
-            ax.plot(u.k + off, 100 * u.isect_precision, color=ISECT_C, ls=ls,
-                    lw=1.0, marker="s", ms=2.4, mfc="white", mew=0.8, zorder=2)
+            series.append((gi, ax.plot(u.k + off, 100 * u.union_recall,
+                                       color=UNION_C, ls=ls, lw=1.1, marker="o",
+                                       ms=2.6, zorder=3)[0]))
+            series.append((gi, ax.plot(u.k + off, 100 * u.isect_precision,
+                                       color=ISECT_C, ls=ls, lw=1.0, marker="s",
+                                       ms=2.4, mfc="white", mew=0.8, zorder=2)[0]))
     ax.set_xticks(range(1, 6))
     ax.set_ylim(0, 105)
     ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_xlabel("tools combined ($k$)", fontsize=FS["label"])
     ax.set_ylabel("recall / PPV (%)", fontsize=FS["label"])
+    return {"series": series}
 
 
 def panel_c_own(ax, col: dict, single: pd.DataFrame, toolq: pd.DataFrame,
@@ -401,8 +502,15 @@ def panel_c_matrix(ax, col: dict, members: pd.DataFrame, effects: pd.DataFrame,
     ax.set_xlabel("tools ($k$)", fontsize=FS["tool"], labelpad=1.5)
 
 
-def panel_d(ax, col: dict, space: pd.DataFrame) -> None:
-    """The criterion: every enumerated combination, p0, and the optima."""
+def panel_d(ax, col: dict, space: pd.DataFrame) -> dict:
+    """The criterion: every enumerated combination, p0, and the optima.
+
+    The y range is guaranteed to contain p0 (2026-09-30): the dashed chance-level
+    line was drawn in every column but sat below the axis floor in Arabidopsis
+    (p0 1.50 % < 2.18 %) and mouse (0.70 % < 0.89 %), so the key named a line two
+    of the three panels did not show.  Returns p0 and the limits it was drawn in
+    so ``build_figure`` can assert the contract.
+    """
     d = space[(space.species == col["sp"]) & space.group.isin(col["groups"])]
     for gi, (_, sub) in enumerate(d.groupby("group", sort=True)):
         alpha = 0.75 if gi == 0 else 0.45
@@ -425,10 +533,18 @@ def panel_d(ax, col: dict, space: pd.DataFrame) -> None:
     p0 = 100 * float(d.p0_chance_precision.iloc[0])
     ax.axhline(p0, color="0.30", lw=0.9, ls=(0, (3, 2)), zorder=1)
     ax.set_yscale("log")
-    lo = max(0.6, 100 * float(d.union_precision_mean.min()) * 0.6)
+    #: the chance level is part of the selection criterion, so the axis floor is
+    #: lowered until the dashed line sits inside the panel half a decade above it
+    #: -- the same visible margin in all three columns, and low enough that the
+    #: row shares one tick set (1-5-20) instead of a per-column one
+    cloud_lo = max(0.6, 100 * float(d.union_precision_mean.min()) * 0.6)
+    lo = min(cloud_lo, 0.5 * p0)
     hi = min(60.0, 100 * float(d.union_precision_mean.max()) * 2.0)
     ax.set_ylim(lo, hi)
-    ticks = [t for t in (1, 2, 5, 10, 20) if lo <= t <= hi]
+    #: 2026-09-30: five decade ticks (1-2-5-10-20) no longer fit: with the floor
+    #: below 1 the bottom pair of labels touched (caught by layout_report), and a
+    #: 0.66 in panel cannot hold them; 1-5-20 keeps every label 13 pt apart
+    ticks = [t for t in (1, 5, 20, 100) if lo <= t <= hi]
     ax.set_yticks(ticks)
     ax.set_yticklabels([str(t) for t in ticks])
     ax.minorticks_off()
@@ -437,6 +553,7 @@ def panel_d(ax, col: dict, space: pd.DataFrame) -> None:
     ax.set_xticks([0, 20, 40, 60, 80])
     ax.set_xlabel("mean union recall (%)", fontsize=FS["label"])
     ax.set_ylabel("mean PPV (%)", fontsize=FS["label"])
+    return {"p0": p0, "lo": lo, "hi": hi, "yticks": ticks}
 
 
 def panel_e1(ax, col: dict, hist: pd.DataFrame) -> None:
@@ -521,8 +638,10 @@ def handles() -> list:
     return [
         Line2D([], [], color=UNION_C, marker="o", ms=3.2, lw=1.3,
                label="union recall"),
-        Line2D([], [], color="0.35", lw=0.9, ls=(0, (4, 2)),
-               label="all GLORI (dashed)"),
+        #: 2026-09-30: the label no longer claims a line style; the swatch *is*
+        #: the style drawn in every column (``GLORI_LS``), mouse study B included
+        Line2D([], [], color=(GREY_SINGLE[0],) * 3, lw=0.9, ls=GLORI_LS,
+               label=GLORI_LABEL),
         Line2D([], [], color=UNION_C, marker="o", ms=3.2, mfc="white", mew=0.9,
                lw=1.2, label="union PPV"),
         Line2D([], [], color=ISECT_C, marker="s", ms=2.8, mfc="white", mew=0.9,
@@ -533,12 +652,21 @@ def handles() -> list:
                lw=1.1, path_effects=[pe.withStroke(linewidth=2.4,
                                                    foreground="white")],
                label="selected optimum (k = 1-5)"),
-        Line2D([], [], color="0.55", lw=0.9, ls=(0, (2.5, 1.5)),
+
+        #: "all GLORI sites" series, and the two must be told apart at a glance;
+        #: the supplementary companion (Figure S7A) dots this same quantity
+        Line2D([], [], color=(GREY_SINGLE[1],) * 3, lw=0.9, ls=BEST_LS,
                label="best single tool"),
         Line2D([], [], color="0.30", lw=0.9, ls=(0, (3, 2)),
                label="chance level p0"),
         Line2D([], [], color="0.45", marker="o", ms=2.8, ls="none", mfc="0.45",
                mec="0.45", label="IVT controls"),
+        #: the mouse column carries two independent studies in every row; where a
+        #: line style can carry them, study B is the dashed one
+        Line2D([], [], color=(STUDY_KEY_GREY,) * 3, lw=1.3, ls="-",
+               label="mouse study A"),
+        Line2D([], [], color=(STUDY_KEY_GREY,) * 3, lw=1.3, ls=GLORI_LS,
+               label="mouse study B"),
     ]
 
 
@@ -549,9 +677,16 @@ def handles() -> list:
 #: (orange, open squares) -- and its own key now names those two quantities, as
 #: the other rows do, instead of describing what a dot is.  That a point is one
 #: independent sequencing unit is stated in the caption (Fig. 6B).
-ROW_LEGEND = {"A": ["union recall", "all GLORI (dashed)", "union PPV",
+
+#: the mouse column is the only one that carries two independent studies, and a
+#: dashed line there means study B, in the rows where line style is the encoding.
+#: Row A carries the shortest key that still names every mark it draws: the two
+#: study entries ride in row B's key (and in the caption), because row A's line
+#: would otherwise run past the page edge once the grey curve was renamed.
+ROW_LEGEND = {"A": ["union recall", GLORI_LABEL, "union PPV",
                     "intersection PPV", "best single tool"],
-              "B": ["union recall", "intersection PPV"],
+              "B": ["union recall", "intersection PPV",
+                    "mouse study A", "mouse study B"],
               "D": ["all enumerated combinations", "selected optimum (k = 1-5)",
                     "chance level p0"]}
 
@@ -571,22 +706,20 @@ def control_handles() -> list:
                    lw=0.8, mfc="white", mec="0.45", label="Human IVT")]
 
 
-def row_legend(fig, handles_: list, y_top_in: float, fig_h: float,
-               band_in: float) -> None:
-    """One legend line, left-aligned right after the row letter.
+def row_legend(fig, handles_: list, y_in: float, fig_h: float):
+    """One legend line, left-aligned *below* the row of panels it belongs to.
 
-    2026-09-24: the line used to hug the page's right edge, directly above the
-    rightmost panel's title; it now sits with its own row label so every row's
-    key is read at the same place, next to the letter that identifies it.
-    In a ROW_TITLE band the lower third belongs to the panel's own title, so
-    the legend line is lifted clear of it (0.13 in from the band's top edge).
+    2026-09-30 : the key used to
+    sit in the row's title band, above the panels; it is now anchored under the
+    row's own panels, ``KEY_BELOW`` inches beneath their lower edge so it clears
+    the x ticks and the x axis label.  ``check_keys_below_panels`` asserts that
+    every key ends up below its panels.
     """
-    drop = 0.13 if band_in > 0.2 else 0.15
-    fig.legend(handles=handles_, loc="lower left",
-               bbox_to_anchor=(0.035, (y_top_in - drop) / fig_h),
-               ncol=len(handles_), frameon=False, fontsize=FS["legend"],
-               handlelength=1.1, columnspacing=0.85, handletextpad=0.30,
-               labelspacing=0.25, borderpad=0.0)
+    return fig.legend(handles=handles_, loc="upper left",
+                      bbox_to_anchor=(0.035, y_in / fig_h),
+                      ncol=len(handles_), frameon=False, fontsize=FS["legend"],
+                      handlelength=1.1, columnspacing=0.85, handletextpad=0.30,
+                      labelspacing=0.25, borderpad=0.0)
 
 
 # ------------------------------------------------------------------ checks --- #
@@ -700,6 +833,99 @@ def check_tables(t: dict[str, pd.DataFrame], tools: list[str], logger) -> None:
                 "search space complete")
 
 
+def _ls_key(art) -> tuple:
+    """Comparable dash pattern of a Line2D.
+
+    matplotlib reports every custom dash tuple back as the string ``"--"`` and
+    keeps the pattern itself in ``_unscaled_dash_pattern``; the whole point of
+    the checks below is that the two grey reference lines are *not*
+    interchangeable, so the pattern has to be compared rather than its name.
+    """
+    pat = getattr(art, "_unscaled_dash_pattern", None)
+    if pat is None:                                  # pragma: no cover (mpl move)
+        return (str(art.get_linestyle()),)
+    off, onoff = pat
+    return (round(float(off or 0.0), 3),
+            tuple(round(float(v), 3) for v in (onoff or ())))
+
+
+def _style_key(ls) -> tuple:
+    """``_ls_key`` of a line *style* (a dash tuple, ``"-"``, ``"none"`` ...)."""
+    probe = Line2D([], [])
+    probe.set_linestyle(ls)
+    return _ls_key(probe)
+
+
+def check_key_vs_artwork(panel_a_refs: list[dict], panel_b_series: dict,
+                         d_contracts: list[dict], all_h: dict) -> None:
+    """The row keys may only claim what the panels actually draw (2026-09-30).
+
+    Every assertion here answers a complaint of the 2026-09-30 review: the key
+    said "all GLORI (dashed)" while two of the three columns drew that line solid
+    and the two greys differed only in dash density; the row-D key named a chance
+    level that two of the three panels had clipped below the axis; and nothing on
+    the page said what a dashed line in the mouse column means.
+    """
+    glori, best, series = [], [], []
+    for r in panel_a_refs:
+        glori += r["all_glori"]
+        best += r["best_single"]
+        series += r["series"]
+    series += list(panel_b_series["series"])
+    assert glori and best and series, "panel A/B drew no reference line"
+    for art in glori:
+        assert _ls_key(art) == _style_key(GLORI_LS), \
+            (f'"all GLORI sites" drawn {art.get_linestyle()} / {_ls_key(art)}, '
+             f"the key swatch is {GLORI_LS}")
+    for art in best:
+        assert _ls_key(art) == _style_key(BEST_LS), \
+            (f'"best single tool" drawn {art.get_linestyle()} / {_ls_key(art)}, '
+             f"the key swatch is {BEST_LS}")
+    assert _ls_key(glori[0]) != _ls_key(best[0]), \
+        "the two grey reference lines share one line style again"
+    # the study key: study A solid, study B dashed, in rows A and B alike
+    for gi, art in series:
+        want = "-" if gi == 0 else GLORI_LS
+        assert _ls_key(art) == _style_key(want), \
+            (f"study {gi} series drawn {art.get_linestyle()}, the "
+             f'"mouse study {"AB"[gi]}" key swatch is {want}')
+    for label, want in ((GLORI_LABEL, GLORI_LS),
+                        ("best single tool", BEST_LS),
+                        ("mouse study A", "-"), ("mouse study B", GLORI_LS)):
+        assert all_h[label].get_label() == label, \
+            f'key entry "{label}" is labelled {all_h[label].get_label()!r}'
+        assert _ls_key(all_h[label]) == _style_key(want), \
+            f'key entry "{label}" is {all_h[label].get_linestyle()}, not {want}'
+    for c in d_contracts:
+        assert c["lo"] < c["p0"] < c["hi"], \
+            (f"chance level p0 = {c['p0']:.2f} % outside the drawn range "
+             f"{c['lo']:.2f}..{c['hi']:.2f} % of its panel")
+        assert c["yticks"] == d_contracts[0]["yticks"], \
+            f"row D panels carry different y ticks: {c['yticks']}"
+
+
+def check_keys_below_panels(fig, keyed: list[tuple[object, float]]) -> None:
+    """Every row key must be printed *below* the panels it belongs to.
+
+    2026-09-30 : the keys moved
+    from the title band into the space under their own row.  The requirement is
+    geometric, so it is asserted against the rendered bounding boxes rather than
+    trusted to the anchoring arithmetic.
+    """
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    dpi = fig.dpi
+    for legend, panel_bottom in keyed:
+        bb = legend.get_window_extent(renderer=rend)
+        top, bottom = bb.y1 / dpi, bb.y0 / dpi
+        assert top <= panel_bottom, \
+            (f"row key reaches {top:.2f} in, above its own panel bottom "
+             f"{panel_bottom:.2f} in")
+        assert bottom >= panel_bottom - KEY_BELOW - 0.16, \
+            (f"row key ends {panel_bottom - bottom:.2f} in below its panels, "
+             f"more than the {KEY_BELOW + 0.16:.2f} in reserved for it")
+
+
 # -------------------------------------------------------------------- main --- #
 def build_figure(t: dict[str, pd.DataFrame],
                  tools: list[str]) -> tuple[plt.Figure, dict]:
@@ -730,15 +956,31 @@ def build_figure(t: dict[str, pd.DataFrame],
     eff = 100 * t["effects"].effect_recall.to_numpy(dtype=float)
     lim = float(np.nanmax(np.abs(eff))) if eff.size else 1.0
 
+    refs_a: list[dict] = []
+    refs_b: dict = {"series": []}
+    contracts_d: list[dict] = []
     for j, col in enumerate(COLS):
-        panel_a(ax_a[j], col, t["sel"])
-        panel_b(ax_b[j], col, t["allk"])
+        refs_a.append(panel_a(ax_a[j], col, t["sel"]))
+        refs_b["series"] += panel_b(ax_b[j], col, t["allk"])["series"]
         panel_c_own(ax_c1[j], col, t["single"], t["toolq"], tools,
                     show_labels=(j == 0))
         panel_c_matrix(ax_c2[j], col, t["members"], t["effects"], tools, lim)
-        panel_d(ax_d[j], col, t["space"])
+        contracts_d.append(panel_d(ax_d[j], col, t["space"]))
         panel_e1(ax_e1[j], col, t["hist"])
         panel_e2(ax_e2[j], col, t["ctl"])
+
+
+    # every row, so a reader who lands on any one of them can key the three columns
+    # without travelling back to row A.  Row C is the one row made of two blocks per
+    # column, so its title is centred over the whole column by hand (x in axes
+    # fractions of the left block: half a column divided by that block's width).
+    for axs in (ax_a, ax_b, ax_d, ax_e1, ax_e2):
+        for ax, col in zip(axs, COLS):
+            ax.set_title(col["title"], fontsize=FS["title"], fontweight="bold",
+                         pad=3)
+    for i, col in enumerate(COLS):
+        ax_c1[i].set_title(col["title"], x=(wcol / 2) / w1, fontsize=FS["title"],
+                           fontweight="bold", pad=3)
 
     # one y axis label per row and column 0 only: the columns differ by species,
     # and a second label would eat into the neighbouring panel's data area
@@ -750,16 +992,23 @@ def build_figure(t: dict[str, pd.DataFrame],
         fig.text(0.008, y_in / fig_h, row, fontsize=FS["letter"],
                  fontweight="bold", va="top", ha="left")
 
-    # ---- one legend per row, in its title band ---------------------------- #
-    # (the whole page used to carry a single ten-entry band at the bottom)
+    # ---- one key per row, below that row's own panels --------------------- #
+
+    # to sit in the title band, above the panels, next to the row letter.
     all_h = {h.get_label(): h for h in handles()}
+    keyed: list[tuple[object, float]] = []          # (legend, panel bottom edge)
     for row, labels in ROW_LEGEND.items():
-        row_legend(fig, [all_h[l] for l in labels], letters[row] + 0.01, fig_h,
-                   ROW_TITLE)
-    row_legend(fig, qual_handles(), letters["E"] + 0.01, fig_h, ROW_TITLE)
-    row_legend(fig, control_handles(), letters["F"] + 0.01, fig_h, SUB_TITLE)
+        bottom = rects[row][-1][0]
+        keyed.append((row_legend(fig, [all_h[l] for l in labels],
+                                 bottom - KEY_BELOW, fig_h), bottom))
+    # rows E and F are the two panels of the "E" entry of ROWS
+    for index, hh in ((0, qual_handles()), (1, control_handles())):
+        bottom = rects["E"][index][0]
+        keyed.append((row_legend(fig, hh, bottom - KEY_BELOW, fig_h), bottom))
+    check_key_vs_artwork(refs_a, refs_b, contracts_d, all_h)
+    check_keys_below_panels(fig, keyed)
     return fig, {"fig_h": fig_h, "tools": tools, "xpos": xpos,
-                 "effect_lim": lim}
+                 "effect_lim": lim, "contracts_d": contracts_d, "keyed": keyed}
 
 
 def main() -> None:
@@ -775,6 +1024,15 @@ def main() -> None:
     logger.info("tool order: %s", " > ".join(meta["tools"]))
     logger.info("row C effect colour scale: +/- %.2f pp (mean recall at fixed k)",
                 meta["effect_lim"])
+    logger.info("row D chance level inside every panel "
+                "(p0, floor, ceiling, ticks): %s",
+                [(*[round(c[k], 2) for k in ("p0", "lo", "hi")], c["yticks"])
+                 for c in meta["contracts_d"]])
+    logger.info('row A/B key <-> artwork: "%s" dashed, best single tool dotted, '
+                "mouse study A solid / study B dashed (asserted)", GLORI_LABEL)
+    logger.info("row keys below their own panels: %s (in below each panel edge)",
+                [round(b - lg.get_window_extent().y0 / fig.dpi, 2)
+                 for lg, b in meta["keyed"]])
     logger.info("text objects %d; font sizes %s; smallest %.2f pt; overlaps %d",
                 rep["n_text"], rep["fonts"], rep["min_fontsize"],
                 len(rep["overlaps"]))

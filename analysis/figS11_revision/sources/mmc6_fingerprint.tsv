@@ -1,0 +1,9 @@
+role	path	bytes	md5	detail
+source	the deposited table	6589218	80deb04da88c1d2ff83b2f37f862a4c7	sheets 3: HEK293T, HeLa, HepG2; parser stdlib(zipfile+ElementTree)
+our callset HeLa WT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT1.tsv	114605	712f58a5961dbcdee1748450346989cf	1673 rows at ratio >= 0.1
+our callset HeLa WT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT2.tsv	242409	dbdfd67dc3e4dc165403e31ecb551088	3538 rows at ratio >= 0.1
+our callset HeLa WT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_WT/Nm/NanoNm/HeLa_WT3.tsv	115170	77b89d3fe8f4e609bd4655616d390546	1683 rows at ratio >= 0.1
+our callset HeLa IVT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep1.tsv	320558	41fa2e2a7fcb6a4f3c96bac3f53ee5ad	4677 rows at ratio >= 0.1
+our callset HeLa IVT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep2.tsv	351913	5f1df5316741e7339a9ef17c21be8a95	5137 rows at ratio >= 0.1
+our callset HeLa IVT	$RNAMODBENCH_ROOT/data/callsets/RNA002/Human/HeLa_IVT/Nm/NanoNm/HeLa_IVT_rep3.tsv	128902	2dc285dfaab894514e4d75431e5b6c11	1880 rows at ratio >= 0.1
+annotation	$RNAMODBENCH_LOCAL/reference/GRCh38p14/ensembl112/Homo_sapiens.GRCh38.112.chr.gtf	1506255408	-	gene_name spans (42652 named genes)

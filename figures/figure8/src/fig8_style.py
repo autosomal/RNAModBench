@@ -51,6 +51,11 @@ STYLE = dict(font=8.5, tick=8.5, row=8.8, label=10.0, value=12.0, letter=15.0,
 
 # ---- page geometry, inches (final print size, no scaling at assembly) -------- #
 PAGE_IN = (6.95, 8.15)          # 500.4 x 586.8 pt, printed 1:1 (\textwidth)
+
+#: the reference layout is three rows of half-width tiles -- A|C / B|D / E -- so
+#: A and C return to the shared 3.30 x 3.02 in canvas and their row labels back
+#: to 8.2 / 8.8 pt (7.9 / 8.4 pt at the manuscript's 0.958 scale).  The 2026-09-29
+#: full-width variant stays archived in the build round fig8_relayout_20260929.
 PIECE = {"A": (3.30, 3.02), "B": (3.30, 3.02), "C": (3.30, 3.02),
          "D": (3.30, 3.02), "E": (6.85, 2.05)}
 

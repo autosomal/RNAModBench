@@ -749,7 +749,135 @@ def build_curlcake(res, region_bp: int) -> pd.DataFrame:
 # --------------------------------------------------------------------------- #
 # Table S5 reconciliation
 # --------------------------------------------------------------------------- #
+#: the depth diagnosis of the R3-9b package: the coverage-matched ratio the delivered
+#: Table S5 prints for the five rows that keep this study's own wild-type units
+MATCHED_EV = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"))
+
+
+def matched_ratio_printed(tool: str) -> tuple[float, str]:
+    """The coverage-matched ratio the delivered Table S5 prints, and its wild-type arm.
+
+    2026-10-04 (author decision, option B): for NanoNm that cell is recomputed with the published
+    per-site set as the wild-type arm -- the same weighted estimator, one arm swapped.
+    2026-10-06 (author decision, option C): every row's interval is the counting bootstrap of
+    `rd2_matched_bands.py::site_boot_ratio`.  Recording the arm beside the value is what
+    keeps a rebuild from silently printing one tool's number under the other's basis.
+    """
+    if tool == "NanoNm":
+        path = (_RB / "figures/figureS7/tables/s7_nanonm_published_matched.tsv")
+        if not path.exists():
+            raise SystemExit(f"missing {path}; run src/harmonisation/scripts/"
+                             f"76_nanonm_published_wt.py before 53_figS7_tables.py")
+        m = pd.read_csv(path, sep="\t")
+        ratio = float((m.pooled_weight * m.ivt_this_study_rate_per_1e6).sum()
+                      / (m.pooled_weight * m.wt_merged_arm_rate_per_1e6).sum())
+        return round(ratio, 6), \
+            "this study's HeLa_WT2 and HeLa_WT3 units plus the published pooled set"
+    if not MATCHED_EV.exists():
+        raise SystemExit(f"missing {MATCHED_EV}")
+    m = pd.read_csv(MATCHED_EV, sep="\t")
+    return round(float(m[m.tool == tool].iloc[0].band_matched_rate_ratio), 6), \
+        "this study's three wild-type units"
+
+
+#: the per-unit depth-standardised rate of every tool and condition; the two cells the
+#: delivered Table S5 prints beside the ratio (2026-10-06) are its condition means
+RATE_UNITS_EV = MATCHED_EV.with_name("band_matched_unit_rates.tsv")
+
+
+def _anchor76(key: str) -> float:
+    """One number of the 76 run, so this table reads the arm's cells the way it computed."""
+    path = (_RB / "figures/figureS7/logs/76_anchors.tsv")
+    if not path.exists():
+        raise SystemExit(f"missing {path}; run 76_nanonm_published_wt.py before this script")
+    a = pd.read_csv(path, sep="\t").set_index("key")["value"]
+    if key not in a.index:
+        raise SystemExit(f"the 76 anchors carry no {key!r}; rebuild before this script")
+    return float(a[key])
+
+
+def printed_rate_cells(tool: str) -> tuple[float, float]:
+    """(wild-type, unmodified-IVT) of the two rate cells behind the delivered Table S5.
+
+    2026-10-06 (author decision, second task) / 2026-10-07 : the table's count columns
+    are no longer raw per-unit counts and unions -- those put the unmodified side above the
+    wild type for four of the six tools -- but the *depth-standardised* rate, calls per
+    million candidate sites, the seven strata combined by the pooled site weights, as a mean
+    over the condition's samples; since 2026-10-07 the two printed cells are that rate read
+    on the row's wild-type candidate-site count (`build_supp_tables.py::base_sites`), so the
+    rates this function returns are the printed cells divided by that one base.  The printed
+    ratio is the quotient of the two cells.  Five rows take both cells from the depth
+    diagnosis; NanoNm's wild-type cell is the arm of `76_nanonm_published_wt.py`, read from
+    that run's anchors, and its unmodified side is this study's three IVT units as in every
+    other row.
+    """
+    if tool == "NanoNm":
+        return _anchor76("merged_wt_rate_mean_per_1e6"), _anchor76("ivt_rate_mean_per_1e6")
+    if not RATE_UNITS_EV.exists():
+        raise SystemExit(f"missing {RATE_UNITS_EV}")
+    g = pd.read_csv(RATE_UNITS_EV, sep="\t")
+    g = g[g.tool == tool]
+    wt = g[g.condition == "WT"].band_matched_rate_per_1e6
+    ivt = g[g.condition == "IVT"].band_matched_rate_per_1e6
+    if wt.size != 3 or ivt.size != 3:
+        raise SystemExit(f"{tool}: expected three units per condition in {RATE_UNITS_EV.name}, "
+                         f"found {wt.size} and {ivt.size}")
+    return float(wt.mean()), float(ivt.mean())
+
+
+def nanonm_wt_cells() -> tuple[int, int]:
+    """(the arm's wild-type union, the published set's own site count).
+
+    2026-10-06: the delivered table no longer prints a union column, so the first value is
+    the arm's union as the evidence holds it, kept for the baseline comparison below.
+
+    2026-10-04 / 2026-10-05 (author decision): that row's wild-type arm is the per-site Nm
+    stoichiometry published with the model *merged with* two of this study's three units
+    (HeLa_WT2 and HeLa_WT3; the third, HeLa_WT1, carries the smallest call count and was
+    left out so the arm holds three samples), cut at this study's own thresholds by
+    `76_nanonm_published_wt.py`; the arm's union is therefore the union of the three
+    samples, and the published set's own count is only one of them.  Both are read from that
+    script's evidence table rather than written by hand here.
+    """
+    path = (_RB / "figures/figureS7/tables/s7_nanonm_published_wt.tsv")
+    if not path.exists():
+        raise SystemExit(f"missing {path}; run src/harmonisation/scripts/"
+                         f"76_nanonm_published_wt.py before 53_figS7_tables.py")
+    df = pd.read_csv(path, sep="\t")
+    arm = df[(df.source == "merged wild-type arm")
+             & (df.cut == "matched_ratio_support")
+             & (df.unit == "union_of_the_three_samples")]
+    pub = df[(df.source.str.startswith("published"))
+             & (df.cut == "matched_ratio_support")
+             & (df.unit == "union_of_the_three_universes")]
+    if len(arm) != 1 or len(pub) != 1:
+        raise SystemExit(f"{path.name}: expected one merged-arm union row and one "
+                         f"published union row, found {len(arm)} and {len(pub)}")
+    return int(arm.iloc[0].sites_in_universe), int(pub.iloc[0].sites_in_universe)
+
+
 def build_table_s5(summary: pd.DataFrame) -> pd.DataFrame:
+    """The published Table S5 values against the call set this study ships.
+
+    2026-10-04 / 2026-10-05 (author decision): NanoNm's wild-type cells of the delivered Table S5
+    carry the per-site Nm stoichiometry published with the model *merged into* this
+    study's three units, cut at this study's own thresholds by
+    `76_nanonm_published_wt.py`.  This table therefore records two different things for
+    that one tool -- what the delivered table prints (the four-sample arm) and what this
+    study's own re-analysis holds (`s7_*`, still the numbers the published-set cross-check compares) -- and
+    says so in `status` and `note` instead of reporting a delta, because the two sides are
+    not two versions of one measurement.  `matched_ratio_printed` and
+    `matched_ratio_basis` record which arm every row's ratio cell came from; the
+    unmodified-IVT columns stay this study's own either way.
+
+    2026-10-06 (author decision, second task): the delivered table's count columns are no longer the raw
+    per-unit counts and unions -- those showed the unmodified side above the wild type for
+    four of the six tools -- but the depth-standardised rate of each condition, so
+    `printed_wt_rate` / `printed_ivt_rate` record the two cells the table prints, the ratio
+    is their quotient, and the raw unions this table reconciles (`t5_*`, `s7_*`) are kept as
+    the baseline history they are.
+    """
+    pub, pub_only = nanonm_wt_cells()
     rows = []
     for tool in TOOL_ORDER:
         s = summary[summary.tool == tool]
@@ -757,16 +885,68 @@ def build_table_s5(summary: pd.DataFrame) -> pd.DataFrame:
         ivt = float(s.loc[s.condition == "IVT", "union_raw"].iloc[0])
         t5 = TABLE_S5[tool]
         ratio = ivt / wt if wt else np.nan
+        same = (wt == t5["wt"] and ivt == t5["ivt"])
+        printed, basis = matched_ratio_printed(tool)
+        wt_rate, ivt_rate = printed_rate_cells(tool)
+
+        #: the depth-standardised count of each condition beside the ratio -- the same rate,
+        #: read on one candidate-site base per row -- so the contract that makes the two
+        #: cells readable (the wild type above the unmodified control, and the ratio the
+        #: quotient of the two) is checked here as well as in the table builder
+        if not wt_rate > ivt_rate:
+            raise SystemExit(
+                f"{tool}: the wild-type rate behind the printed cell {wt_rate:.1f} is not "
+                f"above the unmodified-IVT rate {ivt_rate:.1f}; the two cells would read the "
+                f"other way round")
+        if abs(ivt_rate / wt_rate - printed) > 5e-4 + 5e-4 * printed:
+            raise SystemExit(
+                f"{tool}: the rate cells give a quotient of {ivt_rate / wt_rate:.6f}, the "
+                f"printed ratio is {printed:.6f}; they are not the same estimator")
+        if tool == "NanoNm":
+            #: the delivered cells are the merged arm's; `t5_*_union` keeps the raw baselines
+            #: on the record (the table no longer prints a union), and the rate cells are the
+            #: arm's own, read from that run's anchors
+            rows.append(dict(
+                tool=tool, display=DISPLAY[tool], mod_type=MOD_OF[tool],
+                t5_ivt_union=t5["ivt"], t5_wt_union=pub, t5_ratio=t5["ratio"],
+                s7_wt_union_raw=wt, s7_ivt_union_raw=ivt, s7_ratio_raw=ratio,
+                wt_delta=pub - wt, ivt_delta=0.0, ratio_delta=0.0,
+                printed_wt_rate=round(wt_rate, 1), printed_ivt_rate=round(ivt_rate, 1),
+                matched_ratio_printed=printed, matched_ratio_basis=basis,
+                status="changed (NanoNm wild-type arm merges the published per-site set)",
+                note=f"the delivered Table S5 prints two depth-standardised rate cells for "
+                     f"NanoNm -- the arm's rate, mean (SD) over this study's HeLa_WT2 and "
+                     f"HeLa_WT3 units plus the per-site Nm set published with the model "
+                     f"({pub_only} of its sites at ratio 0.1 or more and at least 20 modified "
+                     f"reads inside this study's candidate-site set, cut by "
+                     f"76_nanonm_published_wt.py; HeLa_WT1 carries the smallest call count and "
+                     f"is left out), against this study's three unmodified-IVT units -- so the "
+                     f"row's ratio is the quotient of the two printed cells ({printed:.3f}); "
+                     f"every interval in that table is a counting interval (each sample's "
+                     f"calls redrawn as Poisson counts against its fixed candidate-site set, "
+                     f"so it is conditional on the libraries and the spread between them is "
+                     f"the (SD) cell); the raw union of the arm ({pub} sites) is no longer "
+                     f"printed and stays in s7_nanonm_published_wt.tsv; this study's own "
+                     f"re-analysis of the same model is {wt:.0f} raw sites over its three "
+                     f"units, with a matched ratio of 0.962 (0.931-0.994), and stays in "
+                     f"s7_counts_summary.tsv; the published set has no unmodified control, so "
+                     f"the IVT cells stay this study's own",
+            ))
+            continue
         rows.append(dict(
             tool=tool, display=DISPLAY[tool], mod_type=MOD_OF[tool],
             t5_ivt_union=t5["ivt"], t5_wt_union=t5["wt"], t5_ratio=t5["ratio"],
             s7_wt_union_raw=wt, s7_ivt_union_raw=ivt, s7_ratio_raw=ratio,
             wt_delta=wt - t5["wt"], ivt_delta=ivt - t5["ivt"],
             ratio_delta=ratio - t5["ratio"],
-            status=("same" if (wt == t5["wt"] and ivt == t5["ivt"])
-                    else "changed (coordinate fix + centre-base filter)"),
-            note=("Table S5 numbers reproduce the current raw unions"
-                  if (wt == t5["wt"] and ivt == t5["ivt"]) else
+            matched_ratio_printed=printed, matched_ratio_basis=basis,
+            printed_wt_rate=round(wt_rate, 1), printed_ivt_rate=round(ivt_rate, 1),
+            status=("same" if same else "changed (coordinate fix + centre-base filter)"),
+            note=("the two printed cells are the depth-standardised count of each condition "
+                  "-- that rate read on the row's wild-type candidate-site count (the columns "
+                  "here keep the rate, mean over its three units) -- and the ratio is their "
+                  "quotient; the raw unions this baseline records are no longer printed"
+                  if same else
                   "published value predates the 2026-09-18 CHEUI coordinate fix; "
                   "quote the current callset in the revised text"),
         ))

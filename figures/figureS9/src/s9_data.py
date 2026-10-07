@@ -104,13 +104,13 @@ def _read(name: str) -> pd.DataFrame:
 
 
 def pretty_tool_short(tool: str) -> str:
-    """Printed label without the Dorado version token.
+    """Printed label without the Dorado version token -- **unused since 2026-09-28**.
 
-    2026-09-28 (author decision): the lollipop panels F and G are the only place where the
-    full label ("hac v5.1.0 m6A DRACH") is too wide for the shared 1.638 in label
-    column -- the layout gate caught it hugging the axes frame once the box grew.
-    F and G therefore print "hac m6A DRACH"; the version stays in Table S6 and in
-    panel A, and the rows stay unique (hac vs sup, and the channel).
+    2026-09-28 (author decision): the lollipop panels F and G briefly printed this short form
+    ("hac m6A DRACH") because the full name was too wide for the (then 1.638 in)
+    shared label column; the same day the revision asked for the full names back, so
+    ``s9_panels.effect_labels`` reads the full label
+    again and nothing calls this helper.  Kept for reference only.
     """
     return re.sub(r"\s+v\d+(?:\.\d+)*", " ", pretty_tool(tool)).strip()
 

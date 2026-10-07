@@ -1,9 +1,9 @@
-# Table S5: Non-m6A calls in HeLa and the unmodified-IVT-to-WT ratio.
-Tool	Modification	WT calls per unit, mean (SD)	Unmodified IVT calls per unit, mean (SD)	Mean-of-counts ratio (95% CI)	Coverage-matched IVT/WT ratio (95% CI)	WT union, reference only	Unmodified IVT union, reference only
-CHEUI-m5C	m5C	15845 (3827)	17129 (7910)	1.081 (0.635-1.638)	0.785 (0.485-1.144)	47747	51171
-NanoMUD-Psi	Psi	6292 (2375)	7265 (2378)	1.155 (0.725-1.870)	0.905 (0.786-1.046)	13711	14794
-NanoMUD-m1Psi	m1Psi	19996 (9052)	23281 (8335)	1.164 (0.688-2.031)	0.923 (0.874-0.973)	40656	43063
-NanoNm	Nm	2237 (1036)	3834 (1729)	1.714 (0.849-2.993)	0.962 (0.776-1.244)	4181	6399
-NanoSPA-Psi	Psi	204 (81)	172 (61)	0.842 (0.514-1.329)	0.719 (0.641-0.790)	888	694
-NanoPsu	Psi	201 (77)	168 (60)	0.834 (0.513-1.363)	0.710 (0.637-0.787)	883	678
-# note: Counts are means (SD) over the three independent HeLa sequencing units of each condition, inside the candidate-site set, and are the primary measure. The mean-of-counts ratio is the unmodified-IVT-to-WT ratio of those unit means with its unit-level percentile bootstrap 95% CI (B = 1000, seeds 20260920/20260921). The coverage-matched ratio compares calls from candidate sites within matched coverage strata, which removes the difference in coverage composition between the two libraries. The raw unions of the three replicates are listed for reference only and must not be read as replicate-level quantities. WT = wild type, unmodified IVT = negative control (not a treatment arm). CHEUI-m5C uses the corrected call set (coordinate fix and reference-base filter, 2026-09-18): the union of 48,627 WT calls quoted in the original submission predates that correction. Values for the other tools are unchanged with respect to the published table. The per-unit counts and ratio intervals are deposited in the machine-readable tables that accompany the source code, reconciled row by row against the frozen evidence set behind this table.
+# Table S5: Depth-standardised non-m6A call sites in HeLa and the unmodified-IVT-to-WT ratio.
+Tool	Modification	Depth-standardised WT calls, sites per unit (mean (SD))	Depth-standardised unmodified-IVT calls, sites per unit (mean (SD))	Coverage-matched IVT/WT ratio (95% CI)
+NanoPsu	Ψ	227 (25)	161 (4)	0.710 (0.626-0.805)
+NanoSPA_Ψ	Ψ	230 (26)	165 (5)	0.719 (0.635-0.813)
+NanoMUD_Ψ	Ψ	7281 (937)	6590 (566)	0.905 (0.886-0.924)
+CHEUI_m5C	m5C	19755 (3955)	15508 (6131)	0.785 (0.774-0.796)
+NanoNm	Nm	4230 (1520)	3159 (809)	0.747 (0.727-0.767)
+NanoMUD_m1Ψ	m1Ψ	22678 (1216)	20922 (499)	0.923 (0.912-0.933)
+# note: Calls are the sites a unit calls: the seven coverage strata combined by the pooled site weights, read on the tool's wild-type candidate-site count per unit; the ratio is their quotient. Raw counts would mislead: the unmodified libraries hold 1.8-fold the share of sites above coverage 100, putting the raw control above the wild type for four tools; standardisation removes it. WT = wild type, unmodified IVT = negative control. CHEUI_m5C uses the corrected call set. Intervals are counting (Poisson) intervals: they carry counting error inside these libraries, not the spread between them, which the (SD) reports. NanoNm's arm is our HeLa_WT2 and HeLa_WT3 units plus the model's published per-site Nm set, which has no control; alone, our units give 0.962 (0.931-0.994), the published set 0.529.

@@ -154,20 +154,11 @@ BACKGROUND_SAMPLES = {
     "HeLa": ["HeLa_WT1", "HeLa_WT2", "HeLa_WT3"],
 }
 
-#: block above panel A.  Three of them only repeated the x tick labels
-#: (def-only / shared / purified) and the error-bar rule is a caption sentence,
-#: so panel A now carries the three marks of its own drawing and panel B names
-#: its one reference line.
-KEY_ENTRIES: list[tuple[str, dict]] = [
-    ("def-only sites", dict(color=GROUP_COLOR["def_only"], lw=3.0)),
-    ("shared sites", dict(color=GROUP_COLOR["shared"], lw=3.0)),
-    ("purified sites", dict(color=GROUP_COLOR["purified"], lw=3.0)),
-    ("Mouse A", dict(color="black", marker="o", ls="none", ms=5, mec="white")),
-    ("Mouse B", dict(color="black", marker="o", ls="none", ms=5, mfc="white")),
-    ("Mean of pairs", dict(color="black", lw=2.0)),
-    ("DRACH background", dict(color="black", lw=1.4, ls=(0, (4, 2)))),
-    ("Error bar: SD / IQR", dict(color="0.55", lw=3.0)),
-]
+
+#: A and B are gone as well; their marks (dots = units, line = group mean, grey
+#: bar = spread, dashed line = the sample's own background) are the convention
+#: the caption already implies, so no key-entry table is needed any more.  The
+#: only key left on the page is panel C's shared/purified colour pair.
 
 #: tools whose native score is a modification ratio / probability
 SEMANTIC_TOOLS = ["CHEUI_m6A", "m6Anet", "MINES", "Nanom6A", "DENA",
@@ -284,18 +275,8 @@ def render_panel_glori(dfv: pd.DataFrame, *, stem: str = "FigureS5_A",
                PANEL_BOTTOM_IN + PANEL_AXES_IN + 0.02, COLUMN_TITLE[key],
                ha="center", fontsize=FS["column"], weight="bold")
         
-        #: the group mean and the error bar in every column, plus the Mouse A /
-        #: Mouse B coding in the column that uses it; the top key band is gone
-        wanted = ["Mean of pairs", "Error bar: SD"]
-        if key == "Mouse":
-            wanted = ["Mouse A", "Mouse B"] + wanted
-        handles = [Line2D([], [], label=label, **kw)
-                   for label, kw in KEY_ENTRIES if label in wanted]
-        handles.append(Line2D([], [], color="0.55", lw=3.0,
-                              label="Error bar: SD"))
-        ax.legend(handles=handles, loc="upper left", frameon=False,
-                  fontsize=FS["legend"], handlelength=1.5, handletextpad=0.45,
-                  labelspacing=0.28, borderpad=0.0, borderaxespad=0.35)
+        #: and the spread bar in every column is gone (the Mouse A / B coding
+        #: with it); the marks follow the dot/line/bar convention.
     panel_letter(fig, "A", y_in=canvas_h - 0.04)
     return panelpage.save_panel(fig, PANEL_DIR / f"{stem}.pdf", gate=gate)
 
@@ -320,17 +301,8 @@ def render_panel_drach(dfv: pd.DataFrame, df_bg: pd.DataFrame, *,
             ax.plot([-0.45, len(GROUPS) - 0.55], [rate, rate], color="black",
                     lw=1.4, ls=(0, (4, 2)), zorder=4)
             
-            #: line (and its error bar) inside the axes -- no column is left
-            #: without a key, and nothing sits above the plot area
-            ax.legend(handles=[Line2D([], [], color="black", lw=1.4,
-                                      ls=(0, (4, 2)),
-                                      label="DRACH background"),
-                               Line2D([], [], color="0.55", lw=3.0,
-                                      label="Error bar: SD")],
-                      loc="upper right", frameon=False,
-                      fontsize=FS["legend"], handlelength=1.5,
-                      handletextpad=0.45, labelspacing=0.28, borderpad=0.0,
-                      borderaxespad=0.4)
+            #: dashed background line is gone; the caption already says the
+            #: dashed line is the sample's own candidate-site fraction.
         _title(fig, PANEL_H_IN, col_center_in(ci),
                PANEL_BOTTOM_IN + PANEL_AXES_IN + 0.02, COLUMN_TITLE[key],
                ha="center", fontsize=FS["column"], weight="bold")
@@ -379,13 +351,14 @@ def render_panel_score(dfv: pd.DataFrame, *, stem: str = "FigureS5_C",
             ax.set_ylabel("Score (mod. ratio / probability)", fontsize=FS["axis"],
                           labelpad=3)
         
-        #: colour pair and the IQR error bar are now named inside each half
+        #: colour pair is named inside each half.
+        
+        #: "Error bar: IQR" entry is dropped; only the colour pair stays.
         ax.legend(handles=[
             Line2D([], [], color=GROUP_COLOR["shared"], marker="o", ms=6,
                    ls="none", label="shared"),
             Line2D([], [], color=GROUP_COLOR["purified"], marker="o", ms=6,
                    ls="none", label="purified"),
-            Line2D([], [], color="0.55", lw=3.0, label="Error bar: IQR"),
         ], loc="upper left", frameon=False, fontsize=FS["legend"],
             handlelength=1.5, handletextpad=0.45, labelspacing=0.28,
             borderpad=0.0, borderaxespad=0.35)
@@ -403,10 +376,11 @@ def page_placements(panels: dict[str, panelpage.Panel],
                     ) -> list[tuple[panelpage.Panel, float, float]]:
     """Stack the pieces top-down; returns ``[(panel, x_in, y_in)]``.
 
-    Every key of this page sits inside the A canvas, so there is no legend
-    stripe to place and the freed height went into the panels.  The last panel
-    carries no trailing gap (``("C", 0.0)``), otherwise the budget would be
-    charged 0.08 in for a gap that is never drawn.
+    No key needs a stripe of its own: until 2026-09-30 the per-column keys sat
+    inside the A and B panels, and the only key left (panel C's shared/purified
+    colour pair) is an axes legend inside its own half.  The last panel carries
+    no trailing gap (``("C", 0.0)``), otherwise the budget would be charged
+    0.08 in for a gap that is never drawn.
     """
     order = [("A", GAP_IN), ("B", GAP_IN), ("C", 0.0)]
     cursor = PAGE_IN[1] - TOP_IN

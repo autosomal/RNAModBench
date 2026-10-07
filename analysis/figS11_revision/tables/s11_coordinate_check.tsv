@@ -1,0 +1,4 @@
+cell_line	sheet	n_rows	n_parsed	n_unparsed	frac_unparsed	n_in_chromosome_length	n_gene_named	n_in_named_gene	frac_in_named_gene	n_genes
+HEK293T	Table.HEK293.ratio	62423	61157	1266	0.0203	61157	60313	58686	0.9596	6999
+HeLa	HeLa	47303	46018	1285	0.0272	46018	45312	43256	0.94	4966
+HepG2	HepG2	55400	53830	1570	0.0283	53830	52900	50786	0.9435	4644

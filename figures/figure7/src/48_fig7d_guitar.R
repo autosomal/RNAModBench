@@ -78,11 +78,13 @@ save_pair_tagged <- function(p, out, width, height, tag, tag_pt, dpi = 300) {
   draw <- function() {
     grid::grid.newpage()
     grid::grid.draw(g)
+    ## 2026-09-27: G used to be stamped 1.2 mm from the canvas edge, 0.75 in to
+    ## the left of the A-F letters (which sat at x = 57.8 pt, the left edge of
+    ## their plot area), so it was moved onto that line.
     
-    ## at x = 57.8 pt (the left edge of their plot area); stamping G 1.2 mm from
-    ## the canvas edge put it 0.75 in to the left of that line, so all seven
-    ## letters now share one vertical line.
-    grid::grid.text(tag, x = grid::unit(20.4, "mm"),
+    ## A-F to the page-margin column at x = 3 pt, left of the rotated y titles;
+    ## G follows onto the same 3 pt column here.
+    grid::grid.text(tag, x = grid::unit(3, "pt"),
                     y = grid::unit(1, "npc") - grid::unit(1.2, "mm"),
                     just = c("left", "top"),
                     gp = grid::gpar(fontface = "bold", fontsize = tag_pt,
@@ -465,8 +467,11 @@ main <- function() {
     patchwork::plot_annotation(tag_levels = NULL)
   out <- file.path(FIGD, "Figure7_rev_D")
   dir.create(FIGD, showWarnings = FALSE, recursive = TRUE)
+  ## 2026-09-30: tag_pt 15 -> 14 -- the A-F letters are 15 pt on the 193 mm
+  ## Python canvas, which the assembly scales to 180 mm (x 0.9325 -> 14.0 pt);
+  ## 15 pt stamped here would print 1 pt larger than the rest of the row.
   save_pair_tagged(row, paste0(out, ".pdf"), 7.087, 4.00, tag = "G",
-                   tag_pt = 15)
+                   tag_pt = 14)
   # legend bands must fit inside each row without touching the row below
   legend_pt <- vapply(panels, function(p) {
     g <- ggplot2::ggplotGrob(p)
@@ -488,7 +493,7 @@ main <- function() {
                      value = c(length(panels), NCOL, 7.087, 4.00,
                                min(unlist(FS)), round(min(legend_pt), 1),
                                round(max(legend_pt), 1), round(row_pt, 1),
-                               "G", 15, 1.2))
+                               "G", 14, 3))
   write.table(geom, file.path(TABD, "fig7d_geometry.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   message("done")

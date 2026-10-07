@@ -252,10 +252,12 @@ def main() -> None:
     check("bbox_inches=None" in src, "saved without a tight bounding box")
     check(not re.search(r"\bax\.annotate\(", src),
           "no in-panel annotation callouts in the page script")
-    check('"m6A (mean)"' in src and '"IVT (mean)"' in src
+    check('"\\u25cf m6A"' in src and '"\\u25cf IVT"' in src
           and "ax.text(" not in src
           and 'PL.text_width_in(lab, 7.5)' in src,
-          "the two C/D mean codings are page-level labels (no in-panel text)")
+          "the two C/D condition labels are page-level dot + name (no in-panel text)")
+    check(page_text.count("\u25cf m6A") >= 2 and page_text.count("\u25cf IVT") >= 2,
+          "both C/D legends print the filled-dot coding on the composed page")
     check("page_legend" not in src and "LEGEND_RECT" not in src,
           "the shared legend band is fully removed")
     for must in ("compact_legend", "_legend_hits", "assert_page_clean"):

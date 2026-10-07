@@ -1,146 +1,146 @@
 # Table S3: Wild-type versus modification-deficient calls on the shared testable universe.
-Species	Tool	Pair	Shared universe (positions)	WT calls	Deficient-condition calls	Deficient/WT ratio
-Arabidopsis	CHEUI_m6A	rep1	3346442	13355	14372	1.076
-Arabidopsis	CHEUI_m6A	rep2	4364433	18390	11450	0.623
-Arabidopsis	CHEUI_m6A	rep3	2478089	12510	10218	0.817
-Arabidopsis	CHEUI_m6A	mean				0.839
-Arabidopsis	DENA	rep1	3346442	16645	9264	0.557
-Arabidopsis	DENA	rep2	4364433	16552	13054	0.789
-Arabidopsis	DENA	rep3	2478089	12769	5554	0.435
-Arabidopsis	DENA	mean				0.593
-Arabidopsis	DRUMMER	rep1	3346442	463	16	0.035
-Arabidopsis	DRUMMER	rep2	4364433	597	0	0.0
-Arabidopsis	DRUMMER	rep3	2478089	324	19	0.059
-Arabidopsis	DRUMMER	mean				0.031
-Arabidopsis	ELIGOS2_diff	rep1	3346442	1003	13	0.013
-Arabidopsis	ELIGOS2_diff	rep2	4364433	1243	24	0.019
-Arabidopsis	ELIGOS2_diff	rep3	2478089	719	7	0.01
-Arabidopsis	ELIGOS2_diff	mean				0.014
-Arabidopsis	ELIGOS2_solo	rep1	3346442	35781	20745	0.58
-Arabidopsis	ELIGOS2_solo	rep2	4364433	33393	26729	0.8
-Arabidopsis	ELIGOS2_solo	rep3	2478089	26321	10245	0.389
-Arabidopsis	ELIGOS2_solo	mean				0.59
-Arabidopsis	EpiNano_Error	rep1	3346442	9235	8285	0.897
-Arabidopsis	EpiNano_Error	rep2	4364433	14251	4993	0.35
-Arabidopsis	EpiNano_Error	rep3	2478089	5488	4741	0.864
-Arabidopsis	EpiNano_Error	mean				0.704
-Arabidopsis	MINES	rep1	3346442	50099	27838	0.556
-Arabidopsis	MINES	rep2	4364433	47729	40888	0.857
-Arabidopsis	MINES	rep3	2478089	40449	19006	0.47
-Arabidopsis	MINES	mean				0.627
-Arabidopsis	NanoSPA_m6A	rep1	3346442	745	245	0.329
-Arabidopsis	NanoSPA_m6A	rep2	4364433	950	391	0.412
-Arabidopsis	NanoSPA_m6A	rep3	2478089	644	182	0.283
-Arabidopsis	NanoSPA_m6A	mean				0.341
-Arabidopsis	Nanocompore	rep1	3346442	443	191	0.431
-Arabidopsis	Nanocompore	rep2	4364433	1070	160	0.15
-Arabidopsis	Nanocompore	rep3	2478089	245	661	2.698
-Arabidopsis	Nanocompore	mean				1.093
-Arabidopsis	Nanom6A	rep1	3346442	20630	15842	0.768
-Arabidopsis	Nanom6A	rep2	4364433	19673	15015	0.763
-Arabidopsis	Nanom6A	rep3	2478089	17309	12530	0.724
-Arabidopsis	Nanom6A	mean				0.752
-Arabidopsis	m6Anet	rep1	3346442	9364	2566	0.274
-Arabidopsis	m6Anet	rep2	4364433	10015	4268	0.426
-Arabidopsis	m6Anet	rep3	2478089	6712	1688	0.251
-Arabidopsis	m6Anet	mean				0.317
-Arabidopsis	xPore	rep1	3346442	27049	20949	0.774
-Arabidopsis	xPore	rep2	4364433	37680	22000	0.584
-Arabidopsis	xPore	rep3	2478089	20904	22544	1.078
-Arabidopsis	xPore	mean				0.812
-Arabidopsis	Yanocomp	rep1	3346442	3578	4167	1.165
-Arabidopsis	Yanocomp	rep2	4364433	13031	2081	0.16
-Arabidopsis	Yanocomp	rep3	2478089	2058	5011	2.435
-Arabidopsis	Yanocomp	mean				1.253
-Human	CHEUI_m6A	rep1	2767950	16871	20153	1.195
-Human	CHEUI_m6A	rep2	4308139	25484	33110	1.299
-Human	CHEUI_m6A	rep3	1959262	14499	11366	0.784
-Human	CHEUI_m6A	mean				1.093
-Human	DENA	rep1	2767950	14153	13213	0.934
-Human	DENA	rep2	4308139	12819	19219	1.499
-Human	DENA	rep3	1959262	11250	7304	0.649
-Human	DENA	mean				1.027
-Human	DRUMMER	rep1	2767950	358	19	0.053
-Human	DRUMMER	rep2	4308139	607	8	0.013
-Human	DRUMMER	rep3	1959262	249	69	0.277
-Human	DRUMMER	mean				0.114
-Human	ELIGOS2_diff	rep1	2767950	958	9	0.009
-Human	ELIGOS2_diff	rep2	4308139	1634	64	0.039
-Human	ELIGOS2_diff	rep3	1959262	740	43	0.058
-Human	ELIGOS2_diff	mean				0.036
-Human	ELIGOS2_solo	rep1	2767950	34095	32290	0.947
-Human	ELIGOS2_solo	rep2	4308139	38492	44129	1.146
-Human	ELIGOS2_solo	rep3	1959262	23148	16129	0.697
-Human	ELIGOS2_solo	mean				0.93
-Human	EpiNano_Error	rep1	2767950	19451	19831	1.02
-Human	EpiNano_Error	rep2	4308139	38137	23961	0.628
-Human	EpiNano_Error	rep3	1959262	15774	12681	0.804
-Human	EpiNano_Error	mean				0.817
-Human	MINES	rep1	2767950	26868	34757	1.294
-Human	MINES	rep2	4308139	47977	54981	1.146
-Human	MINES	rep3	1959262	21322	24483	1.148
-Human	MINES	mean				1.196
-Human	NanoSPA_m6A	rep1	2767950	769	219	0.285
-Human	NanoSPA_m6A	rep2	4308139	1217	117	0.096
-Human	NanoSPA_m6A	rep3	1959262	446	111	0.249
-Human	NanoSPA_m6A	mean				0.21
-Human	Nanocompore	rep1	2767950	1051	97	0.092
-Human	Nanocompore	rep2	4308139	1471	59	0.04
-Human	Nanocompore	rep3	1959262	1164	195	0.168
-Human	Nanocompore	mean				0.1
-Human	Nanom6A	rep1	2767950	17529	11612	0.662
-Human	Nanom6A	rep2	4308139	15060	14364	0.954
-Human	Nanom6A	rep3	1959262	13742	9900	0.72
-Human	Nanom6A	mean				0.779
-Human	m6Anet	rep1	2767950	6150	5059	0.823
-Human	m6Anet	rep2	4308139	10768	9979	0.927
-Human	m6Anet	rep3	1959262	4485	3790	0.845
-Human	m6Anet	mean				0.865
-Human	xPore	rep1	2767950	23313	30213	1.296
-Human	xPore	rep2	4308139	38853	24299	0.625
-Human	xPore	rep3	1959262	19559	22681	1.16
-Human	xPore	mean				1.027
-Human	Yanocomp	rep1	2767950	4449	3206	0.721
-Human	Yanocomp	rep2	4308139	6547	1770	0.27
-Human	Yanocomp	rep3	1959262	4240	3010	0.71
-Human	Yanocomp	mean				0.567
-Mouse	CHEUI_m6A	SRP166020	2586167	10238	15957	1.559
-Mouse	CHEUI_m6A	SRP357195	6666647	36581	32217	0.881
-Mouse	CHEUI_m6A	mean				1.22
-Mouse	DENA	SRP166020	2586167	22780	10979	0.482
-Mouse	DENA	SRP357195	6666647	34823	22632	0.65
-Mouse	DENA	mean				0.566
-Mouse	DRUMMER	SRP166020	2586167	510	0	0.0
-Mouse	DRUMMER	SRP357195	6666647	1831	407	0.222
-Mouse	DRUMMER	mean				0.111
-Mouse	ELIGOS2_diff	SRP166020	2586167	817	0	0.0
-Mouse	ELIGOS2_diff	SRP357195	6666647	3865	580	0.15
-Mouse	ELIGOS2_diff	mean				0.075
-Mouse	ELIGOS2_solo	SRP166020	2586167	50915	24874	0.489
-Mouse	ELIGOS2_solo	SRP357195	6666647	77063	50674	0.658
-Mouse	ELIGOS2_solo	mean				0.573
-Mouse	EpiNano_Error	SRP166020	2586167	15903	18129	1.14
-Mouse	EpiNano_Error	SRP357195	6666647	25833	0	0.0
-Mouse	EpiNano_Error	mean				0.57
-Mouse	MINES	SRP166020	2586167	49607	29280	0.59
-Mouse	MINES	SRP357195	6666647	82499	85278	1.034
-Mouse	MINES	mean				0.812
-Mouse	NanoSPA_m6A	SRP166020	2586167	2405	551	0.229
-Mouse	NanoSPA_m6A	SRP357195	6666647	2706	127	0.047
-Mouse	NanoSPA_m6A	mean				0.138
-Mouse	Nanocompore	SRP166020	2586167	918	7217	7.862
-Mouse	Nanocompore	SRP357195	6666647	3022	0	0.0
-Mouse	Nanocompore	mean				3.931
-Mouse	Nanom6A	SRP166020	2586167	10213	7686	0.753
-Mouse	Nanom6A	SRP357195	6666647	23746	18767	0.79
-Mouse	Nanom6A	mean				0.771
-Mouse	m6Anet	SRP166020	2586167	18639	6313	0.339
-Mouse	m6Anet	SRP357195	6666647	26218	15305	0.584
-Mouse	m6Anet	mean				0.461
-Mouse	xPore	SRP166020	2586167	40639	0	0.0
-Mouse	xPore	SRP357195	6666647	59195	43192	0.73
-Mouse	xPore	mean				0.365
-Mouse	Yanocomp	SRP166020	2586167	8723	0	0.0
-Mouse	Yanocomp	SRP357195	6666647	7216	43985	6.095
-Mouse	Yanocomp	mean				3.048
-# note: The shared testable universe of a matched pair is the set of exonic positions with coverage >= 10 and a modification-compatible reference base in BOTH samples; the ratio is the deficient-condition call count over the wild-type call count on that universe (Fig. 2A). Mouse pairs are one per independent study and are never pooled. Deficient samples are fip37 KD (Arabidopsis), Mettl3 KO (mouse) and the unmodified IVT library (HeLa); KO/KD are partial negatives, so the ratio is a relative enrichment change, not a specificity measure. The per-pair values are deposited in the machine-readable table that accompanies the source code.
+Species	Tool	Pair	Shared universe (positions)	WT calls	Deficient-condition calls	Deficient/WT ratio	Coverage-matched ratio (95% CI)
+Arabidopsis	CHEUI_m6A	rep1	3346442	13355	14372	1.076	1.969
+Arabidopsis	CHEUI_m6A	rep2	4364433	18390	11450	0.623	0.713
+Arabidopsis	CHEUI_m6A	rep3	2478089	12510	10218	0.817	1.716
+Arabidopsis	CHEUI_m6A	mean				0.839	1.466 (0.713-1.969)
+Arabidopsis	DENA	rep1	3346442	16645	9264	0.557	0.872
+Arabidopsis	DENA	rep2	4364433	16552	13054	0.789	0.873
+Arabidopsis	DENA	rep3	2478089	12769	5554	0.435	0.795
+Arabidopsis	DENA	mean				0.593	0.847 (0.795-0.873)
+Arabidopsis	DRUMMER	rep1	3346442	463	16	0.035	0.095
+Arabidopsis	DRUMMER	rep2	4364433	597	0	0.0	0.0
+Arabidopsis	DRUMMER	rep3	2478089	324	19	0.059	0.202
+Arabidopsis	DRUMMER	mean				0.031	0.099 (0.000-0.202)
+Arabidopsis	ELIGOS2_diff	rep1	3346442	1003	13	0.013	0.015
+Arabidopsis	ELIGOS2_diff	rep2	4364433	1243	24	0.019	0.021
+Arabidopsis	ELIGOS2_diff	rep3	2478089	719	7	0.01	0.014
+Arabidopsis	ELIGOS2_diff	mean				0.014	0.017 (0.014-0.021)
+Arabidopsis	ELIGOS2_solo	rep1	3346442	35781	20745	0.58	0.885
+Arabidopsis	ELIGOS2_solo	rep2	4364433	33393	26729	0.8	0.87
+Arabidopsis	ELIGOS2_solo	rep3	2478089	26321	10245	0.389	0.741
+Arabidopsis	ELIGOS2_solo	mean				0.59	0.832 (0.741-0.885)
+Arabidopsis	EpiNano_Error	rep1	3346442	9235	8285	0.897	1.562
+Arabidopsis	EpiNano_Error	rep2	4364433	14251	4993	0.35	0.404
+Arabidopsis	EpiNano_Error	rep3	2478089	5488	4741	0.864	1.719
+Arabidopsis	EpiNano_Error	mean				0.704	1.228 (0.404-1.719)
+Arabidopsis	MINES	rep1	3346442	50099	27838	0.556	1.003
+Arabidopsis	MINES	rep2	4364433	47729	40888	0.857	0.971
+Arabidopsis	MINES	rep3	2478089	40449	19006	0.47	0.985
+Arabidopsis	MINES	mean				0.627	0.986 (0.971-1.003)
+Arabidopsis	NanoSPA_m6A	rep1	3346442	745	245	0.329	0.521
+Arabidopsis	NanoSPA_m6A	rep2	4364433	950	391	0.412	0.457
+Arabidopsis	NanoSPA_m6A	rep3	2478089	644	182	0.283	0.513
+Arabidopsis	NanoSPA_m6A	mean				0.341	0.497 (0.457-0.521)
+Arabidopsis	Nanocompore	rep1	3346442	443	191	0.431	1.177
+Arabidopsis	Nanocompore	rep2	4364433	1070	160	0.15	0.169
+Arabidopsis	Nanocompore	rep3	2478089	245	661	2.698	9.742
+Arabidopsis	Nanocompore	mean				1.093	3.696 (0.169-9.742)
+Arabidopsis	Nanom6A	rep1	3346442	20630	15842	0.768	1.641
+Arabidopsis	Nanom6A	rep2	4364433	19673	15015	0.763	0.87
+Arabidopsis	Nanom6A	rep3	2478089	17309	12530	0.724	1.791
+Arabidopsis	Nanom6A	mean				0.752	1.434 (0.870-1.791)
+Arabidopsis	m6Anet	rep1	3346442	9364	2566	0.274	0.51
+Arabidopsis	m6Anet	rep2	4364433	10015	4268	0.426	0.484
+Arabidopsis	m6Anet	rep3	2478089	6712	1688	0.251	0.558
+Arabidopsis	m6Anet	mean				0.317	0.517 (0.484-0.558)
+Arabidopsis	xPore	rep1	3346442	27049	20949	0.774	1.586
+Arabidopsis	xPore	rep2	4364433	37680	22000	0.584	0.667
+Arabidopsis	xPore	rep3	2478089	20904	22544	1.078	2.798
+Arabidopsis	xPore	mean				0.812	1.683 (0.667-2.798)
+Arabidopsis	Yanocomp	rep1	3346442	3578	4167	1.165	2.868
+Arabidopsis	Yanocomp	rep2	4364433	13031	2081	0.16	0.178
+Arabidopsis	Yanocomp	rep3	2478089	2058	5011	2.435	8.276
+Arabidopsis	Yanocomp	mean				1.253	3.774 (0.178-8.276)
+Mouse	CHEUI_m6A	SRP166020	2586167	10238	15957	1.559	2.492
+Mouse	CHEUI_m6A	SRP357195	6666647	36581	32217	0.881	0.794
+Mouse	CHEUI_m6A	mean				1.22	1.643 (n.a.)
+Mouse	DENA	SRP166020	2586167	22780	10979	0.482	0.729
+Mouse	DENA	SRP357195	6666647	34823	22632	0.65	0.599
+Mouse	DENA	mean				0.566	0.664 (n.a.)
+Mouse	DRUMMER	SRP166020	2586167	510	0	0.0	0.0
+Mouse	DRUMMER	SRP357195	6666647	1831	407	0.222	0.206
+Mouse	DRUMMER	mean				0.111	0.103 (n.a.)
+Mouse	ELIGOS2_diff	SRP166020	2586167	817	0	0.0	0.0
+Mouse	ELIGOS2_diff	SRP357195	6666647	3865	580	0.15	0.139
+Mouse	ELIGOS2_diff	mean				0.075	0.070 (n.a.)
+Mouse	ELIGOS2_solo	SRP166020	2586167	50915	24874	0.489	0.648
+Mouse	ELIGOS2_solo	SRP357195	6666647	77063	50674	0.658	0.61
+Mouse	ELIGOS2_solo	mean				0.573	0.629 (n.a.)
+Mouse	EpiNano_Error	SRP166020	2586167	15903	18129	1.14	1.674
+Mouse	EpiNano_Error	SRP357195	6666647	25833	0	0.0	0.0
+Mouse	EpiNano_Error	mean				0.57	0.837 (n.a.)
+Mouse	MINES	SRP166020	2586167	49607	29280	0.59	0.951
+Mouse	MINES	SRP357195	6666647	82499	85278	1.034	0.94
+Mouse	MINES	mean				0.812	0.945 (n.a.)
+Mouse	NanoSPA_m6A	SRP166020	2586167	2405	551	0.229	0.267
+Mouse	NanoSPA_m6A	SRP357195	6666647	2706	127	0.047	0.043
+Mouse	NanoSPA_m6A	mean				0.138	0.155 (n.a.)
+Mouse	Nanocompore	SRP166020	2586167	918	7217	7.862	19.214
+Mouse	Nanocompore	SRP357195	6666647	3022	0	0.0	0.0
+Mouse	Nanocompore	mean				3.931	9.607 (n.a.)
+Mouse	Nanom6A	SRP166020	2586167	10213	7686	0.753	1.818
+Mouse	Nanom6A	SRP357195	6666647	23746	18767	0.79	0.725
+Mouse	Nanom6A	mean				0.771	1.272 (n.a.)
+Mouse	m6Anet	SRP166020	2586167	18639	6313	0.339	0.558
+Mouse	m6Anet	SRP357195	6666647	26218	15305	0.584	0.53
+Mouse	m6Anet	mean				0.461	0.544 (n.a.)
+Mouse	xPore	SRP166020	2586167	40639	0	0.0	0.0
+Mouse	xPore	SRP357195	6666647	59195	43192	0.73	0.665
+Mouse	xPore	mean				0.365	0.333 (n.a.)
+Mouse	Yanocomp	SRP166020	2586167	8723	0	0.0	0.0
+Mouse	Yanocomp	SRP357195	6666647	7216	43985	6.095	5.525
+Mouse	Yanocomp	mean				3.048	2.762 (n.a.)
+Human	CHEUI_m6A	rep1	2767950	16871	20153	1.195	0.754
+Human	CHEUI_m6A	rep2	4308139	25484	33110	1.299	0.959
+Human	CHEUI_m6A	rep3	1959262	14499	11366	0.784	0.603
+Human	CHEUI_m6A	mean				1.093	0.772 (0.603-0.959)
+Human	DENA	rep1	2767950	14153	13213	0.934	0.656
+Human	DENA	rep2	4308139	12819	19219	1.499	1.198
+Human	DENA	rep3	1959262	11250	7304	0.649	0.533
+Human	DENA	mean				1.027	0.796 (0.533-1.198)
+Human	DRUMMER	rep1	2767950	358	19	0.053	0.026
+Human	DRUMMER	rep2	4308139	607	8	0.013	0.008
+Human	DRUMMER	rep3	1959262	249	69	0.277	0.179
+Human	DRUMMER	mean				0.114	0.071 (0.008-0.179)
+Human	ELIGOS2_diff	rep1	2767950	958	9	0.009	0.007
+Human	ELIGOS2_diff	rep2	4308139	1634	64	0.039	0.029
+Human	ELIGOS2_diff	rep3	1959262	740	43	0.058	0.048
+Human	ELIGOS2_diff	mean				0.036	0.028 (0.007-0.048)
+Human	ELIGOS2_solo	rep1	2767950	34095	32290	0.947	0.708
+Human	ELIGOS2_solo	rep2	4308139	38492	44129	1.146	0.959
+Human	ELIGOS2_solo	rep3	1959262	23148	16129	0.697	0.584
+Human	ELIGOS2_solo	mean				0.93	0.750 (0.584-0.959)
+Human	EpiNano_Error	rep1	2767950	19451	19831	1.02	0.871
+Human	EpiNano_Error	rep2	4308139	38137	23961	0.628	0.526
+Human	EpiNano_Error	rep3	1959262	15774	12681	0.804	0.735
+Human	EpiNano_Error	mean				0.817	0.711 (0.526-0.871)
+Human	MINES	rep1	2767950	26868	34757	1.294	0.911
+Human	MINES	rep2	4308139	47977	54981	1.146	0.926
+Human	MINES	rep3	1959262	21322	24483	1.148	0.939
+Human	MINES	mean				1.196	0.925 (0.911-0.939)
+Human	NanoSPA_m6A	rep1	2767950	769	219	0.285	0.25
+Human	NanoSPA_m6A	rep2	4308139	1217	117	0.096	0.09
+Human	NanoSPA_m6A	rep3	1959262	446	111	0.249	0.225
+Human	NanoSPA_m6A	mean				0.21	0.188 (0.090-0.250)
+Human	Nanocompore	rep1	2767950	1051	97	0.092	0.04
+Human	Nanocompore	rep2	4308139	1471	59	0.04	0.02
+Human	Nanocompore	rep3	1959262	1164	195	0.168	0.102
+Human	Nanocompore	mean				0.1	0.054 (0.020-0.102)
+Human	Nanom6A	rep1	2767950	17529	11612	0.662	0.406
+Human	Nanom6A	rep2	4308139	15060	14364	0.954	0.6
+Human	Nanom6A	rep3	1959262	13742	9900	0.72	0.554
+Human	Nanom6A	mean				0.779	0.520 (0.406-0.600)
+Human	m6Anet	rep1	2767950	6150	5059	0.823	0.556
+Human	m6Anet	rep2	4308139	10768	9979	0.927	0.726
+Human	m6Anet	rep3	1959262	4485	3790	0.845	0.67
+Human	m6Anet	mean				0.865	0.650 (0.556-0.726)
+Human	xPore	rep1	2767950	23313	30213	1.296	0.782
+Human	xPore	rep2	4308139	38853	24299	0.625	0.409
+Human	xPore	rep3	1959262	19559	22681	1.16	0.868
+Human	xPore	mean				1.027	0.686 (0.409-0.868)
+Human	Yanocomp	rep1	2767950	4449	3206	0.721	0.397
+Human	Yanocomp	rep2	4308139	6547	1770	0.27	0.169
+Human	Yanocomp	rep3	1959262	4240	3010	0.71	0.511
+Human	Yanocomp	mean				0.567	0.359 (0.169-0.511)
+# note: The shared testable universe of a pair is the set of exonic positions with coverage >= 10 and a modification-compatible reference base in both samples; the ratio is the deficient-condition count over the wild-type count there (Fig. 2A). Deficient samples are fip37 KD (Arabidopsis), Mettl3 KO (mouse) and the unmodified HeLa IVT library; KO/KD are partial negatives, so the ratio is an enrichment change, not a specificity measure. The coverage-matched ratio column recomputes the counts inside matched coverage strata (10/20/30/50/100/200/400 reads); mouse has one pair per study and no interval.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""71 -- compose the nine panels onto the A4 landscape (842.4 x 595.44 pt) Figure S9 page.
+"""71 -- compose the nine panels onto the 892.8 x 792.0 pt (12.400 x 11.000 in) Figure S9 page.
 
 The panels were drawn at their final print size on a 3 x 3 grid, so pypdf only
 translates them (no scaling): the point sizes in the panel PDFs are the printed
@@ -9,7 +9,7 @@ that no two panels overlap.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS9_rebuild/scripts/71_figs9_page.py
+    $RNAMODBENCH_ROOT/figures/figureS9/src/71_figs9_page.py
 """
 from __future__ import annotations
 

@@ -1,0 +1,2 @@
+source	label	n	min	q05	q1	median	q3	q95	max	median_total_reads
+published	HeLa	46018	0.001	0.0123	0.0504	0.1143	0.2353	0.5294	1.0	86

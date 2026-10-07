@@ -6,10 +6,15 @@ tables written by ``fig4_kl.py`` -- nothing is recomputed here, so the
 assembled figure cannot drift from the numbers:
 
   A  KL divergence (add-eps, vs the theoretical RRACH consensus) per
-     tool x species: mean +/- SD over independent replicates
-     (Arabidopsis n = 3, HeLa n = 3, mouse the single mES_WT study --
-     never merged, cross-study rule); open circles = cross-species mean;
-     x on log scale.  Replaces the published merged-replicate points.
+     tool x species: mean with the range across the independent replicates
+     (min to max; Arabidopsis n = 3, HeLa n = 3, mouse the single mES_WT
+     study -- never merged, cross-study rule); open circles = cross-species
+     mean; x on log scale.  Replaces the published merged-replicate points.
+     2026-09-30 (author decision): the range replaces the earlier mean +/- SD, because
+     a symmetric SD bar on a log axis reads as a skew and DENA x Human had
+     SD > mean, so its lower end was negative and got clipped to the axis
+     edge; the per-replicate range is what three units actually support and
+     it stays strictly positive.
   B  5-mer sequence logos of the three lowest mean-KL tools
      (MINES / DENA / Nanom6A), y axis now labelled
      "Information content (bits)" (R3 minor #4).  The published in-panel
@@ -218,11 +223,19 @@ def draw_a(fig, per: pd.DataFrame, pooled: pd.DataFrame, order: list[str],
                 continue
             m = means.loc[tool, sp]
             sub = per[(per["Tool"] == tool) & (per["Species_Name"] == sp)]
-            sd = sub["KL_rrach_addeps"].std()
             n = len(sub)
-            if n > 1 and not pd.isna(sd):
-                ax.errorbar(m, y, xerr=sd, fmt="none", ecolor=SP_COLOR[sp],
-                            elinewidth=0.7, capsize=0, zorder=2)
+            if n > 1:
+                
+                #: max) rather than mean +/- SD.  On a log axis a symmetric SD
+                #: bar reads as a skew, and DENA x Human has SD > mean, so its
+                #: lower end was negative and the bar was drawn past the axis
+                #: floor; the range is strictly positive and is exactly what
+                #: the n = 3 units support.  Caps mark it as an error bar.
+                xr = sub["KL_rrach_addeps"]
+                lo, hi = float(xr.min()), float(xr.max())
+                ax.errorbar(m, y, xerr=[[m - lo], [hi - m]], fmt="none",
+                            ecolor=SP_COLOR[sp], elinewidth=0.7,
+                            capsize=1.2, capthick=0.7, zorder=2)
             ax.scatter(m, y, s=14, marker=SP_MARKER[sp], color=SP_COLOR[sp],
                        edgecolor="black", linewidth=0.3, zorder=3,
                        label=SP_DISP[sp] if i == 0 else None)

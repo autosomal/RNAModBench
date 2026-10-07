@@ -1,0 +1,3 @@
+condition	ratio_min	n_our_sites	n_shared	frac_ours_shared	n_published_unique	frac_published_shared	n_published_not_ours	jaccard
+HeLa WT	0.1	4181	3236	0.774	45765	0.0707	42529	0.0693
+HeLa IVT	0.1	6399	5197	0.8122	45765	0.1136	40568	0.1107

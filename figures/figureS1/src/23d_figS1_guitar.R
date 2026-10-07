@@ -578,9 +578,12 @@ draw_block <- function(sp, res) {
     title_p <- ggplot() +
       annotate("text", x = 0.5, y = 0.5,
                
-               #: ("Arabidopsis — metagene density"); a colon is the plain-human
-               #: punctuation here and keeps the same meaning
-               label = paste0(SPECIES[[sp]]$block, ": metagene density"),
+               #: ("Arabidopsis — metagene density") and was reduced to a colon.
+               
+               #: caption, which already names the quantity ("Metagene distribution
+               #: ... plotted with Guitar, 1 kb upstream ... 1 kb downstream"), so
+               #: the block title now carries the species name only
+               label = SPECIES[[sp]]$block,
                family = "Arial", fontface = "bold",
                size = FS$species * MM_PER_PT) +
       theme_void() + theme(text = element_text(family = "Arial"))

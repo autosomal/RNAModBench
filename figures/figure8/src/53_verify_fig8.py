@@ -3,7 +3,8 @@
 
 Checks
 ------
-1. the assembled page: 500.4 x 586.8 pt (= 6.95 x 8.15 in), 300 dpi PNG companion,
+1. the assembled page: 500.4 x 707.8 pt (= 6.95 x 9.83 in; four rows since the
+   2026-09-29 relayout: A / C / B|D / E), 300 dpi PNG companion,
    Arial-only embedded fonts (no DejaVu, no Noto fallback, every font embedded);
 2. no false-positive count is drawn inside panel B (the numbers live in the
    legend and the source tables): the B piece and the page must not contain the
@@ -59,7 +60,7 @@ SCRIPTS = (_RB / "figures/figure8/src")
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str((_RB / "src/harmonisation/common")))
 
-PAGE_PT = (500.4, 586.8)
+PAGE_PT = (500.4, 598.32)         # 6.95 x 8.31 in since the 2026-09-30 reference layout
 #: count call-outs of the retired draft -- none of these may be drawn any more.
 #: 2026-09-23: "0 calls" was removed from this list -- since the 15:13 legend edit
 #: it is a deliberate key label ("the open circle is a measured zero", the same
@@ -141,7 +142,7 @@ def main() -> None:
     ## 1 -- the assembled page -------------------------------------------------- #
     page = (_RB / "figures/figure8/figures/Figure8_rev.pdf")
     size = pdf_page_size(page)
-    check("Figure8_rev.pdf: page size 500.4 x 586.8 pt",
+    check("Figure8_rev.pdf: page size 500.4 x 598.32 pt",
           close(size[0], PAGE_PT[0]) and close(size[1], PAGE_PT[1]), f"got {size}")
     fonts = pdf_fonts(page)
     bad = [f for f in fonts if f[1] != "yes" or "Arial" not in f[0]]

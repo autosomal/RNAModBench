@@ -2,7 +2,7 @@
 """54 -- Figure S7 (rebuilt 2026-09-21): non-m6A tools against unmodified controls.
 
 Panel contract (approved 2026-09-21).  The questions of R3-9 come first and the
-HeLa call numbers are compressed into one panel:
+HeLa comparison is compressed into one panel:
 
 A  unmodified Curlcake controls -- in-universe calls per construct (filled = the
    two independent constructs, open = the depth-matched subset, bar = mean of
@@ -17,11 +17,19 @@ C  where each unit's calls sit inside the tool's own 0-1 score: one point (that
    R3-9 failures (saturation, a narrow band, overlap, inversion) rather than a
    separation statistic -- the pooled AUC is Fig. 7F and the per-pair AUCs are
    tabulated; the reproducibility numbers (k-of-n) are quoted in the caption;
-D  HeLa calls per unit plus the unmodified-IVT-to-WT ratio: the ratio strip
-   carries the mean-of-counts ratio with its unit-level bootstrap interval, and
-   the coverage-matched and raw-union values are tabulated in Table S5.  The
-   union-ratio diamond was retired on 2026-09-28 with the rest of the pooled
-   reporting units.
+D retired 2026-10-05 (author decision): " d ". The slot had
+   gone through five passes in two days (a log axis of per-unit call counts with the
+   two union lines, one axis of depth-matched pair marks plus a pooled bootstrap
+   diamond, all six tools as Figure-3B boxes, NanoNm alone with the per-site Nm
+   stoichiometry published with the model as a reference band, and finally NanoNm
+   alone without that band); every version either repeated panel C, duplicated
+   Figure 7A, or could not be read against a control, so the row was dropped and the
+   3.06 in it released went to A, B and C.  What D drew is still in the delivered
+   material: the depth-standardised call count of each condition and the
+   coverage-matched IVT-to-WT ratio are in Table S5, the per-unit call counts and the raw
+   unions being deposited with the call sets (from 2026-10-06), the per-unit score
+   summary is panel C, and the cross-check against the published per-site set is
+   quoted in Table S5's note (its evidence is in `analysis/figS11_revision/`).
 
 Layout rules (2026-09-21, third revision -- " fonts too small relative to the plot / tidier /
 D may be slanted / compress the canvas "):
@@ -30,7 +38,7 @@ D may be slanted / compress the canvas "):
   instead of A4.  At 10 pt ticks that is a font/page ratio of 2.1 % versus
   1.6 % on A4, which is what made the A4 draft read as "text too small for the
   figure";
-* **full-width rows**: B, C and D share the six-column tool grid, so their
+* **full-width rows**: B and C share the six-column tool grid, so their
   columns line up top to bottom; A has its own five-column axis because it
   covers only the five tools that were run on the synthetic constructs (the
   the author asked for the CHEUI-m5C column to disappear from A on 2026-09-21, and
@@ -45,7 +53,7 @@ D may be slanted / compress the canvas "):
 * legends live *inside* the panels in the empty corner of each drawing area and
   a post-draw audit converts every legend box to data coordinates and asserts
   that no data point falls inside it (`legend_data_violations`); the y ranges of
-  A, B and D carry the headroom that keeps those corners empty;
+  A, B and C carry the headroom that keeps those corners empty;
 * panel C is a 0.55 in **score-location strip** since the 2026-09-21 fifth
   revision: one median point + one q25-q75 whisker per independent unit, WT
   (filled) against unmodified IVT (open), each tool on its own native 0-1 score.
@@ -146,20 +154,22 @@ CONTENT_W = PAGE_W - LEFT - RIGHT                  # 5.723 in
 NCOLS = len(TOOL_ORDER)
 XLIM = (-0.6, NCOLS - 0.4)                         # data x = tool index
 #: panel A covers only the five tools that were run on the synthetic constructs
-#: (CHEUI-m5C was not), so it gets its own five-column axis; B, C and D keep the
+#: (CHEUI-m5C was not), so it gets its own five-column axis; B and C keep the
 #: shared six-column grid and therefore line up with each other only
 A_TOOLS: list[str] = [t for t in TOOL_ORDER if t not in NO_CURLCAKE]
 XLIM_A = (-0.6, len(A_TOOLS) - 0.4)
 
-#: C is the AUC separation strip (0.55 in), so PLOT_H carries the three full
-#: plotting rows only; the height that C released went to A, B and D
+#: C is the score-location strip, so PLOT_H carries the two full plotting rows
 
-#: names, and the three panels should read as one block".  B and C therefore gave
-#: up their 0.82 in label bands; the released height went into the plots, and C's
-#: strip (which was cut off at 0.55 in) more than doubled.
-PLOT_H = {"A": 1.73, "B": 1.73, "D": 1.54}
-C_STRIP_H = 1.15
-STRIP_H, STRIP_GAP = 0.50, 0.10                    # panel D ratio strip
+#: names, and the three panels should read as one block".  B gave up its 0.82 in
+#: label band, which went into the plots.
+
+#: the 3.06 in its row and gap released go to the three remaining rows: A and B
+#: grow by 0.99 / 0.87 in, C by 0.44 in, and C takes over the 0.82 in band that
+#: holds the 45 degree tool names (it is the bottom row now).  The sum is chosen
+#: so the page slack stays at its 0.059 in, i.e. the canvas is untouched.
+PLOT_H = {"A": 2.72, "B": 2.60}
+C_STRIP_H = 1.59
 #: a 45 deg tool label is measured, not estimated: at 9.5 pt the bbox of
 #: "NanoMUD-m1\u03a8" is a 0.77 in square, i.e. it hangs 0.77 in below the axis
 #: (a 90 deg label would need 0.96 in, a horizontal one is 0.96 in wide and
@@ -305,7 +315,7 @@ def panel_a(fig, top_in: float, height_in: float, cc: pd.DataFrame) -> plt.Axes:
 # --------------------------------------------------------------------------- #
 def panel_b(fig, top_in: float, height_in: float, pairs: pd.DataFrame) -> plt.Axes:
     ax = fig.add_axes(rect(top_in, height_in))
-    tool_axis(ax, labels=False)      # names are printed under panel D only
+    tool_axis(ax, labels=False)      # names are printed under panel C only
     ax.set_yscale("log")
     # 1.6 leaves the top of the panel free for the single-row key while keeping
     # every pair point (max 0.552) below it
@@ -380,7 +390,9 @@ def panel_c(fig, top_in: float, height_in: float, loc: pd.DataFrame) -> plt.Axes
     separation statistic.
     """
     ax = fig.add_axes(rect(top_in, height_in))
-    tool_axis(ax, labels=False)      # names are printed under panel D only
+
+    #: grid, so the 45 degree names are printed here rather than under D
+    tool_axis(ax)
     # 1.05 keeps the markers of the saturated tools (score exactly 1.000) inside
     # the axes instead of clipping their upper half
     ax.set_ylim(0.0, 1.05)
@@ -422,83 +434,13 @@ def panel_c(fig, top_in: float, height_in: float, loc: pd.DataFrame) -> plt.Axes
                     "marks_per_tool": 6,
                     "y_basis": "each tool's own 0-1 score",
                     "y_limits": list(ax.get_ylim()),
+
+                    #: names are what identify every column of the figure; the band is
+                    #: recorded so the gate can check that it is really drawn here
+                    "xlabel_band_in": XLAB_H,
                     "saturated_tools": saturated,
                     "unit_medians": medians})
     return ax
-
-
-# --------------------------------------------------------------------------- #
-# panel D -- HeLa calls per unit + unmodified-control ratio
-# --------------------------------------------------------------------------- #
-def panel_d(fig, top_in: float, counts_h: float, strip_gap: float,
-            strip_h: float, rep: pd.DataFrame, summ: pd.DataFrame,
-            ratio: pd.DataFrame) -> tuple[plt.Axes, plt.Axes]:
-    counts = fig.add_axes(rect(top_in, counts_h))
-    tool_axis(counts, labels=False)
-    counts.set_yscale("log")
-    counts.set_ylim(80.0, 5.0e5)
-    counts.set_yticks([1e2, 1e3, 1e4, 1e5])
-    counts.set_yticklabels(["10$^{2}$", "10$^{3}$", "10$^{4}$", "10$^{5}$"])
-    counts.minorticks_off()
-    _LOG_AXES.append({"panel": "D", "yscale": counts.get_yscale(),
-                      "ytick_labels": [t.get_text()
-                                       for t in counts.get_yticklabels()]})
-    counts.set_ylabel("Calls per unit", y=0.45, labelpad=7.0)
-    for i, tool in enumerate(TOOL_ORDER):
-        x = float(i)
-        for cond, off, col, filled in (("WT", -0.12, C_WT, True),
-                                       ("IVT", 0.12, C_IVT, False)):
-            sub = rep[(rep.tool == tool) & (rep.condition == cond)]
-            vals = sub.sort_values("sample")["n_calls_in_universe"].to_numpy(float)
-            counts.plot(x + off + jitter(len(vals), 0.045), vals, marker="o",
-                        ls="none", ms=4.2, mfc=col if filled else "white",
-                        mec=col, mew=0.9, zorder=4)
-        s = summ[summ.tool == tool]
-        for cond, col, a, b in (("WT", C_WT, -0.34, -0.02),
-                                ("IVT", C_IVT, 0.02, 0.34)):
-            u = float(s.loc[s.condition == cond, "union_in_universe"].iloc[0])
-            counts.plot([x + a, x + b], [u, u], color=col, lw=1.3,
-                        ls=(0, (3, 2)), zorder=3)
-
-    #: (filled WT, open IVT, dashed union per condition) instead of pointing at
-    #: panel B's key; the free upper-right corner takes it without touching data
-    _legend(counts, [
-        Line2D([], [], marker="o", ls="none", ms=4.2, mfc=C_WT, mec=C_WT,
-               label="Human WT"),
-        Line2D([], [], marker="o", ls="none", ms=4.2, mfc="white", mec=C_IVT,
-               label="unmodified IVT"),
-        Line2D([], [], color=C_DARK, lw=1.3, ls=(0, (3, 2)), label="union"),
-    ], loc="upper right")
-
-    strip = fig.add_axes(rect(top_in + counts_h + strip_gap, strip_h))
-    tool_axis(strip)
-    strip.set_ylim(0.35, 3.35)
-    strip.set_yticks([1.0, 2.0, 3.0])
-    strip.set_yticklabels(["1", "2", "3"])
-    strip.axhline(1.0, color=C_GREY, lw=1.0, ls=(0, (2, 2)), zorder=1)
-    # the label sits left of the strip's own tick labels *and* clear of the
-    # counts axis above it (the renderer re-places axis labels on the second
-    # draw, so the clearance has to be explicit rather than incidental)
-    strip.set_ylabel("Ratio", y=0.5, labelpad=12.0)
-    #: 2026-09-28 (union drop): the compression strip carries only the
-    #: mean-of-counts ratio (open circle + whiskers, its unit-level bootstrap
-    #: CI); the union-ratio diamond was retired with the rest of the pooled
-    #: reporting units, so the key has a single entry
-    _legend(strip, [
-        Line2D([], [], marker="o", ls="none", ms=4.2, mfc="white", mec=C_DARK,
-               mew=1.0, label="mean-of-counts ratio"),
-    ], loc="upper left", ncol=1)
-    for i, tool in enumerate(TOOL_ORDER):
-        r = ratio[ratio.tool == tool].iloc[0]
-        mean = float(r.ratio_mean_counts)
-        strip.errorbar([float(i)], [mean],
-                       yerr=[[mean - float(r.ci_lo)], [float(r.ci_hi) - mean]],
-                       fmt="o", ms=4.2, mfc="white", mec=C_DARK, mew=1.0,
-                       ecolor=C_CROSS, elinewidth=1.0, capsize=2.2, zorder=4)
-    _LAYOUT.append({"panel": "D",
-                    "counts_ylim": list(counts.get_ylim()),
-                    "ratio_ylim": list(strip.get_ylim())})
-    return counts, strip
 
 
 # --------------------------------------------------------------------------- #
@@ -507,11 +449,14 @@ def panel_d(fig, top_in: float, counts_h: float, strip_gap: float,
 def load() -> dict[str, pd.DataFrame]:
     return {
         "cc": pd.read_csv((_RB / "figures/figureS7/tables/s7_curlcake_per_construct.tsv"), sep="\t"),
+        #: "pairs" is panel B's Jaccard table; the depth-matched coverage-matched
+        #: pairs belong to panel B, so "ratio_pairs" cannot be their key here
         "pairs": pd.read_csv((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"), sep="\t"),
         "loc": pd.read_csv((_RB / "figures/figureS7/tables/s7_score_location_per_unit.tsv"), sep="\t"),
-        "rep": pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_per_replicate.tsv"), sep="\t"),
-        "summ": pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t"),
         "ratio": pd.read_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t"),
+
+        #: D draws this study's own six units only, and the cross-check against the
+        #: published set lives in the figS11_revision package (73_figS11_tables.py)
     }
 
 
@@ -596,28 +541,27 @@ def build(data: dict[str, pd.DataFrame]) -> plt.Figure:
     global _SLACK
     fig = plt.figure(figsize=(PAGE_W, PAGE_H))
 
-    # only the bottom-most axis of the B/C/D block carries the tool names
+
+    # tool grid, so the 45 degree tool names hang below it, exactly as they hung
+    # below the retired D row
     heights = {"A": PLOT_H["A"] + XLAB_H, "B": PLOT_H["B"] + 0.06,
-               "C": C_STRIP_H + 0.06,
-               "D": PLOT_H["D"] + STRIP_GAP + STRIP_H + XLAB_H}
+               "C": C_STRIP_H + XLAB_H}
     tops: dict[str, float] = {}
     cur = TOP
-    for letter in "ABCD":
+    for letter in "ABC":
         tops[letter] = cur
         cur += heights[letter] + ROW_GAP
     _SLACK = (PAGE_H - BOTTOM) - (cur - ROW_GAP)
     if _SLACK < 0:
         raise SystemExit(f"layout overflows the page by {-_SLACK:.3f} in")
 
-    for letter in "ABCD":
+    for letter in "ABC":
         pl.margin_letter(fig, letter, y=1.0 - tops[letter] / PAGE_H,
                          fontsize=STYLE["letter"])
 
     panel_a(fig, tops["A"], PLOT_H["A"], data["cc"])
     panel_b(fig, tops["B"], PLOT_H["B"], data["pairs"])
     panel_c(fig, tops["C"], C_STRIP_H, data["loc"])
-    panel_d(fig, tops["D"], PLOT_H["D"], STRIP_GAP, STRIP_H,
-            data["rep"], data["summ"], data["ratio"])
     return fig
 
 

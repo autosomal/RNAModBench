@@ -149,9 +149,14 @@ LOG = (_RB / "figures/figureS4/logs")
 
 #: the page of the submitted sup4.pdf (and of every SI figure page)
 #: 2026-09-23: A4 width, 0.36 in taller than A4 -- the upright tool names of
-#: panel A and panel D's own key line added 0.42 in to the budget.  The SI page
-#: scales this canvas by 0.80 (was 0.82), which keeps every label above 7 pt.
-PAGE_IN = (pagelayout.A4_PORTRAIT_IN[0], 12.16)
+#: panel A and panel D's own key line added 0.42 in to the budget.
+
+#: A's key line moved from the top of its canvas to below the tool names (same
+#: canvas height, the band was already budgeted), the two window-sweep keys are
+#: printed a second time under facet C (+0.70), and panel D's key line is gone
+#: (-0.16): the page grows by 0.54 in.  The SI album fits each page to the text
+#: height, so the printed size of this page drops by a few per cent.
+PAGE_IN = (pagelayout.A4_PORTRAIT_IN[0], 12.70)
 
 # --------------------------------------------------------------------------- #
 # geometry, in inches (the canvas of a panel *is* its final print size)
@@ -185,11 +190,13 @@ A_HEAD_IN = 0.52      # species name (14 pt) on its own line + "WT counts"
 
 
 A_TITLE_INDENT_IN = 0.07
-#: the species / mouse-study / mean key lives on its own line inside the A
-#: canvas (the ratio sub-rows are full to 1.0, so no sub-row has room for it)
+#: the species / mouse-study / mean key sits on its own line **below** the tool
+
+#: topmost line of this canvas.  The ratio sub-rows are full to 1.0, so no
+#: sub-row of its own has room for it.
 A_KEY_IN = 0.30
-A_H_IN = (A_LABEL_IN + A_RATIO_IN + A_BAND_IN + A_SUB_IN + A_BAND_IN
-          + A_SUB_IN + A_HEAD_IN + A_KEY_IN)
+A_H_IN = (A_KEY_IN + A_LABEL_IN + A_RATIO_IN + A_BAND_IN + A_SUB_IN + A_BAND_IN
+          + A_SUB_IN + A_HEAD_IN)
 
 #: the window sweep is split into **two stacked facets, one letter each**
 
@@ -210,14 +217,21 @@ B_FACET_IN = 1.83     # one facet: upper = PPV, lower = exact fraction
 #: the band between the facets carries the line-type key (one row) above the
 #: tool key (two rows of seven entries); its height covers the clearance the "0"
 #: tick label of the upper facet needs (0.073 in below its spine plus 3 pt), the
-#: two keys and the top tick label of the lower facet
+#: two keys and the top tick label of the lower facet.
+
+#: time, in a band of the same height below the lower facet (C), so each facet
+#: carries the key it needs.
 B_GAP_IN = 0.70
+C_KEY_IN = 0.70       # the second copy of both keys, in the band below C
 B_BOTTOM_IN = 0.44    # window ticks + "Matching window (bp)"
-B_H_IN = (B_KEY_IN + B_TITLE_IN + 2 * B_FACET_IN + B_GAP_IN + B_BOTTOM_IN)
+B_H_IN = (B_KEY_IN + B_TITLE_IN + 2 * B_FACET_IN + B_GAP_IN + C_KEY_IN
+          + B_BOTTOM_IN)
 
 #: panel D (the purified-site comparison, lettered C until 2026-09-21): title
 #: band, drawing area, bottom band (2.16 x 1.90 in sub-panels)
-D_TITLE_IN = 0.46     # species titles + panel D's own key line
+
+#: keeps only the species titles
+D_TITLE_IN = 0.30
 D_AXES_IN = 1.90
 D_BOTTOM_IN = 0.44
 D_H_IN = D_TITLE_IN + D_AXES_IN + D_BOTTOM_IN
@@ -295,12 +309,9 @@ LINE_KEY_B: list[tuple[str, dict]] = [
     ("Study B", dict(color=GROUP_COLOR["Mouse"], lw=2.0, ls="--")),
 ]
 
-#: panel D's own key line: it used to be the last two entries of the B/C key,
-#: i.e. printed on a canvas two panels away from the marks it explains
-D_KEY: list[tuple[str, dict]] = [
-    ("Per-tool pair", dict(color="0.55", lw=0.9)),
-    ("Mean +- SD", dict(color="black", marker="o", ls="none", ms=4)),
-]
+
+#: the two entries are described in the SI caption instead.  Until then it lived
+#: on the D canvas as a two-entry figure legend.)
 
 #: the 13 tool colours, drawn in the centred page stripe (A -> B/C canvas)
 TOOL_KEY: list[tuple[str, dict]] = [
@@ -325,7 +336,17 @@ FS = {"tick": 9.5, "tick_small": 9.0, "axis": 11.5, "subrow": 9.5,
 #: own size) is capped at ~8 pt, i.e. 6.6 pt on the printed SI page.  The upright
 #: variant is pitch-limited at 11.3 pt instead of 8 pt, so the names can be set
 #: at 9.5 pt and stay clear of each other (page gate verifies).
-TICK_ROTATION = 90
+
+#: submitted 45-degree tilt; the 11.3 pt pitch then only clears a label whose
+#: rotated height is <= ~8 pt, so FS["tick_small"] drops with it below.
+TICK_ROTATION = 45
+
+#: the tool names take their own size: at 45 degrees two neighbouring names are
+#: 11.94 pt apart (2.16 in column / 13), so the rotated height of the text
+#: (1.117 x size) has to stay under 11.94 x sin(45) = 8.44 pt -- that caps the
+#: tilted variant at 7.5 pt whatever the tick labels do.  The upright variant is
+#: limited by the 11.94 pt pitch itself and carries 9.5 pt.
+TOOL_FS = 9.5 if TICK_ROTATION == 90 else 7.5
 
 
 # --------------------------------------------------------------------------- #
@@ -381,7 +402,7 @@ def tool_ticks(ax: plt.Axes, rotation: int | None = None) -> None:
     ax.set_xticklabels([DISPLAY.get(t, t) for t in TOOL_ORDER],
                        rotation=rotation,
                        ha="center" if rotation == 90 else "right",
-                       va="top", fontsize=FS["tick_small"])
+                       va="top", fontsize=TOOL_FS)
     ax.tick_params(axis="x", pad=5.0 if rotation == 90 else 8.0)
     ax.set_xlim(-0.65, len(TOOL_ORDER) - 0.35)
 
@@ -511,7 +532,7 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
     label of the sub-row *above* it, which is the overlap the author saw.
     """
     fig = panelpage.new_panel(PANEL_W_IN, A_H_IN)
-    y = 0.0
+    y = A_KEY_IN                      # the key line owns the bottom strip
     y_ratio = y + A_LABEL_IN
     y_band1 = y_ratio + A_RATIO_IN
     y_pur = y_band1 + A_BAND_IN
@@ -567,9 +588,14 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
         ax_ra.set_ylim(-0.03, 1.03)
         ax_ra.set_yticks([0.0, 0.5, 1.0])
         ax_ra.set_yticklabels(["0", "0.5", "1.0"], fontsize=FS["tick_small"])
-        tool_ticks(ax_ra)
         for ax in (ax_wt, ax_pu, ax_ra):
             _style_axes(ax, labelsize=FS["tick_small"])
+        #: after _style_axes: its tick_params(labelsize=...) sets the labels of
+        #: *both* axes, so calling tool_ticks() first let it overwrite the
+        #: tool-name size (2026-09-30: that is why the tilted names kept their
+        #: 9.5 pt look while TOOL_FS said 7.5 and the gate kept reporting
+        #: collisions no matter what TOOL_FS was)
+        tool_ticks(ax_ra)
         # titles live in their own bands, never on an axis line: the 0.03 in
         # offset keeps the ink (descenders included) off the spine below and
         # the indent keeps it clear of the top of the left spine
@@ -580,11 +606,11 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
         _title(fig, A_H_IN, col_center_in(ci), y_species,
                COLUMN_TITLE[key], ha="center", fontsize=FS["column"],
                weight="bold")
-    # the species / mouse-study / mean key sits on its own line at the top of
-    # this canvas: the three sub-rows run full to 1.0, so none has room
-    # centred key: at "upper left" it read as belonging to the first column only
-    legend = fig.legend(handles=_key_handles(A_KEY), loc="upper center",
-                        bbox_to_anchor=(0.5, 1 - 0.05 / A_H_IN),
+    # the species / mouse-study / mean key sits on its own line **below** the
+
+    # the key of the whole block rather than of the first column.
+    legend = fig.legend(handles=_key_handles(A_KEY), loc="lower center",
+                        bbox_to_anchor=(0.5, 0.035 / A_H_IN),
                         ncol=len(A_KEY), frameon=False, fontsize=FS["legend"],
                         handlelength=1.5, columnspacing=1.6, labelspacing=0.2,
                         borderaxespad=0.0)
@@ -627,15 +653,17 @@ def render_panels_bc(df_curve: pd.DataFrame, *, stem: str = "FigureS4_BC",
     """
     canvas_h = B_H_IN
     fig = panelpage.new_panel(PANEL_W_IN, canvas_h)
-    y_lo = B_BOTTOM_IN
-    y_up = B_BOTTOM_IN + B_FACET_IN + B_GAP_IN
+    c_band = 0.0                          # the C key band owns the bottom strip
+    y_lo = c_band + B_BOTTOM_IN + C_KEY_IN
+    y_up = y_lo + B_FACET_IN + B_GAP_IN
 
     #: this canvas into the band between the two facets, where it explains the
     #: upper facet (B) and the lower one (C) at once and hides no data
-    #: both keys of this canvas print in the band between the two facets, one
-    #: above the other: the line-type key first (it explains the thin/thick and
-    #: solid/dashed strokes of both facets), the 13 tool colours below it
-    band = B_BOTTOM_IN + B_FACET_IN
+    #: both keys print in the band between the two facets, one above the other:
+    #: the line-type key first (it explains the thin/thick and solid/dashed
+
+
+    band = y_lo + B_FACET_IN
     line_legend = fig.legend(handles=_key_handles(LINE_KEY_B), loc="center",
                              bbox_to_anchor=(0.5, (band + 0.51) / canvas_h),
                              ncol=len(LINE_KEY_B), frameon=False,
@@ -647,6 +675,17 @@ def render_panels_bc(df_curve: pd.DataFrame, *, stem: str = "FigureS4_BC",
                              ncol=7, frameon=False, fontsize=FS["legend"],
                              handlelength=1.2, columnspacing=0.9,
                              labelspacing=0.30, borderaxespad=0.0)
+    c_line_legend = fig.legend(handles=_key_handles(LINE_KEY_B), loc="center",
+                               bbox_to_anchor=(0.5, (c_band + 0.51) / canvas_h),
+                               ncol=len(LINE_KEY_B), frameon=False,
+                               fontsize=FS["legend"], handlelength=1.6,
+                               columnspacing=1.4, labelspacing=0.2,
+                               borderaxespad=0.0)
+    c_tool_legend = fig.legend(handles=_key_handles(TOOL_KEY), loc="center",
+                               bbox_to_anchor=(0.5, (c_band + 0.235) / canvas_h),
+                               ncol=7, frameon=False, fontsize=FS["legend"],
+                               handlelength=1.2, columnspacing=0.9,
+                               labelspacing=0.30, borderaxespad=0.0)
     #: (table column, facet index); facet 0 is the lower one, 1 the upper one
     facet_spec = (("localization_accuracy", 0), ("hit_rate", 1))
     for ci, (key, _species, _pairs) in enumerate(COLUMNS):
@@ -699,9 +738,11 @@ def render_panels_bc(df_curve: pd.DataFrame, *, stem: str = "FigureS4_BC",
         _title(fig, canvas_h, col_center_in(ci), y_up + B_FACET_IN + 0.02,
                COLUMN_TITLE[key], ha="center", fontsize=FS["column"],
                weight="bold")
-    #: both keys are measured, so neither can grow past the band unnoticed
+    #: every key is measured, so none can grow past its band unnoticed
     assert_key_fits(fig, line_legend, "line-type key between panels B and C")
     assert_key_fits(fig, tool_legend, "tool key between panels B and C")
+    assert_key_fits(fig, c_line_legend, "line-type key below panel C")
+    assert_key_fits(fig, c_tool_legend, "tool key below panel C")
     # two letters for two panels: each one sits in the page margin next to the
     # top edge of its own facet (the block letter convention of rows A and D is
     # kept, but the window sweep is deliberately split into B and C)
@@ -793,18 +834,9 @@ def render_panel_d(df_prec: pd.DataFrame, *, stem: str = "FigureS4_D",
         _title(fig, D_H_IN, col_center_in(ci), D_BOTTOM_IN + D_AXES_IN + 0.02,
                COLUMN_TITLE[key], ha="center", fontsize=FS["column"],
                weight="bold")
-    # panel D carries its own key line (it used to sit on the B/C canvas).
 
-    # full-width canvas, so it floated in the gutter between the Arabidopsis and
-    # Mouse panels.  It is now aligned with the first D panel's left edge, in the
-    # same title band as the species names (which sit lower in the band).
-    legend = fig.legend(handles=_key_handles(D_KEY), loc="upper left",
-                        bbox_to_anchor=(LEFT_IN / PANEL_W_IN,
-                                        1 - 0.04 / D_H_IN),
-                        ncol=len(D_KEY),
-                        frameon=False, fontsize=FS["legend"], handlelength=1.6,
-                        columnspacing=1.4, labelspacing=0.2, borderaxespad=0.0)
-    assert_key_fits(fig, legend, "panel D")
+    #: thin per-tool lines and the black mean +- SD point are described in the SI
+    #: caption instead ("Per-tool pair" / "Mean +- SD" used to be printed here).
     panel_letter(fig, "D", y_in=D_H_IN - 0.04)
     return panelpage.save_panel(fig, PANEL_DIR / f"{stem}.pdf", gate=gate)
 
@@ -955,10 +987,10 @@ def main() -> None:
     anchors = write_anchors(df_curve, df_prec, df_auprc)
 
     longest = pagelayout.rotated_label_in([DISPLAY.get(t, t) for t in TOOL_ORDER],
-                                          FS["tick_small"])
+                                          TOOL_FS)
     tilt = np.deg2rad(TICK_ROTATION)
     pad_in = (5.0 if TICK_ROTATION == 90 else 8.0) / 72.0
-    layout_h = 1.117 * FS["tick_small"] / 72.0     # ascent + descent of Arial
+    layout_h = 1.117 * TOOL_FS / 72.0              # ascent + descent of Arial
     need = pad_in + longest * np.sin(tilt) + layout_h * np.cos(tilt)
     print(f"[layout] panel {PANEL_W_IN:.2f} in wide, column {COL_W_IN:.2f} in "
           f"(B/C facets {COL_W_IN:.2f} x {B_FACET_IN:.2f} in each, two per "

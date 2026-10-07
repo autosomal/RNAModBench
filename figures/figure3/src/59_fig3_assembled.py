@@ -5,11 +5,12 @@ The four rows come from two backends and are merged as **vector** pages:
 
   A  Fig3A_tool_similarity_mds.pdf     matplotlib  (56_fig3a_tool_similarity_mds.py)
   B  Fig3B_modratio_wt_treatment.pdf   matplotlib  (57_fig3b_modratio_wt_treatment.py)
-  C  Fig3C_metagene_species.pdf        R / Guitar  (58_fig3cd_guitar.R)
+  C  Fig3C_metagene_species.pdf        R / Guitar  (58_fig3cd_guitar.R, own key row)
   D  Fig3D_metagene_tools.pdf          R / Guitar  (58_fig3cd_guitar.R)
+  L  Fig3_legend_band.pdf              matplotlib  (61_fig3_legend_band.py)
 
 Every row is drawn at exactly 6.66 in = 0.95 x \\textwidth of the Wiley USG
-layout, so the merged page is 6.66 in wide and ~7.8 in tall -- the printed
+layout, so the merged page is 6.66 in wide and ~7.7 in tall -- the printed
 height of the published Figure 3 (8.34 x 11.59 in artwork shown at
 0.8 x \\textwidth = 5.61 x 7.79 in), i.e. replacing the file does not reflow the
 manuscript beyond the \\includegraphics width.
@@ -73,9 +74,9 @@ ROWS = [
 ]
 W_IN = 6.66                # 0.95 x \textwidth
 GAP_IN = 0.05              # default vertical gap between rows
-# per-transition gaps: B-C and C-D sit closer, as specified (upper
-# letters keep a little more air)
-ROW_GAPS = {"A": 0.05, "B": 0.02, "C": 0.02, "D": 0.05}
+# per-transition gaps: B-C sits closer because C raises no letter; C-D gets the
+# full gap since panel C now ends with its own key block (2026-09-30)
+ROW_GAPS = {"A": 0.05, "B": 0.02, "C": 0.05, "D": 0.05}
 MIN_FONT_PT = 7.2
 PT = 72.0
 

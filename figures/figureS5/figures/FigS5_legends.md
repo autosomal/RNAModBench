@@ -18,8 +18,10 @@ title 17 pt, panel letter 24 pt, key 10.5 pt at the final print size): Figure S5
 printed on the same A4 page as Figure S4, but its panels are taller, so a scale
 of its own keeps the type proportional to the drawing (Figure S4 keeps its own,
 smaller scale). The page uses the same layout system as Figure S4: **A4 portrait**
-(8.27 × 11.70 in), its shared key drawn on its own line inside the panel-A canvas
-(no page-level legend stripe), panel letters in the page margin, one canvas per
+(8.27 × 11.70 in), no page-level legend stripe -- the only in-figure key is panel
+C's shared/purified colour pair (the per-column key lines of A and B were dropped
+on 2026-09-30: the dot/line/bar convention is stated above), panel letters in the
+page margin, one canvas per
 panel (2.13 × 2.84 in sub-panels, panel C split into two halves of three tools),
 assembled with `common/panelpage.py`, every canvas gated by
 `common/pagelayout.py` at render time (no text overlap, no text entering another

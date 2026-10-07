@@ -69,9 +69,16 @@ SPECIES_ALIAS = {
 
 
 def tool_key(name: str) -> str:
-    """Normalise a tool label of any table to the key used by the orders."""
+    """Normalise a tool label of any table to the key used by the orders.
+
+    2026-09-30 (author decision): the printed tables now spell pseudouridine the way the
+    manuscript does, so ``NanoMUD_Ψ`` has to fold to the same key as
+    ``NanoMUD-Psi`` did; without this the three Psi configurations would fall
+    through to the alphabetical tail and leave the tables out of order.
+    """
     s = name.strip().lower()
     s = re.sub(r"\(.*?\)", " ", s)                     # "Dorado (RNA004 ...)"
+    s = s.replace("\u03c8", "psi")                     # Greek Psi -> the order's ASCII key
     s = s.replace("-", "_").replace(" ", "_")
     s = re.sub(r"_+", "_", s).strip("_")
     return NEIGHBOURS.get(s, s)

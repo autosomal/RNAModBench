@@ -1,0 +1,17 @@
+source	cut	tool	unit	sites_in_universe	universe_n	rate_per_1e6	n_sites_in_table
+published (this study's thresholds)	published_own_ratio	NanoNm	HeLa_WT1	19538	7889565	2476.4	23899
+published (this study's thresholds)	published_own_ratio	NanoNm	HeLa_WT2	21260	13179289	1613.1	23899
+published (this study's thresholds)	published_own_ratio	NanoNm	HeLa_WT3	17727	6109730	2901.4	23899
+published (this study's thresholds)	published_own_ratio	NanoNm	union_of_the_three_universes	21449	13630615	1573.6	23899
+published (this study's thresholds)	matched_ratio_support	NanoNm	HeLa_WT1	3882	7889565	492.0	4247
+published (this study's thresholds)	matched_ratio_support	NanoNm	HeLa_WT2	3943	13179289	299.2	4247
+published (this study's thresholds)	matched_ratio_support	NanoNm	HeLa_WT3	3834	6109730	627.5	4247
+published (this study's thresholds)	matched_ratio_support	NanoNm	union_of_the_three_universes	3948	13630615	289.6	4247
+this study	delivered call set	NanoNm	HeLa_WT1	1630	7889565	206.6	1630
+this study	delivered call set	NanoNm	HeLa_WT2	3433	13179289	260.5	3433
+this study	delivered call set	NanoNm	HeLa_WT3	1648	6109730	269.7	1648
+this study	delivered call set	NanoNm	union_of_the_three_units	4061	13630615	297.9	4061
+merged wild-type arm	matched_ratio_support	NanoNm	HeLa_WT2	3433	13179289	260.5	3433
+merged wild-type arm	matched_ratio_support	NanoNm	HeLa_WT3	1648	6109730	269.7	1648
+merged wild-type arm	matched_ratio_support	NanoNm	published_HeLa_pooled_set	3948	13630615	289.6	4247
+merged wild-type arm	matched_ratio_support	NanoNm	union_of_the_three_samples	6030	13630615	442.4	6030

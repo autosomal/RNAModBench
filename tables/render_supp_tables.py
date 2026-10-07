@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Render the Supplementary Tables S1-S11 into one A4-landscape PDF.
+"""Render the Supplementary Tables S1-S12 into one A4-landscape PDF.
 
 Layout mirrors the previously submitted `Supplementary_Table.pdf` (ReportLab,
 A4 landscape 841.89 x 595.276 pt, centred bold "Table Sn: ..." heading,
-horizontal rules only, very light row shading, Helvetica).
+horizontal rules only, very light row shading).
+
+2026-09-30 (author decision): the tables print the Greek Psi of the manuscript, which the
+base-14 Helvetica of ReportLab cannot encode, so the four faces of Arial (the
+font of the response letter, from the same msttcorefonts directory) are embedded
+instead.  Arial is metrically compatible with Helvetica, so the column-width
+algorithm keeps producing the same page build; the width measurements below read
+the metrics of the embedded faces rather than of the base-14 ones.
 
 Inputs : tables/TableS*.tsv written by `build_supp_tables.py` (the first line is
          a `# title`, a `# note:` line may close the file).
-Output : Supplementary_Tables.pdf (+ per-table PDFs in figures/)
+Output : Supplementary_Tables.pdf
 
 Usage
 -----
@@ -21,8 +28,9 @@ from pathlib import Path
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.lib.units import mm
+from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.pdfmetrics import stringWidth
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (BaseDocTemplate, Frame, PageTemplate, Paragraph,
                                 Spacer, Table, TableStyle)
 
@@ -31,18 +39,46 @@ TAB = HERE / "tables"
 FIG = HERE / "figures"
 FIG.mkdir(exist_ok=True)
 
+#: the four faces of Arial, the font of the response letter; registered under the
+#: family name "Arial" so that the <b> and <i> markup of the cells resolves
+FONT_DIR = Path("/usr/share/fonts/truetype/msttcorefonts")
+FACES = {"Arial": "Arial.ttf", "Arial-Bold": "Arial_Bold.ttf",
+         "Arial-Italic": "Arial_Italic.ttf", "Arial-BoldItalic": "Arial_Bold_Italic.ttf"}
+for _name, _file in FACES.items():
+    _path = FONT_DIR / _file
+    if not _path.exists():
+        raise SystemExit(f"Arial face missing: {_path}")
+    pdfmetrics.registerFont(TTFont(_name, str(_path)))
+pdfmetrics.registerFontFamily("Arial", normal="Arial", bold="Arial-Bold",
+                              italic="Arial-Italic", boldItalic="Arial-BoldItalic")
+
+F_REG, F_BOLD, F_ITAL = "Arial", "Arial-Bold", "Arial-Italic"
+
+#: gate -- a glyph the embedded face does not carry would print as a blank box,
+#: and the printed tables used to be pure ASCII, so the only one they need today
+#: is the Greek Psi; the table text is collected here so that a future cell
+#: cannot reintroduce the problem silently.
+WORK_CHARS = "".join(sorted({c for f in TAB.glob("TableS*.tsv")
+                             for c in f.read_text(encoding="utf-8") if c > "\x7f"}))
+if WORK_CHARS:
+    _cmap = getattr(pdfmetrics.getFont(F_REG).face, "charToGlyph", {})
+    if _cmap:
+        _missing = sorted(c for c in WORK_CHARS if ord(c) not in _cmap)
+        assert not _missing, f"Arial cannot render {_missing}"
+    print(f"non-ASCII characters in the tables: {WORK_CHARS!r}")
+
 PAGE = landscape(A4)
 MARGIN = 40
 AVAIL = PAGE[0] - 2 * MARGIN
 
-TITLE = ParagraphStyle("title", fontName="Helvetica-Bold", fontSize=11, leading=14,
+TITLE = ParagraphStyle("title", fontName=F_BOLD, fontSize=11, leading=14,
                        alignment=1, spaceAfter=10)
-HEAD = ParagraphStyle("head", fontName="Helvetica-Bold", fontSize=8, leading=9.5,
+HEAD = ParagraphStyle("head", fontName=F_BOLD, fontSize=8, leading=9.5,
                       alignment=1)
-CELL = ParagraphStyle("cell", fontName="Helvetica", fontSize=7.5, leading=9)
-CELLC = ParagraphStyle("cellc", fontName="Helvetica", fontSize=7.5, leading=9,
+CELL = ParagraphStyle("cell", fontName=F_REG, fontSize=7.5, leading=9)
+CELLC = ParagraphStyle("cellc", fontName=F_REG, fontSize=7.5, leading=9,
                        alignment=1)
-NOTE = ParagraphStyle("note", fontName="Helvetica-Oblique", fontSize=7, leading=9,
+NOTE = ParagraphStyle("note", fontName=F_ITAL, fontSize=7, leading=9,
                       spaceBefore=8, alignment=0)
 SHADE = colors.Color(0.96, 0.96, 0.96)
 
@@ -95,11 +131,11 @@ def col_widths(header: list[str], rows: list[list[str]]) -> list[float]:
     wants, musts = [], []
     for i in range(n):
         cells = [r[i] for r in rows if i < len(r)]
-        head_word = _word_pt(header[i], "Helvetica-Bold", 8.0)
-        cell_word = max((_word_pt(c, "Helvetica", 7.5) for c in cells), default=0.0)
+        head_word = _word_pt(header[i], F_BOLD, 8.0)
+        cell_word = max((_word_pt(c, F_REG, 7.5) for c in cells), default=0.0)
         word = max(head_word, cell_word if cell_word + pad <= name_cap else 0.0) + pad
         musts.append(max(word, floor))
-        widths = sorted(_cell_pt(c, "Helvetica", 7.5) for c in cells)
+        widths = sorted(_cell_pt(c, F_REG, 7.5) for c in cells)
         wants.append(max(widths[int(0.8 * (len(widths) - 1))] + pad,
                          musts[-1]))
     rest = max(AVAIL - sum(musts), 0.0)
@@ -115,6 +151,11 @@ def table_flowable(header: list[str], rows: list[list[str]]) -> Table:
     widths = col_widths(header, rows)
     t = Table(data, colWidths=widths, repeatRows=1, hAlign="CENTER")
     style = [
+        #: the table draws every cell with the style's default font unless one is
+        #: given, and ReportLab's default is the base-14 Helvetica; naming the
+        #: embedded Arial keeps the delivered file on one font family
+        ("FONTNAME", (0, 0), (-1, -1), F_REG),
+        ("FONTSIZE", (0, 0), (-1, -1), 7.5),
         ("GRID", (0, 0), (-1, -1), 0.25, colors.Color(0.75, 0.75, 0.75)),
         ("LINEABOVE", (0, 0), (-1, 0), 0.75, colors.black),
         ("LINEBELOW", (0, 0), (-1, 0), 0.5, colors.black),
@@ -142,16 +183,21 @@ def build() -> None:
     assert files, "no TableS*.tsv found - run build_supp_tables.py first"
     out = HERE / "Supplementary_Tables.pdf"
 
+    #: ReportLab writes the canvas default font into the document-wide font
+    #: resources even when no glyph of it is drawn; left at the base-14 Helvetica
+    #: the delivered file would keep carrying an unembedded face that no page uses,
+    #: so the initial font is set to the embedded Arial as well.
     doc = BaseDocTemplate(str(out), pagesize=PAGE,
                           leftMargin=MARGIN, rightMargin=MARGIN,
                           topMargin=MARGIN, bottomMargin=MARGIN,
+                          initialFontName=F_REG, initialFontSize=12,
                           title="Supplementary Tables - RNA modification benchmark",
                           author="RNAModBench")
     frame = Frame(MARGIN, MARGIN, AVAIL, PAGE[1] - 2 * MARGIN, id="main")
 
     def footer(canv, d):
         canv.saveState()
-        canv.setFont("Helvetica", 7.5)
+        canv.setFont(F_REG, 7.5)
         canv.drawCentredString(PAGE[0] / 2, 20, f"{canv.getPageNumber()}")
         canv.restoreState()
 

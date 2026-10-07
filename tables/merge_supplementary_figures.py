@@ -48,7 +48,7 @@ S3 = (
     "mouse 41,961; human 112,451 high-confidence m6A sites). (B) Positive predictive "
     "value (PPV) against GLORI within the explicit candidate-site set at the "
     "primary 2-bp matching window, computed per independent sequencing unit (Arabidopsis "
-    "and HeLa, three replicates; mouse, its two independent studies, never pooled); bars "
+    "and HeLa, three replicates; mouse, its two independent studies); bars "
     "are group means and error bars the SD across units. (C) Agreement between the "
     "modification ratio reported by each tool and the GLORI ratio at shared sites, one "
     "panel per species; per-replicate Pearson r and Lin's concordance correlation "
@@ -87,7 +87,14 @@ def caption(i: int) -> str:
     for a, b in UNI.items():
         raw = raw.replace(a, b)
     raw = raw.replace("*", "")
-    raw = re.sub(r"(^|\s)>\s*", " ", raw)
+    
+    #: The earlier pattern `(^|\s)>\s*` also matched every whitespace-preceded ">"
+    #: and silently deleted the comparison operator, so the album printed
+    #: "modification ratio 0.1" for "> 0.1" and "= 5 reads" for ">= 5 reads".
+    raw = re.sub(r"^\s*>\s?", "", raw, flags=re.M)
+    
+    #: \geq so the album matches the main text.
+    raw = raw.replace(">=", r"$\geq$")
     raw = re.sub(r"\s+", " ", raw).strip()
     return raw
 
@@ -131,3 +138,14 @@ for f in ("merge_supplementary_figures.pdf", "merge_supplementary_figures.aux",
     if (NEW / f).exists() and f.endswith(".pdf"):
         ((_XB / "submission/new_submission/Supplementary_Figures.pdf")).write_bytes((NEW / f).read_bytes())
         print("wrote Supplementary_Figures.pdf")
+#: 2026-10-04 (author decision, full sync): the album has to be compiled inside the delivery folder
+#: because the tex addresses `sup/FigureS*_rev.pdf` relatively, so pdflatex leaves four
+#: intermediate files next to the upload set.  The round README of the upload round
+#: requires that folder to carry no `merge_supplementary*` residue, and each one of the
+#: four is regenerated on the next run, so they are removed here rather than by hand.
+for f in ("merge_supplementary_figures.tex", "merge_supplementary_figures.aux",
+          "merge_supplementary_figures.log", "merge_supplementary_figures.pdf"):
+    path = NEW / f
+    if path.exists():
+        path.unlink()
+        print(f"removed intermediate {f}")

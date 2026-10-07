@@ -1,6 +1,6 @@
 # Figure S6 (rebuilt 2026-09-21) — legend, paste-ready
 
-Figure file: `FigureS6_rev.pdf` (**240 × 175 mm**, drawn 1:1 at
+Figure file: `FigureS6_rev.pdf` (**178 × 175 mm**, drawn 1:1 at
 the printed size so the text stays large relative to the figure; Arial embedded,
 no gridlines, no in-panel annotation text, **the 13 tool names slanted 45° as
 the only rotated text**, bold panel letters A–E printed once per row).
@@ -11,7 +11,7 @@ recomputed in the figure script) and verified by `63_verify_figS6.py`
 `figures/figure6/tables/` (`figS6_*`, `fig6_*`).
 
 Layout: row A keeps **three species columns** — Arabidopsis (three biological
-replicates) | Mouse | HeLa (three replicates) — because it plots curves against
+replicates) | Mouse | Human (three replicates) — because it plots curves against
 *k*.  The mouse column carries **both independent studies in the same axes and
 they are never averaged**: study A = SRP166020 (solid lines, filled dots,
 lighter shade), study B = SRP357195 (dashed lines, open dots, darker shade);
@@ -26,7 +26,7 @@ Slanted, neighbouring names are parallel lines ≈ 0.47 in apart — far more th
 their cap height — so a name can never collide with its neighbour however long
 it is.
 Inside every tool position the four independent groups sit as **separate
-clusters** (Arabidopsis | mouse study A | mouse study B | HeLa): one dot per
+clusters** (Arabidopsis | mouse study A | mouse study B | Human): one dot per
 sequencing unit plus the mean *within* that group, and never a mean across
 groups or across the two mouse studies.  Row D carries no group dimension at
 all: the unmodified controls are not species-specific, so repeating the same
@@ -53,7 +53,7 @@ Tool combinations were scored on the shared measurable universe of each group
 sequencing unit) with a 2-bp GLORI matching window; at each *k* = 1…5 the
 combination of the 13 m⁶A tool configurations with the highest mean recall was
 selected subject to a mean PPV above the chance level *p*₀ = |GLORI ∩ universe| /
-|universe| (1.5 % Arabidopsis; 0.7 % for each mouse study; 0.85 % HeLa).  The
+|universe| (1.5 % Arabidopsis; 0.7 % for each mouse study; 0.85 % Human).  The
 criterion itself — every enumerated combination in the mean-recall versus
 mean-PPV plane, *p*₀ and the selected optimum of each *k* — is the subject of
 main-text Fig. 6D, and its numbers are the frozen table
@@ -72,43 +72,43 @@ configurations — the only place where *k* > 5 appears (the shaded band marks t
 squares) and the recall that intersecting costs (open triangles); the dotted
 grey line is the best single tool.  Beyond the selected five tools the recall
 gain flattens — the remaining eight configurations add +5.7 pp (Arabidopsis),
-+4.5 pp (mouse study A), +7.7 pp (study B) and +5.4 pp (HeLa) — while the union
++4.5 pp (mouse study A), +7.7 pp (study B) and +5.4 pp (Human) — while the union
 PPV keeps falling (14.1 → 12.6, 6.8 → 6.0, 6.3 → 5.8 and 7.5 → 5.5 %).  The
 intersection retains 0.12–2.24 % of the testable GLORI sites at *k* = 5 and
 exactly zero at *k* = 13 in every group; its PPV is undefined once the
 intersection is empty (no open square after *k* = 7 in Arabidopsis, *k* = 11 in
-HeLa and *k* = 12 in study A), which is the quantitative reason why the
+Human and *k* = 12 in study A), which is the quantitative reason why the
 intersection strategy is used at the small *k* of the main figure and not
 beyond.
 
 **(B)** Coverage (reads, logarithmic) of each configuration's own calls, one dot
 per independent unit and a bar for the mean within a group: every
 configuration's call set is supported by sequencing depth (group medians 35–863
-reads; the least covered configuration still reaches 35 reads in HeLa and 38 in
+reads; the least covered configuration still reaches 35 reads in Human and 38 in
 Arabidopsis).
 
 **(C)** DRACH fraction of the same calls: the configurations separate sharply
 (6.0–99.9 % Arabidopsis, 8.2–99.9 % study A, 7.8–99.9 % study B, 7.1–99.9 %
-HeLa).  This spread is the site-level basis of the trade-off that panel E
+Human).  This spread is the site-level basis of the trade-off that panel E
 quantifies for the sets the criterion actually selects.
 
 **(D)** Control burden of every configuration on the two unmodified controls —
-FP per 10 kb (logarithmic), one dot per sample (filled, Curlcake IVT; open, HeLa
+FP per 10 kb (logarithmic), one dot per sample (filled, Curlcake IVT; open, Human
 IVT).  Curlcake is the harsher null (median 14.3 versus 0.7 FP/10 kb) and the
-three HeLa-only configurations (CHEUI_m6A, DRUMMER, ELIGOS2_diff) have no
+three Human-IVT-only configurations (CHEUI_m6A, DRUMMER, ELIGOS2_diff) have no
 Curlcake run, so Curlcake values exist for 10 of the 13 configurations (two of
-them as a single sample), whereas HeLa IVT covers all 13 with three replicates.
+them as a single sample), whereas Human IVT covers all 13 with three replicates.
 This is the per-configuration counterpart of main Fig. 6F, which shows the same
 controls only for the five selected sets.
 
 **(E)** DRACH composition of the site sets behind the trade-off, one dot per
 independent unit and a bar for the mean within a group: the best single tool
-(9.5 % Arabidopsis, 99.8–99.9 % elsewhere), the sites the union adds beyond it
-(67.3, 37.2, 33.4 and 14.5 %), both intersections (99.97–100 %) and the GLORI
-reference (38.8, 90.6, 90.6 and 89.2 %).  The sets differ by three orders of
+(9.5 % Arabidopsis, 99.8–99.9 % elsewhere), both intersections
+(99.97–100 %), the sites the union adds beyond it (67.3, 37.2, 33.4 and
+14.5 %) and the GLORI reference (38.8, 90.6, 90.6 and 89.2 %).  The sets differ by three orders of
 magnitude in size (marginal sets 132,000–265,000 sites per group; five-tool
 intersections 142–593 sites), so the panel reads: the union buys recall with
-additions that are predominantly non-DRACH in mouse and HeLa and partially
+additions that are predominantly non-DRACH in mouse and Human and partially
 DRACH in Arabidopsis, while the intersection is a motif-pure, deeply covered
 core — the site-level reading of the sensitivity–precision trade-off discussed
 in the main text.
@@ -117,7 +117,7 @@ in the main text.
 
 ## Values quoted in the legend (source tables)
 
-| quantity | Arabidopsis | mouse A | mouse B | HeLa | table |
+| quantity | Arabidopsis | mouse A | mouse B | Human | table |
 |---|---|---|---|---|---|
 | union recall, *k* = 5 → max(*k* = 6–13) | 46.7 → 52.4 % | 80.1 → 84.6 % | 74.0 → 81.7 % | 56.8 → 62.2 % | `figS6_greedy_1to13.tsv` |
 | union PPV, *k* = 5 → 13 | 14.1 → 12.6 % | 6.8 → 6.0 % | 6.3 → 5.8 % | 7.5 → 5.5 % | same |
@@ -125,8 +125,8 @@ in the main text.
 | intersection PPV undefined from *k* = | 8 | 13 | never empty | 12 | same |
 | per-tool coverage median, min–max | 38–515 | 58–428 | 44–174 | 35–863 | `figS6_tool_quality.tsv` |
 | per-tool DRACH, min–max | 6.0–99.9 % | 8.2–99.9 % | 7.8–99.9 % | 7.1–99.9 % | same |
-| FP/10 kb on the controls, median | Curlcake 14.3 / HeLa IVT 0.7 (all groups; controls are not species-specific) | | | | `fig6_negative_control_fp_bytool.tsv` |
-| site-set DRACH, single / marginal / isect *k* = 2 / isect *k* = 5 / GLORI | 9.5 / 67.3 / 100 / 100 / 38.8 % | 99.9 / 37.2 / 99.97 / 100 / 90.6 % | 99.9 / 33.4 / 100 / 100 / 90.6 % | 99.8 / 14.5 / 100 / 100 / 89.2 % | `figS6_site_quality.tsv` |
+| FP/10 kb on the controls, median | Curlcake 14.3 / Human IVT 0.7 (all groups; controls are not species-specific) | | | | `fig6_negative_control_fp_bytool.tsv` |
+| site-set DRACH, single / isect *k* = 2 / isect *k* = 5 / marginal / GLORI | 9.5 / 100 / 100 / 67.3 / 38.8 % | 99.9 / 99.97 / 100 / 37.2 / 90.6 % | 99.9 / 100 / 100 / 33.4 / 90.6 % | 99.8 / 100 / 100 / 14.5 / 89.2 % | `figS6_site_quality.tsv` |
 | set size, marginal / isect *k* = 5 (sites) | 264,822 / 142 | 131,515 / 438 | 131,771 / 294 | 168,287 / 593 | same |
 | chance level *p*₀ | 1.5 % | 0.7 % | 0.7 % | 0.85 % | `figS6_search_space.tsv` |
 

@@ -124,9 +124,9 @@ def _top_key(fig: plt.Figure, handles: list, ncol: int, *, x: float = 0.5,
              y: float = 0.995) -> None:
     """Key in the free strip above the axes, right of the panel letter.
 
-    2026-09-27 (author decision): the canvases are 2.5967 in squares now, so the top key
-    prints at the small-legend size -- at 10.5 pt the key of C ran past the right
-    edge of its cell.
+    2026-09-27 (author decision): the top key prints at the small-legend size -- at 10.5 pt
+    the key of C ran past the right edge of its cell.  (2026-09-30: the canvas is
+    4.027 in wide now, so this strip has far more slack; size and anchor kept.)
     """
 
     #: is centred on its own cell instead of hugging the panel letter.
@@ -198,8 +198,7 @@ def bar_labels(df: pd.DataFrame, paired: bool = True) -> list[str]:
 def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
                     left_in: float, *, paired: bool, xlabel: str, floor: float,
                     ticks: list[float], y0: float, height: float,
-                    sec_ticks: dict | None = None,
-                    square: bool = True) -> None:
+                    sec_ticks: dict | None = None) -> None:
     """One horizontal-bar panel; ``paired`` draws the WT / IVT bar pair.
 
     ``floor`` is the x position of the "no call" triangle; the axis starts a
@@ -214,9 +213,9 @@ def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
     left = left_in / w_in
 
 
-    #: span the same width as the eight other panels (canvas minus the shared label
-    #: column and the 0.06 in right margin) instead of stopping at 0.900 of the
-    #: cell and shrinking to the square where the box was taller than the square.
+    #: the same width as the eight other panels: the canvas minus the shared label
+    #: column and the same 0.060 in right margin ``S.cell_rect`` keeps.  (The dead
+    #: ``square`` flag of that transition was removed on 2026-09-30.)
     ax = fig.add_axes([left, y0,
                        (w_in - 0.060 - left_in) / w_in,
                        height])
@@ -297,8 +296,10 @@ def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
         sec.spines["top"].set_linewidth(S.AXIS_LW)
         for side in ("left", "right", "bottom"):
             sec.spines[side].set_visible(False)
-    letter_near(fig, key, left_in, labels, row_fs,
-                fig.get_figheight() - S.BOX_BOTTOM_IN - S.BOX_TOP_PAD_IN)
+    #: 2026-09-30: the band is the panel's real box height (0.7491 of row 1) --
+    #: the old ``figheight - BOX_BOTTOM_IN - BOX_TOP_PAD_IN`` mixed the row-2/3
+    #: strip constants into row 1 and drifted with every edit of them
+    letter_near(fig, key, left_in, labels, row_fs, height * fig.get_figheight())
 
 
 #: x value of the false-positive-rate ticks of panel C: rate -> printed label.
@@ -314,13 +315,14 @@ SPEC_TICKS = {100.0: "$10^{-4}$", 3000.0: "$3\\times10^{-3}$"}
 
 def draw_a(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     """A -- detection counts per entry, WT | IVT (23 entries)."""
-    #: row 1 shrank to 3.60 in on 2026-09-25, so the x label needs a slightly
-    #: higher floor than the 0.105 of the 4.08 in canvas
+    #: row 1 settled at 3.580 in on 2026-09-30 (the larger type needed the room
+    #: around the box), so the x label needs a slightly higher floor than the
+    #: 0.105 of the 4.08 in canvas
     _draw_bar_panel(fig, df, "A", FS["row_a"], left_in, paired=True,
                     xlabel="Detected sites (log scale)", floor=0.75,
 
-                    #: (3.000 in of the 3.600 in cell), so the row reads as a row
-                    ticks=[1, 100, 10000], y0=0.1218, height=0.7706, square=False)
+                    #: (0.7491 of the 3.580 in cell, 2026-09-30), so the row reads as a row
+                    ticks=[1, 100, 10000], y0=0.1324, height=0.7491)
 
 
 def draw_orca(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
@@ -328,7 +330,7 @@ def draw_orca(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     _draw_bar_panel(fig, df, "B", FS["row"], left_in, paired=True,
                     xlabel="Detected sites (log scale)", floor=10.0,
 
-                    ticks=[10, 100, 1000, 10000], y0=0.1218, height=0.7706)
+                    ticks=[10, 100, 1000, 10000], y0=0.1324, height=0.7491)
 
 
 def draw_curlcake(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
@@ -342,7 +344,7 @@ def draw_curlcake(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     #: the row share their top and bottom lines
     _draw_bar_panel(fig, df, "C", FS["row"], left_in, paired=False,
                     xlabel="FP per 10$^6$ candidates", floor=100.0,
-                    ticks=[100, 1000], y0=0.1218, height=0.7706,
+                    ticks=[100, 1000], y0=0.1324, height=0.7491,
                     sec_ticks=SPEC_TICKS)
 
 
@@ -452,7 +454,10 @@ def draw_window_ppv(fig: plt.Figure, loc: pd.DataFrame, left_in: float) -> None:
 
     #: no row labels, so the letter sat a whole label column (1.86 in) away from
     #: its box; it now sits in the free band just left of the box.
-    S.letter(fig, "D", x=min(left_in - 0.86, 2.40) / fig.get_figwidth())
+
+    #: ticks, 12.5 pt axis name), so the gap widens 0.86 -> 0.92 in and the letter
+    #: keeps ~0.09 in to the rotated y title instead of hugging it
+    S.letter(fig, "D", x=min(left_in - 0.92, 2.40) / fig.get_figwidth())
 
 
 def draw_window_exact(fig: plt.Figure, loc: pd.DataFrame,
@@ -471,7 +476,8 @@ def draw_window_exact(fig: plt.Figure, loc: pd.DataFrame,
 
     #: no row labels, so the letter sat a whole label column (1.86 in) away from
     #: its box; it now sits in the free band just left of the box.
-    S.letter(fig, "E", x=min(left_in - 0.86, 2.40) / fig.get_figwidth())
+
+    S.letter(fig, "E", x=min(left_in - 0.92, 2.40) / fig.get_figwidth())
 
 
 # --------------------------------------------------------------------------- #
@@ -497,10 +503,13 @@ def species_key(fig: plt.Figure, printed: list[str], *, centre_x: float) -> None
                       mfc=DOT_COLOR, mec="white", mew=0.6, ls="none",
                       label=SPECIES_DISPLAY.get(p, p))
                for p in printed]
+
+    #: past the right edge of the canvas, so the block tightens -- the gaps
+    #: shrink, the type does not (0.65/0.25 instead of 1.1/0.35 em)
     fig.legend(handles=handles, loc="lower center",
                bbox_to_anchor=(centre_x, S.KEY_BOTTOM_IN / fig.get_figheight()),
                ncol=len(printed), frameon=False, fontsize=FS["key_sm"],
-               handlelength=1.0, columnspacing=1.1, handletextpad=0.35,
+               handlelength=1.0, columnspacing=0.65, handletextpad=0.25,
                borderaxespad=0.0, borderpad=0.0)
 
 
@@ -522,9 +531,10 @@ def _stability_axes(fig: plt.Figure, rect: list[float], rows: pd.DataFrame,
     ax.set_xticklabels(["0.4", "0.6", "0.8", "1"])
     ax.set_yticks(np.arange(n))
     #: 2026-09-27: the level names print at the 7 pt floor -- at 7.5 pt the
-    #: longest one ran 0.02 in past the left edge of the 2.5967 in square
+    #: longest one ran 0.02 in past the left edge of the then 2.5967 in cell
 
-    #: unified row size instead of the 7 pt floor.
+    #: unified row size instead of the 7 pt floor (the cell is 4.027 in since
+    #: 2026-09-30, so the fit is no longer tight).
     ax.set_yticklabels(levels, fontsize=FS["level"])
     ax.tick_params(axis="x", labelsize=FS["tick_sm"], pad=3.6)
     ax.tick_params(axis="y", length=0, pad=5.0)
@@ -541,11 +551,12 @@ def _stability_axes(fig: plt.Figure, rect: list[float], rows: pd.DataFrame,
 
 def draw_stability_coverage(fig: plt.Figure, rows: pd.DataFrame,
                             left_in: float) -> None:
-    """H -- ranking stability against transcript coverage (a square cell).
+    """H -- ranking stability against transcript coverage (a cell of the grid).
 
-    2026-09-27 (author decision): the cells are squares, so the thirteen-entry key of the
-    window sweep left this cell; the species key it needs prints **under its own
-    box** (the same line I also carries under I), not in any other cell.
+    2026-09-27 (author decision): a key prints under its own panel, so the thirteen-entry
+    key of the window sweep lives with D/E and the species key this cell needs
+    prints **under its own box** (the same line I also carries under I), never in
+    a neighbour's free space.
     """
     rect = S.cell_rect(fig, left_in, height_in=S.BOX_H_LOW_IN)
 
@@ -580,40 +591,35 @@ def draw_stability_ratio(fig: plt.Figure, rows: pd.DataFrame,
 
 
 def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
-                   left_in: float, row_h_in: float = 0.105,
-                   rows: int = 3) -> None:
+                   left_in: float, rows: int = 3) -> None:
     """The thirteen-entry key of the window sweep, **under the pair that draws it**.
 
     2026-09-27 (author decision): a key prints under its own panel, and the sweep is the pair
     D | E -- but thirteen entries do not fit in one cell's strip (their labels
-    need ~5 in of width and three 7 pt rows).  Each facet's canvas therefore
+    need ~5 in of width and three 8 pt rows).  Each facet's canvas therefore
     prints one half of the key in the strip under its own box, centred; the two
     halves read as one band under the row.  ``half`` is ``"left"`` (D: the first
     six entries, two columns) or ``"right"`` (E: the remaining seven, three).
     """
     items = window_key(loc)
 
-    #: shrink from 0.72 in to 0.42 in (the tighter packing the revision asked for).
+    #: six-entry half, three for the seven-entry half; four columns were tried to
+    #: shave a row off the block but the gate caught the overflow every time.
 
-    #: shave a row off the block, but seven entries at 7 pt need 5.06 in and a cell
-    #: is 3.79 in wide, so the block left the canvas (the layout gate caught it).
-
-    #: seven-entry half -- both come out three rows tall, and 3 x 1.24 in is the
-    #: only arrangement that fits a 3.79 in cell (four columns need 5.06 in and
-    #: three columns for the six-entry half need 3.9 in; the gate caught both).
+    #: prints at 8 pt (one step under the 9.5 pt row scale; it stays the page's
+    #: smallest size): one column is ~1.41 in, each half block ~2.84 in -- wider
+    #: than the free width of the canvas, so ``grid_key`` clamps both halves to
+    #: the same left edge (they still line up as one band under the pair).
+    #: (The dead ``row_h_in=0.105`` parameter was removed on 2026-09-30; the block
+    #: draws its rows at the pitch below.)
     part, ncol = (items[:6], 2) if half == "left" else (items[6:], 3)
 
-    #: the canvas edge, so the block starts 0.10 in up instead of at KEY_BOTTOM_IN.
-    y_top_in = 0.024 + rows * 0.098
+    #: edge, so the block starts 0.024 in up.  2026-09-30: at 8 pt the rows need
+    #: 0.117 in of pitch (0.098 was the 7 pt pitch)
+    y_top_in = 0.024 + rows * 0.117
     box_centre = left_in + (fig.get_figwidth() - left_in - 0.060) / 2.0
-
-    #: "sup v5.0.0 m6A DRACH") and the unified 8.5 pt needs more air between the
-    #: columns, so the gap grows; the strip is 0.72 in, the three rows fit.
-
-    #: the unified 8 pt): at 8 pt its three columns do not fit a 3.79 in cell -- the
-    #: layout gate measured 4.59 in for the right half.
     grid_key(fig, part, x_in=0.100, y_top_in=y_top_in, ncol=ncol,
-             fontsize=7.0, sw_in=0.075, row_h_in=0.098,
+             fontsize=8.0, sw_in=0.075, row_h_in=0.117,
              col_gap_in=0.020, centre_in=box_centre)
 
 
@@ -717,7 +723,8 @@ def _effect_key(fig: plt.Figure, *, centre_x: float,
                               mfc="white", mec=DOT_COLOR, mew=1.2, ls="none",
                               label=series2_label))
 
-    #: the key of this one panel prints at the 7 pt floor
+    #: 3.740 in cell, so this key once printed at the 7 pt floor; 2026-09-30: the
+    #: cell is 4.027 in wide and the key prints at FS["key"] = 9.5 pt again
     fig.legend(handles=handles, loc="lower center",
                bbox_to_anchor=(centre_x, S.KEY_BOTTOM_IN / fig.get_figheight()),
                ncol=len(handles), frameon=False, fontsize=FS["key"],
@@ -765,8 +772,8 @@ def draw_effect_slope(fig: plt.Figure, rows: pd.DataFrame,
     _lollipop_axes(fig, rect, rows, "slope", "slope_lo", "slope_hi",
                    "Slope or Lin's CCC", show_labels=True,
                    series2={"value": "ccc", "lo": "ccc_lo", "hi": "ccc_hi"})
-    #: the key is ~2.2 in wide against a 1.87 in box, so it is centred on the
-    #: canvas instead of on the box -- that overflow is what forced the inset
+    #: the key is ~2.2 in wide against a box of the same order (2.111 in since
+    #: 2026-09-30), so it stays centred on the canvas instead of on the box
     _effect_key(fig, centre_x=0.5,
                 series2_label="Lin's CCC, 95 % CI")
     letter_near(fig, "G", left_in, effect_labels(rows), FS["row"],

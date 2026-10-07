@@ -42,6 +42,14 @@ DENS = (_RB / "figures/figure7/tables/fig7_metagene_density.tsv")
 #: panel E span these three values
 JPAIRS = ((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"))
 
+#: rate (calls per 10^6 candidate sites, computed inside matched coverage strata); since
+#: 2026-10-07 it draws that rate read on the tool's wild-type candidate-site count, the unit
+#: Table S5 prints (see common_bases).  The values come from the depth diagnosis of the
+#: R3-9b package, which also explains why the raw counts put four of the six tools above one
+#: on the unmodified control; the same evidence feeds Table S5 and the D strip of Figure S8,
+#: so the three cannot drift.
+R39B = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/units_calls.tsv"))
+
 #: restrained palette (paper-like): one blue WT, one orange unmodified control,
 #: one neutral guide, one accent for the synthetic-control row.
 C_WT = "#4B81B8"
@@ -87,7 +95,7 @@ Y_TITLES = True
 
 #: two-line shape as the F panel title; the IVT arm is still named in full in
 #: the caption.  F keeps its wording.
-Y_TITLES_TEXT = {"calls": "Calls per replicate",
+Y_TITLES_TEXT = {"rate": "Coverage-matched calls\n(sites per unit)",
                  "enrich": "Enrichment over chance",
                  "fp": "FP per 10$^{6}$\ncandidate sites",
                  "density": "Density",
@@ -132,18 +140,36 @@ def apply_style() -> None:
 LETTER_GAP_IN = 0.25
 
 
-def letter(ax, s: str, dx: float = -0.005, gap_in: float = LETTER_GAP_IN) -> None:
-    """Bold panel letter above the axes' top-left corner, ``gap_in`` above it.
+#: edge of the plot area (transAxes), i.e. they sat just left of the y-tick
+#: column instead of at the top-left corner of the whole panel group.  They now
+#: take a fixed x on the delivered 180 mm page, in the page-margin column left
+#: of the rotated y titles, the same column Figure 1/6 use.  The assembly scales
+#: this canvas (7.60 in) to 180 mm, so a delivered-page x maps to the figure
+#: fraction x / PAGE_W_PT.
+PAGE_W_PT = 180.0 / 25.4 * 72.0                  # 510.24 pt
+LETTER_X_PT = 3.0                                # left column: page margin
+LETTER_X2_PT = 253.0                             # right column: left of the y titles
+
+
+def letter(ax, s: str, x_pt: float, gap_in: float = LETTER_GAP_IN) -> None:
+    """Bold panel letter at ``x_pt`` of the delivered page, above the axes.
+
+    ``gap_in`` keeps the white band between the frame's top edge and the letter.
+    The letter sits in the page-margin column left of the rotated y title; E and
+    F of the third row carry a larger gap because E's two-line y title ("Mean
+    pairwise Jaccard" / "(IVT)") reaches higher above its frame than the others
+    and the letter would otherwise touch it -- F follows so the row stays level.
 
     The text is tagged so the legend search treats it as an obstacle: since the
     letters sit in the band above their own frame, a key that grows into that
     band would otherwise collide with them (the corner search only looked at the
     other axes' artists).
     """
-    ax_h_in = ax.get_position().height * ax.figure.get_figheight()
-    t = ax.text(dx, 1.0 + gap_in / ax_h_in, s, transform=ax.transAxes,
-                fontsize=STYLE["letter"], fontweight="bold", va="bottom",
-                ha="left")
+    fig = ax.figure
+    t = fig.text(x_pt / PAGE_W_PT,
+                 ax.get_position().y1 + gap_in / fig.get_figheight(), s,
+                 fontsize=STYLE["letter"], fontweight="bold", va="bottom",
+                 ha="left")
     t._fig7_letter = True
 
 
@@ -160,6 +186,28 @@ def pow_ticks(ax, lo: float, hi: float, fmt: str = "10$^{%d}$") -> None:
     ax.set_yticklabels([fmt % e for e in exps])
 
 
+
+#: candidate-site count -- the wild-type units' mean -- and panel A draws the same
+#: quantity, so the two cannot drift apart.  The count comes from the evidence table the
+#: table builder itself uses, with HeLa_WT1 left out of the NanoNm row as it is in the arm
+#: (`build_supp_tables.py::base_sites`).
+COUNTS_PER_UNIT = ((_RB / "figures/figureS7/tables/s7_counts_per_replicate.tsv"))
+
+
+def common_bases() -> dict[str, float]:
+    """Mean candidate sites per wild-type unit: one number per tool (Table S5's base)."""
+    if not COUNTS_PER_UNIT.exists():
+        raise SystemExit(f"missing {COUNTS_PER_UNIT}; run the Figure S8 tables first")
+    g = pd.read_csv(COUNTS_PER_UNIT, sep="\t")
+    g = g[g.condition == "WT"]
+    out = {}
+    for tool, sub in g.groupby("tool"):
+        if tool == "NanoNm":
+            sub = sub[sub["sample"] != "HeLa_WT1"]
+        out[str(tool)] = float(sub.universe_n.mean())
+    return out
+
+
 def load() -> dict[str, pd.DataFrame]:
     """Five frozen evidence tables (read-only; the single source of numbers)."""
     return {
@@ -170,6 +218,7 @@ def load() -> dict[str, pd.DataFrame]:
         "scor": pd.read_csv((_RB / "analysis/nonm6a_false_positives/evidence/score_distributions.tsv"), sep="\t"),
         "eco": pd.read_csv((_RB / "analysis/nonm6a_false_positives/evidence/ecoli_gse271571_prob.tsv"), sep="\t"),
         "jpairs": pd.read_csv(JPAIRS, sep="\t"),
+        "unitrate": pd.read_csv(R39B, sep="\t"),
     }
 
 
@@ -220,15 +269,27 @@ def cat_axis(ax, tools: list[str], classes: bool = False,
                        rotation_mode="anchor")
 
 
-def panel_a1(ax, rep: pd.DataFrame) -> None:
-    """Per-replicate calls: unmodified IVT libraries call as much as WT."""
+def panel_a1(ax, unitrate: pd.DataFrame, bases: dict[str, float]) -> None:
+    """Per-unit coverage-matched call count: the unmodified control does not exceed WT.
+
+    2026-09-30 (author decision): the panel used to draw raw calls per replicate, which put the
+    unmodified control above the wild type for four of the six tools and read as
+    detection without modification.  It now draws the same calls as the coverage-matched
+    rate of the R3-9b diagnosis (calls per 10^6 candidate sites inside matched coverage
+    strata), so the two conditions are compared on a common coverage composition.
+    2026-10-07 (author decision): the rate is read on the same candidate-site count Table S5 uses --
+    the wild-type units' mean count of that row -- so the points here and the cells there
+    are the same number of sites; a reader who divides the two counts recovers the ratio
+    the table prints.
+    """
+    hela = unitrate[unitrate["dataset"] == "HeLa"]
     for tl in A_TOOLS:
-        sub = rep[rep["tool"] == tl]
+        sub = hela[hela["tool"] == tl]
         x = A_POS[tl]
         for grp, off, filled, col in (("WT", -0.17, True, C_WT),
                                       ("IVT", 0.17, False, C_IVT)):
-            rows = sub[sub["group"] == grp].sort_values("sample")
-            vals = rows["n_calls_in_universe"].to_numpy(float)
+            rows = sub[sub["condition"] == grp].sort_values("unit")
+            vals = rows["standardised_density_per_1e6"].to_numpy(float) * bases[tl] / 1e6
             if not vals.size:
                 continue
             ax.plot(x + off + jitter(len(vals), 0.05), vals, linestyle="none",
@@ -237,21 +298,24 @@ def panel_a1(ax, rep: pd.DataFrame) -> None:
                     markeredgecolor=col, markeredgewidth=0.9, zorder=3)
             ax.plot([x + off - 0.15, x + off + 0.15], [vals.mean()] * 2,
                     color=col, linewidth=1.4, zorder=4, solid_capstyle="butt")
-    pow_ticks(ax, 1e2, 2e5)
+    pow_ticks(ax, 1e2, 5e4)
     cat_axis(ax, A_TOOLS, classes=True)
-    
+
     ## is a rotated label by definition, so every axis variable is named in
     ## the caption instead (panels A-F all carry their metric there, see
     ## manuscript.tex, Figure 7).  Set Y_TITLES=True to bring the six back.
     if Y_TITLES:
-        ax.set_ylabel(Y_TITLES_TEXT['calls'])
+        ax.set_ylabel(Y_TITLES_TEXT['rate'])
     handles = [Line2D([], [], marker="o", linestyle="none", markersize=4.6,
                       markerfacecolor=C_WT, markeredgecolor=C_WT, label="Human WT"),
                Line2D([], [], marker="o", linestyle="none", markersize=4.6,
                       markerfacecolor="white", markeredgecolor=C_IVT,
                       markeredgewidth=0.9, label="Human IVT")]
+
+    #: against the WT points at the top right; it now sits in the band above the
+    #: panel, the same position the keys of B, C and F use.
     place_legend(ax, handles, slot="upper right", handletextpad=0.35,
-              borderpad=0.15, labelspacing=0.25)
+                 labelspacing=0.25, bbox_to_anchor=(1.0, 1.03))
 
 
 def panel_a2(ax, truth: pd.DataFrame) -> None:
@@ -282,7 +346,7 @@ def panel_a2(ax, truth: pd.DataFrame) -> None:
     cat_axis(ax, REF_TOOLS, local=True)
     if Y_TITLES:          # axis variable named in the caption
         ax.set_ylabel(Y_TITLES_TEXT['enrich'])
-    
+
     #: inside the box still finds no free corner (every one carries data), so the
     #: key prints as one line in the empty band directly above the panel -- the
     #: same place F's key sits -- and names the two reference sets the verifier
@@ -301,8 +365,7 @@ def panel_a2(ax, truth: pd.DataFrame) -> None:
                       markerfacecolor="0.45", markeredgecolor="0.45",
                       label="Orthogonal NGS")]
     place_legend(ax, handles, slot="lower right", ncol=2, handletextpad=0.35,
-                 borderpad=0.15, labelspacing=0.25,
-                 bbox_to_anchor=(1.0, 1.03))
+                 labelspacing=0.25, bbox_to_anchor=(1.0, 1.03))
 
 
 def panel_b1(ax, cc: pd.DataFrame) -> None:
@@ -346,19 +409,22 @@ def panel_b1(ax, cc: pd.DataFrame) -> None:
                       label="depth-matched"),
                Line2D([], [], color="0.2", linewidth=1.5,
                       label="mean")]
-    
-    
+
+
     #: ~4.0 in wide, wider than the 3.4 in panel, so the key reached either off
     #: the canvas or into the neighbouring panel's letter band; two columns bring
     #: it to ~2.6 in, which clears both the letter on its left and panel D.
-    
+
     #: cannot settle this three-entry key -- the frame is full, and the centred
     #: band form brushes the panel letter that owns the band's left end.  The key
     #: is pinned as a right-aligned two-column row in the band above the panel
     #: (panel F's form), and the relayout pass is told to leave it alone.
-    ax.legend(handles=handles, loc="lower right", ncol=2, frameon=False,
-              bbox_to_anchor=(1.0, 1.03), handletextpad=0.35, borderpad=0.15,
-              labelspacing=0.25, columnspacing=0.9)
+
+    leg = ax.legend(handles=handles, loc="lower right", ncol=2, frameon=True,
+                    facecolor="white", edgecolor="0.45", framealpha=1.0,
+                    bbox_to_anchor=(1.0, 1.03), handletextpad=0.35,
+                    borderpad=0.32, labelspacing=0.25, columnspacing=0.9)
+    leg.get_frame().set_linewidth(0.7)
     ax._fig7_legend = None
 
 
@@ -387,7 +453,7 @@ def panel_b2(ax, eco: pd.DataFrame) -> None:
                Line2D([], [], color="0.25", linewidth=1.4, linestyle=(0, (3, 2)),
                       label="m$^{6}$A")]
     place_legend(ax, handles, slot="upper right", handletextpad=0.45,
-              borderpad=0.15, labelspacing=0.25)
+                 labelspacing=0.25)
 
 
 def panel_c1(ax, summ: pd.DataFrame, jpairs: pd.DataFrame) -> None:
@@ -438,7 +504,7 @@ def panel_c2(ax, scor: pd.DataFrame) -> None:
         row = d[d["tool"] == tl].iloc[0]
         auc = float(row["auc"])
         lo, hi = float(row["pair_auc_min"]), float(row["pair_auc_max"])
-        
+
         #: the whisker spans their min-max (score_distributions.tsv).
         ax.errorbar([A_POS[tl]], [auc],
                     yerr=[[auc - lo], [hi - auc]],
@@ -455,11 +521,10 @@ def panel_c2(ax, scor: pd.DataFrame) -> None:
                       label="Score discrimination"),
                Line2D([], [], color=C_GREY, linewidth=1.0, linestyle=(0, (2, 2)),
                       label="Chance")]
-    
+
     #: empty band directly above the panel
     place_legend(ax, handles, slot="lower right", ncol=2, handletextpad=0.35,
-              borderpad=0.15, labelspacing=0.25,
-              bbox_to_anchor=(1.0, 1.03))
+                 labelspacing=0.25, bbox_to_anchor=(1.0, 1.03))
 
 
 def metagene_frame(ax, ylabel: bool) -> None:
@@ -561,10 +626,17 @@ def relayout_legends(fig) -> None:
 def place_legend(ax, handles, **kw):
     """Legend in the first corner that overlaps no data artist or text.
 
-    ``frameon=False`` is kept (house style), so a legend sitting on top of a
-    marker is a visible collision -- hence the automated corner search.
+    2026-09-30 : the keys
+    carry a thin frame and an opaque white face from this round on, so a key that
+    sits near data reads as its own object instead of floating on the panel.  The
+    corner search still runs and now also avoids burying a marker under the face.
     """
-    kw.setdefault("frameon", False)
+    kw.setdefault("frameon", True)
+    kw.setdefault("facecolor", "white")
+    kw.setdefault("edgecolor", "0.45")
+    kw.setdefault("framealpha", 1.0)
+    kw.setdefault("borderpad", 0.32)
+    _FRAME_LW = 0.7
     ax._fig7_legend = (handles, dict(kw))      # kept for the final relayout
     kw.pop("loc", None)          # the slot is chosen by the search below
     ncols = int(kw.pop("ncol", 1))
@@ -593,7 +665,7 @@ def place_legend(ax, handles, **kw):
         ("corner", loc, nc)
         for loc in ("upper right", "upper left", "lower right", "lower left")
         for nc in nc_variants]
-    
+
     #: may sit above the panel's centre or its right shoulder -- the letter owns
     #: the left end of that band.  The left shoulder is deliberately not a
     #: candidate: a wide key anchored there runs off the left edge of the saved
@@ -629,6 +701,7 @@ def place_legend(ax, handles, **kw):
             kw2 = {k: v for k, v in kw.items() if k != "bbox_to_anchor"}
             leg = ax.legend(handles=handles, loc=loc, ncol=nc,
                             bbox_to_anchor=anchor, **kw2)
+        leg.get_frame().set_linewidth(_FRAME_LW)
         if _legend_hits(ax, leg, fig):
             continue
         bb = leg.get_window_extent(rend)
@@ -652,6 +725,7 @@ def place_legend(ax, handles, **kw):
                if kind == "corner" else
                ax.legend(handles=handles, loc=loc, ncol=nc,
                          bbox_to_anchor=anchor, **kw2))
+        leg.get_frame().set_linewidth(_FRAME_LW)
         bb = leg.get_window_extent(rend)
         area = 0.0
         for s in sib + sib_boxes:
@@ -811,7 +885,7 @@ def layout_report(fig) -> dict:
                 if hit:
                     overlaps.append({"kind": "tick", "a": a.get_text()[:16],
                                      "b": b.get_text()[:16], "ax": f"axes{i}"})
-    
+
     # the author restored the six y titles of rows A-C, so the gate now allows the
     # axis labels themselves and still fails the build on any other 90-degree
     # text (a tick, an annotation, a stray ylabel).
@@ -858,19 +932,24 @@ def build_figure() -> tuple[plt.Figure, dict[str, pd.DataFrame]]:
     ax_b2 = fig.add_subplot(gs_b[0, 1])
     ax_c1 = fig.add_subplot(gs_c[0, 0])
     ax_c2 = fig.add_subplot(gs_c[0, 1])
-    panel_a1(ax_a1, data["rep"])
+    panel_a1(ax_a1, data["unitrate"], common_bases())
     panel_a2(ax_a2, data["truth"])
     panel_b1(ax_b1, data["cc"])
     panel_b2(ax_b2, data["eco"])
     panel_c1(ax_c1, data["sum"], data["jpairs"])
     panel_c2(ax_c2, data["scor"])
 
-    letter(ax_a1, "A")             # per sub-panel letters A-F (G is on the R side)
-    letter(ax_a2, "B")
-    letter(ax_b1, "C")
-    letter(ax_b2, "D")
-    letter(ax_c1, "E")
-    letter(ax_c2, "F")
+    #: per sub-panel letters A-F (G is stamped on the R side): page-margin column,
+    #: left of the y titles; E sits a touch higher to clear its taller y title.
+    letter(ax_a1, "A", LETTER_X_PT)
+    letter(ax_a2, "B", LETTER_X2_PT)
+    letter(ax_b1, "C", LETTER_X_PT)
+    letter(ax_b2, "D", LETTER_X2_PT)
+    #: E and F share the taller gap so the two letters of the third row stay on
+    #: one line (E's y title reaches higher, F's does not need it, but a row of
+    #: letters at two different heights reads as a mistake).
+    letter(ax_c1, "E", LETTER_X_PT, gap_in=LETTER_GAP_IN + 0.20)
+    letter(ax_c2, "F", LETTER_X2_PT, gap_in=LETTER_GAP_IN + 0.20)
     relayout_legends(fig)          # panel letters now exist: re-check legends
     rows = []
     for name, ax in (("A-left", ax_a1), ("A-right", ax_a2),

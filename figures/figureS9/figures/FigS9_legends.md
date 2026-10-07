@@ -14,26 +14,34 @@ false-positive rate with its denominator and the matching specificity, and the
 statistical panels report association, agreement, effect size and rank stability
 rather than claims of quantitative accuracy.
 
-**Layout (2026-09-27, author decision).**  Nine cells on one A4 **landscape** sheet
-(842.4 x 595.44 pt): three columns of 3.740 in and three rows of 3.400 / 2.195 /
-2.195 in (margins 0.10 in, gutters 0.14 in), so A | B | C sit on the first row,
+**Layout (2026-09-30, author decision).**  Nine cells on one enlarged sheet (892.8 x 792.0 pt
+= 12.400 x 11.000 in): three columns of 4.027 in and three rows of 3.580 / 3.550 /
+3.550 in (margins 0.10 in, gutters 0.06 in), so A | B | C sit on the first row,
 D | E | H on the second and F | G | I on the third.  Every panel draws its data in
 a **closed box** (top and right spines visible) that **fills its own cell**: the
 box runs from the common label column to the cell's right margin and from its
 bottom offset to 0.075 in below the cell top.  **All nine cells share one label
-column** (1.638 in, set by A's longest model name at 7 pt and by the 0.23 in of
-clearance F's longest tool name needs for the 24 pt panel letter), so all nine
-boxes start and end on the same two vertical lines; their heights are uniform per
-row (2.620 in on row 1, 1.400 in on rows 2 and 3) and their bottom offsets are
-0.414 in (row 1, which carries no key) and 0.720 in (rows 2 and 3, whose strip
-carries the x title and the panel's key).  A cell-filling box is a wide rectangle:
-a square box in a 3.740 x 2.195 cell would leave ~2.4 in of white on its right.
+column** (1.861 in, set by the wider of A's longest model name at 8 pt and F's
+longest tool name at 9.5 pt plus the clearance its 28 pt panel letter needs), so
+all nine boxes start and end on the same two vertical lines; the boxes are 2.111
+in wide and 2.682 in tall on row 1, 2.675 in on rows 2 and 3 (within 0.007 in of
+row 1, so the nine boxes read as equally tall), and their bottom offsets are 0.474
+in (row 1, which carries no key) and 0.800 in (rows 2 and 3, whose strip carries
+the x title and the panel's key).  The six lower panels were only 1.46 in tall
+inside the former A4 landscape sheet, which crowded their curves and dots; the
+sheet was enlarged on 2026-09-30 to give them the height of the top three
+and the type scale was raised the same day to match the larger sheet
+(" fonts too small relative to the plot "): ticks 11.5, axis names 12.5, keys 9.5, panel
+letters 28 pt, the window-sweep key 8 pt (up from 7), and every row label 9.5 pt
+-- except A's 23 labels, which stay at 8 pt because their row pitch (2.682 in /
+23 rows) allows nothing larger.
 The
 sheet is composed 1:1 by `71_figs9_page.py`
 (`common.panelpage.compose_page` asserts that every piece stays inside the page
 and that no two pieces overlap), so the point sizes in the panel PDFs are the
 printed sizes.  Arial only, no grid, no panel titles (the sample names live in
-this legend), minimum drawn type 7 pt.  **A key prints under the panel it belongs
+this legend), minimum drawn type 8 pt (the thirteen-entry sweep key).
+**A key prints under the panel it belongs
 to**: the species key of the two stability cells prints under the box of each of
 them (H and I) and the key of the two effect-size facets prints under G's box.  The
 thirteen-entry key of the window sweep is the one departure -- thirteen entries do

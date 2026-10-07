@@ -92,30 +92,12 @@ structure only and is not a replicate-level quantity). Numbers behind this panel
 quartiles in `s7_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
 and KS statistics in `s7_score_separation.tsv`, per-unit score densities
 (not plotted) in `s7_score_density_per_unit.tsv`.
-
-**(D)** HeLa calls per independent unit (dots, log axis: blue filled = WT, orange
-open = unmodified IVT) with the union of the three units of each condition
-(dashed lines, each drawn on its own condition's half of the tool slot, shown for
-reference only), and,
-below, the ratio of calls on
-the unmodified IVT libraries to calls on WT (linear axis, reference line at one --
-one means as many calls on unmodified RNA as on WT). Circles with whiskers are
-the mean-of-counts ratio with its unit-level percentile bootstrap 95 % confidence
-interval (B = 1000, seed = 20260920); the coverage-matched ratio, computed inside
-matched coverage strata, is tabulated in Table S5 and is the quantity the text
-reports. The mark of the ratio strip
-is defined here rather than by an in-figure key: the compressed strip leaves no
-empty corner for a legend. NanoPsu and NanoSPA-Ψ report 201 ± 77 and
-204 ± 81 calls per unit in WT (coverage-matched IVT/WT ratios 0.71 and 0.72,
-95 % CI 0.64-0.79 in both), whereas CHEUI-m5C reports 15,845 ± 3,827 calls per
-unit in WT and 17,129 ± 7,910 on the unmodified control (coverage-matched ratio
-0.79, 95 % CI 0.49-1.14; the raw unions of the three replicates, 47,747 and
-51,171, are listed in Table S5 for reference only). CHEUI-m5C's
-union departs from the published Table S5 value (48,627) because that value
-predates the coordinate correction and the reference-base filter of the call set;
-five of the six tools reproduce Table S5 exactly
-(`TableS5_reconciliation.tsv`). The confidence intervals resample three units per
-condition and are therefore indicative, not precise.
+This is the last panel of the figure. The depth-standardised call count of each
+condition is tabulated in Table S5, the raw per-unit counts and unions being deposited
+with the call sets, the coverage-matched IVT-to-WT ratio is Table S5 and Fig. 7A, and the cross-check against the per-site Nm
+stoichiometry published with the model is quoted in the manuscript text and in
+Table S5's note rather than drawn anywhere; the published set is one pooled run
+with no unmodified control of its own.
 
 ---
 
@@ -137,6 +119,14 @@ condition and are therefore indicative, not precise.
   `s7_counts_summary.tsv`, `s7_ratio_ci.tsv`, `s7_anchor_check.tsv`
   (552/552 values reconciled with the frozen R3-9 tables at 1e-5),
   `TableS5_reconciliation.tsv`.
+* panel D draws this study's own six units and nothing else; the cross-check against
+  the per-site Nm stoichiometry published with the model, which Table S5's note quotes,
+  is not drawn anywhere in this revision.  Its evidence is in `analysis/figS11_revision/`:
+  `s11_overlap.tsv`, `s11_ratio_agreement.tsv`, `s11_ratio_distribution.tsv`,
+  `s11_shared_sites.tsv`, `s11_published_hela_score.tsv`, `s11_coordinate_check.tsv`, the
+  workbook's bytes, md5, sheets and reading path in `sources/mmc6_fingerprint.tsv`, every
+  quoted number in `logs/73_tables_anchors.tsv`, and the script that derives the tables
+  from the workbook in `scripts/73_figS11_tables.py`.
 * the earlier pooled density table (`s7_score_density.tsv`) was retired on
   2026-09-21: pooling the replicates of a condition into one curve contradicts
   the per-unit rule of this study. It is kept as
@@ -146,7 +136,11 @@ condition and are therefore indicative, not precise.
 
 1. The unit-level bootstrap resamples only three independent units per condition;
    the intervals are indicative, not precise, and the nine WT × IVT pairs are
-   shown individually in panel B for the same reason.
+   shown individually in panel B for the same reason. (2026-10-06: the interval
+   the delivered Table S5 prints is no longer this one; it is the counting
+   interval of the depth diagnosis, conditional on the libraries, with the
+   between-library spread left to the (SD) columns and to this panel. The
+   unit-level scheme is unchanged here and in Tables S3 and S12.)
 2. No external reference is used in this figure. The truth-anchored enrichment
    against the database compilation (RMBase + DirectRMDB), the orthogonal NGS
    reference and the CHEUI authors' own *E. coli* data set are shown in Fig. 7
