@@ -1,9 +1,9 @@
 # Table S5: Depth-standardised non-m6A call sites in HeLa and the unmodified-IVT-to-WT ratio.
-Tool	Modification	Depth-standardised WT calls, sites per unit (mean (SD))	Depth-standardised unmodified-IVT calls, sites per unit (mean (SD))	Coverage-matched IVT/WT ratio (95% CI)
-NanoPsu	Ψ	227 (25)	161 (4)	0.710 (0.626-0.805)
-NanoSPA_Ψ	Ψ	230 (26)	165 (5)	0.719 (0.635-0.813)
-NanoMUD_Ψ	Ψ	7281 (937)	6590 (566)	0.905 (0.886-0.924)
-CHEUI_m5C	m5C	19755 (3955)	15508 (6131)	0.785 (0.774-0.796)
-NanoNm	Nm	4230 (1520)	3159 (809)	0.747 (0.727-0.767)
-NanoMUD_m1Ψ	m1Ψ	22678 (1216)	20922 (499)	0.923 (0.912-0.933)
+Tool	Modification	Coverage-matched IVT/WT ratio (95% CI)	Depth-standardised WT calls per unit, mean (SD)	Depth-standardised unmodified-IVT calls per unit, mean (SD)
+NanoPsu	Ψ	0.710 (0.626-0.805)	227 (25)	161 (4)
+NanoSPA_Ψ	Ψ	0.719 (0.635-0.813)	230 (26)	165 (5)
+NanoMUD_Ψ	Ψ	0.905 (0.886-0.924)	7281 (937)	6590 (566)
+CHEUI_m5C	m5C	0.785 (0.774-0.796)	19755 (3955)	15508 (6131)
+NanoNm	Nm	0.747 (0.727-0.767)	4230 (1520)	3159 (809)
+NanoMUD_m1Ψ	m1Ψ	0.923 (0.912-0.933)	22678 (1216)	20922 (499)
 # note: Calls are the sites a unit calls: the seven coverage strata combined by the pooled site weights, read on the tool's wild-type candidate-site count per unit; the ratio is their quotient. Raw counts would mislead: the unmodified libraries hold 1.8-fold the share of sites above coverage 100, putting the raw control above the wild type for four tools; standardisation removes it. WT = wild type, unmodified IVT = negative control. CHEUI_m5C uses the corrected call set. Intervals are counting (Poisson) intervals: they carry counting error inside these libraries, not the spread between them, which the (SD) reports. NanoNm's arm is our HeLa_WT2 and HeLa_WT3 units plus the model's published per-site Nm set, which has no control; alone, our units give 0.962 (0.931-0.994), the published set 0.529.

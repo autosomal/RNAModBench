@@ -45,7 +45,7 @@ BED). It is a single pooled run with no unmodified control and no replicates, so
   3,948, i.e. 290 against 298 per million candidate sites, 4,061 against 3,948 sites on the
   same base).
 
-2026-10-06 (author decision, second task): the two columns beside the ratio left the raw per-unit counts
+2026-10-06 (author decision, second task): the two call columns left the raw per-unit counts
 behind -- they carried the depth-standardised rate of each condition (the seven coverage strata
 combined by the pooled site weights, mean (SD) over the units) -- and the ratio is their
 quotient, so the wild type reads above the unmodified control in every row. 2026-10-07 (author decision):
@@ -54,7 +54,10 @@ read on that row's wild-type candidate-site count (`build_supp_tables.py::base_s
 is what keeps the printed ratio the quotient of the two cells and what Figure 7A draws. The raw per-unit counts and unions showed the unmodified side above the wild
 type for four of the six tools (the unmodified libraries carry 1.8-fold the share of
 candidate sites above coverage 100), which reads as a contradiction of the ratio; those
-numbers are now quoted in the manuscript prose and deposited with the call sets.
+numbers are now quoted in the manuscript prose and deposited with the call sets. 2026-10-08
+(author decision): the ratio column moved ahead of the two call columns -- the table now reads Tool,
+Modification, ratio, wild-type calls, unmodified-IVT calls -- and the two call headers dropped
+to "calls per unit" (they keep the Depth-standardised prefix); no value, interval or row moved.
 
 The published set is a reproducibility reference, not a positive reference.
 Numbers: `s7_nanonm_published_wt.tsv` (counts), `s7_nanonm_published_matched.tsv`

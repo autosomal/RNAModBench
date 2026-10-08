@@ -780,8 +780,8 @@ def matched_ratio_printed(tool: str) -> tuple[float, str]:
         "this study's three wild-type units"
 
 
-#: the per-unit depth-standardised rate of every tool and condition; the two cells the
-#: delivered Table S5 prints beside the ratio (2026-10-06) are its condition means
+#: the per-unit depth-standardised rate of every tool and condition; the two call cells the
+#: delivered Table S5 prints (2026-10-06) are its condition means
 RATE_UNITS_EV = MATCHED_EV.with_name("band_matched_unit_rates.tsv")
 
 
@@ -889,10 +889,10 @@ def build_table_s5(summary: pd.DataFrame) -> pd.DataFrame:
         printed, basis = matched_ratio_printed(tool)
         wt_rate, ivt_rate = printed_rate_cells(tool)
 
-        #: the depth-standardised count of each condition beside the ratio -- the same rate,
-        #: read on one candidate-site base per row -- so the contract that makes the two
-        #: cells readable (the wild type above the unmodified control, and the ratio the
-        #: quotient of the two) is checked here as well as in the table builder
+        #: the depth-standardised count of each condition -- the same rate, read on one
+        #: candidate-site base per row -- so the contract that makes the two cells readable
+        #: (the wild type above the unmodified control, and the ratio the quotient of the
+        #: two) is checked here as well as in the table builder
         if not wt_rate > ivt_rate:
             raise SystemExit(
                 f"{tool}: the wild-type rate behind the printed cell {wt_rate:.1f} is not "

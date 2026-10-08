@@ -506,8 +506,8 @@ for tool in order:
         ratio = NANONM_MATCHED_ARM
         tol = 5e-4
     #: the two printed cells: that row's standardised rate on the row's own candidate-site
-    #: count (see base_sites).  Both columns carry the same base on purpose -- the ratio
-    #: printed beside them is the quotient of the rates, so a base the two do not share
+    #: count (see base_sites).  Both columns carry the same base on purpose -- the printed
+    #: ratio is the quotient of the rates, so a base the two do not share
     #: would make the three cells disagree in the last digit.
     base, base_units = base_sites(tool)
     wt_sites, wt_sites_sd = wt_rate / 1e6 * base, wt_rate_sd / 1e6 * base
@@ -541,18 +541,21 @@ for tool in order:
     matched_cell = f"{ratio:.3f} ({lo:.3f}-{hi:.3f})"
     print(f"  S5 {disp[tool]:14s} base {base:>12,.0f} sites over {'+'.join(base_units)}; "
           f"cells {wt_sites:,.0f} / {ivt_sites:,.0f}")
+    
+    #: divides; the call headers drop to "calls per unit" and keep the Depth-standardised
+    #: prefix, and the ratio's own header is unchanged.
     rows.append([disp[tool], ivt.mod_type,
+                 matched_cell,
                  f"{wt_sites:.0f} ({wt_sites_sd:.0f})",
-                 f"{ivt_sites:.0f} ({ivt_sites_sd:.0f})",
-                 matched_cell])
+                 f"{ivt_sites:.0f} ({ivt_sites_sd:.0f})"])
 write_table(
     "TableS5_non_m6a",
     "Table S5: Depth-standardised non-m6A call sites in HeLa and the unmodified-IVT-to-WT "
     "ratio.",
     ["Tool", "Modification",
-     "Depth-standardised WT calls, sites per unit (mean (SD))",
-     "Depth-standardised unmodified-IVT calls, sites per unit (mean (SD))",
-     "Coverage-matched IVT/WT ratio (95% CI)"],
+     "Coverage-matched IVT/WT ratio (95% CI)",
+     "Depth-standardised WT calls per unit, mean (SD)",
+     "Depth-standardised unmodified-IVT calls per unit, mean (SD)"],
     rows,
     
 #: bootstrap (B = 1000, one seed per tool, recorded in `s7_ratio_ci.tsv`) are no longer
@@ -563,8 +566,8 @@ write_table(
 #: not be read as reproducibility" construction stays retired (2026-09-28).
 #: 2026-10-06 (author decision, second task): the raw per-unit counts and the two union columns left the
 #: table -- they put the unmodified side above the wild type for four of six tools -- and the
-#: two columns beside the ratio are now the standardised rate the ratio is built from, so the
-#: printed ratio is the quotient of the two printed cells.  The note says so, and says why
+#: two call columns are now the standardised rate the ratio is built from, so the printed
+#: ratio is the quotient of the two printed cells.  The note says so, and says why
 #: the raw counts read the other way; the raw numbers stay in the manuscript's prose, in the
 #: Figure S8 legend and in the deposited evidence.
 f"Calls are the sites a unit calls: the seven coverage strata combined by the pooled site "

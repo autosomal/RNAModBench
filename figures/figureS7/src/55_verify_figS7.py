@@ -85,8 +85,8 @@ MATCHED_EV = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/ba
 #: row per depth-matched WT/IVT replicate pair, computed with the pooled-band weights
 #: the bootstrap above resamples -- not from nearest_depth_pairs.tsv
 PAIRS_EV = MATCHED_EV.with_name("band_matched_pair_ratios.tsv")
-#: 2026-10-06 (author decision, second task): the two cells the delivered Table S5 prints beside the
-#: ratio are the depth-standardised rate of each condition, so the gate reads them from the
+#: 2026-10-06 (author decision, second task): the two cells the delivered Table S5 prints are the
+#: depth-standardised rate of each condition, so the gate reads them from the
 #: same diagnosis (one row per unit and condition) and from the arm's own run
 RATE_UNITS_EV = MATCHED_EV.with_name("band_matched_unit_rates.tsv")
 #: the ratio range panel D used to draw.  Kept as the band the cross-check
@@ -492,8 +492,8 @@ def main() -> None:
     check("cross-check evidence: every printed interval stays below parity",
           bool((matched["site_boot_ci_hi"] < 1.0).all()),
           str(matched[["tool", "site_boot_ci_hi"]].round(3).to_dict("records")))
-    #: 2026-10-06 (author decision, second task): the two count columns beside the ratio are the
-    #: depth-standardised rate of each condition now, and the contract the author set for them
+    #: 2026-10-06 (author decision, second task): the two count columns are the depth-standardised
+    #: rate of each condition now, and the contract the author set for them
     #: is that the wild type reads *above* the unmodified control in every row and that the
     #: ratio column is their quotient.  The gate recomputes all three from the evidence --
     #: per-unit rates for the five study rows, the 76 anchors for NanoNm's arm -- and requires
