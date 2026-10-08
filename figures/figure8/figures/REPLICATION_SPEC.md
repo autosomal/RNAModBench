@@ -24,7 +24,7 @@ value below is taken from the published code, not invented.
 * Fonts: Arial everywhere; `pdf.fonttype=42`, `ps.fonttype=42`,
   `mathtext.fontset="custom"` + Arial (never DejaVu).
 * Size scale on the final page (this is what makes the figure look "printed"):
-  ticks 8.5, row labels 8.8 (A, C), axis labels 10.0, panel letters 15.0 bold,
+  ticks 8.5, row labels 7.5 (A, C, since 2026-10-08), axis labels 10.0, panel letters 15.0 bold,
   legends 8.5, **key value callouts 12.0 bold** (author decision).
 * Page sizes (must equal the replaced files): Figure 8 = 595.276 x 740.0 pt;
   Figure S9 = 595.276 x 770.419 pt.  Save without `bbox_inches="tight"` so the
@@ -102,7 +102,7 @@ panel, so this is specified from scratch in the same visual language.
 * Right-hand `%.1f%%` callout per row at 12 pt bold (published used 14 pt on a
   10-inch canvas = same printed size).
 * x axis `PPV vs. GLORI (2 bp)`, 0–1.22 with `0% … 100%` ticks, y rows = tools
-  sorted ascending, row labels 8.8 pt, `y` ticks length 0.
+  sorted ascending, row labels 7.5 pt (8.8 pt until 2026-10-08), `y` ticks length 0.
 
 ### Figure 8D — filled metagene of the three Dorado m6A models (published guitar look)
 

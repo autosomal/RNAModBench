@@ -46,20 +46,29 @@ FAM_LABEL = {"m6A_DRACH": "m6A DRACH", "m6A": "m6A (non-DRACH)",
 DOT_COLOR = "#1E888B"
 GUIDE = "0.72"
 
-STYLE = dict(font=8.5, tick=8.5, row=8.8, label=10.0, value=12.0, letter=15.0,
+#: 2026-10-08: ``row`` is 7.5 now (was 8.8), matching the thirds layout; A and C
+#: pass that size explicitly (``ROW_PT``), the retired ``51_fig8_figure.py`` is
+#: the only consumer left of the key itself.
+STYLE = dict(font=8.5, tick=8.5, row=7.5, label=10.0, value=12.0, letter=15.0,
              legend=8.5, title=11.5, rod_alpha=0.40)
 
 # ---- page geometry, inches (final print size, no scaling at assembly) -------- #
-PAGE_IN = (6.95, 8.15)          # 500.4 x 586.8 pt, printed 1:1 (\textwidth)
+PAGE_IN = (6.95, 8.31)          # 500.4 x 598.32 pt, printed 1:1 (\textwidth)
 
-#: the reference layout is three rows of half-width tiles -- A|C / B|D / E -- so
-#: A and C return to the shared 3.30 x 3.02 in canvas and their row labels back
-#: to 8.2 / 8.8 pt (7.9 / 8.4 pt at the manuscript's 0.958 scale).  The 2026-09-29
-#: full-width variant stays archived in the build round fig8_relayout_20260929.
-PIECE = {"A": (3.30, 3.02), "B": (3.30, 3.02), "C": (3.30, 3.02),
-         "D": (3.30, 3.02), "E": (6.85, 2.05)}
 
-# ---- panel B: two sub-axes side by side in the same 3.30 x 3.02 in piece ----- #
+#: heights stay as they were; the inner gutter is 0.15 in, so a column is COL_IN
+#: wide and a piece spans as many columns as it owns -- A and D one (2.18333 x
+#: 3.02 in), B and C two (4.51667 x 3.02 in, with B1|B2 and C's dot plot|calls bar
+#: landing on the column boundaries), E unchanged.  The row labels of A and C stay
+#: verbatim at 7.5 pt (7.2 pt at the manuscript's 0.958 scale, above the 7 pt gate).
+PAGE_MARGIN_IN = 0.05
+GUTTER_IN = 0.15
+COL_IN = 2.18333                 # (6.95 - 2 x 0.05 - 2 x 0.15) / 3
+PIECE = {"A": (COL_IN, 3.02), "B": (2 * COL_IN + GUTTER_IN, 3.02),
+         "C": (2 * COL_IN + GUTTER_IN, 3.02), "D": (COL_IN, 3.02),
+         "E": (6.85, 2.05)}
+
+# ---- panel B: two sub-axes side by side in one 4.51667 x 3.02 in piece ------ #
 # B1 (left) = unmodified Curlcake threshold scan, B2 (right) = unmodified HeLa
 # IVT at the delivered >= 90 % cutoff; one shared legend sits under both.  They
 # were stacked, which read as one panel with two unrelated y scales; each half
@@ -70,8 +79,12 @@ PIECE = {"A": (3.30, 3.02), "B": (3.30, 3.02), "C": (3.30, 3.02),
 
 
 
-B_BOX = {"B1": [0.105, 0.280, 0.300, 0.595],
-         "B2": [0.615, 0.280, 0.360, 0.595]}
+#: 2026-10-08 (three equal columns per row; second pass): B's piece is 4.51667 in
+#: wide, but a 0.45 in gutter let B2's $10^{-n}$ tick labels (0.36 in) run into
+#: B1's axes -- the layout gate caught it.  B1 is 0.34 in wide so the left fit's
+#: right shift cannot close the gap, B2 0.375 in wide; the gutter is 0.61 in.
+B_BOX = {"B1": [0.075, 0.280, 0.340, 0.595],
+         "B2": [0.605, 0.280, 0.375, 0.595]}
 #: the slanted family labels of B2 need ~0.10 in below the axes, which is the
 #: band the shared legend would otherwise be printed on
 B_YSHARE = [0.280, 0.875]        # common vertical extent of the two sub-axes

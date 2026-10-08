@@ -8,6 +8,10 @@ import matplotlib.pyplot as plt
 from fig8_style import (DOT_COLOR, GUIDE, PIECE, STYLE, TABLES, apply_style,
                         letter, save_piece, title)
 
+#: 2026-10-08 (author decision, three equal columns per row): the row labels stay verbatim and
+#: drop to 7.5 pt, so the PPV dot plot keeps ~0.9 in inside its 2.18333 in column.
+ROW_PT = 7.5
+
 
 def label_of(tool: str) -> str:
     return str(tool).replace("Dorado_", "").replace("_otherMod", "").replace("@v1", "")
@@ -19,8 +23,13 @@ def main() -> None:
     df = df.sort_values("ppv_glori_w2").reset_index(drop=True)
 
     fig = plt.figure()
-    ax = fig.add_axes([0.385, 0.150, 0.430, 0.755])
-    ax2 = fig.add_axes([0.855, 0.150, 0.115, 0.755])
+    #: 2026-10-08 (author decision, three equal columns per row): C spans the row's second and
+    #: third columns.  The PPV dot plot fills the second (its labels inside it, the
+    #: left fit moves x0), the calls bar fills the third; both land on the column
+    #: edges, so the row reads as three equal thirds.
+    #: y0 is 0.205, not 0.150: the folded x title needs two lines below the axes.
+    ax = fig.add_axes([0.2435, 0.205, 0.2354, 0.700])
+    ax2 = fig.add_axes([0.5210, 0.205, 0.4746, 0.700])
     y = np.arange(len(df))
     fam_col = {"m6A_DRACH": "#E83C1E", "m6A": "#F5B264", "m5C": "#2E86AB",
                "pseU": "#A23B72", "inosine": "#F18F01",
@@ -37,15 +46,18 @@ def main() -> None:
     # No value labels: the bar length carries the PPV, the numbers live in the
     # caption and in tables/fig8_ppv_glori.tsv (house rule: no in-figure values).
     ax.set_yticks(y)
-    ax.set_yticklabels([label_of(t) for t in df["tool"]], fontsize=STYLE["row"])
-    ax.tick_params(axis="y", length=0, pad=2.5)
+    ax.set_yticklabels([label_of(t) for t in df["tool"]], fontsize=ROW_PT)
+    #: 2026-10-08: 3.6 pt, not 2.5 -- C is inside the layout gate now and its
+    #: clearance requirement is 3.0 pt; the y floor moves to -0.75 for the same
+    #: reason on the bottom spine.
+    ax.tick_params(axis="y", length=0, pad=3.6)
     ax2.barh(y, df["n_calls_total"], height=0.62, color=cols,
              edgecolor="black", linewidth=0.6, zorder=2)
     ax2.set_xscale("log")
     ax2.set_xlim(1, 1.4e5)
     ax2.set_yticks(y)
     ax2.set_yticklabels([])
-    ax2.set_ylim(-0.6, len(df) - 0.4)
+    ax2.set_ylim(-0.75, len(df) - 0.4)
     ax2.set_xticks([1, 1000])
     ax2.set_xticklabels(["1", "1k"])
     ax2.set_xlabel("calls", fontsize=STYLE["font"])
@@ -54,10 +66,11 @@ def main() -> None:
         ax2.spines[sp].set_visible(False)
 
     ax.set_xlim(0, 1.10)          # no value labels any more: bars fill the box
-    ax.set_ylim(-0.6, len(df) - 0.4)
+    ax.set_ylim(-0.75, len(df) - 0.4)
     ax.set_xticks([0, 0.5, 1.0])
-    ax.set_xticklabels(["0%", "50%", "100%"])
-    ax.set_xlabel("PPV vs. GLORI (2 bp)", fontsize=STYLE["label"])
+    #: 2026-10-08: the three labels share ~0.9 in now, so they print at 7.5 pt
+    ax.set_xticklabels(["0%", "50%", "100%"], fontsize=7.5)
+    ax.set_xlabel("PPV vs. GLORI\n(2 bp)", fontsize=STYLE["label"])
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
     # no panel title (letters only); the caption names the sample

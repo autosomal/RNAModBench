@@ -12,7 +12,7 @@ No number is written inside the figure: the false-positive counts live in the
 legend and in ``tables/fig8_fpr_curlcake_scan.tsv`` /
 ``tables/fig8_fpr_hela_ivt.tsv`` (a series with zero calls at a threshold
 is an open marker on the axis floor, never a fallen line).  Piece size =
-3.30 x 3.02 in.
+4.51667 x 3.02 in -- two of the row's three equal columns since 2026-10-08.
 """
 
 from __future__ import annotations

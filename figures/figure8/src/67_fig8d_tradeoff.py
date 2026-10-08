@@ -55,11 +55,13 @@ def main() -> None:
     plotted = [f for f in FAM_ORDER if not df[df["fam"] == f].empty]
     handles = [Line2D([], [], marker="o", ls="none", ms=7, mec="k",
                       mfc=FAM_COLOR[f], label=FAM_LABEL[f]) for f in plotted]
-    # two columns: three keys in one row ran 2 pt past the piece's right edge
+    # two columns: three keys in one row ran 2 pt past the piece's right edge.
+    # 2026-10-08: the piece is one 2.18333 in column now, so the legend drops to
+    # 7.5 pt with a short handle -- otherwise its right key is clipped again.
     fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
-               bbox_to_anchor=(0.5, 0.012), handletextpad=0.4,
-               columnspacing=0.9, labelspacing=0.28,
-               fontsize=STYLE["legend"])
+               bbox_to_anchor=(0.5, 0.012), handletextpad=0.3, handlelength=1.0,
+               columnspacing=0.5, labelspacing=0.28,
+               fontsize=7.5)
 
     # no panel title (letters only)
     letter(fig, "D")

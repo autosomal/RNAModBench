@@ -9,8 +9,8 @@ cluster.  A model with no call in a library gets no bar: an open left-pointing
 triangle sits on the axis floor instead (never a fake zero-length bar, never a
 number inside the figure).  Site-level counts from ``tables/fig8_counts.tsv``.
 
-Piece size = 3.30 x 3.02 in (final print size; assembled 1:1 by
-``68_assemble_a4.py``).
+Piece size = 2.18333 x 3.02 in -- one of the row's three equal columns since
+2026-10-08 (final print size; assembled 1:1 by ``68_assemble_a4.py``).
 """
 
 from __future__ import annotations
@@ -28,8 +28,13 @@ import matplotlib.pyplot as plt
 WT_SAMPLE, IVT_SAMPLE = "HeLa_RNA004_WT", "HeLa_RNA004_IVT"
 FAM_ORDER = ["m6A_DRACH", "m6A", "m5C", "pseU", "inosine"]
 FLOOR = 0.75                     # x position of "no call" (log axis floor)
-ROW_PT = 8.2                     # 16 rows: the "@" descender sets the row pitch
+#: 2026-10-08 (author decision, three equal columns per row): the piece is one 2.18333 in
+#: column now, so the 16 row labels drop from 8.2 to 7.5 pt -- verbatim, only the
+#: size changes -- and the plot area keeps ~0.9 in for the three fixed decade ticks.
+ROW_PT = 7.5                     # 16 rows: the "@" descender sets the row pitch
 TICK_PAD_PT = 3.6                # > layout-gate clearance (3.0 pt)
+X_TICK_PT = 7.5                  # "10,000" must stay inside the narrow canvas
+XLABEL_PT = 8.5                  # the title is folded: one line is ~1.6 in wide
 
 
 def family_of(row: pd.Series) -> str:
@@ -97,7 +102,9 @@ def main() -> None:
     piv = order_rows(build_rows(counts))
 
     fig = plt.figure()
-    ax = fig.add_axes([0.420, 0.290, 0.565, 0.645])
+    #: y0 is 0.355, not 0.290: the two-column legend is one row taller than the
+    #: former three-column one, and the folded x title needs the band above it.
+    ax = fig.add_axes([0.560, 0.355, 0.425, 0.580])
 
     y = np.arange(len(piv), dtype=float)
     fam_cols = list(piv["family"].map(FAM_COLOR))
@@ -143,7 +150,8 @@ def main() -> None:
     ax.set_yticks(y)
     ax.set_yticklabels(piv["label"], fontsize=ROW_PT)
     ax.tick_params(axis="y", length=0, pad=TICK_PAD_PT)
-    ax.set_xlabel("Detected sites (log scale)", fontsize=STYLE["label"])
+    ax.tick_params(axis="x", labelsize=X_TICK_PT)
+    ax.set_xlabel("Detected sites\n(log scale)", fontsize=XLABEL_PT)
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
 
@@ -158,14 +166,18 @@ def main() -> None:
                               ms=4.4, mfc="white", label="not measured"))
     handles += [Patch(facecolor=FAM_COLOR[f], edgecolor="black", linewidth=0.55,
                       label=FAM_LABEL[f]) for f in FAM_ORDER]
-    fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False,
-               bbox_to_anchor=(0.5, 0.000), labelspacing=0.18, columnspacing=0.9,
-               handletextpad=0.35, borderaxespad=0.0, fontsize=8.3)
+    #: 2026-10-08: eight entries inside a 2.18 in column -> two columns and four
+    #: rows.  The block has to fit the canvas exactly, so the handle shortens to
+    #: 0.8 em (matplotlib's default is 2.0) and the legend prints at 7.2 pt.
+    fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
+               bbox_to_anchor=(0.5, 0.000), labelspacing=0.12, columnspacing=0.4,
+               handlelength=0.8, handletextpad=0.25, borderpad=0.1,
+               borderaxespad=0.0, fontsize=7.2)
 
     # no panel title (author decision: letters only; the caption carries the text)
     letter(fig, "A")
 
-    save_piece(fig, "fig8A_counts", *PIECE["A"], fit=("left",), keep_right=0.985)
+    save_piece(fig, "fig8A_counts", *PIECE["A"], fit=("left",), keep_right=0.975)
 
 
 if __name__ == "__main__":

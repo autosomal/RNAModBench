@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""53 -- acceptance checks for the rebuilt Figure 8 (v6: panels A, B and E).
+"""53 -- acceptance checks for the rebuilt Figure 8 (v7: three equal columns per row).
 
 Checks
 ------
-1. the assembled page: 500.4 x 707.8 pt (= 6.95 x 9.83 in; four rows since the
-   2026-09-29 relayout: A / C / B|D / E), 300 dpi PNG companion,
-   Arial-only embedded fonts (no DejaVu, no Noto fallback, every font embedded);
+1. the assembled page: 500.4 x 598.32 pt (= 6.95 x 8.31 in; rows A|C / B|D / E
+   with both upper rows cut into three equal columns of 2.18333 in since the
+   2026-10-08 thirds layout), 300 dpi PNG companion, Arial-only embedded fonts
+   (no DejaVu, no Noto fallback, every font embedded), the four pieces at the
+   sizes ``fig8_style.PIECE`` declares, and the letters of A/C/D measured on the
+   assembled page sitting on the left edges of the three columns;
 2. no false-positive count is drawn inside panel B (the numbers live in the
    legend and the source tables): the B piece and the page must not contain the
    count call-outs of the retired draft;
-3. the two Python pieces obey the house rules, verified geometrically on the
+3. the four Python pieces obey the house rules, verified geometrically on the
    live figures through ``common/pagelayout.assert_page_clean`` (no text
    overlap, no cross-panel intrusion, no text hugging a frame line, no grid, no
    font below 7 pt) plus a "no in-figure call-out" source check;
@@ -147,6 +150,27 @@ def main() -> None:
     fonts = pdf_fonts(page)
     bad = [f for f in fonts if f[1] != "yes" or "Arial" not in f[0]]
     check("Figure8_rev.pdf: all fonts embedded Arial", not bad, f"offending: {bad}")
+    #: 2026-10-08 (author decision, three equal columns per row): the pieces span one column
+    #: (A, D) or two (B, C), and the letters of A/C/D must sit on the three
+    #: columns' left edges -- that is what "three equal thirds" means geometrically.
+    from fig8_style import COL_IN, GUTTER_IN, PIECE      # noqa: E402  (SCRIPTS on path)
+    col_start_pt = [72 * (0.05 + i * (COL_IN + GUTTER_IN)) for i in range(3)]
+    for piece, key in (("fig8A_counts.pdf", "A"), ("fig8B_fpr.pdf", "B"),
+                       ("fig8C_ppv.pdf", "C"), ("fig8D_tradeoff.pdf", "D")):
+        got = pdf_page_size(PANELS / piece)
+        want = PIECE[key]
+        check(f"{piece}: piece size {want[0]:.5f} x {want[1]:.2f} in, one/two columns",
+              close(got[0], want[0] * 72, 1e-2) and close(got[1], want[1] * 72, 1e-2),
+              f"got {got}")
+    letters = {}
+    for x0, _y0, _x1, _y1, word in bbox_words(page):
+        if word in ("A", "C", "D"):
+            letters.setdefault(word, (x0, _y0))
+    for i, key in enumerate(("A", "C", "D")):
+        want = col_start_pt[i] + 0.004 * PIECE[key][0] * 72
+        got = letters.get(key, (-1.0, -1.0))[0]
+        check(f"panel {key}: letter sits on column {i + 1}'s left edge",
+              abs(got - want) <= 2.0, f"xMin {got:.1f} pt vs {want:.1f} pt")
     check("Figure8_rev.png (300 dpi) exists",
           ((_RB / "figures/figure8/figures/Figure8_rev.png")).exists()
           and ((_RB / "figures/figure8/figures/Figure8_rev.png")).stat().st_size > 100_000)
@@ -227,9 +251,13 @@ def main() -> None:
     captured: dict = {}
     mod_a = load_piece("fig8a", (_RB / "figures/figure8/src/57_fig8a_counts.py"), captured)
     mod_b = load_piece("fig8b", (_RB / "figures/figure8/src/59_fig8b_fpr.py"), captured)
+    mod_c = load_piece("fig8c", (_RB / "figures/figure8/src/58_fig8c_ppv.py"), captured)
+    mod_d = load_piece("fig8d", (_RB / "figures/figure8/src/67_fig8d_tradeoff.py"), captured)
     mod_a.main()
     mod_b.main()
-    for name in ("fig8A_counts", "fig8B_fpr"):
+    mod_c.main()
+    mod_d.main()
+    for name in ("fig8A_counts", "fig8B_fpr", "fig8C_ppv", "fig8D_tradeoff"):
         check(f"{name}: figure captured for the layout gate", name in captured)
     for name, fig in captured.items():
         try:
@@ -238,7 +266,8 @@ def main() -> None:
         except SystemExit as exc:                        # pragma: no cover
             ok, detail = False, str(exc)
         check(f"{name}: layout gate (no overlap / grid / font < 7 pt)", ok, detail)
-    for script in ("57_fig8a_counts.py", "59_fig8b_fpr.py"):
+    for script in ("57_fig8a_counts.py", "58_fig8c_ppv.py", "59_fig8b_fpr.py",
+                   "67_fig8d_tradeoff.py"):
         src = (SCRIPTS / script).read_text()
         # only figure-level text is allowed (panel letters, axis titles); an
         # axes call-out would be a value printed inside the plotting area
