@@ -53,7 +53,7 @@ STYLE = dict(font=8.5, tick=8.5, row=7.5, label=10.0, value=12.0, letter=15.0,
              legend=8.5, title=11.5, rod_alpha=0.40)
 
 # ---- page geometry, inches (final print size, no scaling at assembly) -------- #
-PAGE_IN = (6.95, 8.31)          # 500.4 x 598.32 pt, printed 1:1 (\textwidth)
+PAGE_IN = (6.95, 8.40)          # 500.4 x 604.8 pt, printed 1:1 (\textwidth)
 
 
 #: heights stay as they were; the inner gutter is 0.15 in, so a column is COL_IN
@@ -61,11 +61,26 @@ PAGE_IN = (6.95, 8.31)          # 500.4 x 598.32 pt, printed 1:1 (\textwidth)
 #: 3.02 in), B and C two (4.51667 x 3.02 in, with B1|B2 and C's dot plot|calls bar
 #: landing on the column boundaries), E unchanged.  The row labels of A and C stay
 #: verbatim at 7.5 pt (7.2 pt at the manuscript's 0.958 scale, above the 7 pt gate).
+
+#: on the column boundary (rebalanced to ~1:1.5 in 58_fig8c_ppv.py); B's B1|B2 split
+#: still is, and C's own piece box and letter were not touched.
+
+
+#: 0.09 in taller (8.31 -> 8.40 in) while every PLACE stays put, so the figure's top
+#: edge clears the A/C panel letters by 0.14 in instead of 0.05 in.
 PAGE_MARGIN_IN = 0.05
 GUTTER_IN = 0.15
-COL_IN = 2.18333                 # (6.95 - 2 x 0.05 - 2 x 0.15) / 3
-PIECE = {"A": (COL_IN, 3.02), "B": (2 * COL_IN + GUTTER_IN, 3.02),
-         "C": (2 * COL_IN + GUTTER_IN, 3.02), "D": (COL_IN, 3.02),
+COL_IN = 2.18333                 # (6.95 - 2 x 0.05 - 2 x 0.15) / 3, row 2 and E
+
+#: row 1 is no longer three equal thirds.  Panel A's 16 row labels take 1.26 in of
+#: its box, so A can only print a wider plot area if the box grows: A is 2.78 in
+#: (plot 0.77 -> 1.30 in) and C 3.92 in (its dot plot 1.71 -> 1.30 in, the calls
+#: bar 1.24 -> 0.99 in, split inside 58_fig8c_ppv.py).  A + C + the 0.15 in gutter
+#: still spans the page's 6.85 in text width, so C ends on the right margin.
+#: Row 2 (B, D) and E keep the equal columns above.
+ROW1_A_IN, ROW1_C_IN = 2.78, 3.92
+PIECE = {"A": (ROW1_A_IN, 3.02), "B": (2 * COL_IN + GUTTER_IN, 3.02),
+         "C": (ROW1_C_IN, 3.02), "D": (COL_IN, 3.02),
          "E": (6.85, 2.05)}
 
 # ---- panel B: two sub-axes side by side in one 4.51667 x 3.02 in piece ------ #

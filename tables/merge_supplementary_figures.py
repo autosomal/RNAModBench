@@ -117,7 +117,8 @@ UNI = {
 parts = [r"\documentclass[a4paper]{article}", r"\usepackage[margin=1.6cm]{geometry}",
          r"\usepackage[T1]{fontenc}", r"\usepackage[utf8]{inputenc}",
          r"\usepackage{graphicx}", r"\pagestyle{plain}", r"\begin{document}"]
-for i in range(1, 11):
+#: 2026-10-10 (R1-5 shipping round): Figure S11 joins the album, so the loop ends at 12
+for i in range(1, 12):
     parts += [
         r"\begin{figure}[p]\centering",
         r"\includegraphics[width=\textwidth,height=0.80\textheight,keepaspectratio]"

@@ -9,7 +9,7 @@ font below 7 pt) before its PDF is written.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    $RNAMODBENCH_ROOT/analysis/figS9_rebuild/scripts/70_figs9_panels.py [A B ...]
+    $RNAMODBENCH_ROOT/figures/figureS9/src/70_figs9_panels.py [A B ...]
 """
 from __future__ import annotations
 
@@ -65,30 +65,42 @@ def assert_on_canvas(fig, key: str) -> None:
 def column_left() -> dict[str, float]:
     """Label-column width shared by all nine panels of the 3 x 3 grid.
 
-    Every cell is 4.027 x 3.480/3.550 in (2026-09-30) and the nine boxes begin on
+    Every cell is 4.596 x 3.580/3.550 in (2026-10-09) and the nine boxes begin on
     one vertical line, so one column serves them all.  Two needs set its width:
     A's 23 model names at ``FS["row_a"]`` (locked at 8 pt by their row pitch) and
     F's longest tool name at ``FS["row"]`` plus the clearance the panel letter
-    needs.  Measured on 2026-09-30: A needs 1.856 in, F needs 1.861 in at 9.5 pt
-    -- F bound the column that day by 0.005 in, so the nine boxes lost 0.005 in
-    of width (accepted); the assertion below turns a runaway into a hard failure
-    instead of a silent squeeze.
+    needs.
+
+    2026-10-09 (author decision): the column is a **frozen contract**, not a measurement
+    that feeds the geometry -- the page width is derived from
+    ``S.LABEL_COL_IN`` (the 2026-09-30 measurement, 1.861 in) so the nine boxes
+    come out as exact 2.675 in squares (``S.COL_W = LABEL_COL_IN + BOX_RIGHT_IN
+    + BOX_SIDE_IN``).  This function therefore re-measures both needs and fails
+    loudly when either outgrows the frozen value: that is the event which forces
+    a re-derivation of the page, instead of a silently narrower box.
     """
     
     #: column, so every box starts and ends on the same two vertical lines and the
     #: page reads as one grid.  A's longest model name at FS["row_a"] (+0.09 in
-    #: pad) vs F's longest tool name at FS["row"] (+0.32 in for the panel letter,
-    #: 0.30 in of which is the 28 pt glyph itself).
+    #: pad) measures 1.8562 in, F's longest tool name at FS["row"] (+0.32 in for
+    #: the panel letter, 0.30 in of which is the 28 pt glyph itself) 1.8607 in --
+    #: F bound the column on 2026-09-30 and still does.
     a_need = P.label_width_in(P.bar_labels(D.panel_a()), S.FS["row_a"]) + 0.09
     f_need = P.label_width_in(P.effect_labels(D.panel_effect()),
                               S.FS["row"]) + 0.32
     common = max(a_need, f_need)
+    log(f"label column: frozen {S.LABEL_COL_IN:.4f} in, re-measured "
+        f"{common:.4f} in (A {a_need:.4f}, F {f_need:.4f})")
+    #: a 1e-4 in tolerance absorbs last-bit float noise, while any real label
+    #: change (a longer tool name, a bumped row font) fires
+    assert common <= S.LABEL_COL_IN + 1e-4, (
+        f"label column outgrew the frozen {S.LABEL_COL_IN:.4f} in: measured "
+        f"{common:.4f} in (a_need {a_need:.4f}, f_need {f_need:.4f}) -- "
+        f"re-derive the page width before rebuilding")
     
-    #: type change pushes it past this ceiling, the boxes would silently shrink;
-    #: fail loudly and rebalance the scale instead
     assert common <= 1.90, (f"label column grew to {common:.4f} in "
                             f"(a_need {a_need:.4f}, f_need {f_need:.4f})")
-    return {key: common for key in "ABCDEFGHI"}
+    return {key: S.LABEL_COL_IN for key in "ABCDEFGHI"}
 
 
 def render(key: str, left_in: float) -> None:

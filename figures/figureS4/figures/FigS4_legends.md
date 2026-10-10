@@ -27,9 +27,10 @@ to pass
 `common/pagelayout.py`, which re-measures all text boxes at render time and
 aborts on any text-text overlap, any text entering another panel's drawing area,
 **any text sitting on an axis line or tick mark and any text closer than 3 pt to
-a frame line** (the sub-row titles of panel A are indented by 0.07 in so that
-they clear the top of their left spine, and the column gap is 0.50 in so that the
-neighbouring column's tick labels clear the previous frame). All panels use the
+a frame line** (the shared row labels of panel A sit in the page's left strip,
+0.13-0.46 in, clear of the y tick labels beside them and of the panel letter
+above, and the column gap is 0.50 in so that the neighbouring column's tick
+labels clear the previous frame). All panels use the
 clean per-replicate call sets
 (`harmonisation/callsets`, RNA002 chemistry), the per-sample candidate universes
 (annotated exons, coverage ≥ 10, reference-base compatible) and the unified
@@ -47,8 +48,9 @@ study A, dashed = study B).
 
 - **(A)** Calls per tool inside the common testable universe of each
   WT/deficient pair (Arabidopsis WT × *fip37* KD, n = 3 pairs; mouse one pair
-  per study; HeLa WT × IVT, n = 3 pairs), shown as three stacked sub-rows:
-  WT-common counts (log scale), purified counts (log scale) and the purified/WT
+  per study; HeLa WT × IVT, n = 3 pairs), shown as three stacked sub-rows that are
+  named once each by a rotated label in the page's left strip: WT counts (log),
+  purified counts (log) and the purified/WT
   ratio. "Purified" = called in the WT sample and absent from the matched
   deficient call set, both restricted to the pair's common universe; the
   deficient samples are the *fip37* knockdown, the Mettl3 knockout (two

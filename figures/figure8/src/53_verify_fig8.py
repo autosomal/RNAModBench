@@ -3,7 +3,7 @@
 
 Checks
 ------
-1. the assembled page: 500.4 x 598.32 pt (= 6.95 x 8.31 in; rows A|C / B|D / E
+1. the assembled page: 500.4 x 604.8 pt (= 6.95 x 8.40 in; rows A|C / B|D / E
    with both upper rows cut into three equal columns of 2.18333 in since the
    2026-10-08 thirds layout), 300 dpi PNG companion, Arial-only embedded fonts
    (no DejaVu, no Noto fallback, every font embedded), the four pieces at the
@@ -63,7 +63,7 @@ SCRIPTS = (_RB / "figures/figure8/src")
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str((_RB / "src/harmonisation/common")))
 
-PAGE_PT = (500.4, 598.32)         # 6.95 x 8.31 in since the 2026-09-30 reference layout
+PAGE_PT = (500.4, 604.8)          # 6.95 x 8.40 in since the 2026-10-08 third pass
 #: count call-outs of the retired draft -- none of these may be drawn any more.
 #: 2026-09-23: "0 calls" was removed from this list -- since the 15:13 legend edit
 #: it is a deliberate key label ("the open circle is a measured zero", the same
@@ -145,16 +145,21 @@ def main() -> None:
     ## 1 -- the assembled page -------------------------------------------------- #
     page = (_RB / "figures/figure8/figures/Figure8_rev.pdf")
     size = pdf_page_size(page)
-    check("Figure8_rev.pdf: page size 500.4 x 598.32 pt",
+    check("Figure8_rev.pdf: page size 500.4 x 604.8 pt",
           close(size[0], PAGE_PT[0]) and close(size[1], PAGE_PT[1]), f"got {size}")
     fonts = pdf_fonts(page)
     bad = [f for f in fonts if f[1] != "yes" or "Arial" not in f[0]]
     check("Figure8_rev.pdf: all fonts embedded Arial", not bad, f"offending: {bad}")
-    #: 2026-10-08 (author decision, three equal columns per row): the pieces span one column
-    #: (A, D) or two (B, C), and the letters of A/C/D must sit on the three
-    #: columns' left edges -- that is what "three equal thirds" means geometrically.
-    from fig8_style import COL_IN, GUTTER_IN, PIECE      # noqa: E402  (SCRIPTS on path)
-    col_start_pt = [72 * (0.05 + i * (COL_IN + GUTTER_IN)) for i in range(3)]
+
+    #: equal thirds -- A is 2.78 in and C 3.92 in wide (fig8_style.ROW1_A_IN /
+    #: ROW1_C_IN) while row 2 keeps the equal columns.  Each letter must therefore
+    #: sit on its own *piece's* left edge: A on the page margin (3.60 pt), C after
+    #: A's piece plus the gutter (2.98 in = 214.56 pt), D unchanged (339.6 pt).
+    from fig8_style import (COL_IN, GUTTER_IN, PAGE_MARGIN_IN, PIECE,   # noqa: E402
+                            ROW1_A_IN)
+    place_x = {"A": PAGE_MARGIN_IN,
+               "C": PAGE_MARGIN_IN + ROW1_A_IN + GUTTER_IN,
+               "D": PAGE_MARGIN_IN + 2 * (COL_IN + GUTTER_IN)}
     for piece, key in (("fig8A_counts.pdf", "A"), ("fig8B_fpr.pdf", "B"),
                        ("fig8C_ppv.pdf", "C"), ("fig8D_tradeoff.pdf", "D")):
         got = pdf_page_size(PANELS / piece)
@@ -166,10 +171,11 @@ def main() -> None:
     for x0, _y0, _x1, _y1, word in bbox_words(page):
         if word in ("A", "C", "D"):
             letters.setdefault(word, (x0, _y0))
-    for i, key in enumerate(("A", "C", "D")):
-        want = col_start_pt[i] + 0.004 * PIECE[key][0] * 72
+    for key in ("A", "C", "D"):
+        want = 72 * place_x[key] + 0.004 * PIECE[key][0] * 72
         got = letters.get(key, (-1.0, -1.0))[0]
-        check(f"panel {key}: letter sits on column {i + 1}'s left edge",
+        check(f"panel {key}: letter sits on its own piece's left edge "
+              f"({place_x[key]:.2f} in)",
               abs(got - want) <= 2.0, f"xMin {got:.1f} pt vs {want:.1f} pt")
     check("Figure8_rev.png (300 dpi) exists",
           ((_RB / "figures/figure8/figures/Figure8_rev.png")).exists()

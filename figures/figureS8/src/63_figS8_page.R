@@ -76,8 +76,14 @@ LABEL_OF <- c(CHEUI_m5C = "CHEUI-m5C", NanoMUD_psi = "NanoMUD-\u03a8",
               NanoPsu = "NanoPsu", NanoSPA_psU = "NanoSPA-\u03a8")
 COLOUR_OF <- c(WT = "#4b81b8", IVT = "#e8a76b")
 XLAB <- unname(LABEL_OF[TOOL_ORDER])
-FS <- list(axis = 8, ytitle = 8.5, legend = 7)
-TAG_PT <- 9                          # bold panel letter (A / B / C / D)
+
+#: Supplementary_Figures.pdf places this 180 mm page at
+#: PLACEMENT_SCALE = min(504.6/510, 601/482) = 0.9894, so every script size is
+#: its target / PLACEMENT_SCALE: ticks 8, axis titles 9, legend 8, panel
+
+PLACEMENT_SCALE <- 0.9894
+FS <- list(axis = 8.1, ytitle = 9.1, legend = 8.1)
+TAG_PT <- 14.0 / PLACEMENT_SCALE     # bold panel letter (A / B / C / D) -> 14
 stopifnot(min(unlist(FS)) >= 7)
 ROW_W <- 7.087            # 180 mm, same footprint as the Figure 7 / S6 pages
 META_H <- 4.00            # the 2 x 3 metagene block (62)
@@ -201,7 +207,12 @@ panel_g <- function() {
     theme_s7() + theme_rot() +
     
     ## described in the caption, only the two drawn series keep a key
-    guides(colour = guide_legend(order = 1, nrow = 1),
+    
+    ## filled dots; override.aes restores the drawn glyphs (open circle =
+    ## unit pair, red diamond = mean of pairs) so the key matches the plot.
+    guides(colour = guide_legend(order = 1, nrow = 1,
+                                 override.aes = list(shape = c(1, 18),
+                                                     size = c(1.4, 2.0))),
            shape = "none", linetype = "none", fill = "none")
 }
 
@@ -230,7 +241,11 @@ panel_h <- function() {
     x_axis() +
     labs(x = NULL, y = "\u0394 ncRNA-body share") +
     theme_s7() + theme_rot() +
-    guides(colour = guide_legend(order = 1, nrow = 1),
+    
+    ## open circle (unit pair) and the red diamond (majority consensus).
+    guides(colour = guide_legend(order = 1, nrow = 1,
+                                 override.aes = list(shape = c(1, 18),
+                                                     size = c(1.4, 2.0))),
            shape = "none", linetype = "none")   # "no change" line -> caption
 }
 

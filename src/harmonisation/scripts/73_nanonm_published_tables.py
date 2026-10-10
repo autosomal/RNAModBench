@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""73 -- the published NanoNm call set beside our own re-analysis.
+"""73 -- Figure S11: the published NanoNm call set beside our own re-analysis.
 
 Why this figure exists
 ----------------------
@@ -19,15 +19,15 @@ What it writes
                                      input the tables are derived from
 ``sources/ensembl112_gene_spans.tsv`` cached gene_name -> GRCh38 span, built from
                                      the Ensembl 112 GTF (gene lines only)
-``tables/s11_published_sites.tsv``    one row per published site, with a
+``tables/nanonm_published_sites.tsv``    one row per published site, with a
                                      ``parse_ok`` flag rather than silent drops
-``tables/s11_coordinate_check.tsv``   per cell line: how many parsed sites fall
+``tables/nanonm_coordinate_check.tsv``   per cell line: how many parsed sites fall
                                      inside the gene the sheet itself names
-``tables/s11_overlap.tsv``            our HeLa WT / IVT calls against the published
+``tables/nanonm_overlap.tsv``            our HeLa WT / IVT calls against the published
                                      HeLa set, at the analysis ratio threshold
-``tables/s11_ratio_agreement.tsv``    per-site agreement of the two mod_ratio
+``tables/nanonm_ratio_agreement.tsv``    per-site agreement of the two mod_ratio
                                      values at the shared sites
-``tables/s11_ratio_distribution.tsv`` the distributions panel C draws
+``tables/nanonm_ratio_distribution.tsv`` the distributions panel C draws
 ``logs/73_tables_anchors.tsv``        every number the caption quotes, so the
                                      verifier can recompute rather than trust
 
@@ -41,7 +41,7 @@ evidence that the shared sites are modified.
 Usage
 -----
 conda run -n benchmark-revision --no-capture-output python \
-    analysis/figS11_revision/scripts/73_figS11_tables.py
+    src/harmonisation/scripts/73_nanonm_published_tables.py
 """
 from __future__ import annotations
 
@@ -72,8 +72,8 @@ import pandas as pd
 
 HERE = Path(__file__).resolve()
 PROJECT = _RB
-OUT = (_RB / "analysis/figS11_revision")
-TAB, SRC, LOG = (_RB / "analysis/figS11_revision/tables"), (_RB / "analysis/figS11_revision/sources"), (_RB / "analysis/figS11_revision/logs")
+OUT = (_RB / "analysis/nanonm_published_crosscheck")
+TAB, SRC, LOG = (_RB / "analysis/nanonm_published_crosscheck/tables"), (_RB / "analysis/nanonm_published_crosscheck/sources"), (_RB / "analysis/nanonm_published_crosscheck/logs")
 
 XLSX = (_XB / "third_party/NanoNm/mmc6.xlsx")
 GTF = PROJECT.parent / "reference" / "GRCh38p14" / "ensembl112" / "Homo_sapiens.GRCh38.112.chr.gtf"
@@ -294,8 +294,8 @@ def main() -> None:
 
     sites = sites[["cell_line", "chrom", "pos", "pos0", "gene", "ratio", "mod_count",
                    "total_count", "parse_ok", "in_chr_length", "in_named_gene"]]
-    sites.to_csv(TAB / "s11_published_sites.tsv", sep="\t", index=False)
-    coord.to_csv(TAB / "s11_coordinate_check.tsv", sep="\t", index=False)
+    sites.to_csv(TAB / "nanonm_published_sites.tsv", sep="\t", index=False)
+    coord.to_csv(TAB / "nanonm_coordinate_check.tsv", sep="\t", index=False)
 
     # ---- overlap and agreement, site level ---------------------------------- #
     hela = sites[(sites.cell_line == "HeLa") & sites.parse_ok].copy()
@@ -340,8 +340,8 @@ def main() -> None:
               f"r={ag_rows[-1]['pearson_log10_ratio']}")
     ov = pd.DataFrame(ov_rows)
     ag = pd.DataFrame(ag_rows)
-    ov.to_csv(TAB / "s11_overlap.tsv", sep="\t", index=False)
-    ag.to_csv(TAB / "s11_ratio_agreement.tsv", sep="\t", index=False)
+    ov.to_csv(TAB / "nanonm_overlap.tsv", sep="\t", index=False)
+    ag.to_csv(TAB / "nanonm_ratio_agreement.tsv", sep="\t", index=False)
     #: the site-level pairs panel B draws, kept as a table so the figure and the
     #: verifier read the same rows rather than each rebuilding the merge
     shared_all = pd.concat([shared.assign(condition=label)
@@ -351,7 +351,7 @@ def main() -> None:
                                       "published_gene"]], on="key")]])
     shared_all[["condition", "key", "published_gene", "our_ratio", "published_ratio",
                 "published_total_reads"]].to_csv(
-        TAB / "s11_shared_sites.tsv", sep="\t", index=False)
+        TAB / "nanonm_shared_sites.tsv", sep="\t", index=False)
 
     # ---- the distributions panel C of the standalone figure drew, and the
     
@@ -386,11 +386,11 @@ def main() -> None:
             "max": round(float(d.max()), 4), "median_total_reads": pd.NA,
         })
     dist = pd.DataFrame(dist_rows)
-    dist.to_csv(TAB / "s11_ratio_distribution.tsv", sep="\t", index=False)
+    dist.to_csv(TAB / "nanonm_ratio_distribution.tsv", sep="\t", index=False)
     hela_pub = dist[(dist.source == "published") & (dist.label == "HeLa")]
     if len(hela_pub) != 1:
         raise SystemExit("the published HeLa distribution row is missing or duplicated")
-    hela_pub.to_csv(TAB / "s11_published_hela_score.tsv", sep="\t", index=False)
+    hela_pub.to_csv(TAB / "nanonm_published_hela_score.tsv", sep="\t", index=False)
 
     # ---- the anchors the caption quotes ------------------------------------- #
     anchors = [

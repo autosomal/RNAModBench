@@ -1,9 +1,10 @@
-# Figure S6 (rebuilt 2026-09-21) — legend, paste-ready
+# Figure S6 (rebuilt 2026-09-21, layout 2026-10-09) — legend, paste-ready
 
-Figure file: `FigureS6_rev.pdf` (**178 × 175 mm**, drawn 1:1 at
+Figure file: `FigureS6_rev.pdf` (**178 × 208 mm**, drawn 1:1 at
 the printed size so the text stays large relative to the figure; Arial embedded,
-no gridlines, no in-panel annotation text, **the 13 tool names slanted 45° as
-the only rotated text**, bold panel letters A–E printed once per row).
+no gridlines, no in-panel annotation text, **the 13 tool names slanted 45° under
+each of rows B, C and D as the only rotated text**, bold panel letters A–E
+printed once per row).
 Produced by `figures/figureS6/src/62_figS6_figure.py` from the frozen
 tables of `40_fig6_combination.py` and `61_figS6_sitequality.py` (nothing is
 recomputed in the figure script) and verified by `63_verify_figS6.py`
@@ -19,12 +20,14 @@ every dot and mean bar is drawn once per study, and each study keeps its own
 selected combination (a mouse study is a single sequencing unit, so it
 contributes one dot per position).
 
-Rows B, C and D are **three full-width tiers sharing one x axis** — the 13 m⁶A
-tool configurations, whose names are printed once, **slanted 45°**, right-aligned
-at their own tick under row D (no axis title: the names *are* the axis text).
-Slanted, neighbouring names are parallel lines ≈ 0.47 in apart — far more than
-their cap height — so a name can never collide with its neighbour however long
-it is.
+Rows B, C and D are three full-width tiers over the same 13 m⁶A tool
+configurations, but **each carries its own x axis**: the names are printed
+**slanted 45°**, right-aligned at their own tick, under *every* one of the three
+rows (no axis title: the names *are* the axis text), and each row's key hangs
+under its own name block, so no key can be read as another row's axis text.
+Slanted, neighbouring names are parallel lines ≈ 0.33 in apart perpendicular to
+their own baseline — far more than their cap height — so a name can never collide
+with its neighbour however long it is.
 Inside every tool position the four independent groups sit as **separate
 clusters** (Arabidopsis | mouse study A | mouse study B | Human): one dot per
 sequencing unit plus the mean *within* that group, and never a mean across
@@ -32,8 +35,9 @@ groups or across the two mouse studies.  Row D carries no group dimension at
 all: the unmodified controls are not species-specific, so repeating the same
 per-tool medians in columns would suggest measurements that do not exist.  Row E
 is likewise one full-width panel — the five site sets (2.2 in apart) with their
-names in two horizontal lines — the tool names of row D are the only slanted
-text on the page.
+names in two horizontal lines — the tool names under rows B, C and D are the only
+slanted text on the page.  Row A's three columns are headed by their species
+names, bold, printed above the panels: **Arabidopsis | Mouse | Human**.
 
 **Complementary to main-text Figure 6 by construction.**  The rebuilt main
 figure carries the selection criterion (Fig. 6D), the selected trade-off over

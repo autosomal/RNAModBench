@@ -65,7 +65,7 @@ import pandas as pd
 from scipy import stats
 
 HERE = Path(__file__).resolve()
-PKG = HERE.parents[1]                     # R3-9_nonm6a_fp_analysis/
+PKG = HERE.parents[1]                     # analysis/nonm6a_false_positives/
 PROJECT = HERE.parents[3]                 # $RNAMODBENCH_ROOT
 SITES = PROJECT / "data" / "callsets"
 sys.path.insert(0, str(PROJECT / "src/harmonisation"))

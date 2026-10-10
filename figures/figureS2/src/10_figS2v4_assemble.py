@@ -24,6 +24,10 @@ spec = importlib.util.spec_from_file_location("s2v4", HERE / "09_figS2v4_panels.
 P = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(P)
 
+#: printed space the sheet keeps below the C/D/E band: the shared species key
+#: occupies the upper 0.16 in of it, so the key must not be squeezed to the edge
+SKIRT = 0.40
+
 
 def main() -> None:
     P.apply_style()
@@ -33,12 +37,31 @@ def main() -> None:
     over, summ = P.load_v4()
     h = P.panel_heights()
 
+    
+    #: from re-cutting the vertical budget -- A and B grow, the C/D/E row gives the
+    #: space back (the constants live in 09).  The band gaps are 0.10 in each, and
+    #: the foot of the sheet keeps SKIRT in below the last band, where the shared
+    #: species key sits; the bands may not touch each other.
     y_a = 0.12
     y_b = y_a + h["A"] + 0.10
-    y_cd = y_b + h["B"] + 0.12
+    y_cd = y_b + h["B"] + 0.10
     x_c, x_d, x_e = 0.18, 2.86, 5.62
     w_c, w_d, w_e = 2.54, 2.62, 2.48
-    assert y_cd + max(h["C"], h["D"]) + 0.20 <= P.PAGE_H + 1e-9, "page overflow"
+    bands = {"A": (y_a, y_a + h["A"]), "B": (y_b, y_b + h["B"]),
+             "CDE": (y_cd, y_cd + max(h["C"], h["D"], h["E"]))}
+    for a, b in (("A", "B"), ("B", "CDE")):
+        assert bands[a][1] <= bands[b][0], \
+            f"band {a} runs into band {b}: {bands[a]} vs {bands[b]}"
+    skirt = P.PAGE_H - bands["CDE"][1]
+    assert skirt >= SKIRT, \
+        (f"only {skirt:.3f} in below the C/D/E band; the species key needs "
+         f"{SKIRT} in")
+    assert x_e + w_e <= P.RIGHT_LIMIT + 1e-9, \
+        f"the C/D/E row ends at {x_e + w_e:.3f} in, past {P.RIGHT_LIMIT} in"
+    print(f"bands (in from the top): A {bands['A'][0]:.2f}..{bands['A'][1]:.2f}, "
+          f"B {bands['B'][0]:.2f}..{bands['B'][1]:.2f}, "
+          f"C/D/E {bands['CDE'][0]:.2f}..{bands['CDE'][1]:.2f}; "
+          f"skirt {skirt:.3f} in")
 
     fig = plt.figure(figsize=(P.PAGE_W, P.PAGE_H))
     P.draw_a(fig, pooled, pwm, org=(0.0, y_a))
@@ -63,7 +86,10 @@ def main() -> None:
         leg.text(lx + 0.10, leg_y * P.PAGE_H - 0.02, sp, ha="left",
                  va="center", fontsize=P.FS["note"], color=P.INK["dark"])
         lx += 0.10 + 0.075 * len(sp) + 0.30
-    smallest = P.assert_fonts(fig)
+    rep = P.assert_page_geometry(fig)
+    print(f"page audit: {rep['n_text']} text boxes, min {rep['min_pt']:.2f} pt, "
+          f"overlaps {rep['overlaps']}, right-most drawing box "
+          f"{rep['max_element_x1']:.3f} in")
     stem = FIG / "FigureS2_rev"
     fig.savefig(str(stem) + ".pdf", bbox_inches=None)
     fig.savefig(str(stem) + ".png", dpi=300, bbox_inches=None)
@@ -77,10 +103,15 @@ def main() -> None:
     f_tool = float(v[v.Source == "Tool"].F.iloc[0])
     p_tool = float(v[v.Source == "Tool"].p.iloc[0])
     s4 = summ[summ.scope == "all four species"].iloc[0]
-    note = (f"page {P.PAGE_W:.4f} x {P.PAGE_H:.4f} in (595.276 x 653.256 pts)\n"
-            f"slots: A y={y_a:.2f} h={h['A']:.3f} | B y={y_b:.2f} "
-            f"h={h['B']:.3f} | C/D y={y_cd:.2f} h={h['C']:.3f}/{h['D']:.3f}\n"
-            f"smallest text {smallest:.2f} pt\n"
+    note = (f"page {P.PAGE_W:.4f} x {P.PAGE_H:.4f} in "
+            f"({P.PAGE_W * 72:.3f} x {P.PAGE_H * 72:.3f} pts)\n"
+            f"bands (in from the top): A {bands['A'][0]:.2f}..{bands['A'][1]:.2f} "
+            f"(h {h['A']:.3f}) | B {bands['B'][0]:.2f}..{bands['B'][1]:.2f} "
+            f"(h {h['B']:.3f}) | C/D/E {bands['CDE'][0]:.2f}.."
+            f"{bands['CDE'][1]:.2f} (h {h['C']:.3f}); skirt {skirt:.3f} in\n"
+            f"geometry audit: {rep['n_text']} text boxes, smallest "
+            f"{rep['min_pt']:.2f} pt, text overlaps {rep['overlaps']}, "
+            f"right-most drawing box {rep['max_element_x1']:.3f} in\n"
             f"KL variance (cell means, 10 tools x 3 species): tool "
             f"{tool_eta:.1f}% (F = {f_tool:.1f}, p = {p_tool:.1e}), "
             f"species {sp_eta:.1f}%\n"

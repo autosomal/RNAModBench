@@ -181,8 +181,9 @@ def check_figure_index() -> None:
     note(not missing, f"{len(named)} paths named in figure_index.md all exist"
          + ("" if not missing else f"; missing: {missing[:6]}"))
     dirs = sorted(d for d in ROOT.glob("figures/figure*") if d.is_dir())
-    note(len(dirs) == 18, f"8 main and 10 supplementary figure directories"
-         + ("" if len(dirs) == 18 else f"; found {len(dirs)}"))
+    note(len(dirs) == MAIN_FIGURES + SI_FIGURES,
+         f"{MAIN_FIGURES} main and {SI_FIGURES} supplementary figure directories"
+         + ("" if len(dirs) == MAIN_FIGURES + SI_FIGURES else f"; found {len(dirs)}"))
     undocumented = [d.relative_to(ROOT).as_posix() for d in dirs
                     if d.name not in text]
     note(not undocumented, "every figure directory is named in figure_index.md"
@@ -241,6 +242,10 @@ def check_figure_numbering() -> None:
          + ("" if not bad else f"; {len(bad)}: {bad[:6]}"))
 
 
+#: the manuscript delivers eight main figures and eleven supplementary ones; Figure
+#: S11 (the threshold-sensitivity curves, reviewer R1-5 / E4) joined them on 2026-10-10
+MAIN_FIGURES, SI_FIGURES = 8, 11
+
 CAPTION_BLOCK = re.compile(r"^\*\*Figure S(\d+)\.\*\*", re.M)
 LEGEND_TITLE = re.compile(r"^#\s*Figure S(\d+)\b")
 
@@ -266,8 +271,8 @@ def check_si_labels() -> None:
     caps = ROOT / "tables/sup_figure_captions.md"
     if caps.is_file():
         nums = [int(n) for n in CAPTION_BLOCK.findall(caps.read_text(encoding="utf-8"))]
-        note(nums == list(range(1, 11)),
-             f"the caption sheet numbers its ten figures in order ({nums})")
+        note(nums == list(range(1, SI_FIGURES + 1)),
+             f"the caption sheet numbers its {SI_FIGURES} figures in order ({nums})")
     else:
         note(False, "tables/sup_figure_captions.md is missing")
 

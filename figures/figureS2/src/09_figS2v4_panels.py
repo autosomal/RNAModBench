@@ -10,7 +10,8 @@ inches with a top-left origin, and every panel receives its own offset.
 Panels
   A  ten tools (rows, two groups of five) x three species (columns) 5-mer
      sequence logos; one shared 0-2 bits axis per group, labelled
-     "Information content (bits)" (R3-m4).  Compact: rows 0.34 in.
+     "Information content (bits)" (R3-m4).  Rows 0.42 in since 2026-10-09 (was
+     0.36), so that the tool name and its KL value clear each other.
   B  top-5 preferred 5-mers, four species blocks (2 x 2), single-hue blue
      scale, RRACH 5-mers in bold orange, shared horizontal colour bar.
   C  cross-species AGAC vs GGAC preference (R3-6): per tool, three species
@@ -89,19 +90,41 @@ RANKS = ["1st", "2nd", "3rd", "4th", "5th"]
 RENAME = {"ELIGOS_diff": "ELIGOS2_diff", "ELIGOS_solo": "ELIGOS2_solo"}
 DISPLAY = {"yanocomp": "Yanocomp"}
 
-# ---- panel slots on the assembled page (inches, top-left origin) ----------
-SLOT_A = (0.00, 0.30, PAGE_W, 1.98)
-SLOT_B = (0.00, 2.44, PAGE_W, 3.83)
-SLOT_C = (0.00, 6.35, PAGE_W, 2.34)
-A_LAB, A_CELL, A_GAP, A_HEAD, A_ROW = 0.90, 0.96, 0.20, 0.28, 0.360
+
+
+#: budget is re-cut instead -- A and B grow, the C/D/E row is compressed, and the
+#: two defects the re-layout exposed are fixed with it:
+#:   * A's right block printed its last logo axes at 8.355 in on an 8.268 in page
+#:     (the Human column was clipped at the page edge; 433 ink pixels sat in the
+#:     last 12 px column of the 300 dpi render).  ``A_CELL`` 0.96 -> 0.91 and
+#:     ``A_GAP`` 0.20 -> 0.19 bring the right edge to 8.055 in.
+#:   * every row of A stacked its tool name and its "KL = x" line 7.2 pt apart
+#:     while the two text boxes are 10.6 / 10 pt tall, so all 30 word pairs
+#:     overlapped by 3.1-3.2 pt (measured with pdftotext -bbox).  The taller rows
+#:     (``A_ROW`` 0.360 -> 0.410) let the two lines sit 10.9 pt apart.
+#: Panel D's 13-tool row pitch was hardcoded as 0.180 in two places; it is one
+#: constant now (``D_ROW``), because ``panel_heights`` has to follow it.
+#: The freed space is split A +0.25 / B +0.29 in of band height, paid for by the
+#: C/D/E band (-0.55 in): A 2.36 -> 2.61, B 5.25 -> 5.54, C/D/E 3.33 -> 2.78.
+#: The species key under the C/D/E band stays where it was (the sheet still ends
+#: 0.42 in of clear space below the last band).
+A_LAB, A_CELL, A_GAP, A_HEAD, A_ROW = 0.90, 0.91, 0.19, 0.28, 0.410
 A_PAD = 0.28
+#: the two label lines of an A row: name below, KL value above, 10.9 pt apart
+#: (their boxes are 10.6 / 10 pt tall, so this is what clears them; at the old
+#: spacing of 7.2 pt all 30 pairs overlapped)
+A_NAME_DY, A_KL_DY = -0.076, 0.076
 B_LAB, B_CELL, B_GAP = 0.78, 0.55, 0.26
-B_TITLE, B_HEAD, B_ROW = 0.16, 0.13, 0.145
+B_TITLE, B_HEAD, B_ROW = 0.16, 0.13, 0.1545
 B_PAD, B_BLOCK_GAP, B_CBAR_PAD = 0.30, 0.10, 0.18
 C_LAB, C_ROW = 0.95, 0.130
-C_PAD, C_BOT = 0.56, 0.42
-PANEL_BOX = 2.35      # common content box height for panels C, D and E
+C_PAD, C_BOT = 0.34, 0.40
+D_ROW = 0.160         #: row pitch of panel D's 13 tools (was a hardcoded 0.180)
+PANEL_BOX = 13 * D_ROW    #: common content box height for panels C, D and E
 X0, X1 = 0.45, PAGE_W - 0.30
+#: the right edge every band has to stay inside (2026-10-09): the C/D/E row ends
+#: at 8.10 in and A's cells do too now, so the page keeps a real right margin
+RIGHT_LIMIT = 8.10
 
 
 def page_axes(fig, w=PAGE_W, h=PAGE_H):
@@ -183,9 +206,9 @@ def draw_a(fig, pooled, pwm, org=(0.0, 0.0), page_w=PAGE_W, page_h=PAGE_H,
                                         facecolor="#FAFAFA", edgecolor="none",
                                         zorder=0))
             kbar = float(np.nanmean([klx.get((tool, s), np.nan) for s in SP_A]))
-            pax.text(x_lab, yc - 0.045, tool, ha="left", va="center",
+            pax.text(x_lab, yc + A_NAME_DY, tool, ha="left", va="center",
                      fontsize=FS["tool"], fontweight="bold", color=INK["dark"])
-            pax.text(x_lab, yc + 0.055, f"KL = {kbar:.1f}", ha="left",
+            pax.text(x_lab, yc + A_KL_DY, f"KL = {kbar:.1f}", ha="left",
                      va="center", fontsize=FS["kl"], color=INK["blue_dark"])
             for j, sp in enumerate(SP_A):
                 sub = pwm[(pwm.Tool_display == tool) & (pwm.Species == sp)]
@@ -303,20 +326,23 @@ def draw_d(fig, agac, org=(0.0, 0.0), page_w=PAGE_W, page_h=PAGE_H,
         return x_left + (v - lo) / (hi - lo) * (x_right - x_left)
 
     # axis + zero line
-    y_bot = row0 + len(order) * 0.180
+    y_bot = row0 + len(order) * D_ROW
     pax.plot([x_left, x_right], [y_bot + 0.02] * 2, color=INK["muted"], lw=0.6)
     pax.plot([xmap(0)] * 2, [top - 0.04, y_bot + 0.02], color=INK["muted"],
              lw=0.6)
     for v in (-0.4, -0.2, 0.0, 0.2):
         pax.plot([xmap(v)] * 2, [y_bot + 0.02, y_bot + 0.07], color=INK["muted"],
                  lw=0.6)
-        pax.text(xmap(v), y_bot + 0.12, f"{v:+.1f}", ha="center", va="top",
+        #: 2026-10-09: the tick row and the axis title sit 0.08 / 0.25 in below the
+        #: axis so that both 9 pt lines fit C_BOT = 0.40 in without touching
+        #: (0.08-0.227 and 0.25-0.397 in; the old 0.12 / 0.28 pair fitted 0.42 in)
+        pax.text(xmap(v), y_bot + 0.08, f"{v:+.1f}", ha="center", va="top",
                  fontsize=FS["tick"], color=INK["muted"])
-    pax.text((x_left + x_right) / 2, y_bot + 0.28,
+    pax.text((x_left + x_right) / 2, y_bot + 0.25,
              "freq(AGAC) − freq(GGAC)", ha="center", va="top",
              fontsize=FS["axis"], color=INK["dark"])
     for i, (tool, row) in enumerate(order.iterrows()):
-        yc = row0 + (i + 0.5) * 0.180
+        yc = row0 + (i + 0.5) * D_ROW
         pax.text(x_left - 0.20, yc, tool, ha="right", va="center",
                  fontsize=FS["tool"], color=INK["dark"])
         for k, sp in enumerate(("Arabidopsis", "Mouse", "Human")):
@@ -356,8 +382,11 @@ def draw_c(fig, over, summary, org=(0.0, 0.0), page_w=PAGE_W, page_h=PAGE_H,
     ax.set_xlim(-0.6, 1.6)
     ax.set_ylim(-1.4, 6.0)
     ax.set_xticks([0, 1])
+    #: 2026-10-09: the two lines of these labels met (0.6 pt of overlap in the
+    #: printed page, measured with pdftotext -bbox); 1.45 linespacing separates
+    #: them without moving the axis
     ax.set_xticklabels(["different\ntools", "same\ntool"], fontsize=8.0,
-                       color=INK["dark"])
+                       linespacing=1.45, color=INK["dark"])
     ax.set_yticks([0, 1, 2, 3, 4, 5])
     ax.set_ylabel("Top-5 5-mer overlap", fontsize=FS["axis"], labelpad=1.5)
     ax.tick_params(labelsize=FS["tick"], length=2, pad=1.5)
@@ -399,44 +428,146 @@ def draw_e(fig, org=(0.0, 0.0), page_w=PAGE_W, page_h=PAGE_H, panel_w=PAGE_W):
              fontweight="bold", color=INK["dark"], ha="left", va="center")
 
 
-def assert_fonts(fig, min_pt=MIN_PT):
-    sizes = []
+def text_objects(fig):
+    """Every printed text object of the page (axes texts, tick labels, labels).
+
+    ``ax.texts`` always counts: an axes switched off with ``axis("off")`` still
+    prints the annotations drawn into it (the panel letters, the species key).
+    Tick labels only count where the axes keeps its frame on -- the sheet-wide
+    helper axes of ``page_axes()`` has default ticks at 0,1,2,... that are never
+    drawn, and counting them made the audit report text outside the page.
+    """
+    out = []
     for ax in fig.axes:
-        for t in list(ax.texts) + list(ax.get_xticklabels()) + \
-                list(ax.get_yticklabels()):
-            if t.get_text():
-                sizes.append(t.get_fontsize())
-        for lbl in (ax.xaxis.label, ax.yaxis.label, ax.title):
-            if lbl.get_text():
-                sizes.append(lbl.get_fontsize())
-    sizes += [t.get_fontsize() for t in fig.texts if t.get_text()]
+        out += [t for t in ax.texts if t.get_text() and t.get_visible()]
+        if ax.axison:
+            out += [t for t in ax.get_xticklabels() + ax.get_yticklabels()
+                    if t.get_text() and t.get_visible()]
+            for lbl in (ax.xaxis.label, ax.yaxis.label, ax.title):
+                if lbl.get_text() and lbl.get_visible():
+                    out.append(lbl)
+    out += [t for t in fig.texts if t.get_text() and t.get_visible()]
+    return out
+
+
+def assert_fonts(fig, min_pt=MIN_PT):
+    sizes = [float(t.get_fontsize()) for t in text_objects(fig)]
     smallest = float(min(sizes))
     assert smallest >= min_pt, f"text {smallest:.2f} pt < {min_pt} pt"
     return smallest
+
+
+def assert_page_geometry(fig, page_w=PAGE_W, page_h=PAGE_H, min_pt=MIN_PT,
+                         overlap_tol=1.0, edge_tol=0.5, right_limit=RIGHT_LIMIT):
+    """Printed-size audit: fonts, page overflow, and text-on-text collisions.
+
+    2026-10-09: the re-layout of S2 (A and B taller, C/D/E shorter) was the first
+    pass that could tighten two pitches that had never been checked, and the two
+    defects it exposed were only visible in the *printed* page:
+      * A's right block ran 0.087 in past the page edge, so the Human column of
+        the second group was clipped (433 ink pixels in the last 12 px column of
+        the 300 dpi render);
+      * the tool name and the "KL = x" line of every A row overlapped by 3.1-3.2
+        pt (all 30 word pairs), and panel C's two two-line tick labels by 0.6 pt.
+    Both are now asserted against the drawn objects: every text box inside the
+    page, no pair overlapping more than ``overlap_tol`` pt in either axis, and
+    every axes/rectangle inside the page and clear of ``right_limit``.  The check
+    runs on the same figure the PDF is written from, so a later edit cannot put
+    either defect back without failing the build.
+    """
+    smallest = assert_fonts(fig, min_pt)
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    dpi = float(fig.dpi)
+    texts = text_objects(fig)
+    boxes = []
+    for t in texts:
+        bb = t.get_window_extent(renderer=rend)
+        if bb.width > 0 and bb.height > 0:
+            boxes.append((str(t.get_text())[:24], bb))
+    outside = [(s, round(bb.x0 / dpi, 3), round(bb.x1 / dpi, 3),
+                round(bb.y0 / dpi, 3), round((page_h * dpi - bb.y1) / dpi, 3))
+               for s, bb in boxes
+               if bb.x0 < edge_tol or bb.x1 > page_w * dpi - edge_tol
+               or bb.y0 < edge_tol or bb.y1 > page_h * dpi - edge_tol]
+    assert not outside, f"text outside the page (x0, x1, y_bottom, y_top): {outside[:6]}"
+    hits = []
+    for i in range(len(boxes)):
+        for j in range(i + 1, len(boxes)):
+            a, b = boxes[i][1], boxes[j][1]
+            dx = min(a.x1, b.x1) - max(a.x0, b.x0)
+            dy = min(a.y1, b.y1) - max(a.y0, b.y0)
+            if dx > overlap_tol and dy > overlap_tol:
+                hits.append((boxes[i][0], boxes[j][0], round(dx / dpi * 72, 2),
+                             round(dy / dpi * 72, 2)))
+    assert not hits, (f"{len(hits)} text pairs overlap by more than "
+                      f"{overlap_tol} pt (name, name, dx pt, dy pt): {hits[:6]}")
+    over = []
+    for ax in fig.axes:
+        bb = ax.get_window_extent(renderer=rend)
+        if bb.x1 > page_w * dpi + edge_tol or bb.x0 < -edge_tol \
+                or bb.y0 < -edge_tol or bb.y1 > page_h * dpi + edge_tol:
+            over.append((round(bb.x0 / dpi, 3), round(bb.x1 / dpi, 3),
+                         round(bb.y0 / dpi, 3), round(bb.y1 / dpi, 3)))
+    assert not over, f"axes outside the page: {over}"
+    #: the widest inked *element* is what ran off the page (a logo axes ending at
+    #: 8.355 in on an 8.268 in page, clipping the Human column of A's second
+    #: group).  Every drawing axes narrower than the page is measured, plus every
+    #: inked patch/collection (A's row-banding strips, B's sample cells) except the
+    #: sheet-wide helper axes and its background, which span the page by design.
+    full = 0.99 * page_w * dpi
+    right = 0.0
+    for ax in fig.axes:
+        bb = ax.get_window_extent(renderer=rend)
+        if bb.width < full:
+            right = max(right, bb.x1 / dpi)
+        for art in list(ax.patches) + list(ax.collections):
+            if not art.get_visible():
+                continue
+            ab = art.get_window_extent(renderer=rend)
+            if 0 < ab.width < full:
+                right = max(right, ab.x1 / dpi)
+    assert right <= right_limit + 0.02, \
+        (f"the right-most drawing box ends at {right:.3f} in, past the "
+         f"{right_limit} in right limit of this page")
+    return {"n_text": len(boxes), "min_pt": smallest, "overlaps": len(hits),
+            "max_element_x1": round(right, 3)}
 
 
 def panel_heights():
     row0_h = B_TITLE + B_HEAD + 13 * B_ROW
     return {"A": A_PAD + A_HEAD + 5 * A_ROW,
             "B": B_PAD + 2 * row0_h + B_BLOCK_GAP + 0.30 + 0.20,
-            "C": C_PAD + PANEL_BOX + 0.42, "D": C_PAD + 13 * 0.180 + 0.42,
-            "E": C_PAD + PANEL_BOX + 0.42}
+            "C": C_PAD + PANEL_BOX + C_BOT, "D": C_PAD + 13 * D_ROW + C_BOT,
+            "E": C_PAD + PANEL_BOX + C_BOT}
 
 
 def render_panel(name: str, draw, data, height: float, page_w=PAGE_W,
-                 width: float | None = None):
-    """Draw one panel alone on its own page-sized canvas."""
+                 width: float | None = None, skirt: float = 0.0):
+    """Draw one panel alone on its own canvas.
+
+    ``height`` is the panel's band height on the assembled page; ``skirt`` adds
+    canvas below it for the furniture that is allowed to hang into the gap
+    between bands there.  The B colour bar's tick labels live 0.04 in below the
+    band edge, so without a skirt the delivered ``panelB_top5.pdf`` used to have
+    them cut off by the canvas edge (287 ink pixels on the last 300 dpi row).
+    """
     page_w = width or page_w
-    fig = plt.figure(figsize=(page_w, height))
-    draw(fig, *data, org=(0.0, 0.0), page_w=page_w, page_h=height,
+    canvas_h = height + skirt
+    fig = plt.figure(figsize=(page_w, canvas_h))
+    draw(fig, *data, org=(0.0, 0.0), page_w=page_w, page_h=canvas_h,
          panel_w=page_w)
-    smallest = assert_fonts(fig)
+    rep = assert_page_geometry(fig, page_w=page_w, page_h=canvas_h,
+                               right_limit=min(RIGHT_LIMIT, page_w - 0.02))
+    smallest = rep["min_pt"]
     out = FIG / f"panel{name}"
     fig.savefig(str(out) + ".pdf", bbox_inches=None)
     fig.savefig(str(out) + ".png", dpi=300, bbox_inches=None)
     plt.close(fig)
     print(f"panel{name}: {page_w:.3f} x {height:.3f} in, min text "
-          f"{smallest:.2f} pt -> {out}.pdf/.png")
+          f"{smallest:.2f} pt, texts {rep['n_text']} (overlaps "
+          f"{rep['overlaps']}, right-most box {rep['max_element_x1']:.3f} in)"
+          f" -> {out}.pdf/.png")
 
 
 def load_v4():
@@ -453,7 +584,7 @@ def main():
     h = panel_heights()
     print("panel heights (in):", {k: round(v, 3) for k, v in h.items()})
     render_panel("A_logos", draw_a, (pooled, pwm), h["A"])
-    render_panel("B_top5", draw_b, (top5,), h["B"])
+    render_panel("B_top5", draw_b, (top5,), h["B"], skirt=0.12)
     render_panel("C_identity", draw_c, (over, summ), h["C"], width=PAGE_W / 2 - 0.15)
     render_panel("D_agac", draw_d, (agac,), h["D"], width=3.90)
     render_panel("E_variance", draw_e, (), h["E"], width=2.55)

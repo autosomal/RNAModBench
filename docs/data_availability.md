@@ -61,7 +61,7 @@ How these tables were assembled - and where their evidence is weakest - is in
 
 ## 3. Figure and table code - `figures/`, `tables/`, `src/`
 
-Every main figure (1-8) and supplementary figure (S1-S10) has a directory under
+Every main figure (1-8) and supplementary figure (S1-S11) has a directory under
 `figures/` holding **all** of its code - the stage that computes its inputs, the panel
 scripts, the page assembly and the layout gate - in `src/`, next to the frozen tables it
 writes (`tables/`, plus `analysis/` for inputs shared between figures). One figure, one
@@ -126,7 +126,7 @@ describes which stage writes which table.
 
 ## 6. Supporting analyses behind individual figures - `analysis/`
 
-Five directories, each named for what it shows rather than for the review point it
+Eight directories, each named for what it shows rather than for the review point it
 answered:
 
 | directory | read by |
@@ -134,8 +134,10 @@ answered:
 | `analysis/nonm6a_false_positives/` | Figure 7 and Figures S7-S8: non-m6A calls against unmodified and knock-out controls |
 | `analysis/motif_bias_control/` | Figure 4 and Figure S2: motif preference with the algorithmic-bias control |
 | `analysis/mod_ratio_replicates/` | Figure 3 and Figure S3: modification-ratio agreement between replicates |
-| `analysis/coverage_rank_stability/`, `analysis/reference_transcript_strata/` | Table S12: the ranking recomputed inside coverage and reference-ratio strata |
+| `analysis/coverage_rank_stability/`, `analysis/reference_transcript_strata/` | Table S12: the ranking recomputed inside coverage and reference-ratio strata; Figure S11 imports the panel and metric definitions from `analysis/coverage_rank_stability/analysis/r21_common.py` |
+| `analysis/nanonm_published_crosscheck/` | the text and Table S5's note: our NanoNm re-analysis beside the call set published with the model (its own page was withdrawn on 2026-10-04, so it has no figure directory) |
 | `analysis/supp_table_inputs/` | Tables S6 and S7: per-tool implementation and chemistry-applicability ledgers |
+| `analysis/nonm6a_replicate_depth/` | Figures 7 and S7: the per-replicate depth audit behind the non-m6A rate comparisons (covariate-matched bands, nearest-depth pairs, strata) |
 
 These are frozen inputs, read by the renderers and by `tables/`; their own producers
 belong to the `producers` group in [`reproducing.md`](reproducing.md).

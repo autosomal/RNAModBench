@@ -14,27 +14,34 @@ false-positive rate with its denominator and the matching specificity, and the
 statistical panels report association, agreement, effect size and rank stability
 rather than claims of quantitative accuracy.
 
-**Layout (2026-09-30, author decision).**  Nine cells on one enlarged sheet (892.8 x 792.0 pt
-= 12.400 x 11.000 in): three columns of 4.027 in and three rows of 3.580 / 3.550 /
+**Layout (2026-10-09, author decision).**  Nine cells on one sheet (1015.776 x 792.0 pt =
+14.108 x 11.000 in): three columns of 4.596 in and three rows of 3.580 / 3.550 /
 3.550 in (margins 0.10 in, gutters 0.06 in), so A | B | C sit on the first row,
 D | E | H on the second and F | G | I on the third.  Every panel draws its data in
 a **closed box** (top and right spines visible) that **fills its own cell**: the
 box runs from the common label column to the cell's right margin and from its
 bottom offset to 0.075 in below the cell top.  **All nine cells share one label
-column** (1.861 in, set by the wider of A's longest model name at 8 pt and F's
-longest tool name at 9.5 pt plus the clearance its 28 pt panel letter needs), so
-all nine boxes start and end on the same two vertical lines; the boxes are 2.111
-in wide and 2.682 in tall on row 1, 2.675 in on rows 2 and 3 (within 0.007 in of
-row 1, so the nine boxes read as equally tall), and their bottom offsets are 0.474
-in (row 1, which carries no key) and 0.800 in (rows 2 and 3, whose strip carries
-the x title and the panel's key).  The six lower panels were only 1.46 in tall
-inside the former A4 landscape sheet, which crowded their curves and dots; the
-sheet was enlarged on 2026-09-30 to give them the height of the top three
-and the type scale was raised the same day to match the larger sheet
-(" fonts too small relative to the plot "): ticks 11.5, axis names 12.5, keys 9.5, panel
-letters 28 pt, the window-sweep key 8 pt (up from 7), and every row label 9.5 pt
--- except A's 23 labels, which stay at 8 pt because their row pitch (2.682 in /
-23 rows) allows nothing larger.
+column**, frozen at 1.861 in (it is the wider of A's longest model name at 8 pt
+and F's longest tool name at 9.5 pt plus the clearance its 28 pt panel letter
+needs), so all nine boxes start and end on the same two vertical lines.
+Since 2026-10-09, on the request " the nine panels can be a little wider, and square ", **all nine boxes
+are squares: 2.675 x 2.675 in**.  The height was pinned by A's 23-row label pitch
+(2.675 in / 23 = 8.37 pt for 8 pt type), so the square was reached by widening the
+sheet from 12.400 to 14.108 in -- the column width, and with it the page width, is
+now derived from the frozen label column and the box side in `s9_style.py`, and the
+row-1 band is drawn with the same box side (`ROW1_BOX_FRAC`).  The bottom offsets
+are 0.474 in (row 1, whose band carries C's FP-rate twin axis above the box and its
+x title below) and 0.800 in (rows 2 and 3, whose strip carries the x title and the
+panel's key).  The type scale is the one raised on 2026-09-30, after the sheet was
+first enlarged that day to give the six lower panels the height of the top three
+and the type-scale request (" fonts too small relative to the plot "): ticks 11.5, axis names
+12.5, keys 9.5, panel letters 28 pt, the window-sweep key 8 pt (up from 7), and every
+row label 9.5 pt
+-- except A's 23 labels, which stay at 8 pt because their row pitch (2.675 in /
+23 rows) allows nothing larger.  Because the page is composed 1:1 and the album
+prints it at 7.008 in of width, the widened sheet prints at 7.008/14.108 = 0.497
+of the drawn size in the SI (11.5 pt ticks print ~5.7 pt; that is the trade-off
+accepted when the squares were requested).
 The
 sheet is composed 1:1 by `71_figs9_page.py`
 (`common.panelpage.compose_page` asserts that every piece stays inside the page
@@ -140,16 +147,16 @@ top-ranked tool is no longer always m6Anet -- it differs from the primary one in
 6 of the 9 species-by-stratum cells -- which is why the primary metrics are
 reported against the full high-confidence reference.
 
-**Sources.** Frozen tables in `../tables/source/` (`s9in_counts.tsv`,
+**Sources.** Frozen tables in `tables/source/` (`s9in_counts.tsv`,
 `figS9_orca_counts.tsv`, `s9in_fpr_curlcake_scan.tsv`, `figS9_modratio_agreement.tsv`,
-`figS9F_pairs.tsv`) plus `../tables/S9F_glori_agreement.tsv` for the Lin's CCC
+`figS9F_pairs.tsv`) plus `tables/S9F_glori_agreement.tsv` for the Lin's CCC
 series (the same values quoted in the manuscript and the reply letter),
 `data/evaluation/tables/m6a_localization_curve.tsv` for
 the window sweep, and `tables/tables/
 TableS12_coverage_rank_stability.tsv` for the two stability cells (read, never
 recomputed); rendered by `70_figs9_panels.py`, composed 1:1 by
 `71_figs9_page.py`, accepted by `72_verify_figs9.py`; anchors in
-`../tables/S9_anchors.tsv`.
+`tables/S9_anchors.tsv`.
 
 **Differences to the originally submitted page.** The figure is RNA004 only: the
 Curlcake block of RNA002-only tools, the grey RNA002 control points, the

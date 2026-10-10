@@ -26,9 +26,16 @@ value below is taken from the published code, not invented.
 * Size scale on the final page (this is what makes the figure look "printed"):
   ticks 8.5, row labels 7.5 (A, C, since 2026-10-08), axis labels 10.0, panel letters 15.0 bold,
   legends 8.5, **key value callouts 12.0 bold** (author decision).
-* Page sizes (must equal the replaced files): Figure 8 = 595.276 x 740.0 pt;
-  Figure S9 = 595.276 x 770.419 pt.  Save without `bbox_inches="tight"` so the
-  pt sizes above are the printed sizes.
+* Page sizes (must equal the replaced files, as delivered on 2026-10-10):
+  Figure 8 = **500.4 x 604.8 pt** (6.95 x 8.40 in, the A4-landscape page of
+  2026-10-08); Figure S9 = **510.0 x 482.0 pt**.  Save without
+  `bbox_inches="tight"` so the pt sizes above are the printed sizes.  The old
+  595.276 x 740.0 / 595.276 x 770.419 pt values are superseded.
+* Row 1 of the page (2026-10-10, author note: "… a"): no longer
+  three equal thirds.  `fig8_style.ROW1_A_IN / ROW1_C_IN = 2.78 / 3.92 in`, with A
+  printing a 1.35 in plot area (was 0.77) and C splitting into a 1.30 in dot plot
+  plus a 0.99 in calls bar (was 1.71 / 1.23).  Row 2 (B1 | B2 | D, equal columns)
+  and E are unchanged.
 * Axis furniture: `top`/`right` spines off, left/bottom lw 1.1, ticks out,
   `FixedLocator` + `NullLocator` on log axes (no minors), no `1e+06` style
   labels, legends `frameon=False`.
@@ -155,7 +162,7 @@ panel, so this is specified from scratch in the same visual language.
 
 ## Acceptance checklist (extends `53_verify_fig8_s8.py`)
 
-* page size exact (595.276 x 740.0 / 595.276 x 770.419 pt, 1e-4 tolerance);
+* page size exact (500.4 x 604.8 / 510.0 x 482.0 pt, 1e-4 tolerance);
 * only embedded Arial fonts (`pdffonts`);
 * no `grid` call in the plotting scripts;
 * minimum explicit font >= 7 pt, **value callouts >= 12 pt**;

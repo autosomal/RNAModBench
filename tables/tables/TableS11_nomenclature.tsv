@@ -1,22 +1,22 @@
 # Table S11: Tool nomenclature used throughout the manuscript, figures and Supporting Information.
-Standardized name	Tool	Configuration evaluated	Software version / model
-CHEUI_m6A	CHEUI	CHEUI_m6A, CHEUI_m5C	See Table S6
-DENA	DENA	de novo	See Table S6
-DRUMMER	DRUMMER	comparative (WT vs control)	See Table S6
-ELIGOS2_diff	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	See Table S6
-ELIGOS2_solo	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)	See Table S6
-EpiNano_Error	EpiNano_Error		See Table S6
-m6Anet	m6Anet	de novo (RNA002 and RNA004-optimised models)	See Table S6
-MINES	MINES	de novo	See Table S6
-Nanocompore	Nanocompore	comparative (WT vs control)	See Table S6
-Nanom6A	Nanom6A	de novo	See Table S6
-NanoSPA_m6A	NanoSPA	NanoSPA_m6A, NanoSPA_Ψ	See Table S6
-xPore	xPore	comparative (WT vs control)	See Table S6
-Yanocomp	Yanocomp	de novo	See Table S6
-NanoPsu	NanoPsu	de novo	See Table S6
-NanoSPA_Ψ	NanoSPA	NanoSPA_m6A, NanoSPA_Ψ	See Table S6
-NanoMUD_Ψ	NanoMUD	NanoMUD_Ψ, NanoMUD_m1Ψ	See Table S6
-CHEUI_m5C	CHEUI	CHEUI_m6A, CHEUI_m5C	See Table S6
-NanoNm	NanoNm	de novo	See Table S6
-NanoMUD_m1Ψ	NanoMUD	NanoMUD_Ψ, NanoMUD_m1Ψ	See Table S6
+Standardized name	Tool	Configuration evaluated
+CHEUI_m6A	CHEUI	CHEUI_m6A, CHEUI_m5C
+DENA	DENA	de novo
+DRUMMER	DRUMMER	comparative (WT vs control)
+ELIGOS2_diff	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)
+ELIGOS2_solo	ELIGOS2	differential (ELIGOS2_diff) and single-sample (ELIGOS2_solo)
+EpiNano_Error	EpiNano_Error	
+m6Anet	m6Anet	de novo (RNA002 and RNA004-optimised models)
+MINES	MINES	de novo
+Nanocompore	Nanocompore	comparative (WT vs control)
+Nanom6A	Nanom6A	de novo
+NanoSPA_m6A	NanoSPA	NanoSPA_m6A, NanoSPA_Ψ
+xPore	xPore	comparative (WT vs control)
+Yanocomp	Yanocomp	de novo
+NanoPsu	NanoPsu	de novo
+NanoSPA_Ψ	NanoSPA	NanoSPA_m6A, NanoSPA_Ψ
+NanoMUD_Ψ	NanoMUD	NanoMUD_Ψ, NanoMUD_m1Ψ
+CHEUI_m5C	CHEUI	CHEUI_m6A, CHEUI_m5C
+NanoNm	NanoNm	de novo
+NanoMUD_m1Ψ	NanoMUD	NanoMUD_Ψ, NanoMUD_m1Ψ
 # note: names are standardized as in the manuscript; the reference for every tool is given in the numbered reference list of the manuscript. The software version, model checkpoint, input requirements, coverage floor, filtering parameters, thresholds, multiple-testing correction and coordinate harmonisation of every configuration are in Table S6.

@@ -351,8 +351,21 @@ def verify_style() -> None:
     check("42_figS4_figure.py: the archived PR-AUC tables stay verified",
           "_assert_unit_means(df_unit, df_auprc)" in s4
           and "pr_auc_w{window}_{group}" in s4)
-    check("42_figS4_figure.py: the sub-row titles clear the frame line",
-          "A_TITLE_INDENT_IN" in s4 and "t_x = x_in + A_TITLE_INDENT_IN" in s4)
+
+    # nine horizontal sub-row captions are gone.  Each metric row is named **once**, by
+    # a shared rotated label in the page's left strip (the house rule keeps a shared row
+    # label in the leftmost column); the bands the captions lived in became sub-row
+    # height, and the constants of that trade are checked with the inch budget below.
+    check("42_figS4_figure.py: panel A carries three shared rotated row labels",
+          s4.count("row_label(fig, A_H_IN,") == 3 and "rotation=90" in s4
+          and s4.count('"WT counts\\n(log)"') == 1
+          and s4.count('"Purified\\ncounts (log)"') == 1
+          and s4.count('"Purified/WT\\nratio"') == 1)
+    check("42_figS4_figure.py: the nine sub-row captions are gone",
+          "A_TITLE_INDENT_IN" not in s4
+          and "t_x = x_in + A_TITLE_INDENT_IN" not in s4
+          and s4.count("_title(fig, A_H_IN, t_x,") == 0,
+          f"captions left: {s4.count('_title(fig, A_H_IN, t_x,')}")
 
 
     # below, one shared x axis, and a single block letter B
@@ -414,6 +427,19 @@ def verify_style() -> None:
           abs(total - 12.56) < 0.005,
           f"A {a_row:.2f} + BC {b_row:.2f} + D {d_row:.2f} = "
           f"{total:.3f} in")
+    # 2026-10-09: the retired caption bands paid for taller sub-rows.  ``A_H_IN`` itself
+    # is unchanged, which is why the page budget above still lands on 12.56 in -- and why
+    # the four constants below have to move together (their sum is asserted there).
+    check("42_figS4_figure.py: the retired caption bands became sub-row height",
+          abs(inch("A_BAND_IN") - 0.12) < 1e-9
+          and abs(inch("A_SUB_IN") - 0.65) < 1e-9
+          and abs(inch("A_RATIO_IN") - 0.56) < 1e-9
+          and abs(inch("A_HEAD_IN") - 0.30) < 1e-9,
+          f"band {inch('A_BAND_IN')}, counts {inch('A_SUB_IN')}, "
+          f"ratio {inch('A_RATIO_IN')}, head {inch('A_HEAD_IN')}")
+    check("42_figS4_figure.py: the shared row labels sit in the page's left strip",
+          abs(inch("A_YLABEL_X_IN") - 0.26) < 1e-9,
+          f"A_YLABEL_X_IN={inch('A_YLABEL_X_IN')}")
     col_w = (8.27 - inch("LEFT_IN") - inch("RIGHT_IN")
              - 2 * inch("COL_GAP_IN")) / 3
     for label, height in (("B/C facet", inch("B_FACET_IN")),

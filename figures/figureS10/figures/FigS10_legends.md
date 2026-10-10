@@ -77,7 +77,7 @@ under one figure number, recast as the three block letters A-C.
    `bed/RNA004/majority/<group>/<mod>/<model>.bed`). With a single sequencing
    unit per condition the "majority" merge is that unit itself — the labels
    never claim a consensus of replicates.
-2. **Block B (bottom left)** reads `../tables/figS10_curlcake_scan.tsv`, computed from
+2. **Block B (bottom left)** reads `tables/figS10_curlcake_scan.tsv`, computed from
    `callsets/RNA004/Curlcake/RNA004_Curlcake_IVT/{Psi,m5C}/<model>/`
    (the synthetic control is **not** pre-filtered, so the threshold can be
    swept). The Curlcake run names the same model families differently from
@@ -85,7 +85,7 @@ under one figure number, recast as the three block letters A-C.
    v5.1.0: `Dorado_{hac,sup}@v5.1.0_all_Psi` and `..._all_m5C`; there is no plain
    `pseU@v1` model), so the curves are labelled with the HeLa model names. Raw call numbers and both denominators are pinned to the frozen
    evaluation table at 1e-5 relative tolerance.
-3. **Block C (bottom right)** reads `../tables/figS10_score_validity.tsv` (one row per
+3. **Block C (bottom right)** reads `tables/figS10_score_validity.tsv` (one row per
    call) and `..._summary.tsv` (one row per model, written by
    `scripts/60_figS10_tables.py`); the AUC is the Mann-Whitney common-language
    effect size between the wild-type and unmodified-IVT calls, with the verdict
@@ -151,7 +151,7 @@ the unmodified construct; 10,135 bp):
 | R2C2 | Dorado_hac@v5.1.0_all_m5C | 246 | 4 | 0 | 242.72 | 3.95 |
 | R2C3 | Dorado_sup@v5.1.0_all_m5C | 106 | 2 | 0 | 104.59 | 1.97 |
 
-Source: `../tables/figS10_curlcake_scan.tsv` (all ten thresholds per model).
+Source: `tables/figS10_curlcake_scan.tsv` (all ten thresholds per model).
 
 Block C (bottom right) — score validity in HeLa (does the model's own score separate the
 conditions?):
@@ -165,7 +165,7 @@ conditions?):
 | R2C2 | hac@v5.1.0_m5C | 725 / 261 | 0.930 / 0.926 | 5.9 % / 5.4 % | 65 / 60 | 0.5486 | no discrimination |
 | R2C3 | sup@v5.1.0_m5C | 218 / 97 | 0.932 / 0.933 | 5.1 % / 5.2 % | 79 / 102 | 0.5036 | no discrimination |
 
-Source: `../tables/figS10_score_validity_summary.tsv` (p-values and full summary
+Source: `tables/figS10_score_validity_summary.tsv` (p-values and full summary
 in the table).
 
 Reported values — strict false-positive rate on the unmodified HeLa IVT control
@@ -181,12 +181,12 @@ reported values, not drawn):
 | R2C2 | hac@v5.1.0_m5C | 261 (216) | 0.016613 | 18.438 |
 | R2C3 | sup@v5.1.0_m5C | 97 (87) | 0.0061742 | 6.852 |
 
-Source: `../tables/figS10_ivt_fpr.tsv`, cross-checked row by row against the
+Source: `tables/figS10_ivt_fpr.tsv`, cross-checked row by row against the
 frozen evaluation table `harmonisation/evaluation/tables/controls_ivt_fpr.tsv`
 (the same table that feeds Fig. 8B/D) at 1e-5 relative tolerance.
 
-All numbers above: `../tables/figS10_region_shares.tsv`,
-`../tables/figS10_wt_ivt_contrast.tsv`, `../tables/figS10_key_numbers.md`.
+All numbers above: `tables/figS10_region_shares.tsv`,
+`tables/figS10_wt_ivt_contrast.tsv`, `tables/figS10_key_numbers.md`.
 
 ## Audit
 

@@ -339,7 +339,7 @@ write_table(
 # `band_matched_rate_ratios.tsv` keeps `count_ratio_ivt_over_wt` for the record, and
 # `s7_ratio_ci.tsv` keeps the retired interval for the deposited evidence.
 cnt = pd.read_csv((_RB / "figures/figureS7/tables/s7_counts_summary.tsv"), sep="\t")
-mat = pd.read_csv((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"),
+mat = pd.read_csv((_RB / "analysis/nonm6a_replicate_depth/evidence/band_matched_rate_ratios.tsv"),
                   sep="\t")
 order = ["CHEUI_m5C", "NanoMUD_psi", "NanoMUD_m1psi", "NanoNm", "NanoSPA_psU", "NanoPsu"]
 disp = {"CHEUI_m5C": "CHEUI-m5C", "NanoMUD_psi": "NanoMUD-Psi", "NanoMUD_m1psi": "NanoMUD-m1Psi",
@@ -445,7 +445,7 @@ _nano_own_hi = _anchor("matched_ci_this_study_site_hi")
 #: a contradiction of the ratio.  The raw numbers stay in the manuscript's prose and in the
 #: deposited evidence; the (SD) of the standardised count is the between-library spread the
 #: counting interval deliberately leaves out, and it is what Figure 7A draws per unit.
-RATE_UNITS_EV = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_unit_rates.tsv"))
+RATE_UNITS_EV = ((_RB / "analysis/nonm6a_replicate_depth/evidence/band_matched_unit_rates.tsv"))
 if not RATE_UNITS_EV.exists():
     raise SystemExit(f"missing {RATE_UNITS_EV}; run the R3-9b depth diagnosis before the "
                      f"tables")
@@ -669,7 +669,8 @@ write_table(
     rows,
     "One row per tool and configuration used in this study (13 m6A configurations, the "
 "non-m6A tools of the modification panels, and the RNA004 built-in modification models); "
-"configurations outside this study are not listed.",
+"configurations outside this study are not listed. The calling thresholds of representative "
+"tools are swept in Figure S11.",
 )
 
 #: gate -- the table carries the study's tools and nothing else

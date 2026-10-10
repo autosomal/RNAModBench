@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 """72 -- acceptance checks for the rebuilt Figure S9 (run after 70/71).
 
-Contract of the 2026-09-30 page: **892.8 x 784.8 pt** (12.400 x 10.900 in) with
-the 3 x 3 grid A | B | C / D | E | H / F | G | I -- **RNA004 data only** (no
-RNA002 run is drawn anywhere), every panel's numbers reproduce the frozen
-tables, and the drawing code keeps the house rules (no grid, no scatter clouds,
-Arial only, nothing below 8 pt -- the sweep key; the layout gate's own default
-floor is 7 pt).
+Contract of the 2026-10-09 page: **1015.776 x 792.0 pt** (14.108 x 11.000 in)
+with the 3 x 3 grid A | B | C / D | E | H / F | G | I and nine **square** boxes
+(2.675 x 2.675 in, all derived from ``s9_style`` -- A's 23-row pitch pins the
+side, the sheet was widened to reach it) -- **RNA004 data only** (no RNA002 run
+is drawn anywhere), every panel's numbers reproduce the frozen tables, and the
+drawing code keeps the house rules (no grid, no scatter clouds, Arial only,
+nothing below 8 pt -- the sweep key; the layout gate's own default floor is
+7 pt).
 """
 from __future__ import annotations
 
@@ -23,7 +25,8 @@ import s9_style as S  # noqa: E402
 
 PDF = S.FIGS / "FigureS9_rev.pdf"
 
-#: 892.8 x 770.4 pt so this check can never fall out of step with the builder
+#: 792.0 pt since 2026-10-09, so this check can never fall out of step with the
+#: builder
 PAGE_PT = (S.PAGE_IN[0] * 72.0, S.PAGE_IN[1] * 72.0)
 KEYS = list("ABCDEFGHI")                        # 2026-09-27: three-by-three grid
                                                 # (sweep D|E, effect F|G, the two
@@ -42,6 +45,15 @@ def text_of(path: Path) -> str:
                           capture_output=True, text=True).stdout
 
 
+def word_boxes(pdf: Path) -> list[tuple[float, float, float, float, str]]:
+    """(x0, y0, x1, y1, text) of every word box, in pt (``pdftotext -bbox``)."""
+    raw = subprocess.run(["/usr/bin/pdftotext", "-bbox", str(pdf), "-"],
+                         capture_output=True, text=True).stdout
+    return [(float(a), float(b), float(c), float(d), e) for a, b, c, d, e in re.findall(
+        r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>',
+        raw)]
+
+
 def main() -> None:
     info = subprocess.run(["/usr/bin/pdfinfo", str(PDF)], capture_output=True,
                           text=True).stdout
@@ -50,6 +62,34 @@ def main() -> None:
     check("page size", abs(got[0] - PAGE_PT[0]) < 0.01
           and abs(got[1] - PAGE_PT[1]) < 0.01, f"{got}")
     check("single page", "Pages:           1" in info)
+
+    
+    #: squares.  Nothing else can see a box that came out a hair narrow: the
+    #: layout gate measures text, pdftotext sees no geometry, and ``cell_rect``
+    #: used to clamp silently.  This check re-derives the square from the style
+    #: module (column width == frozen label column + right margin + box side;
+    #: row 1's band draws the same side) and, second, that every rendered panel
+    #: canvas still is the width the placement table promises.
+    box_w = S.COL_W - S.LABEL_COL_IN - S.BOX_RIGHT_IN
+    check("nine plotting areas are 2.675 in squares",
+          abs(box_w - S.BOX_H_LOW_IN) < 1e-9
+          and abs(S.BOX_SIDE_IN - S.BOX_H_LOW_IN) < 1e-9
+          and abs(S.ROW1_BOX_FRAC * S.ROW_H["r1"] - S.BOX_H_LOW_IN) < 1e-9
+          and abs(S.COL_W - (S.LABEL_COL_IN + S.BOX_RIGHT_IN + S.BOX_SIDE_IN)) < 1e-9,
+          f"box {box_w:.4f} x {S.BOX_H_LOW_IN:.4f} in on a "
+          f"{S.COL_W:.4f} in cell, page {S.PAGE_IN[0]:.4f} in")
+    panel_bad = []
+    for key, (w, h) in S.PIECE.items():
+        p_info = subprocess.run(["/usr/bin/pdfinfo",
+                                 str(S.PANELS / f"figS9{key}.pdf")],
+                                capture_output=True, text=True).stdout
+        p_size = [ln for ln in p_info.splitlines() if ln.startswith("Page size")]
+        p_got = tuple(float(x) for x in re.findall(r"[\d.]+", p_size[0])[:2]) \
+            if p_size else (0.0, 0.0)
+        if abs(p_got[0] - w * 72.0) > 0.01 or abs(p_got[1] - h * 72.0) > 0.01:
+            panel_bad.append(f"{key} {p_got} != ({w * 72:.2f}, {h * 72:.2f})")
+    check("panel canvases match their print size", not panel_bad,
+          str(panel_bad))
 
     fonts = subprocess.run(["/usr/bin/pdffonts", str(PDF)],
                            capture_output=True, text=True).stdout
@@ -66,6 +106,30 @@ def main() -> None:
         found = [t for t in piece.split() if len(t) == 1 and t.isupper()]
         got_letters.append(found[0] if found else "?")
     check("panel letters A-I once each", got_letters == KEYS, str(got_letters))
+
+    
+    #: anchored to its own canvas at ``S.LETTER_IN``, so the three letters of a
+    #: column share one x -- and that x is the canvas' left edge plus that
+    #: constant.  The composed page carries the glyphs as text, but pdftotext
+    #: splits the rotated tool labels into 8-9 pt fragments, so a panel letter is
+    #: a lone A-I whose box is taller than 25 pt (the 28 pt glyph measures 31.3).
+    _pos = {t: (x0, y0) for x0, y0, x1, y1, t in word_boxes(PDF)
+            if len(t) == 1 and t in KEYS and (y1 - y0) > 25.0}
+    check("nine panel letters visible in the page text layer",
+          sorted(_pos) == sorted(KEYS), f"found {sorted(_pos)}")
+    if sorted(_pos) == sorted(KEYS):
+        _off = {k: _pos[k][0] - (S.PLACE[k][0] + S.LETTER_IN) * 72.0 for k in KEYS}
+        _worst = max(_off.items(), key=lambda kv: abs(kv[1]))
+        check("panel letters sit at their canvas' left edge + LETTER_IN",
+              abs(_worst[1]) <= 0.5, f"worst {_worst[0]} {_worst[1]:+.2f} pt (tol 0.5)")
+        _col = max(max(_pos[k][0] for k in g) - min(_pos[k][0] for k in g)
+                   for g in ("ADF", "BEG", "CHI"))
+        check("letters of one column share one x", _col <= 0.5,
+              f"spread {_col:.2f} pt (tol 0.5)")
+        _row = max(max(_pos[k][1] for k in g) - min(_pos[k][1] for k in g)
+                   for g in ("ABC", "DEH", "FGI"))
+        check("letters of one row share one y", _row <= 0.5,
+              f"spread {_row:.2f} pt (tol 0.5)")
 
     banned = ("hit rate", "near-perfect", "jaccard", "percent_modified",
               "rna002", "chemistry", "nested subset", "unit mean",

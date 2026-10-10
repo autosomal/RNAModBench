@@ -1,28 +1,32 @@
 #!/usr/bin/env python
 """Figure S9 panel drawing -- every panel on its own print-size canvas.
 
-Six panels, no panel titles (the figure legend carries the sample names, the
-Figure 8 convention), every key next to the panel it belongs to, and every entry
-that is drawn is named somewhere on the page:
+Nine panels on a 3 x 3 grid (A | B | C / D | E | H / F | G | I, 2026-09-27), no
+panel titles (the figure legend carries the sample names, the Figure 8
+convention), every key next to the panel it belongs to, and every entry that is
+drawn is named somewhere on the page:
 
 A  detection counts as grouped horizontal bars on a log axis: one pair per
-   entry, WT in the project's WT blue, IVT in the project's IVT orange; rows
-   clustered in three blocks (Dorado m6A models, other m6A tools, other
-   modification models).  An entry with no call gets an open left triangle on
-   the axis floor instead of a zero-length bar.  Its WT / IVT key sits in the
-   free strip above the axes.
+   entry, WT in the project's WT blue, IVT in the project's IVT orange, over 23
+   entries.  An entry with no call gets an open left triangle on the axis floor
+   instead of a zero-length bar.  Its WT / IVT key sits in the free strip above
+   the axes.
 B  the eight ORCA channels, same layout as A with its own WT / IVT key.
 C  the unmodified RNA004 Curlcake control: false positives per 10^6 candidate
    adenosines as one bar per entry (IVT orange -- it is an unmodified IVT
-   library) on a log axis, with the matching specificity on the top axis.
-D  matching window (0-50 bp) against PPV (upper tile) and the exact-nucleotide
-   fraction (lower tile).  All thirteen entries are drawn and all thirteen are
-   named in the key under the tiles; the best DRACH model carries the project's
-   "selected" red, the 2-bp working point is a dashed guide.
-E  Pearson r against GLORI with its Fisher-z 95 % CI, one lollipop per ratio
-   tool (the row with the highest r highlighted).
-F  the effect size: the OLS slope of the tool ratio on the GLORI ratio with its
-   bootstrap 95 % CI, one lollipop per ratio tool, reference line at 1.0.
+   library) on a log axis, with the matching false-positive rate on the top axis.
+D  matching window (0-50 bp) against PPV; the thirteen entries are named in the
+   half of the sweep key printed under it.
+E  the same window sweep as the exact-nucleotide fraction; carries the second
+   half of the thirteen-entry key.
+H  rank stability of the tool ordering against transcript coverage (level
+   floors, three species markers keyed underneath).
+F  Pearson r against GLORI with its Fisher-z 95 % CI, one lollipop per ratio
+   tool.
+G  the effect size: the OLS slope and Lin's CCC with their bootstrap 95 % CIs,
+   one row per ratio tool, reference line at 1.0.
+I  rank stability against the reference's own modification ratio, with the same
+   species markers as H.
 
 Panels of one column share the width of their label column (``left_in``), so
 their plotting areas start at the same x and the page reads as a grid.
@@ -126,7 +130,8 @@ def _top_key(fig: plt.Figure, handles: list, ncol: int, *, x: float = 0.5,
 
     2026-09-27 (author decision): the top key prints at the small-legend size -- at 10.5 pt
     the key of C ran past the right edge of its cell.  (2026-09-30: the canvas is
-    4.027 in wide now, so this strip has far more slack; size and anchor kept.)
+    4.596 in wide since 2026-10-09, so this strip has far more slack; size and
+    anchor kept.)
     """
 
     #: is centred on its own cell instead of hugging the panel letter.
@@ -142,31 +147,21 @@ def _top_key(fig: plt.Figure, handles: list, ncol: int, *, x: float = 0.5,
 def letter_near(fig: plt.Figure, key: str, left_in: float,
                 labels: list[str] | None, fs: float,
                 box_h_in: float, pad_in: float = 0.34) -> None:
-    """Panel letter immediately left of this panel's own topmost label.
+    """Panel letter: the shared, canvas-anchored placement (2026-10-09).
 
- 2026-09-28 (author decision): " " -- the letter used to sit
-    at the left edge of the cell, which for a panel with short row labels (or with
-    none at all) left it a whole label column away from the ink.  It is now placed
-    0.30 in left of the top row's own label, so every letter reads as part of its
-    panel; the layout gate checks that it clears that label.
+ 2026-09-28 (author decision) asked for the opposite trade-off (" 
+ " and "FG / HI "): the letter
+    was then pushed 0.34 in left of this panel's own top label block, so its x
+    moved with every panel's labels -- the nine letters ended up 0.02 .. 0.99 in
+    apart within their columns.  On 2026-10-09 the author asked for alignment
+    instead, so the letter is anchored to this canvas' own left edge through
+    ``s9_style.LETTER_IN``: one inset for all nine panels, which lines the
+    columns up.  The arguments stay because the call sites pass them, but the
+    placement no longer depends on them; the measured headroom in the letter
+    band (the closest label block starts 1.31 in in) leaves up to 0.97 in
+    available, so the letters never touch the labels.
     """
-    win = fig.get_figwidth()
-    if not labels:
-        #: a panel with no row labels (the sweep cells): the tick labels and the
-        #: rotated y title are its leftmost ink, measured at 0.86 in
-        x_in = max(left_in - pad_in - 0.52, 0.020)
-    else:
-
-        #: letter is 0.37 in tall, so it shares its band with the first two to
-        #: three label rows; the width that matters is the widest of *those*, not
-        #: the top one.  F/G put a 1.0 in name in their second row (the letter was
-        #: sitting on it) and H/I have short two-row blocks (the letter floated a
-        #: row too far left).  The band is now measured from the row pitch.
-        pitch = max(box_h_in / max(len(labels), 1), 0.02)
-        rows = max(1, min(len(labels), int(-(-0.30 // pitch))))
-        width = label_width_in(list(labels[:rows]), fs)
-        x_in = max(left_in - width - pad_in, 0.020)
-    S.letter(fig, key, x=x_in / win)
+    S.letter(fig, key)
 
 
 def _rows(df: pd.DataFrame, columns: list[str],
@@ -214,10 +209,12 @@ def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
 
 
     #: the same width as the eight other panels: the canvas minus the shared label
-    #: column and the same 0.060 in right margin ``S.cell_rect`` keeps.  (The dead
-    #: ``square`` flag of that transition was removed on 2026-09-30.)
+    #: column and the same ``S.BOX_RIGHT_IN`` right margin ``S.cell_rect`` keeps.
+    #: (The dead ``square`` flag of that transition was removed on 2026-09-30;
+    #: 2026-10-09: every box is a square again -- the band height is derived from
+    #: the column width, see ``s9_style``.)
     ax = fig.add_axes([left, y0,
-                       (w_in - 0.060 - left_in) / w_in,
+                       (w_in - S.BOX_RIGHT_IN - left_in) / w_in,
                        height])
     S.bare(ax)
     ax.set_xscale("log")
@@ -296,7 +293,8 @@ def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
         sec.spines["top"].set_linewidth(S.AXIS_LW)
         for side in ("left", "right", "bottom"):
             sec.spines[side].set_visible(False)
-    #: 2026-09-30: the band is the panel's real box height (0.7491 of row 1) --
+    #: 2026-09-30: the band is the panel's real box height (0.7472 of row 1
+    #: since 2026-10-09, ``S.ROW1_BOX_FRAC``) --
     #: the old ``figheight - BOX_BOTTOM_IN - BOX_TOP_PAD_IN`` mixed the row-2/3
     #: strip constants into row 1 and drifted with every edit of them
     letter_near(fig, key, left_in, labels, row_fs, height * fig.get_figheight())
@@ -308,8 +306,9 @@ def _draw_bar_panel(fig: plt.Figure, df: pd.DataFrame, key: str, row_fs: float,
 #: scientific notation, where the order of magnitude is immediate (mathtext is
 #: already set to Arial in the style module, so the glyphs match the figure).
 #: The axis caps at max(rate) * 1.35 ~ 4657; the right tick sits at 3000 so the
-#: wider scientific-notation label keeps ~40 pt of clearance to the axis end
-#: (at 4000 the label pushed 0.049 in past the canvas).
+#: wider scientific-notation label keeps clear of the axis end -- ~40 pt in the
+#: 2.111 in box of 2026-09-30 (where 4000 pushed the label 0.049 in past the
+#: canvas), and only more room in the 2.675 in box of 2026-10-09.
 SPEC_TICKS = {100.0: "$10^{-4}$", 3000.0: "$3\\times10^{-3}$"}
 
 
@@ -317,12 +316,15 @@ def draw_a(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     """A -- detection counts per entry, WT | IVT (23 entries)."""
     #: row 1 settled at 3.580 in on 2026-09-30 (the larger type needed the room
     #: around the box), so the x label needs a slightly higher floor than the
-    #: 0.105 of the 4.08 in canvas
+    #: 0.105 of the 4.60 in canvas
     _draw_bar_panel(fig, df, "A", FS["row_a"], left_in, paired=True,
                     xlabel="Detected sites (log scale)", floor=0.75,
 
-                    #: (0.7491 of the 3.580 in cell, 2026-09-30), so the row reads as a row
-                    ticks=[1, 100, 10000], y0=0.1324, height=0.7491)
+
+                    #: derived (``S.ROW1_BOTTOM_FRAC`` / ``S.ROW1_BOX_FRAC``) and
+                    #: draws the same 2.675 in square as the six lower boxes
+                    ticks=[1, 100, 10000],
+                    y0=S.ROW1_BOTTOM_FRAC, height=S.ROW1_BOX_FRAC)
 
 
 def draw_orca(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
@@ -330,7 +332,9 @@ def draw_orca(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     _draw_bar_panel(fig, df, "B", FS["row"], left_in, paired=True,
                     xlabel="Detected sites (log scale)", floor=10.0,
 
-                    ticks=[10, 100, 1000, 10000], y0=0.1324, height=0.7491)
+                    #: (2026-10-09: derived from the square side)
+                    ticks=[10, 100, 1000, 10000],
+                    y0=S.ROW1_BOTTOM_FRAC, height=S.ROW1_BOX_FRAC)
 
 
 def draw_curlcake(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
@@ -341,10 +345,12 @@ def draw_curlcake(fig: plt.Figure, df: pd.DataFrame, left_in: float) -> None:
     """
 
 
-    #: the row share their top and bottom lines
+    #: the row share their top and bottom lines (2026-10-09: the band leaves
+    #: 0.431 in above the box for this panel's FP-rate twin axis)
     _draw_bar_panel(fig, df, "C", FS["row"], left_in, paired=False,
                     xlabel="FP per 10$^6$ candidates", floor=100.0,
-                    ticks=[100, 1000], y0=0.1324, height=0.7491,
+                    ticks=[100, 1000],
+                    y0=S.ROW1_BOTTOM_FRAC, height=S.ROW1_BOX_FRAC,
                     sec_ticks=SPEC_TICKS)
 
 
@@ -457,7 +463,10 @@ def draw_window_ppv(fig: plt.Figure, loc: pd.DataFrame, left_in: float) -> None:
 
     #: ticks, 12.5 pt axis name), so the gap widens 0.86 -> 0.92 in and the letter
     #: keeps ~0.09 in to the rotated y title instead of hugging it
-    S.letter(fig, "D", x=min(left_in - 0.92, 2.40) / fig.get_figwidth())
+
+
+    #: the letter takes the shared canvas inset like the other eight panels.
+    S.letter(fig, "D")
 
 
 def draw_window_exact(fig: plt.Figure, loc: pd.DataFrame,
@@ -477,7 +486,8 @@ def draw_window_exact(fig: plt.Figure, loc: pd.DataFrame,
     #: no row labels, so the letter sat a whole label column (1.86 in) away from
     #: its box; it now sits in the free band just left of the box.
 
-    S.letter(fig, "E", x=min(left_in - 0.92, 2.40) / fig.get_figwidth())
+
+    S.letter(fig, "E")
 
 
 # --------------------------------------------------------------------------- #
@@ -533,8 +543,8 @@ def _stability_axes(fig: plt.Figure, rect: list[float], rows: pd.DataFrame,
     #: 2026-09-27: the level names print at the 7 pt floor -- at 7.5 pt the
     #: longest one ran 0.02 in past the left edge of the then 2.5967 in cell
 
-    #: unified row size instead of the 7 pt floor (the cell is 4.027 in since
-    #: 2026-09-30, so the fit is no longer tight).
+    #: unified row size instead of the 7 pt floor (the cell is 4.596 in since
+    #: 2026-10-09, so the fit is no longer tight).
     ax.set_yticklabels(levels, fontsize=FS["level"])
     ax.tick_params(axis="x", labelsize=FS["tick_sm"], pad=3.6)
     ax.tick_params(axis="y", length=0, pad=5.0)
@@ -607,9 +617,12 @@ def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
     #: shave a row off the block but the gate caught the overflow every time.
 
     #: prints at 8 pt (one step under the 9.5 pt row scale; it stays the page's
-    #: smallest size): one column is ~1.41 in, each half block ~2.84 in -- wider
-    #: than the free width of the canvas, so ``grid_key`` clamps both halves to
-    #: the same left edge (they still line up as one band under the pair).
+    #: smallest size): one column is ~1.41 in, the two halves come out 2.82 in
+    #: (D) and 2.92 in (E) wide.  Each half is centred on its own box first, but
+    #: a block that would run past the canvas is clamped, and at 2.82/2.92 in both
+    #: halves still clamp (by 0.02 and 0.08 in) -- each therefore stays flush with
+    #: its own cell's right edge less 0.012 in, exactly as before the widening, so
+    #: the two halves still read as one band under the pair.
     #: (The dead ``row_h_in=0.105`` parameter was removed on 2026-09-30; the block
     #: draws its rows at the pitch below.)
     part, ncol = (items[:6], 2) if half == "left" else (items[6:], 3)
@@ -617,7 +630,7 @@ def draw_sweep_key(fig: plt.Figure, loc: pd.DataFrame, *, half: str,
     #: edge, so the block starts 0.024 in up.  2026-09-30: at 8 pt the rows need
     #: 0.117 in of pitch (0.098 was the 7 pt pitch)
     y_top_in = 0.024 + rows * 0.117
-    box_centre = left_in + (fig.get_figwidth() - left_in - 0.060) / 2.0
+    box_centre = left_in + (fig.get_figwidth() - left_in - S.BOX_RIGHT_IN) / 2.0
     grid_key(fig, part, x_in=0.100, y_top_in=y_top_in, ncol=ncol,
              fontsize=8.0, sw_in=0.075, row_h_in=0.117,
              col_gap_in=0.020, centre_in=box_centre)
@@ -724,7 +737,8 @@ def _effect_key(fig: plt.Figure, *, centre_x: float,
                               label=series2_label))
 
     #: 3.740 in cell, so this key once printed at the 7 pt floor; 2026-09-30: the
-    #: cell is 4.027 in wide and the key prints at FS["key"] = 9.5 pt again
+    #: cell is 4.596 in wide since 2026-10-09 and the key prints at
+    #: FS["key"] = 9.5 pt again
     fig.legend(handles=handles, loc="lower center",
                bbox_to_anchor=(centre_x, S.KEY_BOTTOM_IN / fig.get_figheight()),
                ncol=len(handles), frameon=False, fontsize=FS["key"],
@@ -772,7 +786,7 @@ def draw_effect_slope(fig: plt.Figure, rows: pd.DataFrame,
     _lollipop_axes(fig, rect, rows, "slope", "slope_lo", "slope_hi",
                    "Slope or Lin's CCC", show_labels=True,
                    series2={"value": "ccc", "lo": "ccc_lo", "hi": "ccc_hi"})
-    #: the key is ~2.2 in wide against a box of the same order (2.111 in since
+    #: the key is ~2.2 in wide against a box of the same order (2.675 in since
     #: 2026-09-30), so it stays centred on the canvas instead of on the box
     _effect_key(fig, centre_x=0.5,
                 series2_label="Lin's CCC, 95 % CI")

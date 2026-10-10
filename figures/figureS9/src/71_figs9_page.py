@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-"""71 -- compose the nine panels onto the 892.8 x 792.0 pt (12.400 x 11.000 in) Figure S9 page.
+"""71 -- compose the nine panels onto the 1015.776 x 792.0 pt (14.108 x 11.000 in) Figure S9 page.
 
 The panels were drawn at their final print size on a 3 x 3 grid, so pypdf only
 translates them (no scaling): the point sizes in the panel PDFs are the printed
 sizes.  ``compose_page`` asserts that every placement stays inside the page and
-that no two panels overlap.
+that no two panels overlap.  The page size is derived from ``s9_style`` (2026-10-09:
+the sheet is 14.108 in wide so the nine plotting areas are 2.675 in squares).
 
 Usage
 -----

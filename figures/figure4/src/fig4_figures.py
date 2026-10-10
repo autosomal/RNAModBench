@@ -89,12 +89,28 @@ sys.path.insert(0, str(_RB / "src/harmonisation"))
 from common.figstyle import apply as apply_style            # noqa: E402
 
 CANVAS_W, MIN_PT = 6.66, 7.0
-TOP_PAD, ROW_GAP, BOTTOM_PAD = 0.03, 0.11, 0.05
+
+#: must stay inside a 0.15 in margin on all four sides.  Measured before this fix
+#: (300 dpi): left 0.015 (the C/D panel letters), right 0.02 (B's third logo
+#: column and C's key), bottom 0.053 (D's x title) -- the top was already 0.17.
+#: The top keeps its own pad: a row's content starts ~0.14 in below the row box
+#: (title + its pad), so TOP_PAD 0.03 already yields ~0.2 in of white.
+M_L = M_R = M_T = 0.15
+M_B = 0.15
+TOP_PAD, ROW_GAP, BOTTOM_PAD = 0.03, 0.12, M_B
 #: C and D used to be 1.98 / 2.46 in: at 7.5 pt the 20 five-mer labels of D
 #: needed 10 pt each (2.8 in) and C's MDS ticks collided with the y-axis title.
-ROW1_H, ROW2_H, ROW3_H = 2.45, 2.35, 3.05   # A|B, C, D rows incl. titles/labels
+#: 2026-10-09: row 1 gains 0.15 in so B can carry its own x title ("Position",
+#: revision request); the logo rows keep their exact previous height.
+ROW1_H, ROW2_H, ROW3_H = 2.60, 2.35, 3.05   # A|B, C, D rows incl. titles/labels
 #: the panel letters stand in their own margin left of the rows
 LETTER_PAD = 0.20
+#: 2026-10-09: the C dot plots reserve this band left of their first column for
+#: the rotated "MDS 2" y title, its labelpad and the y tick labels -- that title
+#: used to be drawn past the canvas edge and silently dropped by the PDF (the
+#: same failure mode D's five-mer labels once had).  It replaces the plain
+#: LETTER_PAD there, the letter sits inside it.
+MDS_BAND = 0.40
 FIG_H = TOP_PAD + ROW1_H + ROW_GAP + ROW2_H + ROW_GAP + ROW3_H + BOTTOM_PAD
 assert FIG_H <= 8.50, f"canvas {FIG_H:.2f} in exceeds the 8.50 in page limit"
 
@@ -198,7 +214,7 @@ def row_y(row: int) -> float:
             3: FIG_H - TOP_PAD - ROW1_H - ROW_GAP - ROW2_H - ROW_GAP}[row]
 
 
-def panel_letter(fig, letter: str, axes_top_in: float, x: float = 0.015) -> None:
+def panel_letter(fig, letter: str, axes_top_in: float, x: float = M_L) -> None:
     """Panel letter, sitting on the axes' top edge in the letter margin.
 
     The old call took the row band's top and hung the glyph downwards, which
@@ -212,7 +228,10 @@ def panel_letter(fig, letter: str, axes_top_in: float, x: float = 0.015) -> None
 def draw_a(fig, per: pd.DataFrame, pooled: pd.DataFrame, order: list[str],
            x0: float, w: float) -> None:
     y0 = row_y(1) - ROW1_H
-    ax = fig.add_axes(rect(x0 + 0.74, y0 + 0.32, w - 0.80, ROW1_H - 0.66))
+    #: 2026-10-09: the label column grows 0.74 -> 0.80 in so the longest y label
+    #: ("NanoSPA_m6A") stays off the left page margin; the axis right edge is
+    #: unchanged (w - 0.86 keeps the same 0.06 in right margin).
+    ax = fig.add_axes(rect(x0 + 0.80, y0 + 0.32, w - 0.86, ROW1_H - 0.66))
     means = pooled.pivot(index="Tool", columns="Species_Name",
                          values="KL_rrach_addeps")
     for i, tool in enumerate(order):
@@ -252,9 +271,14 @@ def draw_a(fig, per: pd.DataFrame, pooled: pd.DataFrame, order: list[str],
     ax.set_xlabel(XLABEL_A, fontsize=FS["label"], labelpad=1.5)
     ax.set_title("Motif deviation", fontsize=FS["title"],
                  fontweight="bold", loc="left", pad=3)
-    ax.legend(frameon=False, fontsize=FS["legend"], loc="lower left",
-              handlelength=1.1, labelspacing=0.25, borderpad=0.1,
-              handletextpad=0.4)
+    
+    #: the Figure 7 round settled on -- white background, thin grey edge, so it
+    #: cannot read as part of the plotted data.  Only A: C and D keep their
+    #: unframed keys (the author asked for A, and those sit in clear space).
+    ax.legend(frameon=True, facecolor="white", edgecolor="0.45",
+              framealpha=1.0, fontsize=FS["legend"], loc="lower left",
+              handlelength=1.1, labelspacing=0.25, borderpad=0.32,
+              handletextpad=0.4).get_frame().set_linewidth(0.7)
     panel_letter(fig, "A", row_y(1) - 0.34, x0)
 
 
@@ -274,7 +298,11 @@ def draw_b(fig, pwms: dict[str, np.ndarray], per: pd.DataFrame,
     #: three logo columns take the space back.
     lab_w, ylab_w, yax_w = 0.06, 0.30, 0.18
     col_w = (w - lab_w - ylab_w - yax_w - 0.06) / 3
-    row_h = (h - 0.17 - 0.13) / 3
+    
+    #: for the shared "Position" title; row 1 is 0.15 in taller, so row_h -- and
+    #: with it every logo -- keeps its exact previous size
+    B_BOTTOM = 0.28
+    row_h = (h - 0.17 - B_BOTTOM) / 3
     panel_letter(fig, "B", row_y(1) - 0.26, x0)
     for c, tool in enumerate(logo_tools):      # columns = tools
         xcol = x0 + lab_w + ylab_w + yax_w + c * (col_w + 0.03)
@@ -311,6 +339,12 @@ def draw_b(fig, pwms: dict[str, np.ndarray], per: pd.DataFrame,
              (y0 + h - 0.17 - 1.5 * row_h) / FIG_H,
              "Information content (bits)", rotation=90,
              fontsize=FS["tick"], va="center", ha="center")
+    
+    #: columns, centred under them in the band row 1 now carries (the bottom
+    #: tick row ends ~0.15 in above the row floor).
+    fig.text((x0 + lab_w + ylab_w + yax_w + (3 * col_w + 2 * 0.03) / 2) / CANVAS_W,
+             (y0 + 0.03) / FIG_H, "Position", fontsize=FS["label"],
+             va="bottom", ha="center")
 
 
 # ---------------------------------------------------------------- panel C ---
@@ -326,9 +360,17 @@ def classical_mds(d: np.ndarray) -> np.ndarray:
 def draw_c(fig, profiles: dict[str, pd.DataFrame], x0: float, w: float) -> None:
     y0 = row_y(2) - ROW2_H
     h = ROW2_H - 0.17 - 0.33
-    leg_w = 0.92
-    x0 = x0 + LETTER_PAD                      # letter margin
-    pw = (w - LETTER_PAD - leg_w - 0.44) / 3
+    #: 2026-10-09: 0.92 was the pre-2026-08 estimate; the realised key (13 rows,
+    #: 7.2 pt) measures ~1.38 in wide, which is the band the dot plots must leave
+    #: free on the right so the key can sit against the right page margin.
+    leg_w = 1.38
+    #: 2026-10-09: the three dot plots start after the band carrying the rotated
+    #: "MDS 2" title (MDS_BAND), and the shared key is pinned to the right page
+    #: margin instead of the piece's old right edge (which sat 0.02 in from it).
+    x0 = x0 + MDS_BAND
+    col_gap = 0.20
+    key_x = CANVAS_W - M_R - leg_w
+    pw = (key_x - 0.10 - x0 - 2 * col_gap) / 3
     panel_letter(fig, "C", y0 + 0.31 + h)
     for c, sp in enumerate(SP_ORDER):
         prof = profiles[sp]
@@ -337,7 +379,7 @@ def draw_c(fig, profiles: dict[str, pd.DataFrame], x0: float, w: float) -> None:
         z = np.where(sd > 0, (z - z.mean(axis=0)) / np.where(sd > 0, sd, 1.0), 0.0)
         dmat = np.sqrt(((z[:, None, :] - z[None, :, :]) ** 2).sum(-1))
         pos = classical_mds(dmat)
-        ax = fig.add_axes(rect(x0 + c * (pw + 0.20), y0 + 0.31, pw, h))
+        ax = fig.add_axes(rect(x0 + c * (pw + col_gap), y0 + 0.31, pw, h))
         for i, tool in enumerate(prof.index):
             ax.scatter(pos[i, 0], pos[i, 1], s=13, marker=TOOL_MARKER[tool],
                        color=TOOL_COLOR[tool], edgecolor="black", linewidth=0.3)
@@ -347,8 +389,11 @@ def draw_c(fig, profiles: dict[str, pd.DataFrame], x0: float, w: float) -> None:
         ax.tick_params(labelsize=FS["tick"], length=2, pad=3.5)
         ax.set_xlabel("MDS 1", fontsize=FS["label"], labelpad=3)
         if c == 0:
-            # labelpad 1 put "MDS 2" on top of the topmost tick label
-            ax.set_ylabel("MDS 2", fontsize=FS["label"], labelpad=7)
+            # labelpad 1 put "MDS 2" on top of the topmost tick label; 2026-10-09:
+            # 7 pushed the title past the canvas edge, where the PDF silently
+            # dropped it -- 4 pt keeps it on the page (the margin assertion below
+            # would catch it otherwise)
+            ax.set_ylabel("MDS 2", fontsize=FS["label"], labelpad=4)
         ax.locator_params(axis="y", nbins=3)
     handles = [Line2D([], [], color=TOOL_COLOR[t], marker=TOOL_MARKER[t], ls="none",
                       markersize=4, markeredgecolor="black", markeredgewidth=0.3,
@@ -368,16 +413,25 @@ def draw_c(fig, profiles: dict[str, pd.DataFrame], x0: float, w: float) -> None:
 #: silently dropped by the PDF -- the render kept only the last two or three
 #: characters.  The row now reserves a label gutter of its own and every tick
 #: label is asserted to sit inside the canvas.
-D_LABEL_GUTTER, D_GAP = 0.46, 0.40
-D_PW = 1.76
+D_LABEL_GUTTER, D_GAP = 0.46, 0.38
+
+#: column carries the rotated "5-mer motif" y title, so the row reserves a
+#: band for it left of the 5-mer gutter -- MDS_BAND's counterpart in row 3.
+D_YLABEL_BAND = 0.14
+#: 2026-10-09: 1.66/0.38 keeps the third column inside the right margin
+#: (M_L + band + gutter + 3*1.66 + 2*0.38 = 6.49 <= CANVAS_W - M_R =
+#: 6.51 in); the gap stays 0.38 because a 5-mer label is 27.5 pt = 0.382 in
+#: wide and fills it -- shrinking the gap would push the labels of a column
+#: under the bars of the one before it
+D_PW = 1.66
 
 
 def draw_d(fig, support: pd.DataFrame, x0: float, w: float) -> None:
     y0 = row_y(3) - ROW3_H
     h = ROW3_H - 0.17 - 0.32
-    x0 = x0 + LETTER_PAD                      # letter margin
-    assert x0 == D_LABEL_GUTTER - 0.23, f"the D row moved: {x0:.3f} in"
-    x0 = D_LABEL_GUTTER                       # + the 5-mer label gutter
+    assert abs(x0 - M_L) < 1e-9, f"the D row moved: {x0:.3f} in"
+    #: page margin + the y title band + the 5-mer label gutter
+    x0 = M_L + D_YLABEL_BAND + D_LABEL_GUTTER
     pw = D_PW
     panel_letter(fig, "D", y0 + 0.30 + h)
     for c, sp in enumerate(SP_ORDER):
@@ -397,6 +451,9 @@ def draw_d(fig, support: pd.DataFrame, x0: float, w: float) -> None:
         ax.set_ylim(-0.7, len(g) - 0.3)
         ax.set_title(SP_DISP[sp], fontsize=FS["title"], fontweight="bold", pad=2)
         ax.tick_params(labelsize=FS["tick"], length=2, pad=1)
+        if c == 0:
+            #: the shared y title of the row, drawn once, on the leftmost column
+            ax.set_ylabel("5-mer motif", fontsize=FS["label"], labelpad=2)
         # labelpad 1 ran the x-axis title into the tick numbers
         ax.set_xlabel("Supporting tools (of 13)", fontsize=FS["label"],
                       labelpad=4)
@@ -447,6 +504,42 @@ def assert_no_grid(fig) -> None:
             assert all(not gl.get_visible() for gl in grid)
 
 
+def assert_text_in_margins(fig, tol: float = 0.01) -> None:
+    """Every drawn text must sit inside the page margins (2026-10-09).
+
+    Motivation: the C "MDS 2" title was painted past the canvas edge and
+    silently dropped by the PDF (the same failure D's five-mer labels once
+    had), and the C/D panel letters sat 0.015 in from the left edge.  This
+    walks every Text on the live figure -- axes titles, tick labels, axis
+    labels, legends and fig.texts -- and asserts its ink box lies inside
+    ``[M_L, CANVAS_W - M_R] x [M_B, FIG_H - M_T]`` (0.01 in tolerance).
+    """
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    texts: list[Text] = []
+    for ax in fig.axes:
+        texts += list(ax.get_xticklabels()) + list(ax.get_yticklabels())
+        texts += [ax.xaxis.label, ax.yaxis.label, ax.title]
+        leg = ax.get_legend()
+        if leg is not None:
+            texts += list(leg.get_texts())
+    texts += list(fig.texts)
+    for leg in fig.legends:
+        texts += list(leg.get_texts())
+    bad = []
+    for t in texts:
+        if not isinstance(t, Text) or not t.get_text().strip():
+            continue
+        bb = t.get_window_extent(renderer=rend)
+        x0, x1 = bb.x0 / fig.dpi, bb.x1 / fig.dpi
+        y0, y1 = bb.y0 / fig.dpi, bb.y1 / fig.dpi
+        if (x0 < M_L - tol or x1 > CANVAS_W - M_R + tol
+                or y0 < M_B - tol or y1 > FIG_H - M_T + tol):
+            bad.append(f"{t.get_text()!r} x {x0:.3f}..{x1:.3f}, "
+                       f"y {y0:.3f}..{y1:.3f}")
+    assert not bad, "text outside the page margins: " + "; ".join(bad)
+
+
 # ------------------------------------------------------------------- main ---
 def main() -> None:
     apply_style()
@@ -456,13 +549,18 @@ def main() -> None:
 
     print("lowest-KL tools:", order[:3])
     fig = plt.figure(figsize=(CANVAS_W, FIG_H))
-    draw_a(fig, per, pooled, order, 0.03, 2.42)
-    draw_b(fig, pwms, per, order, 2.55, 4.08)
-    # the rows start in the letter margin, so their width shrinks by it
-    draw_c(fig, profiles, 0.03, CANVAS_W - 0.06 - LETTER_PAD)
-    draw_d(fig, support, 0.03, CANVAS_W - 0.06 - LETTER_PAD)
+    #: 2026-10-09: every row starts at the page margin; A runs to just before B,
+    #: and B ends at the right page margin.
+    a_w, a_b_gap = 2.42, 0.10
+    b_x = M_L + a_w + a_b_gap
+    b_w = CANVAS_W - M_R - b_x
+    draw_a(fig, per, pooled, order, M_L, a_w)
+    draw_b(fig, pwms, per, order, b_x, b_w)
+    draw_c(fig, profiles, M_L, CANVAS_W - M_L - M_R)
+    draw_d(fig, support, M_L, CANVAS_W - M_L - M_R)
     smallest = assert_min_fontsize(fig)
     assert_no_grid(fig)
+    assert_text_in_margins(fig)
     fig.savefig(FIG / "Figure4_rev.pdf", bbox_inches=None, pad_inches=0)
     fig.savefig(FIG / "Figure4_rev.png", dpi=300, bbox_inches=None, pad_inches=0)
     print(f"wrote Figure4_rev.pdf/.png  (canvas {CANVAS_W} x {FIG_H:.2f} in, "

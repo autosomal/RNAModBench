@@ -5,11 +5,14 @@ Why this script exists
 ----------------------
 The 2026-09-20 rebuild (``40_fig6_combination.py::fig_main``) was drawn on a
 ``figsize=(5.0*3, 3.4*4)`` canvas = 380 x 367 mm, while the manuscript places the
-figure with ``\\includegraphics[width=0.95\\textwidth]{Figure6.pdf}`` = 479.5 pt =
-169 mm, i.e. at a **0.445 scale**: its 8-14 pt text printed at 3.7-6.2 pt against
-9-10 pt body text.  This script draws the evidence on a canvas whose width *is*
-the printed width (0.95 \\textwidth = 6.66 in), so every font size written here is
-the printed one, and each row answers one reviewer question.
+figure with ``\\includegraphics[width=0.90\\textwidth]{Figure6.pdf}`` = 454.1 pt =
+160 mm, i.e. at a **0.445 scale**: its 8-14 pt text printed at 3.7-6.2 pt against
+9-10 pt body text.  This script draws the evidence on a canvas whose width is
+0.95 \\textwidth (6.66 in); the manuscript places *this* page at 0.90 \\textwidth
+(manuscript.tex), so everything written here prints at **0.947 x nominal** (the
+2026-10-09 margin round records that factor; re-tiering the font sizes to >= 7 pt
+*printed* is the family-wide type round, not this one), and each row answers one
+reviewer question.
 
 Rows (three species columns: Arabidopsis | mouse study A/B | HeLa; the two mouse
 studies stay separate series in every row and are never combined):
@@ -21,7 +24,12 @@ studies stay separate series in every row and are never combined):
      studies carry none); thin dotted grey, best single tool;
   B  the same trade-off per independent unit over k = 1..5 -- union and
      intersection in one panel, the evidence that it is not an averaging
-     artefact;
+     artefact; the mouse column is the only two-study one, where study B is
+     drawn lighter and thinner and its second dash is phase-shifted by half a
+     period, so the two coincident study-B curves interleave (2026-10-08, see
+     STUDY_B_*).  The panel prints no annotation of its own: the row key
+     states the study A/B line convention and is the single source
+     (2026-10-09);
   C  the tools themselves, in two blocks sharing the 13 rows: **left**, what each
      configuration achieves on its own (recall and PPV vs. GLORI (2 bp), one dot
      per unit plus the mean; the 13 tool names are printed once, in the left
@@ -34,7 +42,8 @@ studies stay separate series in every row and are never combined):
      combination of the group in the (mean union recall, mean union PPV) plane,
      coloured by k, with the chance level p0 and the selected optimum of each k
      (accent-coloured rings with a white halo, joined by a line) -- "maximise
-     mean recall subject to mean PPV >= p0" is readable straight off the panel;
+     mean recall subject to mean PPV >= p0" is readable straight off the panel.
+     The ring prints 6.4 pt across since 2026-10-09 (was 10.53 pt; see OPT_*);
   E  coverage CDF of every site set -- single tool, the sites the union adds, the
      union, the selected intersection and the GLORI reference (thin lines, one
      per unit; thick line, mean CDF): the added sites are as well covered as the
@@ -44,9 +53,11 @@ studies stay separate series in every row and are never combined):
      unit, line = mean) -- reviewer R3-4's sensitivity-precision trade-off.
 
 Every number is read from the frozen tables of ``40_fig6_combination.py`` and
-``61_figS6_sitequality.py`` -- nothing is recomputed here.  House rules: printed
-size 1:1, >= 7 pt everywhere, Arial, no gridlines, no in-panel annotation text,
-bold panel letters, vector PDF + 300 dpi PNG.
+``61_figS6_sitequality.py`` -- nothing is recomputed here.  House rules: font
+sizes are nominal (they print at 0.947 x) and stay >= 7 pt nominal until the
+family type round re-tiers them to >= 7 pt printed, Arial, no gridlines, no
+in-panel annotation text, bold panel letters, vector PDF + 300 dpi PNG, and four
+ink margins >= ``EDGE_IN`` (13 pt on the page; 2026-10-09).
 
 2026-09-30 revision 
 ------------------------------------------------------
@@ -68,6 +79,31 @@ Each row key sits **below the panels of its own row** (``KEY_BELOW`` under the
 panel's lower edge, clear of the x ticks and the x axis label), not in the title
 band above them; the title band is ROW_TITLE high everywhere and seats the row
 letter plus the three species titles.
+
+Ring size, 2026-10-09 
+--------------------------------------------------------------------------------
+Row D's selected-optimum ring printed 10.53 pt across (sqrt(48) + 1.2 + 2.4),
+about twice the 7.2 pt type; row D's mouse column draws ten of them (two studies
+x five k), so they crowded the very cloud they are meant to stand out from.  The
+ring is now ``OPT_S``/``OPT_LW``/``OPT_HALO`` = 4.0 + 0.9 + 1.5 = **6.4 pt** and
+its key swatch follows (``OPT_SWATCH_MS``); the accent colour, the hollow marker,
+the white halo and the joining line are unchanged, no data position moved, and
+``check_optima_ring`` holds the printed diameter inside 5.5-7.0 pt.
+
+Margins and the row-B label, 2026-10-09 (author note: " " and
+"b study B (dashed)")
+---------------------------------------------------------------------------
+The delivered page had no ink margin to speak of (300 dpi raster of the delivered
+file: left 2.4, right 0.5, top 1.9, bottom 5.5 pt).  All four sides now carry
+``EDGE_IN`` = 13 pt: ``TOP`` (panel letters and row A), ``L_LEFT`` (the row-C tool
+names were the leftmost ink at 1.9 pt), ``L_RIGHT`` (the row-D x tick label "80"
+overhung the last column by 4.2 pt and touched the page edge) and the row-F gap
+below its key.  The panels pay for the two side margins with ~6 % of their width;
+no row height, no font size and no data position moves.  Second, row B's mouse
+panel no longer prints "study B (dashed)": the row key already names both studies
+with a solid and a dashed swatch -- and ``check_key_vs_artwork`` pins those
+swatches against the drawn lines -- so the annotation repeated the key and broke
+the "no in-panel annotation text" rule.
 
 Outputs -> ``figures/figure6/figures/Figure6_rev.{pdf,png}``
 
@@ -126,14 +162,29 @@ CANVAS_W = 6.66
 #: rows C, E and F; the canvas grew by 0.06 in (8.01 -> 8.07) after the row-C gap
 #: and the bottom margin gave back 0.03 in, so the figure still shares page 21
 #: with its caption.
-MAX_H = 8.10
+
+#: = 13 pt of blank paper (measured on the 300 dpi raster).  At the manuscript's
+#: 0.947 placement that is 12.3 pt printed, so the 12 pt house standard holds in
+#: the printed figure too.  The canvas pays for the top margin (``TOP``) and for
+#: the row-F tail below its key; the printed artwork becomes 8.34 * 0.947 = 7.90
+#: in against the 8.11 in budget (text block 9.74 in - caption 1.63 in), which
+#: `66_verify_fig6_page.py` recomputes from the manuscript's own placement.
+EDGE_IN = 13.0 / 72.0
+#: the manuscript places this page with ``\includegraphics[width=0.90\textwidth]
+#: {Figure6.pdf}`` = 454.1 / 479.5 pt = 0.947 of the drawn size (``66_verify``
+#: recomputes it from the manuscript source rather than trusting this constant);
+#: EDGE_IN prints as 12.3 pt and the nominal font sizes as 0.947 x nominal
+PLACEMENT = 0.947
+MAX_H = 8.45
 MIN_PT = 7.0
 #: (row letter, [(panel height, gap below the panel) ...]) in inches
 ROWS = [("A", [(0.66, 0.48)]),      # trade-off across k
         ("B", [(0.66, 0.48)]),      # trade-off per independent unit
         ("C", [(1.16, 0.32)]),      # 13 tools: own performance | effect + members
         ("D", [(0.66, 0.48)]),      # selection criterion (search space)
-        ("E", [(0.52, 0.48), (0.52, 0.52)])]   # E site sets, F control cost
+        #: row F's gap seats its key *and* the 13 pt bottom ink margin (0.52 ->
+        #: 0.63, 2026-10-09)
+        ("E", [(0.52, 0.48), (0.52, 0.63)])]   # E site sets, F control cost
 
 #: every row key moved out of the title band into the space *below* the panels it
 #: belongs to; the gaps seat one 7.2 pt key line under the x ticks and the x axis
@@ -143,14 +194,27 @@ ROWS = [("A", [(0.66, 0.48)]),      # trade-off across k
 #: per row (so the reader would not have to travel to the foot of the page for
 #: every panel) and brought the page down from 8.46 in so that the figure plus
 #: its caption fits the text block.
-TOP, ROW_TITLE, SUB_TITLE, LEGEND_H = 0.02, 0.18, 0.18, 0.03
+#: TOP is the top ink margin since 2026-10-09 (0.02 -> EDGE_IN): the panel
+#: letters and row A were the page's topmost ink at 1.9 pt.
+TOP, ROW_TITLE, SUB_TITLE, LEGEND_H = EDGE_IN, 0.18, 0.18, 0.03
 #: Distance from a panel's bottom edge to the top edge of its row key: the x tick
 #: labels and the x axis label reach 0.32 in below a panel, and ``layout_report``
 #: asserts that no legend text touches either of them.
 KEY_BELOW = 0.35
 #: left margin: the membership matrix carries the 13 tool names as y tick labels
-#: ("NanoSPA_m6A" = 0.69 in at 7.2 pt Arial), plus the tick pad
-L_LEFT, L_GAP, L_RIGHT = 0.80, 0.30, 0.06
+#: ("NanoSPA_m6A" = 0.69 in at 7.2 pt Arial), plus the tick pad.  2026-10-09:
+#: 0.80 -> 0.97, because those names were the page's leftmost ink (1.9 pt from
+#: the edge); with 0.97 they start at ~14 pt and the panel letters at EDGE_IN are
+#: the leftmost ink of the page (raster: 12.96 pt = pixel 54, i.e. 13.0 pt within
+#: one 0.24 pt pixel)
+L_LEFT, L_GAP, L_RIGHT = 0.97, 0.30, 0.24
+
+#: [L_LEFT, CANVAS_W - L_RIGHT]; the row legends are anchored here (row_legend).
+LEGEND_CX = (L_LEFT + CANVAS_W - L_RIGHT) / 2
+#: 2026-10-09: L_RIGHT 0.06 -> EDGE_IN + 4.2 pt (the row-D x tick label "80"
+#: overhangs the last column's right edge by 4.2 pt and printed 0.5 pt from the
+#: page edge); the next worst right-hand ink, the k = 5 tick labels, then clears
+#: 20 pt.  The three panels pay for both side margins with ~6 % of their width.
 FS = {"tick": 7.5, "tool": 7.2, "label": 8.0, "title": 8.5, "legend": 7.2,
       "letter": 9.5}
 
@@ -163,12 +227,31 @@ COLS = [{"sp": "Arabidopsis", "groups": ("Arabidopsis_WT",), "colour": "#1E888B"
 UNION_C, ISECT_C = "#1f5c8b", "#e08a2e"
 COV_C = "#4a7d3f"
 K_COLOURS = ["#c6dbef", "#9ecae1", "#6baed6", "#3182bd", "#08519c"]
-#: the selected optimum of every k (row D here, panel A of Figure S6): an accent colour
-#: no other artist uses, a thick ring and a white halo, so the five points still
-#: read on top of the dense k-coloured search cloud (2026-09-21)
+#: the selected optimum of every k (row D here): an accent colour no other artist
+#: uses, a ring and a white halo, so the five points still read on top of the
+#: dense k-coloured search cloud (2026-09-21)
 HILITE = "#b02418"
+
+#: print 10.53 pt across (sqrt(48) + 1.2 + 2.4) -- twice the 7.2 pt type -- and
+#: row D's mouse column carries ten of them (two studies x five k), which crowded
+#: the cloud.  It now prints ``sqrt(OPT_S) + OPT_LW + OPT_HALO`` = 4.0 + 0.9 +
+#: 1.5 = 6.4 pt; the accent colour, the halo that lifts the ring off the cloud and
+#: the joining line are unchanged, and ``check_optima_ring`` keeps any later edit
+#: from growing the ring back.
+OPT_S, OPT_LW, OPT_HALO = 16, 0.9, 1.5
+#: the row-D key swatch keeps the ratio it had to the ring (4.0/6.93 before)
+OPT_SWATCH_MS = 2.5
+#: printed outer diameter of a ring must stay inside this band: below it the ring
+#: vanishes into the cloud, above it the 2026-10-09 complaint returns
+OPT_MIN_PT, OPT_MAX_PT = 5.5, 7.0
 TIERS = (1, 2, 5)
 TIER_LABEL = {1: "$k$ = 1", 2: "$k$ = 2", 5: "$k$ = 5"}
+#: Data-layer keys: these name the ``control`` column of
+#: ``fig6_negative_control_fp.tsv`` (written by 40_fig6_combination.py) and are
+#: looked up verbatim below.  The second key's sample group id is ``HeLa_IVT``,
+#: but its *display* name is "Human IVT" (the unmodified human IVT library; the
+#: manuscript, the Figure 6 caption and the Figure 8 panels all say Human IVT).
+#: ``control_handles()`` prints that display name -- keep key and label apart.
 CONTROLS = ("Curlcake IVT", "HeLa IVT")
 #: E sets of the site-quality CDF (the union marginal sites are what combining
 #: adds; the intersections are the precision cores read off the same layer)
@@ -199,6 +282,25 @@ GREY_STUDY_A = (0.55, 0.72)
 GREY_STUDY_B = (0.18, 0.42)
 #: the neutral swatch of the "mouse study A / B" style keys
 STUDY_KEY_GREY = 0.30
+
+#: row B the two study-B curves -- union recall 67.4 / 71.1 / 74.0 % and
+#: intersection PPV 66.6 / 71.1 / 75.5 % at k = 3 / 4 / 5 -- coincide to within
+#: 1.5 pp, so the dashed pair printed as one line of mixed colour.  Study B keeps
+#: its dashed style and its data positions, but it is now drawn lighter and
+#: thinner (it is the secondary series of that panel) and its intersection-PPV
+#: dash is phase-shifted by half a period, so the two interleave where they
+#: overlap instead of covering each other.
+STUDY_B_LW = 0.8
+STUDY_B_ALPHA = 0.7
+#: half of one (4, 2) period at STUDY_B_LW; matplotlib scales the dash offset by
+#: the line width too, so 3.0 x 0.8 = 2.4 pt of effective shift
+STUDY_B_DASH_OFFSET = 3.0
+
+#: ("study B (dashed)" at data (4.10, 93.0)) is gone.  The row key names both
+#: studies -- "mouse study A" with a solid swatch, "mouse study B" with a dashed
+#: one -- and ``check_key_vs_artwork`` pins those swatches against the drawn
+#: lines, so the annotation only repeated the key and broke the page's own
+#: "no in-panel annotation text" rule.
 
 
 def apply_style() -> None:
@@ -399,26 +501,53 @@ def panel_b(ax, col: dict, allk: pd.DataFrame) -> dict:
     Returns the drawn series as ``(study index, artist)`` pairs: the row key
     names the solid (study A) and dashed (study B) line styles, and
     ``build_figure`` checks that those swatches are what the panel draws.
+
+    2026-10-08 : in the mouse column
+    study B is drawn lighter and thinner and one of its two dashes is
+    phase-shifted, see ``STUDY_B_*``.  Study A and the single-study columns are
+    untouched.
+
+ 2026-10-09 "): the in-panel
+    annotation that used to name that series is gone -- the row key carries the
+    study A/B convention and is the single source (see ``STUDY_B_DASH_OFFSET``).
     """
     d = _col_sel(allk, col)
+    two_study = len(col["groups"]) > 1
     series: list[tuple[int, object]] = []
     for gi, (_, units) in enumerate(d.groupby("group", sort=True)):
         ls = "-" if gi == 0 else GLORI_LS
+        ls_isect = ls
+        lw_union, lw_isect, alpha = 1.1, 1.0, None
+        if gi == 1 and two_study:
+            lw_union = lw_isect = STUDY_B_LW
+            alpha = STUDY_B_ALPHA
+            #: the two study-B curves overlap to within 1.5 pp over k = 3..5, so
+            #: only the phase keeps them apart wherever they share a y value
+            ls_isect = (STUDY_B_DASH_OFFSET, GLORI_LS[1])
         tags = sorted(units.unit.unique())
         for tag, off in zip(tags, _offsets(len(tags), 0.13)):
             u = units[units.unit == tag].sort_values("k")
             series.append((gi, ax.plot(u.k + off, 100 * u.union_recall,
-                                       color=UNION_C, ls=ls, lw=1.1, marker="o",
-                                       ms=2.6, zorder=3)[0]))
+                                       color=UNION_C, ls=ls, lw=lw_union,
+                                       marker="o", ms=2.6, alpha=alpha,
+                                       zorder=3)[0]))
             series.append((gi, ax.plot(u.k + off, 100 * u.isect_precision,
-                                       color=ISECT_C, ls=ls, lw=1.0, marker="s",
-                                       ms=2.4, mfc="white", mew=0.8, zorder=2)[0]))
+                                       color=ISECT_C, ls=ls_isect, lw=lw_isect,
+                                       marker="s", ms=2.4, mfc="white", mew=0.8,
+                                       alpha=alpha, zorder=2)[0]))
+    #: 2026-10-09: no in-panel annotation text on this page (the row key names
+    #: the studies); ``check_key_vs_artwork`` asserts that this panel draws none
     ax.set_xticks(range(1, 6))
     ax.set_ylim(0, 105)
     ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_xlabel("tools combined ($k$)", fontsize=FS["label"])
     ax.set_ylabel("recall / PPV (%)", fontsize=FS["label"])
-    return {"series": series}
+    #: ``two_study_a``: the study-A artists of the *two-study* column only, so the
+    #: 2026-10-08 styling check can pin them without touching the single-study
+    #: columns (``series`` carries all three columns, whose study-A entries are
+    #: indistinguishable from these in style)
+    return {"series": series,
+            "two_study_a": [art for gi, art in series if gi == 0] if two_study else []}
 
 
 def panel_c_own(ax, col: dict, single: pd.DataFrame, toolq: pd.DataFrame,
@@ -524,11 +653,12 @@ def panel_d(ax, col: dict, space: pd.DataFrame) -> dict:
         ax.plot(100 * sel.union_recall_mean, 100 * sel.union_precision_mean,
                 color=HILITE, lw=1.1, ls=ls, zorder=5)
         rings = ax.scatter(100 * sel.union_recall_mean,
-                           100 * sel.union_precision_mean, s=48,
-                           facecolors="none", edgecolors=HILITE, linewidths=1.2,
-                           zorder=6)
+                           100 * sel.union_precision_mean, s=OPT_S,
+                           facecolors="none", edgecolors=HILITE,
+                           linewidths=OPT_LW, zorder=6)
         # white halo: lifts the ring off the 2 379 semi-transparent cloud dots
-        rings.set_path_effects([pe.withStroke(linewidth=2.4,
+        # (OPT_HALO, thinner since 2026-10-09: it scales with the smaller ring)
+        rings.set_path_effects([pe.withStroke(linewidth=OPT_HALO,
                                               foreground="white")])
     p0 = 100 * float(d.p0_chance_precision.iloc[0])
     ax.axhline(p0, color="0.30", lw=0.9, ls=(0, (3, 2)), zorder=1)
@@ -553,7 +683,10 @@ def panel_d(ax, col: dict, space: pd.DataFrame) -> dict:
     ax.set_xticks([0, 20, 40, 60, 80])
     ax.set_xlabel("mean union recall (%)", fontsize=FS["label"])
     ax.set_ylabel("mean PPV (%)", fontsize=FS["label"])
-    return {"p0": p0, "lo": lo, "hi": hi, "yticks": ticks}
+    #: the rings are returned so ``check_optima_ring`` can audit what was drawn
+    #: (the drawn artist, not the constants, is the thing the reader sees)
+    return {"p0": p0, "lo": lo, "hi": hi, "yticks": ticks,
+            "rings": rings, "n_sel": int(len(sel))}
 
 
 def panel_e1(ax, col: dict, hist: pd.DataFrame) -> None:
@@ -648,9 +781,12 @@ def handles() -> list:
                lw=1.1, label="intersection PPV"),
         Line2D([], [], color=K_COLOURS[2], marker="o", ms=2.2, ls="none",
                label="all enumerated combinations"),
-        Line2D([], [], color=HILITE, marker="o", ms=4.0, mfc="none", mew=1.2,
-               lw=1.1, path_effects=[pe.withStroke(linewidth=2.4,
-                                                   foreground="white")],
+        #: the swatch is the ring of row D: same accent, same white halo, and the
+        #: same (shrunken, 2026-10-09) footprint the panels print
+        Line2D([], [], color=HILITE, marker="o", ms=OPT_SWATCH_MS, mfc="none",
+               mew=OPT_LW, lw=1.1,
+               path_effects=[pe.withStroke(linewidth=OPT_HALO,
+                                           foreground="white")],
                label="selected optimum (k = 1-5)"),
 
         #: "all GLORI sites" series, and the two must be told apart at a glance;
@@ -699,7 +835,7 @@ def qual_handles() -> list:
 
 
 def control_handles() -> list:
-    """Row F: filled = Curlcake IVT, open = HeLa IVT (mean line solid/dashed)."""
+    """Row F: filled = Curlcake IVT, open = Human IVT (mean line solid/dashed)."""
     return [Line2D([], [], color="0.35", marker="o", ms=2.8, ls="-", lw=1.2,
                    mfc="0.35", mec="0.35", label="Curlcake IVT"),
             Line2D([], [], color="0.45", marker="s", ms=2.6, ls=(0, (3, 2)),
@@ -707,16 +843,22 @@ def control_handles() -> list:
 
 
 def row_legend(fig, handles_: list, y_in: float, fig_h: float):
-    """One legend line, left-aligned *below* the row of panels it belongs to.
+    """One legend line, centred under the row of panels it belongs to.
 
     2026-09-30 : the key used to
     sit in the row's title band, above the panels; it is now anchored under the
     row's own panels, ``KEY_BELOW`` inches beneath their lower edge so it clears
     the x ticks and the x axis label.  ``check_keys_below_panels`` asserts that
     every key ends up below its panels.
+    2026-10-10 : the strip used to be left-aligned at
+    the page edge (anchor ``EDGE_IN`` since 2026-10-09, 0.035 before that); it is
+    now centred on the three-panel span, ``LEGEND_CX``, so it reads as centred
+    under the panels it describes.
     """
-    return fig.legend(handles=handles_, loc="upper left",
-                      bbox_to_anchor=(0.035, y_in / fig_h),
+    #: centred on the panel span [L_LEFT, CANVAS_W - L_RIGHT]; matplotlib centres
+    #: the legend box (whatever width its entries need) on the anchor x.
+    return fig.legend(handles=handles_, loc="upper center",
+                      bbox_to_anchor=(LEGEND_CX / CANVAS_W, y_in / fig_h),
                       ncol=len(handles_), frameon=False, fontsize=FS["legend"],
                       handlelength=1.1, columnspacing=0.85, handletextpad=0.30,
                       labelspacing=0.25, borderpad=0.0)
@@ -856,15 +998,29 @@ def _style_key(ls) -> tuple:
     return _ls_key(probe)
 
 
+def _pattern_only(key: tuple) -> tuple:
+    """Dash pattern of an ``_ls_key`` result, without its phase.
+
+    2026-10-08: row B's study-B intersection dash is phase-shifted by half a
+    period so that the two coincident study-B curves stay readable.  A phase is
+    not something a key swatch can claim, so the key-to-artwork comparison looks
+    at the pattern alone.
+    """
+    return key[-1]
+
+
 def check_key_vs_artwork(panel_a_refs: list[dict], panel_b_series: dict,
-                         d_contracts: list[dict], all_h: dict) -> None:
+                         d_contracts: list[dict], all_h: dict,
+                         b_axes: list) -> None:
     """The row keys may only claim what the panels actually draw (2026-09-30).
 
     Every assertion here answers a complaint of the 2026-09-30 review: the key
     said "all GLORI (dashed)" while two of the three columns drew that line solid
     and the two greys differed only in dash density; the row-D key named a chance
     level that two of the three panels had clipped below the axis; and nothing on
-    the page said what a dashed line in the mouse column means.
+    the page said what a dashed line in the mouse column means.  2026-10-09: the
+    row keys must also be the *only* place that names the studies, so row B's
+    axes are checked to carry no in-panel annotation text.
     """
     glori, best, series = [], [], []
     for r in panel_a_refs:
@@ -883,10 +1039,13 @@ def check_key_vs_artwork(panel_a_refs: list[dict], panel_b_series: dict,
              f"the key swatch is {BEST_LS}")
     assert _ls_key(glori[0]) != _ls_key(best[0]), \
         "the two grey reference lines share one line style again"
-    # the study key: study A solid, study B dashed, in rows A and B alike
+    # the study key: study A solid, study B dashed, in rows A and B alike -- the
+    # pattern is compared rather than the whole style, because the phase of row
+    # B's study-B dash is a legibility device that no key swatch claims
+    # (2026-10-08)
     for gi, art in series:
         want = "-" if gi == 0 else GLORI_LS
-        assert _ls_key(art) == _style_key(want), \
+        assert _pattern_only(_ls_key(art)) == _pattern_only(_style_key(want)), \
             (f"study {gi} series drawn {art.get_linestyle()}, the "
              f'"mouse study {"AB"[gi]}" key swatch is {want}')
     for label, want in ((GLORI_LABEL, GLORI_LS),
@@ -896,12 +1055,116 @@ def check_key_vs_artwork(panel_a_refs: list[dict], panel_b_series: dict,
             f'key entry "{label}" is labelled {all_h[label].get_label()!r}'
         assert _ls_key(all_h[label]) == _style_key(want), \
             f'key entry "{label}" is {all_h[label].get_linestyle()}, not {want}'
+
+    #: panel study B is the lighter, thinner series, its two dashes are half a
+    #: period apart -- so the two coincident study-B curves interleave instead of
+
+
+    #: the panels does, with a swatch per study, and it is the single source.
+    row_b = list(panel_b_series["series"])
+    study_a = list(panel_b_series["two_study_a"])
+    study_b = [art for gi, art in row_b if gi == 1]
+    assert len(study_a) == 2 and len(study_b) == 2, \
+        (f"the two-study column draws two study-A and two study-B series "
+         f"(union recall and intersection PPV), got {len(study_a)}/{len(study_b)}")
+    for art in study_a:
+        assert art.get_alpha() is None and art.get_linewidth() in (1.0, 1.1), \
+            (f"row-B study A must stay as drawn before the 2026-10-08 change "
+             f"(lw {art.get_linewidth()}, alpha {art.get_alpha()})")
+    for art in study_b:
+        assert art.get_alpha() == STUDY_B_ALPHA, \
+            f"row-B study B drawn at alpha {art.get_alpha()}, not {STUDY_B_ALPHA}"
+        assert art.get_linewidth() == STUDY_B_LW, \
+            f"row-B study B drawn at lw {art.get_linewidth()}, not {STUDY_B_LW}"
+    phases = sorted(_ls_key(art)[0] for art in study_b)
+    assert phases == [0.0, STUDY_B_DASH_OFFSET], \
+        f"the two study-B dashes must be half a period apart, got {phases}"
+    #: 2026-10-09: row B prints no annotation at all -- the key carries the study
+    #: A/B convention (its two swatches are pinned above), so any ``Axes.text``
+    #: inside row B would be the duplicate the author asked to drop.
+    in_panel = [t for ax in b_axes for t in ax.texts]
+    assert not in_panel, \
+        (f"row B draws {len(in_panel)} in-panel annotation(s): "
+         f"{[t.get_text() for t in in_panel]}")
     for c in d_contracts:
         assert c["lo"] < c["p0"] < c["hi"], \
             (f"chance level p0 = {c['p0']:.2f} % outside the drawn range "
              f"{c['lo']:.2f}..{c['hi']:.2f} % of its panel")
         assert c["yticks"] == d_contracts[0]["yticks"], \
             f"row D panels carry different y ticks: {c['yticks']}"
+    #: 2026-10-09: the row-D key swatch must be the ring the panels draw -- same
+    #: accent, same hollow marker, same (shrunken) footprint, same white halo
+    opt = all_h["selected optimum (k = 1-5)"]
+    assert opt.get_marker() == "o" and opt.get_markerfacecolor() == "none", \
+        "the row-D optimum key swatch is no longer a hollow ring"
+    assert opt.get_color() == HILITE, \
+        f"the row-D optimum key swatch is {opt.get_color()}, not {HILITE}"
+    assert float(opt.get_markersize()) == float(OPT_SWATCH_MS), \
+        f"the row-D optimum key swatch is {opt.get_markersize()} pt, not {OPT_SWATCH_MS}"
+    assert _stroke_width(opt) == float(OPT_HALO), \
+        (f"the row-D optimum key swatch halo is {_stroke_width(opt)} pt, "
+         f"not {OPT_HALO} pt")
+
+
+def optima_outer_pt() -> float:
+    """Printed outer diameter of a selected-optimum ring, in points.
+
+    ``sqrt(OPT_S)`` is the diameter matplotlib gives a scatter marker of area
+    ``OPT_S``; the edge and the halo each add their whole width across it.
+    """
+    return float(np.sqrt(OPT_S) + OPT_LW + OPT_HALO)
+
+
+def _stroke_width(art) -> float | None:
+    """Width of the white halo drawn around an artist, or ``None`` if it has none."""
+    for eff in (art.get_path_effects() or []):
+        gc = getattr(eff, "_gc", None)
+        if isinstance(gc, dict) and "linewidth" in gc:
+            return float(gc["linewidth"])
+        lw = getattr(eff, "_linewidth", None)       # pre-3.10 attribute layout
+        if lw is not None:
+            return float(lw)
+    return None
+
+
+def check_optima_ring(d_contracts: list[dict]) -> float:
+    """Row D's selected-optimum rings: drawn as declared, and small enough.
+
+    2026-10-09 : the ring shrank
+    from 10.53 pt across to 6.4 pt, because row D's mouse column carries ten of
+    them (two studies x five k) and they crowded the cloud.  The check is on the
+    *drawn* artist -- marker area, edge width, halo width -- as well as on the
+    band the printed diameter has to stay inside, so the next edit cannot quietly
+    grow the ring back or drop the halo that lifts it off the cloud.
+    """
+    outer = optima_outer_pt()
+    assert OPT_MIN_PT <= outer <= OPT_MAX_PT, \
+        (f"a selected-optimum ring prints {outer:.2f} pt across, outside the "
+         f"{OPT_MIN_PT}-{OPT_MAX_PT} pt band")
+    for c in d_contracts:
+        rings = c["rings"]
+        assert c["n_sel"] == 5, f"a row-D group marks {c['n_sel']} optima, not 5"
+        n_drawn = len(np.atleast_2d(rings.get_offsets()))
+        assert n_drawn == 5, f"a row-D ring collection holds {n_drawn} points, not 5"
+        #: one marker size per collection, not one per point: ``sizes`` is length 1
+        sizes = np.atleast_1d(rings.get_sizes())
+        assert float(sizes[0]) == float(OPT_S), \
+            f"row D rings drawn with s = {sizes[:3]}, not {OPT_S}"
+        lws = np.atleast_1d(rings.get_linewidths())
+        assert float(lws[0]) == float(OPT_LW), \
+            f"row D ring edge {lws[:3]} pt, not {OPT_LW} pt"
+        assert _stroke_width(rings) == float(OPT_HALO), \
+            (f"row D ring halo {_stroke_width(rings)} pt, not {OPT_HALO} pt "
+             f"(the cloud is dense; the halo is what makes the ring readable)")
+        #: ``facecolors="none"`` comes back as an empty array: the rings are hollow
+        fc = rings.get_facecolor()
+        assert fc.size == 0 or not fc[0][:3].any(), \
+            (f"row D rings must stay hollow (the cloud behind them is the "
+             f"evidence); face colour {fc[:1]!r}")
+        assert np.allclose(rings.get_edgecolor()[0], mpl.colors.to_rgba(HILITE)), \
+            (f"row D rings drawn in {rings.get_edgecolor()[:1]}, not the accent "
+             f"{HILITE}")
+    return outer
 
 
 def check_keys_below_panels(fig, keyed: list[tuple[object, float]]) -> None:
@@ -957,11 +1220,13 @@ def build_figure(t: dict[str, pd.DataFrame],
     lim = float(np.nanmax(np.abs(eff))) if eff.size else 1.0
 
     refs_a: list[dict] = []
-    refs_b: dict = {"series": []}
+    refs_b: dict = {"series": [], "two_study_a": []}
     contracts_d: list[dict] = []
     for j, col in enumerate(COLS):
         refs_a.append(panel_a(ax_a[j], col, t["sel"]))
-        refs_b["series"] += panel_b(ax_b[j], col, t["allk"])["series"]
+        out_b = panel_b(ax_b[j], col, t["allk"])
+        refs_b["series"] += out_b["series"]
+        refs_b["two_study_a"] += out_b["two_study_a"]
         panel_c_own(ax_c1[j], col, t["single"], t["toolq"], tools,
                     show_labels=(j == 0))
         panel_c_matrix(ax_c2[j], col, t["members"], t["effects"], tools, lim)
@@ -989,7 +1254,10 @@ def build_figure(t: dict[str, pd.DataFrame],
             ax.set_ylabel("")
 
     for row, y_in in letters.items():
-        fig.text(0.008, y_in / fig_h, row, fontsize=FS["letter"],
+        #: x used to be 0.008 (= 3.8 pt, the page's leftmost ink with row C's
+        #: tool names); the panel letters now hold the same EDGE_IN as the rest
+        #: of the page (2026-10-09)
+        fig.text(EDGE_IN / CANVAS_W, y_in / fig_h, row, fontsize=FS["letter"],
                  fontweight="bold", va="top", ha="left")
 
     # ---- one key per row, below that row's own panels --------------------- #
@@ -1005,10 +1273,12 @@ def build_figure(t: dict[str, pd.DataFrame],
     for index, hh in ((0, qual_handles()), (1, control_handles())):
         bottom = rects["E"][index][0]
         keyed.append((row_legend(fig, hh, bottom - KEY_BELOW, fig_h), bottom))
-    check_key_vs_artwork(refs_a, refs_b, contracts_d, all_h)
+    check_key_vs_artwork(refs_a, refs_b, contracts_d, all_h, list(ax_b))
     check_keys_below_panels(fig, keyed)
+    outer_pt = check_optima_ring(contracts_d)
     return fig, {"fig_h": fig_h, "tools": tools, "xpos": xpos,
-                 "effect_lim": lim, "contracts_d": contracts_d, "keyed": keyed}
+                 "effect_lim": lim, "contracts_d": contracts_d, "keyed": keyed,
+                 "optima_outer_pt": outer_pt}
 
 
 def main() -> None:
@@ -1019,8 +1289,11 @@ def main() -> None:
     check_tables(t, tools, logger)
     fig, meta = build_figure(t, tools)
     rep = layout_report(fig, tools)
-    logger.info("canvas %.2f x %.2f in (printed 1:1 at 0.95\\textwidth = %.2f in)",
-                CANVAS_W, meta["fig_h"], CANVAS_W)
+    logger.info("canvas %.2f x %.2f in; the manuscript places it at "
+                "0.90\\textwidth (0.947), so it prints %.2f x %.2f in and the "
+                "four ink margins print at %.1f pt",
+                CANVAS_W, meta["fig_h"], CANVAS_W * PLACEMENT,
+                meta["fig_h"] * PLACEMENT, EDGE_IN * 72 * PLACEMENT)
     logger.info("tool order: %s", " > ".join(meta["tools"]))
     logger.info("row C effect colour scale: +/- %.2f pp (mean recall at fixed k)",
                 meta["effect_lim"])
@@ -1028,6 +1301,10 @@ def main() -> None:
                 "(p0, floor, ceiling, ticks): %s",
                 [(*[round(c[k], 2) for k in ("p0", "lo", "hi")], c["yticks"])
                  for c in meta["contracts_d"]])
+    logger.info("row D selected-optimum ring: %.2f pt across in print "
+                "(marker s = %d, edge %.1f pt, white halo %.1f pt; 10.53 pt "
+                "before 2026-10-09)", meta["optima_outer_pt"], OPT_S, OPT_LW,
+                OPT_HALO)
     logger.info('row A/B key <-> artwork: "%s" dashed, best single tool dotted, '
                 "mouse study A solid / study B dashed (asserted)", GLORI_LABEL)
     logger.info("row keys below their own panels: %s (in below each panel edge)",

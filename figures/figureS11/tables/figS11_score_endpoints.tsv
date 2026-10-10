@@ -1,0 +1,43 @@
+species	dataset_group	sample	tool	score_type	rule	class	documented_default	n_rows	n_scored	score_min	score_p1	score_p5	score_p25	score_median	score_p75	score_p95	score_max
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	m6Anet	Prob	ge	probabilistic model	0.5	13200	13200	0.500043	0.502604	0.512961	0.571948	0.675113	0.822709	0.964184	0.999315
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	DENA	m6a_ratio	ge	random forest	0.1	25131	25131	0.100257	0.102564	0.105263	0.135135	0.181818	0.272727	0.488889	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	Nanom6A	mod_ratio	ge	XGBoost	0.5	21756	21756	0.100127	0.113904	0.158072	0.333333	0.515715	0.708333	0.909091	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	Nanocompore	Pvalue	le	differential test	0.05	462	462	5.12727e-71	1.19382e-32	8.61387e-20	4.46607e-08	0.000477618	0.00987081	0.0394771	0.0494243
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	ELIGOS2_solo	adjPval	le	differential test	0.0001	57933	57933	0	8.85741e-228	1.90599e-66	1.47158e-17	2.0481e-09	2.27095e-06	5.34437e-05	9.99899e-05
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep1	ELIGOS2_diff	adjPval	le	differential test	0.0001	1021	1021	7.98029e-240	6.3501e-70	6.69352e-33	1.82674e-13	1.33129e-07	9.3313e-06	6.79315e-05	9.92267e-05
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	m6Anet	Prob	ge	probabilistic model	0.5	11328	11328	0.500019	0.502729	0.51279	0.571952	0.669633	0.822308	0.970233	0.999334
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	DENA	m6a_ratio	ge	random forest	0.1	18688	18688	0.100097	0.102564	0.105263	0.133333	0.181818	0.272727	0.489362	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	Nanom6A	mod_ratio	ge	XGBoost	0.5	20025	20025	0.100223	0.112225	0.151061	0.311828	0.485714	0.678571	0.88512	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	Nanocompore	Pvalue	le	differential test	0.05	1070	1070	2.44436e-121	5.08153e-35	6.90179e-22	7.58168e-07	0.00134437	0.0174958	0.0412954	0.0491809
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	ELIGOS2_solo	adjPval	le	differential test	0.0001	40414	40414	0	1.92226e-214	7.26855e-61	1.10484e-16	3.60601e-09	2.73032e-06	5.60288e-05	9.99889e-05
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep2	ELIGOS2_diff	adjPval	le	differential test	0.0001	1255	1255	7.08583e-282	2.98153e-67	6.60478e-38	4.59524e-14	3.19923e-08	5.11277e-06	6.51508e-05	9.95255e-05
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	m6Anet	Prob	ge	probabilistic model	0.5	11073	11073	0.500003	0.502656	0.512437	0.573096	0.675842	0.834349	0.966915	0.999863
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	DENA	m6a_ratio	ge	random forest	0.1	22872	22872	0.100146	0.102564	0.105263	0.133333	0.179487	0.268384	0.475388	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	Nanom6A	mod_ratio	ge	XGBoost	0.5	19743	19743	0.100147	0.1055	0.126624	0.23301	0.387097	0.6	0.863595	1
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	Nanocompore	Pvalue	le	differential test	0.05	255	255	1.21811e-48	3.02678e-30	7.81934e-17	1.13224e-07	0.000325554	0.00908094	0.0410247	0.0489777
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	ELIGOS2_solo	Padj	le	differential test	0.0001	50357	50357	0	1.33922e-223	1.7535e-64	3.57914e-17	2.41869e-09	2.47985e-06	5.47588e-05	9.99986e-05
+Arabidopsis	Arabidopsis_WT	Arabidopsis_WT_rep3	ELIGOS2_diff	Padj	le	differential test	0.0001	745	745	2.01736e-205	1.79952e-53	3.26661e-28	2.33849e-13	4.08574e-08	9.28316e-06	6.36318e-05	9.84085e-05
+Mouse	Mouse_WT	mES_WT	m6Anet	Prob	ge	probabilistic model	0.5	29225	29225	0.500008	0.502893	0.514711	0.58333	0.694471	0.8477	0.980481	0.999916
+Mouse	Mouse_WT	mES_WT	DENA	m6a_ratio	ge	random forest	0.1	38721	38721	0.100196	0.102564	0.105263	0.136364	0.184211	0.272727	0.470588	1
+Mouse	Mouse_WT	mES_WT	Nanom6A	mod_ratio	ge	XGBoost	0.5	23942	23942	0.100067	0.106482	0.128065	0.238095	0.398876	0.614087	0.898539	1
+Mouse	Mouse_WT	mES_WT	Nanocompore	Pvalue	le	differential test	0.05	3114	3114	1.89742e-301	2.06961e-57	6.53872e-21	1.652e-06	0.00107061	0.0151224	0.0408494	0.0499396
+Mouse	Mouse_WT	mES_WT	ELIGOS2_solo	Padj	le	differential test	0.0001	87246	87246	0	4.59765e-280	4.9437e-70	1.33685e-17	2.06306e-09	2.21379e-06	5.38936e-05	9.99947e-05
+Mouse	Mouse_WT	mES_WT	ELIGOS2_diff	Padj	le	differential test	0.0001	3919	3919	0	1.67408e-67	7.00858e-30	6.01484e-12	1.16401e-07	9.17827e-06	6.53449e-05	9.98455e-05
+Human	HeLa_WT	HeLa_WT1	m6Anet	Prob	ge	probabilistic model	0.5	8884	8884	0.500001	0.502531	0.513334	0.575635	0.679072	0.819673	0.966078	0.999974
+Human	HeLa_WT	HeLa_WT1	DENA	m6a_ratio	ge	random forest	0.1	20224	20224	0.100251	0.102905	0.105263	0.136364	0.186667	0.277778	0.466667	0.944444
+Human	HeLa_WT	HeLa_WT1	Nanom6A	mod_ratio	ge	XGBoost	0.5	20900	20900	0.100094	0.10728	0.131579	0.24	0.37931	0.545455	0.814815	1
+Human	HeLa_WT	HeLa_WT1	Nanocompore	Pvalue	le	differential test	0.05	1237	1237	1.35426e-123	2.03597e-59	8.46352e-22	4.6885e-07	0.000527918	0.0116015	0.0391898	0.0499949
+Human	HeLa_WT	HeLa_WT1	ELIGOS2_solo	Padj	le	differential test	0.0001	49814	49814	0	2.07613e-151	4.70123e-50	1.53632e-14	1.61153e-08	4.3596e-06	5.89678e-05	9.99916e-05
+Human	HeLa_WT	HeLa_WT1	ELIGOS2_diff	Padj	le	differential test	0.0001	1065	1065	0	1.43789e-73	4.85238e-31	2.1648e-11	1.92754e-07	1.0028e-05	7.11108e-05	9.95265e-05
+Human	HeLa_WT	HeLa_WT2	m6Anet	Prob	ge	probabilistic model	0.5	16953	16953	0.500001	0.502865	0.513892	0.574775	0.67911	0.832078	0.977699	0.999989
+Human	HeLa_WT	HeLa_WT2	DENA	m6a_ratio	ge	random forest	0.1	20487	20487	0.100046	0.102564	0.105263	0.130435	0.166667	0.24	0.428571	1
+Human	HeLa_WT	HeLa_WT2	Nanom6A	mod_ratio	ge	XGBoost	0.5	18297	18297	0.100069	0.105839	0.128802	0.244444	0.406154	0.619048	0.884169	1
+Human	HeLa_WT	HeLa_WT2	Nanocompore	Pvalue	le	differential test	0.05	1798	1798	1.2877e-301	3.92387e-84	8.45807e-31	4.37799e-09	0.000242814	0.008136	0.0374747	0.0499601
+Human	HeLa_WT	HeLa_WT2	ELIGOS2_solo	Padj	le	differential test	0.0001	58726	58726	0	3.86429e-210	3.47142e-58	9.23228e-16	7.12695e-09	3.37375e-06	5.7748e-05	9.99997e-05
+Human	HeLa_WT	HeLa_WT2	ELIGOS2_diff	Padj	le	differential test	0.0001	1816	1816	0	1.58451e-84	2.81178e-34	4.97049e-13	4.66148e-08	7.21947e-06	6.68572e-05	9.88008e-05
+Human	HeLa_WT	HeLa_WT3	m6Anet	Prob	ge	probabilistic model	0.5	6783	6783	0.500015	0.502978	0.512903	0.572897	0.670724	0.808666	0.964905	0.999959
+Human	HeLa_WT	HeLa_WT3	DENA	m6a_ratio	ge	random forest	0.1	17166	17166	0.100132	0.102564	0.105263	0.136364	0.181818	0.268622	0.464286	0.96
+Human	HeLa_WT	HeLa_WT3	Nanom6A	mod_ratio	ge	XGBoost	0.5	17057	17057	0.100196	0.105711	0.126027	0.220126	0.352941	0.519481	0.8	1
+Human	HeLa_WT	HeLa_WT3	Nanocompore	Pvalue	le	differential test	0.05	1261	1261	1.18567e-117	2.4533e-48	7.37302e-16	5.54688e-05	0.00447206	0.0197657	0.0421959	0.0498226
+Human	HeLa_WT	HeLa_WT3	ELIGOS2_solo	Padj	le	differential test	0.0001	35520	35520	0	2.40965e-193	2.70367e-61	5.4915e-16	7.58622e-09	3.20664e-06	5.65558e-05	9.99681e-05
+Human	HeLa_WT	HeLa_WT3	ELIGOS2_diff	Padj	le	differential test	0.0001	820	820	1.30408e-228	1.06201e-73	3.98038e-30	2.99559e-11	1.87598e-07	9.78488e-06	7.3608e-05	9.94695e-05

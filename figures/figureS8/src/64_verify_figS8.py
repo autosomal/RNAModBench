@@ -161,8 +161,24 @@ def verify_pdf():
           "" if m is None else m.group(0))
     missing = [n for n in NAMES if n not in txt]
     check("standardized tool names present", not missing, str(missing))
-    # one A for the whole metagene block, then B/C/D for the quantitative row
-    letters = set(re.findall(r"^([A-I])$", txt, re.M))
+    # one A for the whole metagene block, then B/C/D for the quantitative row.
+    # A lone-letter regex on the plain text is not enough: pdftotext splits the
+    # rotated tool labels of the quantitative row into fragments that can be a
+    # lone capital (the "H" of "CHEUI-m5C", the "D" of "NanoMUD").  The
+    # 2026-09-24 delivery contains the same fragments, so they are an extraction
+    # artefact, not a page defect.  A real panel letter is an upright single
+    # glyph -- its ink box is taller than it is wide -- while a rotated fragment
+    # comes out landscape.  (2026-10-09)
+    xml = shell(["pdftotext", "-bbox", str(PDF), "-"])
+    raw = re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" '
+                     r'yMax="([\d.]+)">(.*?)</word>', xml)
+    boxes = np.array([[float(a), float(b), float(c), float(d)]
+                      for a, b, c, d, _ in raw], dtype=float).reshape(-1, 4)
+    words = [t for *_, t in raw]
+    heights = boxes[:, 3] - boxes[:, 1]
+    widths = boxes[:, 2] - boxes[:, 0]
+    letters = {t for t, hh, ww in zip(words, heights, widths)
+               if re.fullmatch(r"[A-I]", t) and hh > ww}
     check("panel letters A-D present", {"A", "B", "C", "D"} <= letters,
           str(sorted(letters)))
     check("no stale panel letters E-I", not (letters - {"A", "B", "C", "D"}),
@@ -183,19 +199,26 @@ def verify_pdf():
           if str(r.value).replace(".", "").isdigit()}
     check("declared minimum font >= 7 pt", gm.get("font_min_pt", 0) >= 7,
           f"{gm.get('font_min_pt')} pt")
-    xml = shell(["pdftotext", "-bbox", str(PDF), "-"])
-    boxes = np.array(
-        [[float(a), float(b), float(c), float(d)] for a, b, c, d in re.findall(
-            r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" '
-            r'yMax="([\d.]+)"', xml)])
-    heights = boxes[:, 3] - boxes[:, 1]
-    # pdftotext reports the tight glyph box, not the em box: divide by the
-    # Arial cap/digit height ratio 0.716 to recover the font size (a digit-only
-    # word fills exactly the cap height)
-    est = float(heights.min()) / 0.716
-    check("smallest drawn text >= 7 pt (estimated)", est >= 6.9,
-          f"{est:.2f} pt from a {heights.min():.2f} pt box "
-          f"({len(boxes)} words)")
+    # The ink-box estimator that used to live here (min word-box height / 0.716,
+    # the Arial cap ratio) is meaningless on this page: a hyphen's ink box is
+    # ~0.24 em and a rotated label fragment is measured in the wrong frame, so
+    # both read as "2-3 pt" at any font size (the 2026-09-24 delivery fails the
+    # same way, from a 1.65 pt hyphen box).  pdftohtml reports the font size
+    # every text run actually uses (-zoom 1 = true pt), which is exactly the
+    # quantity the 7 pt floor is about; the sizes are integers, so cross-check
+    # the declared value as well.  (2026-10-09)
+    html = shell(["pdftohtml", "-xml", "-i", "-zoom", "1", "-stdout", str(PDF)])
+    spec = dict(re.findall(r'<fontspec id="(\d+)" size="([\d.]+)"', html))
+    used = sorted({float(spec[i]) for i in re.findall(r'font="(\d+)"', html)
+                   if i in spec})
+    check("smallest drawn font >= 7 pt", bool(used) and min(used) >= 7,
+          f"{min(used):g} pt; sizes used {used}" if used else "no text found")
+    #: the standard tier of 2026-10-09 (63_figS8_page.R, effective print pt:
+    #: ticks 8, axis titles 9, panel letters 14).  pdftohtml rounds to whole
+    #: points, so the drawn set must be exactly this ladder -- any stray size
+    #: (the pre-2026-10-09 page drew a 7 pt legend) fails here.
+    check("drawn sizes are the standard tier", set(used) <= {8.0, 9.0, 14.0},
+          f"sizes {used}; expected subset of {{8, 9, 14}}")
     coll = 0
     for i in range(len(boxes)):
         a = boxes[i]

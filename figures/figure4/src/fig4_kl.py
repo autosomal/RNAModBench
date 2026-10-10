@@ -8,7 +8,7 @@ input that had no replicate structure at all.
 
 Method (identical to the published Figure-4 pipeline
 ``Position-wise_Frequency_Differences.ipynb`` and to the R3-6 recompute
-``R3-6_motif_algorithmic_bias/analysis/r3_6_callsets_kl.py``):
+``analysis/motif_bias_control/analysis/r3_6_callsets_kl.py``):
   * 5-mers are strand-normalised so the centre base is A (U -> revcomp);
   * per-position base frequencies form the observed PWM P;
   * KL = sum over positions of sum over bases b of
@@ -40,7 +40,7 @@ Inputs (read-only)
       columns used: five_mer_raw
   harmonisation/universe/RNA002/<Sp>/<rep>__m6A.tsv
       columns used: five_mer, coverage
-  R3-6_motif_algorithmic_bias/analysis/fullcount_kl.tsv   (validation)
+  analysis/motif_bias_control/analysis/fullcount_kl.tsv   (validation)
 
 Outputs
   ../tables/fig4_kl_per_rep.tsv       per replicate KL (3 variants) + N sites/universe

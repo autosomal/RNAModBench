@@ -265,6 +265,21 @@ add_structure <- function(p, comp_width, pos) {
                       label = unname(map_lab[nm[i]]), family = "Arial",
                       size = FS$struct * MM_PER_PT)
   }
+  
+  #: boundaries are drawn exactly the way Figure 8E / Figure 7D draw them
+  #: (69_fig8e_guitar.R:185-192, 48_fig7d_guitar.R:300-306) -- dotted verticals from
+  #: the plot top down to the gene-model bars (yend = rna_lgd_bl), 0.25 pt black,
+  #: added after the density layers like 69 does.  They stop above the label row, so
+  #: no label is crossed; panels C and D therefore carry the same guides as the
+  #: companion guitar panels of Figures 7/8 (this block was missing here until now).
+  if (length(nm) > 1) {
+    vp <- data.frame(x = end[-length(end)])
+    p <- p + geom_segment(data = vp, inherit.aes = FALSE,
+                          aes(x = x, xend = x, y = pos$fig_top,
+                              yend = pos$rna_lgd_bl),
+                          linetype = "dotted", linewidth = 0.25,
+                          colour = "black")
+  }
   p
 }
 
@@ -282,8 +297,14 @@ draw_panel <- function(dens, plan, title, cols, col_labels, lin_lab,
                  else ifelse(d$kind == "consensus", lin_lab[1], lin_lab[2])
   peak <- max(d$density, na.rm = TRUE)
   pos <- Guitar:::.generate_pos_para(peak)
-  pos$fig_bottom <- -0.18 * peak
-  pos$rna_comp_text <- -0.082 * peak
+  
+  # label row used to sit 0.082 * peak below the baseline, which left ~0.4 pt of
+  # air under the gene-model bars.  It now follows Figure S1's proportions
+  # (23d_figS1_guitar.R:300-301): labels at -0.20 * peak, floor at -0.30 * peak,
+  # i.e. ~8 pt of air under the bars and ~3 pt above the axis line.  The three
+  # panels lose ~10 % of their data band.
+  pos$fig_bottom <- -0.30 * peak
+  pos$rna_comp_text <- -0.20 * peak
   cons <- d[d$kind == "consensus", ]; units <- d[d$kind == "unit", ]
 
   p <- ggplot(d, aes(x = x))
@@ -306,7 +327,13 @@ draw_panel <- function(dens, plan, title, cols, col_labels, lin_lab,
                           limits = if (is.null(tool_linetypes)) lin_lab
                                    else names(tool_linetypes)) +
     scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
-    scale_y_continuous(limits = c(pos$fig_bottom, pos$fig_top), expand = c(0, 0)) +
+    # 2026-10-09: the deeper label floor (see draw_panel) made ggplot print a
+    # negative tick for Mouse/Human (density is never negative; Figure S1 prints
+    # none).  The breaks stay above zero; the floor is still drawn.
+    scale_y_continuous(limits = c(pos$fig_bottom, pos$fig_top), expand = c(0, 0),
+                       breaks = function(lim) {
+                         b <- pretty(lim); b[b >= 0]
+                       }) +
     labs(x = NULL, y = "Density", title = title) +
     guides(colour = "none", fill = "none", linetype = "none", linewidth = "none") +
     theme_classic(base_family = "Arial", base_size = FS$axis) +
@@ -332,12 +359,15 @@ draw_panel <- function(dens, plan, title, cols, col_labels, lin_lab,
 ## ---- the key panel C carries inside its own row -----------------------------
 
 # colours and its thick/thin line coding off the figure-wide band that sits under
-# panel D.  It now prints its own key directly below its three panels, in the same
-# wording and the same glyphs as that band: one dot per condition plus the two
-# line keys of panel C's grammar (thick solid = majority consensus, thin dashed =
-# individual unit).  The keys are drawn as a legend of a dummy plot so ggplot
-# places the glyphs and the 7.2 pt text itself -- hand-placed coordinates would
-# have to be re-measured every time a label changes.
+# panel D.  It now prints its own key directly below its three panels.
+
+
+# short solid line of the condition colour at the consensus weight (0.8), exactly
+# like Figure S1's "-- WT -- fip37 KD" key -- instead of the dots of the
+# 2026-09-30 revision.  The two grammar entries keep their line keys (thick solid
+# = majority consensus, thin dashed = individual unit).  The keys are drawn as a
+# legend of a dummy plot so ggplot places the glyphs and the 7.2 pt text itself --
+# hand-placed coordinates would have to be re-measured every time a label changes.
 key_c <- function() {
   items <- c("WT", "treated", "majority consensus", "individual unit")
   d <- data.frame(item = factor(items, levels = items),
@@ -345,22 +375,21 @@ key_c <- function() {
   ggplot(d, aes(x = x, y = y, colour = item, linetype = item, shape = item,
                 linewidth = item)) +
     geom_segment(aes(xend = x + 0.1, yend = y)) +
-    geom_point(size = 1.05) +
     scale_colour_manual(name = NULL,
                         values = c(WT = unname(WT_COLOR),
                                    treated = unname(CMP_COLOR),
                                    "majority consensus" = "grey35",
                                    "individual unit" = "grey35")) +
     scale_linetype_manual(name = NULL,
-                          values = c(WT = "blank", treated = "blank",
+                          values = c(WT = "solid", treated = "solid",
                                      "majority consensus" = "solid",
                                      "individual unit" = "dashed")) +
     scale_shape_manual(name = NULL,
-                       values = c(WT = 16, treated = 16,
+                       values = c(WT = NA, treated = NA,
                                   "majority consensus" = NA,
                                   "individual unit" = NA)) +
     scale_linewidth_manual(name = NULL,
-                           values = c(WT = 0.25, treated = 0.25,
+                           values = c(WT = 0.8, treated = 0.8,
                                       "majority consensus" = 0.8,
                                       "individual unit" = 0.28)) +
     # the block is a full figure-width slot: the dummy rows sit at x = 0 and are

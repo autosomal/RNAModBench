@@ -51,6 +51,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
 from matplotlib.text import Text
 import numpy as np
 import pandas as pd
@@ -71,11 +72,21 @@ FIG = (_RB / "figures/figure5/figures")
 CANVAS_W = 6.66
 #: \textheight = 276 - 12 - 30 mm = 234 mm = 9.21 in; a full-page figure* must
 #: still fit the caption, so the canvas stays below this
-MAX_H = 8.95            # 2026-09-27: raised from 8.50 so the C row can keep its
-# own 13-tool key in the service strip under the row (\textheight = 9.21 in)
+MAX_H = 9.20            # 2026-09-27: raised from 8.50 so the C row can keep its
+# own 13-tool key in the service strip under the row (\textheight = 9.21 in);
+# 2026-10-09: raised again from 8.95 to pay for the 0.16 in top margin -- the
+# compiled Figure 5 page keeps ~70 pt of slack under its caption, checked by
+# recompiling the manuscript after the change.
 MIN_PT = 7.0
 
-TOP = 0.02
+
+#: margins of 13 pt on this page.  The manuscript places the canvas at
+#: 0.90\textwidth (scale 0.947), so 13 pt here prints as 12.3 pt -- both
+#: readings of the >= 12 pt house standard (Figure 2/4/7 rounds) are met.
+#: Only whitespace is added: ROWS_H, FS and ROW_GAP are untouched; the
+#: panels give up 3-7 % of their width to pay for the two side margins.
+EDGE_IN = 13.0 / 72.0          # 0.181 in on this page (12.3 pt printed)
+TOP = EDGE_IN
 ROW_TITLE = 0.13           # space reserved above each row of axes for its title
 #: the gap under a row must host that row's x tick labels and axis label:
 #: A = four metric names rotated 45 deg (0.37 in + pad), B = ten bin labels
@@ -88,19 +99,33 @@ ROW_TITLE = 0.13           # space reserved above each row of axes for its title
 #: 13-tool key fits under the C row without touching its x axis label.
 ROW_GAP = {"A": 0.55, "B": 0.58, "C": 0.72}
 ROWS_H = {"A": 1.88, "B": 1.28, "C": 1.28, "D": 1.28}
-LEGEND_H = 0.66            # hosts the D row's axis label + the 13-tool legend
+LEGEND_H = 0.84            # hosts the D row's axis label + the 13-tool legend
+# (2026-10-09: 0.66 -> 0.84: the D axis label and the key's first row were
+# touching by -0.8 pt in every earlier build; the extra 0.12 in of band makes
+# the printed gap +7.6 pt without moving the key off the 13 pt bottom margin.)
+#: 2026-10-09: 0.66 -> 0.72 so the D-row key can sit 13 pt above the page edge
+#: while keeping the exact gap it had to the D axis label (the key's anchor moved
+#: from 0.036 in to KEY_Y_IN below, i.e. by the same 0.06 in the band grew).
+KEY_Y_IN = 0.0957          # D key anchor, inches above the page bottom edge
 
 #: geometry of the A row.  Its three panels each carry their own tool-name
 #: labels, and the widest label ("NanoSPA_m6A" = 0.713 in at 7.5 pt Arial) must
 #: fit inside the reserved gap.  Shrinking the font does NOT solve that (0.714 in
 #: at 7.0 pt, and 6.5 pt would break the >= 7 pt floor), so the gap is what
 #: grows -- asserted at run time by ``assert_label_fit``.
-A_LEFT, A_W, A_LABEL_GAP, A_GAP = 0.82, 1.24, 0.80, 0.06
+#: 2026-10-09: A_LEFT moved right by the left margin and every panel gave the
+#: same amount up, so the colour bar at the row's right end (plus its tick
+#: labels and its rotated title) now ends >= 12 pt inside the canvas.  The
+#: 0.80 in label gap that assert_label_fit guards is untouched.
+A_LEFT, A_W, A_LABEL_GAP, A_GAP = 0.989, 1.12, 0.80, 0.06
 #: geometry of the B/C/D rows (tool labels only in the shared legends).
 
 #: read as separated panels; each panel is 1.86 in wide, and the B-row 45 deg
 #: bin-label clearance assertion still passes (0.132 in > 0.109 in needed).
-L_LEFT, L_GAP, L_RIGHT = 0.42, 0.30, 0.06
+#: 2026-10-09: L_LEFT shifted by the left margin and L_RIGHT set to the right
+#: margin (was 0.06 in), so each panel narrows from 1.86 to 1.76 in; the
+#: 45 deg bin-label clearance assertion still passes at the smaller width.
+L_LEFT, L_GAP, L_RIGHT = 0.589, 0.30, EDGE_IN
 
 SPECIES = ["Arabidopsis", "Mouse", "Human"]
 #: species names only: the replicate counts (Arabidopsis n = 3, mouse n = 1
@@ -186,26 +211,45 @@ def draw_row_a(fig, rects, mats, fig_w, fig_h, logger):
     h = y1 - y0
     cmap = sns.diverging_palette(10, 240, as_cmap=True)     # rank 1 = red
     cmap.set_bad("0.86")
-    last = None
     axes_a = []
     for i, sp in enumerate(SPECIES):
         mat = mats[sp].astype(float)
         x = A_LEFT + i * (A_W + A_LABEL_GAP + A_GAP)
         ax = fig.add_axes(_rect(x, y0, A_W, h, fig_w, fig_h))
         axes_a.append(ax)
-        arr = np.ma.masked_invalid(mat.to_numpy(dtype=float))
-        last = ax.imshow(arr, cmap=cmap, vmin=1, vmax=len(mat), aspect="auto")
+        
+        #: (adjacent same-colour runs merged into compound `f` paths) still dropped
+        #: their fills in the author's Illustrator while the structurally identical
+        #: Human panel rendered, so each cell is now its own `Rectangle`: one plain
+        #: filled path per cell, no compound paths.  `clip_on=False` is provably
+        #: invisible -- the grid tiles the axes exactly (xlim 0..ncol, ylim
+        #: nrow..0), so clipping is a no-op by construction.  The colour mapping is
+        #: unchanged: `cmap((v-1)/(n-1))` is the same normalisation the mesh used
+        #: under `vmin=1, vmax=len(mat)`.
+        n = len(mat)
         for r in range(mat.shape[0]):
             for c in range(mat.shape[1]):
                 v = mat.iloc[r, c]
                 if pd.isna(v):
                     continue
-                ax.text(c, r, f"{v:.0f}" if abs(v - round(v)) < 1e-9 else f"{v:.1f}",
+                ax.add_patch(Rectangle((c, r), 1.0, 1.0,
+                                       facecolor=cmap((v - 1.0) / (n - 1.0)),
+                                       edgecolor="none", linewidth=0,
+                                       clip_on=False))
+        ax.set_xlim(0, mat.shape[1])
+        ax.set_ylim(mat.shape[0], 0)               # row 0 on top, as imshow had it
+        for r in range(mat.shape[0]):
+            for c in range(mat.shape[1]):
+                v = mat.iloc[r, c]
+                if pd.isna(v):
+                    continue
+                ax.text(c + 0.5, r + 0.5,
+                        f"{v:.0f}" if abs(v - round(v)) < 1e-9 else f"{v:.1f}",
                         ha="center", va="center", fontsize=FS["annot"], color="black")
-        ax.set_xticks(range(len(METRICS)))
+        ax.set_xticks([c + 0.5 for c in range(len(METRICS))])
         ax.set_xticklabels([METRIC_LABEL[m] for m in METRICS], rotation=45,
                            ha="right", fontsize=FS["tick"])
-        ax.set_yticks(range(mat.shape[0]))
+        ax.set_yticks([r + 0.5 for r in range(mat.shape[0])])
         ax.set_yticklabels([DISPLAY.get(t, t) for t in mat.index],
                            fontsize=FS["tick"])
         ax.tick_params(length=2, pad=1.5)
@@ -218,10 +262,26 @@ def draw_row_a(fig, rects, mats, fig_w, fig_h, logger):
                     " > ".join(mat.index.astype(str)))
     cax = fig.add_axes(_rect(A_LEFT + 3 * A_W + 2 * (A_LABEL_GAP + A_GAP) + 0.02,
                              y0 + 0.10, 0.075, h - 0.20, fig_w, fig_h))
-    cb = fig.colorbar(last, cax=cax)
-    cb.set_label("Mean rank  (1 = best)", fontsize=FS["cbar"], labelpad=2)
-    cb.ax.tick_params(labelsize=FS["tick"], length=2)
-    cb.outline.set_linewidth(0.6)
+    #: 2026-10-10 (Illustrator, same round as the cells above): the colour bar is
+    #: a vector gradient QuadMesh -- ``fig.colorbar`` puts an 8-bit indexed image
+    #: (22x504 px) on the page, which Illustrator mis-renders.  Ticks, their side
+    #: and the axis name stay exactly as they were.
+    
+    nv = len(mats[SPECIES[0]])
+    cax.pcolormesh([0.0, 1.0], np.linspace(1.0, nv, 257),
+                   np.linspace(1.0, nv, 256).reshape(-1, 1),
+                   cmap=cmap, vmin=1, vmax=nv,
+                   edgecolors="none", antialiased=False, snap=True)
+    cax.set_xlim(0, 1)
+    cax.set_ylim(nv, 1)                  # top = 1 = best (2026-10-09 ruling)
+    cax.set_xticks([])
+    cax.set_yticks([2, 4, 6, 8, 10, 12])
+    cax.yaxis.tick_right()
+    cax.yaxis.set_label_position("right")
+    cax.set_ylabel("Mean rank  (1 = best)", fontsize=FS["cbar"], labelpad=2)
+    cax.tick_params(labelsize=FS["tick"], length=2)
+    for s in cax.spines.values():
+        s.set_linewidth(0.6)
     return axes_a
 
 
@@ -405,7 +465,7 @@ def main() -> None:
         if i < 3:
             y -= ROW_GAP[row]
     for row, y_in in letter_y.items():
-        fig.text(0.012, y_in / fig_h, row, fontsize=FS["letter"],
+        fig.text(EDGE_IN / CANVAS_W, y_in / fig_h, row, fontsize=FS["letter"],
                  fontweight="bold", va="top", ha="left")
 
     axes_a = draw_row_a(fig, rects, mats, CANVAS_W, fig_h, logger)
@@ -423,7 +483,8 @@ def main() -> None:
     _, axes_d = draw_window_row(fig, rects, curve, "localization_accuracy",
                                 "Exact localisation", "D", CANVAS_W, fig_h)
     fig.legend(handles=handles, labels=[DISPLAY.get(t, t) for t in TOOL_ORDER],
-               loc="lower center", bbox_to_anchor=(0.5, 0.004), ncol=7,
+               loc="lower center",
+               bbox_to_anchor=(0.5, KEY_Y_IN / fig_h), ncol=7,
                frameon=False, fontsize=FS["legend"], handlelength=1.5,
                columnspacing=1.1, handletextpad=0.45, labelspacing=0.35)
 

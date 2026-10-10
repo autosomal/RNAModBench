@@ -48,7 +48,7 @@ JPAIRS = ((_RB / "figures/figureS7/tables/s7_jaccard_pairs.tsv"))
 #: R3-9b package, which also explains why the raw counts put four of the six tools above one
 #: on the unmodified control; the same evidence feeds Table S5 and the D strip of Figure S8,
 #: so the three cannot drift.
-R39B = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/units_calls.tsv"))
+R39B = ((_RB / "analysis/nonm6a_replicate_depth/evidence/units_calls.tsv"))
 
 #: restrained palette (paper-like): one blue WT, one orange unmodified control,
 #: one neutral guide, one accent for the synthetic-control row.
@@ -137,7 +137,11 @@ def apply_style() -> None:
 #: edge and the panel letter.  It used to be a fraction of the axes height
 #: (dy=1.055), which is only ~2 pt on these shallow panels and reads as touching;
 #: a fixed gap keeps the same clearance on every panel and on the Guitar row.
-LETTER_GAP_IN = 0.25
+
+#: height now that `top` is back to 0.900, i.e. the >= 12 pt top margin is
+#: bought from the gap instead of from the panel height (the rows keep the
+#: delivered size and the decade labels of panel B stay clear of each other).
+LETTER_GAP_IN = 0.18
 
 
 #: edge of the plot area (transAxes), i.e. they sat just left of the y-tick
@@ -147,8 +151,14 @@ LETTER_GAP_IN = 0.25
 #: this canvas (7.60 in) to 180 mm, so a delivered-page x maps to the figure
 #: fraction x / PAGE_W_PT.
 PAGE_W_PT = 180.0 / 25.4 * 72.0                  # 510.24 pt
-LETTER_X_PT = 3.0                                # left column: page margin
-LETTER_X2_PT = 253.0                             # right column: left of the y titles
+
+#: plot area moved right (left 0.115 -> 0.165) so the rotated y titles keep
+#: a >= 10 pt gutter from the letters instead of sharing their row.
+LETTER_X_PT = 12.0                               # left column: page margin
+
+#: while the right column's y titles start at 283.4 pt; 261 is the middle of
+#: that corridor, leaving ~11.5 pt on either side.
+LETTER_X2_PT = 261.0                             # right column: corridor centre
 
 
 def letter(ax, s: str, x_pt: float, gap_in: float = LETTER_GAP_IN) -> None:
@@ -919,9 +929,11 @@ def build_figure() -> tuple[plt.Figure, dict[str, pd.DataFrame]]:
     # drawn 193 mm wide and scaled to 180 mm by the assembly (scale 0.933), so
     # the rotated tick labels and the wide reference legend stay inside the page
     fig = plt.figure(figsize=(7.60, 6.10))           # rows A-C
+
+    #: gutter between the rotated y titles and the panel letters.
     outer = fig.add_gridspec(3, 1, height_ratios=[1.0, 1.06, 1.06],
-                             hspace=2.05, left=0.115, right=0.975,
-                             top=0.900, bottom=0.115)
+                             hspace=2.05, left=0.165, right=0.9685,
+                             top=0.8912, bottom=0.1062)
     gs_a = outer[0].subgridspec(1, 2, wspace=0.38)
     gs_b = outer[1].subgridspec(1, 2, wspace=0.38)
     gs_c = outer[2].subgridspec(1, 2, wspace=0.38)

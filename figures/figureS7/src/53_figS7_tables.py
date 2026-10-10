@@ -5,7 +5,7 @@ The rebuilt Figure S7 is the *detail* companion of the revised Figure 7: every
 quantity is computed per independent sequencing unit and each number is
 reconciled against the frozen R3-9 evidence tables before it reaches a panel.
 
-Conventions (identical to ``R3-9_nonm6a_fp_analysis/analysis/r39_build_evidence.py``,
+Conventions (identical to ``analysis/nonm6a_false_positives/analysis/r39_build_evidence.py``,
 whose geometry helpers are imported rather than copied, so the two analyses
 cannot drift apart):
 
@@ -751,7 +751,7 @@ def build_curlcake(res, region_bp: int) -> pd.DataFrame:
 # --------------------------------------------------------------------------- #
 #: the depth diagnosis of the R3-9b package: the coverage-matched ratio the delivered
 #: Table S5 prints for the five rows that keep this study's own wild-type units
-MATCHED_EV = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"))
+MATCHED_EV = ((_RB / "analysis/nonm6a_replicate_depth/evidence/band_matched_rate_ratios.tsv"))
 
 
 def matched_ratio_printed(tool: str) -> tuple[float, str]:
@@ -864,7 +864,7 @@ def build_table_s5(summary: pd.DataFrame) -> pd.DataFrame:
     study's three units, cut at this study's own thresholds by
     `76_nanonm_published_wt.py`.  This table therefore records two different things for
     that one tool -- what the delivered table prints (the four-sample arm) and what this
-    study's own re-analysis holds (`s7_*`, still the numbers the published-set cross-check compares) -- and
+    study's own re-analysis holds (`s7_*`, still the numbers Figure S11 compares) -- and
     says so in `status` and `note` instead of reporting a delta, because the two sides are
     not two versions of one measurement.  `matched_ratio_printed` and
     `matched_ratio_basis` record which arm every row's ratio cell came from; the

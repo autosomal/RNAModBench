@@ -163,9 +163,16 @@ write.table(plan[, c("label", "model", "mod", "condition", "cond_label",
 
 ## ---- transcript schematic under every panel (as in Figure S10 / S1) ------------------
 e_pos <- function(peak) {
+  
+  ## label row used to sit 0.06 * peak below the baseline -- its capital tops
+  ## reached into the gene-model bars once the floor was shallow (measured on the
+  ## companion panel: -1.0 pt of air, i.e. a hair of overlap).  The row now follows
+  ## Figure S1's proportions (23d_figS1_guitar.R:300-301): labels at -0.20 *
+  ## peak, floor at -0.30 * peak, which prints ~7 pt of air under the bars and
+  ## ~3 pt above the axis line.  The data band shrinks ~13 %.
   pos <- Guitar:::.generate_pos_para(peak)
-  pos$fig_bottom    <- -0.12 * peak
-  pos$rna_comp_text <- -0.060 * peak
+  pos$fig_bottom    <- -0.30 * peak
+  pos$rna_comp_text <- -0.20 * peak
   pos
 }
 add_structure <- function(p, comp_width, pos) {

@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-"""Figure 8 panel C as a standalone piece: PPV vs. GLORI (2 bp)."""
+"""Figure 8 panel C as a standalone piece: PPV dot plot | calls bar.
+
+2026-10-08 (author decision): the piece spans the row's second and third columns; the two plot
+areas inside it were rebalanced twice the same day.  The dot plot's left edge is
+pinned by the left fit at the measured row-label width (1.379 in), so only its
+right edge can move: PPV right edge 2.164 -> 2.380 -> 3.079 in (pass 2: "C
+ ", pass 3: " ").
+
+2026-10-10 (author note: "abcd a
+"): the piece narrows from 4.51667 to **3.92 in** (fig8_style.ROW1_C_IN) and the
+pair inside it is re-cut to **dot 1.30 in : calls 0.99 in** (gap 0.19 in), so the
+dot plot no longer runs past the old second-column boundary; the dot's right edge
+goes 3.079 -> 2.679 in and the calls bar 3.269-4.497 -> 2.869-3.859 in.
+"""
 
 import numpy as np
 import pandas as pd
@@ -9,7 +22,14 @@ from fig8_style import (DOT_COLOR, GUIDE, PIECE, STYLE, TABLES, apply_style,
                         letter, save_piece, title)
 
 #: 2026-10-08 (author decision, three equal columns per row): the row labels stay verbatim and
-#: drop to 7.5 pt, so the PPV dot plot keeps ~0.9 in inside its 2.18333 in column.
+#: drop to 7.5 pt; at that size the widest one measures 1.379 in, which the left fit
+#: turns into the pinned left edge of the dot plot.  Rebalanced twice the same day:
+#: the dot plot's right edge 2.164 -> 2.380 -> 3.079 in (1.70 in wide) while the
+#: calls bar keeps its own right edge and shrinks to 1.23 in -- the piece itself,
+#: the panel letter and the label column do not move.
+
+#: the pair inside is re-cut to dot 1.30 in : calls 0.99 in (gap 0.19 in), i.e.
+#: fractions below are x/3.92 of the narrower canvas.
 ROW_PT = 7.5
 
 
@@ -23,13 +43,24 @@ def main() -> None:
     df = df.sort_values("ppv_glori_w2").reset_index(drop=True)
 
     fig = plt.figure()
-    #: 2026-10-08 (author decision, three equal columns per row): C spans the row's second and
-    #: third columns.  The PPV dot plot fills the second (its labels inside it, the
-    #: left fit moves x0), the calls bar fills the third; both land on the column
-    #: edges, so the row reads as three equal thirds.
+    #: 2026-10-08 (author decision, three equal columns per row; rebalanced twice more the same
+    #: day): C spans the row's second and third columns, and the two plot areas
+    #: inside it move by their **right/left edges** -- the PPV left edge is pinned
+    #: by the left fit at the measured row-label width (1.379 in from the piece
+    #: left, whatever x0 says: the fit overrides it), so widening the dot plot means
+    #: moving its right edge only.  The x1 values therefore read: PPV right edge
+    #: 2.164 (thirds) -> 2.380 (pass 2, real width only 1.00 in) -> **3.079 in**
+    #: (1.70 in wide); the calls bar keeps its right edge (4.497 in) and starts
+
+
+
     #: y0 is 0.205, not 0.150: the folded x title needs two lines below the axes.
-    ax = fig.add_axes([0.2435, 0.205, 0.2354, 0.700])
-    ax2 = fig.add_axes([0.5210, 0.205, 0.4746, 0.700])
+    #: 2026-10-10: fractions of the 3.92 in canvas -- dot 1.379-2.679 in
+    #: (0.35179 + 0.33163), calls 2.869-3.859 in (0.73189 + 0.25255), 0.061 in of
+    #: white to the piece's right edge.  The dot's x0 is only a seed: the left fit
+    #: overrides it with the measured label width, so the right edge is the knob.
+    ax = fig.add_axes([0.35179, 0.205, 0.33163, 0.700])
+    ax2 = fig.add_axes([0.73189, 0.205, 0.25255, 0.700])
     y = np.arange(len(df))
     fam_col = {"m6A_DRACH": "#E83C1E", "m6A": "#F5B264", "m5C": "#2E86AB",
                "pseU": "#A23B72", "inosine": "#F18F01",
@@ -68,7 +99,8 @@ def main() -> None:
     ax.set_xlim(0, 1.10)          # no value labels any more: bars fill the box
     ax.set_ylim(-0.75, len(df) - 0.4)
     ax.set_xticks([0, 0.5, 1.0])
-    #: 2026-10-08: the three labels share ~0.9 in now, so they print at 7.5 pt
+    #: 2026-10-08: the three labels shared ~0.9 in in the thirds pass and print at
+    #: 7.5 pt; the rebalances handed the axis 1.70 in, the size is kept as it is
     ax.set_xticklabels(["0%", "50%", "100%"], fontsize=7.5)
     ax.set_xlabel("PPV vs. GLORI\n(2 bp)", fontsize=STYLE["label"])
     for sp in ("top", "right"):

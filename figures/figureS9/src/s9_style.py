@@ -7,13 +7,22 @@ a little more width per cell, and, once the sheet had grown, for the type to cat
 enlarged instead of shrinking row 1, and every size except ``row_a`` is one step
 larger than the 2026-09-27 A4 page (see ``FS``).
 
+2026-10-09 (author decision), of this page: " the nine panels can be a little wider, and square " -- the nine
+**plotting areas are squares** now.  The box height cannot go down (A's 23-row
+label pitch pins it at ``BOX_H_LOW_IN`` = 2.675 in), so the square is built by
+widening: the shared label column is **frozen** as ``LABEL_COL_IN`` and the
+column width -- and with it the page width -- is derived from it instead of the
+other way round.  The sheet is composed 1:1, so the page itself keeps every type
+size; in the SI album (7.008 in of printed width) the scale moves 0.565 -> 0.497,
+the trade-off the author accepted on 2026-10-09.
+
 Layout arithmetic (inches, 1:1 print size)::
 
-    page   892.8 x 792.0 pt  =  12.400 x 11.000
+    page   1015.776 x 792.0 pt  =  14.108 x 11.000
     margins 0.10 all round, gutters 0.060 (vertical and between the three columns)
     row heights 3.580 (A|B|C) + 3.550 (D|E|H) + 3.550 (F|G|I) + 2*0.060 = 11.000
-    column width (12.40 - 0.20 - 2*0.060) / 3 = 4.0267
-    nine boxes  2.111 in wide, 2.6817 (row 1) / 2.675 in (rows 2 and 3) tall
+    column width  frozen label column 1.861 + 0.060 + box side 2.675 = 4.596
+    nine boxes  2.675 x 2.675 in -- **squares** (2026-10-09)
 
 Every panel is drawn on its own print-size canvas and the page is composed 1:1
 with pypdf (no scaling), so the type sizes below are the printed sizes.
@@ -70,29 +79,63 @@ SRC_TABLES = (_RB / "figures/figureS9/tables/source")
 #: ~1.8 in of box height) to 12.400 x 10.700, and the same day deepened twice
 #: with the type scale -- 10.900 for the two key strips (0.1 in each) and 11.000
 #: for row 1, whose band carries C's FP-rate twin axis above its box and C's own
-#: x title below it.  The extra height goes to rows 2 and 3, the extra width goes
-#: to all nine boxes; the page width is the scale factor of the SI album print
-#: (7.008 / 12.400), so every drawn element keeps its relative size against the
-#: neighbouring supplementary figures.
-PAGE_IN = (892.8 / 72.0, 792.0 / 72.0)          # 12.400 x 11.000 (type scale up)
+#: x title below it.
 
+#: that the nine boxes come out square -- see ``LABEL_COL_IN`` / ``BOX_SIDE_IN``.
 M_LEFT = M_RIGHT = 0.100
 M_TOP = M_BOTTOM = 0.100
 GUT_H = 0.060                                   # between the three columns
 GUT_V = 0.060                                   # between the three rows
-
 N_COL = 3
-W_FULL = PAGE_IN[0] - M_LEFT - M_RIGHT          # 12.200
-COL_W = (W_FULL - (N_COL - 1) * GUT_H) / N_COL  # 4.0267
 
 
-#: (A | B | C, then D | E | H, then F | G | I).  Row 1 is the tallest (3.580): the
-#: 23-entry matrix of A pins its box at 2.6817 in, and the larger type needs room
-#: above (C's FP-rate twin axis) and below (C's own x title) it; rows 2 and 3
-#: carry 3.550 in each (the key strip deepened with the type scale), so their
-#: boxes still come out 2.675 in tall (BOX_H_LOW_IN, = r2 - 0.800 - 0.075)
-#: against row 1's 2.6817 in -- all nine boxes therefore read as equally tall,
-#: while every key still prints under its own box.
+#: the value measured on 2026-09-30** -- A's 23 model names at ``FS["row_a"]``
+#: plus 0.09 in of pad need 1.8562 in, F's longest tool name at ``FS["row"]``
+#: plus the 0.32 in panel-letter provision needs 1.8607 in.  It is a constant
+#: (not a measurement) because the page width is derived from it:
+#: ``70_figs9_panels.column_left`` re-measures both needs at build time and fails
+#: loudly when either outgrows this number -- that is the event which forces a
+#: re-derivation of the page.
+LABEL_COL_IN = 1.861
+#: right margin kept inside every cell canvas: a box ends 0.060 in short of the
+#: cell's right edge (one number, three users -- ``cell_rect``'s default
+#: ``right_in``, the inline rect of the row-1 bar panels, and
+#: ``draw_sweep_key``'s box centre)
+BOX_RIGHT_IN = 0.060
+#: side of the nine **square** boxes.  **The floor is A's 23-row pitch**: 23
+#: labels at 8 pt need 2.675 in of box height, so a square is only reachable by
+#: widening the sheet, never by lowering the box (``_check_geometry`` asserts
+#: ``BOX_SIDE_IN == BOX_H_LOW_IN``).
+BOX_SIDE_IN = 2.675
+
+
+#: it the page width, follows from the frozen label column and the box side
+COL_W = LABEL_COL_IN + BOX_RIGHT_IN + BOX_SIDE_IN           # 4.596
+W_FULL = N_COL * COL_W + (N_COL - 1) * GUT_H                # 13.908
+PAGE_IN = (M_LEFT + W_FULL + M_RIGHT, 792.0 / 72.0)         # 14.108 x 11.000
+
+
+#: letters are anchored to their **own canvas' left edge** at this single
+#: inset, so the page reads as a 3 x 3 grid (the canvases are equal per
+#: column and the columns line up across the three rows).  This replaces the
+#: per-panel placements of 2026-09-28/09-30, which pushed every letter just
+#: left of its own label block (and D/E next to their boxes), leaving the
+#: column x positions 0.02 .. 0.99 in apart.  The visual intent of those
+#: rounds survives -- each letter still sits in its panel's top-left corner,
+#: clear of the ink: the measured headroom in the letter band is large (the
+#: closest label block starts 1.31 in in, so up to 0.97 in would fit), and
+#: 0.030 in leaves C/F/G where they already were.
+LETTER_IN = 0.030                                        # inches, per canvas
+
+
+#: (A | B | C, then D | E | H, then F | G | I).  Row 1 is the tallest (3.580) and
+#: draws its band in ``s9_panels._draw_bar_panel`` (``ROW1_BOTTOM_FRAC`` /
+#: ``ROW1_BOX_FRAC`` below): the band holds C's FP-rate twin axis above its box
+#: and C's own x title below it.  Rows 2 and 3 carry 3.550 in each (the key strip
+#: deepened with the type scale), so their boxes come out 2.675 in tall
+#: (BOX_H_LOW_IN, = r2 - 0.800 - 0.075).  Since 2026-10-09 row 1 draws a box of
+#: exactly the same 2.675 in, so all nine boxes are equal squares -- their width
+#: comes from ``COL_W`` -- while every key still prints under its own box.
 #: 0.100 + 3.580 + 0.060 + 3.550 + 0.060 + 3.550 + 0.100 = 11.000.
 ROW_H = {"r1": 3.580, "r2": 3.550, "r3": 3.550}
 
@@ -126,11 +169,12 @@ PLACE = {
 
 #: enlargement the sheet had grown by ~20 % while the type had not, so every size
 #: **except row_a** was raised by ~20 %.  A's 23-row labels stay at 8 pt because
-#: their row pitch (2.6817 in / 23 = 8.4 pt) leaves no room at all, and the
-#: letters of C/F/G end up at the canvas' left edge as a consequence (see
-#: ``letter_near``).  ``"title"``/``"stripe"`` (panel titles, page stripe) were
-#: never used and are gone; the layout gate carries its own 7 pt default floor,
-#: while the smallest size the page actually prints is 8 pt (the sweep key).
+#: their row pitch (2.675 in / 23 = 8.37 pt, the square side of 2026-10-09)
+#: leaves no room at all, and the letters of C/F/G end up at the canvas' left
+#: edge as a consequence (see ``letter_near``).  ``"title"``/``"stripe"`` (panel
+#: titles, page stripe) were never used and are gone; the layout gate carries its
+#: own 7 pt default floor, while the smallest size the page actually prints is 8 pt
+#: (the sweep key).
 FS = {
     "tick": 11.5,
     "tick_sm": 11.5,
@@ -139,7 +183,7 @@ FS = {
     "axis_sm": 12.5,
     "row": 9.5,
     "level": 9.5,      
-    #: locked: 2.6817 in / 23 rows = 8.4 pt of pitch -- 9.5 pt would overlap
+    #: locked: 2.675 in / 23 rows = 8.37 pt of pitch -- 9.5 pt would overlap
     "row_a": 8.0,
     "legend": 9.5,     #: only the grid_key default; every key of this page passes its size
     "letter": 28.0,
@@ -218,17 +262,19 @@ def bare(ax: plt.Axes) -> None:
 
 
 
-#: is 4.027 in wide and 3.550 in (rows 2 and 3) or 3.580 in (row 1) tall; the box
-#: runs from the panel's label column to the cell's right margin and from the
-#: bottom offset up to a fixed pad under the cell top, so the nine boxes share
-#: their right edge and their row-wise top and bottom lines.  The strip under a
-#: lower box carries its x tick labels, its x title and, where the panel has one,
-#: **its own key** (H and I the species, G the effect, D/E the two halves of the
-#: sweep key), because **a key prints under the panel it belongs to** (house rule).
+#: is 4.596 in wide (2026-10-09) and 3.550 in (rows 2 and 3) or 3.580 in (row 1)
+#: tall; the box runs from the panel's label column to the cell's right margin and
+#: from the bottom offset up to a fixed pad under the cell top, so the nine boxes
+#: share their right edge and their row-wise top and bottom lines.  The strip
+#: under a lower box carries its x tick labels, its x title and, where the panel
+#: has one, **its own key** (H and I the species, G the effect, D/E the two halves
+#: of the sweep key), because **a key prints under the panel it belongs to**
+#: (house rule).
 #: Row 1 draws its band in ``s9_panels._draw_bar_panel`` at the canvas fractions
-#: y0=0.1324 / height=0.7491 (bottom 0.474 in, box 2.6817 in, 0.424 in kept
-#: above the box for C's FP-rate twin axis; the band grew with the 2026-09-30
-#: type scale, the box itself did not).
+#: ``ROW1_BOTTOM_FRAC`` / ``ROW1_BOX_FRAC`` (bottom 0.474 in, box 2.675 in, 0.431
+#: in kept above the box for C's FP-rate twin axis; 2026-10-09: the box is the
+#: same square as the six lower ones, so the strip above it keeps growing with
+#: the band).
 
 #: enlarged type -- it holds the x ticks (11.5 pt), the x title (12.5 pt) and the
 #: sweep key, whose three rows need 0.024 + 3*0.117 in at 8 pt
@@ -239,6 +285,13 @@ BOX_TOP_PAD_IN = 0.075
 #: band) and neither the layout gate nor the verifier would see it.
 BOX_H_LOW_IN = ROW_H["r2"] - BOX_BOTTOM_IN - BOX_TOP_PAD_IN          # 2.675
 
+
+#: the six lower ones -- the ceiling above it (C's FP-rate twin axis plus its
+#: title) is what ``_check_geometry`` guards
+ROW1_BOTTOM_IN = 0.474
+ROW1_BOTTOM_FRAC = ROW1_BOTTOM_IN / ROW_H["r1"]
+ROW1_BOX_FRAC = BOX_SIDE_IN / ROW_H["r1"]                            # 0.74721
+
 #: canvas y (inches) of the lower edge of a key printed under a panel
 KEY_BOTTOM_IN = 0.020
 
@@ -247,9 +300,10 @@ def _check_geometry() -> None:
     """Fail loudly when the page budget stops adding up (2026-09-30).
 
     The layout was re-derived by hand through many rounds (2026-09-25 …
-    2026-09-30), and the one constant that was forgotten in a later edit is
-    silently swallowed by ``cell_rect``'s clamp.  These checks make a stale row
-    height, column width or box height impossible to write down.
+    2026-09-30, and the square of 2026-10-09), and the one constant that was
+    forgotten in a later edit is silently swallowed by ``cell_rect``'s clamp.
+    These checks make a stale row height, column width or box side impossible to
+    write down -- including the one that ties the nine boxes to **squares**.
     """
     assert ROW_H["r2"] == ROW_H["r3"], "rows 2 and 3 must share one height"
     total = M_TOP + M_BOTTOM + ROW_H["r1"] + ROW_H["r2"] + ROW_H["r3"] + 2 * GUT_V
@@ -259,6 +313,21 @@ def _check_geometry() -> None:
     assert abs(BOX_H_LOW_IN - (ROW_H["r2"] - BOX_BOTTOM_IN - BOX_TOP_PAD_IN)) < 1e-12
     assert BOX_BOTTOM_IN > 0 and BOX_TOP_PAD_IN > 0
 
+    #: ``PAGE_IN`` that agrees with itself (the check above), so the square has
+    #: its own ties: the column is exactly the frozen label column plus the right
+    #: margin plus the box side, the box side equals the rows-2/3 box height, and
+    #: row 1's band draws the same side inside its taller cell.
+    assert abs(COL_W - (LABEL_COL_IN + BOX_RIGHT_IN + BOX_H_LOW_IN)) < 1e-12, \
+        (COL_W, LABEL_COL_IN + BOX_RIGHT_IN + BOX_H_LOW_IN)
+    assert abs(BOX_SIDE_IN - BOX_H_LOW_IN) < 1e-12, (BOX_SIDE_IN, BOX_H_LOW_IN)
+    assert abs(ROW1_BOX_FRAC * ROW_H["r1"] - BOX_H_LOW_IN) < 1e-12
+    assert abs(ROW1_BOTTOM_FRAC * ROW_H["r1"] - ROW1_BOTTOM_IN) < 1e-12
+    #: C's FP-rate twin axis prints in the strip above row 1's box (its title,
+    #: 12.5 pt, plus the 11.5 pt tick labels): the strip must not shrink below
+    #: the 0.42 in it has needed since 2026-09-30
+    strip = ROW_H["r1"] - ROW1_BOTTOM_IN - BOX_SIDE_IN
+    assert strip >= 0.42, f"row 1 keeps only {strip:.3f} in above its box"
+
 
 _check_geometry()
 
@@ -266,28 +335,40 @@ _check_geometry()
 def cell_rect(fig: plt.Figure, left_in: float, *, height_in: float,
               bottom_in: float = BOX_BOTTOM_IN,
               top_pad_in: float = BOX_TOP_PAD_IN,
-              right_in: float = 0.060) -> list[float]:
+              right_in: float = BOX_RIGHT_IN) -> list[float]:
     """The plotting area of a cell-filling panel, in figure fractions.
 
     It runs from ``left_in`` (the end of the label column) to the canvas' right
-    margin and from ``bottom_in`` to ``top_pad_in`` under the canvas top, clamped
-    to the canvas so a box can never leave it.
+    margin and from ``bottom_in`` to ``top_pad_in`` under the canvas top.
+
+    2026-10-09 (author decision): a box that does not fit its canvas is now a **hard
+    failure**.  Until this round the two clamps below silently shrank the box
+    (``max(..., 0.4)`` / ``min(...)``), which no gate and no verifier could see:
+    a stale column width would have printed nine 0.4 in boxes under fat white
+    bands and looked like a styling accident.
     """
     win, hin = fig.get_figwidth(), fig.get_figheight()
-    width = max(win - left_in - right_in, 0.4)
-    height = min(height_in, hin - bottom_in - top_pad_in)
-    return [left_in / win, bottom_in / hin, width / win, height / hin]
+    width = win - left_in - right_in
+    avail = hin - bottom_in - top_pad_in
+    if width < 0.4:
+        raise ValueError(f"box would be only {width:.3f} in wide on a "
+                         f"{win:.3f} in canvas (left_in {left_in:.3f})")
+    if height_in > avail + 1e-9:
+        raise ValueError(f"box wants {height_in:.3f} in of height but the "
+                         f"canvas keeps {avail:.3f} in")
+    return [left_in / win, bottom_in / hin, width / win, height_in / hin]
 
 
-def letter(fig: plt.Figure, key: str, x: float = 0.006) -> None:
+def letter(fig: plt.Figure, key: str, x: float | None = None) -> None:
     """Bold panel letter in the top-left corner of a panel canvas.
 
-    ``x`` (figure fraction) lets a canvas that carries two facets label the
-    second one at its own left edge (2026-09-25: the window sweep and the
-    effect-size row are two lettered facets each).
+    ``x`` (figure fraction) is only for a canvas that carries two lettered
+    facets (2026-09-25 design; no panel of this page uses it today).  All nine
+    panels take the default -- one ``LETTER_IN`` inset from their own canvas,
+    which is what makes the columns line up (2026-10-09 revision request).
     """
-    fig.text(x, 0.994, key, fontsize=FS["letter"], fontweight="bold",
-             ha="left", va="top")
+    fig.text((LETTER_IN / COL_W) if x is None else x, 0.994, key,
+             fontsize=FS["letter"], fontweight="bold", ha="left", va="top")
 
 
 def dot_column_axes(ax: plt.Axes, n_rows: int) -> None:

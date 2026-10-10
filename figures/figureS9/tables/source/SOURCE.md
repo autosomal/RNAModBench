@@ -1,6 +1,6 @@
 # Frozen inputs of Figure S9
 
-Every number drawn in `../../figures/FigureS9_rev.pdf` is read from this directory by
+Every number drawn in `figures/FigureS9_rev.pdf` is read from this directory by
 `../../scripts/s9_data.py`.  The files are **copies** of the frozen evidence tables; the
 originals stay where their generating pipeline keeps them (they are shared with the main
 Figure 8 workflow and must not be renamed there).

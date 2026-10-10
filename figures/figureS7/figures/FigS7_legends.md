@@ -1,39 +1,43 @@
-# Figure S7 -- legend (rebuilt 2026-09-21, R3-9-centred contract)
+# Figure S7 -- legend (delivered numbering; realigned 2026-10-09)
 
-> Paste-ready replacement for the Figure S7 entry of the SI legend compilation
-> (`$RNAMODBENCH_LOCAL/submission/Supplementary_Figures.pdf`). That compilation
-> and `Supplementary_Table.pdf` have no editable source inside the repository, so
-> both need an external re-layout pass (the S4 legend and the missing Figure S5 entry
-> are outstanding there as well). The figure page itself is
-> `figures/FigureS7_rev.pdf`; `$RNAMODBENCH_LOCAL/manuscript/sup/sup6.pdf` is the
-> staged copy for the submission tree.
+> The delivered Figure **S7** entry of the SI album. Its caption is compiled
+> from `tables/sup_figure_captions.md`
+> (`merge_supplementary_figures.py` prefers that file and falls back to this
+> one); the figure page is `figures/FigureS6_rev.pdf` in this directory
+> (analysis name) and is delivered as
+> `$RNAMODBENCH_LOCAL/submission/new_submission/sup/FigureS7_rev.pdf`, merged with the other
+> SI pages into `Supplementary_Figures.pdf`.
+>
+> 2026-10-09: delivered numbering is S7 and the panel set is A-C; the (A)
+> wording below now names the quantity the axis plots, matching the axis
+> title "Calls in the candidate-site set" and the album caption.
 
-**Figure S7. Non-m6A modification detection against unmodified controls.** Every
+**Figure S7. Non-m6A detection per independent sequencing unit.** Every
 quantity is computed per independent sequencing unit (HeLa WT rep1-3, *n* = 3;
 HeLa unmodified IVT rep1-3, *n* = 3) inside each sample's candidate-site
-universe, and **no m6A-centred reference is used anywhere in this figure** (R2-2):
+set, and **no m6A-centred reference is used anywhere in this figure** (R2-2):
 an m6A-centred reference cannot validate tools that predict other modification
 types, so these six tools are characterised by the unmodified synthetic
 controls, their own negative controls and replicate-to-replicate consistency
 only. Only the unmodified IVT libraries serve as the control arm; they are never
-treated as a perturbed or treated sample (E5). **Panels B, C and D show all six
+treated as a perturbed or treated sample (E5). **Panels B and C show all six
 non-m6A tools of the study in the same order**, grouped as in Fig. 7A
 (false-positive-dominated: CHEUI-m5C, NanoMUD-Ψ, NanoMUD-m1Ψ; intermediate:
 NanoNm; specific but sparse: NanoPsu, NanoSPA-Ψ). **Panel A shows only the five
 tools that were actually run on the synthetic constructs**: CHEUI-m5C was never
 run on them, so its column is absent rather than drawn blank (R1-6). Values
-behind every panel, with the frozen-table reconciliation, are in `../tables/`.
+behind every panel, with the frozen-table reconciliation, are in `tables/`.
 Following the journal-wide house style, the figure carries no titles of any
-kind: the four panels are identified here and by their bold letters (A, B, C, D
-from top to bottom), and the tools by their axis labels. B, C and D share one
+kind: the three panels are identified here and by their bold letters (A, B, C
+from top to bottom), and the tools by their axis labels. B and C share one
 six-column tool grid, with the tool names drawn at 45 degrees under each of
 them; A has its own five-column axis, so A's columns do not sit under B's. The
 page is 170 x 240 mm, i.e. the printed width of this journal's supplementary
 pages.
 
-**(A)** Unmodified Curlcake controls: calls inside each construct's candidate
-universe, per construct, for the five tools that were run on the synthetic
-constructs. Filled dots are the two independent constructs
+**(A)** Unmodified Curlcake controls: the false-positive burden (calls inside
+the candidate-site set), per construct, for the five tools that were run on
+the synthetic constructs. Filled dots are the two independent constructs
 (*Curlcake_IVT_rep1*, *rep3*), the open dot is the depth-matched subset
 (*Curlcake_IVT_rep2_partial*, excluded from the mean), and the bar is the mean of
 the independent constructs. The five tools that were run on the constructs span
@@ -45,12 +49,12 @@ NanoPsu and NanoSPA-Ψ report 0 and 1 call (0 and 203 per 10⁶) and NanoMUD-Ψ 
 exact counts, per-10⁶ and per-10-kb densities are tabulated. CHEUI-m5C was never
 run on the synthetic constructs and therefore has no column in this panel at
 all (R1-6); its negative-control behaviour is documented by the HeLa
-unmodified-IVT libraries in panels B-D instead.
+unmodified-IVT libraries in panels B and C instead.
 
 **(B)** Overlap at the level of individual replicate pairs (Jaccard index, log
 axis). Circles are the mean pairwise overlap of the three pairs within HeLa WT
 (blue) and within unmodified IVT (orange); the grey circles are the nine
-WT × IVT pairs, each computed on the shared candidate universe of that pair;
+WT × IVT pairs, each computed on the shared candidate-site set of that pair;
 bars give the mean of each group. For the false-positive-dominated tools the
 between-condition overlap sits at the level of the within-replicate overlap
 (CHEUI-m5C: 0.0125-0.0148, i.e. its calls carry no condition-dependent signal),
@@ -58,14 +62,14 @@ whereas the two Ψ tools remain clearly below their own replicate overlap
 (NanoPsu and NanoSPA-Ψ: 0.063-0.088 between conditions versus 0.125-0.283 within
 replicates). The set-level global Jaccard quoted in the main text (CHEUI-m5C
 5.2 × 10⁻⁴ in WT, 6.8 × 10⁻⁴ in IVT) is tabulated
-(`s7_jaccard_within_cross.tsv`, `s7_jaccard_pairs.tsv`).
+(`s6_jaccard_within_cross.tsv`, `s6_jaccard_pairs.tsv`).
 
 **(C)** Where each tool places its calls inside its own 0-1 score range -- the
 mechanism behind the failures R3-9 asks about. Every mark is one independent
 sequencing unit: the point is that unit's median score and the whisker spans its
 interquartile range (q25-q75); filled marks are HeLa WT and open marks the
 unmodified-IVT libraries, three units each (the colours and the filled/open
-convention of panels B and D). Each tool is drawn on its own native score -- the
+convention of panel B). Each tool is drawn on its own native score -- the
 modification ratio for CHEUI-m5C and NanoNm, the reported probability for the
 other four -- so the strip is *not* a separation statistic: the pooled per-tool
 AUC that summarises score behaviour is the quantity already drawn in Fig. 7F,
@@ -87,11 +91,11 @@ tool.
 The reproducibility half of the same critique is quantitative as well: 97.2 % of
 the 46,198 in-universe sites of the pooled CHEUI-m5C WT set are supported by a
 single unit (unmodified IVT 97.6 %; the other five tools 56-88 %,
-`../tables/s7_replicate_support.tsv`; the pooled set serves to describe this
+`tables/s6_replicate_support.tsv`; the pooled set serves to describe this
 structure only and is not a replicate-level quantity). Numbers behind this panel: medians and
-quartiles in `s7_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
-and KS statistics in `s7_score_separation.tsv`, per-unit score densities
-(not plotted) in `s7_score_density_per_unit.tsv`.
+quartiles in `s6_score_location_per_unit.tsv` (drawn here), per-unit-pair AUCs
+and KS statistics in `s6_score_separation.tsv`, per-unit score densities
+(not plotted) in `s6_score_density_per_unit.tsv`.
 This is the last panel of the figure. The depth-standardised call count of each
 condition is tabulated in Table S5, the raw per-unit counts and unions being deposited
 with the call sets, the coverage-matched IVT-to-WT ratio is Table S5 and Fig. 7A, and the cross-check against the per-site Nm
@@ -109,28 +113,30 @@ with no unmodified control of its own.
   reported separately because it is a depth-matched subset of `rep3`.
 * call sets: `harmonisation/callsets` (BED, 0-based; co-duplicated rows collapse to
   one site, keeping the best score).
-* candidate universe: `harmonisation/universe/RNA002/...` filtered to coverage >= 10
+* candidate-site set (earlier notes and the reviewers' wording call it the
+  "candidate universe"; the response letter declares the two terms
+  identical): `harmonisation/universe/RNA002/...` filtered to coverage >= 10
   and to reference bases that can carry the modification (Nm = A/C/G/T,
   Ψ/m1Ψ = T/A, m5C = C/G).
-* tables: `s7_curlcake_per_construct.tsv`, `s7_jaccard_pairs.tsv`,
-  `s7_jaccard_within_cross.tsv`, `s7_replicate_support.tsv`,
-  `s7_score_location_per_unit.tsv` (panel C), `s7_score_separation.tsv`,
-  `s7_score_density_per_unit.tsv`, `s7_counts_per_replicate.tsv`,
-  `s7_counts_summary.tsv`, `s7_ratio_ci.tsv`, `s7_anchor_check.tsv`
+* tables: `s6_curlcake_per_construct.tsv`, `s6_jaccard_pairs.tsv`,
+  `s6_jaccard_within_cross.tsv`, `s6_replicate_support.tsv`,
+  `s6_score_location_per_unit.tsv` (panel C), `s6_score_separation.tsv`,
+  `s6_score_density_per_unit.tsv`, `s6_counts_per_replicate.tsv`,
+  `s6_counts_summary.tsv`, `s6_ratio_ci.tsv`, `s6_anchor_check.tsv`
   (552/552 values reconciled with the frozen R3-9 tables at 1e-5),
   `TableS5_reconciliation.tsv`.
-* panel D draws this study's own six units and nothing else; the cross-check against
-  the per-site Nm stoichiometry published with the model, which Table S5's note quotes,
-  is not drawn anywhere in this revision.  Its evidence is in `analysis/figS11_revision/`:
-  `s11_overlap.tsv`, `s11_ratio_agreement.tsv`, `s11_ratio_distribution.tsv`,
-  `s11_shared_sites.tsv`, `s11_published_hela_score.tsv`, `s11_coordinate_check.tsv`, the
-  workbook's bytes, md5, sheets and reading path in `sources/mmc6_fingerprint.tsv`, every
-  quoted number in `logs/73_tables_anchors.tsv`, and the script that derives the tables
-  from the workbook in `scripts/73_figS11_tables.py`.
-* the earlier pooled density table (`s7_score_density.tsv`) was retired on
+* the retired panel D (removed 2026-10-05) used to draw this study's own six units
+  and nothing else; the cross-check against the per-site Nm stoichiometry published
+  with the model, which Table S5's note quotes, lives in `../../nanonm_published_crosscheck/`: `nanonm_published_hela_score.tsv` (the published
+  HeLa quantiles), `nanonm_coordinate_check.tsv`, `nanonm_overlap.tsv`,
+  `nanonm_ratio_agreement.tsv`, `nanonm_shared_sites.tsv`, `nanonm_ratio_distribution.tsv`, the
+  deposited workbook's bytes, md5, sheets and reading path in
+  `../../nanonm_published_crosscheck/sources/mmc6_fingerprint.tsv`, and every quoted number in
+  `../../nanonm_published_crosscheck/logs/73_tables_anchors.tsv`.
+* the earlier pooled density table (`s6_score_density.tsv`) was retired on
   2026-09-21: pooling the replicates of a condition into one curve contradicts
   the per-unit rule of this study. It is kept as
-  `s7_score_density_RETIRED_pooled.tsv` for provenance only.
+  `s6_score_density_RETIRED_pooled.tsv` for provenance only.
 
 ## Caveats to keep with the numbers
 
@@ -147,5 +153,5 @@ with no unmodified control of its own.
    and its evidence tables and are deliberately not duplicated here.
 3. The Curlcake constructs are short synthetic RNAs; their false-positive density
    is a per-candidate-site rate, not a genome-wide estimate.
-4. In-universe WT unions behind panel A/D: NanoPsu 488 and NanoSPA-Ψ 497; the
+4. In-universe WT unions behind the retired panel D: NanoPsu 488 and NanoSPA-Ψ 497; the
    883 / 888 quoted in the main text are the raw unions of three replicates.

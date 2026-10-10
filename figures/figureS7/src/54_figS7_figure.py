@@ -29,7 +29,7 @@ D retired 2026-10-05 (author decision): " d ". The slot had
    coverage-matched IVT-to-WT ratio are in Table S5, the per-unit call counts and the raw
    unions being deposited with the call sets (from 2026-10-06), the per-unit score
    summary is panel C, and the cross-check against the published per-site set is
-   quoted in Table S5's note (its evidence is in `analysis/figS11_revision/`).
+   Figure S11.
 
 Layout rules (2026-09-21, third revision -- " fonts too small relative to the plot / tidier /
 D may be slanted / compress the canvas "):
@@ -46,16 +46,21 @@ D may be slanted / compress the canvas "):
   carries the tool names at 45 degrees;
 * **no titles anywhere** (house rule of 2026-09-19): panels are identified by
   their bold letters in the page margin plus the caption, tools by their axis
-  labels.  Panel C carries the tool name as the facet *x-axis label*;
+  labels.  Since 2026-10-09 every panel carries those tool names on its own
+  x axis (the 2026-09-23 shared-axis convention, under which only the bottom
+  row printed them, is retired);
 * **all tool labels are drawn at 45 degrees** (the only orientation that fits
   the 0.92 in column pitch: a horizontal label is 0.96 in wide, a 90 deg label
   hangs 0.96 in below the axis, 45 deg needs 0.77 in);
 * legends live *inside* the panels in the empty corner of each drawing area and
   a post-draw audit converts every legend box to data coordinates and asserts
   that no data point falls inside it (`legend_data_violations`); the y ranges of
-  A, B and C carry the headroom that keeps those corners empty;
-* panel C is a 0.55 in **score-location strip** since the 2026-09-21 fifth
-  revision: one median point + one q25-q75 whisker per independent unit, WT
+  A, B and C carry the headroom that keeps those corners empty.  Since
+  2026-10-09 every key carries a thin frame and an opaque white face (0.45 grey,
+  0.7 pt), the same treatment Figure 7 has had since 2026-09-30;
+* panel C is a 1.49 in **score-location strip** (1.59 in until 2026-10-09, which
+  handed the 0.82 in label band back to panel B): one median point + one
+  q25-q75 whisker per independent unit, WT
   (filled) against unmodified IVT (open), each tool on its own native 0-1 score.
   It replaces both the six density facets of the third version (they mixed three
   score kinds and needed a rescaling per facet to be legible) and the AUC strip
@@ -168,8 +173,15 @@ XLIM_A = (-0.6, len(A_TOOLS) - 0.4)
 #: grow by 0.99 / 0.87 in, C by 0.44 in, and C takes over the 0.82 in band that
 #: holds the 45 degree tool names (it is the bottom row now).  The sum is chosen
 #: so the page slack stays at its 0.059 in, i.e. the canvas is untouched.
-PLOT_H = {"A": 2.72, "B": 2.60}
-C_STRIP_H = 1.59
+
+#: the shared-tool-axis convention of 2026-09-23 is retired -- every panel now
+#: prints its own 45 degree tool names, so B takes its 0.82 in band back.  The
+#: quote is kept in English on purpose: a Chinese run inside a deposited script
+#: is deleted in place by the release's de-identification pass.  The page cannot
+#: grow, so the 0.76 in comes out of the three plots -- A 2.72 -> 2.22,
+#: B 2.60 -> 2.44, C 1.59 -> 1.49 -- and the slack stays at 0.059 in.
+PLOT_H = {"A": 2.22, "B": 2.44}
+C_STRIP_H = 1.49
 #: a 45 deg tool label is measured, not estimated: at 9.5 pt the bbox of
 #: "NanoMUD-m1\u03a8" is a 0.77 in square, i.e. it hangs 0.77 in below the axis
 #: (a 90 deg label would need 0.96 in, a horizontal one is 0.96 in wide and
@@ -254,13 +266,19 @@ def tool_axis(ax, *, labels: bool = True, tools: list[str] | None = None,
         ax.set_xticklabels([])
 
 
+
+#: cannot be mistaken for data"): every key carries the thin frame the main
+#: Figure 7 has had since 2026-09-30 -- 0.45 grey, 0.7 pt, opaque white face --
+#: and borderpad grows from 0.0 to the 0.32 the framed keys of Figure 7 use.
 def _legend(ax, handles: list, loc: str, ncol: int = 1,
             fontsize: float | None = None,
             columnspacing: float = 1.3) -> None:
-    ax.legend(handles=handles, loc=loc, ncol=ncol, frameon=False,
-              fontsize=fontsize or STYLE["legend"], handletextpad=0.40,
-              columnspacing=columnspacing, labelspacing=0.30, borderpad=0.0,
-              borderaxespad=0.25)
+    leg = ax.legend(handles=handles, loc=loc, ncol=ncol, frameon=True,
+                    facecolor="white", edgecolor="0.45", framealpha=1.0,
+                    fontsize=fontsize or STYLE["legend"], handletextpad=0.40,
+                    columnspacing=columnspacing, labelspacing=0.30,
+                    borderpad=0.32, borderaxespad=0.25)
+    leg.get_frame().set_linewidth(0.7)
 
 
 # --------------------------------------------------------------------------- #
@@ -300,7 +318,7 @@ def panel_a(fig, top_in: float, height_in: float, cc: pd.DataFrame) -> plt.Axes:
     ], loc="upper right", ncol=3)
 
     _LAYOUT.append({"panel": "A", "n_tools": len(A_TOOLS), "gap_marker": False,
-                    "grid": "own five-column axis (B/C/D keep the six-column grid)",
+                    "grid": "own five-column axis (B and C keep the six-column grid)",
                     "n_positive_points": int(
                         (cc[(cc.row_type == "construct")][
                             "n_calls_in_universe"] > 0).sum()),
@@ -315,7 +333,10 @@ def panel_a(fig, top_in: float, height_in: float, cc: pd.DataFrame) -> plt.Axes:
 # --------------------------------------------------------------------------- #
 def panel_b(fig, top_in: float, height_in: float, pairs: pd.DataFrame) -> plt.Axes:
     ax = fig.add_axes(rect(top_in, height_in))
-    tool_axis(ax, labels=False)      # names are printed under panel C only
+
+    #: B prints its own tool names now -- the 2026-09-23 convention that only the
+    #: bottom row carried them is retired
+    tool_axis(ax)
     ax.set_yscale("log")
     # 1.6 leaves the top of the panel free for the single-row key while keeping
     # every pair point (max 0.552) below it
@@ -456,7 +477,7 @@ def load() -> dict[str, pd.DataFrame]:
         "ratio": pd.read_csv((_RB / "figures/figureS7/tables/s7_ratio_ci.tsv"), sep="\t"),
 
         #: D draws this study's own six units only, and the cross-check against the
-        #: published set lives in the figS11_revision package (73_figS11_tables.py)
+        #: published set lives in the nanonm_published_crosscheck package (73_nanonm_published_tables.py)
     }
 
 
@@ -544,7 +565,9 @@ def build(data: dict[str, pd.DataFrame]) -> plt.Figure:
 
     # tool grid, so the 45 degree tool names hang below it, exactly as they hung
     # below the retired D row
-    heights = {"A": PLOT_H["A"] + XLAB_H, "B": PLOT_H["B"] + 0.06,
+
+    #: label band like A and C instead of the 0.06 in seam of the shared-axis days
+    heights = {"A": PLOT_H["A"] + XLAB_H, "B": PLOT_H["B"] + XLAB_H,
                "C": C_STRIP_H + XLAB_H}
     tops: dict[str, float] = {}
     cur = TOP
@@ -562,6 +585,11 @@ def build(data: dict[str, pd.DataFrame]) -> plt.Figure:
     panel_a(fig, tops["A"], PLOT_H["A"], data["cc"])
     panel_b(fig, tops["B"], PLOT_H["B"], data["pairs"])
     panel_c(fig, tops["C"], C_STRIP_H, data["loc"])
+
+    #: every panel reports the same 0.82 in label band -- the gate reads it back
+    #: and fails if a panel ever stops printing its names again
+    for _entry in _LAYOUT:
+        _entry.setdefault("xlabel_band_in", XLAB_H)
     return fig
 
 

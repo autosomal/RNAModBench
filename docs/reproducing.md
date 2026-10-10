@@ -58,15 +58,19 @@ BEDs; and the gates that additionally re-read a caption or number from the
 manuscript or the peer-review correspondence.
 
 What this actually yields on a checkout with no `$RNAMODBENCH_LOCAL`, measured by
-running the driver on one: the page renderers of Figures 1, 2, 4, 5 and 6 and of
-Figures S2, S4, S5, S6, S7 and S9 each produced their PDF from the committed tables,
-with Figure 1 composing panel A from the code-only redraw; Figure 7 assembled its
-A-C rows and stopped before the metagene row. What does not build is everything
-downstream of a step that needs the private layer: the Guitar metagene panels and
-with them the pages of Figures 3, 7 (row D), 8, S1, S8 and S10, Figure S3's GLORI
-overlap panels, the producers, and the `verify_*` gates that also re-read the
-manuscript. Those are the same steps the table above attributes to
-`$RNAMODBENCH_LOCAL`; `GUITAR=1` runs the R panels once the reference layer is there.
+running the driver on one (63 steps, 28 of them failing): the page renderers of
+Figures 1, 2, 4, 5 and 6 and of Figures S2, S4, S5, S6, S7, S9 and S11 each produced
+their PDF from the committed tables, with Figure 1 composing panel A from the
+code-only redraw, Figure 7 assembling its A-C rows and stopping before the metagene
+row, and Figure S11's gate passing on its own frozen sweep tables (42 unit-by-tool
+anchors against `m6a_glori_confusion.tsv`, 308 retained-fraction checks). What does
+not build is everything downstream of a step that needs the private layer: the Guitar
+metagene panels and with them the pages of Figures 3, 7 (row D), 8, S1, S8 and S10,
+Figure S3's GLORI overlap panels, the producers - including Figure S11's sweep, which
+recomputes its curves from the candidate universes - and the `verify_*` gates that
+also re-read the manuscript or a ledger their own producer did not rewrite. Those are
+the same steps the table above attributes to `$RNAMODBENCH_LOCAL`; `GUITAR=1` runs the
+R panels once the reference layer is there.
 
 Two notes on the gates. They measure the *rendered* file - page budget, tick-label
 collisions, the smallest effective font - so their verdict depends on the local

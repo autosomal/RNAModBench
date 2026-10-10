@@ -9,7 +9,9 @@ Checks, in order:
   4. the PNG companion is 300 dpi;
   5. the manuscript caption mentions all four panels and carries no stale
      p-value-only wording for this figure;
-  6. the legacy-vs-revision table covers the twelve tool x species cells.
+  6. the legacy-vs-revision table covers the twelve tool x species cells;
+  7. 2026-10-09: panels C and D print the dotted component guides of the guitar
+     panels (3 panels x 4 boundaries = 12 per row, 24 on the merged page).
 
 Exit code 0 = all checks pass.  Read-only: nothing is written.
 """
@@ -51,6 +53,16 @@ TOL_IN = 0.03
 #: height panel C adds for its own key block (58_fig3cd_guitar.R, LEGEND_H)
 C_KEY_H_IN = 0.22
 C_KEY_H_TOL_IN = 0.03
+
+
+#: boundaries of every guitar panel carry a dotted vertical guide from the plot top
+#: down to the gene-model bars, exactly as Figures 7D and 8E do
+#: (69_fig8e_guitar.R:185-192).  Cairo prints that 0.25 pt stroke scaled to
+#: 0.533489 in its own coordinate space, dotted, as a vertical `x y0 m x y1 l S`
+#: (see the check in main()); the old row files match none of it.
+SEP_RE = re.compile(
+    r"0\.533489 w\s+0 J\s+1 j\s+\[\s*[\d.]+ [\d.]+\s*\]\s+0 d\s+10 M\s+"
+    r"([\d.\-]+)\s+([\d.\-]+)\s+m\s+\1\s+([\d.\-]+)\s+l\s+S")
 
 
 def md5(path: Path) -> str:
@@ -167,6 +179,25 @@ def main() -> int:
     n_cells = len([l for l in legacy.splitlines()[1:] if l.strip()])
     checks.append(("legacy-vs-revision covers 12 cells", n_cells >= 12,
                    f"{n_cells} rows"))
+
+    def sep_guides(path: Path) -> list[tuple[str, str, str]]:
+        """``(x, y0, y1)`` of every dotted component guide on page 1."""
+        stream = PdfReader(str(path)).pages[0].get_contents() \
+            .get_data().decode("latin-1", errors="ignore")
+        return SEP_RE.findall(stream)
+
+    for tag, path in (("panel C row", (_RB / "figures/figure3/figures/Fig3C_metagene_species.pdf")),
+                      ("panel D row", (_RB / "figures/figure3/figures/Fig3D_metagene_tools.pdf"))):
+        segs = sep_guides(path)
+        spans = [float(y1) - float(y0) for _, y0, y1 in segs]
+        checks.append((f"{tag}: 12 dotted component guides (3 panels x 4), "
+                       "vertical, > 20 pt",
+                       len(segs) == 12 and bool(spans) and min(spans) > 20.0,
+                       f"{len(segs)} guides, min span "
+                       f"{min(spans) if spans else 0.0:.2f} pt"))
+    n_guides = len(sep_guides(SHIPPED))
+    checks.append(("merged page: 24 dotted component guides (2 rows x 12)",
+                   n_guides == 24, f"{n_guides}"))
 
     bad = 0
     for name, ok, detail in checks:

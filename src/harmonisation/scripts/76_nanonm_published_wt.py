@@ -25,14 +25,14 @@ pooled count column) and not a call set:
   sheet contributes ~5x more sites than this study does, because its median support at
   that cut is 8 modified reads;
 * inside a gene the published sheet itself names -- the assembly check of the S11
-  package (``s11_coordinate_check.tsv``);
+  package (``nanonm_coordinate_check.tsv``);
 * inside this study's candidate-site set, i.e. coverage >= 10 and a reference base that
   can carry the modification.
 
 Coordinate convention (2026-10-05)
 ----------------------------------
 The deposited sheet is 1-based; every layer of this study is 0-based BED, which is why
-``73_figS11_tables.py`` keys the sheet by ``pos0 = pos - 1``.  This script does the same
+``73_nanonm_published_tables.py`` keys the sheet by ``pos0 = pos - 1``.  This script does the same
 and *checks* the choice against our own call set rather than assuming it: shifting the
 published key the wrong way drops the overlap with our calls from tens of percent to a
 fraction of one percent, and the script stops if the two directions are not separated by
@@ -112,15 +112,15 @@ sys.path.insert(0, str(SITES_V2))
 OUT = (_RB / "figures/figureS7")
 TAB, LOG = (_RB / "figures/figureS7/tables"), (_RB / "figures/figureS7/logs")
 #: the S11 package holds the parsed published table; 76 must not re-parse the workbook
-PUBLISHED = ((_RB / "analysis/figS11_revision/tables/s11_published_sites.tsv"))
-SHARED = ((_RB / "analysis/figS11_revision/tables/s11_shared_sites.tsv"))
+PUBLISHED = ((_RB / "analysis/nanonm_published_crosscheck/tables/nanonm_published_sites.tsv"))
+SHARED = ((_RB / "analysis/nanonm_published_crosscheck/tables/nanonm_shared_sites.tsv"))
 COUNTS = TAB / "s7_counts_per_replicate.tsv"
 SUMMARY = TAB / "s7_counts_summary.tsv"
 #: the candidate-site files, which carry the per-site coverage the depth strata band on
 UNIVERSE = (_XB / "harmonisation/universe/RNA002/Human")
 #: the R3-9b depth diagnosis: the coverage strata and the estimator the delivered Table S5
 #: ratios use; reused rather than copied so the two cannot drift apart
-COV_STRATA = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/cov_strata.tsv"))
+COV_STRATA = ((_RB / "analysis/nonm6a_replicate_depth/evidence/cov_strata.tsv"))
 RD2_RATIOS = COV_STRATA.with_name("band_matched_rate_ratios.tsv")
 #: the geometry helpers of the R3-9 package, so calls and universes are read exactly as
 #: the delivered counts read them
@@ -192,7 +192,7 @@ def load_published() -> tuple[pd.DataFrame, int]:
     the anchors.
     """
     if not PUBLISHED.exists():
-        raise SystemExit(f"missing {PUBLISHED}; run 73_figS11_tables.py first")
+        raise SystemExit(f"missing {PUBLISHED}; run 73_nanonm_published_tables.py first")
     df = pd.read_csv(PUBLISHED, sep="\t")
     df = df[(df.cell_line == "HeLa") & df.parse_ok & df.in_named_gene].copy()
     if df.empty:

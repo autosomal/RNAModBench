@@ -261,9 +261,30 @@ def plot_panel_a(mean_rank: pd.DataFrame, ranked: pd.DataFrame) -> None:
     norm = Normalize(vmin=1, vmax=len(_rank_matrix(mean_rank, "Arabidopsis")))
     cbar = fig.colorbar(ScalarMappable(norm=norm, cmap=cmap), ax=axes,
                         fraction=0.022, pad=0.015)
+    
+    #: page flips this scale so 1 = best reads at the top; the standalone A piece
+    #: (registered as panels/Figure5/Figure5_A.pdf) follows the delivered page.
+    cbar.ax.invert_yaxis()
     cbar.set_label("Mean rank  (1 = best)", fontsize=12)
     cbar.ax.tick_params(labelsize=11)
     cbar.outline.set_linewidth(1.0)
+    
+    #: gradient artist of ``fig.colorbar`` is a QuadMesh that the PDF backend
+    #: writes as an 8-bit indexed image, which Illustrator mis-renders.  The
+    #: colourbar call is kept -- its slot belongs to the constrained layout and it
+    #: owns the ticks/labels -- and only the gradient is replaced, drawn in the
+    #: axis' own coordinates (probe: axes, limits, ticks and every text coordinate
+    #: stay identical; see _build/fig5a_vectorize_20261010/renders/probe_cbar3.txt).
+    if getattr(cbar, "solids", None) is None:
+        fig.canvas.draw()           # matplotlib builds cbar.solids on the first draw
+    if getattr(cbar, "solids", None) is not None:
+        cbar.solids.remove()
+    _lo, _hi = cbar.ax.get_ylim()               # (13, 1): a data y of v *is* rank v
+    _y0, _y1 = min(_lo, _hi), max(_lo, _hi)
+    cbar.ax.pcolormesh([0.0, 1.0], np.linspace(_y0, _y1, 257),
+                       np.linspace(_y0, _y1, 256).reshape(-1, 1),
+                       cmap=cmap, vmin=1, vmax=norm.vmax,
+                       edgecolors="none", antialiased=False, snap=True)
 
     FIG.mkdir(parents=True, exist_ok=True)
     stem = FIG / "Fig5A_metric_ranks"

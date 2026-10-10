@@ -25,7 +25,7 @@ accession is recorded in [`metadata/samples.csv`](metadata/samples.csv).
 | sample / study / run metadata | 28 samples, 12 studies, 157 runs | `metadata/` |
 | exact command lines recorded | 3,608 | `tools/inventory/tables/command_lines.csv` |
 | per-tool implementation fields | 42 configurations × 10 fields | `tools/inventory/tables/per_tool_implementation.md` |
-| figure, table and callset code | 176 Python + 14 R + 5 shell sources | `src/harmonisation/`, `figures/*/src/`, `tables/`, `tools/inventory/scripts/` |
+| figure, table and callset code | 186 Python + 14 R + 5 shell sources | `src/harmonisation/`, `figures/*/src/`, `tables/`, `tools/inventory/scripts/` |
 | rendered figure PDFs | produced by that code, not deposited | `bash scripts/run_figures.sh` |
 | pipeline rules / tool envs / post-processors | 59 rules, 15 envs, 20 scripts | `Snakefile`, `envs/`, `scripts/` |
 
@@ -48,7 +48,7 @@ RNAModBench/
 │   ├── inventory/         per-tool implementation · command lines · versions · model checkpoints
 │   └── configs/           the configuration files tools were driven from
 ├── src/harmonisation/     the callset, evaluation and QC stages (00-34) + shared library
-├── figures/figure{1..8}, figures/figureS{1..10}
+├── figures/figure{1..8}, figures/figureS{1..11}
 │                          one directory per figure: src (its whole code) · tables (its inputs)
 ├── tables/                supplementary-table builders (Table S1-S12) and the SI assembly
 ├── analysis/              evidence tables individual figures re-use

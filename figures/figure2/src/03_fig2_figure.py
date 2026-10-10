@@ -124,6 +124,12 @@ def style(ax) -> None:
 _LETTERS: list = []
 
 
+#: canvas width in pt (6.66 in at 72 dpi) and the two letter columns on the
+#: delivered page, measured from the 2026-10-09 delivery (see the round README)
+PAGE_W_PT = 479.52
+LETTER_COL_X_PT = {"left": 12.38, "right": 259.33}
+
+
 def letter(ax, ch: str, dx=0.0, dy=0.007) -> None:
     """Queue a panel letter; it is drawn at the panel's own top-left corner.
 
@@ -138,16 +144,21 @@ def letter(ax, ch: str, dx=0.0, dy=0.007) -> None:
 
 
 def place_letters(fig) -> None:
-    """Draw the queued letters at each panel's own top-left corner."""
+    """Draw the queued letters at each panel's own top, on its column's x.
+
+    2026-10-09 round 2 : the x used to come from each panel's tight bbox, which
+    differs panel by panel (A 29.74, B 12.38, D 17.98 pt on the left; C 284.89
+    against 259.33 pt on the right), so the seven letters read ragged.  The
+    left edge is now the column constant below -- B's and E/F/G's delivered
+    positions -- while `dy` still carries the per-panel vertical offset.
+    """
     fig.canvas.draw()
     inv = fig.transFigure.inverted()
     for ax, ch, dx, dy in _LETTERS:
-        #: tight bbox = axes + tick labels + axis labels (since 2026-09-30 the
-        #: B/E/F keys sit inside their panels, so they no longer extend the box
-        #: downwards)
         bb = ax.get_tightbbox(fig.canvas.get_renderer()).transformed(inv)
-        fig.text(bb.x0 + dx, bb.y1 + dy, ch, fontsize=FS_PANEL,
-                 fontweight="bold", va="bottom", ha="left")
+        col = "left" if ax.get_position().x0 < 0.5 else "right"
+        fig.text(LETTER_COL_X_PT[col] / PAGE_W_PT + dx, bb.y1 + dy, ch,
+                 fontsize=FS_PANEL, fontweight="bold", va="bottom", ha="left")
 
 
 # --------------------------------------------------------------------------- #
@@ -170,10 +181,35 @@ def panel_a(fig, rect, tab: Path) -> None:
     ax1.set_ylim(lo, hi)
     ax1.set_xlabel("Control-condition calls", fontsize=FS_LABEL)
     ax1.set_ylabel("WT calls in the\ncandidate-site set", fontsize=FS_LABEL)
-    ax1.legend(frameon=False, fontsize=FS_LEGEND, loc="upper left",
-               handletextpad=0.3, borderpad=0.1, labelspacing=0.25,
-               markerscale=1.8)
-    style(ax1)
+
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: position and padding stay the baseline ones (the unframed key covered
+    #: no data, and the frame must not grow it into the scatter).
+
+    #: inside the axes -- the `bbox_to_anchor=(0.0, 1.03)` lift used to hang it
+    #: over the panel top, which read as an appendage rather than a key.
+    ax1.legend(frameon=True, facecolor="white", edgecolor="0.55",
+               framealpha=0.88, fontsize=7.0, loc="upper left",
+               borderpad=0.15, handletextpad=0.3, labelspacing=0.25,
+               borderaxespad=0.15, markerscale=1.8)
     letter(ax1, "A")
 
 
@@ -209,8 +245,8 @@ def panel_b_ratio(fig, rect, tab: Path) -> None:
     ax.set_yticks(range(n))
     ax.set_yticklabels([lab(t) for t in ords], fontsize=FS_TICK)
     ax.tick_params(axis="y", length=2.0, pad=2.5)
-    
-    
+
+
     #: and G (filled circle / square / triangle in the condition colours)
     #: instead of three identical patches, sits inside the panel and carries a
     #: light frame so it may sit over a sparse corner without hiding data;
@@ -242,17 +278,36 @@ def panel_c_curves(fig, rect, tab: Path) -> None:
     ax.set_yscale("log")
     ax.set_ylim(1e-7, 2.0)
     ax.set_yticks([1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1])
+
+    #: of ten the other six labels already use
     ax.set_yticklabels(["10$^{-6}$", "10$^{-5}$", "10$^{-4}$", "10$^{-3}$",
-                        "10$^{-2}$", "10$^{-1}$", "1"])
+                        "10$^{-2}$", "10$^{-1}$", "10$^{0}$"])
     ax.set_xticks(range(2, 14))
     ax.set_xlim(0.7, 13.3)
     #: 2026-09-24: shortened so the centred label cannot reach the bold "D"
     #: letter of the panel below (the letter sits at the panel's left edge)
     ax.set_xlabel("Minimum supporting tools $k$", fontsize=FS_LABEL)
     ax.set_ylabel("Fraction of sites", fontsize=FS_LABEL)
-    ax.legend(frameon=False, fontsize=FS_LEGEND, loc="lower left",
-              handlelength=1.4, handletextpad=0.4, labelspacing=0.25,
-              borderpad=0.1)
+
+
+    #: two-column box is the arrangement that covers the fewest curve
+    #: vertices (the flattened panel cannot host a three-row 8.5 pt key
+    #: without hiding data -- see the README).
+
+    #: two-column box is the arrangement that covers the fewest curve
+    #: vertices (the flattened panel cannot host a three-row 8.5 pt key
+    #: without hiding data -- see the README).
+
+    #: two-column box is the arrangement that covers the fewest curve
+    #: vertices (the flattened panel cannot host a three-row 8.5 pt key
+    #: without hiding data -- see the README).
+
+    #: descending curve family leaves the low-y strip free, so the three
+    #: entries go in one row (two rows would span 54 % of the 41 pt panel).
+    ax.legend(frameon=True, facecolor="white", edgecolor="0.55",
+              framealpha=0.88, fontsize=7.0, loc="lower left",
+              ncol=3, borderpad=0.15, handlelength=0.7, handletextpad=0.3,
+              columnspacing=0.5, labelspacing=0.2, borderaxespad=0.25)
     style(ax)
     letter(ax, "C")
 
@@ -292,7 +347,7 @@ def panel_d_gobp(fig, rects, tab: Path) -> None:
             t.set_fontweight("normal")
         if i == 0:
             letter(ax, "D")
-    
+
     #: same species patches as B/E, in the service strip under the shared x
     #: label of the bottom block (rects[-1] = the third GO block).
     handles = [Patch(facecolor=COLOR[sp], edgecolor="white", linewidth=0.3,
@@ -313,7 +368,8 @@ def order_by(series, asc: bool) -> list:
 
 def _mean_panel(fig, rect, df, col, order, ylabel, *, logy=False, ylim=None,
                 yticks=None, legend_ncol=0, legend_loc="upper right",
-                letter_ch="", horizontal=False, legend_dy=-0.215):
+                letter_ch="", horizontal=False, legend_dy=-0.215,
+                letter_dy=0.007):
     """Per-unit scatter + per-species mean for one metric.
 
     ``horizontal=False`` keeps the original vertical layout (tools on x, names
@@ -376,7 +432,7 @@ def _mean_panel(fig, rect, df, col, order, ylabel, *, logy=False, ylim=None,
         ax.set_ylabel(ylabel, fontsize=FS_LABEL)
         tool_ticks(ax, order)
     if legend_ncol:
-        
+
         #: G (filled circle / square / triangle in the condition colours), sits
         #: inside the panel in the corner named by ``legend_loc`` and carries a
         #: light frame; the 2026-09-24 axis-strip placement and its
@@ -392,7 +448,7 @@ def _mean_panel(fig, rect, df, col, order, ylabel, *, logy=False, ylim=None,
                   borderaxespad=0.45)
     style(ax)
     if letter_ch:
-        letter(ax, letter_ch)
+        letter(ax, letter_ch, dy=letter_dy)
     return ax
 
 
@@ -410,7 +466,7 @@ def panel_f_fp(fig, rect, tab: Path) -> None:
     fp = pd.read_csv(tab / "fig2d_ctrl_fp_by_unit.tsv", sep="\t")
     order = order_by(fp.groupby("tool")["fp_per_1e6_candidates"].mean(),
                      asc=True)
-    
+
     #: the 2026-09-24 "one line lower" offset below the x label is retired
     _mean_panel(fig, rect, fp, "fp_per_1e6_candidates", order,
                 "Control-side FP per 10$^{6}$ candidates", logy=True,
@@ -418,6 +474,7 @@ def panel_f_fp(fig, rect, tab: Path) -> None:
                 yticks=([10, 100, 1000, 10000],
                         ["10", "100", "1000", "10$^{4}$"]),
                 legend_ncol=1, legend_loc="lower left", letter_ch="F",
+                letter_dy=0.012,
                 horizontal=True)
 
 
@@ -448,22 +505,22 @@ def panel_g_replicate(fig, rect, tab: Path) -> None:
     ax.tick_params(axis="y", length=2.0, pad=2.5)
     ax.set_xlabel("Jaccard between independent units", fontsize=FS_LABEL,
                   labelpad=2)
+
+    #: species, so the key uses circles too -- it used to borrow the A/B/E/F
+    #: shape code, which printed Mouse as a square and Human as a triangle.
+    #: The grey "mean pairwise" entry is gone: the pooled series left the
+    #: panel on 2026-09-28 and every point is that mean already (the caption
+    #: states it), so the entry read as a second, invisible series.
     handles = [plt.Line2D([], [], marker="o", ls="none", markersize=4.5,
-                          markerfacecolor="0.45", markeredgecolor="white",
-                          label="mean pairwise")]
-    
-    #: colours every point by species (COLOR[sp]) but its key names the value
-    #: and the species
-    handles += [plt.Line2D([], [], marker=MARKER[sp], ls="none", markersize=4.5,
-                           markerfacecolor=COLOR[sp], markeredgecolor="white",
-                           label=sp) for sp in BLOCKS]
-    #: 2026-09-28 (union drop): with the pooled series gone the key has four
-    #: entries; it keeps the lower-right corner, whose rows stop below x = 0.2
-    #: (``--qa`` reports 0 data points covered by the legend box).
-    ax.legend(handles=handles, frameon=False, fontsize=7.0, ncol=2,
+                          markerfacecolor=COLOR[sp], markeredgecolor="white",
+                          markeredgewidth=0.5, label=sp) for sp in BLOCKS]
+    #: the key keeps the lower-right corner, whose rows stop below x = 0.2
+    #: (``--qa`` reports how many data points the box covers).
+    ax.legend(handles=handles, frameon=True, facecolor="white",
+              edgecolor="0.55", framealpha=0.88, fontsize=7.0, ncol=1,
               loc="lower right", bbox_to_anchor=(0.995, 0.020),
-              handlelength=0.9, handletextpad=0.35, columnspacing=0.9,
-              borderpad=0.0)
+              handlelength=1.0, handletextpad=0.3, borderpad=0.35,
+              labelspacing=0.25)
     style(ax)
     letter(ax, "G")
 
@@ -498,34 +555,41 @@ def main() -> None:
     # label must fit inside it (a GridSpec crop would silently cut panel C's
     # term labels).  [x0, y0, width, height] in figure fractions.
     L = 0.150      # left column axes
-    Wl = 0.395
+
+    Wl = 0.377
     R = 0.665      # right column axes
-    Wr = 0.325
-    
+
+    Wr = 0.304
+
     #: start 0.045 closer to the edge while the right edge stays on 0.545 like
     #: A and B.  The label column is 1.46 in wide: measured at 300 dpi a 7.5 pt
     #: Arial line runs ~3.7 pt per char, so the 26-char wrap needs ~96 pt and
     #: still clears the 10 pt page margin (the 34-char attempt was clipped).
     Cx = 0.240
-    Wc = 0.305
 
-    
+    Wc = 0.287
+
+
     #: every tool-named panel is horizontal (names on y, no tick rotation);
     #: letters A-G run down the left column (A, B, D) and the right (C, E, F, G)
-    ax_a = [L, 0.845, Wl, 0.130]
+    ax_a = [L, 0.845, Wl, 0.086]
     ax_b = [L, 0.601, Wl, 0.190]
     #: 2026-09-27 (author decision, fourth pass): the four right-column panels are spaced
     #: evenly now.  The first attempt (0.845 / 0.622 / 0.363) left C's x label and
     #: E's bold letter in the same band (~0 pt clear), the second (0.850 / 0.530)
     #: opened 43 pt, which read as too airy; this spacing leaves ~20 pt between
     #: C's x label and E's letter and ~12 pt between the other pairs.
-    ax_c = [R, 0.860, Wr, 0.115]
+
+    #: 0.106 (0.57 -> 0.85 in); its top stays at 0.932 and it keeps the width it
+    #: shares with E/F/G.  The band above E narrows 0.091 -> 0.057 (~20 -> ~13 pt
+    #: between C's x label and E's letter), still clear.
+    ax_c = [R, 0.826, Wr, 0.106]
     ax_e = [R, 0.584, Wr, 0.185]
     ax_f = [R, 0.330, Wr, 0.185]
-    
+
     #: full service band above the bottom margin
     ax_g = [R, 0.082, Wr, 0.190]
-    
+
     #: (the old strip left ~85 pt of dead space below D)
     ax_d1 = [Cx, 0.395, Wc, 0.137]
     ax_d2 = [Cx, 0.246, Wc, 0.137]
@@ -539,7 +603,7 @@ def main() -> None:
     panel_f_fp(fig, ax_f, tab)
     panel_g_replicate(fig, ax_g, tab)
 
-    
+
     #: at each panel's own top-left corner (see place_letters()).
     place_letters(fig)
 

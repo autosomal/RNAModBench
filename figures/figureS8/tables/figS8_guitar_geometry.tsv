@@ -3,7 +3,7 @@ panels	6
 ncol	3
 width_in	7.087
 height_in	4
-font_min_pt	7
+font_min_pt	8.1
 component_width_promoter	0.360721442885772
 component_width_ncrna	0.278557114228457
 component_width_tail	0.360721442885772

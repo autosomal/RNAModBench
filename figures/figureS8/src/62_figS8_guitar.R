@@ -106,7 +106,12 @@ LABEL_OF <- c(CHEUI_m5C = "CHEUI-m5C", NanoMUD_psi = "NanoMUD-\u03a8",
               NanoMUD_m1psi = "NanoMUD-m1\u03a8", NanoNm = "NanoNm",
               NanoPsu = "NanoPsu", NanoSPA_psU = "NanoSPA-\u03a8")
 
-FS <- list(axis = 8, ytitle = 8.5, legend = 7, struct = 7.5)
+
+#: sizes after Supplementary_Figures.pdf places this 180 mm page at scale
+#: min(504.6/510, 601/482) = 0.9894 (A4, 17.8 cm text width, height limit not
+#: binding), so script pt = target pt / 0.9894: ticks 8, axis titles 9,
+#: legend 8, structure labels 8.  Floor: nothing below 7 pt anywhere.
+FS <- list(axis = 8.1, ytitle = 9.1, legend = 8.1, struct = 8.1)
 stopifnot(min(unlist(FS)) >= 7)
 NCOL <- 3
 #: the metagene grid keeps the physical footprint of the Figure 7 row D block

@@ -129,6 +129,11 @@ GROUPS: dict[str, tuple[str, str]] = {
 COLOUR = {"Arabidopsis": "#1E888B", "Mouse": "#F5B264", "Human": "#3778A0"}
 UNION_C, ISECT_C = "#1f5c8b", "#e08a2e"
 #: unmodified controls for panel C1: label -> (species, dataset group)
+#: Negative-control libraries for the FP panel.  The keys are data-layer labels:
+#: they travel into ``fig6_negative_control_fp.tsv``'s ``control`` column and are
+#: looked up verbatim by 65_fig6_combination_page.py, so do not rename them
+#: without regenerating the tables.  The second key's sample group is
+#: ``HeLa_IVT`` and its display name is "Human IVT" (manuscript/caption wording).
 CONTROLS = {"Curlcake IVT": ("Curlcake", "Curlcake_IVT"),
             "HeLa IVT": ("Human", "HeLa_IVT")}
 #: column order of ``figS6_search_space.tsv`` (every k = 1..5 combination)

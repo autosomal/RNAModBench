@@ -45,11 +45,18 @@ with OUT.open("w") as fh:
         samples = SAMPLES_FIX.get((r["species"], r["dataset"], r["chemistry"]), r["samples"])
         fh.write("\t".join([r["species"], r["dataset"], r["chemistry"], r["source_study"],
                             samples, r["n_independent_units"], role]) + "\n")
-    fh.write("# note: One row per dataset. The last column gives the number of independent sequencing units: "
-"three biological replicates for Arabidopsis, the Curlcake constructs and the Human WT "
-"condition, single units elsewhere. E_IVT_neg1 and E_IVT_neg2 are two local splits of one "
-"run (SRR27228854) and count as one unit; the three Human IVT units are sequencing "
-"repeats of one library (SAMN22863220), and the Human WT and IVT libraries come from "
-"different studies (SRP393373, SRP428418), so that comparison is made across batches. "
-"Curlcake_IVT_rep2_partial is a depth-matched subset of the full run, not a replicate.")
+    
+    #: wording of the earlier replicate structure -- "three biological replicates for
+    #: Arabidopsis, the Curlcake constructs and the Human WT condition, single units
+    #: elsewhere" -- which contradicts the printed n column on three counts (Curlcake 2,
+    #: E. coli WT 2, the RNA002 Human IVT 3, and the RNA004 rows 1).  Every number below was
+    #: read back from this table row by row before the note was rewritten, and the four
+    #: phrases the note-trim gate asserts on are kept.
+    fh.write("# note: One row per dataset. The last column gives the number of independent "
+"sequencing units. It is three for the Arabidopsis and the RNA002 Human rows, two for "
+"the RNA002 Curlcake and E. coli WT rows, one elsewhere. E_IVT_neg1/neg2 are two splits "
+"of one run (SRR27228854), one unit. The three Human IVT units are repeats of one "
+"library (SAMN22863220), and the Human WT and IVT libraries come from different studies "
+"(SRP393373, SRP428418), so that comparison is across batches. Curlcake_IVT_rep2_partial "
+"is a depth-matched subset of the full run, not a replicate.")
 print(f"TableS10: {len(rows)} rows")

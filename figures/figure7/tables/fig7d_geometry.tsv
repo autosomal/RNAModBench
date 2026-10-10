@@ -6,7 +6,7 @@ height_in	4
 font_min_pt	7.5
 legend_pt_min	7.1
 legend_pt_max	7.1
-row_height_pt	120
+row_height_pt	116
 tag	G
 tag_pt	14
-tag_margin_pt	3
+tag_margin_pt	12.5

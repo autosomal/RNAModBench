@@ -29,8 +29,9 @@ defects the author rejected on 2026-09-21, so they cannot come back:
    per-site set as a band, and NanoNm alone without it.  Every version either repeated
    panel C, duplicated Figure 7A, or could not be read against a control (the published
    set is one pooled run with no unmodified control).  The row and its 3.06 in are gone,
-   the three remaining rows took the height, and C carries the 45 degree tool names
-   because it is the bottom row now.  The tables behind the retired cross-check are
+   the three remaining rows took the height.  Since 2026-10-09 every panel carries
+   its own 45 degree tool names (the 2026-09-23 shared-axis convention is retired);
+   the tables behind the retired cross-check are
    still verified here because Table S5's note quotes them;
 5. PDF: one A4 page, ArialMT/Arial-BoldMT only and embedded, no in-figure value
    annotations, numeric tokens limited to the axis ticks;
@@ -80,7 +81,7 @@ LOG = (_RB / "figures/figureS7/logs")
 EV = (_RB / "analysis/nonm6a_false_positives/evidence")
 
 #: R3-9b package, so the anchor below reads the same evidence file they do
-MATCHED_EV = ((_RB / "analysis/R3-9b_nonm6a_replicate_depth_20260928/evidence/band_matched_rate_ratios.tsv"))
+MATCHED_EV = ((_RB / "analysis/nonm6a_replicate_depth/evidence/band_matched_rate_ratios.tsv"))
 
 #: row per depth-matched WT/IVT replicate pair, computed with the pooled-band weights
 #: the bootstrap above resamples -- not from nearest_depth_pairs.tsv
@@ -98,8 +99,8 @@ RATIO_RANGE = (0.40, 1.45)
 #: and Table S5's note.  Panel D drew it as a band for one pass and no longer does, so
 #: these tables are verified here only because that note quotes them; the drawing itself
 #: is required to carry no trace of them (see the figure-only residue below).
-PUBLISHED_SCORE = ((_RB / "analysis/figS11_revision/tables/s11_published_hela_score.tsv"))
-SRC_MM6 = ((_RB / "analysis/figS11_revision/sources/mmc6_fingerprint.tsv"))
+PUBLISHED_SCORE = ((_RB / "analysis/nanonm_published_crosscheck/tables/nanonm_published_hela_score.tsv"))
+SRC_MM6 = ((_RB / "analysis/nanonm_published_crosscheck/sources/mmc6_fingerprint.tsv"))
 XLSX = (_XB / "third_party/NanoNm/mmc6.xlsx")
 #: the mean of three pair ratios and the bootstrap mean are different functionals;
 #: the build refuses to draw past this gap and the gate repeats the bound
@@ -568,16 +569,22 @@ def main() -> None:
         #: Panel D went through five passes and every version either repeated panel C,
         #: duplicated Figure 7A, or could not be read against a control (a published
         #: set with no unmodified control of its own).  The gate therefore requires the
-        #: row to be gone, requires C to have taken the 45 degree tool names with it
-        #: (it is the bottom row now), and keeps the retired-element scan for the whole
-        #: page so none of D's five designs can come back through the layout report.
+        #: row to be gone and keeps the retired-element scan for the whole page so
+        #: none of D's five designs can come back through the layout report.
         check("panels A-C are all present and the retired D row is gone",
               set(panels) == {"A", "B", "C"} and "D" not in panels,
               f"{sorted(panels)}")
-        check("C carries the tool names (it is the bottom row now)",
-              panels["C"].get("kind") == "score_location_strip"
-              and float(panels["C"].get("xlabel_band_in", 0.0)) > 0.8,
-              f"xlabel band {panels['C'].get('xlabel_band_in')} in")
+        check("C is the score-location strip",
+              panels["C"].get("kind") == "score_location_strip",
+              f"kind {panels['C'].get('kind')}")
+        
+        #: separate figures and may not share one x axis, so every panel prints its
+        #: own 45 degree tool names -- the layout report records them as an 0.82 in
+        #: label band, and this gate fails if a panel stops printing them again
+        check("every panel carries its own 45 degree tool names",
+              all(float(panels[p].get("xlabel_band_in", 0.0)) > 0.8
+                  for p in ("A", "B", "C")),
+              f"label bands {[panels[p].get('xlabel_band_in') for p in 'ABC']} in")
         check("the retired D designs are absent from every panel",
               not ({"counts_ylim", "pair_ylim", "ratio_ylim", "pair_marks", "ylim_d",
                     "pooled_marks", "axes_count", "n_boxes", "units_per_box",
@@ -739,13 +746,13 @@ def main() -> None:
         "mean-of-counts": re.compile(r"mean-of-counts", re.I),
         
         
-        #: 2026-10-04 (author decision): the published per-site set is no longer drawn
-        #: on the page; the cross-check that quotes it is Table S5's note.  A key or axis
-        #: label naming it would be a leftover of the retired band.
+        #: 2026-10-04 (author decision): the published per-site set is not drawn on
+        #: this page -- Figure S11 draws it -- so a key or axis label naming the
+        #: retired band would be a leftover of it.
         "published (figure only)": re.compile(r"published"),
     }
-    #: wording that belongs in the legend file (which must point the reader at the
-    #: published-set evidence) but never in the drawing itself
+    #: wording that belongs in the legend file (which must point the reader at Figure
+    #: S11 for the published set) but never in the drawing itself
     figure_only = {"published (figure only)"}
     residues = []
     for label, pat in banned.items():

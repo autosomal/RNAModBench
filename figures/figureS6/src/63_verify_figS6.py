@@ -11,15 +11,20 @@ Figure 6 shows is out of scope here.  The gate therefore checks, in order:
    the recall gain of the eight extra tools) and the panel B-E evidence
    (per-tool coverage / DRACH / control burden, site-set DRACH);
 2. the figure rebuilds with the layout contract of ``62_figS6_figure.py`` --
-   a compact **178 x 175 mm** page, five panel rows (A-E): row A in three
+   a compact **178 x 208 mm** page, five panel rows (A-E): row A in three
    species columns (Arabidopsis | Mouse with both studies in one axes | Human),
    rows B-E as single full-width panels (row D has no group dimension, the
-   controls are not species-specific); the 13 tool names are printed **once and
-   slanted 45 deg** under row D (right-aligned, no axis title) and the 5 set
-   names once, horizontally, under row E -- the tool names are the *only*
-   rotated text on the page, one panel letter per row, Arial only, no
-   gridlines, no in-panel annotation text, no text collisions, no text off the
-   canvas, legend inside the page, minimum font >= 9 pt;
+   controls are not species-specific); the 13 tool names are printed **slanted
+   45 deg under each of rows B, C and D** (right-aligned, no axis title), so every
+   row labels its own x axis, and the 5 set names once, horizontally, under row E
+   -- the tool names are the *only* rotated text on the page, one panel letter per
+   row, Arial only, no gridlines, no in-panel annotation text, no text collisions,
+   no text off the canvas in **either** direction, every row's key inside that
+   row's own gap, minimum font >= 9 pt;
+   (2026-10-09: the page grew 175 -> 208 mm to pay for the three name blocks and
+   the three keys, and the three species titles of row A -- previously drawn
+   above the page box and never printed -- are asserted from the page's own text
+   layer;)
 3. no content of the main figure leaks back in: no dense combination cloud
    (the search-space plane lives in Fig. 6D) and no criterion wording in the
    figure itself;
@@ -128,6 +133,23 @@ def printed_texts(fig) -> list[str]:
 def drawn_xticklabels(ax) -> list[str]:
     """The x tick labels that are printed under one panel (label1 only)."""
     return [t.label1.get_text() for t in ax.xaxis.get_major_ticks()]
+
+
+def page_words_bbox(pdf: Path) -> list[tuple[str, float, float, float, float]]:
+    """``(word, x0, y0, x1, y1)`` of every word, in pt from the page's top left.
+
+    2026-10-09 : the three species
+    titles of row A existed as matplotlib text objects but were drawn above the
+    page box, so the printed page carried none of them while every check passed.
+    What is printed, and where, has to be read back from the page.
+    """
+    out = subprocess.run(["pdftotext", "-bbox", str(pdf), "-"],
+                         capture_output=True, text=True).stdout
+    return [(m.group(5), float(m.group(1)), float(m.group(2)), float(m.group(3)),
+             float(m.group(4)))
+            for m in re.finditer(r'<word xMin="([\d.]+)" yMin="([\d.]+)" '
+                                 r'xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)</word>',
+                                 out)]
 
 
 def collection_colours(ax) -> set[tuple[float, float, float]]:
@@ -251,7 +273,7 @@ def main() -> None:
                "intersection (k=5)", "GLORI reference"}
               <= set(qual[(qual.species == sp) & (qual.group == g)].set)
               for sp, g in GROUPS))
-    
+
     order = ["single (k=1)", "intersection (k=2)", "intersection (k=5)",
              "union marginal", "GLORI reference"]
     for (sp, g), want in SET_DRACH.items():
@@ -343,49 +365,63 @@ def main() -> None:
           "HeLa" not in page_txt,
           "; ".join(l for l in page_txt.splitlines() if "HeLa" in l)[:120])
 
-    # author decision 2026-09-21: exactly one kind of text is slanted -- the block
-    # of 13 tool names under row D at 45 deg (parallel to one another).  Any
-    # other rotated label is a regression; the k values of row A and the set
-    # names of row E must stay horizontal.
+    #: *set* is not the same as having it *printed*.  The three species names must
+    #: appear as words on the page, inside the strip above row A -- at the old
+    #: ``TOP = 0.02 in`` they were drawn above the page box and the printed page
+    #: carried none of them.  The bound follows ``f62.TOP``, so a future re-tune
+    #: of the top margin cannot silently hide them again.
+    top_strip = f62.TOP * 72 + 2.0
+    titles_on_page = [w for w in page_words_bbox(PDF)
+                      if w[0] in ("Arabidopsis", "Mouse", "Human")
+                      and w[4] <= top_strip]
+    check("the three species titles of row A are printed above the panels",
+          sorted(w[0] for w in titles_on_page) == ["Arabidopsis", "Human", "Mouse"],
+          f"{[(w[0], round(w[2], 1), round(w[4], 1)) for w in titles_on_page]} "
+          f"within the top {top_strip:.1f} pt")
+
+
+
+    #: printed once, under row D alone.  Rows B, C and D each carry their own 13
+    #: names, so the rotated count is 3 x 13 and the old "exactly one block" rule
+    #: became "exactly three blocks, one per row".
     rot = rep["rotated"]
-    check("the only rotated labels are the 13 tool names at 45 deg",
-          len(rot) == len(tools)
+    check("the only rotated labels are the tool names, three blocks of 13 at 45 deg",
+          len(rot) == 3 * len(tools)
           and all(abs(float(a) - 45.0) < 1e-6 and s in set(tools) for s, a in rot),
           f"{len(rot)} rotated: {sorted({a for _, a in rot})}")
 
-    # the 13 tool names are printed once, horizontally, under row D, and the
-    # five set names once, horizontally, under row E
+    # rows B, C and D each label their own tool axis; row E keeps its horizontal
+    # set names
     row_axes = sorted(wide, key=lambda a: -a.get_position().y0)   # B, C, D, E
-    tool_axis, set_axis = row_axes[2], row_axes[3]
+    tool_axes, set_axis = row_axes[:3], row_axes[3]
     printed = printed_texts(fig)
-    tool_labels = list(tool_axis.get_xticklabels())
-    check("the 13 tool names are row D's x tick labels",
-          drawn_xticklabels(tool_axis) == tools, f"n={len(tool_labels)}")
-    check("every tool name is slanted 45 deg and right-aligned at its tick",
-          len(tool_labels) == len(tools)
-          and all(abs(float(t.get_rotation()) - 45.0) < 1e-6 for t in tool_labels)
-          and all(t.get_ha() == "right" for t in tool_labels),
-          f"rotations={sorted({float(t.get_rotation()) for t in tool_labels})} "
-          f"ha={sorted({t.get_ha() for t in tool_labels})}")
-    check("row D carries no axis title (the names are the axis text)",
-          not str(tool_axis.get_xlabel()).strip(), tool_axis.get_xlabel())
+    for letter, tool_axis in zip("BCD", tool_axes):
+        tool_labels = list(tool_axis.get_xticklabels())
+        check(f"row {letter} carries the 13 tool names as its own x tick labels",
+              drawn_xticklabels(tool_axis) == tools, f"n={len(tool_labels)}")
+        check(f"row {letter}: every tool name is slanted 45 deg and right-aligned",
+              len(tool_labels) == len(tools)
+              and all(abs(float(t.get_rotation()) - 45.0) < 1e-6
+                      for t in tool_labels)
+              and all(t.get_ha() == "right" for t in tool_labels),
+              f"rotations={sorted({float(t.get_rotation()) for t in tool_labels})} "
+              f"ha={sorted({t.get_ha() for t in tool_labels})}")
+        check(f"row {letter} carries no axis title (the names are the axis text)",
+              not str(tool_axis.get_xlabel()).strip(), tool_axis.get_xlabel())
     check("row A's k values and row E's set names stay horizontal",
           all(abs(float(t.get_rotation())) < 1e-6
               for ax in (*row_a, set_axis) for t in ax.get_xticklabels()),
           "only the tool names may be slanted")
-    check("every tool name appears exactly once in the figure",
-          sorted(s for s in printed if s in set(tools)) == sorted(tools),
-          f"{sum(1 for s in printed if s in set(tools))} occurrences (expect 13)")
+    check("each tool name appears exactly once per row (39 in all)",
+          sorted(s for s in printed if s in set(tools))
+          == sorted(list(tools) * 3),
+          f"{sum(1 for s in printed if s in set(tools))} occurrences (expect 39)")
     check("row E carries the five two-line set names, horizontally",
           drawn_xticklabels(set_axis) == f62.SET_LABELS,
           f"{drawn_xticklabels(set_axis)[:1]}")
     check("the five set names are printed once, under row E",
           sorted(s for s in printed if s in set(f62.SET_LABELS))
           == sorted(f62.SET_LABELS))
-    check("rows B and C share the tool axis but print no labels",
-          all(s == "" for s in drawn_xticklabels(row_axes[0]))
-          and all(s == "" for s in drawn_xticklabels(row_axes[1])),
-          f"{drawn_xticklabels(row_axes[0])[:2]}")
 
     # rows B, C and E carry the four independent groups as separate clusters
     for idx, name in ((0, "B (coverage)"), (1, "C (DRACH)"), (3, "E (site sets)")):

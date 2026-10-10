@@ -23,13 +23,14 @@ D  the control burden per tool: FP/10 kb of every configuration on Curlcake IVT
 E  the DRACH composition of the site sets behind the trade-off (the best single
    tool, what the union adds, both intersections and the GLORI reference).
 
-Rows B, C and D are three full-width tiers *sharing one x axis*: the 13 tool
-configurations, whose names are printed once, **slanted 45 deg** under row D
-(see ``TOOL_ROT``): neighbouring names are parallel lines 0.47 in apart, so no
-name can collide with its neighbour however long it is.  Inside every position
-the four independent groups sit as separate clusters (Arabidopsis | mouse study
-A | mouse study B | Human) -- dots per unit plus the mean within the group, never
-a mean across groups and never a mean across the two mouse studies.
+Rows B, C and D are three full-width tiers over the same 13 tool configurations,
+each with its **own** x axis: the names are printed **slanted 45 deg** under
+every one of the three rows (see ``TOOL_ROT``), and each row's key hangs under
+its own name block, so no row's key can be read as another row's axis text
+(2026-10-09).  Inside every position the four independent groups sit as separate
+clusters (Arabidopsis | mouse study A | mouse study B | Human) -- dots per unit
+plus the mean within the group, never a mean across groups and never a mean
+across the two mouse studies.
 
 The selection criterion itself is deliberately *not* re-drawn: it is the
 subject of main-text Fig. 6D and of the frozen table ``figS6_search_space.tsv``.
@@ -38,15 +39,15 @@ held for every enumerated combination of every k (p0 is a formal guardrail, so
 the criterion is "maximum mean recall at each k"), and the greedy forward
 selection reproduces every exhaustive optimum.
 
-Layout (2026-09-21 author decisions; width 2026-09-23, keys 2026-09-30): a compact
-**178 x 175 mm page** (1:1, no
-rescaling) so the text reads large relative to the figure; row A keeps three
-species columns (Arabidopsis | Mouse, both studies in one axes, solid study A /
-dashed study B | Human) because it plots curves against k, while rows B-E are
-single full-width panels.  The only slanted text in the figure is the block of
-13 tool names under row D (45 deg, parallel to one another); the k values of row
-A and the five set names of row E stay horizontal.  Panel letters A-E are
-printed once per row.
+Layout (2026-09-21 author decisions; width 2026-09-23, keys 2026-09-30, per-row tool
+axes 2026-10-09): a **178 x 204 mm page** (1:1, no rescaling) so the text reads
+large relative to the figure; row A keeps three species columns (Arabidopsis |
+Mouse, both studies in one axes, solid study A / dashed study B | Human) because
+it plots curves against k, while rows B-E are single full-width panels.  The only
+slanted text in the figure is the tool names (45 deg, parallel to one another):
+13 of them under each of rows B, C and D, so every row's axis is labelled where
+the reader looks for it; the k values of row A and the five set names of row E
+stay horizontal.  Panel letters A-E are printed once per row.
 
 House rules: drawn at the final printed size, >= 9 pt printed everywhere,
 Arial, no gridlines, no in-panel annotation text, bold panel letters, vector PDF
@@ -113,22 +114,32 @@ TAB, FIG, LOG = FROZEN / "tables", OUT / "figures", OUT / "logs"
 #: 2026-09-23: 9.4488 in (240 mm) was wider than the SI text column (178 mm),
 #: so the page was placed at 0.74 and the 9 pt labels printed at 6.7 pt.  The
 #: canvas is now 178 mm wide and prints 1:1.
-CANVAS_W, CANVAS_H = 7.0079, 6.8898
+CANVAS_W, CANVAS_H = 7.0079, 8.20
 MIN_PT = 9.0
 #: (letter, panel height, gap below the panel) in inches, top down.  Row A is
-#: the three curve columns; rows B-D share one tool axis (only D carries the
-#: names, hence its larger gap); row E carries the five set names.
+#: the three curve columns; rows B, C and D each carry their **own** tool axis
+#: (their own 13 slanted names, hence the equal gaps); row E carries the five set
+#: names.
 
 #: the two page-level key strips -- 0.46 in under the top edge for row A, 0.42 in
 #: at the foot for rows B-E -- are gone.  Each key now lives in a gap of its own
-#: row: row A's five curve entries under row A, the five shared group entries
-#: under row C (rows B and C draw the same groups) and again under row E, and
-#: row D's two control entries below its slanted tool names.  The freed 0.88 in
-#: pays for the three new strips, so the page stays 178 x 175 mm ("used" below
-#: is 6.87 in) and nothing is rescaled on the way into the SI.
-BANDS = [("A", 1.14, 0.62), ("B", 0.76, 0.15), ("C", 0.58, 0.32),
-         ("D", 0.74, 1.16), ("E", 0.74, 0.62)]
-TOP, HEADER, LEGEND_H = 0.02, 0.0, 0.0
+#: row.  The freed 0.88 in paid for those strips and the page stayed 178 x 175 mm
+#: ("used" was 6.87 in).
+
+
+
+#: prints its own 13 slanted names -- so each of them needs a name block (0.62 in,
+#: the reach of a 45 deg name) plus its own key below that block, and every key
+#: hangs under the row it belongs to instead of under a neighbour.  The canvas
+#: grows 175 -> 204 mm to pay for the three name blocks and the three keys; it
+#: stays well under the 0.80\textheight (8.35 in) the SI album allows before it
+#: would rescale the page, and the width -- the SI text column, i.e. the 1:1
+#: contract -- is unchanged.  TOP grows too: a 10.5 pt bold species title with
+#: pad 3 needs 0.22 in above row A, and at the old 0.02 in the three column
+#: titles were drawn above the page box and never printed at all.
+BANDS = [("A", 0.95, 0.62), ("B", 0.62, 1.12), ("C", 0.48, 1.12),
+         ("D", 0.62, 1.12), ("E", 0.62, 0.62)]
+TOP, HEADER, LEGEND_H = 0.26, 0.0, 0.0
 #: the left margin carries the panel letters *and* the rotated y-axis labels of
 #: four rows, now at 10.5 pt with 9.5 pt tick labels ("0.0001" in row D): the
 #: widest tick text decides how far left the label sits, measured 0.92 in keeps
@@ -294,10 +305,11 @@ def col_axes(fig, rects, letter, fig_w, fig_h) -> list:
 def full_axes(fig, rects, letter, fig_h):
     """Rows B-E: one panel across the full text width.
 
-    The tool axis of B / C / D is shared (same x limits, labels only under D),
-    and row D has no group dimension at all (controls are not species-specific),
-    so repeating anything in columns would suggest measurements that do not
-    exist.
+    Rows B, C and D plot the same 13 configurations, so they keep the same x
+    limits, but **each carries its own slanted name block** (2026-10-09): with a
+    single shared block under row D a reader had to guess which row it labelled.
+    Row D has no group dimension at all (controls are not species-specific), so
+    repeating anything in columns would suggest measurements that do not exist.
     """
     y0, y1 = rects[letter]
     ax = fig.add_axes(_rect(L_LEFT, y0, CANVAS_W - L_LEFT - L_RIGHT, y1 - y0,
@@ -547,9 +559,15 @@ def layout_report(fig) -> dict:
         fonts[it["fs"]] = fonts.get(it["fs"], 0) + 1
     w_px = float(fig.get_size_inches()[0]) * float(fig.dpi)
     h_px = float(fig.get_size_inches()[1]) * float(fig.dpi)
-    clipped = [(it["s"], round(it["bb"][0], 1), round(it["bb"][2], 1))
+    #: 2026-10-09: this used to compare the x extent alone, so the three species
+    #: titles of row A -- drawn above the page box at ``TOP = 0.02 in`` -- were
+    #: reported as inside the canvas while never appearing in the PDF or the PNG.
+    #: Both extents are compared now, which is what "printed on the page" means.
+    clipped = [(it["s"], round(it["bb"][0], 1), round(it["bb"][2], 1),
+                round(it["bb"][1], 1), round(it["bb"][3], 1))
                for it in items
-               if it["bb"][0] < -0.5 or it["bb"][2] > w_px + 0.5]
+               if it["bb"][0] < -0.5 or it["bb"][2] > w_px + 0.5
+               or it["bb"][1] < -0.5 or it["bb"][3] > h_px + 0.5]
     # y-axis labels are vertical by definition; what must never be rotated are
     # the *category* labels on the x axes -- the tick labels (k values, set
     # names) and the staggered tool names, which are Text artists under row D
@@ -568,12 +586,15 @@ def layout_report(fig) -> dict:
 
 
 def slant_clearance(fig, *, pad: float = 6.0) -> list[tuple[str, float]]:
-    """Clearance (px) between every slanted tool name and row E underneath.
+    """Clearance (px) between every slanted tool name and the row underneath it.
 
-    The 45 deg names hang below row D; if the D->E gap is too small they dangle
-    into row E's axes -- no text touches another text, so the collision gate
-    stays silent while the two panels visually merge (found in the 2026-09-21
-    review: the longest name reached 0.09 in *below* row E's top edge).
+    The 45 deg names hang below their own row; if that row's gap is too small they
+    dangle into the next row's axes -- no text touches another text, so the
+    collision gate stays silent while the two panels visually merge (found in the
+    2026-09-21 review: the longest name reached 0.09 in *below* row E's top edge).
+
+    2026-10-09: rows B, C and D all print their own names now, so every pair is
+    measured (B vs C, C vs D, D vs E) and each entry says which pair it is.
     """
     fig.canvas.draw()
     rend = fig.canvas.get_renderer()
@@ -581,15 +602,16 @@ def slant_clearance(fig, *, pad: float = 6.0) -> list[tuple[str, float]]:
     rows = sorted([a for a in fig.axes
                    if abs(a.get_position().width - w) < 1e-3],
                   key=lambda a: -a.get_position().y0)      # B, C, D, E
-    d, e = rows[2], rows[3]
-    e_rect = rect_quad(e.get_window_extent(rend))
     out = []
-    for tl in d.get_xticklabels():
-        if not tl.get_visible() or not str(tl.get_text()).strip():
-            continue
-        out.append((str(tl.get_text()),
-                    float(quad_gap(text_quad(tl, rend), e_rect))))
-    assert out, "row D carries no slanted tool names"
+    for letter, upper, lower in zip(("B", "C", "D"), rows, rows[1:]):
+        low_rect = rect_quad(lower.get_window_extent(rend))
+        labels = [tl for tl in upper.get_xticklabels()
+                  if tl.get_visible() and str(tl.get_text()).strip()]
+        assert labels, f"row {letter} carries no slanted tool names"
+        for tl in labels:
+            out.append((f"{str(tl.get_text())} [{letter}->{chr(ord(letter) + 1)}]",
+                        float(quad_gap(text_quad(tl, rend), low_rect))))
+    assert out, "no slanted tool names at all"
     return out
 
 
@@ -660,17 +682,17 @@ def build_figure(t: dict[str, pd.DataFrame],
     for key in "BCDE":
         ax[key].set_ylabel(ylabels[key], fontsize=FS["label"])
 
-    # rows B-D share one tool axis: ticks everywhere, the 13 names printed once,
-    # slanted 45 deg under row D (no axis title: the names *are* the axis text);
+    # rows B, C and D each carry their **own** tool axis: ticks and the 13
+    # slanted names on all three (no axis title: the names *are* the axis text),
+    # so a reader never has to guess which row the names under row D belong to;
     # row E carries its own horizontal set names
     tool_ticks = [xpos[t] for t in tools]
     for key in ("B", "C", "D"):
         ax[key].set_xlim(-0.75, len(tools) - 0.25)
         ax[key].set_xticks(tool_ticks)
-        ax[key].set_xticklabels([])
-    ax["D"].set_xticklabels(tools, rotation=TOOL_ROT, ha="right",
-                            fontsize=FS["tool"])
-    ax["D"].tick_params(pad=4.0)
+        ax[key].set_xticklabels(tools, rotation=TOOL_ROT, ha="right",
+                                fontsize=FS["tool"])
+        ax[key].tick_params(pad=4.0)
     ax["E"].set_xticks(range(len(SETS)))
     ax["E"].set_xticklabels(SET_LABELS, rotation=0, ha="center",
                             fontsize=FS["tool"])
@@ -682,12 +704,16 @@ def build_figure(t: dict[str, pd.DataFrame],
     all_h = {h.get_label(): h for h in handles()}
 
     
-    #: hanging in its own row's gap -- row A's five curve entries under row A,
-    #: the shared group entries under row C and again under row E, and row D's
-    #: two control entries below its slanted tool names (0.62 in clears the
-    #: 45-degree names, which reach ~0.57 in below the axis).  ``loc="upper
-    #: center"`` with the gap's top edge as the anchor makes every strip grow
-    #: downwards into its gap, so none of them can land back on its own panel.
+    #: its own row's gap.  ``loc="upper center"`` with the gap's top edge as the
+    #: anchor makes each strip grow downwards into its gap, so none of them can
+    #: land back on its own panel.
+    
+    #: the group key is no longer printed once for rows B and C.  It was anchored
+    #: 0.02 in under row C -- exactly where that row's x tick labels would sit --
+    #: and was read as one.  Each of B, C, D and E now carries the entries it
+    #: draws, under its own row: those anchors sit 0.70 in below the axis, i.e.
+    #: just past the tails of the 45-degree names, and grow into the 0.98 in gap
+    #: without touching the next row.
     #: The printed species name is Human everywhere (2026-09-28 rule); the data
     #: keys stay HeLa_WT / HeLa IVT (see GROUP_LABEL and handles()).
     def _key(entries: list, top_in: float, ncol: int) -> None:
@@ -697,9 +723,32 @@ def build_figure(t: dict[str, pd.DataFrame],
                    handletextpad=0.4, labelspacing=0.30, borderpad=0.0)
 
     _key(KEY_A, rects["A"][0] - 0.34, 5)                 # under A's k ticks
-    _key(KEY_BCE, rects["C"][0] - 0.02, 5)               # under rows B and C
-    _key(KEY_D, rects["D"][0] - 0.86, 2)                 # below D's tool names
+    _key(KEY_BCE, rects["B"][0] - 0.86, 5)               # under B's own names
+    _key(KEY_BCE, rects["C"][0] - 0.86, 5)               # under C's own names
+    _key(KEY_D, rects["D"][0] - 0.86, 2)                 # below D's own names
     _key(KEY_BCE, rects["E"][0] - 0.38, 5)               # under E's set names
+
+    
+    #: every key must sit inside the gap of *its own* row -- below that row's
+    #: panels and above the next row's, i.e. it can never be read as another row's
+    #: axis text.  Checked against the band geometry, not against a remembered
+    #: offset, so a future re-tune of BANDS cannot silently reintroduce the defect.
+    fig.canvas.draw()
+    rend = fig.canvas.get_renderer()
+    for letter, key_bb in zip("ABCDE", [lg.get_window_extent(renderer=rend)
+                                        for lg in fig.legends]):
+        panel_bottom, gap = rects[letter][0], dict(
+            (k, g) for k, _, g in BANDS)[letter]
+        assert float(key_bb.x1 - key_bb.x0) <= CANVAS_W * rend.dpi, \
+            f"row {letter}: key is wider than the page"
+        assert float(key_bb.y1) <= panel_bottom * rend.dpi + 1.0, \
+            (f"row {letter}: key reaches up into its own panel "
+             f"({float(key_bb.y1) / rend.dpi:.3f} in vs panel bottom "
+             f"{panel_bottom:.3f} in)")
+        assert float(key_bb.y0) >= (panel_bottom - gap) * rend.dpi - 1.0, \
+            (f"row {letter}: key starts below the gap of its own row "
+             f"({float(key_bb.y0) / rend.dpi:.3f} in vs gap bottom "
+             f"{panel_bottom - gap:.3f} in)")
     return fig, {"fig_h": fig_h, "tools": tools}
 
 
@@ -734,13 +783,15 @@ def main() -> None:
     # stay horizontal.
     bad_rot = [(s, a) for s, a in rep["rotated"]
                if not (abs(a - TOOL_ROT) < 1e-6 and s in set(meta["tools"]))]
-    assert len(rep["rotated"]) == len(meta["tools"]) and not bad_rot, \
+    #: 2026-10-09: rows B, C and D each print the 13 names, so three blocks
+    assert len(rep["rotated"]) == 3 * len(meta["tools"]) and not bad_rot, \
         f"unexpected rotated text: {bad_rot[:4]} (only the {len(meta['tools'])} " \
-        f"tool names at {TOOL_ROT:g} deg are allowed)"
-    # the slanted names must stay clear of row E below them
+        f"tool names at {TOOL_ROT:g} deg, under each of rows B, C and D, are " \
+        f"allowed; got {len(rep['rotated'])})"
+    # the slanted names of every row must stay clear of the row below them
     clear = slant_clearance(fig)
     worst = min(clear, key=lambda kv: kv[1])
-    logger.info("slanted-name clearance to row E: %.1f px (tightest: %r)",
+    logger.info("slanted-name clearance to the next row: %.1f px (tightest: %r)",
                 worst[1], worst[0])
     assert worst[1] >= 6.0, \
         f"slanted tool name {worst[0]!r} dangles into row E ({worst[1]:.1f} px)"

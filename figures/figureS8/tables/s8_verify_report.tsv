@@ -7,8 +7,8 @@ body-density Spearman rho >= 0.50	OK	min rho = 0.547, median = 0.815
 segment shares within 0.40 (gross-error guard)	OK	max |delta| = 0.3750 (ambiguity rule), see s8_density_crosscheck.tsv
 no legacy names / banned wording	OK	
 standardized tool names present	OK	[]
-panel letters A-D present	OK	['A', 'B', 'C', 'D', 'E', 'H']
-no stale panel letters E-I	FAIL	unexpected ['E', 'H']
+panel letters A-D present	OK	['A', 'B', 'C', 'D']
+no stale panel letters E-I	OK	unexpected []
 axis/label '1kb'	OK	
 axis/label 'ncRNA'	OK	
 axis/label 'Density'	OK	
@@ -16,6 +16,7 @@ axis/label 'JSD'	OK
 page <= 222 x 247 mm	OK	179.9 x 170.0 mm
 page is the 180 mm page width	OK	179.9 mm
 fonts: Arial only, all embedded	OK	[]
-declared minimum font >= 7 pt	OK	7.0 pt
-smallest drawn text >= 7 pt (estimated)	FAIL	2.30 pt from a 1.65 pt box (191 words)
+declared minimum font >= 7 pt	OK	8.1 pt
+smallest drawn font >= 7 pt	OK	8 pt; sizes used [8.0, 9.0, 14.0]
+drawn sizes are the standard tier	OK	sizes [8.0, 9.0, 14.0]; expected subset of {8, 9, 14}
 no overlapping text boxes	OK	0 overlapping pairs

@@ -45,7 +45,11 @@ OUT = (_RB / "figures/figure3")
 TAB, FIG, LOG = OUT / "tables", OUT / "figures", OUT / "logs"
 W, H = 6.66, 0.34
 FS = 7.2
-WT_COLOR, TRT_COLOR = "#3778A0", "#F5B264"
+
+#: swatches are short lines in the panels' own colours (guitar_lib.R WT_COLOR /
+#: CMP_COLOR), not dots in a different blue/orange -- this band is the key of
+#: panels C/D, so a swatch has to match the curve it stands for.
+WT_COLOR, TRT_COLOR = "#4b81b8", "#e8a76b"
 
 
 def main() -> None:
@@ -60,11 +64,12 @@ def main() -> None:
 
     
     #: manuscript use "WT"; one wording for the condition everywhere.
+    
+    #: thick solid lines in panels C/D, so the key shows the same glyph at the
+    #: consensus weight -- not a dot (that was the 2026-09-30 revision).
     conditions = [
-        Line2D([], [], linestyle="none", marker="o", markersize=4.2,
-               markerfacecolor=WT_COLOR, markeredgecolor="none", label="WT"),
-        Line2D([], [], linestyle="none", marker="o", markersize=4.2,
-               markerfacecolor=TRT_COLOR, markeredgecolor="none", label="treated"),
+        Line2D([], [], color=WT_COLOR, lw=0.9, label="WT"),
+        Line2D([], [], color=TRT_COLOR, lw=0.9, label="treated"),
         Line2D([], [], color="0.35", lw=0.9, label="majority consensus"),
         Line2D([], [], color="0.35", lw=0.35, label="individual unit"),
     ]

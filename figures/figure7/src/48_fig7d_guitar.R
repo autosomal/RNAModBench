@@ -84,7 +84,8 @@ save_pair_tagged <- function(p, out, width, height, tag, tag_pt, dpi = 300) {
     
     ## A-F to the page-margin column at x = 3 pt, left of the rotated y titles;
     ## G follows onto the same 3 pt column here.
-    grid::grid.text(tag, x = grid::unit(3, "pt"),
+  
+  grid::grid.text(tag, x = grid::unit(TAG_X_PT, "pt"),
                     y = grid::unit(1, "npc") - grid::unit(1.2, "mm"),
                     just = c("left", "top"),
                     gp = grid::gpar(fontface = "bold", fontsize = tag_pt,
@@ -144,6 +145,11 @@ NCOL <- 3; NROW <- 2
 ##: relative height of the white spacer between the two panel rows (0.10 of a
 ##: row: ~9 pt at the fixed 4.00 in device, enough to keep the lower row's tick
 ##: labels out of the upper row's schematic boxes; author decision 2026-09-23)
+
+##: first panel row drops by TOP_GAP (a fraction of a row height, ~10 pt) so
+##: its topmost tick label keeps >= 10 pt from the letter.
+TAG_X_PT <- 12.5
+TOP_GAP  <- 0.083
 ROW_GAP <- 0.40
 
 n_lines <- function(p) if (file.exists(p)) length(readLines(p, warn = FALSE)) else NA_integer_
@@ -179,20 +185,12 @@ build_plan <- function() {
   }
   out <- do.call(rbind, rows)
   out$group <- paste(out$tool, out$role, out$kind, out$unit_tag, sep = "|")
-  
-  ## Figure 8E draws them -- from the panel top down to the gene-model bars
-  
-  ## stay inside the plot band, so no label or legend is crossed.
-  if (length(nm) > 1) {
-    vp <- data.frame(x = end[-length(end)])
-    out[[length(out) + 1]] <- geom_segment(
-      data = vp, inherit.aes = FALSE,
-      aes(x = x, xend = x, y = pos$fig_top, yend = pos$rna_lgd_bl),
-      linetype = "dotted", linewidth = 0.25, colour = "black")
-    message(sprintf("7D layout: labels %.4f, bars %.4f, floor %.4f (%d separators)",
-                    pos$rna_comp_text, pos$rna_lgd_bl, pos$fig_bottom,
-                    length(nm) - 1L))
-  }
+  ## 2026-10-09: the block that used to sit here tried to add the component
+  ## separators from inside build_plan(), but it referenced nm / end / pos, none
+  ## of which exist in this scope -- any --recompute (or a missing
+  ## tables/fig7d_density.rds) would have died with "object 'nm' not found".
+  ## It never ran (the cached inputs predate it); the separators are drawn where
+  ## the geometry is known now, in structure_layers() below.
 
   out
 }
@@ -279,15 +277,19 @@ F7_LABEL_AIR_PT <- 1.5     # clearance the two guide segments keep from the row
 
 f7_pos <- function(peak) {
   
-  ## the geometry of Figure 8E / Supplementary S9 (69_fig8e_guitar.R:148-149 and
-  ## 23e_figS10_guitar.R): Guitar's own compact band, i.e. a shallow floor and the
-  ## native label row, which is what gives the bars a visible thickness and lets
-  ## the dotted component separators run from the plot top down to the bars.
-  ## The deep floor (-0.42 * peak) that earlier rounds introduced was what made
-  ## the fraction-based bars sub-point thin and pushed the labels away.
+  ## this panel Figure 8E's compact band (shallow floor, native label row) so the
+  ## fraction-based bars keep a visible thickness.
+  
+  ## compact band had put the label row's capital tops into the gene-model bars
+  ## (measured on the produced piece: -1.0 pt of air, i.e. a hair of overlap).
+  ## The row now follows Figure S1's proportions (23d_figS1_guitar.R:300-301):
+  ## labels at -0.20 * peak and the floor at -0.30 * peak, which prints ~7 pt of
+  ## air under the bars and ~3 pt above the axis line.  The data band shrinks
+  ## ~13 % -- the rejected -0.42 floor of an earlier round was a further
+  ## 0.12 * peak deeper, which is what made the bars sub-point thin.
   pos <- Guitar:::.generate_pos_para(peak)
-  pos$fig_bottom    <- -0.12 * peak
-  pos$rna_comp_text <- -0.060 * peak
+  pos$fig_bottom    <- -0.30 * peak
+  pos$rna_comp_text <- -0.20 * peak
   pos
 }
 
@@ -309,6 +311,18 @@ structure_layers <- function(comp_width, pos, axes_w_pt = F7_AXES_W_PT,
                                        ymax = pos$rna_lgd_bl + h[i],
                                        fill = "grey35", colour = NA,
                                        alpha = unname(a_map[nm[i]]))
+  }
+  
+  ## exactly the way Figure 8E / Supplementary S9 draw them
+  ## (69_fig8e_guitar.R:180-186): dotted verticals from the plot top down to the
+  ## gene-model bars (yend = rna_lgd_bl).  They stop ~0.17 * peak above the label
+  ## row, so no label and no legend is crossed.
+  if (length(nm) > 1) {
+    vp <- data.frame(x = end[-length(end)])
+    out[[length(out) + 1]] <- geom_segment(
+      data = vp, inherit.aes = FALSE,
+      aes(x = x, xend = x, y = pos$fig_top, yend = pos$rna_lgd_bl),
+      linetype = "dotted", linewidth = 0.25, colour = "black")
   }
   
   # guitar row.  The segments branch is the only branch that guarantees both:
@@ -356,12 +370,10 @@ structure_layers <- function(comp_width, pos, axes_w_pt = F7_AXES_W_PT,
                   fit$size, fit$gap, fit$need_pt, rl$fits, rl$n_leaders,
                   rl$max_moved_pt))
   
-  ## path across the whole panel (the guitar layout keeps the label row, the
-  ## legend and the schematic *inside* the panel's y range, below the density
-  ## baseline), so any guide that reaches the axis necessarily runs through the
   
-  ## readable: every label is centred on its own component and the alpha-shaded
-  ## boxes of the schematic carry the model, which the caption names in full.
+  ## 2026-10-09: they are back in the Figure 8E form (see the separator block
+  ## above): dotted, plot top down to the bars only, which is why they cannot
+  ## cross the labels below them.
   out
 }
 
@@ -442,7 +454,7 @@ draw_panel <- function(res, tool, show_y) {
           legend.spacing.x = grid::unit(5, "pt"),
           legend.margin = margin(0, 0, 0, 0),
           legend.box.spacing = grid::unit(1, "pt"),
-          plot.margin = margin(2, 3, 1, 2))
+          plot.margin = margin(2, 10, 3, 2))
 }
 
 ## ---- assemble the row --------------------------------------------------------
@@ -460,10 +472,13 @@ main <- function() {
   # Stacking the two rows with an explicit spacer buys ~9 pt of white between
   # them; the device height below is unchanged, so the piece stays 510 x 288 pt.
   n_top <- min(NCOL, length(panels))
-  row <- patchwork::wrap_plots(panels[seq_len(n_top)], ncol = NCOL) /
+  
+  #: topmost tick label; the trailing pair keeps the original row spacing.
+  row <- patchwork::plot_spacer() /
+    patchwork::wrap_plots(panels[seq_len(n_top)], ncol = NCOL) /
     patchwork::plot_spacer() /
     patchwork::wrap_plots(panels[-seq_len(n_top)], ncol = NCOL) +
-    patchwork::plot_layout(heights = c(1, ROW_GAP, 1)) +
+    patchwork::plot_layout(heights = c(TOP_GAP, 1, ROW_GAP, 1)) +
     patchwork::plot_annotation(tag_levels = NULL)
   out <- file.path(FIGD, "Figure7_rev_D")
   dir.create(FIGD, showWarnings = FALSE, recursive = TRUE)
@@ -480,7 +495,7 @@ main <- function() {
     sum(as.numeric(grid::convertHeight(g$heights[unique(g$layout$t[i])],
                                        "pt", valueOnly = TRUE)))
   }, numeric(1))
-  row_pt <- (4.00 * 72) * 1 / (1 + ROW_GAP + 1)      # one row of the stacked layout
+  row_pt <- (4.00 * 72) * 1 / (TOP_GAP + 1 + ROW_GAP + 1)   # one row of the stacked layout
   message("legend band pt: ", paste(round(legend_pt, 1), collapse = " "))
   # one key row now (the consensus/replicate guide moved to the caption),
   # so the band is a single text line instead of a two-row stack
@@ -493,7 +508,7 @@ main <- function() {
                      value = c(length(panels), NCOL, 7.087, 4.00,
                                min(unlist(FS)), round(min(legend_pt), 1),
                                round(max(legend_pt), 1), round(row_pt, 1),
-                               "G", 14, 3))
+                               "G", 14, TAG_X_PT))
   write.table(geom, file.path(TABD, "fig7d_geometry.tsv"), sep = "\t",
               quote = FALSE, row.names = FALSE)
   message("done")

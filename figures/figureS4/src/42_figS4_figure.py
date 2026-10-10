@@ -175,21 +175,31 @@ COL_GAP_IN = 0.50
 NCOL = 3
 COL_W_IN = (PANEL_W_IN - LEFT_IN - RIGHT_IN - (NCOL - 1) * COL_GAP_IN) / NCOL
 
-#: panel A: the three sub-rows and their dedicated title bands.  Compressed on
-#: 2026-09-21 (4.00 -> 3.52 in) to pay for the second facet of the window sweep
-#: (panels B/C): the counts sub-rows keep the three power-of-ten labels (0.50 in
-#: leaves 12.4 pt between two 8 pt labels) and the ratio row keeps its 0.5 tick.
-#: A_H_IN = 0.82 + 0.34 + (0.27 + 0.50) * 2 + 0.52 + 0.30 = 3.52 in
+#: panel A: three species columns, each with three sub-rows.  Every sub-row used
+#: to carry its own horizontal caption in a dedicated band above it -- nine small
+
+
+#: **once**, by a rotated y label in the page's left strip (``row_label``), and the
+#: height the three retired bands gave back was spent on the sub-rows themselves.
+#: ``A_H_IN`` is unchanged, so the page height, panels B/C/D and everything below
+#: them keep their geometry.
+#: A_H_IN = 0.30 (key) + 1.06 (tool names) + 0.56 (ratio) + 2 x (0.12 band
+#:          + 0.65 counts) + 0.30 (species) = 3.76 in
 A_LABEL_IN = 1.06     # upright tool names: 5 pt pad + the 0.99 in of
                       # "NanoSPA_m6A" at 9.5 pt + ink
-A_RATIO_IN = 0.34
-A_BAND_IN = 0.27      # title band: title + the upper row's lowest tick label
-A_SUB_IN = 0.50
-A_HEAD_IN = 0.52      # species name (14 pt) on its own line + "WT counts"
-#: each sub-row title starts at the top edge of that sub-row, i.e. next to the
-
-
-A_TITLE_INDENT_IN = 0.07
+A_RATIO_IN = 0.56     # was 0.34; +0.22 of the retired title bands
+A_BAND_IN = 0.12      # was 0.27, sized for a caption + the upper row's lowest
+                      # tick label (10^0); the caption is gone, the tick label
+                      # still needs the gap (the render-time gate checks it)
+A_SUB_IN = 0.65       # was 0.50; +0.15 of the retired title bands
+A_HEAD_IN = 0.30      # species name (14 pt) only -- the "WT counts" line moved
+                      # into the shared row label
+#: the three shared row labels are rotated into the page's left strip, in the band
+#: the layout keeps free between the panel letter (0.02-0.16 in) and the y tick
+#: labels (0.46-0.70): centred on 0.26 in, a two-line 9 pt label spans 0.13-0.46,
+#: which leaves 3.6 pt to the widest tick label ("0.5" of the ratio row) and 7.9 pt
+#: to the panel letter above the top row (both measured on the rendered page)
+A_YLABEL_X_IN = 0.26
 #: the species / mouse-study / mean key sits on its own line **below** the tool
 
 #: topmost line of this canvas.  The ratio sub-rows are full to 1.0, so no
@@ -325,7 +335,11 @@ TOOL_KEY: list[tuple[str, dict]] = [
 #: 8.0 printed at 6.6 pt).  The 45-degree tool names stay at 9.5 pt: 10 pt made
 #: the neighbouring names touch in the 0.171 in slot (page gate aborts).
 FS = {"tick": 9.5, "tick_small": 9.0, "axis": 11.5, "subrow": 9.5,
-      "column": 14.0, "letter": 20.0, "legend": 9.0}
+      "column": 14.0, "letter": 20.0, "legend": 9.0,
+
+      #: page's left strip; 9.0 pt keeps a two-line label inside the free band
+      #: (0.30 in across) and its longest line inside the row it names
+      "rowlabel": 9.0}
 
 #: rotation of the 13 tool names on the panel-A x axis.  45 degrees is the
 #: angle of the submitted figure; the gate measures the printed ink, and at
@@ -375,6 +389,21 @@ def _title(fig: plt.Figure, height_in: float, x_in: float, y_in: float,
     fig.text(x_in / PANEL_W_IN, y_in / height_in, text, ha=ha, va="bottom",
              fontsize=FS["subrow"] if fontsize is None else fontsize,
              fontweight=weight)
+
+
+def row_label(fig: plt.Figure, height_in: float, y_in: float, text: str) -> None:
+    """Shared, rotated label of one sub-row of panel A (2026-10-09).
+
+    The the author asked for the nine horizontal sub-row captions to become y labels
+ ("A WT counts (log) y label"); the house rule
+    keeps a shared row label in the leftmost column, so each metric row is named
+    once for the whole panel.  The text is centred on ``A_YLABEL_X_IN`` -- the
+    band between the panel letter and the y tick labels -- and on the row's own
+    centre line; ``rotation_mode`` stays at its default, so ``ha``/``va`` apply
+    to the rotated ink (``"anchor"`` would align the unrotated string).
+    """
+    fig.text(A_YLABEL_X_IN / PANEL_W_IN, y_in / height_in, text,
+             rotation=90, ha="center", va="center", fontsize=FS["rowlabel"])
 
 
 def panel_letter(fig: plt.Figure, letter: str, *, y_in: float) -> None:
@@ -527,9 +556,11 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
     combined mean: the two cross-study datasets are drawn as two dots joined by
     a thin line, so nothing is ever averaged.
 
-    The sub-rows are separated by dedicated title bands: a band carries the
-    title of the sub-row *below* it and has to stay clear of the lowest y tick
-    label of the sub-row *above* it, which is the overlap the author saw.
+    The sub-rows are separated by a thin band (``A_BAND_IN``) that keeps the
+    lowest y tick label of the sub-row *above* clear of the next frame line
+    (the overlap the author saw); each metric row is named once, by a rotated
+    label in the page's left strip (``row_label``), not by a caption over every
+    cell (2026-10-09).
     """
     fig = panelpage.new_panel(PANEL_W_IN, A_H_IN)
     y = A_KEY_IN                      # the key line owns the bottom strip
@@ -538,10 +569,10 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
     y_pur = y_band1 + A_BAND_IN
     y_band2 = y_pur + A_SUB_IN
     y_wt = y_band2 + A_BAND_IN
-    y_wt_title = y_wt + A_SUB_IN            # "WT counts (log)" line
-    # species names on their own line, with a visible gap above the sub-row
-    # title (0.22 in read as "text on text" at the bold 14 pt size)
-    y_species = y_wt_title + 0.24
+    y_top = y_wt + A_SUB_IN                 # top edge of the counts sub-row
+    # species names on their own line, with a visible gap above the top sub-row
+    # (A_HEAD_IN leads the 14 pt ink 0.07 in clear of the frame below it)
+    y_species = y_top + 0.07
     for ci, (key, species, pairs) in enumerate(COLUMNS):
         color = GROUP_COLOR[key]
         mouse = key == "Mouse"
@@ -596,16 +627,17 @@ def render_panel_a(df_counts: pd.DataFrame, *, stem: str = "FigureS4_A",
         #: 9.5 pt look while TOOL_FS said 7.5 and the gate kept reporting
         #: collisions no matter what TOOL_FS was)
         tool_ticks(ax_ra)
-        # titles live in their own bands, never on an axis line: the 0.03 in
-        # offset keeps the ink (descenders included) off the spine below and
-        # the indent keeps it clear of the top of the left spine
-        t_x = x_in + A_TITLE_INDENT_IN
-        _title(fig, A_H_IN, t_x, y_wt_title + 0.03, "WT counts (log)")
-        _title(fig, A_H_IN, t_x, y_band2 + 0.03, "Purified counts (log)")
-        _title(fig, A_H_IN, t_x, y_band1 + 0.03, "Purified/WT ratio")
+        # the species name keeps its own line above the top sub-row; it lives in
+        # the head band, never on an axis line
         _title(fig, A_H_IN, col_center_in(ci), y_species,
                COLUMN_TITLE[key], ha="center", fontsize=FS["column"],
                weight="bold")
+    #: one shared row label per metric row (2026-10-09): rotated into the page's
+    #: left strip, centred on its own sub-row -- nine horizontal captions became
+    #: three labels, and the bands they lived in became sub-row height
+    row_label(fig, A_H_IN, y_wt + A_SUB_IN / 2.0, "WT counts\n(log)")
+    row_label(fig, A_H_IN, y_pur + A_SUB_IN / 2.0, "Purified\ncounts (log)")
+    row_label(fig, A_H_IN, y_ratio + A_RATIO_IN / 2.0, "Purified/WT\nratio")
     # the species / mouse-study / mean key sits on its own line **below** the
 
     # the key of the whole block rather than of the first column.

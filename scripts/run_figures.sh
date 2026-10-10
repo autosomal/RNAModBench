@@ -248,6 +248,9 @@ run "figure S9 gate" figures/figureS9/src/72_verify_figs9.py
 run "figure S10"    figures/figureS10/src/60_figS10_tables.py
 runr "figure S10"   figures/figureS10/src/23e_figS10_guitar.R
 run "figure S10 gate" figures/figureS10/src/61_verify_figS10.py
+run "figure S11"    figures/figureS11/src/figS11_sweep.py
+run "figure S11"    figures/figureS11/src/figS11_figure.py
+run "figure S11 gate" figures/figureS11/src/figS11_verify.py
 
 echo
 if [ ${#failed[@]} -gt 0 ]; then

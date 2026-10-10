@@ -155,21 +155,32 @@ def main() -> None:
     for sp in ("top", "right"):
         ax.spines[sp].set_visible(False)
 
+    fam = {f: Patch(facecolor=FAM_COLOR[f], edgecolor="black", linewidth=0.55,
+                    label=FAM_LABEL[f]) for f in FAM_ORDER}
+    
+    #: row-1 re-split, so the legend prints **four columns and two rows** instead of
+    #: two columns and four.  matplotlib fills a legend column by column: the list
+    #: below is passed interleaved so the two printed rows read
+    #:   WT | IVT | 0 calls | m6A DRACH
+    #:   m6A (non-DRACH) | m5C | pseU | inosine + m6A
+    #: (the naive order would put WT and IVT on different rows).  The handle stays
+    #: 0.8 em and the text 7.2 pt; only the arrangement changed.
     handles = [Patch(facecolor="0.45", edgecolor="k", linewidth=0.55, label="WT"),
+               fam["m6A"],
                Patch(facecolor="0.45", edgecolor="k", linewidth=0.55, alpha=0.45,
                      label="IVT"),
+               fam["m5C"],
                Line2D([], [], color="0.45", ls="none", marker="o", ms=4.0,
-                      mfc="white", label="0 calls")]
+                      mfc="white", label="0 calls"),
+               fam["pseU"],
+               fam["m6A_DRACH"],
+               fam["inosine"]]
     if bool(np.isnan(piv[["wt", "ivt"]].to_numpy(float)).any()):
-        # only when such a row really exists (never today)
+        # only when such a row really exists (never today); a ninth entry would
+        # make the block three rows, which is the honest thing to print then
         handles.append(Line2D([], [], color="0.45", ls="none", marker="<",
                               ms=4.4, mfc="white", label="not measured"))
-    handles += [Patch(facecolor=FAM_COLOR[f], edgecolor="black", linewidth=0.55,
-                      label=FAM_LABEL[f]) for f in FAM_ORDER]
-    #: 2026-10-08: eight entries inside a 2.18 in column -> two columns and four
-    #: rows.  The block has to fit the canvas exactly, so the handle shortens to
-    #: 0.8 em (matplotlib's default is 2.0) and the legend prints at 7.2 pt.
-    fig.legend(handles=handles, loc="lower center", ncol=2, frameon=False,
+    fig.legend(handles=handles, loc="lower center", ncol=4, frameon=False,
                bbox_to_anchor=(0.5, 0.000), labelspacing=0.12, columnspacing=0.4,
                handlelength=0.8, handletextpad=0.25, borderpad=0.1,
                borderaxespad=0.0, fontsize=7.2)
